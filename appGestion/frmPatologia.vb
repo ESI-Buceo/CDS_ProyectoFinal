@@ -1,0 +1,108 @@
+﻿Imports capaLogica
+Public Class frmPatologia
+
+    Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
+        opcionesMenu.ClickEnBotonAgregar(toolsMenuPatologia)
+        limpiarControlesDeFormulario()
+        habilitarAgregarSintomaYSignos()
+        txtPatologiaNombre.Select()
+        colorearCamposRqueridos()
+    End Sub
+
+    'Guarda los datos de la patologia
+    Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
+        opcionesMenu.ClickEnBotonGuardar(toolsMenuPatologia)
+        colorPorDefectoTextoBox()
+        deshabilitarAgregarSintomaYSignos()
+    End Sub
+
+    Private Sub mnuBtnCancelar_Click(sender As Object, e As EventArgs) Handles mnuBtnCancelar.Click
+        opcionesMenu.ClickEnBotonCancelar(toolsMenuPatologia)
+        tabDatosPatologia.SelectTab(tabDatos)
+        colorPorDefectoTextoBox()
+        deshabilitarAgregarSintomaYSignos()
+    End Sub
+
+    Private Sub mnuBtnNueva_Click(sender As Object, e As EventArgs) Handles mnuBtnNueva.Click
+        opcionesMenu.ClickEnBotonNueva(toolsMenuPatologia)
+        tabDatosPatologia.SelectTab(tabDatos)
+        limpiarControlesDeFormulario()
+        txtPatologiaNombre.Select()
+        deshabilitarAgregarSintomaYSignos()
+    End Sub
+
+    Private Sub mnuBtnBuscar_Click(sender As Object, e As EventArgs) Handles mnuBtnBuscar.Click
+        opcionesMenu.ClickEnBotonBuscar(toolsMenuPatologia)
+        tabDatosPatologia.SelectTab(tabPatologiaBusqueda)
+    End Sub
+
+    Private Sub mnuBtnModificar_Click(sender As Object, e As EventArgs) Handles mnuBtnModificar.Click
+        opcionesMenu.ClickEnBotonModificar(toolsMenuPatologia)
+        colorearCamposRqueridos()
+        txtPatologiaNombre.Select()
+        habilitarAgregarSintomaYSignos()
+    End Sub
+
+    Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
+        opcionesMenu.ClickEnBotonBorrar(toolsMenuPatologia)
+    End Sub
+
+    ' colorea los campos requeridos
+    Private Sub colorearCamposRqueridos()
+        txtPatologiaNombre.BackColor = Color.Beige
+        cbPatologiaPonderacion.BackColor = Color.Beige
+        txtPatologiaDescipcion.BackColor = Color.Beige
+    End Sub
+
+    ' colorea los campos edidables
+    Private Sub colorPorDefectoTextoBox()
+        txtPatologiaNombre.BackColor = Color.White
+        cbPatologiaPonderacion.BackColor = Color.White
+        txtPatologiaDescipcion.BackColor = Color.White
+    End Sub
+
+    Private Sub btnAgregarSintoma_Click(sender As Object, e As EventArgs)
+        'agrega sintomas a la lista de sintomas
+    End Sub
+
+    Private Sub habilitarAgregarSintomaYSignos()
+        'habilita los botons para agregar sintomas y signos
+        btnAgregarSigno.Enabled = True
+        btnAgregarSintoma.Enabled = True
+    End Sub
+
+    Private Sub deshabilitarAgregarSintomaYSignos()
+        'deshabilita los botons para agregar sintomas y signos
+        btnAgregarSigno.Enabled = False
+        btnAgregarSintoma.Enabled = False
+    End Sub
+
+    Private Sub limpiarControlesDeFormulario()
+        txtPatologiaID.Text = ""
+        txtPatologiaNombre.Text = ""
+        txtPatologiaDescipcion.Text = ""
+        txtPatologiaCausas.Text = ""
+        txtPatologiaTratamiento.Text = ""
+        cbPatologiaPonderacion.Text = ""
+        dgvSintomasPatologia.Rows.Clear()
+        dgvSignosPatologia.Rows.Clear()
+    End Sub
+
+    Private Sub dgvListaDePatologias_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvListaDePatologias.RowHeaderMouseClick
+        opcionesMenu.ClickEnListado(toolsMenuPatologia)
+        tabDatosPatologia.SelectTab(tabDatos)
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btnAgregarSigno_Click(sender As Object, e As EventArgs) Handles btnAgregarSigno.Click
+        'agrega signos a la lista de signos
+    End Sub
+
+    Private Sub btnAgregarSintoma_Click_1(sender As Object, e As EventArgs) Handles btnAgregarSintoma.Click
+        frmListaSintomas.MdiParent = frmPrincipal
+        frmListaSintomas.Show()
+    End Sub
+End Class
