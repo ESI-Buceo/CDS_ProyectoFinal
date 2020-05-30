@@ -24,9 +24,9 @@ Partial Class frmPrincipal
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPrincipal))
         Me.PanelInicio = New System.Windows.Forms.Panel()
-        Me.picLogo = New System.Windows.Forms.PictureBox()
-        Me.btnIniciarAutenticado = New System.Windows.Forms.Button()
         Me.btnIngresarInvitado = New System.Windows.Forms.Button()
+        Me.btnIniciarAutenticado = New System.Windows.Forms.Button()
+        Me.picLogo = New System.Windows.Forms.PictureBox()
         Me.PanelInicio.SuspendLayout()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -41,37 +41,37 @@ Partial Class frmPrincipal
         Me.PanelInicio.Size = New System.Drawing.Size(1145, 614)
         Me.PanelInicio.TabIndex = 0
         '
-        'picLogo
+        'btnIngresarInvitado
         '
-        Me.picLogo.Image = Global.appUsuario.My.Resources.Resources.logo_App
-        Me.picLogo.Location = New System.Drawing.Point(321, 15)
-        Me.picLogo.Name = "picLogo"
-        Me.picLogo.Size = New System.Drawing.Size(530, 147)
-        Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picLogo.TabIndex = 1
-        Me.picLogo.TabStop = False
+        Me.btnIngresarInvitado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnIngresarInvitado.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.btnIngresarInvitado.Location = New System.Drawing.Point(412, 341)
+        Me.btnIngresarInvitado.Name = "btnIngresarInvitado"
+        Me.btnIngresarInvitado.Size = New System.Drawing.Size(322, 75)
+        Me.btnIngresarInvitado.TabIndex = 3
+        Me.btnIngresarInvitado.Text = "Ingresar como invitado"
+        Me.btnIngresarInvitado.UseVisualStyleBackColor = True
         '
         'btnIniciarAutenticado
         '
         Me.btnIniciarAutenticado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnIniciarAutenticado.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.btnIniciarAutenticado.Location = New System.Drawing.Point(441, 245)
+        Me.btnIniciarAutenticado.Location = New System.Drawing.Point(412, 245)
         Me.btnIniciarAutenticado.Name = "btnIniciarAutenticado"
         Me.btnIniciarAutenticado.Size = New System.Drawing.Size(322, 75)
         Me.btnIniciarAutenticado.TabIndex = 2
         Me.btnIniciarAutenticado.Text = "Usuario registrado"
         Me.btnIniciarAutenticado.UseVisualStyleBackColor = True
         '
-        'btnIngresarInvitado
+        'picLogo
         '
-        Me.btnIngresarInvitado.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnIngresarInvitado.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.btnIngresarInvitado.Location = New System.Drawing.Point(441, 341)
-        Me.btnIngresarInvitado.Name = "btnIngresarInvitado"
-        Me.btnIngresarInvitado.Size = New System.Drawing.Size(322, 75)
-        Me.btnIngresarInvitado.TabIndex = 3
-        Me.btnIngresarInvitado.Text = "Ingresar como invitado"
-        Me.btnIngresarInvitado.UseVisualStyleBackColor = True
+        Me.picLogo.Image = Global.appUsuario.My.Resources.Resources.logo_App
+        Me.picLogo.Location = New System.Drawing.Point(308, 15)
+        Me.picLogo.Name = "picLogo"
+        Me.picLogo.Size = New System.Drawing.Size(530, 147)
+        Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picLogo.TabIndex = 1
+        Me.picLogo.TabStop = False
         '
         'frmPrincipal
         '

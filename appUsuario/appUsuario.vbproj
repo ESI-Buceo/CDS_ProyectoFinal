@@ -73,6 +73,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmLoginInvitado.Designer.vb">
+      <DependentUpon>frmLoginInvitado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoginInvitado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoginRegistrado.Designer.vb">
+      <DependentUpon>frmLoginRegistrado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoginRegistrado.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPrincipal.Designer.vb">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </Compile>
@@ -96,6 +108,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmLoginInvitado.resx">
+      <DependentUpon>frmLoginInvitado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoginRegistrado.resx">
+      <DependentUpon>frmLoginRegistrado.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
     </EmbeddedResource>
