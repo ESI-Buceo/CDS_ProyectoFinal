@@ -48,10 +48,6 @@ Partial Class frmSintomas
         Me.lblSintomaNombre = New System.Windows.Forms.Label()
         Me.tabBusqueda = New System.Windows.Forms.TabPage()
         Me.dgSintomas = New System.Windows.Forms.DataGridView()
-        Me.sintomaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sintmaNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.sintomaIntensidad = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.sintomaEstado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolsMenuSintoma.SuspendLayout()
         Me.tabDatosSintomas.SuspendLayout()
@@ -308,8 +304,8 @@ Partial Class frmSintomas
         '
         Me.dgSintomas.AllowUserToAddRows = False
         Me.dgSintomas.AllowUserToDeleteRows = False
+        Me.dgSintomas.AllowUserToOrderColumns = True
         Me.dgSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgSintomas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sintomaID, Me.sintmaNombre, Me.sintomaIntensidad, Me.sintomaEstado})
         Me.dgSintomas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgSintomas.Location = New System.Drawing.Point(3, 2)
         Me.dgSintomas.Margin = New System.Windows.Forms.Padding(4)
@@ -318,35 +314,6 @@ Partial Class frmSintomas
         Me.dgSintomas.Size = New System.Drawing.Size(867, 203)
         Me.dgSintomas.TabIndex = 0
         Me.dgSintomas.UseWaitCursor = True
-        '
-        'sintomaID
-        '
-        Me.sintomaID.HeaderText = "ID"
-        Me.sintomaID.Name = "sintomaID"
-        Me.sintomaID.ReadOnly = True
-        '
-        'sintmaNombre
-        '
-        Me.sintmaNombre.HeaderText = "NOMBRE"
-        Me.sintmaNombre.Name = "sintmaNombre"
-        Me.sintmaNombre.ReadOnly = True
-        Me.sintmaNombre.Width = 250
-        '
-        'sintomaIntensidad
-        '
-        Me.sintomaIntensidad.HeaderText = "INTENSIDAD"
-        Me.sintomaIntensidad.Name = "sintomaIntensidad"
-        Me.sintomaIntensidad.ReadOnly = True
-        Me.sintomaIntensidad.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.sintomaIntensidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
-        'sintomaEstado
-        '
-        Me.sintomaEstado.HeaderText = "ESTADO"
-        Me.sintomaEstado.Name = "sintomaEstado"
-        Me.sintomaEstado.ReadOnly = True
-        Me.sintomaEstado.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.sintomaEstado.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'frmSintomas
         '
@@ -399,8 +366,4 @@ Partial Class frmSintomas
     Friend WithEvents tabBusqueda As TabPage
     Friend WithEvents lblSintomaID As Label
     Friend WithEvents txtSintomaID As TextBox
-    Friend WithEvents sintomaID As DataGridViewTextBoxColumn
-    Friend WithEvents sintmaNombre As DataGridViewTextBoxColumn
-    Friend WithEvents sintomaIntensidad As DataGridViewCheckBoxColumn
-    Friend WithEvents sintomaEstado As DataGridViewCheckBoxColumn
 End Class

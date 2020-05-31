@@ -1,4 +1,6 @@
 Imports capaDatos
+Imports MySql.Data
+Imports MySql.Data.MySqlClient
 Public Class ModeloSintoma
 
     Public ID As Integer
@@ -19,12 +21,13 @@ Public Class ModeloSintoma
     End Function
 
     Public Function listarSintomas() As List(Of ModeloSintoma)
+        TraeDatosSintomasDeBD()
         Return listaSintomas
     End Function
 
-    Public Function listarSintomas(nombre As String) As List(Of ModeloSintoma)
+    Public Function listarSintomasFiltrados(nombre As String) As List(Of ModeloSintoma)
         'busca y retorna lista con los sintomas resultantes de la busqueda
-        cargarListaSintomas()
+        TraeDatosSintomasDeBD()
         ListaFiltradaSintomas.Clear()
         For Each sintoma In listaSintomas
             If sintoma.Nombre.Contains(nombre) Then
@@ -34,74 +37,33 @@ Public Class ModeloSintoma
         Return ListaFiltradaSintomas
     End Function
 
-    'hay que borrar estas lineas, se crearon para cargar sintomas de prueba
-    Public Sub cargarListaSintomas()
+    Public Sub TraeDatosSintomasDeBD()
         listaSintomas.Clear()
-        listaSintomas.Add(New ModeloSintoma With
-                          {
-                          .ID = 1,
-                          .Nombre = "Fiebre",
-                          .Estado = True
-                          })
-        listaSintomas.Add(New ModeloSintoma With
-                  {
-                  .ID = 2,
-                  .Nombre = "Fiebre alta",
-                  .Estado = True
-                  })
-        listaSintomas.Add(New ModeloSintoma With
-                  {
-                  .ID = 3,
-                  .Nombre = "Fiebre baja",
-                  .Estado = True
-                  })
-        listaSintomas.Add(New ModeloSintoma With
-                  {
-                  .ID = 4,
-                  .Nombre = "Dolor de pierna",
-                  .Estado = True
-                  })
-        listaSintomas.Add(New ModeloSintoma With
-                  {
-                  .ID = 5,
-                  .Nombre = "Dolor abdomen",
-                  .Estado = True
-                  })
-        listaSintomas.Add(New ModeloSintoma With
-                  {
-                  .ID = 6,
-                  .Nombre = "Dolor de cabeza",
-                  .Estado = True
-                  })
-        listaSintomas.Add(New ModeloSintoma With
-                  {
-                  .ID = 7,
-                  .Nombre = "Tos",
-                  .Estado = True
-                  })
-        listaSintomas.Add(New ModeloSintoma With
-                  {
-                  .ID = 8,
-                  .Nombre = "Vomito",
-                  .Estado = True
-                  })
-        listaSintomas.Add(New ModeloSintoma With
-                  {
-                  .ID = 9,
-                  .Nombre = "Diarrea",
-                  .Estado = True
-                  })
-        listaSintomas.Add(New ModeloSintoma With
-                  {
-                  .ID = 10,
-                  .Nombre = "Tos con catarro",
-                  .Estado = True
-                  })
-        listaSintomas.Add(New ModeloSintoma With
-                  {
-                  .ID = 11,
-                  .Nombre = "Colicos",
-                  .Estado = True
-                  })
+        Try
+            Dim conexion As New ModeloConexion
+            Dim sintomaAdapter As MySqlDataAdapter
+            Dim sintomaDataSet As New DataSet
+            Dim sintomaSQL As String
+
+            sintomaSQL = "SELECT * FROM sintoma WHERE activo = 1 "
+            sintomaAdapter = New MySqlDataAdapter(sintomaSQL, conexion.Abrir)
+            sintomaAdapter.Fill(sintomaDataSet, "sintoma")
+
+            For Each sintoma In sintomaDataSet.Tables("sintoma").Rows
+                CargarListaSintomas(sintoma)
+            Next
+            conexion.Cerrar()
+        Catch ex As Exception
+            mostrarExepcion(ex)
+        End Try
     End Sub
+
+    Public Sub CargarListaSintomas(ByRef sintoma As DataRow)
+        listaSintomas.Add(New ModeloSintoma With {.ID = sintoma("id"), .Nombre = sintoma("nombre"), .Estado = sintoma("activo")})
+    End Sub
+
+    Private Sub mostrarExepcion(ByVal exeption As Exception)
+        MsgBox(exeption.Message)
+    End Sub
+
 End Class

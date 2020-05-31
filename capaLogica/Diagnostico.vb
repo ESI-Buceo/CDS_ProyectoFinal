@@ -50,7 +50,7 @@ Public Module Diagnostico
         For Each patologia In ListaFiltradaPatologias
             For Each sintomas In patologia.ListaSintomasPatologia
                 If buscarSintomaEnPatologia(patologia, id) = False Then
-                    patologia.Estado = 0
+                    patologia.activo = 0
                 End If
             Next
         Next
@@ -59,7 +59,7 @@ Public Module Diagnostico
     Public Function DiagnosticoFinal() As Integer
         'arma el diagnostico final que luego sera utilizado para detarminar la prioridad en el chat
         For i = 0 To ListaFiltradaPatologias.Count - 1
-            If ListaFiltradaPatologias.Item(i).Estado = 1 Then
+            If ListaFiltradaPatologias.Item(i).activo = 1 Then
                 CantidadDeSintomasFiltrados = CantidadDeSintomasFiltrados + 1
                 PonderacionDiagnostico = PonderacionDiagnostico + ListaFiltradaPatologias.Item(i).Ponderacion
             End If

@@ -44,6 +44,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.20.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -65,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModeloAdministrativo.vb" />
+    <Compile Include="ModeloConexion.vb" />
     <Compile Include="ModeloMedico.vb" />
     <Compile Include="ModeloPaciente.vb" />
     <Compile Include="ModeloPatologia.vb" />

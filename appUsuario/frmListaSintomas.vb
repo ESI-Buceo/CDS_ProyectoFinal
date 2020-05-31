@@ -4,6 +4,7 @@ Public Class frmListaSintomas
         dgvSintomas.DataSource = ControladorSintomas.listarSintomas(frmPrincipal.txtSintoma.Text)
         dgvSintomas.Columns.Item(0).Visible = False
         dgvSintomas.Columns.Item(1).Width = 200
+        dgvSintomas.Columns.Item(2).Visible = False
     End Sub
 
     Private Sub dgvSintomas_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvSintomas.RowHeaderMouseDoubleClick
@@ -15,7 +16,7 @@ Public Class frmListaSintomas
     End Sub
 
     Private Sub cargarSintomaADiagnostico(ByVal idSintoma As Integer, sintomaNombre As String)
-        'Este metodo, envia la informacion del sintoma seleccionado para que sea guardado en el diagnostico
+        'Este metodo envia la informacion del sintoma seleccionado para que sea guardado en el diagnostico
         Diagnostico.cargarSintomaAListaSintomasSeleccionados(idSintoma, sintomaNombre)
         sintomaSeleccionado(idSintoma, sintomaNombre)
     End Sub
