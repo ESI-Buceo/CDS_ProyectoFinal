@@ -1,7 +1,7 @@
 ﻿Imports capaLogica
 Public Class frmListaSintomas
     Private Sub frmListaSintomas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dgvSintomas.DataSource = ControladorSintomas.listarSintomas(frmPrincipal.txtSintoma.Text)
+        dgvSintomas.DataSource = ControladorSintomas.listarSintomas(UCase(frmPrincipal.txtSintoma.Text))
         dgvSintomas.Columns.Item(0).Visible = False
         dgvSintomas.Columns.Item(1).Width = 200
         dgvSintomas.Columns.Item(2).Visible = False
@@ -17,7 +17,7 @@ Public Class frmListaSintomas
 
     Private Sub cargarSintomaADiagnostico(ByVal idSintoma As Integer, sintomaNombre As String)
         'Este metodo envia la informacion del sintoma seleccionado para que sea guardado en el diagnostico
-        Diagnostico.cargarSintomaAListaSintomasSeleccionados(idSintoma, sintomaNombre)
+        ControladorDiagnostico.cargarSintomaAListaSintomasSeleccionados(idSintoma, sintomaNombre)
         sintomaSeleccionado(idSintoma, sintomaNombre)
     End Sub
 

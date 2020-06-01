@@ -30,7 +30,7 @@ Public Class ModeloPatologia
         Return ListaPatologias
     End Function
 
-    Public Function buscarPatologia(nombre As String) As List(Of ModeloPatologia)
+    Public Function listarPatologiasFiltradas(nombre As String) As List(Of ModeloPatologia)
         'busca y retorna lista con los patologias resultantes de la busqueda
         For Each patologia In ListaPatologias
             If patologia.Nombre.Contains(nombre) Then
@@ -60,8 +60,8 @@ Public Class ModeloPatologia
         Return True
     End Function
 
-    'hay que borrar estas lineas, fueron creadas para cargar patologias de pruebas
     Public Sub TraeDatosPatologiasDeBD()
+        'trae de la base de datos las patolgias registadas
         ListaPatologias.Clear()
         Try
             Dim conexion As New ModeloConexion
@@ -82,11 +82,40 @@ Public Class ModeloPatologia
         End Try
     End Sub
 
-    Public Sub cargarListaPatologias(ByRef patologia As DataRow)
-        ListaPatologias.Add(New ModeloPatologia With {.Id = patologia("id"), .Nombre = patologia("nombre"),
-                            .Ponderacion = patologia("ponderacion"), .Descripcion = patologia("descripcion"),
-                            .activo = patologia("activo")})
+    Public Sub cargarListaPatologias(ByRef patologias As DataRow)
+        'carga la lista de patologias
+        ListaPatologias.Add(New ModeloPatologia With {.Id = patologias("id"), .Nombre = patologias("nombre"),
+                            .Ponderacion = patologias("ponderacion"), .Descripcion = patologias("descripcion"),
+                            .activo = patologias("activo")})
     End Sub
+
+    Public Function BuscarPatologiaPorID(ByVal id As Integer)
+        Try
+            Dim conexion As New ModeloConexion
+            Dim patologiasAdapter As MySqlDataAdapter
+            Dim patologiasDataSet As New DataSet
+            Dim patologiaSQL As String
+
+            patologiaSQL = "SELECT * FROM patologia WHERE id = " & id
+            patologiasAdapter = New MySqlDataAdapter(patologiaSQL, conexion.Abrir)
+            patologiasAdapter.Fill(patologiasDataSet, "patologia")
+
+            conexion.Cerrar()
+            Return crearObjetoPatologia(patologiasDataSet.Tables("patologia").Rows.Item(0))
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return vbNull
+    End Function
+
+    Private Function crearObjetoPatologia(ByRef patologia As DataRow) As ModeloPatologia
+        Dim datosPatologia As New ModeloPatologia
+        datosPatologia.Id = patologia("id")
+        datosPatologia.Nombre = patologia("nombre")
+        datosPatologia.Descripcion = patologia("descripcion")
+        datosPatologia.Ponderacion = patologia("ponderacion")
+        Return datosPatologia
+    End Function
 
     Private Sub mostrarExepcion(ByVal exeption As Exception)
         MsgBox(exeption.Message)

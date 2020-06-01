@@ -83,9 +83,15 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub nuevaPregunta()
-        lblPregunta.Text = Diagnostico.NuevoMensaje()
+        lblPregunta.Text = ControladorDiagnostico.NuevoMensaje()
         txtSintoma.Select()
         sintomaSeleccionado = False
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
+        ControladorDiagnostico.CrearInformeDiagnostico()
+        For Each patologias In DevolverListaPatologiasDiagnostico()
+            MsgBox(patologias.nombre)
+        Next
+    End Sub
 End Class

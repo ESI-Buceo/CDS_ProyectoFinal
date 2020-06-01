@@ -59,7 +59,7 @@ Public Class ModeloSintoma
     End Sub
 
     Public Sub CargarListaSintomas(ByRef sintoma As DataRow)
-        listaSintomas.Add(New ModeloSintoma With {.ID = sintoma("id"), .Nombre = sintoma("nombre"), .Estado = sintoma("activo")})
+        listaSintomas.Add(New ModeloSintoma With {.ID = sintoma("id"), .Nombre = UCase(sintoma("nombre")), .Estado = sintoma("activo")})
     End Sub
 
     Private Sub mostrarExepcion(ByVal exeption As Exception)

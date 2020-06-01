@@ -34,6 +34,9 @@ Public Class frmPatologia
     Private Sub mnuBtnBuscar_Click(sender As Object, e As EventArgs) Handles mnuBtnBuscar.Click
         opcionesMenu.ClickEnBotonBuscar(toolsMenuPatologia)
         tabDatosPatologia.SelectTab(tabPatologiaBusqueda)
+        dgvListaDePatologias.DataSource = ControladorPatologias.ListarPatologias(txtPatologiaNombre.Text)
+        dgvListaDePatologias.Columns(2).Visible = False
+        dgvListaDePatologias.Columns(1).Width = 300
     End Sub
 
     Private Sub mnuBtnModificar_Click(sender As Object, e As EventArgs) Handles mnuBtnModificar.Click
@@ -81,8 +84,6 @@ Public Class frmPatologia
         txtPatologiaID.Text = ""
         txtPatologiaNombre.Text = ""
         txtPatologiaDescipcion.Text = ""
-        txtPatologiaCausas.Text = ""
-        txtPatologiaTratamiento.Text = ""
         cbPatologiaPonderacion.Text = ""
         dgvSintomasPatologia.Rows.Clear()
         dgvSignosPatologia.Rows.Clear()
@@ -91,6 +92,11 @@ Public Class frmPatologia
     Private Sub dgvListaDePatologias_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvListaDePatologias.RowHeaderMouseClick
         opcionesMenu.ClickEnListado(toolsMenuPatologia)
         tabDatosPatologia.SelectTab(tabDatos)
+        txtPatologiaID.Text = dgvListaDePatologias.Item(0, e.RowIndex).Value
+        txtPatologiaNombre.Text = dgvListaDePatologias.Item(1, e.RowIndex).Value
+        txtPatologiaDescipcion.Text = dgvListaDePatologias.Item(2, e.RowIndex).Value
+        cbPatologiaPonderacion.Text = dgvListaDePatologias.Item(3, e.RowIndex).Value
+        chkActiva.Checked = dgvListaDePatologias.Item(4, e.RowIndex).Value
     End Sub
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
