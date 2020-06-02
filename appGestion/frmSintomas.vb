@@ -11,6 +11,8 @@ Public Class frmSintomas
     Private Sub mnuBtnBuscar_Click(sender As Object, e As EventArgs) Handles mnuBtnBuscar.Click
         opcionesMenu.ClickEnBotonBuscar(toolsMenuSintoma)
         tabDatosSintomas.SelectTab(tabBusqueda)
+        dgSintomas.DataSource = ControladorSintomas.listarSintomas(UCase(txtSintomaNombre.Text))
+        dgSintomas.Columns.Item(1).Width = 350
     End Sub
 
     Private Sub mnuBtnModificar_Click(sender As Object, e As EventArgs) Handles mnuBtnModificar.Click
@@ -45,6 +47,9 @@ Public Class frmSintomas
     Private Sub dgSintomas_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgSintomas.RowHeaderMouseClick
         opcionesMenu.ClickEnListado(toolsMenuSintoma)
         tabDatosSintomas.SelectTab(tabDatos)
+        txtSintomaID.Text = dgSintomas.Item(0, e.RowIndex).Value
+        txtSintomaNombre.Text = dgSintomas.Item(1, e.RowIndex).Value
+        chkSintomaEstado.Checked = dgSintomas.Item(2, e.RowIndex).Value
     End Sub
 
     Private Sub limpiarTextBox()

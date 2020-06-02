@@ -44,6 +44,7 @@ Partial Class frmPrincipal
         Me.btnComenzar = New System.Windows.Forms.Button()
         Me.lblMensaje = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.panelBotonSiNo = New System.Windows.Forms.Panel()
         Me.PanelInicio.SuspendLayout()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelCabecera.SuspendLayout()
@@ -162,7 +163,7 @@ Partial Class frmPrincipal
         Me.lblPacienteNombre.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(157, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.lblPacienteNombre.Location = New System.Drawing.Point(76, 30)
         Me.lblPacienteNombre.Name = "lblPacienteNombre"
-        Me.lblPacienteNombre.Size = New System.Drawing.Size(143, 19)
+        Me.lblPacienteNombre.Size = New System.Drawing.Size(179, 24)
         Me.lblPacienteNombre.TabIndex = 1
         Me.lblPacienteNombre.Text = "nombre del paciente"
         '
@@ -200,6 +201,7 @@ Partial Class frmPrincipal
         '
         'panelDeSintomas
         '
+        Me.panelDeSintomas.Controls.Add(Me.panelBotonSiNo)
         Me.panelDeSintomas.Controls.Add(Me.btnSiguienteSintoma)
         Me.panelDeSintomas.Controls.Add(Me.txtSintoma)
         Me.panelDeSintomas.Controls.Add(Me.lblLine)
@@ -228,7 +230,7 @@ Partial Class frmPrincipal
         Me.txtSintoma.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.txtSintoma.Location = New System.Drawing.Point(75, 253)
         Me.txtSintoma.Name = "txtSintoma"
-        Me.txtSintoma.Size = New System.Drawing.Size(288, 19)
+        Me.txtSintoma.Size = New System.Drawing.Size(288, 23)
         Me.txtSintoma.TabIndex = 4
         Me.txtSintoma.Text = "Ingresa un sintoma"
         '
@@ -239,7 +241,7 @@ Partial Class frmPrincipal
         Me.lblLine.ForeColor = System.Drawing.SystemColors.ActiveBorder
         Me.lblLine.Location = New System.Drawing.Point(70, 261)
         Me.lblLine.Name = "lblLine"
-        Me.lblLine.Size = New System.Drawing.Size(302, 18)
+        Me.lblLine.Size = New System.Drawing.Size(346, 21)
         Me.lblLine.TabIndex = 3
         Me.lblLine.Text = "__________________________________________"
         '
@@ -261,7 +263,7 @@ Partial Class frmPrincipal
         Me.linkSaberMas.LinkColor = System.Drawing.Color.SteelBlue
         Me.linkSaberMas.Location = New System.Drawing.Point(63, 519)
         Me.linkSaberMas.Name = "linkSaberMas"
-        Me.linkSaberMas.Size = New System.Drawing.Size(87, 19)
+        Me.linkSaberMas.Size = New System.Drawing.Size(110, 24)
         Me.linkSaberMas.TabIndex = 3
         Me.linkSaberMas.TabStop = True
         Me.linkSaberMas.Text = "Saber mas..."
@@ -300,9 +302,16 @@ Partial Class frmPrincipal
         Me.PictureBox2.TabIndex = 0
         Me.PictureBox2.TabStop = False
         '
+        'panelBotonSiNo
+        '
+        Me.panelBotonSiNo.Location = New System.Drawing.Point(242, 373)
+        Me.panelBotonSiNo.Name = "panelBotonSiNo"
+        Me.panelBotonSiNo.Size = New System.Drawing.Size(214, 63)
+        Me.panelBotonSiNo.TabIndex = 6
+        '
         'frmPrincipal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1146, 658)
@@ -352,4 +361,5 @@ Partial Class frmPrincipal
     Friend WithEvents txtSintoma As TextBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents btnSiguienteSintoma As Button
+    Friend WithEvents panelBotonSiNo As Panel
 End Class
