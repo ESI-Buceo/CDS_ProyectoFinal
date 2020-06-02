@@ -31,6 +31,7 @@ Partial Class frmListaSintomas
         Me.dgvSintomas.AllowUserToAddRows = False
         Me.dgvSintomas.AllowUserToDeleteRows = False
         Me.dgvSintomas.AllowUserToOrderColumns = True
+        Me.dgvSintomas.BackgroundColor = System.Drawing.SystemColors.ButtonFace
         Me.dgvSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSintomas.Location = New System.Drawing.Point(1, 0)
         Me.dgvSintomas.Name = "dgvSintomas"
@@ -41,7 +42,7 @@ Partial Class frmListaSintomas
         '
         'frmListaSintomas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(280, 424)
         Me.Controls.Add(Me.dgvSintomas)
