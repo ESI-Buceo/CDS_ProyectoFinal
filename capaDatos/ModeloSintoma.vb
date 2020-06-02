@@ -22,7 +22,7 @@ Public Class ModeloSintoma
         Return listaSintomas
     End Function
 
-    Public Function listarSintomas(nombre As String)
+    Public Function listarSintomas(nombre As String) As List(Of ModeloSintoma)
         'busca y retorna lista con los sintomas resultantes de la busqueda
         cargarListaSintomas()
         ListaFiltradaSintomas.Clear()

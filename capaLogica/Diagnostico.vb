@@ -4,6 +4,7 @@ Public Module Diagnostico
     Public CantidadDeSintomasFiltrados As Integer
     Public listaPatologias As New List(Of ModeloPatologia)
     Public ListaFiltradaPatologias As New List(Of ModeloPatologia)
+    Public ListaSintomasSeleccionados As New List(Of ModeloSintoma)
 
     Public Sub buscarSintomaEnPatologia(id As Integer)
         'verifica si ya existen patologias filtradas
@@ -66,8 +67,12 @@ Public Module Diagnostico
         Return PonderacionDiagnostico
     End Function
 
+    Public Sub cargarSintomaAListaSintomasSeleccionados(ByVal idSintoma As Integer, sintomaNombre As String)
+        ListaSintomasSeleccionados.Add(New ModeloSintoma With {.ID = idSintoma, .Nombre = sintomaNombre})
+    End Sub
+
     'Mensajes aleatorios que manda el sistema
-    Public Function seleccionarMensaje() As String
+    Public Function NuevoMensaje() As String
         Dim Random As New Random()
         Dim numero As Integer = Random.Next(1, 4)
         Return mensaje(numero)

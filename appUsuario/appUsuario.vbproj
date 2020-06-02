@@ -73,11 +73,28 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="frmListaSintomas.Designer.vb">
+      <DependentUpon>frmListaSintomas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaSintomas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="frmLoginInvitado.Designer.vb">
+      <DependentUpon>frmLoginInvitado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoginInvitado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoginRegistrado.Designer.vb">
+      <DependentUpon>frmLoginRegistrado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoginRegistrado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.vb">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -97,6 +114,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmListaSintomas.resx">
+      <DependentUpon>frmListaSintomas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoginInvitado.resx">
+      <DependentUpon>frmLoginInvitado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoginRegistrado.resx">
+      <DependentUpon>frmLoginRegistrado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -115,6 +144,51 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-App.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg-foto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnChat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnChatFocus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnChatSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnConsulta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnConsultaFocus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnConsultaSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnReloj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnRelojFocus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnRelojSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\doc.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vidasana.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\capaLogica\capaLogica.vbproj">
+      <Project>{f564b44e-3d9d-477f-ba6d-592d26316403}</Project>
+      <Name>capaLogica</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
