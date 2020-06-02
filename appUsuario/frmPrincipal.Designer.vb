@@ -32,10 +32,16 @@ Partial Class frmPrincipal
         Me.btnHistoria = New System.Windows.Forms.Button()
         Me.btnConsulta = New System.Windows.Forms.Button()
         Me.lblPacienteNombre = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.picFotoUsuario = New System.Windows.Forms.PictureBox()
         Me.PanelDeConsulta = New System.Windows.Forms.Panel()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.flPanelDiagnostico = New System.Windows.Forms.FlowLayoutPanel()
+        Me.picLogoCliente = New System.Windows.Forms.PictureBox()
         Me.panelDeSintomas = New System.Windows.Forms.Panel()
+        Me.btnVerInforme = New System.Windows.Forms.Button()
+        Me.btnNuevaConsulta = New System.Windows.Forms.Button()
+        Me.panelBotonSiNo = New System.Windows.Forms.Panel()
+        Me.btnNo = New System.Windows.Forms.Button()
+        Me.btnSi = New System.Windows.Forms.Button()
         Me.btnSiguienteSintoma = New System.Windows.Forms.Button()
         Me.txtSintoma = New System.Windows.Forms.TextBox()
         Me.lblLine = New System.Windows.Forms.Label()
@@ -43,16 +49,16 @@ Partial Class frmPrincipal
         Me.linkSaberMas = New System.Windows.Forms.LinkLabel()
         Me.btnComenzar = New System.Windows.Forms.Button()
         Me.lblMensaje = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.panelBotonSiNo = New System.Windows.Forms.Panel()
+        Me.picMsVidaSana = New System.Windows.Forms.PictureBox()
         Me.PanelInicio.SuspendLayout()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelCabecera.SuspendLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picFotoUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelDeConsulta.SuspendLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picLogoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelDeSintomas.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelBotonSiNo.SuspendLayout()
+        CType(Me.picMsVidaSana, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelInicio
@@ -104,7 +110,7 @@ Partial Class frmPrincipal
         Me.panelCabecera.Controls.Add(Me.btnHistoria)
         Me.panelCabecera.Controls.Add(Me.btnConsulta)
         Me.panelCabecera.Controls.Add(Me.lblPacienteNombre)
-        Me.panelCabecera.Controls.Add(Me.PictureBox1)
+        Me.panelCabecera.Controls.Add(Me.picFotoUsuario)
         Me.panelCabecera.Location = New System.Drawing.Point(2, 2)
         Me.panelCabecera.Name = "panelCabecera"
         Me.panelCabecera.Size = New System.Drawing.Size(1143, 66)
@@ -167,50 +173,121 @@ Partial Class frmPrincipal
         Me.lblPacienteNombre.TabIndex = 1
         Me.lblPacienteNombre.Text = "nombre del paciente"
         '
-        'PictureBox1
+        'picFotoUsuario
         '
-        Me.PictureBox1.Image = Global.appUsuario.My.Resources.Resources.bg_foto
-        Me.PictureBox1.Location = New System.Drawing.Point(23, 11)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(47, 43)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.picFotoUsuario.Image = Global.appUsuario.My.Resources.Resources.bg_foto
+        Me.picFotoUsuario.Location = New System.Drawing.Point(23, 11)
+        Me.picFotoUsuario.Name = "picFotoUsuario"
+        Me.picFotoUsuario.Size = New System.Drawing.Size(47, 43)
+        Me.picFotoUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picFotoUsuario.TabIndex = 0
+        Me.picFotoUsuario.TabStop = False
         '
         'PanelDeConsulta
         '
-        Me.PanelDeConsulta.Controls.Add(Me.PictureBox3)
+        Me.PanelDeConsulta.Controls.Add(Me.flPanelDiagnostico)
+        Me.PanelDeConsulta.Controls.Add(Me.picLogoCliente)
         Me.PanelDeConsulta.Controls.Add(Me.panelDeSintomas)
         Me.PanelDeConsulta.Controls.Add(Me.linkSaberMas)
         Me.PanelDeConsulta.Controls.Add(Me.btnComenzar)
         Me.PanelDeConsulta.Controls.Add(Me.lblMensaje)
-        Me.PanelDeConsulta.Controls.Add(Me.PictureBox2)
+        Me.PanelDeConsulta.Controls.Add(Me.picMsVidaSana)
         Me.PanelDeConsulta.Location = New System.Drawing.Point(2, 62)
         Me.PanelDeConsulta.Name = "PanelDeConsulta"
         Me.PanelDeConsulta.Size = New System.Drawing.Size(1143, 594)
         Me.PanelDeConsulta.TabIndex = 1
         '
-        'PictureBox3
+        'flPanelDiagnostico
         '
-        Me.PictureBox3.Image = Global.appUsuario.My.Resources.Resources.vidasana
-        Me.PictureBox3.Location = New System.Drawing.Point(67, 468)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(150, 48)
-        Me.PictureBox3.TabIndex = 5
-        Me.PictureBox3.TabStop = False
+        Me.flPanelDiagnostico.AutoScroll = True
+        Me.flPanelDiagnostico.BackColor = System.Drawing.SystemColors.Control
+        Me.flPanelDiagnostico.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
+        Me.flPanelDiagnostico.ForeColor = System.Drawing.SystemColors.ActiveCaption
+        Me.flPanelDiagnostico.Location = New System.Drawing.Point(819, 12)
+        Me.flPanelDiagnostico.Name = "flPanelDiagnostico"
+        Me.flPanelDiagnostico.Padding = New System.Windows.Forms.Padding(2)
+        Me.flPanelDiagnostico.Size = New System.Drawing.Size(321, 572)
+        Me.flPanelDiagnostico.TabIndex = 6
+        Me.flPanelDiagnostico.Visible = False
+        '
+        'picLogoCliente
+        '
+        Me.picLogoCliente.Image = Global.appUsuario.My.Resources.Resources.vidasana
+        Me.picLogoCliente.Location = New System.Drawing.Point(67, 468)
+        Me.picLogoCliente.Name = "picLogoCliente"
+        Me.picLogoCliente.Size = New System.Drawing.Size(150, 48)
+        Me.picLogoCliente.TabIndex = 5
+        Me.picLogoCliente.TabStop = False
         '
         'panelDeSintomas
         '
+        Me.panelDeSintomas.Controls.Add(Me.btnVerInforme)
+        Me.panelDeSintomas.Controls.Add(Me.btnNuevaConsulta)
         Me.panelDeSintomas.Controls.Add(Me.panelBotonSiNo)
         Me.panelDeSintomas.Controls.Add(Me.btnSiguienteSintoma)
         Me.panelDeSintomas.Controls.Add(Me.txtSintoma)
         Me.panelDeSintomas.Controls.Add(Me.lblLine)
         Me.panelDeSintomas.Controls.Add(Me.lblPregunta)
-        Me.panelDeSintomas.Location = New System.Drawing.Point(380, 47)
+        Me.panelDeSintomas.Location = New System.Drawing.Point(365, 47)
         Me.panelDeSintomas.Name = "panelDeSintomas"
-        Me.panelDeSintomas.Size = New System.Drawing.Size(751, 537)
+        Me.panelDeSintomas.Size = New System.Drawing.Size(418, 537)
         Me.panelDeSintomas.TabIndex = 4
         Me.panelDeSintomas.Visible = False
+        '
+        'btnVerInforme
+        '
+        Me.btnVerInforme.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnVerInforme.ForeColor = System.Drawing.Color.Maroon
+        Me.btnVerInforme.Location = New System.Drawing.Point(216, 355)
+        Me.btnVerInforme.Name = "btnVerInforme"
+        Me.btnVerInforme.Size = New System.Drawing.Size(171, 44)
+        Me.btnVerInforme.TabIndex = 9
+        Me.btnVerInforme.Text = "Ver informe"
+        Me.btnVerInforme.UseVisualStyleBackColor = True
+        Me.btnVerInforme.Visible = False
+        '
+        'btnNuevaConsulta
+        '
+        Me.btnNuevaConsulta.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.btnNuevaConsulta.Location = New System.Drawing.Point(216, 355)
+        Me.btnNuevaConsulta.Name = "btnNuevaConsulta"
+        Me.btnNuevaConsulta.Size = New System.Drawing.Size(171, 44)
+        Me.btnNuevaConsulta.TabIndex = 8
+        Me.btnNuevaConsulta.Text = "Nueva consulta"
+        Me.btnNuevaConsulta.UseVisualStyleBackColor = True
+        Me.btnNuevaConsulta.Visible = False
+        '
+        'panelBotonSiNo
+        '
+        Me.panelBotonSiNo.Controls.Add(Me.btnNo)
+        Me.panelBotonSiNo.Controls.Add(Me.btnSi)
+        Me.panelBotonSiNo.Location = New System.Drawing.Point(201, 305)
+        Me.panelBotonSiNo.Name = "panelBotonSiNo"
+        Me.panelBotonSiNo.Size = New System.Drawing.Size(202, 67)
+        Me.panelBotonSiNo.TabIndex = 6
+        Me.panelBotonSiNo.Visible = False
+        '
+        'btnNo
+        '
+        Me.btnNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNo.ForeColor = System.Drawing.Color.Orange
+        Me.btnNo.Location = New System.Drawing.Point(25, 18)
+        Me.btnNo.Name = "btnNo"
+        Me.btnNo.Size = New System.Drawing.Size(83, 43)
+        Me.btnNo.TabIndex = 1
+        Me.btnNo.Text = "NO"
+        Me.btnNo.UseVisualStyleBackColor = True
+        '
+        'btnSi
+        '
+        Me.btnSi.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSi.ForeColor = System.Drawing.Color.SeaGreen
+        Me.btnSi.Location = New System.Drawing.Point(114, 18)
+        Me.btnSi.Name = "btnSi"
+        Me.btnSi.Size = New System.Drawing.Size(83, 43)
+        Me.btnSi.TabIndex = 0
+        Me.btnSi.Text = "SI"
+        Me.btnSi.UseVisualStyleBackColor = True
         '
         'btnSiguienteSintoma
         '
@@ -228,7 +305,7 @@ Partial Class frmPrincipal
         Me.txtSintoma.BackColor = System.Drawing.Color.White
         Me.txtSintoma.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtSintoma.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.txtSintoma.Location = New System.Drawing.Point(75, 253)
+        Me.txtSintoma.Location = New System.Drawing.Point(75, 241)
         Me.txtSintoma.Name = "txtSintoma"
         Me.txtSintoma.Size = New System.Drawing.Size(288, 23)
         Me.txtSintoma.TabIndex = 4
@@ -239,7 +316,7 @@ Partial Class frmPrincipal
         Me.lblLine.AutoSize = True
         Me.lblLine.Font = New System.Drawing.Font("Product Sans Light", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLine.ForeColor = System.Drawing.SystemColors.ActiveBorder
-        Me.lblLine.Location = New System.Drawing.Point(70, 261)
+        Me.lblLine.Location = New System.Drawing.Point(70, 249)
         Me.lblLine.Name = "lblLine"
         Me.lblLine.Size = New System.Drawing.Size(346, 21)
         Me.lblLine.TabIndex = 3
@@ -250,7 +327,7 @@ Partial Class frmPrincipal
         Me.lblPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.lblPregunta.Font = New System.Drawing.Font("Product Sans", 13.2!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPregunta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(157, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.lblPregunta.Location = New System.Drawing.Point(43, 189)
+        Me.lblPregunta.Location = New System.Drawing.Point(11, 176)
         Me.lblPregunta.Name = "lblPregunta"
         Me.lblPregunta.Padding = New System.Windows.Forms.Padding(5)
         Me.lblPregunta.Size = New System.Drawing.Size(440, 52)
@@ -292,22 +369,15 @@ Partial Class frmPrincipal
         Me.lblMensaje.Text = "Hola, gracias por utilizar Triage. Trataremos de orientarte para que luego consul" &
     "tes a tu medico. Comencemos a hacer una evaluacion"
         '
-        'PictureBox2
+        'picMsVidaSana
         '
-        Me.PictureBox2.Image = Global.appUsuario.My.Resources.Resources.doc
-        Me.PictureBox2.Location = New System.Drawing.Point(67, 47)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(290, 276)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 0
-        Me.PictureBox2.TabStop = False
-        '
-        'panelBotonSiNo
-        '
-        Me.panelBotonSiNo.Location = New System.Drawing.Point(242, 373)
-        Me.panelBotonSiNo.Name = "panelBotonSiNo"
-        Me.panelBotonSiNo.Size = New System.Drawing.Size(214, 63)
-        Me.panelBotonSiNo.TabIndex = 6
+        Me.picMsVidaSana.Image = Global.appUsuario.My.Resources.Resources.doc
+        Me.picMsVidaSana.Location = New System.Drawing.Point(67, 47)
+        Me.picMsVidaSana.Name = "picMsVidaSana"
+        Me.picMsVidaSana.Size = New System.Drawing.Size(290, 276)
+        Me.picMsVidaSana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picMsVidaSana.TabIndex = 0
+        Me.picMsVidaSana.TabStop = False
         '
         'frmPrincipal
         '
@@ -329,13 +399,14 @@ Partial Class frmPrincipal
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelCabecera.ResumeLayout(False)
         Me.panelCabecera.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picFotoUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelDeConsulta.ResumeLayout(False)
         Me.PanelDeConsulta.PerformLayout()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picLogoCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelDeSintomas.ResumeLayout(False)
         Me.panelDeSintomas.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelBotonSiNo.ResumeLayout(False)
+        CType(Me.picMsVidaSana, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -348,18 +419,23 @@ Partial Class frmPrincipal
     Friend WithEvents btnHistoria As Button
     Friend WithEvents btnConsulta As Button
     Friend WithEvents lblPacienteNombre As Label
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents picFotoUsuario As PictureBox
     Friend WithEvents PanelDeConsulta As Panel
     Friend WithEvents btnChat As Button
     Friend WithEvents panelDeSintomas As Panel
     Friend WithEvents linkSaberMas As LinkLabel
     Friend WithEvents btnComenzar As Button
     Friend WithEvents lblMensaje As Label
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents picMsVidaSana As PictureBox
     Friend WithEvents lblPregunta As Label
     Friend WithEvents lblLine As Label
     Friend WithEvents txtSintoma As TextBox
-    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents picLogoCliente As PictureBox
     Friend WithEvents btnSiguienteSintoma As Button
     Friend WithEvents panelBotonSiNo As Panel
+    Friend WithEvents btnNo As Button
+    Friend WithEvents btnSi As Button
+    Friend WithEvents flPanelDiagnostico As FlowLayoutPanel
+    Friend WithEvents btnNuevaConsulta As Button
+    Friend WithEvents btnVerInforme As Button
 End Class

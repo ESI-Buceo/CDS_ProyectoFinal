@@ -36,6 +36,85 @@ Public Class frmPrincipal
         panelActivo.Visible = True
     End Sub
 
+    Private Sub btnComenzar_Click(sender As Object, e As EventArgs) Handles btnComenzar.Click
+        iniciarConsulta()
+    End Sub
+
+    Private Sub txtSintoma_GotFocus(sender As Object, e As EventArgs) Handles txtSintoma.GotFocus
+        txtSintoma.Text = ""
+        txtSintoma.ForeColor = Color.Gray
+    End Sub
+
+    Private Sub btnSiguienteSintoma_Click(sender As Object, e As EventArgs) Handles btnSiguienteSintoma.Click
+        If sintomaSeleccionado Then
+            opcionIngresarMasSintomas()
+        Else
+            frmListaSintomas.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub opcionIngresarMasSintomas()
+        If ControladorDiagnostico.DevuelveListaSintomasSeleccionados.count > 1 Then
+            lblPregunta.Text = "Deseas ingresar un nuevo sintoma?"
+            preguntarPorNuevoSintoma()
+        Else
+            nuevaPregunta()
+        End If
+    End Sub
+
+    Private Sub nuevaPregunta()
+        lblPregunta.Text = ControladorDiagnostico.NuevoMensaje()
+        txtSintoma.Select()
+        sintomaSeleccionado = False
+    End Sub
+
+    Private Sub btnNo_Click(sender As Object, e As EventArgs) Handles btnNo.Click
+        lblPregunta.Width = 370
+        lblPregunta.Height = 200
+        lblPregunta.AutoSize = False
+        lblPregunta.Text = "Hemos preparado el siguiente informe de acuerdo a los sintomas que has ingresado. No dejes de consultara tu medico via chat, recuerda que este diagnostico no sustituye la consulta a un profesional."
+        panelBotonSiNo.Visible = False
+        btnVerInforme.Visible = True
+    End Sub
+
+    Private Sub preguntarPorNuevoSintoma()
+        panelBotonSiNo.Visible = True
+        txtSintoma.Visible = False
+        lblLine.Visible = False
+        btnSiguienteSintoma.Visible = False
+    End Sub
+
+    Private Sub seguirIngresandoSintomas()
+        panelBotonSiNo.Visible = False
+        txtSintoma.Visible = True
+        lblLine.Visible = True
+        btnSiguienteSintoma.Visible = True
+    End Sub
+
+    Private Sub btnSi_Click(sender As Object, e As EventArgs) Handles btnSi.Click
+        seguirIngresandoSintomas()
+        nuevaPregunta()
+    End Sub
+
+    Private Sub linkSaberMas_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkSaberMas.LinkClicked
+        frmSobreElCliente.ShowDialog()
+    End Sub
+
+    Private Sub btnNuevaConsulta_Click(sender As Object, e As EventArgs) Handles btnNuevaConsulta.Click
+        iniciarConsulta()
+    End Sub
+
+    Private Sub btnVerInforme_Click_1(sender As Object, e As EventArgs) Handles btnVerInforme.Click
+        flPanelDiagnostico.Visible = True
+        ControladorDiagnostico.CrearInformeDiagnostico()
+        For Each patologias In DevolverListaPatologiasDiagnostico()
+            Dim panel As New PanelPatologia With {.nombre = patologias.nombre, .descipcion = patologias.descripcion}
+            flPanelDiagnostico.Controls.Add(panel.CrearPanelPatologia)
+        Next
+        btnVerInforme.Visible = False
+        btnNuevaConsulta.Visible = True
+    End Sub
+
     Private Sub clicBotonConsulta()
         PanelDeConsulta.Visible = True
         btnConsulta.Image = My.Resources.btnConsultaSelect
@@ -64,34 +143,21 @@ Public Class frmPrincipal
         btnConsulta.ForeColor = Color.FromArgb(127, 127, 127)
     End Sub
 
-    Private Sub btnComenzar_Click(sender As Object, e As EventArgs) Handles btnComenzar.Click
+    Private Sub iniciarConsulta()
         panelDeSintomas.Visible = True
-        txtSintoma.Select()
-    End Sub
-
-    Private Sub txtSintoma_GotFocus(sender As Object, e As EventArgs) Handles txtSintoma.GotFocus
-        txtSintoma.Text = ""
-        txtSintoma.ForeColor = Color.Gray
-    End Sub
-
-    Private Sub btnSiguienteSintoma_Click(sender As Object, e As EventArgs) Handles btnSiguienteSintoma.Click
-        If sintomaSeleccionado Then
-            nuevaPregunta()
-        Else
-            frmListaSintomas.ShowDialog()
-        End If
-    End Sub
-
-    Private Sub nuevaPregunta()
-        lblPregunta.Text = ControladorDiagnostico.NuevoMensaje()
-        txtSintoma.Select()
+        flPanelDiagnostico.Visible = False
+        lblMensaje.Visible = False
+        btnComenzar.Visible = False
+        lblPregunta.Visible = True
+        btnSiguienteSintoma.Visible = True
+        lblPregunta.Text = "Cuentanos cual es tu princial malestar...?"
+        txtSintoma.Visible = True
+        btnNuevaConsulta.Visible = False
+        lblLine.Visible = True
         sintomaSeleccionado = False
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        ControladorDiagnostico.CrearInformeDiagnostico()
-        For Each patologias In DevolverListaPatologiasDiagnostico()
-            MsgBox(patologias.nombre)
-        Next
+        flPanelDiagnostico.Controls.Clear()
+        PanelPatologia.id = 0
+        txtSintoma.Select()
+        ControladorDiagnostico.nuevaConsulta()
     End Sub
 End Class

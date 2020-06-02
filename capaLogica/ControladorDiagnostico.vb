@@ -1,8 +1,9 @@
 ﻿Imports capaDatos
+
 Public Module ControladorDiagnostico
     Public PonderacionDiagnostico As Integer
     Public CantidadDeSintomasFiltrados As Integer
-    Public ListaSintomasSeleccionados As New List(Of ModeloSintoma)
+    Private ListaSintomasSeleccionados As New List(Of ModeloSintoma)
     Public ListaRelacionPatologiaSintoma As New List(Of ModeloAsociados)
     Public ListaFiltradaPatologiasXSintomas As New List(Of ModeloAsociados)
     Public ListaDePatologiasParaDiagnostico As New List(Of ModeloPatologia)
@@ -10,10 +11,11 @@ Public Module ControladorDiagnostico
 
     Public Sub CrearInformeDiagnostico()
         Dim a As New ModeloAsociados
-        a.CargarListaAsociadosBD()
         ListaRelacionPatologiaSintoma.Clear()
+        a.CargarListaAsociadosBD()
         ListaRelacionPatologiaSintoma = a.ListaRelacionPatologiaSintoma
         FiltrarPatologiasXSintomas()
+
     End Sub
 
     Public Sub cargarSintomaAListaSintomasSeleccionados(ByVal idSintoma As Integer, sintomaNombre As String)
@@ -25,7 +27,7 @@ Public Module ControladorDiagnostico
         ListaFiltradaPatologiasXSintomas.Clear()
         For index = 0 To ListaRelacionPatologiaSintoma.Count - 1
             If ListaRelacionPatologiaSintoma.Item(index).IdSintoma = ListaSintomasSeleccionados.Item(0).ID Then
-                ListaFiltradaPatologiasXSintomas.Add(New ModeloAsociados With {.IdPatologia = ListaRelacionPatologiaSintoma.Item(index).IdPatologia, .IdSintoma = ListaRelacionPatologiaSintoma.Item(index).IdSintoma, .IdSigno = ListaRelacionPatologiaSintoma.Item(index).IdSigno, .incluida = False})
+                ListaFiltradaPatologiasXSintomas.Add(New ModeloAsociados With {.IdPatologia = ListaRelacionPatologiaSintoma.Item(index).IdPatologia, .IdSintoma = ListaRelacionPatologiaSintoma.Item(index).IdSintoma, .IdSigno = ListaRelacionPatologiaSintoma.Item(index).IdSigno})
             End If
         Next
         filtroFinalPatologiaXSintomas()
@@ -33,16 +35,18 @@ Public Module ControladorDiagnostico
 
     Private Sub filtroFinalPatologiaXsintomas()
         'filtra ListaFiltradaPatologiasXSintomas por los otros sintomas ingrsados por el paciente
-        For Each patologiasSelecionadas In ListaFiltradaPatologiasXSintomas
-            For Each listaPrimariaPatologias In ListaRelacionPatologiaSintoma
-                If listaPrimariaPatologias.IdPatologia = patologiasSelecionadas.IdPatologia Then
-                    For s = 1 To ListaSintomasSeleccionados.Count - 1
-                        If listaPrimariaPatologias.IdSintoma = ListaSintomasSeleccionados(s).ID Then
-                            patologiasSelecionadas.incluida = True
+        For s = 1 To ListaSintomasSeleccionados.Count - 1
+            For Each patologiasSeleccionadas In ListaFiltradaPatologiasXSintomas
+                For Each listaPrimariaPatologias In ListaRelacionPatologiaSintoma
+                    If patologiasSeleccionadas.IdPatologia = listaPrimariaPatologias.IdPatologia Then
+                        If listaPrimariaPatologias.IdSintoma = ListaSintomasSeleccionados.Item(s).ID Then
+                            patologiasSeleccionadas.incluida = True
                             Exit For
+                        Else
+                            patologiasSeleccionadas.incluida = False
                         End If
-                    Next
-                End If
+                    End If
+                Next
             Next
         Next
         devolverPatologiasParaDiagnostico()
@@ -60,16 +64,33 @@ Public Module ControladorDiagnostico
         ponderarDiagnostico()
     End Sub
 
+    Public Function DevuelveListaSintomasSeleccionados()
+        Return ListaSintomasSeleccionados
+    End Function
+
     Public Function DevolverListaPatologiasDiagnostico()
         'devuelve la lista de patologias del diagnostico
         Return ListaDePatologiasParaDiagnostico
     End Function
+
+    Public Function devolverlistaListaFiltradaPatologiasXSintomas()
+        Return ListaFiltradaPatologiasXSintomas
+    End Function
+
 
     Private Sub ponderarDiagnostico()
         PonderacionDiagnostico = 0
         For Each patologias In ListaDePatologiasParaDiagnostico
             PonderacionDiagnostico = PonderacionDiagnostico + patologias.Ponderacion
         Next
+    End Sub
+
+    Public Sub nuevaConsulta()
+        ListaSintomasSeleccionados.Clear()
+        ListaDePatologiasParaDiagnostico.Clear()
+        ListaFiltradaPatologiasXSintomas.Clear()
+        PonderacionDiagnostico = 0
+        CantidadDeSintomasFiltrados = 0
     End Sub
 
     'Mensajes aleatorios que manda el sistema
