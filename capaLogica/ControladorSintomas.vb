@@ -5,8 +5,8 @@ Public Module ControladorSintomas
         Dim s As New ModeloSintoma
         Dim tablaSintomas As New DataTable
         tablaSintomas.Columns.Add("ID")
-        tablaSintomas.Columns.Add("NOMBRE")
-        tablaSintomas.Columns.Add("ACTIVO")
+        tablaSintomas.Columns.Add("Nombre")
+        tablaSintomas.Columns.Add("Activo")
         For Each sintomas In s.listarSintomas()
             tablaSintomas.Rows.Add(sintomas.ID, sintomas.Nombre, sintomas.Estado)
         Next
@@ -17,8 +17,8 @@ Public Module ControladorSintomas
         Dim s As New ModeloSintoma
         Dim tablaSintomas As New DataTable
         tablaSintomas.Columns.Add("ID")
-        tablaSintomas.Columns.Add("NOMBRE")
-        tablaSintomas.Columns.Add("ACTIVO")
+        tablaSintomas.Columns.Add("Nombre")
+        tablaSintomas.Columns.Add("Activo")
         For Each sintomas In s.listarSintomasFiltrados(sintoma)
             tablaSintomas.Rows.Add(sintomas.ID, sintomas.Nombre, sintomas.Estado)
         Next
