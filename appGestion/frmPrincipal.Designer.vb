@@ -159,22 +159,22 @@ Partial Class frmPrincipal
         '
         Me.UsuariosToolStripMenuItem1.Image = CType(resources.GetObject("UsuariosToolStripMenuItem1.Image"), System.Drawing.Image)
         Me.UsuariosToolStripMenuItem1.Name = "UsuariosToolStripMenuItem1"
-        Me.UsuariosToolStripMenuItem1.Size = New System.Drawing.Size(216, 28)
+        Me.UsuariosToolStripMenuItem1.Size = New System.Drawing.Size(205, 28)
         Me.UsuariosToolStripMenuItem1.Text = "Paciente"
         '
         'ListarUsuariosToolStripMenuItem
         '
         Me.ListarUsuariosToolStripMenuItem.Image = CType(resources.GetObject("ListarUsuariosToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ListarUsuariosToolStripMenuItem.Name = "ListarUsuariosToolStripMenuItem"
-        Me.ListarUsuariosToolStripMenuItem.Size = New System.Drawing.Size(216, 28)
+        Me.ListarUsuariosToolStripMenuItem.Size = New System.Drawing.Size(205, 28)
         Me.ListarUsuariosToolStripMenuItem.Text = "Listar pacientes"
         '
         'PatologiasSintomasToolStripMenuItem
         '
         Me.PatologiasSintomasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PatologiasToolStripMenuItem, Me.ListarPatologiasToolStripMenuItem, Me.ToolStripSeparator2, Me.SintomasToolStripMenuItem, Me.ListarSintomasToolStripMenuItem, Me.ToolStripSeparator3, Me.ImportarArchivoCVSToolStripMenuItem, Me.ToolStripSeparator4, Me.SignosToolStripMenuItem, Me.ListarSignosToolStripMenuItem})
         Me.PatologiasSintomasToolStripMenuItem.Name = "PatologiasSintomasToolStripMenuItem"
-        Me.PatologiasSintomasToolStripMenuItem.Size = New System.Drawing.Size(112, 27)
-        Me.PatologiasSintomasToolStripMenuItem.Text = "&Dianosticos"
+        Me.PatologiasSintomasToolStripMenuItem.Size = New System.Drawing.Size(121, 27)
+        Me.PatologiasSintomasToolStripMenuItem.Text = "&Diagnosticos"
         '
         'PatologiasToolStripMenuItem
         '
@@ -250,14 +250,14 @@ Partial Class frmPrincipal
         '
         Me.RanquinDePatologiasToolStripMenuItem.Image = CType(resources.GetObject("RanquinDePatologiasToolStripMenuItem.Image"), System.Drawing.Image)
         Me.RanquinDePatologiasToolStripMenuItem.Name = "RanquinDePatologiasToolStripMenuItem"
-        Me.RanquinDePatologiasToolStripMenuItem.Size = New System.Drawing.Size(259, 28)
-        Me.RanquinDePatologiasToolStripMenuItem.Text = "Ranquin de patologias "
+        Me.RanquinDePatologiasToolStripMenuItem.Size = New System.Drawing.Size(257, 28)
+        Me.RanquinDePatologiasToolStripMenuItem.Text = "Ranking de patologias "
         '
         'LogDelSistemaToolStripMenuItem
         '
         Me.LogDelSistemaToolStripMenuItem.Image = CType(resources.GetObject("LogDelSistemaToolStripMenuItem.Image"), System.Drawing.Image)
         Me.LogDelSistemaToolStripMenuItem.Name = "LogDelSistemaToolStripMenuItem"
-        Me.LogDelSistemaToolStripMenuItem.Size = New System.Drawing.Size(259, 28)
+        Me.LogDelSistemaToolStripMenuItem.Size = New System.Drawing.Size(257, 28)
         Me.LogDelSistemaToolStripMenuItem.Text = "Log del sistema"
         '
         'AyudaToolStripMenuItem
