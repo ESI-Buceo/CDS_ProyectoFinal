@@ -41,12 +41,12 @@ Public Class ModeloSintoma
         listaSintomas.Clear()
         Try
             Dim conexion As New ModeloConexion
-            Dim sintomaAdapter As MySqlDataAdapter
+            Dim sintomaAdapter As System.Data.Odbc.OdbcDataAdapter
             Dim sintomaDataSet As New DataSet
             Dim sintomaSQL As String
 
             sintomaSQL = "SELECT * FROM sintoma WHERE activo = 1 "
-            sintomaAdapter = New MySqlDataAdapter(sintomaSQL, conexion.Abrir)
+            sintomaAdapter = New System.Data.Odbc.OdbcDataAdapter(sintomaSQL, conexion.Abrir)
             sintomaAdapter.Fill(sintomaDataSet, "sintoma")
 
             For Each sintoma In sintomaDataSet.Tables("sintoma").Rows

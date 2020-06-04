@@ -65,12 +65,12 @@ Public Class ModeloPatologia
         ListaPatologias.Clear()
         Try
             Dim conexion As New ModeloConexion
-            Dim patologiasAdapter As MySqlDataAdapter
+            Dim patologiasAdapter As System.Data.Odbc.OdbcDataAdapter
             Dim patologiasDataSet As New DataSet
             Dim patologiaSQL As String
 
             patologiaSQL = "SELECT * FROM patologia WHERE activo = 1 "
-            patologiasAdapter = New MySqlDataAdapter(patologiaSQL, conexion.Abrir)
+            patologiasAdapter = New System.Data.Odbc.OdbcDataAdapter(patologiaSQL, conexion.Abrir)
             patologiasAdapter.Fill(patologiasDataSet, "patologia")
 
             For Each patologia In patologiasDataSet.Tables("patologia").Rows
@@ -92,12 +92,12 @@ Public Class ModeloPatologia
     Public Function BuscarPatologiaPorID(ByVal id As Integer)
         Try
             Dim conexion As New ModeloConexion
-            Dim patologiasAdapter As MySqlDataAdapter
+            Dim patologiasAdapter As System.Data.Odbc.OdbcDataAdapter
             Dim patologiasDataSet As New DataSet
             Dim patologiaSQL As String
 
             patologiaSQL = "SELECT * FROM patologia WHERE id = " & id
-            patologiasAdapter = New MySqlDataAdapter(patologiaSQL, conexion.Abrir)
+            patologiasAdapter = New System.Data.Odbc.OdbcDataAdapter(patologiaSQL, conexion.Abrir)
             patologiasAdapter.Fill(patologiasDataSet, "patologia")
 
             conexion.Cerrar()
