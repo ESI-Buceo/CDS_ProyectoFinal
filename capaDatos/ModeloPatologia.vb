@@ -1,5 +1,4 @@
-﻿Imports MySql.Data
-Imports MySql.Data.MySqlClient
+﻿Imports System.Data.Odbc
 
 Public Class ModeloPatologia
     Public Id As Integer
@@ -70,7 +69,7 @@ Public Class ModeloPatologia
             Dim patologiaSQL As String
 
             patologiaSQL = "SELECT * FROM patologia WHERE activo = 1 "
-            patologiasAdapter = New System.Data.Odbc.OdbcDataAdapter(patologiaSQL, conexion.Abrir)
+            patologiasAdapter = New OdbcDataAdapter(patologiaSQL, conexion.Abrir)
             patologiasAdapter.Fill(patologiasDataSet, "patologia")
 
             For Each patologia In patologiasDataSet.Tables("patologia").Rows
@@ -97,7 +96,7 @@ Public Class ModeloPatologia
             Dim patologiaSQL As String
 
             patologiaSQL = "SELECT * FROM patologia WHERE id = " & id
-            patologiasAdapter = New System.Data.Odbc.OdbcDataAdapter(patologiaSQL, conexion.Abrir)
+            patologiasAdapter = New OdbcDataAdapter(patologiaSQL, conexion.Abrir)
             patologiasAdapter.Fill(patologiasDataSet, "patologia")
 
             conexion.Cerrar()

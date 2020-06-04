@@ -1,6 +1,6 @@
 Imports capaDatos
 Imports MySql.Data
-Imports MySql.Data.MySqlClient
+Imports System.Data.Odbc
 Public Class ModeloSintoma
 
     Public ID As Integer
@@ -41,12 +41,12 @@ Public Class ModeloSintoma
         listaSintomas.Clear()
         Try
             Dim conexion As New ModeloConexion
-            Dim sintomaAdapter As System.Data.Odbc.OdbcDataAdapter
+            Dim sintomaAdapter As OdbcDataAdapter
             Dim sintomaDataSet As New DataSet
             Dim sintomaSQL As String
 
             sintomaSQL = "SELECT * FROM sintoma WHERE activo = 1 "
-            sintomaAdapter = New System.Data.Odbc.OdbcDataAdapter(sintomaSQL, conexion.Abrir)
+            sintomaAdapter = New OdbcDataAdapter(sintomaSQL, conexion.Abrir)
             sintomaAdapter.Fill(sintomaDataSet, "sintoma")
 
             For Each sintoma In sintomaDataSet.Tables("sintoma").Rows

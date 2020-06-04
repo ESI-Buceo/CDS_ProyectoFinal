@@ -1,6 +1,4 @@
-﻿Imports MySql.Data
-Imports MySql.Data.MySqlClient
-
+﻿
 Public Class ModeloDiagnostico
     Public Id As Integer
     Public IdPatologia As String

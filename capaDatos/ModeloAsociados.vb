@@ -1,5 +1,4 @@
-﻿Imports MySql.Data
-Imports MySql.Data.MySqlClient
+﻿Imports System.Data.Odbc
 
 Public Class ModeloAsociados
     Public IdPatologia As Integer
@@ -16,7 +15,7 @@ Public Class ModeloAsociados
             Dim asociadosAdatador As System.Data.Odbc.OdbcDataAdapter
             Dim asociadosDataSet As New DataSet
             Dim asociadosSQL As String = "SELECT DISTINCT(a.idPatologia), a.idPatologia, a.idSintoma, a.idSigno FROM asociados a JOIN patologia p ON p.activo = 1"
-            asociadosAdatador = New System.Data.Odbc.OdbcDataAdapter(asociadosSQL, conexion.Abrir)
+            asociadosAdatador = New OdbcDataAdapter(asociadosSQL, conexion.Abrir)
             asociadosAdatador.Fill(asociadosDataSet, "asociados")
             cargarListaAsociados(asociadosDataSet)
         Catch ex As Exception
