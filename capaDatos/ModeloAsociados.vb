@@ -1,35 +1,31 @@
-﻿Imports MySql.Data
-Imports MySql.Data.MySqlClient
+﻿Imports System.Data.Odbc
 
 Public Class ModeloAsociados
     Public IdPatologia As Integer
     Public IdSintoma As Integer
     Public IdSigno As Integer
     Public incluida As Boolean
-    Public ListaRelacionPatologiaSintoma As New List(Of ModeloAsociados)
+    Public lectorAsociados As OdbcDataReader
 
-
-    Public Sub CargarListaAsociadosBD()
+    Public Function CargarListaAsociadosBD()
         'carga la lista de la tabla asociados donde se vinculan patologias, sintomas y signos
         Try
             Dim conexion As New ModeloConexion
-            Dim asociadosAdatador As MySqlDataAdapter
-            Dim asociadosDataSet As New DataSet
-            Dim asociadosSQL As String = "SELECT DISTINCT(a.idPatologia), a.idPatologia, a.idSintoma, a.idSigno FROM asociados a JOIN patologia p ON p.activo = 1"
-            asociadosAdatador = New MySqlDataAdapter(asociadosSQL, conexion.Abrir)
-            asociadosAdatador.Fill(asociadosDataSet, "asociados")
-            cargarListaAsociados(asociadosDataSet)
+            Dim comando As New OdbcCommand
+            Dim tabla As New DataTable
+
+            comando.CommandText = "SELECT DISTINCT(a.idPatologia), a.idPatologia, a.idSintoma, a.idSigno FROM asociados a JOIN patologia p ON p.activo = 1"
+            comando.Connection = conexion.Abrir()
+            lectorAsociados = comando.ExecuteReader()
+            tabla.Load(lectorAsociados)
+            conexion.Cerrar()
+            Return tabla
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-    End Sub
+        Return vbNull
+    End Function
 
-    Private Sub cargarListaAsociados(ByRef asociadosDataSet As DataSet)
-        'carga la lista de ListaPatologiasXSintomas con la informacion de la BD
-        ListaRelacionPatologiaSintoma.Clear()
-        For Each asociados In asociadosDataSet.Tables("asociados").Rows
-            ListaRelacionPatologiaSintoma.Add(New ModeloAsociados With {.IdPatologia = asociados("idPatologia"), .IdSintoma = asociados("idSintoma"), .IdSigno = asociados("idSigno")})
-        Next
-    End Sub
 
 End Class

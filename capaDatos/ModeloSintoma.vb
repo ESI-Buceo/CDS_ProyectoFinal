@@ -1,14 +1,13 @@
 Imports capaDatos
 Imports MySql.Data
-Imports MySql.Data.MySqlClient
+Imports System.Data.Odbc
 Public Class ModeloSintoma
 
     Public ID As Integer
     Public Nombre As String
     Public Estado As Boolean
-    Public listaSintomas As New List(Of ModeloSintoma)
-    Public ListaFiltradaSintomas As New List(Of ModeloSintoma)
-    Public SintomasSeleccionados As New List(Of ModeloSintoma)
+
+    Public lector As OdbcDataReader
 
     Public Function guardarSintoma() As Boolean
         'envia solicitud de guardar
@@ -20,47 +19,41 @@ Public Class ModeloSintoma
         Return True
     End Function
 
-    Public Function listarSintomas() As List(Of ModeloSintoma)
-        TraeDatosSintomasDeBD()
-        Return listaSintomas
-    End Function
-
-    Public Function listarSintomasFiltrados(nombre As String) As List(Of ModeloSintoma)
-        'busca y retorna lista con los sintomas resultantes de la busqueda
-        TraeDatosSintomasDeBD()
-        ListaFiltradaSintomas.Clear()
-        For Each sintoma In listaSintomas
-            If sintoma.Nombre.Contains(nombre) Then
-                ListaFiltradaSintomas.Add(sintoma)
-            End If
-        Next
-        Return ListaFiltradaSintomas
-    End Function
-
-    Public Sub TraeDatosSintomasDeBD()
-        listaSintomas.Clear()
+    Public Function TraeDatosSintomasDeBD() As DataTable
         Try
             Dim conexion As New ModeloConexion
-            Dim sintomaAdapter As MySqlDataAdapter
-            Dim sintomaDataSet As New DataSet
-            Dim sintomaSQL As String
+            Dim tabla As New DataTable
+            Dim comando As New OdbcCommand
 
-            sintomaSQL = "SELECT * FROM sintoma WHERE activo = 1 "
-            sintomaAdapter = New MySqlDataAdapter(sintomaSQL, conexion.Abrir)
-            sintomaAdapter.Fill(sintomaDataSet, "sintoma")
+            comando.CommandText = "SELECT * FROM sintoma WHERE activo = 1 "
+            comando.Connection = conexion.Abrir()
+            lector = comando.ExecuteReader()
+            tabla.Load(lector)
+            conexion.Cerrar()
+            Return tabla
+        Catch ex As Exception
+            mostrarExepcion(ex)
+        End Try
 
-            For Each sintoma In sintomaDataSet.Tables("sintoma").Rows
-                CargarListaSintomas(sintoma)
-            Next
+    End Function
+
+    Public Function TraeDatosSintomasDeBD(sintoma As String) As DataTable
+        Try
+            Dim conexion As New ModeloConexion
+            Dim tabla As New DataTable
+            Dim comando As New OdbcCommand
+
+            comando.CommandText = "SELECT * FROM sintoma WHERE activo = 1 AND nombre like '%" + sintoma + "%'"
+            comando.Connection = conexion.Abrir()
+            lector = comando.ExecuteReader()
+            tabla.Load(lector)
+            Return tabla
+
             conexion.Cerrar()
         Catch ex As Exception
             mostrarExepcion(ex)
         End Try
-    End Sub
-
-    Public Sub CargarListaSintomas(ByRef sintoma As DataRow)
-        listaSintomas.Add(New ModeloSintoma With {.ID = sintoma("id"), .Nombre = UCase(sintoma("nombre")), .Estado = sintoma("activo")})
-    End Sub
+    End Function
 
     Private Sub mostrarExepcion(ByVal exeption As Exception)
         MsgBox(exeption.Message)

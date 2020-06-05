@@ -1,5 +1,4 @@
-﻿Imports MySql.Data
-Imports MySql.Data.MySqlClient
+﻿Imports System.Data.Odbc
 
 Public Class ModeloPatologia
     Public Id As Integer
@@ -7,11 +6,7 @@ Public Class ModeloPatologia
     Public Ponderacion As Integer
     Public Descripcion As String
     Public activo As Integer
-
-    Public ListaSintomasPatologia As New List(Of ModeloSintoma)
-    Public ListaSignosPatologia As New List(Of ModeloSignos)
-    Public ListaPatologias As New List(Of ModeloPatologia)
-    Public ListaBusquedaPatologias As New List(Of ModeloPatologia)
+    Public LectorPatologia As OdbcDataReader
 
 
     Public Function GuaradrPatologia() As Boolean
@@ -22,22 +17,6 @@ Public Class ModeloPatologia
     Public Function eliminarPatologia(id As Integer)
         'elimina la patologa con el id
         Return True
-    End Function
-
-    Public Function ListarPatologias() As List(Of ModeloPatologia)
-        'lista todas las patologias
-        TraeDatosPatologiasDeBD()
-        Return ListaPatologias
-    End Function
-
-    Public Function listarPatologiasFiltradas(nombre As String) As List(Of ModeloPatologia)
-        'busca y retorna lista con los patologias resultantes de la busqueda
-        For Each patologia In ListaPatologias
-            If patologia.Nombre.Contains(nombre) Then
-                ListaBusquedaPatologias.Add(patologia)
-            End If
-        Next
-        Return ListaBusquedaPatologias
     End Function
 
     Private Function validarNombre() As Boolean
@@ -60,60 +39,70 @@ Public Class ModeloPatologia
         Return True
     End Function
 
-    Public Sub TraeDatosPatologiasDeBD()
+    Public Function TraeDatosPatologiasDeBD() As DataTable
         'trae de la base de datos las patolgias registadas
-        ListaPatologias.Clear()
         Try
             Dim conexion As New ModeloConexion
-            Dim patologiasAdapter As MySqlDataAdapter
-            Dim patologiasDataSet As New DataSet
-            Dim patologiaSQL As String
+            Dim comando As New OdbcCommand
+            Dim tabla As New DataTable
 
-            patologiaSQL = "SELECT * FROM patologia WHERE activo = 1 "
-            patologiasAdapter = New MySqlDataAdapter(patologiaSQL, conexion.Abrir)
-            patologiasAdapter.Fill(patologiasDataSet, "patologia")
-
-            For Each patologia In patologiasDataSet.Tables("patologia").Rows
-                cargarListaPatologias(patologia)
-            Next
+            conexion.Abrir()
+            comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 "
+            comando.Connection = conexion.Abrir()
+            LectorPatologia = comando.ExecuteReader()
+            tabla.Load(LectorPatologia)
             conexion.Cerrar()
+            Return tabla
+
         Catch ex As Exception
             mostrarExepcion(ex)
         End Try
-    End Sub
+    End Function
 
-    Public Sub cargarListaPatologias(ByRef patologias As DataRow)
-        'carga la lista de patologias
-        ListaPatologias.Add(New ModeloPatologia With {.Id = patologias("id"), .Nombre = patologias("nombre"),
-                            .Ponderacion = patologias("ponderacion"), .Descripcion = patologias("descripcion"),
-                            .activo = patologias("activo")})
-    End Sub
+    Public Function TraeDatosPatologiasDeBD(ByVal nombre As String)
+        'trae de la base de datos las patolgias registadas
+        Try
+            Dim conexion As New ModeloConexion
+            Dim comando As New OdbcCommand
+            Dim tabla As New DataTable
+
+            conexion.Abrir()
+            comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 AND nombre like '%" + nombre + "%'"
+            comando.Connection = conexion.Abrir()
+            LectorPatologia = comando.ExecuteReader()
+            tabla.Load(LectorPatologia)
+            conexion.Cerrar()
+            Return tabla
+
+        Catch ex As Exception
+            mostrarExepcion(ex)
+            Return vbNull
+        End Try
+    End Function
 
     Public Function BuscarPatologiaPorID(ByVal id As Integer)
         Try
             Dim conexion As New ModeloConexion
-            Dim patologiasAdapter As MySqlDataAdapter
-            Dim patologiasDataSet As New DataSet
-            Dim patologiaSQL As String
+            Dim comando As New OdbcCommand
 
-            patologiaSQL = "SELECT * FROM patologia WHERE id = " & id
-            patologiasAdapter = New MySqlDataAdapter(patologiaSQL, conexion.Abrir)
-            patologiasAdapter.Fill(patologiasDataSet, "patologia")
+            comando.CommandText = "SELECT * FROM patologia WHERE id = " & id
+            comando.Connection = conexion.Abrir()
+            LectorPatologia = comando.ExecuteReader()
+            Return crearObjetoPatologia(LectorPatologia)
 
-            conexion.Cerrar()
-            Return crearObjetoPatologia(patologiasDataSet.Tables("patologia").Rows.Item(0))
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
         Return vbNull
     End Function
 
-    Private Function crearObjetoPatologia(ByRef patologia As DataRow) As ModeloPatologia
+    Private Function crearObjetoPatologia(ByRef patologia As OdbcDataReader) As ModeloPatologia
         Dim datosPatologia As New ModeloPatologia
-        datosPatologia.Id = patologia("id")
-        datosPatologia.Nombre = patologia("nombre")
-        datosPatologia.Descripcion = patologia("descripcion")
-        datosPatologia.Ponderacion = patologia("ponderacion")
+        patologia.Read()
+        datosPatologia.Id = patologia(0)
+        datosPatologia.Nombre = patologia(1)
+        datosPatologia.Ponderacion = patologia(2)
+        datosPatologia.Descripcion = patologia(3)
         Return datosPatologia
     End Function
 
