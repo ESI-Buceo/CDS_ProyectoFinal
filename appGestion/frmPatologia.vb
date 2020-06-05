@@ -94,8 +94,8 @@ Public Class frmPatologia
         tabDatosPatologia.SelectTab(tabDatos)
         txtPatologiaID.Text = dgvListaDePatologias.Item(0, e.RowIndex).Value
         txtPatologiaNombre.Text = dgvListaDePatologias.Item(1, e.RowIndex).Value
-        txtPatologiaDescipcion.Text = dgvListaDePatologias.Item(2, e.RowIndex).Value
-        cbPatologiaPonderacion.Text = dgvListaDePatologias.Item(3, e.RowIndex).Value
+        txtPatologiaDescipcion.Text = dgvListaDePatologias.Item(3, e.RowIndex).Value
+        cbPatologiaPonderacion.Text = dgvListaDePatologias.Item(2, e.RowIndex).Value
         chkActiva.Checked = dgvListaDePatologias.Item(4, e.RowIndex).Value
     End Sub
 
