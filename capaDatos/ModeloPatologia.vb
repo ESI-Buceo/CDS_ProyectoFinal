@@ -59,14 +59,13 @@ Public Class ModeloPatologia
         End Try
     End Function
 
-    Public Function TraeDatosPatologiasDeBD(ByVal nombre As String)
+    Public Function TraeDatosPatologiasDeBD(ByVal nombre As String) As DataTable
         'trae de la base de datos las patolgias registadas
         Try
             Dim conexion As New ModeloConexion
             Dim comando As New OdbcCommand
             Dim tabla As New DataTable
 
-            conexion.Abrir()
             comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 AND nombre like '%" + nombre + "%'"
             comando.Connection = conexion.Abrir()
             LectorPatologia = comando.ExecuteReader()
@@ -76,7 +75,6 @@ Public Class ModeloPatologia
 
         Catch ex As Exception
             mostrarExepcion(ex)
-            Return vbNull
         End Try
     End Function
 

@@ -40,6 +40,8 @@ Partial Class frmPatologia
         Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
         Me.tabDatosPatologia = New System.Windows.Forms.TabControl()
         Me.tabDatos = New System.Windows.Forms.TabPage()
+        Me.chkActiva = New System.Windows.Forms.CheckBox()
+        Me.lblActiva = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnAgregarSigno = New System.Windows.Forms.Button()
         Me.lblSignos = New System.Windows.Forms.Label()
@@ -61,8 +63,6 @@ Partial Class frmPatologia
         Me.lblPatologiaID = New System.Windows.Forms.Label()
         Me.tabPatologiaBusqueda = New System.Windows.Forms.TabPage()
         Me.dgvListaDePatologias = New System.Windows.Forms.DataGridView()
-        Me.lblActiva = New System.Windows.Forms.Label()
-        Me.chkActiva = New System.Windows.Forms.CheckBox()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolsMenuPatologia.SuspendLayout()
         Me.tabDatosPatologia.SuspendLayout()
@@ -239,6 +239,24 @@ Partial Class frmPatologia
         Me.tabDatos.TabIndex = 0
         Me.tabDatos.Text = "Datos"
         '
+        'chkActiva
+        '
+        Me.chkActiva.AutoSize = True
+        Me.chkActiva.Location = New System.Drawing.Point(160, 420)
+        Me.chkActiva.Name = "chkActiva"
+        Me.chkActiva.Size = New System.Drawing.Size(18, 17)
+        Me.chkActiva.TabIndex = 14
+        Me.chkActiva.UseVisualStyleBackColor = True
+        '
+        'lblActiva
+        '
+        Me.lblActiva.AutoSize = True
+        Me.lblActiva.Location = New System.Drawing.Point(73, 420)
+        Me.lblActiva.Name = "lblActiva"
+        Me.lblActiva.Size = New System.Drawing.Size(72, 19)
+        Me.lblActiva.TabIndex = 13
+        Me.lblActiva.Text = "ACTIVA:"
+        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.btnAgregarSigno)
@@ -371,7 +389,7 @@ Partial Class frmPatologia
         'cbPatologiaPonderacion
         '
         Me.cbPatologiaPonderacion.FormattingEnabled = True
-        Me.cbPatologiaPonderacion.Items.AddRange(New Object() {"Alta", "Baja", "Media"})
+        Me.cbPatologiaPonderacion.Items.AddRange(New Object() {"10", "20", "30"})
         Me.cbPatologiaPonderacion.Location = New System.Drawing.Point(746, 22)
         Me.cbPatologiaPonderacion.Name = "cbPatologiaPonderacion"
         Me.cbPatologiaPonderacion.Size = New System.Drawing.Size(93, 27)
@@ -427,7 +445,7 @@ Partial Class frmPatologia
         Me.tabPatologiaBusqueda.Location = New System.Drawing.Point(4, 28)
         Me.tabPatologiaBusqueda.Name = "tabPatologiaBusqueda"
         Me.tabPatologiaBusqueda.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPatologiaBusqueda.Size = New System.Drawing.Size(867, 427)
+        Me.tabPatologiaBusqueda.Size = New System.Drawing.Size(867, 477)
         Me.tabPatologiaBusqueda.TabIndex = 1
         Me.tabPatologiaBusqueda.Text = "Busqueda"
         Me.tabPatologiaBusqueda.UseVisualStyleBackColor = True
@@ -443,26 +461,8 @@ Partial Class frmPatologia
         Me.dgvListaDePatologias.Name = "dgvListaDePatologias"
         Me.dgvListaDePatologias.ReadOnly = True
         Me.dgvListaDePatologias.RowTemplate.Height = 24
-        Me.dgvListaDePatologias.Size = New System.Drawing.Size(861, 421)
+        Me.dgvListaDePatologias.Size = New System.Drawing.Size(861, 471)
         Me.dgvListaDePatologias.TabIndex = 0
-        '
-        'lblActiva
-        '
-        Me.lblActiva.AutoSize = True
-        Me.lblActiva.Location = New System.Drawing.Point(73, 420)
-        Me.lblActiva.Name = "lblActiva"
-        Me.lblActiva.Size = New System.Drawing.Size(72, 19)
-        Me.lblActiva.TabIndex = 13
-        Me.lblActiva.Text = "ACTIVA:"
-        '
-        'chkActiva
-        '
-        Me.chkActiva.AutoSize = True
-        Me.chkActiva.Location = New System.Drawing.Point(160, 420)
-        Me.chkActiva.Name = "chkActiva"
-        Me.chkActiva.Size = New System.Drawing.Size(18, 17)
-        Me.chkActiva.TabIndex = 14
-        Me.chkActiva.UseVisualStyleBackColor = True
         '
         'frmPatologia
         '
