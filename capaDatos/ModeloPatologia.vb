@@ -48,6 +48,7 @@ Public Class ModeloPatologia
 
             conexion.Abrir()
             comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 "
+            comando.Connection = conexion.Abrir()
             LectorPatologia = comando.ExecuteReader()
             tabla.Load(LectorPatologia)
             conexion.Cerrar()
@@ -67,6 +68,7 @@ Public Class ModeloPatologia
 
             conexion.Abrir()
             comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 AND nombre like '%" + nombre + "%'"
+            comando.Connection = conexion.Abrir()
             LectorPatologia = comando.ExecuteReader()
             tabla.Load(LectorPatologia)
             conexion.Cerrar()
@@ -78,15 +80,14 @@ Public Class ModeloPatologia
         End Try
     End Function
 
-    Public Function BuscarPatologiaPorID(ByVal id As String)
+    Public Function BuscarPatologiaPorID(ByVal id As Integer)
         Try
             Dim conexion As New ModeloConexion
             Dim comando As New OdbcCommand
 
-            conexion.Abrir()
             comando.CommandText = "SELECT * FROM patologia WHERE id = " & id
+            comando.Connection = conexion.Abrir()
             LectorPatologia = comando.ExecuteReader()
-            conexion.Cerrar()
             Return crearObjetoPatologia(LectorPatologia)
 
         Catch ex As Exception
@@ -98,10 +99,10 @@ Public Class ModeloPatologia
     Private Function crearObjetoPatologia(ByRef patologia As OdbcDataReader) As ModeloPatologia
         Dim datosPatologia As New ModeloPatologia
         patologia.Read()
-        datosPatologia.Id = patologia(0).ToString
-        datosPatologia.Nombre = patologia(1).ToString
-        datosPatologia.Descripcion = patologia(2).ToString
-        datosPatologia.Ponderacion = patologia(3).ToString
+        datosPatologia.Id = patologia(0)
+        datosPatologia.Nombre = patologia(1)
+        datosPatologia.Ponderacion = patologia(2)
+        datosPatologia.Descripcion = patologia(3)
         Return datosPatologia
     End Function
 

@@ -1,4 +1,5 @@
 ﻿Imports capaDatos
+Imports System.Data
 
 Public Module ControladorDiagnostico
     Public PonderacionDiagnostico As Integer
@@ -10,13 +11,24 @@ Public Module ControladorDiagnostico
 
 
     Public Sub CrearInformeDiagnostico()
+        'Carga la informacion de relacion patologia, signo, sintoma de la base de datos
         Dim a As New ModeloAsociados
-        ListaRelacionPatologiaSintoma.Clear()
-        a.CargarListaAsociadosBD()
-        ListaRelacionPatologiaSintoma = a.ListaRelacionPatologiaSintoma
+        cargarListaRelacionPatologiaSintoma(a.CargarListaAsociadosBD())
         FiltrarPatologiasXSintomas()
 
     End Sub
+
+    Private Sub cargarListaRelacionPatologiaSintoma(ByRef tablaAsociados As DataTable)
+
+        For patologiasSintomas = 0 To tablaAsociados.Rows.Count - 1
+            ListaRelacionPatologiaSintoma.Add(New ModeloAsociados With {
+                                            .IdPatologia = tablaAsociados.Rows(patologiasSintomas).Item("idPatologia").ToString,
+                                            .IdSintoma = tablaAsociados.Rows(patologiasSintomas).Item("idSintoma").ToString,
+                                            .IdSigno = tablaAsociados.Rows(patologiasSintomas).Item("idSigno").ToString
+                                              })
+        Next
+    End Sub
+
 
     Public Sub cargarSintomaAListaSintomasSeleccionados(ByVal idSintoma As Integer, sintomaNombre As String)
         ListaSintomasSeleccionados.Add(New ModeloSintoma With {.ID = idSintoma, .Nombre = sintomaNombre})
