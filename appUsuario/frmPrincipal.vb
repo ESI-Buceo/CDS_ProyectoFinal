@@ -160,4 +160,5 @@ Public Class frmPrincipal
         txtSintoma.Select()
         ControladorDiagnostico.nuevaConsulta()
     End Sub
+
 End Class
