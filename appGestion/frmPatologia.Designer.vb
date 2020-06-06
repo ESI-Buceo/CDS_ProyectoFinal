@@ -378,6 +378,7 @@ Partial Class frmPatologia
         Me.txtPatologiaDescipcion.Location = New System.Drawing.Point(162, 69)
         Me.txtPatologiaDescipcion.Multiline = True
         Me.txtPatologiaDescipcion.Name = "txtPatologiaDescipcion"
+        Me.txtPatologiaDescipcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtPatologiaDescipcion.Size = New System.Drawing.Size(675, 91)
         Me.txtPatologiaDescipcion.TabIndex = 7
         '

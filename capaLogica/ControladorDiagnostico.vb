@@ -19,7 +19,6 @@ Public Module ControladorDiagnostico
     End Sub
 
     Private Sub cargarListaRelacionPatologiaSintoma(ByRef tablaAsociados As DataTable)
-
         For patologiasSintomas = 0 To tablaAsociados.Rows.Count - 1
             ListaRelacionPatologiaSintoma.Add(New ModeloAsociados With {
                                             .IdPatologia = tablaAsociados.Rows(patologiasSintomas).Item("idPatologia").ToString,
@@ -76,6 +75,10 @@ Public Module ControladorDiagnostico
         ponderarDiagnostico()
     End Sub
 
+    Public Function cantidadDesintomasXPatologia()
+        Return ListaFiltradaPatologiasXSintomas.Count
+    End Function
+
     Public Function DevuelveListaSintomasSeleccionados()
         Return ListaSintomasSeleccionados
     End Function
@@ -98,6 +101,7 @@ Public Module ControladorDiagnostico
     End Sub
 
     Public Sub nuevaConsulta()
+        ListaRelacionPatologiaSintoma.Clear()
         ListaSintomasSeleccionados.Clear()
         ListaDePatologiasParaDiagnostico.Clear()
         ListaFiltradaPatologiasXSintomas.Clear()
