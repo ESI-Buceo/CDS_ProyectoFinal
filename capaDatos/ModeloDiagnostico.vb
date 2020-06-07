@@ -1,7 +1,8 @@
 ﻿
 Public Class ModeloDiagnostico
     Public Id As Integer
-    Public IdPatologia As String
+    Public idPaciente As Integer
+    Public IdPatologia As Integer
     Public FechaHora As String
     Public Prioridad As Integer
 

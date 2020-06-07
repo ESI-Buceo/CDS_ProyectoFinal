@@ -1,7 +1,7 @@
 ﻿Imports System.Data.Odbc
 Public Class ModeloConexion
-    'Dim conexion As New MySqlConnection("server=192.168.1.15;database=proyectocds;user=pepe;password=Pepe1234*;port=3306")
-    Dim conexion As New Odbc.OdbcConnection("DRIVER=MySQL ODBC 5.3 ANSI Driver;UID=marcos;PWD=admin;PORT=3306;DATABASE=dbTriage;SERVER=localhost")
+
+    Dim conexion As New Odbc.OdbcConnection("DRIVER=MySQL ODBC 5.3 ANSI Driver;UID=rgainza;PWD=Aleand.06.2020;PORT=3306;DATABASE=dbTriage;SERVER=192.168.1.15")
     Public Function Abrir() As Odbc.OdbcConnection
         Try
             conexion.Open()
