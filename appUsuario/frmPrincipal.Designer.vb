@@ -96,7 +96,7 @@ Partial Class frmPrincipal
         'picLogo
         '
         Me.picLogo.Image = Global.appUsuario.My.Resources.Resources.logo_App
-        Me.picLogo.Location = New System.Drawing.Point(308, 15)
+        Me.picLogo.Location = New System.Drawing.Point(300, 32)
         Me.picLogo.Name = "picLogo"
         Me.picLogo.Size = New System.Drawing.Size(530, 147)
         Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -192,7 +192,7 @@ Partial Class frmPrincipal
         Me.PanelDeConsulta.Controls.Add(Me.btnComenzar)
         Me.PanelDeConsulta.Controls.Add(Me.lblMensaje)
         Me.PanelDeConsulta.Controls.Add(Me.picMsVidaSana)
-        Me.PanelDeConsulta.Location = New System.Drawing.Point(2, 62)
+        Me.PanelDeConsulta.Location = New System.Drawing.Point(1, 62)
         Me.PanelDeConsulta.Name = "PanelDeConsulta"
         Me.PanelDeConsulta.Size = New System.Drawing.Size(1143, 594)
         Me.PanelDeConsulta.TabIndex = 1

@@ -1,9 +1,6 @@
 ﻿
 Public Class ModeloDiagnostico
     Public Id As Integer
-    Public idPaciente As Integer
-    Public IdPatologia As Integer
-    Public FechaHora As String
     Public Prioridad As Integer
 
     Public Function guardarDiagnostico(ByRef diagnostico As ModeloDiagnostico) As Boolean

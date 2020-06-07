@@ -28,10 +28,24 @@ Public Module ControladorDiagnostico
         Next
     End Sub
 
+    Public Function validarSintomaSeleccionado(ByVal idSintoma As Integer, sintomaNombre As String)
+        If ListaSintomasSeleccionados.Count = 0 Then
+            ListaSintomasSeleccionados.Add(New ModeloSintoma With {.ID = idSintoma, .Nombre = sintomaNombre})
+            Return True
+        Else
+            Return VerificarSiYaFueIngresado(idSintoma, sintomaNombre)
+        End If
+    End Function
 
-    Public Sub cargarSintomaAListaSintomasSeleccionados(ByVal idSintoma As Integer, sintomaNombre As String)
-        ListaSintomasSeleccionados.Add(New ModeloSintoma With {.ID = idSintoma, .Nombre = sintomaNombre})
-    End Sub
+    Public Function VerificarSiYaFueIngresado(ByVal idSintoma As Integer, sintomaNombre As String)
+        For s = 0 To ListaSintomasSeleccionados.Count - 1
+            If ListaSintomasSeleccionados.Item(s).ID <> idSintoma Then
+                ListaSintomasSeleccionados.Add(New ModeloSintoma With {.ID = idSintoma, .Nombre = sintomaNombre})
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 
     Public Sub FiltrarPatologiasXSintomas()
         ' realiza el primer filtro de la relacion patologia sintomas para obtener las primeras patologias que coinciden con el primer sintoma
@@ -49,7 +63,7 @@ Public Module ControladorDiagnostico
         For s = 1 To ListaSintomasSeleccionados.Count - 1
             For Each patologiasSeleccionadas In ListaFiltradaPatologiasXSintomas
                 For Each listaPrimariaPatologias In ListaRelacionPatologiaSintoma
-                    If patologiasSeleccionadas.IdPatologia = listaPrimariaPatologias.IdPatologia Then
+                    If listaPrimariaPatologias.IdPatologia = patologiasSeleccionadas.IdPatologia Then
                         If listaPrimariaPatologias.IdSintoma = ListaSintomasSeleccionados.Item(s).ID Then
                             patologiasSeleccionadas.incluida = True
                             Exit For
@@ -74,10 +88,6 @@ Public Module ControladorDiagnostico
         Next
         ponderarDiagnostico()
     End Sub
-
-    Public Function cantidadDesintomasXPatologia()
-        Return ListaFiltradaPatologiasXSintomas.Count
-    End Function
 
     Public Function DevuelveListaSintomasSeleccionados()
         Return ListaSintomasSeleccionados
