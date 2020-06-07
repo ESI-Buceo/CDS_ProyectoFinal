@@ -105,7 +105,6 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub btnVerInforme_Click_1(sender As Object, e As EventArgs) Handles btnVerInforme.Click
-
         flPanelDiagnostico.Visible = True
         ControladorDiagnostico.CrearInformeDiagnostico()
         For Each patologias In DevolverListaPatologiasDiagnostico()
@@ -160,7 +159,6 @@ Public Class frmPrincipal
         PanelPatologia.id = 0
         txtSintoma.Select()
         ControladorDiagnostico.nuevaConsulta()
-
     End Sub
 
 End Class

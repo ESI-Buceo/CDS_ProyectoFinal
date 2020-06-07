@@ -1,16 +1,17 @@
 ﻿Imports System.Data.Odbc
-Public Class ModeloRecibe
-    Public docIdentidad As Integer
-    Public idDiagnostico As Integer
 
-    Public Function guardarRelacionPacienteDiagnostico()
+Public Class ModeloTiene
+    Public idDiagnostico As Integer
+    Public idPatologia As Integer
+
+    Public Function guardarRelacionDiagnosticoPatologia()
         Dim conexion As New ModeloConexion
         Dim comando As New OdbcCommand
-
         Try
-            comando.CommandText = "INSERT INTO recibe (idDiagnostico, idPaciente) VALUES('" & Me.idDiagnostico & "', " & Me.docIdentidad & ")"
+            comando.CommandText = "INSERT INTO tiene VALUES(" & Me.idDiagnostico & ", " & Me.idPatologia & ")"
             comando.Connection = conexion.Abrir
             comando.ExecuteNonQuery()
+            conexion.Cerrar()
             Return True
         Catch ex As Exception
             MsgBox(ex.Message)

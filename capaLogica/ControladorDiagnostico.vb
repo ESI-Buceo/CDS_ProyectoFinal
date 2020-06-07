@@ -2,6 +2,7 @@
 Imports System.Data
 
 Public Module ControladorDiagnostico
+    Public CodigoDiagnostico As String
     Public PonderacionDiagnostico As Integer
     Public CantidadDeSintomasFiltrados As Integer
     Private ListaSintomasSeleccionados As New List(Of ModeloSintoma)
@@ -28,7 +29,7 @@ Public Module ControladorDiagnostico
         Next
     End Sub
 
-    Public Function validarSintomaSeleccionado(ByVal idSintoma As Integer, sintomaNombre As String)
+    Public Function ValidarSintomaSeleccionado(ByVal idSintoma As Integer, sintomaNombre As String)
         If ListaSintomasSeleccionados.Count = 0 Then
             ListaSintomasSeleccionados.Add(New ModeloSintoma With {.ID = idSintoma, .Nombre = sintomaNombre})
             Return True
@@ -55,7 +56,7 @@ Public Module ControladorDiagnostico
                 ListaFiltradaPatologiasXSintomas.Add(New ModeloAsociados With {.IdPatologia = ListaRelacionPatologiaSintoma.Item(index).IdPatologia, .IdSintoma = ListaRelacionPatologiaSintoma.Item(index).IdSintoma, .IdSigno = ListaRelacionPatologiaSintoma.Item(index).IdSigno})
             End If
         Next
-        filtroFinalPatologiaXSintomas()
+        filtroFinalPatologiaXsintomas()
     End Sub
 
     Private Sub filtroFinalPatologiaXsintomas()
@@ -98,7 +99,7 @@ Public Module ControladorDiagnostico
         Return ListaDePatologiasParaDiagnostico
     End Function
 
-    Public Function devolverlistaListaFiltradaPatologiasXSintomas()
+    Public Function DevolverlistaListaFiltradaPatologiasXSintomas()
         Return ListaFiltradaPatologiasXSintomas
     End Function
 
@@ -108,9 +109,43 @@ Public Module ControladorDiagnostico
         For Each patologias In ListaDePatologiasParaDiagnostico
             PonderacionDiagnostico = PonderacionDiagnostico + patologias.Ponderacion
         Next
+        guardarDiagnosticoEnBD()
     End Sub
 
-    Public Sub nuevaConsulta()
+    Private Sub guardarDiagnosticoEnBD()
+        Dim d As New ModeloDiagnostico
+        d.idDiagnostico = generarCodigoDeDiagnostico()
+        d.Prioridad = PonderacionDiagnostico
+        d.guardarDiagnostico(d)
+        guardarRelacionPacienteDiagnostico()
+    End Sub
+
+    Private Sub guardarRelacionPacienteDiagnostico()
+        Dim pd As New ModeloRecibe
+        pd.docIdentidad = "19248378"
+        pd.idDiagnostico = CodigoDiagnostico
+        pd.guardarRelacionPacienteDiagnostico()
+        guardarRelacionDiagnosticoPatologia()
+    End Sub
+
+    Private Sub guardarRelacionDiagnosticoPatologia()
+        For Each patologiasDeDiagnostico In ListaDePatologiasParaDiagnostico
+            Dim guardarTiene As New ModeloTiene
+            guardarTiene.idDiagnostico = CodigoDiagnostico
+            guardarTiene.idPatologia = patologiasDeDiagnostico.Id
+            guardarTiene.guardarRelacionDiagnosticoPatologia()
+        Next
+    End Sub
+
+    Private Function generarCodigoDeDiagnostico()
+        Dim fechaHora As Date = DateTime.Now
+        Dim codigo As String
+        codigo = fechaHora.ToString("dd yy hh mm ss")
+        CodigoDiagnostico = codigo.Replace(" ", "")
+        Return CodigoDiagnostico
+    End Function
+
+    Public Sub NuevaConsulta()
         ListaRelacionPatologiaSintoma.Clear()
         ListaSintomasSeleccionados.Clear()
         ListaDePatologiasParaDiagnostico.Clear()
@@ -142,4 +177,5 @@ Public Module ControladorDiagnostico
         End Select
         Return txtMensaje
     End Function
+
 End Module
