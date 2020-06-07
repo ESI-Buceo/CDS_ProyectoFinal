@@ -77,6 +77,11 @@ Public Class frmPrincipal
         btnVerInforme.Visible = True
     End Sub
 
+    Private Sub btnSi_Click(sender As Object, e As EventArgs) Handles btnSi.Click
+        seguirIngresandoSintomas()
+        nuevaPregunta()
+    End Sub
+
     Private Sub preguntarPorNuevoSintoma()
         panelBotonSiNo.Visible = True
         txtSintoma.Visible = False
@@ -89,11 +94,6 @@ Public Class frmPrincipal
         txtSintoma.Visible = True
         lblLine.Visible = True
         btnSiguienteSintoma.Visible = True
-    End Sub
-
-    Private Sub btnSi_Click(sender As Object, e As EventArgs) Handles btnSi.Click
-        seguirIngresandoSintomas()
-        nuevaPregunta()
     End Sub
 
     Private Sub linkSaberMas_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles linkSaberMas.LinkClicked
@@ -114,7 +114,6 @@ Public Class frmPrincipal
         Next
         btnVerInforme.Visible = False
         btnNuevaConsulta.Visible = True
-        MsgBox("Hay cargadas " & ControladorDiagnostico.cantidadDesintomasXPatologia & " patologias")
     End Sub
 
     Private Sub clicBotonConsulta()
