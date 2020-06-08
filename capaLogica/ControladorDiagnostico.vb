@@ -103,13 +103,29 @@ Public Module ControladorDiagnostico
         Return ListaFiltradaPatologiasXSintomas
     End Function
 
-
     Private Sub ponderarDiagnostico()
+        'calcula la ponderacino del diagnostico que despues se utlizara en el chat
         PonderacionDiagnostico = 0
         For Each patologias In ListaDePatologiasParaDiagnostico
-            PonderacionDiagnostico = PonderacionDiagnostico + patologias.Ponderacion
+            If patologias.Ponderacion = 40 Then
+                PonderacionDiagnostico = 40
+                Exit For
+            Else
+                calcularPonderacionDiagnostico()
+            End If
         Next
         guardarDiagnosticoEnBD()
+    End Sub
+
+    Private Sub calcularPonderacionDiagnostico()
+        'Si no hay ninguna patologia de EMERGENCIA calcula el promedio para ordenar en el chat
+        Dim cantidad As Integer = ListaDePatologiasParaDiagnostico.Count
+        Dim totalPonderaciones As Integer
+
+        For Each patologias In ListaDePatologiasParaDiagnostico
+            totalPonderaciones = totalPonderaciones + patologias.Ponderacion
+        Next
+        PonderacionDiagnostico = totalPonderaciones / cantidad
     End Sub
 
     Private Sub guardarDiagnosticoEnBD()
