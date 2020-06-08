@@ -2,7 +2,7 @@
 Imports capaDatos
 Public Module ControladorSintomas
     Public Function listarSintomas() As DataTable
-        Dim s As New ModeloSintoma
+         Dim s As New ModeloSintoma
         Return s.TraeDatosSintomasDeBD()
     End Function
 

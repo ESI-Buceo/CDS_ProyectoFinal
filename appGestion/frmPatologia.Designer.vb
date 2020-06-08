@@ -67,7 +67,8 @@ Partial Class frmPatologia
         Me.lblUrgencia = New System.Windows.Forms.Label()
         Me.lblEmergencia = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
+
+      CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolsMenuPatologia.SuspendLayout()
         Me.tabDatosPatologia.SuspendLayout()
         Me.tabDatos.SuspendLayout()
@@ -84,7 +85,7 @@ Partial Class frmPatologia
         Me.picEncabezado.Location = New System.Drawing.Point(-2, 1)
         Me.picEncabezado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.picEncabezado.Name = "picEncabezado"
-        Me.picEncabezado.Size = New System.Drawing.Size(936, 79)
+        Me.picEncabezado.Size = New System.Drawing.Size(906, 79)
         Me.picEncabezado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.picEncabezado.TabIndex = 2
         Me.picEncabezado.TabStop = False
@@ -101,7 +102,7 @@ Partial Class frmPatologia
         Me.toolsMenuPatologia.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.toolsMenuPatologia.Location = New System.Drawing.Point(9, 83)
         Me.toolsMenuPatologia.Name = "toolsMenuPatologia"
-        Me.toolsMenuPatologia.Size = New System.Drawing.Size(925, 44)
+        Me.toolsMenuPatologia.Size = New System.Drawing.Size(891, 44)
         Me.toolsMenuPatologia.TabIndex = 3
         Me.toolsMenuPatologia.UseWaitCursor = True
         '
@@ -394,7 +395,7 @@ Partial Class frmPatologia
         'cbPatologiaPonderacion
         '
         Me.cbPatologiaPonderacion.FormattingEnabled = True
-        Me.cbPatologiaPonderacion.Items.AddRange(New Object() {"10", "20", "30", "40"})
+        Me.cbPatologiaPonderacion.Items.AddRange(New Object() {"10", "20", "30"})
         Me.cbPatologiaPonderacion.Location = New System.Drawing.Point(746, 22)
         Me.cbPatologiaPonderacion.Name = "cbPatologiaPonderacion"
         Me.cbPatologiaPonderacion.Size = New System.Drawing.Size(93, 27)
@@ -469,8 +470,7 @@ Partial Class frmPatologia
         Me.dgvListaDePatologias.Size = New System.Drawing.Size(861, 471)
         Me.dgvListaDePatologias.TabIndex = 0
         '
-        'lblUrgenciaMenor
-        '
+
         Me.lblUrgenciaMenor.BackColor = System.Drawing.Color.Green
         Me.lblUrgenciaMenor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUrgenciaMenor.ForeColor = System.Drawing.Color.White
@@ -516,9 +516,7 @@ Partial Class frmPatologia
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "10"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'frmPatologia
-        '
+
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(934, 661)
@@ -526,6 +524,8 @@ Partial Class frmPatologia
         Me.Controls.Add(Me.lblUrgenciaMenor)
         Me.Controls.Add(Me.lblUrgencia)
         Me.Controls.Add(Me.lblEmergencia)
+        Me.ClientSize = New System.Drawing.Size(905, 661)
+
         Me.Controls.Add(Me.tabDatosPatologia)
         Me.Controls.Add(Me.toolsMenuPatologia)
         Me.Controls.Add(Me.picEncabezado)
@@ -589,8 +589,10 @@ Partial Class frmPatologia
     Friend WithEvents colSintomaNombre As DataGridViewTextBoxColumn
     Friend WithEvents chkActiva As CheckBox
     Friend WithEvents lblActiva As Label
+
     Friend WithEvents lblUrgenciaMenor As Label
     Friend WithEvents lblUrgencia As Label
     Friend WithEvents lblEmergencia As Label
     Friend WithEvents Label1 As Label
+ master
 End Class
