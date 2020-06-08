@@ -73,9 +73,11 @@
     <Compile Include="ModeloPaciente.vb" />
     <Compile Include="ModeloPatologia.vb" />
     <Compile Include="ModeloPersona.vb" />
+    <Compile Include="ModeloRecibe.vb" />
     <Compile Include="ModeloSesion.vb" />
     <Compile Include="ModeloSignos.vb" />
     <Compile Include="ModeloSintoma.vb" />
+    <Compile Include="ModeloTiene.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

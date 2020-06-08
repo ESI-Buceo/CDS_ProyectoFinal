@@ -2,6 +2,7 @@
 Imports System.Data
 
 Public Module ControladorDiagnostico
+    Public CodigoDiagnostico As String
     Public PonderacionDiagnostico As Integer
     Public CantidadDeSintomasFiltrados As Integer
     Private ListaSintomasSeleccionados As New List(Of ModeloSintoma)
@@ -28,10 +29,24 @@ Public Module ControladorDiagnostico
         Next
     End Sub
 
+    Public Function ValidarSintomaSeleccionado(ByVal idSintoma As Integer, sintomaNombre As String)
+        If ListaSintomasSeleccionados.Count = 0 Then
+            ListaSintomasSeleccionados.Add(New ModeloSintoma With {.ID = idSintoma, .Nombre = sintomaNombre})
+            Return True
+        Else
+            Return VerificarSiYaFueIngresado(idSintoma, sintomaNombre)
+        End If
+    End Function
 
-    Public Sub cargarSintomaAListaSintomasSeleccionados(ByVal idSintoma As Integer, sintomaNombre As String)
-        ListaSintomasSeleccionados.Add(New ModeloSintoma With {.ID = idSintoma, .Nombre = sintomaNombre})
-    End Sub
+    Public Function VerificarSiYaFueIngresado(ByVal idSintoma As Integer, sintomaNombre As String)
+        For s = 0 To ListaSintomasSeleccionados.Count - 1
+            If ListaSintomasSeleccionados.Item(s).ID <> idSintoma Then
+                ListaSintomasSeleccionados.Add(New ModeloSintoma With {.ID = idSintoma, .Nombre = sintomaNombre})
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 
     Public Sub FiltrarPatologiasXSintomas()
         ' realiza el primer filtro de la relacion patologia sintomas para obtener las primeras patologias que coinciden con el primer sintoma
@@ -41,7 +56,7 @@ Public Module ControladorDiagnostico
                 ListaFiltradaPatologiasXSintomas.Add(New ModeloAsociados With {.IdPatologia = ListaRelacionPatologiaSintoma.Item(index).IdPatologia, .IdSintoma = ListaRelacionPatologiaSintoma.Item(index).IdSintoma, .IdSigno = ListaRelacionPatologiaSintoma.Item(index).IdSigno})
             End If
         Next
-        filtroFinalPatologiaXSintomas()
+        filtroFinalPatologiaXsintomas()
     End Sub
 
     Private Sub filtroFinalPatologiaXsintomas()
@@ -49,7 +64,7 @@ Public Module ControladorDiagnostico
         For s = 1 To ListaSintomasSeleccionados.Count - 1
             For Each patologiasSeleccionadas In ListaFiltradaPatologiasXSintomas
                 For Each listaPrimariaPatologias In ListaRelacionPatologiaSintoma
-                    If patologiasSeleccionadas.IdPatologia = listaPrimariaPatologias.IdPatologia Then
+                    If listaPrimariaPatologias.IdPatologia = patologiasSeleccionadas.IdPatologia Then
                         If listaPrimariaPatologias.IdSintoma = ListaSintomasSeleccionados.Item(s).ID Then
                             patologiasSeleccionadas.incluida = True
                             Exit For
@@ -75,10 +90,6 @@ Public Module ControladorDiagnostico
         ponderarDiagnostico()
     End Sub
 
-    Public Function cantidadDesintomasXPatologia()
-        Return ListaFiltradaPatologiasXSintomas.Count
-    End Function
-
     Public Function DevuelveListaSintomasSeleccionados()
         Return ListaSintomasSeleccionados
     End Function
@@ -88,19 +99,69 @@ Public Module ControladorDiagnostico
         Return ListaDePatologiasParaDiagnostico
     End Function
 
-    Public Function devolverlistaListaFiltradaPatologiasXSintomas()
+    Public Function DevolverlistaListaFiltradaPatologiasXSintomas()
         Return ListaFiltradaPatologiasXSintomas
     End Function
 
-
     Private Sub ponderarDiagnostico()
+        'calcula la ponderacino del diagnostico que despues se utlizara en el chat
         PonderacionDiagnostico = 0
         For Each patologias In ListaDePatologiasParaDiagnostico
-            PonderacionDiagnostico = PonderacionDiagnostico + patologias.Ponderacion
+            If patologias.Ponderacion = 40 Then
+                PonderacionDiagnostico = 40
+                Exit For
+            Else
+                calcularPonderacionDiagnostico()
+            End If
+        Next
+        guardarDiagnosticoEnBD()
+    End Sub
+
+    Private Sub calcularPonderacionDiagnostico()
+        'Si no hay ninguna patologia de EMERGENCIA calcula el promedio para ordenar en el chat
+        Dim cantidad As Integer = ListaDePatologiasParaDiagnostico.Count
+        Dim totalPonderaciones As Integer
+
+        For Each patologias In ListaDePatologiasParaDiagnostico
+            totalPonderaciones = totalPonderaciones + patologias.Ponderacion
+        Next
+        PonderacionDiagnostico = totalPonderaciones / cantidad
+    End Sub
+
+    Private Sub guardarDiagnosticoEnBD()
+        Dim d As New ModeloDiagnostico
+        d.idDiagnostico = generarCodigoDeDiagnostico()
+        d.Prioridad = PonderacionDiagnostico
+        d.guardarDiagnostico(d)
+        guardarRelacionPacienteDiagnostico()
+    End Sub
+
+    Private Sub guardarRelacionPacienteDiagnostico()
+        Dim pd As New ModeloRecibe
+        pd.docIdentidad = "19248378"
+        pd.idDiagnostico = CodigoDiagnostico
+        pd.guardarRelacionPacienteDiagnostico()
+        guardarRelacionDiagnosticoPatologia()
+    End Sub
+
+    Private Sub guardarRelacionDiagnosticoPatologia()
+        For Each patologiasDeDiagnostico In ListaDePatologiasParaDiagnostico
+            Dim guardarTiene As New ModeloTiene
+            guardarTiene.idDiagnostico = CodigoDiagnostico
+            guardarTiene.idPatologia = patologiasDeDiagnostico.Id
+            guardarTiene.guardarRelacionDiagnosticoPatologia()
         Next
     End Sub
 
-    Public Sub nuevaConsulta()
+    Private Function generarCodigoDeDiagnostico()
+        Dim fechaHora As Date = DateTime.Now
+        Dim codigo As String
+        codigo = fechaHora.ToString("dd yy hh mm ss")
+        CodigoDiagnostico = codigo.Replace(" ", "")
+        Return CodigoDiagnostico
+    End Function
+
+    Public Sub NuevaConsulta()
         ListaRelacionPatologiaSintoma.Clear()
         ListaSintomasSeleccionados.Clear()
         ListaDePatologiasParaDiagnostico.Clear()
@@ -132,4 +193,5 @@ Public Module ControladorDiagnostico
         End Select
         Return txtMensaje
     End Function
+
 End Module

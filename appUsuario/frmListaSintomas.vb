@@ -11,14 +11,14 @@ Public Class frmListaSintomas
         cargarSintomaADiagnostico(dgvSintomas.Item(0, e.RowIndex).Value, dgvSintomas.Item(1, e.RowIndex).Value)
     End Sub
 
-    Private Sub dgvSintomas_CellMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvSintomas.CellMouseDoubleClick
-        cargarSintomaADiagnostico(dgvSintomas.Item(0, e.RowIndex).Value, dgvSintomas.Item(1, e.RowIndex).Value)
-    End Sub
-
     Private Sub cargarSintomaADiagnostico(ByVal idSintoma As Integer, sintomaNombre As String)
         'Este metodo envia la informacion del sintoma seleccionado para que sea guardado en el diagnostico
-        ControladorDiagnostico.cargarSintomaAListaSintomasSeleccionados(idSintoma, sintomaNombre)
-        sintomaSeleccionado(idSintoma, sintomaNombre)
+        If ControladorDiagnostico.validarSintomaSeleccionado(idSintoma, sintomaNombre) Then
+            sintomaSeleccionado(idSintoma, sintomaNombre)
+        Else
+            MsgBox("El sintoma seleccionado ya esta ingresado")
+        End If
+
     End Sub
 
     Private Sub sintomaSeleccionado(ByVal idSintoma As Integer, sintomaNombre As String)
