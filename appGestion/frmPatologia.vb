@@ -7,6 +7,7 @@ Public Class frmPatologia
         habilitarAgregarSintomaYSignos()
         txtPatologiaNombre.Select()
         colorearCamposRqueridos()
+
     End Sub
 
     'Guarda los datos de la patologia
