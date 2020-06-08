@@ -269,7 +269,7 @@ Partial Class frmPatologia
         Me.Panel1.Controls.Add(Me.lblSintomas)
         Me.Panel1.Controls.Add(Me.btnAgregarSintoma)
         Me.Panel1.Controls.Add(Me.dgvSintomasPatologia)
-        Me.Panel1.Location = New System.Drawing.Point(6, 184)
+        Me.Panel1.Location = New System.Drawing.Point(6, 190)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(833, 219)
         Me.Panel1.TabIndex = 12
@@ -379,7 +379,7 @@ Partial Class frmPatologia
         Me.txtPatologiaDescipcion.Multiline = True
         Me.txtPatologiaDescipcion.Name = "txtPatologiaDescipcion"
         Me.txtPatologiaDescipcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtPatologiaDescipcion.Size = New System.Drawing.Size(675, 91)
+        Me.txtPatologiaDescipcion.Size = New System.Drawing.Size(675, 115)
         Me.txtPatologiaDescipcion.TabIndex = 7
         '
         'lblPatologiaDescripcion
