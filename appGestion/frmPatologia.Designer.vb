@@ -63,7 +63,12 @@ Partial Class frmPatologia
         Me.lblPatologiaID = New System.Windows.Forms.Label()
         Me.tabPatologiaBusqueda = New System.Windows.Forms.TabPage()
         Me.dgvListaDePatologias = New System.Windows.Forms.DataGridView()
-        CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.lblUrgenciaMenor = New System.Windows.Forms.Label()
+        Me.lblUrgencia = New System.Windows.Forms.Label()
+        Me.lblEmergencia = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+
+      CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolsMenuPatologia.SuspendLayout()
         Me.tabDatosPatologia.SuspendLayout()
         Me.tabDatos.SuspendLayout()
@@ -265,7 +270,7 @@ Partial Class frmPatologia
         Me.Panel1.Controls.Add(Me.lblSintomas)
         Me.Panel1.Controls.Add(Me.btnAgregarSintoma)
         Me.Panel1.Controls.Add(Me.dgvSintomasPatologia)
-        Me.Panel1.Location = New System.Drawing.Point(6, 184)
+        Me.Panel1.Location = New System.Drawing.Point(6, 190)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(833, 219)
         Me.Panel1.TabIndex = 12
@@ -375,7 +380,7 @@ Partial Class frmPatologia
         Me.txtPatologiaDescipcion.Multiline = True
         Me.txtPatologiaDescipcion.Name = "txtPatologiaDescipcion"
         Me.txtPatologiaDescipcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtPatologiaDescipcion.Size = New System.Drawing.Size(675, 91)
+        Me.txtPatologiaDescipcion.Size = New System.Drawing.Size(675, 115)
         Me.txtPatologiaDescipcion.TabIndex = 7
         '
         'lblPatologiaDescripcion
@@ -465,11 +470,62 @@ Partial Class frmPatologia
         Me.dgvListaDePatologias.Size = New System.Drawing.Size(861, 471)
         Me.dgvListaDePatologias.TabIndex = 0
         '
-        'frmPatologia
+
+        Me.lblUrgenciaMenor.BackColor = System.Drawing.Color.Green
+        Me.lblUrgenciaMenor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUrgenciaMenor.ForeColor = System.Drawing.Color.White
+        Me.lblUrgenciaMenor.Location = New System.Drawing.Point(889, 226)
+        Me.lblUrgenciaMenor.Name = "lblUrgenciaMenor"
+        Me.lblUrgenciaMenor.Size = New System.Drawing.Size(37, 29)
+        Me.lblUrgenciaMenor.TabIndex = 11
+        Me.lblUrgenciaMenor.Text = "20"
+        Me.lblUrgenciaMenor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'lblUrgencia
+        '
+        Me.lblUrgencia.BackColor = System.Drawing.Color.Yellow
+        Me.lblUrgencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUrgencia.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lblUrgencia.Location = New System.Drawing.Point(889, 197)
+        Me.lblUrgencia.Name = "lblUrgencia"
+        Me.lblUrgencia.Size = New System.Drawing.Size(37, 29)
+        Me.lblUrgencia.TabIndex = 10
+        Me.lblUrgencia.Text = "30"
+        Me.lblUrgencia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblEmergencia
+        '
+        Me.lblEmergencia.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.lblEmergencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmergencia.ForeColor = System.Drawing.Color.White
+        Me.lblEmergencia.Location = New System.Drawing.Point(889, 168)
+        Me.lblEmergencia.Name = "lblEmergencia"
+        Me.lblEmergencia.Size = New System.Drawing.Size(37, 29)
+        Me.lblEmergencia.TabIndex = 9
+        Me.lblEmergencia.Text = "40"
+        Me.lblEmergencia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.Teal
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.White
+        Me.Label1.Location = New System.Drawing.Point(889, 255)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(37, 29)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "10"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(934, 661)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblUrgenciaMenor)
+        Me.Controls.Add(Me.lblUrgencia)
+        Me.Controls.Add(Me.lblEmergencia)
         Me.ClientSize = New System.Drawing.Size(905, 661)
+
         Me.Controls.Add(Me.tabDatosPatologia)
         Me.Controls.Add(Me.toolsMenuPatologia)
         Me.Controls.Add(Me.picEncabezado)
@@ -533,4 +589,10 @@ Partial Class frmPatologia
     Friend WithEvents colSintomaNombre As DataGridViewTextBoxColumn
     Friend WithEvents chkActiva As CheckBox
     Friend WithEvents lblActiva As Label
+
+    Friend WithEvents lblUrgenciaMenor As Label
+    Friend WithEvents lblUrgencia As Label
+    Friend WithEvents lblEmergencia As Label
+    Friend WithEvents Label1 As Label
+ master
 End Class
