@@ -20,11 +20,10 @@ Public Class ModeloSintoma
     End Function
 
     Public Function TraeDatosSintomasDeBD() As DataTable
+        Dim conexion As New ModeloConexion
+        Dim tabla As New DataTable
+        Dim comando As New OdbcCommand
         Try
-            Dim conexion As New ModeloConexion
-            Dim tabla As New DataTable
-            Dim comando As New OdbcCommand
-
             comando.CommandText = "SELECT * FROM sintoma WHERE activo = 1 "
             comando.Connection = conexion.Abrir()
             lector = comando.ExecuteReader()
@@ -32,31 +31,25 @@ Public Class ModeloSintoma
             conexion.Cerrar()
             Return tabla
         Catch ex As Exception
-            mostrarExepcion(ex)
+            Return tabla
         End Try
 
     End Function
 
     Public Function TraeDatosSintomasDeBD(sintoma As String) As DataTable
+        Dim conexion As New ModeloConexion
+        Dim tabla As New DataTable
+        Dim comando As New OdbcCommand
         Try
-            Dim conexion As New ModeloConexion
-            Dim tabla As New DataTable
-            Dim comando As New OdbcCommand
-
             comando.CommandText = "SELECT * FROM sintoma WHERE activo = 1 AND nombre like '%" + sintoma + "%'"
             comando.Connection = conexion.Abrir()
             lector = comando.ExecuteReader()
             tabla.Load(lector)
             Return tabla
-
             conexion.Cerrar()
         Catch ex As Exception
-            mostrarExepcion(ex)
+            Return tabla
         End Try
     End Function
-
-    Private Sub mostrarExepcion(ByVal exeption As Exception)
-        MsgBox(exeption.Message)
-    End Sub
 
 End Class

@@ -41,11 +41,11 @@ Public Class ModeloPatologia
 
     Public Function TraeDatosPatologiasDeBD() As DataTable
         'trae de la base de datos las patolgias registadas
-        Try
-            Dim conexion As New ModeloConexion
-            Dim comando As New OdbcCommand
-            Dim tabla As New DataTable
+        Dim conexion As New ModeloConexion
+        Dim comando As New OdbcCommand
+        Dim tabla As New DataTable
 
+        Try
             conexion.Abrir()
             comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 "
             comando.Connection = conexion.Abrir()
@@ -53,28 +53,26 @@ Public Class ModeloPatologia
             tabla.Load(LectorPatologia)
             conexion.Cerrar()
             Return tabla
-
         Catch ex As Exception
-            mostrarExepcion(ex)
+            Return tabla
         End Try
     End Function
 
-    Public Function TraeDatosPatologiasDeBD(ByVal nombre As String) As DataTable
+    Public Function BuscarPatologiaPorNombre(ByVal nombre As String) As DataTable
         'trae de la base de datos las patolgias registadas
-        Try
-            Dim conexion As New ModeloConexion
-            Dim comando As New OdbcCommand
-            Dim tabla As New DataTable
+        Dim conexion As New ModeloConexion
+        Dim comando As New OdbcCommand
+        Dim tabla As New DataTable
 
+        Try
             comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 AND nombre like '%" + nombre + "%'"
             comando.Connection = conexion.Abrir()
             LectorPatologia = comando.ExecuteReader()
             tabla.Load(LectorPatologia)
             conexion.Cerrar()
             Return tabla
-
         Catch ex As Exception
-            mostrarExepcion(ex)
+            Return tabla
         End Try
     End Function
 
@@ -87,7 +85,6 @@ Public Class ModeloPatologia
             comando.Connection = conexion.Abrir()
             LectorPatologia = comando.ExecuteReader()
             Return crearObjetoPatologia(LectorPatologia)
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -104,7 +101,4 @@ Public Class ModeloPatologia
         Return datosPatologia
     End Function
 
-    Private Sub mostrarExepcion(ByVal exeption As Exception)
-        MsgBox(exeption.Message)
-    End Sub
 End Class

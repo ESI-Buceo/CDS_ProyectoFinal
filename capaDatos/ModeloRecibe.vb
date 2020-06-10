@@ -6,14 +6,12 @@ Public Class ModeloRecibe
     Public Function guardarRelacionPacienteDiagnostico()
         Dim conexion As New ModeloConexion
         Dim comando As New OdbcCommand
-
         Try
             comando.CommandText = "INSERT INTO recibe (idDiagnostico, idPaciente) VALUES('" & Me.idDiagnostico & "', " & Me.docIdentidad & ")"
             comando.Connection = conexion.Abrir
             comando.ExecuteNonQuery()
             Return True
         Catch ex As Exception
-            MsgBox(ex.Message)
             Return False
         End Try
     End Function
