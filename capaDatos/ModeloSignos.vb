@@ -1,8 +1,8 @@
 ﻿Imports capaDatos
 Public Class ModeloSignos
-    Public ID As Integer
+    Public ID As String
     Public Concepto As String
-    Public Intensidad As Integer
+    Public Intensidad As String
     Public Estado As Boolean
     Public ListaSignos As List(Of Single)
 

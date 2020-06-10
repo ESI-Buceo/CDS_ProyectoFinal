@@ -6,10 +6,9 @@ Public Class ModeloDiagnostico
 
     Public Function guardarDiagnostico(ByRef diagnostico As ModeloDiagnostico) As Boolean
         'codigo para guardar el diagnostico en la base de datos
+        Dim conexion As New ModeloConexion
+        Dim comando As New OdbcCommand
         Try
-            Dim conexion As New ModeloConexion
-            Dim comando As New OdbcCommand
-
             'Guarda registro de diagnostico
             comando.CommandText = "INSERT INTO diagnostico (id, prioridad) VALUES (" & Me.idDiagnostico & ", " & Me.Prioridad & ")"
             comando.Connection = conexion.Abrir()
