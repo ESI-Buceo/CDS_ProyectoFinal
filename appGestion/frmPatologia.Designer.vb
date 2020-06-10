@@ -78,9 +78,9 @@ Partial Class frmPatologia
         '
         Me.picEncabezado.Image = CType(resources.GetObject("picEncabezado.Image"), System.Drawing.Image)
         Me.picEncabezado.Location = New System.Drawing.Point(-2, 1)
-        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.picEncabezado.Name = "picEncabezado"
-        Me.picEncabezado.Size = New System.Drawing.Size(906, 79)
+        Me.picEncabezado.Size = New System.Drawing.Size(680, 64)
         Me.picEncabezado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.picEncabezado.TabIndex = 2
         Me.picEncabezado.TabStop = False
@@ -95,9 +95,9 @@ Partial Class frmPatologia
         Me.toolsMenuPatologia.ImeMode = System.Windows.Forms.ImeMode.[On]
         Me.toolsMenuPatologia.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuBtnModificar})
         Me.toolsMenuPatologia.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
-        Me.toolsMenuPatologia.Location = New System.Drawing.Point(9, 83)
+        Me.toolsMenuPatologia.Location = New System.Drawing.Point(7, 67)
         Me.toolsMenuPatologia.Name = "toolsMenuPatologia"
-        Me.toolsMenuPatologia.Size = New System.Drawing.Size(891, 44)
+        Me.toolsMenuPatologia.Size = New System.Drawing.Size(668, 36)
         Me.toolsMenuPatologia.TabIndex = 3
         Me.toolsMenuPatologia.UseWaitCursor = True
         '
@@ -107,7 +107,7 @@ Partial Class frmPatologia
         Me.mnuBtnAgregar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnAgregar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnAgregar.Name = "mnuBtnAgregar"
-        Me.mnuBtnAgregar.Size = New System.Drawing.Size(97, 29)
+        Me.mnuBtnAgregar.Size = New System.Drawing.Size(88, 29)
         Me.mnuBtnAgregar.Text = "Agregar"
         Me.mnuBtnAgregar.ToolTipText = "Agrega un nuevo registro"
         '
@@ -123,7 +123,7 @@ Partial Class frmPatologia
         Me.mnuBtnGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnGuardar.Name = "mnuBtnGuardar"
-        Me.mnuBtnGuardar.Size = New System.Drawing.Size(98, 29)
+        Me.mnuBtnGuardar.Size = New System.Drawing.Size(90, 29)
         Me.mnuBtnGuardar.Text = "Guardar"
         Me.mnuBtnGuardar.ToolTipText = "Guarda los cambios"
         '
@@ -139,7 +139,7 @@ Partial Class frmPatologia
         Me.mnuBtnCancelar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnCancelar.Name = "mnuBtnCancelar"
-        Me.mnuBtnCancelar.Size = New System.Drawing.Size(104, 29)
+        Me.mnuBtnCancelar.Size = New System.Drawing.Size(94, 29)
         Me.mnuBtnCancelar.Text = "Cancelar"
         Me.mnuBtnCancelar.ToolTipText = "Cancela los cambios"
         '
@@ -154,7 +154,7 @@ Partial Class frmPatologia
         Me.mnuBtnNueva.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnNueva.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnNueva.Name = "mnuBtnNueva"
-        Me.mnuBtnNueva.Size = New System.Drawing.Size(83, 29)
+        Me.mnuBtnNueva.Size = New System.Drawing.Size(77, 29)
         Me.mnuBtnNueva.Text = "Nueva"
         Me.mnuBtnNueva.ToolTipText = "Inicia una nueva busqueda"
         '
@@ -170,7 +170,7 @@ Partial Class frmPatologia
         Me.mnuBtnBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnBuscar.Name = "mnuBtnBuscar"
-        Me.mnuBtnBuscar.Size = New System.Drawing.Size(90, 29)
+        Me.mnuBtnBuscar.Size = New System.Drawing.Size(81, 29)
         Me.mnuBtnBuscar.Text = "Buscar"
         Me.mnuBtnBuscar.ToolTipText = "Buscar registros"
         '
@@ -186,7 +186,7 @@ Partial Class frmPatologia
         Me.mnuBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnBorrar.Name = "mnuBtnBorrar"
-        Me.mnuBtnBorrar.Size = New System.Drawing.Size(85, 29)
+        Me.mnuBtnBorrar.Size = New System.Drawing.Size(77, 29)
         Me.mnuBtnBorrar.Text = "Borrar"
         Me.mnuBtnBorrar.ToolTipText = "Borrar el registro en pantalla"
         '
@@ -203,7 +203,7 @@ Partial Class frmPatologia
         Me.mnuBtnModificar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnModificar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnModificar.Name = "mnuBtnModificar"
-        Me.mnuBtnModificar.Size = New System.Drawing.Size(106, 29)
+        Me.mnuBtnModificar.Size = New System.Drawing.Size(94, 29)
         Me.mnuBtnModificar.Text = "Modificar"
         Me.mnuBtnModificar.ToolTipText = "Modificar el registro en pantalla"
         '
@@ -212,10 +212,11 @@ Partial Class frmPatologia
         Me.tabDatosPatologia.Controls.Add(Me.tabDatos)
         Me.tabDatosPatologia.Controls.Add(Me.tabPatologiaBusqueda)
         Me.tabDatosPatologia.Font = New System.Drawing.Font("Arial", 10.2!)
-        Me.tabDatosPatologia.Location = New System.Drawing.Point(12, 140)
+        Me.tabDatosPatologia.Location = New System.Drawing.Point(9, 114)
+        Me.tabDatosPatologia.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.tabDatosPatologia.Name = "tabDatosPatologia"
         Me.tabDatosPatologia.SelectedIndex = 0
-        Me.tabDatosPatologia.Size = New System.Drawing.Size(875, 509)
+        Me.tabDatosPatologia.Size = New System.Drawing.Size(656, 414)
         Me.tabDatosPatologia.TabIndex = 4
         '
         'tabDatos
@@ -232,28 +233,31 @@ Partial Class frmPatologia
         Me.tabDatos.Controls.Add(Me.lblPatologiaNombre)
         Me.tabDatos.Controls.Add(Me.txtPatologiaID)
         Me.tabDatos.Controls.Add(Me.lblPatologiaID)
-        Me.tabDatos.Location = New System.Drawing.Point(4, 28)
+        Me.tabDatos.Location = New System.Drawing.Point(4, 25)
+        Me.tabDatos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.tabDatos.Name = "tabDatos"
-        Me.tabDatos.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabDatos.Size = New System.Drawing.Size(867, 477)
+        Me.tabDatos.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tabDatos.Size = New System.Drawing.Size(648, 385)
         Me.tabDatos.TabIndex = 0
         Me.tabDatos.Text = "Datos"
         '
         'chkActiva
         '
         Me.chkActiva.AutoSize = True
-        Me.chkActiva.Location = New System.Drawing.Point(160, 420)
+        Me.chkActiva.Location = New System.Drawing.Point(120, 341)
+        Me.chkActiva.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.chkActiva.Name = "chkActiva"
-        Me.chkActiva.Size = New System.Drawing.Size(18, 17)
+        Me.chkActiva.Size = New System.Drawing.Size(15, 14)
         Me.chkActiva.TabIndex = 14
         Me.chkActiva.UseVisualStyleBackColor = True
         '
         'lblActiva
         '
         Me.lblActiva.AutoSize = True
-        Me.lblActiva.Location = New System.Drawing.Point(73, 420)
+        Me.lblActiva.Location = New System.Drawing.Point(55, 341)
+        Me.lblActiva.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblActiva.Name = "lblActiva"
-        Me.lblActiva.Size = New System.Drawing.Size(72, 19)
+        Me.lblActiva.Size = New System.Drawing.Size(60, 16)
         Me.lblActiva.TabIndex = 13
         Me.lblActiva.Text = "ACTIVA:"
         '
@@ -265,9 +269,10 @@ Partial Class frmPatologia
         Me.Panel1.Controls.Add(Me.lblSintomas)
         Me.Panel1.Controls.Add(Me.btnAgregarSintoma)
         Me.Panel1.Controls.Add(Me.dgvSintomasPatologia)
-        Me.Panel1.Location = New System.Drawing.Point(6, 184)
+        Me.Panel1.Location = New System.Drawing.Point(4, 150)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(833, 219)
+        Me.Panel1.Size = New System.Drawing.Size(625, 178)
         Me.Panel1.TabIndex = 12
         '
         'btnAgregarSigno
@@ -275,9 +280,10 @@ Partial Class frmPatologia
         Me.btnAgregarSigno.Enabled = False
         Me.btnAgregarSigno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarSigno.ForeColor = System.Drawing.Color.Green
-        Me.btnAgregarSigno.Location = New System.Drawing.Point(561, 170)
+        Me.btnAgregarSigno.Location = New System.Drawing.Point(421, 138)
+        Me.btnAgregarSigno.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnAgregarSigno.Name = "btnAgregarSigno"
-        Me.btnAgregarSigno.Size = New System.Drawing.Size(105, 39)
+        Me.btnAgregarSigno.Size = New System.Drawing.Size(79, 32)
         Me.btnAgregarSigno.TabIndex = 29
         Me.btnAgregarSigno.Text = "Agregar"
         Me.btnAgregarSigno.UseVisualStyleBackColor = True
@@ -285,9 +291,10 @@ Partial Class frmPatologia
         'lblSignos
         '
         Me.lblSignos.AutoSize = True
-        Me.lblSignos.Location = New System.Drawing.Point(475, 15)
+        Me.lblSignos.Location = New System.Drawing.Point(356, 12)
+        Me.lblSignos.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSignos.Name = "lblSignos"
-        Me.lblSignos.Size = New System.Drawing.Size(76, 19)
+        Me.lblSignos.Size = New System.Drawing.Size(64, 16)
         Me.lblSignos.TabIndex = 28
         Me.lblSignos.Text = "SIGNOS:"
         '
@@ -297,12 +304,13 @@ Partial Class frmPatologia
         Me.dgvSignosPatologia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSignosPatologia.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
         Me.dgvSignosPatologia.Enabled = False
-        Me.dgvSignosPatologia.Location = New System.Drawing.Point(561, 3)
+        Me.dgvSignosPatologia.Location = New System.Drawing.Point(421, 2)
+        Me.dgvSignosPatologia.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.dgvSignosPatologia.Name = "dgvSignosPatologia"
         Me.dgvSignosPatologia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader
         Me.dgvSignosPatologia.RowTemplate.Height = 24
         Me.dgvSignosPatologia.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.dgvSignosPatologia.Size = New System.Drawing.Size(269, 161)
+        Me.dgvSignosPatologia.Size = New System.Drawing.Size(202, 131)
         Me.dgvSignosPatologia.TabIndex = 27
         '
         'DataGridViewTextBoxColumn1
@@ -322,9 +330,10 @@ Partial Class frmPatologia
         'lblSintomas
         '
         Me.lblSintomas.AutoSize = True
-        Me.lblSintomas.Location = New System.Drawing.Point(42, 15)
+        Me.lblSintomas.Location = New System.Drawing.Point(32, 12)
+        Me.lblSintomas.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblSintomas.Name = "lblSintomas"
-        Me.lblSintomas.Size = New System.Drawing.Size(97, 19)
+        Me.lblSintomas.Size = New System.Drawing.Size(82, 16)
         Me.lblSintomas.TabIndex = 26
         Me.lblSintomas.Text = "SINTOMAS:"
         '
@@ -333,9 +342,10 @@ Partial Class frmPatologia
         Me.btnAgregarSintoma.Enabled = False
         Me.btnAgregarSintoma.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarSintoma.ForeColor = System.Drawing.Color.Green
-        Me.btnAgregarSintoma.Location = New System.Drawing.Point(156, 170)
+        Me.btnAgregarSintoma.Location = New System.Drawing.Point(117, 138)
+        Me.btnAgregarSintoma.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnAgregarSintoma.Name = "btnAgregarSintoma"
-        Me.btnAgregarSintoma.Size = New System.Drawing.Size(105, 39)
+        Me.btnAgregarSintoma.Size = New System.Drawing.Size(79, 32)
         Me.btnAgregarSintoma.TabIndex = 25
         Me.btnAgregarSintoma.Text = "Agregar"
         Me.btnAgregarSintoma.UseVisualStyleBackColor = True
@@ -346,12 +356,13 @@ Partial Class frmPatologia
         Me.dgvSintomasPatologia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvSintomasPatologia.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colID, Me.colSintomaNombre})
         Me.dgvSintomasPatologia.Enabled = False
-        Me.dgvSintomasPatologia.Location = New System.Drawing.Point(154, 3)
+        Me.dgvSintomasPatologia.Location = New System.Drawing.Point(116, 2)
+        Me.dgvSintomasPatologia.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.dgvSintomasPatologia.Name = "dgvSintomasPatologia"
         Me.dgvSintomasPatologia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader
         Me.dgvSintomasPatologia.RowTemplate.Height = 24
         Me.dgvSintomasPatologia.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.dgvSintomasPatologia.Size = New System.Drawing.Size(273, 161)
+        Me.dgvSintomasPatologia.Size = New System.Drawing.Size(205, 131)
         Me.dgvSintomasPatologia.TabIndex = 24
         '
         'colID
@@ -371,19 +382,21 @@ Partial Class frmPatologia
         'txtPatologiaDescipcion
         '
         Me.txtPatologiaDescipcion.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtPatologiaDescipcion.Location = New System.Drawing.Point(162, 69)
+        Me.txtPatologiaDescipcion.Location = New System.Drawing.Point(122, 56)
+        Me.txtPatologiaDescipcion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPatologiaDescipcion.Multiline = True
         Me.txtPatologiaDescipcion.Name = "txtPatologiaDescipcion"
         Me.txtPatologiaDescipcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtPatologiaDescipcion.Size = New System.Drawing.Size(675, 91)
+        Me.txtPatologiaDescipcion.Size = New System.Drawing.Size(506, 74)
         Me.txtPatologiaDescipcion.TabIndex = 7
         '
         'lblPatologiaDescripcion
         '
         Me.lblPatologiaDescripcion.AutoSize = True
-        Me.lblPatologiaDescripcion.Location = New System.Drawing.Point(18, 69)
+        Me.lblPatologiaDescripcion.Location = New System.Drawing.Point(14, 56)
+        Me.lblPatologiaDescripcion.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPatologiaDescripcion.Name = "lblPatologiaDescripcion"
-        Me.lblPatologiaDescripcion.Size = New System.Drawing.Size(127, 19)
+        Me.lblPatologiaDescripcion.Size = New System.Drawing.Size(105, 16)
         Me.lblPatologiaDescripcion.TabIndex = 6
         Me.lblPatologiaDescripcion.Text = "DESCRIPCION:"
         '
@@ -391,62 +404,69 @@ Partial Class frmPatologia
         '
         Me.cbPatologiaPonderacion.FormattingEnabled = True
         Me.cbPatologiaPonderacion.Items.AddRange(New Object() {"10", "20", "30"})
-        Me.cbPatologiaPonderacion.Location = New System.Drawing.Point(746, 22)
+        Me.cbPatologiaPonderacion.Location = New System.Drawing.Point(560, 18)
+        Me.cbPatologiaPonderacion.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.cbPatologiaPonderacion.Name = "cbPatologiaPonderacion"
-        Me.cbPatologiaPonderacion.Size = New System.Drawing.Size(93, 27)
+        Me.cbPatologiaPonderacion.Size = New System.Drawing.Size(71, 24)
         Me.cbPatologiaPonderacion.TabIndex = 5
         '
         'lblPatologiaPonderacion
         '
         Me.lblPatologiaPonderacion.AutoSize = True
-        Me.lblPatologiaPonderacion.Location = New System.Drawing.Point(599, 26)
+        Me.lblPatologiaPonderacion.Location = New System.Drawing.Point(449, 21)
+        Me.lblPatologiaPonderacion.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPatologiaPonderacion.Name = "lblPatologiaPonderacion"
-        Me.lblPatologiaPonderacion.Size = New System.Drawing.Size(133, 19)
+        Me.lblPatologiaPonderacion.Size = New System.Drawing.Size(112, 16)
         Me.lblPatologiaPonderacion.TabIndex = 4
         Me.lblPatologiaPonderacion.Text = "PONDERACION:"
         '
         'txtPatologiaNombre
         '
-        Me.txtPatologiaNombre.Location = New System.Drawing.Point(378, 22)
+        Me.txtPatologiaNombre.Location = New System.Drawing.Point(284, 18)
+        Me.txtPatologiaNombre.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPatologiaNombre.Name = "txtPatologiaNombre"
-        Me.txtPatologiaNombre.Size = New System.Drawing.Size(198, 27)
+        Me.txtPatologiaNombre.Size = New System.Drawing.Size(150, 23)
         Me.txtPatologiaNombre.TabIndex = 3
         '
         'lblPatologiaNombre
         '
         Me.lblPatologiaNombre.AutoSize = True
-        Me.lblPatologiaNombre.Location = New System.Drawing.Point(278, 26)
+        Me.lblPatologiaNombre.Location = New System.Drawing.Point(208, 21)
+        Me.lblPatologiaNombre.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPatologiaNombre.Name = "lblPatologiaNombre"
-        Me.lblPatologiaNombre.Size = New System.Drawing.Size(83, 19)
+        Me.lblPatologiaNombre.Size = New System.Drawing.Size(71, 16)
         Me.lblPatologiaNombre.TabIndex = 2
         Me.lblPatologiaNombre.Text = "NOMBRE:"
         '
         'txtPatologiaID
         '
         Me.txtPatologiaID.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.txtPatologiaID.Location = New System.Drawing.Point(160, 22)
+        Me.txtPatologiaID.Location = New System.Drawing.Point(120, 18)
+        Me.txtPatologiaID.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtPatologiaID.Name = "txtPatologiaID"
         Me.txtPatologiaID.ReadOnly = True
-        Me.txtPatologiaID.Size = New System.Drawing.Size(104, 27)
+        Me.txtPatologiaID.Size = New System.Drawing.Size(79, 23)
         Me.txtPatologiaID.TabIndex = 1
         Me.txtPatologiaID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblPatologiaID
         '
         Me.lblPatologiaID.AutoSize = True
-        Me.lblPatologiaID.Location = New System.Drawing.Point(114, 26)
+        Me.lblPatologiaID.Location = New System.Drawing.Point(86, 21)
+        Me.lblPatologiaID.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblPatologiaID.Name = "lblPatologiaID"
-        Me.lblPatologiaID.Size = New System.Drawing.Size(31, 19)
+        Me.lblPatologiaID.Size = New System.Drawing.Size(25, 16)
         Me.lblPatologiaID.TabIndex = 0
         Me.lblPatologiaID.Text = "ID:"
         '
         'tabPatologiaBusqueda
         '
         Me.tabPatologiaBusqueda.Controls.Add(Me.dgvListaDePatologias)
-        Me.tabPatologiaBusqueda.Location = New System.Drawing.Point(4, 28)
+        Me.tabPatologiaBusqueda.Location = New System.Drawing.Point(4, 25)
+        Me.tabPatologiaBusqueda.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.tabPatologiaBusqueda.Name = "tabPatologiaBusqueda"
-        Me.tabPatologiaBusqueda.Padding = New System.Windows.Forms.Padding(3)
-        Me.tabPatologiaBusqueda.Size = New System.Drawing.Size(867, 477)
+        Me.tabPatologiaBusqueda.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tabPatologiaBusqueda.Size = New System.Drawing.Size(648, 385)
         Me.tabPatologiaBusqueda.TabIndex = 1
         Me.tabPatologiaBusqueda.Text = "Busqueda"
         Me.tabPatologiaBusqueda.UseVisualStyleBackColor = True
@@ -458,23 +478,25 @@ Partial Class frmPatologia
         Me.dgvListaDePatologias.AllowUserToOrderColumns = True
         Me.dgvListaDePatologias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvListaDePatologias.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvListaDePatologias.Location = New System.Drawing.Point(3, 3)
+        Me.dgvListaDePatologias.Location = New System.Drawing.Point(2, 2)
+        Me.dgvListaDePatologias.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.dgvListaDePatologias.Name = "dgvListaDePatologias"
         Me.dgvListaDePatologias.ReadOnly = True
         Me.dgvListaDePatologias.RowTemplate.Height = 24
-        Me.dgvListaDePatologias.Size = New System.Drawing.Size(861, 471)
+        Me.dgvListaDePatologias.Size = New System.Drawing.Size(644, 381)
         Me.dgvListaDePatologias.TabIndex = 0
         '
         'frmPatologia
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(905, 661)
+        Me.ClientSize = New System.Drawing.Size(679, 537)
         Me.Controls.Add(Me.tabDatosPatologia)
         Me.Controls.Add(Me.toolsMenuPatologia)
         Me.Controls.Add(Me.picEncabezado)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "frmPatologia"
         Me.Text = "PATOLOGIA"
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).EndInit()
