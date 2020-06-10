@@ -10,7 +10,7 @@ Public Module ControladorPatologias
 
     Public Function ListarPatologias(ByVal nombre As String) As DataTable
         Dim p As New ModeloPatologia
-        Return p.TraeDatosPatologiasDeBD(nombre)
+        Return p.BuscarPatologiaPorNombre(nombre)
     End Function
 
     Public Function verPatologia(ByVal id As String) As ModeloPatologia

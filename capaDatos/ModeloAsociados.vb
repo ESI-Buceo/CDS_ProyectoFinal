@@ -9,22 +9,19 @@ Public Class ModeloAsociados
 
     Public Function CargarListaAsociadosBD()
         'carga la lista de la tabla asociados donde se vinculan patologias, sintomas y signos
+        Dim conexion As New ModeloConexion
+        Dim comando As New OdbcCommand
+        Dim tabla As New DataTable
         Try
-            Dim conexion As New ModeloConexion
-            Dim comando As New OdbcCommand
-            Dim tabla As New DataTable
-
             comando.CommandText = "SELECT DISTINCT(a.idPatologia), a.idPatologia, a.idSintoma, a.idSigno FROM asociados a JOIN patologia p ON p.activo = 1"
             comando.Connection = conexion.Abrir()
             lectorAsociados = comando.ExecuteReader()
             tabla.Load(lectorAsociados)
             conexion.Cerrar()
             Return tabla
-
         Catch ex As Exception
-            MsgBox(ex.Message)
+            Return False
         End Try
-        Return vbNull
     End Function
 
 

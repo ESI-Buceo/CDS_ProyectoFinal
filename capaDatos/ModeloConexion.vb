@@ -2,12 +2,12 @@
 Public Class ModeloConexion
 
     Dim conexion As New Odbc.OdbcConnection("DRIVER=MySQL ODBC 5.3 ANSI Driver;UID=u876920732_proyectocds;PWD=npvtcADR;PORT=3306;DATABASE=u876920732_dbTriage;SERVER=213.190.6.127")
-    Public Function Abrir() As Odbc.OdbcConnection
+    Public Function Abrir() As OdbcConnection
         Try
             conexion.Open()
             Return conexion
         Catch ex As Exception
-            MsgBox("falla de conexion")
+
         End Try
     End Function
 
