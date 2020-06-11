@@ -161,4 +161,7 @@ Public Class frmPrincipal
         ControladorDiagnostico.nuevaConsulta()
     End Sub
 
+    Private Sub txtSintoma_TextChanged(sender As Object, e As EventArgs) Handles txtSintoma.TextChanged
+
+    End Sub
 End Class

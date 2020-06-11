@@ -135,7 +135,7 @@ Partial Class frmPrincipal
         '
         Me.btnHistoria.FlatAppearance.BorderSize = 0
         Me.btnHistoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnHistoria.Font = New System.Drawing.Font("Product Sans", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHistoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHistoria.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer))
         Me.btnHistoria.Image = Global.appUsuario.My.Resources.Resources.btnReloj
         Me.btnHistoria.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -151,7 +151,7 @@ Partial Class frmPrincipal
         '
         Me.btnConsulta.FlatAppearance.BorderSize = 0
         Me.btnConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnConsulta.Font = New System.Drawing.Font("Product Sans", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnConsulta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(137, Byte), Integer))
         Me.btnConsulta.Image = Global.appUsuario.My.Resources.Resources.btnConsultaSelect
         Me.btnConsulta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
@@ -169,7 +169,7 @@ Partial Class frmPrincipal
         Me.lblPacienteNombre.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(157, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.lblPacienteNombre.Location = New System.Drawing.Point(76, 30)
         Me.lblPacienteNombre.Name = "lblPacienteNombre"
-        Me.lblPacienteNombre.Size = New System.Drawing.Size(179, 24)
+        Me.lblPacienteNombre.Size = New System.Drawing.Size(141, 18)
         Me.lblPacienteNombre.TabIndex = 1
         Me.lblPacienteNombre.Text = "nombre del paciente"
         '
@@ -307,25 +307,25 @@ Partial Class frmPrincipal
         Me.txtSintoma.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.txtSintoma.Location = New System.Drawing.Point(75, 241)
         Me.txtSintoma.Name = "txtSintoma"
-        Me.txtSintoma.Size = New System.Drawing.Size(288, 23)
+        Me.txtSintoma.Size = New System.Drawing.Size(288, 17)
         Me.txtSintoma.TabIndex = 4
         Me.txtSintoma.Text = "Ingresa un sintoma"
         '
         'lblLine
         '
         Me.lblLine.AutoSize = True
-        Me.lblLine.Font = New System.Drawing.Font("Product Sans Light", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLine.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblLine.ForeColor = System.Drawing.SystemColors.ActiveBorder
         Me.lblLine.Location = New System.Drawing.Point(70, 249)
         Me.lblLine.Name = "lblLine"
-        Me.lblLine.Size = New System.Drawing.Size(346, 21)
+        Me.lblLine.Size = New System.Drawing.Size(344, 17)
         Me.lblLine.TabIndex = 3
         Me.lblLine.Text = "__________________________________________"
         '
         'lblPregunta
         '
         Me.lblPregunta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblPregunta.Font = New System.Drawing.Font("Product Sans", 13.2!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPregunta.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPregunta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(157, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.lblPregunta.Location = New System.Drawing.Point(11, 176)
         Me.lblPregunta.Name = "lblPregunta"
@@ -340,7 +340,7 @@ Partial Class frmPrincipal
         Me.linkSaberMas.LinkColor = System.Drawing.Color.SteelBlue
         Me.linkSaberMas.Location = New System.Drawing.Point(63, 519)
         Me.linkSaberMas.Name = "linkSaberMas"
-        Me.linkSaberMas.Size = New System.Drawing.Size(110, 24)
+        Me.linkSaberMas.Size = New System.Drawing.Size(92, 18)
         Me.linkSaberMas.TabIndex = 3
         Me.linkSaberMas.TabStop = True
         Me.linkSaberMas.Text = "Saber mas..."
@@ -359,7 +359,7 @@ Partial Class frmPrincipal
         'lblMensaje
         '
         Me.lblMensaje.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lblMensaje.Font = New System.Drawing.Font("Product Sans", 13.2!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMensaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.2!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMensaje.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(157, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.lblMensaje.Location = New System.Drawing.Point(376, 158)
         Me.lblMensaje.Name = "lblMensaje"
@@ -381,14 +381,14 @@ Partial Class frmPrincipal
         '
         'frmPrincipal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1146, 658)
         Me.Controls.Add(Me.panelCabecera)
         Me.Controls.Add(Me.PanelDeConsulta)
         Me.Controls.Add(Me.PanelInicio)
-        Me.Font = New System.Drawing.Font("Product Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False

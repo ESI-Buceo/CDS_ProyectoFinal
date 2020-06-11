@@ -14,7 +14,6 @@ Public Class ModeloTiene
             conexion.Cerrar()
             Return True
         Catch ex As Exception
-            MsgBox(ex.Message)
             Return False
         End Try
     End Function

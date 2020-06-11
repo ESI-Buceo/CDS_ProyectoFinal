@@ -1,6 +1,6 @@
 ﻿Public Class ModeloSesion
     Public IDChat As String
-    Public Estado As Integer
+    Public Estado As String
     Public FechaHoraInicio As String
     Public FechaHoraFin As String
     Public Prioridad As Integer

@@ -112,4 +112,8 @@ Public Class frmPatologia
         frmListaSintomas.MdiParent = frmPrincipal
         frmListaSintomas.Show()
     End Sub
+
+    Private Sub cbPatologiaPonderacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbPatologiaPonderacion.SelectedIndexChanged
+
+    End Sub
 End Class

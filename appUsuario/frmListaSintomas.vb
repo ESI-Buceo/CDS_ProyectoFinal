@@ -27,4 +27,8 @@ Public Class frmListaSintomas
         frmPrincipal.txtSintoma.Text = sintomaNombre
         Me.Dispose()
     End Sub
+
+    Private Sub dgvSintomas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSintomas.CellContentClick
+
+    End Sub
 End Class
