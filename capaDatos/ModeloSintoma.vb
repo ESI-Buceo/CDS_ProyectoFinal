@@ -10,10 +10,24 @@ Public Class ModeloSintoma
 
     Public lector As OdbcDataReader
 
-    Public Function guardarSintoma() As Boolean
-        'envia solicitud de guardar
-        Return True
-    End Function
+
+
+
+    Public Sub GuardarSintoma()
+        Dim activo As Byte
+
+        If Me.Estado = True Then
+            activo = 1
+        Else
+            activo = 0
+        End If
+        comando.CommandText = "INSERT INTO sintoma (nombre, activo) VALUES('" & Me.Nombre & "', " & activo & " )"
+        comando.ExecuteNonQuery()
+
+    End Sub
+
+
+
 
     Public Function eliminarSintoma(ByVal id As Integer) As Boolean
         'elimina sintoma o lo marca como 0 - inhabilitado
