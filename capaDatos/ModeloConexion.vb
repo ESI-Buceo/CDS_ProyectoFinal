@@ -1,21 +1,24 @@
 ﻿Imports System.Data.Odbc
-Public Class ModeloConexion
+Public MustInherit Class ModeloConexion
 
-    Dim conexion As New Odbc.OdbcConnection("DRIVER=MySQL ODBC 5.3 ANSI Driver;UID=u876920732_proyectocds;PWD=npvtcADR;PORT=3306;DATABASE=u876920732_dbTriage;SERVER=213.190.6.127")
-    Public Function Abrir() As OdbcConnection
-        Try
-            conexion.Open()
-            Return conexion
-        Catch ex As Exception
+    Public driver As String = "MySQL ODBC 5.3 ANSI Driver"
+    Public uid As String = "u876920732_proyectocds"
+    Public pwd As String = "npvtcADR"
+    Public port As String = "3306"
+    Public database As String = "u876920732_dbTriage"
+    Public server As String = "213.190.6.127"
 
-        End Try
-    End Function
+    Public conexion As New OdbcConnection("DRIVER=" + Me.driver +
+                                       ";UID=" + Me.uid +
+                                       ";PWD=" + Me.pwd +
+                                       ";PORT=" + Me.port +
+                                       ";DATABASE=" + Me.database +
+                                       ";SERVER=" + Me.server)
+    Public comando As New OdbcCommand
+    Public reader As OdbcDataReader
 
-    Public Sub Cerrar()
-        Try
-            conexion.Close()
-        Catch ex As Exception
-
-        End Try
+    Public Sub New()
+        Me.conexion.Open()
+        Me.comando.Connection = Me.conexion
     End Sub
 End Class

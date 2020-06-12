@@ -1,5 +1,7 @@
 ﻿Imports capaDatos
 Public Class ModeloSignos
+    Inherits ModeloConexion
+
     Public ID As String
     Public Concepto As String
     Public Intensidad As String

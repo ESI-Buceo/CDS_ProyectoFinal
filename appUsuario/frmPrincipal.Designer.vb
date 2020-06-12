@@ -169,7 +169,7 @@ Partial Class frmPrincipal
         Me.lblPacienteNombre.ForeColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(157, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.lblPacienteNombre.Location = New System.Drawing.Point(76, 30)
         Me.lblPacienteNombre.Name = "lblPacienteNombre"
-        Me.lblPacienteNombre.Size = New System.Drawing.Size(141, 18)
+        Me.lblPacienteNombre.Size = New System.Drawing.Size(184, 24)
         Me.lblPacienteNombre.TabIndex = 1
         Me.lblPacienteNombre.Text = "nombre del paciente"
         '
@@ -307,7 +307,7 @@ Partial Class frmPrincipal
         Me.txtSintoma.ForeColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.txtSintoma.Location = New System.Drawing.Point(75, 241)
         Me.txtSintoma.Name = "txtSintoma"
-        Me.txtSintoma.Size = New System.Drawing.Size(288, 17)
+        Me.txtSintoma.Size = New System.Drawing.Size(288, 22)
         Me.txtSintoma.TabIndex = 4
         Me.txtSintoma.Text = "Ingresa un sintoma"
         '
@@ -318,7 +318,7 @@ Partial Class frmPrincipal
         Me.lblLine.ForeColor = System.Drawing.SystemColors.ActiveBorder
         Me.lblLine.Location = New System.Drawing.Point(70, 249)
         Me.lblLine.Name = "lblLine"
-        Me.lblLine.Size = New System.Drawing.Size(344, 17)
+        Me.lblLine.Size = New System.Drawing.Size(387, 20)
         Me.lblLine.TabIndex = 3
         Me.lblLine.Text = "__________________________________________"
         '
@@ -340,7 +340,7 @@ Partial Class frmPrincipal
         Me.linkSaberMas.LinkColor = System.Drawing.Color.SteelBlue
         Me.linkSaberMas.Location = New System.Drawing.Point(63, 519)
         Me.linkSaberMas.Name = "linkSaberMas"
-        Me.linkSaberMas.Size = New System.Drawing.Size(92, 18)
+        Me.linkSaberMas.Size = New System.Drawing.Size(115, 24)
         Me.linkSaberMas.TabIndex = 3
         Me.linkSaberMas.TabStop = True
         Me.linkSaberMas.Text = "Saber mas..."
@@ -381,7 +381,7 @@ Partial Class frmPrincipal
         '
         'frmPrincipal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1146, 658)

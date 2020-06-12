@@ -105,14 +105,19 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub btnVerInforme_Click_1(sender As Object, e As EventArgs) Handles btnVerInforme.Click
-        flPanelDiagnostico.Visible = True
-        ControladorDiagnostico.CrearInformeDiagnostico()
-        For Each patologias In DevolverListaPatologiasDiagnostico()
-            Dim panel As New PanelPatologia With {.nombre = patologias.nombre, .descipcion = patologias.descripcion}
-            flPanelDiagnostico.Controls.Add(panel.CrearPanelPatologia)
-        Next
-        btnVerInforme.Visible = False
-        btnNuevaConsulta.Visible = True
+        Try
+            flPanelDiagnostico.Visible = True
+            ControladorDiagnostico.CrearInformeDiagnostico()
+            For Each patologias In DevolverListaPatologiasDiagnostico()
+                Dim panel As New PanelPatologia With {.nombre = patologias.nombre, .descipcion = patologias.descripcion}
+                flPanelDiagnostico.Controls.Add(panel.CrearPanelPatologia)
+            Next
+            btnVerInforme.Visible = False
+            btnNuevaConsulta.Visible = True
+        Catch ex As Exception
+            MsgBox("Not se creo el diagnostico")
+        End Try
+
     End Sub
 
     Private Sub clicBotonConsulta()
@@ -159,9 +164,5 @@ Public Class frmPrincipal
         PanelPatologia.id = 0
         txtSintoma.Select()
         ControladorDiagnostico.nuevaConsulta()
-    End Sub
-
-    Private Sub txtSintoma_TextChanged(sender As Object, e As EventArgs) Handles txtSintoma.TextChanged
-
     End Sub
 End Class

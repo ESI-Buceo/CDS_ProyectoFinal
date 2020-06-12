@@ -1,4 +1,6 @@
 ﻿Public Class ModeloSesion
+    Inherits ModeloConexion
+
     Public IDChat As String
     Public Estado As String
     Public FechaHoraInicio As String

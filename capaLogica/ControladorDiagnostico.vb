@@ -10,13 +10,11 @@ Public Module ControladorDiagnostico
     Public ListaFiltradaPatologiasXSintomas As New List(Of ModeloAsociados)
     Public ListaDePatologiasParaDiagnostico As New List(Of ModeloPatologia)
 
-
     Public Sub CrearInformeDiagnostico()
         'Carga la informacion de relacion patologia, signo, sintoma de la base de datos
         Dim a As New ModeloAsociados
         cargarListaRelacionPatologiaSintoma(a.CargarListaAsociadosBD())
         FiltrarPatologiasXSintomas()
-
     End Sub
 
     Private Sub cargarListaRelacionPatologiaSintoma(ByRef tablaAsociados As DataTable)
@@ -138,7 +136,7 @@ Public Module ControladorDiagnostico
 
     Private Sub guardarRelacionPacienteDiagnostico()
         Dim pd As New ModeloRecibe
-        pd.docIdentidad = "19248378"
+        pd.docIdentidad = "11111111"
         pd.idDiagnostico = CodigoDiagnostico
         pd.guardarRelacionPacienteDiagnostico()
         guardarRelacionDiagnosticoPatologia()

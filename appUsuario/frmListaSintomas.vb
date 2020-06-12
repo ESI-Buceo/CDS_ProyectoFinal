@@ -1,10 +1,15 @@
 ﻿Imports capaLogica
 Public Class frmListaSintomas
     Private Sub frmListaSintomas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dgvSintomas.DataSource = ControladorSintomas.listarSintomas(UCase(frmPrincipal.txtSintoma.Text))
-        dgvSintomas.Columns.Item(0).Visible = False
-        dgvSintomas.Columns.Item(1).Width = 200
-        dgvSintomas.Columns.Item(2).Visible = False
+        Try
+            dgvSintomas.DataSource = ControladorSintomas.listarSintomas(UCase(frmPrincipal.txtSintoma.Text))
+            dgvSintomas.Columns.Item(0).Visible = False
+            dgvSintomas.Columns.Item(1).Width = 200
+            dgvSintomas.Columns.Item(2).Visible = False
+        Catch ex As Exception
+            MsgBox("No se puede cargar la lista de sintomas")
+        End Try
+
     End Sub
 
     Private Sub dgvSintomas_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvSintomas.RowHeaderMouseDoubleClick
@@ -26,9 +31,5 @@ Public Class frmListaSintomas
         frmPrincipal.sintomaSeleccionado = True
         frmPrincipal.txtSintoma.Text = sintomaNombre
         Me.Dispose()
-    End Sub
-
-    Private Sub dgvSintomas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvSintomas.CellContentClick
-
     End Sub
 End Class

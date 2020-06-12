@@ -1,12 +1,13 @@
 ﻿Imports System.Data.Odbc
 
 Public Class ModeloPatologia
+    Inherits ModeloConexion
+
     Public Id As Integer
     Public Nombre As String
     Public Ponderacion As Integer
     Public Descripcion As String
     Public activo As Integer
-    Public LectorPatologia As OdbcDataReader
 
 
     Public Function GuaradrPatologia() As Boolean
@@ -41,17 +42,12 @@ Public Class ModeloPatologia
 
     Public Function TraeDatosPatologiasDeBD() As DataTable
         'trae de la base de datos las patolgias registadas
-        Dim conexion As New ModeloConexion
-        Dim comando As New OdbcCommand
         Dim tabla As New DataTable
 
         Try
-            conexion.Abrir()
             comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 "
-            comando.Connection = conexion.Abrir()
-            LectorPatologia = comando.ExecuteReader()
-            tabla.Load(LectorPatologia)
-            conexion.Cerrar()
+            reader = comando.ExecuteReader()
+            tabla.Load(reader)
             Return tabla
         Catch ex As Exception
             Return tabla
@@ -60,35 +56,17 @@ Public Class ModeloPatologia
 
     Public Function BuscarPatologiaPorNombre(ByVal nombre As String) As DataTable
         'trae de la base de datos las patolgias registadas
-        Dim conexion As New ModeloConexion
-        Dim comando As New OdbcCommand
         Dim tabla As New DataTable
-
-        Try
-            comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 AND nombre like '%" + nombre + "%'"
-            comando.Connection = conexion.Abrir()
-            LectorPatologia = comando.ExecuteReader()
-            tabla.Load(LectorPatologia)
-            conexion.Cerrar()
-            Return tabla
-        Catch ex As Exception
-            Return tabla
-        End Try
+        comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 AND nombre like '%" + nombre + "%'"
+        reader = comando.ExecuteReader()
+        tabla.Load(reader)
+        Return tabla
     End Function
 
     Public Function BuscarPatologiaPorID(ByVal id As Integer)
-        Try
-            Dim conexion As New ModeloConexion
-            Dim comando As New OdbcCommand
-
-            comando.CommandText = "SELECT * FROM patologia WHERE id = " & id
-            comando.Connection = conexion.Abrir()
-            LectorPatologia = comando.ExecuteReader()
-            Return crearObjetoPatologia(LectorPatologia)
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        Return vbNull
+        comando.CommandText = "SELECT * FROM patologia WHERE id = " & id
+        reader = comando.ExecuteReader()
+        Return crearObjetoPatologia(reader)
     End Function
 
     Private Function crearObjetoPatologia(ByRef patologia As OdbcDataReader) As ModeloPatologia

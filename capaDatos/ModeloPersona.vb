@@ -1,5 +1,7 @@
 ﻿Imports capaDatos
 Public MustInherit Class ModeloPersona
+    Inherits ModeloConexion
+
     Public Documento As Integer
     Public Email As String
     Public Nombres As String
