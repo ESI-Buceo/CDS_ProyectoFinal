@@ -1,5 +1,3 @@
-Imports capaDatos
-Imports MySql.Data
 Imports System.Data.Odbc
 Public Class ModeloSintoma
     Inherits ModeloConexion
