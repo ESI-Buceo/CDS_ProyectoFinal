@@ -1,5 +1,3 @@
-Imports capaDatos
-Imports MySql.Data
 Imports System.Data.Odbc
 Public Class ModeloSintoma
     Inherits ModeloConexion
@@ -9,9 +7,6 @@ Public Class ModeloSintoma
     Public Estado As Boolean
 
     Public lector As OdbcDataReader
-
-
-
 
     Public Sub GuardarSintoma()
         Dim activo As Byte
@@ -46,9 +41,6 @@ Public Class ModeloSintoma
 
     End Sub
 
-
-
-
     Public Function eliminarSintoma(ByVal id As Integer) As Boolean
         'elimina sintoma o lo marca como 0 - inhabilitado
         Return True
@@ -58,8 +50,8 @@ Public Class ModeloSintoma
         Dim tabla As New DataTable
         comando.CommandText = "SELECT * FROM sintoma WHERE activo = 1 "
         lector = comando.ExecuteReader()
-            tabla.Load(lector)
-            Return tabla
+        tabla.Load(lector)
+        Return tabla
     End Function
 
     Public Function TraeDatosSintomasDeBD(sintoma As String) As DataTable

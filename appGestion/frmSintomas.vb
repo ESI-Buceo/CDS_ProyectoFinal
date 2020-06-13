@@ -18,6 +18,28 @@ Public Class frmSintomas
     Private Sub mnuBtnModificar_Click(sender As Object, e As EventArgs) Handles mnuBtnModificar.Click
         opcionesMenu.ClickEnBotonModificar(toolsMenuSintoma)
         marcarTextBoxRequeridos()
+        Dim Estado As Boolean
+
+        If chkSintomaEstado.CheckState = 1 Then
+            Estado = True
+        Else
+            Estado = False
+        End If
+
+        Try
+            ControladorSintomas.ModificarSintomas(txtSintomaNombre.Text, Estado, txtSintomaID.Text)
+            MessageBox.Show("Registro Modificado Correctamente!", "Sintoma Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MsgBox("Error! ")
+
+        End Try
+
+        limpiarTextBox()
+        marcarTextBoxRequeridos()
+        txtSintomaNombre.Select()
+        tabDatosSintomas.SelectTab(tabDatos)
+
     End Sub
 
     Private Sub mnuBtnNueva_Click(sender As Object, e As EventArgs) Handles mnuBtnNueva.Click
@@ -30,6 +52,16 @@ Public Class frmSintomas
 
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
         opcionesMenu.ClickEnBotonAgregar(toolsMenuSintoma)
+
+        limpiarTextBox()
+        marcarTextBoxRequeridos()
+        txtSintomaNombre.Select()
+        tabDatosSintomas.SelectTab(tabDatos)
+    End Sub
+
+    Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
+        opcionesMenu.ClickEnBotonGuardar(toolsMenuSintoma)
+        colorPorDefectoTextBox()
         Dim Estado As Boolean
 
         If txtSintomaNombre.Text <> "" Then
@@ -53,38 +85,6 @@ Public Class frmSintomas
         Else
             MessageBox.Show("Nombre no puede estar vacío!", "Error, Campo  Vacío", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
-
-
-        limpiarTextBox()
-        marcarTextBoxRequeridos()
-        txtSintomaNombre.Select()
-        tabDatosSintomas.SelectTab(tabDatos)
-    End Sub
-
-    Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
-        opcionesMenu.ClickEnBotonGuardar(toolsMenuSintoma)
-        colorPorDefectoTextBox()
-        Dim Estado As Boolean
-
-        If chkSintomaEstado.CheckState = 1 Then
-            Estado = True
-        Else
-            Estado = False
-        End If
-
-        Try
-            ControladorSintomas.ModificarSintomas(txtSintomaNombre.Text, Estado, txtSintomaID.Text)
-            MessageBox.Show("Registro Modificado Correctamente!", "Sintoma Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-        Catch ex As Exception
-            MsgBox("Error! ")
-
-        End Try
-
-        limpiarTextBox()
-        marcarTextBoxRequeridos()
-        txtSintomaNombre.Select()
-        tabDatosSintomas.SelectTab(tabDatos)
 
     End Sub
 
