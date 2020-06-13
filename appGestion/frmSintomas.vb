@@ -56,6 +56,27 @@ Public Class frmSintomas
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
         opcionesMenu.ClickEnBotonGuardar(toolsMenuSintoma)
         colorPorDefectoTextBox()
+        Dim Estado As Boolean
+
+        If chkSintomaEstado.CheckState = 1 Then
+            Estado = True
+        Else
+            Estado = False
+        End If
+
+        Try
+            ControladorSintomas.ModificarSintomas(txtSintomaNombre.Text, Estado, txtSintomaID.Text)
+            MessageBox.Show("Registro Modificado Correctamente!", "Sintoma Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MsgBox("Error! ")
+
+        End Try
+
+        limpiarTextBox()
+        marcarTextBoxRequeridos()
+        txtSintomaNombre.Select()
+        tabDatosSintomas.SelectTab(tabDatos)
 
     End Sub
 
@@ -84,6 +105,10 @@ Public Class frmSintomas
     End Sub
 
     Private Sub chkSintomaEstado_CheckedChanged(sender As Object, e As EventArgs) Handles chkSintomaEstado.CheckedChanged
+
+    End Sub
+
+    Private Sub txtSintomaID_TextChanged(sender As Object, e As EventArgs) Handles txtSintomaID.TextChanged
 
     End Sub
 End Class

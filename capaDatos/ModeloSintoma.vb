@@ -26,6 +26,19 @@ Public Class ModeloSintoma
 
     End Sub
 
+    Public Sub ModificarSintoma()
+        Dim activo As Byte
+
+        If Me.Estado = True Then
+            activo = 1
+        Else
+            activo = 0
+        End If
+        comando.CommandText = "UPDATE sintoma  SET nombre='" & Me.Nombre & "', activo=" & activo & " WHERE Id = " & Me.ID & " "
+        comando.ExecuteNonQuery()
+
+    End Sub
+
 
 
 

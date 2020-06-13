@@ -60,7 +60,7 @@ Partial Class frmSintomas
         '
         Me.picEncabezado.Image = CType(resources.GetObject("picEncabezado.Image"), System.Drawing.Image)
         Me.picEncabezado.Location = New System.Drawing.Point(0, 1)
-        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(2)
         Me.picEncabezado.Name = "picEncabezado"
         Me.picEncabezado.Size = New System.Drawing.Size(680, 64)
         Me.picEncabezado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
@@ -195,7 +195,7 @@ Partial Class frmSintomas
         Me.tabDatosSintomas.Controls.Add(Me.tabBusqueda)
         Me.tabDatosSintomas.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tabDatosSintomas.Location = New System.Drawing.Point(11, 106)
-        Me.tabDatosSintomas.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tabDatosSintomas.Margin = New System.Windows.Forms.Padding(2)
         Me.tabDatosSintomas.Name = "tabDatosSintomas"
         Me.tabDatosSintomas.SelectedIndex = 0
         Me.tabDatosSintomas.Size = New System.Drawing.Size(661, 194)
@@ -212,9 +212,9 @@ Partial Class frmSintomas
         Me.tabDatos.Controls.Add(Me.lblSintomaEstado)
         Me.tabDatos.Controls.Add(Me.lblSintomaNombre)
         Me.tabDatos.Location = New System.Drawing.Point(4, 25)
-        Me.tabDatos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tabDatos.Margin = New System.Windows.Forms.Padding(2)
         Me.tabDatos.Name = "tabDatos"
-        Me.tabDatos.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tabDatos.Padding = New System.Windows.Forms.Padding(2)
         Me.tabDatos.Size = New System.Drawing.Size(653, 165)
         Me.tabDatos.TabIndex = 0
         Me.tabDatos.Text = "Datos"
@@ -224,7 +224,7 @@ Partial Class frmSintomas
         '
         Me.txtSintomaID.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.txtSintomaID.Location = New System.Drawing.Point(123, 20)
-        Me.txtSintomaID.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtSintomaID.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSintomaID.Name = "txtSintomaID"
         Me.txtSintomaID.ReadOnly = True
         Me.txtSintomaID.Size = New System.Drawing.Size(63, 23)
@@ -249,7 +249,7 @@ Partial Class frmSintomas
         Me.chkSintomaEstado.Checked = True
         Me.chkSintomaEstado.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkSintomaEstado.Location = New System.Drawing.Point(123, 91)
-        Me.chkSintomaEstado.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkSintomaEstado.Margin = New System.Windows.Forms.Padding(2)
         Me.chkSintomaEstado.Name = "chkSintomaEstado"
         Me.chkSintomaEstado.Size = New System.Drawing.Size(15, 14)
         Me.chkSintomaEstado.TabIndex = 8
@@ -290,9 +290,9 @@ Partial Class frmSintomas
         Me.tabBusqueda.BackColor = System.Drawing.Color.WhiteSmoke
         Me.tabBusqueda.Controls.Add(Me.dgSintomas)
         Me.tabBusqueda.Location = New System.Drawing.Point(4, 25)
-        Me.tabBusqueda.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tabBusqueda.Margin = New System.Windows.Forms.Padding(2)
         Me.tabBusqueda.Name = "tabBusqueda"
-        Me.tabBusqueda.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.tabBusqueda.Padding = New System.Windows.Forms.Padding(2)
         Me.tabBusqueda.Size = New System.Drawing.Size(653, 165)
         Me.tabBusqueda.TabIndex = 1
         Me.tabBusqueda.Text = "Busqueda"
