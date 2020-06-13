@@ -20,6 +20,15 @@ Public Module ControladorSintomas
 
     End Sub
 
+    Public Sub ModificarSintomas(Nombre As String, Estado As Boolean, Id As String)
+
+        Dim s As New ModeloSintoma
+        s.ID = Id
+        s.Nombre = Nombre
+        s.Estado = Estado
+        s.ModificarSintoma()
+
+    End Sub
 
 
 End Module
