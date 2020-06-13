@@ -32,20 +32,28 @@ Public Class frmSintomas
         opcionesMenu.ClickEnBotonAgregar(toolsMenuSintoma)
         Dim Estado As Boolean
 
-        If chkSintomaEstado.CheckState = 1 Then
-            Estado = True
+        If txtSintomaNombre.Text <> "" Then
+
+
+            If chkSintomaEstado.CheckState = 1 Then
+                Estado = True
+            Else
+                Estado = False
+            End If
+
+            Try
+                ControladorSintomas.GuardarSintomas(txtSintomaNombre.Text, Estado)
+                MessageBox.Show("Registro Guardado Correctamente!", "Alta De Sintoma", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Catch ex As Exception
+                MessageBox.Show("Error : No se pudo guardar registro" & ex.Message)
+
+
+            End Try
         Else
-            Estado = False
+            MessageBox.Show("Nombre no puede estar vacío!", "Error, Campo  Vacío", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
 
-        Try
-            ControladorSintomas.GuardarSintomas(txtSintomaNombre.Text, Estado)
-            MessageBox.Show("Registro Guardado Correctamente!", "Alta De Sintoma", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-        Catch ex As Exception
-            MsgBox("Error! ")
-
-        End Try
 
         limpiarTextBox()
         marcarTextBoxRequeridos()
