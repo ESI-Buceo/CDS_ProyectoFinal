@@ -81,6 +81,15 @@ Public Class frmSintomas
     End Sub
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
+        Try
+            ControladorSintomas.BorrarSintomas(txtSintomaID.Text)
+            MessageBox.Show("Registro Eliminado Correctamente!", "Sintoma Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MsgBox("Error! ")
+        End Try
+        limpiarTextBox()
+        txtSintomaID.Text = ""
     End Sub
 
     Private Sub dgSintomas_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgSintomas.RowHeaderMouseClick
