@@ -42,13 +42,20 @@ Public Class frmSintomas
 
     End Sub
 
+    'Private Sub mnuBtnNueva_Click(sender As Object, e As EventArgs) Handles mnuBtnNueva.Click
+    '   opcionesMenu.ClickEnBotonNueva(toolsMenuSintoma)
+    '  limpiarTextBox()
+    ' txtSintomaNombre.Select()
+    'tabDatosSintomas.SelectTab(tabDatos)
+    'txtSintomaID.Text = ""
+    'End Sub
+
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
         opcionesMenu.ClickEnBotonAgregar(toolsMenuSintoma)
         limpiarTextBox()
         txtSintomaNombre.Select()
         tabDatosSintomas.SelectTab(tabDatos)
         txtSintomaID.Text = ""
-
     End Sub
 
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
