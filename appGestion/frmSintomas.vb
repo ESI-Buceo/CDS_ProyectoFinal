@@ -40,7 +40,7 @@ Public Class frmSintomas
 
         Try
             ControladorSintomas.GuardarSintomas(txtSintomaNombre.Text, Estado)
-            MessageBox.Show("Registro guardado!", "ALTA SINTOMA", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Registro Guardado Correctamente!", "Alta De Sintoma", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         Catch ex As Exception
             MsgBox("Error! ")
