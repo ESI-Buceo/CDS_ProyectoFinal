@@ -30,5 +30,13 @@ Public Module ControladorSintomas
 
     End Sub
 
+    Public Sub BorrarSintomas(Id As String)
+
+        Dim s As New ModeloSintoma
+        s.ID = Id
+        s.BorrarSintoma()
+
+    End Sub
+
 
 End Module

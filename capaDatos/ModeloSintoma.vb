@@ -39,6 +39,13 @@ Public Class ModeloSintoma
 
     End Sub
 
+    Public Sub BorrarSintoma()
+
+        comando.CommandText = "DELETE FROM sintoma  WHERE Id = " & Me.ID & " "
+        comando.ExecuteNonQuery()
+
+    End Sub
+
 
 
 
