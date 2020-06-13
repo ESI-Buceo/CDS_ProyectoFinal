@@ -57,6 +57,23 @@ Public Class frmSintomas
         marcarTextBoxRequeridos()
         txtSintomaNombre.Select()
         tabDatosSintomas.SelectTab(tabDatos)
+
+    End Sub
+
+    'Private Sub mnuBtnNueva_Click(sender As Object, e As EventArgs) Handles mnuBtnNueva.Click
+    '   opcionesMenu.ClickEnBotonNueva(toolsMenuSintoma)
+    '  limpiarTextBox()
+    ' txtSintomaNombre.Select()
+    'tabDatosSintomas.SelectTab(tabDatos)
+    'txtSintomaID.Text = ""
+    'End Sub
+
+    Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
+        opcionesMenu.ClickEnBotonAgregar(toolsMenuSintoma)
+        limpiarTextBox()
+        txtSintomaNombre.Select()
+        tabDatosSintomas.SelectTab(tabDatos)
+        txtSintomaID.Text = ""
     End Sub
 
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
@@ -74,8 +91,8 @@ Public Class frmSintomas
             End If
 
             Try
-                ControladorSintomas.GuardarSintomas(txtSintomaNombre.Text, Estado)
-                MessageBox.Show("Registro Guardado Correctamente!", "Alta De Sintoma", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                ControladorSintomas.ModificarSintomas(txtSintomaNombre.Text, Estado, txtSintomaID.Text)
+                MessageBox.Show("Registro Modificado Correctamente!", "Sintoma Actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             Catch ex As Exception
                 MessageBox.Show("Error : No se pudo guardar registro" & ex.Message)
