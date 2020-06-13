@@ -10,9 +10,6 @@ Public Class ModeloSintoma
 
     Public lector As OdbcDataReader
 
-
-
-
     Public Sub GuardarSintoma()
         Dim activo As Byte
 
@@ -58,8 +55,8 @@ Public Class ModeloSintoma
         Dim tabla As New DataTable
         comando.CommandText = "SELECT * FROM sintoma WHERE activo = 1 "
         lector = comando.ExecuteReader()
-            tabla.Load(lector)
-            Return tabla
+        tabla.Load(lector)
+        Return tabla
     End Function
 
     Public Function TraeDatosSintomasDeBD(sintoma As String) As DataTable
