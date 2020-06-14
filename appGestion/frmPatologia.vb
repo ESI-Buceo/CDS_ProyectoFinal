@@ -60,6 +60,12 @@ Public Class frmPatologia
     End Sub
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
+        Try
+            ControladorPatologias.BorrarPatologia(txtPatologiaID.Text)
+            MsgBox("Patología eliminada con exito")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
         opcionesMenu.ClickEnBotonBorrar(toolsMenuPatologia)
 
     End Sub

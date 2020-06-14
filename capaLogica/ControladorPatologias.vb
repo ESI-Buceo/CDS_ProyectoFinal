@@ -13,6 +13,13 @@ Public Module ControladorPatologias
 
     End Sub
 
+    Public Sub BorrarPatologia(id As Integer)
+        Dim p As New ModeloPatologia
+        p.Id = id
+        p.eliminarPatologia()
+
+    End Sub
+
     Public Function ListarPatologias() As DataTable
         Dim p As New ModeloPatologia
         Return p.TraeDatosPatologiasDeBD()
