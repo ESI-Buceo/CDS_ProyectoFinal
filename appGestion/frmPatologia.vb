@@ -31,6 +31,7 @@ Public Class frmPatologia
         tabDatosPatologia.SelectTab(tabDatos)
         colorPorDefectoTextoBox()
         deshabilitarAgregarSintomaYSignos()
+        limpiarControlesDeFormulario()
 
     End Sub
 
