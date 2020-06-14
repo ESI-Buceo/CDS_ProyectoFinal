@@ -81,10 +81,10 @@ Public Module opcionesMenu
     End Sub
 
     Public Sub ClickEnBotonBorrar(Menu As ToolStrip)
-        Menu.Items().Item(0).Enabled = False 'boton agregar
+        Menu.Items().Item(0).Enabled = True 'boton agregar
         Menu.Items().Item(2).Enabled = False 'boton guardar
         Menu.Items().Item(4).Enabled = False 'boton cancelar
-        Menu.Items().Item(6).Enabled = False 'boton nueva
+        Menu.Items().Item(6).Enabled = True 'boton nueva
         Menu.Items().Item(8).Enabled = False ' boton buscar
         Menu.Items().Item(10).Enabled = False 'boton borrar
         Menu.Items().Item(12).Enabled = False 'boton modificar

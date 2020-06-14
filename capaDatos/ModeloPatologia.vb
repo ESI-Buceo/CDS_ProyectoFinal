@@ -10,10 +10,14 @@ Public Class ModeloPatologia
     Public activo As Integer
 
 
-    Public Function GuaradrPatologia() As Boolean
-        ' guarda nueva patologia
-        Return True
-    End Function
+    Public Sub GuaradrPatologia()
+        ' guarda nueva patologia o si existe en la BDs la modifica
+        comando.CommandText = "INSTERT INTO patologia (nombre, ponderacion, descripcion, activo) VALUES 
+                              ('" & Me.Nombre & "'," & Me.Ponderacion & ",'" & Me.Descripcion & "'," & Me.activo & ") ON DUPLICATE KEY UPDATE
+                               nombre ='" & Me.Nombre & "', ponderacion =" & Me.Ponderacion & ", descripcion ='" & Me.Descripcion & "', activo =" & Me.activo & ""
+        comando.ExecuteNonQuery()
+
+    End Sub
 
     Public Function eliminarPatologia(id As Integer)
         'elimina la patologa con el id
