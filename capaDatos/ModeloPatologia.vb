@@ -12,7 +12,7 @@ Public Class ModeloPatologia
 
     Public Sub GuaradrPatologia()
         ' guarda nueva patologia o si existe en la BDs la modifica
-        comando.CommandText = "INSTERT INTO patologia (nombre, ponderacion, descripcion, activo) VALUES 
+        comando.CommandText = "INSERT INTO patologia (nombre, ponderacion, descripcion, activo) VALUES 
                               ('" & Me.Nombre & "'," & Me.Ponderacion & ",'" & Me.Descripcion & "'," & Me.activo & ") ON DUPLICATE KEY UPDATE
                                nombre ='" & Me.Nombre & "', ponderacion =" & Me.Ponderacion & ", descripcion ='" & Me.Descripcion & "', activo =" & Me.activo & ""
         comando.ExecuteNonQuery()

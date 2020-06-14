@@ -10,8 +10,15 @@ Public Class frmPatologia
 
     End Sub
 
-    'Guarda los datos de la patologia
+    'Guarda los datos de la patologia o los modifica
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
+        Try
+            ControladorPatologias.AltaPatologia(txtPatologiaNombre.Text, cbPatologiaPonderacion.Text, txtPatologiaDescipcion.Text, chkActiva.CheckState)
+            MsgBox("Patologia creada con exito")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
         opcionesMenu.ClickEnBotonGuardar(toolsMenuPatologia)
         colorPorDefectoTextoBox()
         deshabilitarAgregarSintomaYSignos()
