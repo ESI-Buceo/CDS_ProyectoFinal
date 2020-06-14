@@ -19,10 +19,12 @@ Public Class ModeloPatologia
 
     End Sub
 
-    Public Function eliminarPatologia(id As Integer)
+    Public Sub eliminarPatologia()
         'elimina la patologa con el id
-        Return True
-    End Function
+        comando.CommandText = "DELETE FROM patologia WHERE idpatologia = " + Me.Id
+        comando.ExecuteNonQuery()
+
+    End Sub
 
     Private Function validarNombre() As Boolean
         'valida que el nombre no tenga caracteres raros
