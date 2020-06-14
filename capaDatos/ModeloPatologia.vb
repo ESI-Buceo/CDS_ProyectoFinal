@@ -27,7 +27,8 @@ Public Class ModeloPatologia
 
     Public Sub ModifcarPatologia()
         'modifica la patologia 
-        comando.CommandText = "UPDATE patologia SET nombre = '" & Me.Nombre & "' ponderacion = " & Me.Ponderacion & " descripcion = '" & Me.Descripcion & "' activo = " & Me.activo & " WHERE id = " & Me.Id & ""
+        comando.CommandText = "UPDATE patologia SET nombre = '" & Me.Nombre & "', ponderacion = " & Me.Ponderacion & ", 
+                               descripcion = '" & Me.Descripcion & "', activo = " & Me.activo & " WHERE id = " & Me.Id & ""
         comando.ExecuteNonQuery()
 
     End Sub
@@ -64,6 +65,7 @@ Public Class ModeloPatologia
         Catch ex As Exception
             Return tabla
         End Try
+
     End Function
 
     Public Function BuscarPatologiaPorNombre(ByVal nombre As String) As DataTable

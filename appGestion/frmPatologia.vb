@@ -50,14 +50,22 @@ Public Class frmPatologia
         dgvListaDePatologias.DataSource = ControladorPatologias.ListarPatologias(txtPatologiaNombre.Text)
         dgvListaDePatologias.Columns(2).Visible = False
         dgvListaDePatologias.Columns(1).Width = 300
+        colorearCamposRqueridos()
+        habilitarAgregarSintomaYSignos()
 
     End Sub
 
     Private Sub mnuBtnModificar_Click(sender As Object, e As EventArgs) Handles mnuBtnModificar.Click
+        Try
+            ControladorPatologias.ModificarPatologia(txtPatologiaID.Text, txtPatologiaNombre.Text, cbPatologiaPonderacion.Text, txtPatologiaDescipcion.Text, chkActiva.CheckState)
+            MsgBox("Patologia modificada con exito")
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
         opcionesMenu.ClickEnBotonModificar(toolsMenuPatologia)
-        colorearCamposRqueridos()
         txtPatologiaNombre.Select()
-        habilitarAgregarSintomaYSignos()
+        limpiarControlesDeFormulario()
 
     End Sub
 
