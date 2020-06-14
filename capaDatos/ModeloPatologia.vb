@@ -21,7 +21,7 @@ Public Class ModeloPatologia
 
     Public Sub eliminarPatologia()
         'elimina la patologa con el id
-        comando.CommandText = "DELETE FROM patologia WHERE idPatologia = " & Me.Id & ""
+        comando.CommandText = "DELETE FROM patologia WHERE id = " & Me.Id & ""
         comando.ExecuteNonQuery()
 
     End Sub
