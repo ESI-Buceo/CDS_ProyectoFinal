@@ -1,10 +1,10 @@
 ﻿Imports System.Windows.Forms
 Public Module opcionesMenu
     Public Sub ClickEnBotonModificar(menu As ToolStrip)
-        menu.Items().Item(0).Enabled = True 'boton agregar
-        menu.Items().Item(2).Enabled = False 'boton guardar
-        menu.Items().Item(4).Enabled = False 'boton cancelar
-        menu.Items().Item(6).Enabled = True 'boton nueva
+        menu.Items().Item(0).Enabled = False 'boton agregar
+        menu.Items().Item(2).Enabled = True 'boton guardar
+        menu.Items().Item(4).Enabled = True 'boton cancelar
+        menu.Items().Item(6).Enabled = False 'boton nueva
         menu.Items().Item(8).Enabled = False ' boton buscar
         menu.Items().Item(10).Enabled = False 'boton borrar
         menu.Items().Item(12).Enabled = False 'boton modificar

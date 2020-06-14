@@ -51,8 +51,6 @@ Partial Class frmPatologia
         Me.lblSintomas = New System.Windows.Forms.Label()
         Me.btnAgregarSintoma = New System.Windows.Forms.Button()
         Me.dgvSintomasPatologia = New System.Windows.Forms.DataGridView()
-        Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colSintomaNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtPatologiaDescipcion = New System.Windows.Forms.TextBox()
         Me.lblPatologiaDescripcion = New System.Windows.Forms.Label()
         Me.cbPatologiaPonderacion = New System.Windows.Forms.ComboBox()
@@ -360,8 +358,6 @@ Partial Class frmPatologia
         '
         Me.dgvSintomasPatologia.AllowUserToAddRows = False
         Me.dgvSintomasPatologia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSintomasPatologia.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colID, Me.colSintomaNombre})
-        Me.dgvSintomasPatologia.Enabled = False
         Me.dgvSintomasPatologia.Location = New System.Drawing.Point(116, 2)
         Me.dgvSintomasPatologia.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvSintomasPatologia.Name = "dgvSintomasPatologia"
@@ -370,20 +366,6 @@ Partial Class frmPatologia
         Me.dgvSintomasPatologia.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvSintomasPatologia.Size = New System.Drawing.Size(205, 131)
         Me.dgvSintomasPatologia.TabIndex = 24
-        '
-        'colID
-        '
-        Me.colID.HeaderText = "ID"
-        Me.colID.Name = "colID"
-        Me.colID.ReadOnly = True
-        Me.colID.Width = 50
-        '
-        'colSintomaNombre
-        '
-        Me.colSintomaNombre.HeaderText = "Nombre"
-        Me.colSintomaNombre.Name = "colSintomaNombre"
-        Me.colSintomaNombre.ReadOnly = True
-        Me.colSintomaNombre.Width = 180
         '
         'txtPatologiaDescipcion
         '
@@ -613,8 +595,6 @@ Partial Class frmPatologia
     Friend WithEvents lblSintomas As Label
     Friend WithEvents btnAgregarSintoma As Button
     Public WithEvents dgvSintomasPatologia As DataGridView
-    Friend WithEvents colID As DataGridViewTextBoxColumn
-    Friend WithEvents colSintomaNombre As DataGridViewTextBoxColumn
     Friend WithEvents chkActiva As CheckBox
     Friend WithEvents lblActiva As Label
 

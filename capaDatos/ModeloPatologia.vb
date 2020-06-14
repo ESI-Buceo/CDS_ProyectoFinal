@@ -12,8 +12,8 @@ Public Class ModeloPatologia
 
     Public Sub GuaradrPatologia()
         ' guarda nueva patologia
-        comando.CommandText = "INSERT INTO patologia (nombre, ponderacion, descripcion, activo) VALUES 
-                              ('" & Me.Nombre & "'," & Me.Ponderacion & ",'" & Me.Descripcion & "'," & Me.activo & ")"
+        comando.CommandText = "INSERT INTO patologia (id, nombre, ponderacion, descripcion, activo) VALUES 
+                              (" & Me.Id & ",'" & Me.Nombre & "'," & Me.Ponderacion & ",'" & Me.Descripcion & "'," & Me.activo & ") ON DUPLICATE KEY UPDATE nombre = '" & Me.Nombre & "', ponderacion = " & Me.Ponderacion & ", descripcion = '" & Me.Descripcion & "', activo = " & Me.activo
         comando.ExecuteNonQuery()
 
     End Sub
@@ -25,13 +25,13 @@ Public Class ModeloPatologia
 
     End Sub
 
-    Public Sub ModifcarPatologia()
-        'modifica la patologia 
-        comando.CommandText = "UPDATE patologia SET nombre = '" & Me.Nombre & "', ponderacion = " & Me.Ponderacion & ", 
-                               descripcion = '" & Me.Descripcion & "', activo = " & Me.activo & " WHERE id = " & Me.Id & ""
-        comando.ExecuteNonQuery()
+    'Public Sub ModifcarPatologia()
+    'modifica la patologia 
+    ' comando.CommandText = "UPDATE patologia SET nombre = '" & Me.Nombre & "', ponderacion = " & Me.Ponderacion & ", 
+    '   descripcion = '" & Me.Descripcion & "', activo = " & Me.activo & " WHERE id = " & Me.Id & ""
+    '  comando.ExecuteNonQuery()
 
-    End Sub
+    'End Sub
 
     Private Function validarNombre() As Boolean
         'valida que el nombre no tenga caracteres raros

@@ -4,17 +4,19 @@ Public Class frmPatologia
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
         opcionesMenu.ClickEnBotonAgregar(toolsMenuPatologia)
         limpiarControlesDeFormulario()
+        txtPatologiaID.Text = 0
         habilitarAgregarSintomaYSignos()
         txtPatologiaNombre.Select()
         colorearCamposRqueridos()
+        ControladorSintomas.crearDataTableSintomasPorPatologia()
 
     End Sub
 
     'Guarda los datos de la patologia
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
         Try
-            ControladorPatologias.AltaPatologia(txtPatologiaNombre.Text, cbPatologiaPonderacion.Text, txtPatologiaDescipcion.Text, chkActiva.CheckState)
-            MsgBox("Patologia creada con exito")
+            ControladorPatologias.AltaPatologia(txtPatologiaID.Text, txtPatologiaNombre.Text, cbPatologiaPonderacion.Text, txtPatologiaDescipcion.Text, chkActiva.CheckState)
+            MsgBox("Dato guardado correctamente")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -50,22 +52,20 @@ Public Class frmPatologia
         dgvListaDePatologias.DataSource = ControladorPatologias.ListarPatologias(txtPatologiaNombre.Text)
         dgvListaDePatologias.Columns(2).Visible = False
         dgvListaDePatologias.Columns(1).Width = 300
-        colorearCamposRqueridos()
-        habilitarAgregarSintomaYSignos()
 
     End Sub
 
     Private Sub mnuBtnModificar_Click(sender As Object, e As EventArgs) Handles mnuBtnModificar.Click
-        Try
-            ControladorPatologias.ModificarPatologia(txtPatologiaID.Text, txtPatologiaNombre.Text, cbPatologiaPonderacion.Text, txtPatologiaDescipcion.Text, chkActiva.CheckState)
-            MsgBox("Patologia modificada con exito")
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        'Try
+        '    ControladorPatologias.ModificarPatologia(txtPatologiaID.Text, txtPatologiaNombre.Text, cbPatologiaPonderacion.Text, txtPatologiaDescipcion.Text, chkActiva.CheckState)
+        '    MsgBox("Patologia modificada con exito")
+        'Catch ex As Exception
+        '    MsgBox(ex.Message)
+        'End Try
 
         opcionesMenu.ClickEnBotonModificar(toolsMenuPatologia)
         txtPatologiaNombre.Select()
-        limpiarControlesDeFormulario()
+        colorearCamposRqueridos()
 
     End Sub
 

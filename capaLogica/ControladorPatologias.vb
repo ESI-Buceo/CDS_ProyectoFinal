@@ -3,8 +3,9 @@ Imports capaDatos
 
 Public Module ControladorPatologias
 
-    Public Sub AltaPatologia(nombre As String, ponderacion As Integer, descripcion As String, activo As Integer)
+    Public Sub AltaPatologia(id As String, nombre As String, ponderacion As Integer, descripcion As String, activo As Integer)
         Dim p As New ModeloPatologia
+        p.Id = id
         p.Nombre = nombre
         p.Ponderacion = ponderacion
         p.Descripcion = descripcion
@@ -20,19 +21,20 @@ Public Module ControladorPatologias
 
     End Sub
 
-    Public Sub ModificarPatologia(id As Integer, nombre As String, ponderacion As Integer, descripcion As String, activo As Integer)
-        Dim p As New ModeloPatologia
-        p.Id = id
-        p.Nombre = nombre
-        p.Ponderacion = ponderacion
-        p.Descripcion = descripcion
-        p.activo = activo
-        p.ModifcarPatologia()
+    'Public Sub ModificarPatologia(id As Integer, nombre As String, ponderacion As Integer, descripcion As String, activo As Integer)
+    '    Dim p As New ModeloPatologia
+    '    p.Id = id
+    '    p.Nombre = nombre
+    '    p.Ponderacion = ponderacion
+    '    p.Descripcion = descripcion
+    '    p.activo = activo
+    '    p.ModifcarPatologia()
 
-    End Sub
+    'End Sub
 
     Public Function ListarPatologias() As DataTable
         Dim p As New ModeloPatologia
+
         Return p.TraeDatosPatologiasDeBD()
     End Function
 
@@ -45,4 +47,6 @@ Public Module ControladorPatologias
         Dim p As New ModeloPatologia
         Return p.BuscarPatologiaPorID(id)
     End Function
+
+
 End Module
