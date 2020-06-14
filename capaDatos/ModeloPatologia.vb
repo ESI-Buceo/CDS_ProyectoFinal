@@ -11,10 +11,9 @@ Public Class ModeloPatologia
 
 
     Public Sub GuaradrPatologia()
-        ' guarda nueva patologia o si existe en la BDs la modifica
+        ' guarda nueva patologia
         comando.CommandText = "INSERT INTO patologia (nombre, ponderacion, descripcion, activo) VALUES 
-                              ('" & Me.Nombre & "'," & Me.Ponderacion & ",'" & Me.Descripcion & "'," & Me.activo & ") ON DUPLICATE KEY UPDATE
-                               nombre ='" & Me.Nombre & "', ponderacion =" & Me.Ponderacion & ", descripcion ='" & Me.Descripcion & "', activo =" & Me.activo & ""
+                              ('" & Me.Nombre & "'," & Me.Ponderacion & ",'" & Me.Descripcion & "'," & Me.activo & ")"
         comando.ExecuteNonQuery()
 
     End Sub
@@ -22,6 +21,13 @@ Public Class ModeloPatologia
     Public Sub eliminarPatologia()
         'elimina la patologa con el id
         comando.CommandText = "DELETE FROM patologia WHERE id = " & Me.Id & ""
+        comando.ExecuteNonQuery()
+
+    End Sub
+
+    Public Sub ModifcarPatologia()
+        'modifica la patologia 
+        comando.CommandText = "UPDATE INTO patologia WHERE id = " & Me.Id & ""
         comando.ExecuteNonQuery()
 
     End Sub

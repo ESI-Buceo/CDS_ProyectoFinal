@@ -10,7 +10,7 @@ Public Class frmPatologia
 
     End Sub
 
-    'Guarda los datos de la patologia o los modifica
+    'Guarda los datos de la patologia
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
         Try
             ControladorPatologias.AltaPatologia(txtPatologiaNombre.Text, cbPatologiaPonderacion.Text, txtPatologiaDescipcion.Text, chkActiva.CheckState)
