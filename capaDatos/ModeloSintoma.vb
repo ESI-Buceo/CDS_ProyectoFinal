@@ -35,14 +35,10 @@ Public Class ModeloSintoma
     End Sub
 
     Public Sub BorrarSintoma()
-
         comando.CommandText = "DELETE FROM sintoma  WHERE Id = " & Me.ID & " "
         comando.ExecuteNonQuery()
 
     End Sub
-
-
-
 
     Public Function eliminarSintoma(ByVal id As Integer) As Boolean
         'elimina sintoma o lo marca como 0 - inhabilitado
