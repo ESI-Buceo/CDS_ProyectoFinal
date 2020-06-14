@@ -27,7 +27,7 @@ Public Class ModeloPatologia
 
     Public Sub ModifcarPatologia()
         'modifica la patologia 
-        comando.CommandText = "UPDATE INTO patologia WHERE id = " & Me.Id & ""
+        comando.CommandText = "UPDATE patologia SET nombre = '" & Me.Nombre & "' ponderacion = " & Me.Ponderacion & " descripcion = '" & Me.Descripcion & "' activo = " & Me.activo & " WHERE id = " & Me.Id & ""
         comando.ExecuteNonQuery()
 
     End Sub
