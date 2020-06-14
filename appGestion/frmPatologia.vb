@@ -69,6 +69,7 @@ Public Class frmPatologia
         End Try
 
         opcionesMenu.ClickEnBotonBorrar(toolsMenuPatologia)
+        limpiarControlesDeFormulario()
 
     End Sub
 
