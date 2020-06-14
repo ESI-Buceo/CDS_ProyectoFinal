@@ -66,6 +66,7 @@ Public Class frmPatologia
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+
         opcionesMenu.ClickEnBotonBorrar(toolsMenuPatologia)
 
     End Sub
