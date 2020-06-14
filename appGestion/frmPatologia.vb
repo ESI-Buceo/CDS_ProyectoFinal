@@ -22,6 +22,7 @@ Public Class frmPatologia
         opcionesMenu.ClickEnBotonGuardar(toolsMenuPatologia)
         colorPorDefectoTextoBox()
         deshabilitarAgregarSintomaYSignos()
+        limpiarControlesDeFormulario()
 
     End Sub
 
