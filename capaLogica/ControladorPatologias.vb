@@ -3,8 +3,8 @@ Imports capaDatos
 Imports System.Windows.Forms
 
 Public Module ControladorPatologias
-    Dim ListaFormateadaDeSintomas As List(Of ModeloSintoma)
 
+    Dim SintomasDePatologia As New DataTable
 
     Public Sub AltaPatologia(id As String, nombre As String, ponderacion As Integer, descripcion As String, activo As Integer, ListaDeSintomas As DataGridView)
         Dim p As New ModeloPatologia
@@ -57,6 +57,31 @@ Public Module ControladorPatologias
                                           })
         Next
         Return listaFormateadaDeSintomas
+    End Function
+
+
+    Public Function cargarSintomaPorPatologia(ByVal id As String) As DataTable
+        Dim s As New ModeloSintoma
+        SintomasDePatologia = s.listarSintomasXPatologia(id)
+        Return (SintomasDePatologia)
+    End Function
+
+
+    Public Function crearDataTableSintomasXPatologia()
+        SintomasDePatologia.Columns.Clear()
+        SintomasDePatologia.Columns.Add("idSintoma")
+        SintomasDePatologia.Columns.Add("nombre")
+        Return SintomasDePatologia
+    End Function
+
+
+    Public Function agregarSintomaAPatologia(id As String, nombre As String)
+        Dim fila As DataRow
+        fila = SintomasDePatologia.NewRow
+        fila("idSintoma") = id
+        fila("nombre") = nombre
+        SintomasDePatologia.Rows.Add(fila)
+        Return SintomasDePatologia
     End Function
 
 

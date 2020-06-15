@@ -1,7 +1,7 @@
 ﻿Imports System.Data
 Imports capaDatos
 Public Module ControladorSintomas
-    Dim sintomapatologia As New DataTable
+
     Public Function listarSintomas() As DataTable
         Dim s As New ModeloSintoma
         Return s.TraeDatosSintomasDeBD()
@@ -36,24 +36,6 @@ Public Module ControladorSintomas
         s.ID = Id
         s.BorrarSintoma()
     End Sub
-
-
-    Public Function crearDataTableSintomasPorPatologia()
-        sintomapatologia.Columns.Clear()
-        sintomapatologia.Columns.Add("id")
-        sintomapatologia.Columns.Add("nombre")
-        Return sintomapatologia
-    End Function
-
-
-    Public Function agregarSintomaAPatologia(id As String, nombre As String)
-        Dim fila As DataRow
-        fila = sintomapatologia.NewRow
-        fila("id") = id
-        fila("nombre") = nombre
-        sintomapatologia.Rows.Add(fila)
-        Return sintomapatologia
-    End Function
 
 
 End Module

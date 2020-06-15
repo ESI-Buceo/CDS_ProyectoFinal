@@ -61,4 +61,14 @@ Public Class ModeloSintoma
         Return tabla
     End Function
 
+
+    Public Function listarSintomasXPatologia(ByVal idPatologia As String) As DataTable
+        ' lista los sintomas vinculados a una patologia
+        Dim tabla As New DataTable
+        comando.CommandText = "SELECT a.idSintoma, s.nombre FROM asociados a JOIN sintoma s ON s.id = a.idSintoma WHERE a.idPatologia=" & idPatologia
+        reader = comando.ExecuteReader()
+        tabla.Load(reader)
+        Return tabla
+    End Function
+
 End Class

@@ -12,9 +12,36 @@ Public Class ModeloPatologia
 
     Public Sub GuaradrPatologia()
         ' guarda nueva patologia
-        comando.CommandText = "INSERT INTO patologia (id, nombre, ponderacion, descripcion, activo) VALUES 
-                              (" & Me.Id & ",'" & Me.Nombre & "'," & Me.Ponderacion & ",'" & Me.Descripcion & "'," & Me.activo & ") ON DUPLICATE KEY UPDATE nombre = '" & Me.Nombre & "', ponderacion = " & Me.Ponderacion & ", descripcion = '" & Me.Descripcion & "', activo = " & Me.activo
-        comando.ExecuteNonQuery()
+        Dim sqlTexto As String
+        If Me.Id = 0 Then sqlTexto = "last_insert_id()" Else sqlTexto = Me.Id
+        Try
+            comando.CommandText = "SET AUTOCOMMIT = OFF;"
+            comando.ExecuteNonQuery()
+
+            comando.CommandText = "START TRANSACTION;"
+            comando.ExecuteNonQuery()
+
+            comando.CommandText = "INSERT INTO patologia (id, nombre, ponderacion, descripcion) VALUES (" & Me.Id & ", '" & Me.Nombre & "', " & Me.Ponderacion & ", '" & Me.Descripcion & "') ON DUPLICATE KEY UPDATE nombre ='" & Me.Nombre & "', ponderacion =" & Me.Ponderacion & ", descripcion='" & Me.Descripcion & "', activo= " & Me.activo
+            comando.ExecuteNonQuery()
+
+            comando.CommandText = "DELETE FROM asociados WHERE idPatologia =" & Me.Id
+            comando.ExecuteNonQuery()
+
+            'recorre la lista de sintomas asociados a la patologia
+            For Each sintoma In ListaDeSintomasAsociados
+                comando.CommandText = "INSERT INTO asociados VALUES ( " & sqlTexto & " , " & sintoma.ID & ", 1 ) ON DUPLICATE KEY UPDATE  idSintoma=idSintoma"
+                comando.ExecuteNonQuery()
+            Next
+
+            comando.CommandText = "COMMIT;"
+            comando.ExecuteNonQuery()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            comando.CommandText = "ROLLBACK;"
+            comando.ExecuteNonQuery()
+
+        End Try
     End Sub
 
 
@@ -23,14 +50,6 @@ Public Class ModeloPatologia
         comando.CommandText = "DELETE FROM patologia WHERE id = " & Me.Id & ""
         comando.ExecuteNonQuery()
     End Sub
-
-
-    'Public Sub ModifcarPatologia()
-    'modifica la patologia 
-    ' comando.CommandText = "UPDATE patologia SET nombre = '" & Me.Nombre & "', ponderacion = " & Me.Ponderacion & ", 
-    '   descripcion = '" & Me.Descripcion & "', activo = " & Me.activo & " WHERE id = " & Me.Id & ""
-    '  comando.ExecuteNonQuery()
-    'End Sub
 
 
     Private Function validarNombre() As Boolean

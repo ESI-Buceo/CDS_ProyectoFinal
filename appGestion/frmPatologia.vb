@@ -8,7 +8,7 @@ Public Class frmPatologia
         habilitarAgregarSintomaYSignos()
         txtPatologiaNombre.Select()
         colorearCamposRqueridos()
-        ControladorSintomas.crearDataTableSintomasPorPatologia()
+        ControladorPatologias.crearDataTableSintomasXPatologia()
 
     End Sub
 
@@ -25,8 +25,8 @@ Public Class frmPatologia
         colorPorDefectoTextoBox()
         deshabilitarAgregarSintomaYSignos()
         limpiarControlesDeFormulario()
-
     End Sub
+
 
     Private Sub mnuBtnCancelar_Click(sender As Object, e As EventArgs) Handles mnuBtnCancelar.Click
         opcionesMenu.ClickEnBotonCancelar(toolsMenuPatologia)
@@ -34,8 +34,8 @@ Public Class frmPatologia
         colorPorDefectoTextoBox()
         deshabilitarAgregarSintomaYSignos()
         limpiarControlesDeFormulario()
-
     End Sub
+
 
     Private Sub mnuBtnNueva_Click(sender As Object, e As EventArgs) Handles mnuBtnNueva.Click
         opcionesMenu.ClickEnBotonNueva(toolsMenuPatologia)
@@ -43,8 +43,8 @@ Public Class frmPatologia
         limpiarControlesDeFormulario()
         txtPatologiaNombre.Select()
         deshabilitarAgregarSintomaYSignos()
-
     End Sub
+
 
     Private Sub mnuBtnBuscar_Click(sender As Object, e As EventArgs) Handles mnuBtnBuscar.Click
         opcionesMenu.ClickEnBotonBuscar(toolsMenuPatologia)
@@ -52,22 +52,17 @@ Public Class frmPatologia
         dgvListaDePatologias.DataSource = ControladorPatologias.ListarPatologias(txtPatologiaNombre.Text)
         dgvListaDePatologias.Columns(2).Visible = False
         dgvListaDePatologias.Columns(1).Width = 300
-
     End Sub
 
+
     Private Sub mnuBtnModificar_Click(sender As Object, e As EventArgs) Handles mnuBtnModificar.Click
-        'Try
-        '    ControladorPatologias.ModificarPatologia(txtPatologiaID.Text, txtPatologiaNombre.Text, cbPatologiaPonderacion.Text, txtPatologiaDescipcion.Text, chkActiva.CheckState)
-        '    MsgBox("Patologia modificada con exito")
-        'Catch ex As Exception
-        '    MsgBox(ex.Message)
-        'End Try
 
         opcionesMenu.ClickEnBotonModificar(toolsMenuPatologia)
         txtPatologiaNombre.Select()
         colorearCamposRqueridos()
-
+        habilitarAgregarSintomaYSignos()
     End Sub
+
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
         Try
@@ -76,10 +71,8 @@ Public Class frmPatologia
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
         opcionesMenu.ClickEnBotonBorrar(toolsMenuPatologia)
         limpiarControlesDeFormulario()
-
     End Sub
 
     ' colorea los campos requeridos
@@ -98,9 +91,11 @@ Public Class frmPatologia
 
     End Sub
 
+
     Private Sub btnAgregarSintoma_Click(sender As Object, e As EventArgs)
         'agrega sintomas a la lista de sintomas
     End Sub
+
 
     Private Sub habilitarAgregarSintomaYSignos()
         'habilita los botons para agregar sintomas y signos
@@ -109,22 +104,23 @@ Public Class frmPatologia
 
     End Sub
 
+
     Private Sub deshabilitarAgregarSintomaYSignos()
         'deshabilita los botons para agregar sintomas y signos
         btnAgregarSigno.Enabled = False
         btnAgregarSintoma.Enabled = False
-
     End Sub
 
+
     Private Sub limpiarControlesDeFormulario()
-        txtPatologiaID.Text = ""
+        txtPatologiaID.Text = "0"
         txtPatologiaNombre.Text = ""
         txtPatologiaDescipcion.Text = ""
         cbPatologiaPonderacion.Text = ""
-        dgvSintomasPatologia.Rows.Clear()
-        dgvSignosPatologia.Rows.Clear()
-
+        dgvSintomasPatologia.DataSource = ""
+        dgvSignosPatologia.DataSource = ""
     End Sub
+
 
     Private Sub dgvListaDePatologias_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvListaDePatologias.RowHeaderMouseClick
         opcionesMenu.ClickEnListado(toolsMenuPatologia)
@@ -134,31 +130,26 @@ Public Class frmPatologia
         txtPatologiaDescipcion.Text = dgvListaDePatologias.Item(3, e.RowIndex).Value
         cbPatologiaPonderacion.Text = dgvListaDePatologias.Item(2, e.RowIndex).Value
         chkActiva.Checked = dgvListaDePatologias.Item(4, e.RowIndex).Value
-
+        cargarListaSintomasDePatologia()
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
 
+    Private Sub cargarListaSintomasDePatologia()
+        dgvSintomasPatologia.DataSource = ControladorPatologias.cargarSintomaPorPatologia(txtPatologiaID.Text)
+        dgvSintomasPatologia.Columns(0).Visible = False
+        dgvSintomasPatologia.Columns(1).Width = 150
     End Sub
+
 
     Private Sub btnAgregarSigno_Click(sender As Object, e As EventArgs) Handles btnAgregarSigno.Click
         'agrega signos a la lista de signos
     End Sub
+
 
     Private Sub btnAgregarSintoma_Click_1(sender As Object, e As EventArgs) Handles btnAgregarSintoma.Click
         frmListaSintomas.MdiParent = frmPrincipal
         frmListaSintomas.Show()
     End Sub
 
-    Private Sub cbPatologiaPonderacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbPatologiaPonderacion.SelectedIndexChanged
 
-    End Sub
-
-    Private Sub txtPatologiaNombre_TextChanged(sender As Object, e As EventArgs) Handles txtPatologiaNombre.TextChanged
-
-    End Sub
-
-    Private Sub chkActiva_CheckedChanged(sender As Object, e As EventArgs) Handles chkActiva.CheckedChanged
-
-    End Sub
 End Class

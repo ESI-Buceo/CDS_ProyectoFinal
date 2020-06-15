@@ -11,7 +11,7 @@ Public Class frmListaSintomas
 
     Private Sub dgvListaSintomas_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvListaSintomas.RowHeaderMouseDoubleClick
         'selecciona el renglon donde se hace doble click para agregar a la lista de sintomas de la patologia
-        frmPatologia.dgvSintomasPatologia.DataSource = ControladorSintomas.agregarSintomaAPatologia(dgvListaSintomas.Item(0, e.RowIndex).Value, dgvListaSintomas.Item(1, e.RowIndex).Value)
+        frmPatologia.dgvSintomasPatologia.DataSource = ControladorPatologias.agregarSintomaAPatologia(dgvListaSintomas.Item(0, e.RowIndex).Value, dgvListaSintomas.Item(1, e.RowIndex).Value)
         Me.Dispose()
 
     End Sub
