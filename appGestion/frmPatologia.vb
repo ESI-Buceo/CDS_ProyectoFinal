@@ -14,17 +14,17 @@ Public Class frmPatologia
 
     'Guarda los datos de la patologia
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
+        opcionesMenu.ClickEnBotonGuardar(toolsMenuPatologia)
+        colorPorDefectoTextoBox()
+        deshabilitarAgregarSintomaYSignos()
+        limpiarControlesDeFormulario()
+
         Try
             ControladorPatologias.AltaPatologia(txtPatologiaID.Text, txtPatologiaNombre.Text, cbPatologiaPonderacion.Text, txtPatologiaDescipcion.Text, chkActiva.CheckState, dgvSintomasPatologia)
             MsgBox("Dato guardado correctamente")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
-        opcionesMenu.ClickEnBotonGuardar(toolsMenuPatologia)
-        colorPorDefectoTextoBox()
-        deshabilitarAgregarSintomaYSignos()
-        limpiarControlesDeFormulario()
     End Sub
 
 
@@ -65,14 +65,15 @@ Public Class frmPatologia
 
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
+        opcionesMenu.ClickEnBotonBorrar(toolsMenuPatologia)
+        limpiarControlesDeFormulario()
+
         Try
             ControladorPatologias.BorrarPatologia(txtPatologiaID.Text)
             MsgBox("Patología eliminada con exito")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        opcionesMenu.ClickEnBotonBorrar(toolsMenuPatologia)
-        limpiarControlesDeFormulario()
     End Sub
 
     ' colorea los campos requeridos
