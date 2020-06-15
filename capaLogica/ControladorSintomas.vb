@@ -14,20 +14,20 @@ Public Module ControladorSintomas
     End Function
 
 
-    Public Sub GuardarSintomas(Nombre As String, Estado As Boolean)
+    Public Sub GuardarSintomas(ID As String, Nombre As String, Estado As Boolean)
         Dim s As New ModeloSintoma
+        s.ID = ID
         s.Nombre = Nombre
         s.Estado = Estado
         s.GuardarSintoma()
     End Sub
 
-
-    Public Sub ModificarSintomas(Nombre As String, Estado As Boolean, Id As String)
+    Public Sub GuardarSintomas(Nombre As String, Estado As Boolean)
         Dim s As New ModeloSintoma
-        s.ID = Id
+
         s.Nombre = Nombre
         s.Estado = Estado
-        s.ModificarSintoma()
+        s.GuardarSintoma()
     End Sub
 
 
