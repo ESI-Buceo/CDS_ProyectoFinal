@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmListaSintomas
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,15 +20,13 @@ Partial Class frmListaSintomas
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmListaSintomas))
         Me.picEncabezado = New System.Windows.Forms.PictureBox()
         Me.lblEscribirSintoma = New System.Windows.Forms.Label()
         Me.txtNombreSintoma = New System.Windows.Forms.TextBox()
         Me.dgvListaSintomas = New System.Windows.Forms.DataGridView()
-        Me.colSintomaID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colSintomaNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnCerrar = New System.Windows.Forms.Button()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvListaSintomas, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,7 +50,7 @@ Partial Class frmListaSintomas
         Me.lblEscribirSintoma.Location = New System.Drawing.Point(13, 89)
         Me.lblEscribirSintoma.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEscribirSintoma.Name = "lblEscribirSintoma"
-        Me.lblEscribirSintoma.Size = New System.Drawing.Size(166, 22)
+        Me.lblEscribirSintoma.Size = New System.Drawing.Size(129, 17)
         Me.lblEscribirSintoma.TabIndex = 4
         Me.lblEscribirSintoma.Text = "Escribe el sintoma"
         '
@@ -60,7 +58,7 @@ Partial Class frmListaSintomas
         '
         Me.txtNombreSintoma.Location = New System.Drawing.Point(17, 123)
         Me.txtNombreSintoma.Name = "txtNombreSintoma"
-        Me.txtNombreSintoma.Size = New System.Drawing.Size(395, 28)
+        Me.txtNombreSintoma.Size = New System.Drawing.Size(395, 24)
         Me.txtNombreSintoma.TabIndex = 5
         '
         'dgvListaSintomas
@@ -68,26 +66,12 @@ Partial Class frmListaSintomas
         Me.dgvListaSintomas.AllowUserToAddRows = False
         Me.dgvListaSintomas.AllowUserToDeleteRows = False
         Me.dgvListaSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvListaSintomas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colSintomaID, Me.colSintomaNombre})
         Me.dgvListaSintomas.Location = New System.Drawing.Point(17, 167)
         Me.dgvListaSintomas.Name = "dgvListaSintomas"
         Me.dgvListaSintomas.ReadOnly = True
         Me.dgvListaSintomas.RowTemplate.Height = 24
         Me.dgvListaSintomas.Size = New System.Drawing.Size(395, 307)
         Me.dgvListaSintomas.TabIndex = 6
-        '
-        'colSintomaID
-        '
-        Me.colSintomaID.HeaderText = "ID"
-        Me.colSintomaID.Name = "colSintomaID"
-        Me.colSintomaID.ReadOnly = True
-        '
-        'colSintomaNombre
-        '
-        Me.colSintomaNombre.HeaderText = "NOMBRE"
-        Me.colSintomaNombre.Name = "colSintomaNombre"
-        Me.colSintomaNombre.ReadOnly = True
-        Me.colSintomaNombre.Width = 230
         '
         'btnCerrar
         '
@@ -100,7 +84,7 @@ Partial Class frmListaSintomas
         '
         'frmListaSintomas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 21.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(426, 543)
         Me.Controls.Add(Me.btnCerrar)
@@ -127,6 +111,4 @@ Partial Class frmListaSintomas
     Friend WithEvents txtNombreSintoma As TextBox
     Friend WithEvents dgvListaSintomas As DataGridView
     Friend WithEvents btnCerrar As Button
-    Friend WithEvents colSintomaID As DataGridViewTextBoxColumn
-    Friend WithEvents colSintomaNombre As DataGridViewTextBoxColumn
 End Class

@@ -35,7 +35,6 @@ Public Class ModeloSintoma
     End Sub
 
     Public Sub BorrarSintoma()
-
         comando.CommandText = "DELETE FROM sintoma  WHERE Id = " & Me.ID & " "
         comando.ExecuteNonQuery()
 
@@ -59,6 +58,16 @@ Public Class ModeloSintoma
         comando.CommandText = "SELECT * FROM sintoma WHERE activo = 1 AND nombre like '%" + sintoma + "%'"
         lector = comando.ExecuteReader()
         tabla.Load(lector)
+        Return tabla
+    End Function
+
+
+    Public Function listarSintomasXPatologia(ByVal idPatologia As String) As DataTable
+        ' lista los sintomas vinculados a una patologia
+        Dim tabla As New DataTable
+        comando.CommandText = "SELECT a.idSintoma, s.nombre FROM asociados a JOIN sintoma s ON s.id = a.idSintoma WHERE a.idPatologia=" & idPatologia
+        reader = comando.ExecuteReader()
+        tabla.Load(reader)
         Return tabla
     End Function
 

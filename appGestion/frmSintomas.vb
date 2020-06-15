@@ -50,16 +50,6 @@ Public Class frmSintomas
         txtSintomaID.Text = ""
     End Sub
 
-
-
-    'Private Sub mnuBtnNueva_Click(sender As Object, e As EventArgs) Handles mnuBtnNueva.Click
-    '   opcionesMenu.ClickEnBotonNueva(toolsMenuSintoma)
-    '  limpiarTextBox()
-    ' txtSintomaNombre.Select()
-    'tabDatosSintomas.SelectTab(tabDatos)
-    'txtSintomaID.Text = ""
-    'End Sub
-
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
         opcionesMenu.ClickEnBotonAgregar(toolsMenuSintoma)
         limpiarTextBox()
@@ -74,8 +64,6 @@ Public Class frmSintomas
         Dim Estado As Boolean
 
         If txtSintomaNombre.Text <> "" Then
-
-
             If chkSintomaEstado.CheckState = 1 Then
                 Estado = True
             Else
