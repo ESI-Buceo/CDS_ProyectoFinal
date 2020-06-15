@@ -6,6 +6,8 @@ Public Class frmSintomas
         opcionesMenu.ClickEnBotonCancelar(toolsMenuSintoma)
         tabDatosSintomas.SelectTab(tabDatos)
         colorPorDefectoTextBox()
+        limpiarTextBox()
+        txtSintomaID.Text = ""
     End Sub
 
     Private Sub mnuBtnBuscar_Click(sender As Object, e As EventArgs) Handles mnuBtnBuscar.Click
@@ -37,45 +39,30 @@ Public Class frmSintomas
         txtSintomaNombre.Select()
         tabDatosSintomas.SelectTab(tabDatos)
         marcarTextBoxRequeridos()
-        txtSintomaID.Text = ""
     End Sub
 
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
         opcionesMenu.ClickEnBotonGuardar(toolsMenuSintoma)
         colorPorDefectoTextBox()
-        If txtSintomaNombre.Text <> "" Then
-            If txtSintomaID.Text = "" Then
-                Try
-                    ControladorSintomas.GuardarSintomas(txtSintomaNombre.Text, chkSintomaEstado.CheckState)
-                    mensajeOk()
-                    limpiarTextBox()
-                Catch ex As Exception
-                    mensajeError()
-                End Try
-            Else
-                Try
-                    ControladorSintomas.GuardarSintomas(txtSintomaID.Text, txtSintomaNombre.Text, chkSintomaEstado.CheckState)
-                    mensajeOk()
-                    limpiarTextBox()
-                Catch ex As Exception
-                    mensajeError()
-                End Try
-            End If
-        Else
-            campoVacio()
-        End If
+        Try
+            ControladorSintomas.GuardarSintomas(txtSintomaID.Text, txtSintomaNombre.Text, chkSintomaEstado.CheckState)
+            mensajeOk()
+        Catch ex As Exception
+            mensajeError()
+        End Try
+        limpiarTextBox()
+        txtSintomaID.Text = ""
     End Sub
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
         Try
             ControladorSintomas.BorrarSintomas(txtSintomaID.Text)
             MessageBox.Show("Registro Eliminado Correctamente!", "Sintoma Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
         Catch ex As Exception
             MsgBox("Error! ")
         End Try
         limpiarTextBox()
-
+        txtSintomaID.Text = ""
     End Sub
 
     Private Sub dgSintomas_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgSintomas.RowHeaderMouseClick
@@ -88,7 +75,6 @@ Public Class frmSintomas
 
     Private Sub limpiarTextBox()
         txtSintomaNombre.Text = ""
-        txtSintomaID.Text = ""
         chkSintomaEstado.CheckState = CheckState.Checked
     End Sub
 
@@ -98,7 +84,7 @@ Public Class frmSintomas
     End Sub
 
     Private Sub mensajeOk()
-        MessageBox.Show("Sintoma " & txtSintomaNombre.Text & " Ingresado", "Registro Guardado Correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show("Sintoma : " & txtSintomaNombre.Text & " Ingresado", "Registro Guardado Correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
     End Sub
 

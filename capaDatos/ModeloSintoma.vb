@@ -9,22 +9,17 @@ Public Class ModeloSintoma
     Public lector As OdbcDataReader
 
     Public Sub GuardarSintoma()
-
-        If Me.ID = 0 Then
-            comando.CommandText = "INSERT INTO sintoma (nombre, activo) VALUES ( '" & Me.Nombre & "', " & Me.Estado & " )"
-
-        Else
+        Try
             comando.CommandText = "INSERT INTO sintoma (id,nombre, activo) VALUES ( " & Me.ID & " ,'" & Me.Nombre & "', " & Me.Estado & " ) ON DUPLICATE KEY UPDATE nombre ='" & Me.Nombre & "', activo= " & Me.Estado
-
-        End If
-        comando.ExecuteNonQuery()
-
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Public Sub BorrarSintoma()
         comando.CommandText = "DELETE FROM sintoma  WHERE Id = " & Me.ID & " "
         comando.ExecuteNonQuery()
-
     End Sub
 
     Public Function TraeDatosSintomasDeBD() As DataTable
@@ -42,7 +37,6 @@ Public Class ModeloSintoma
         tabla.Load(lector)
         Return tabla
     End Function
-
 
     Public Function listarSintomasXPatologia(ByVal idPatologia As String) As DataTable
         ' lista los sintomas vinculados a una patologia
