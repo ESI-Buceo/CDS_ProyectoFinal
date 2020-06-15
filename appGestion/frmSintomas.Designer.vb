@@ -91,7 +91,7 @@ Partial Class frmSintomas
         Me.mnuBtnAgregar.Name = "mnuBtnAgregar"
         Me.mnuBtnAgregar.Size = New System.Drawing.Size(88, 29)
         Me.mnuBtnAgregar.Text = "Agregar"
-        Me.mnuBtnAgregar.ToolTipText = "Agrega un nuevo registro"
+        Me.mnuBtnAgregar.ToolTipText = "Habilitar Campo Nombre"
         '
         'tabSeparador
         '

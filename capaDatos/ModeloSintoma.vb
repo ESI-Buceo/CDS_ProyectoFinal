@@ -9,27 +9,14 @@ Public Class ModeloSintoma
     Public lector As OdbcDataReader
 
     Public Sub GuardarSintoma()
-        Dim activo As Byte
 
-        If Me.Estado = True Then
-            activo = 1
+        If Me.ID = 0 Then
+            comando.CommandText = "INSERT INTO sintoma (nombre, activo) VALUES ( '" & Me.Nombre & "', " & Me.Estado & " )"
+
         Else
-            activo = 0
+            comando.CommandText = "INSERT INTO sintoma (id,nombre, activo) VALUES ( " & Me.ID & " ,'" & Me.Nombre & "', " & Me.Estado & " ) ON DUPLICATE KEY UPDATE nombre ='" & Me.Nombre & "', activo= " & Me.Estado
+
         End If
-        comando.CommandText = "INSERT INTO sintoma (nombre, activo) VALUES('" & Me.Nombre & "', " & activo & " )"
-        comando.ExecuteNonQuery()
-
-    End Sub
-
-    Public Sub ModificarSintoma()
-        Dim activo As Byte
-
-        If Me.Estado = True Then
-            activo = 1
-        Else
-            activo = 0
-        End If
-        comando.CommandText = "UPDATE sintoma  SET nombre='" & Me.Nombre & "', activo=" & activo & " WHERE Id = " & Me.ID & " "
         comando.ExecuteNonQuery()
 
     End Sub
@@ -40,14 +27,9 @@ Public Class ModeloSintoma
 
     End Sub
 
-    Public Function eliminarSintoma(ByVal id As Integer) As Boolean
-        'elimina sintoma o lo marca como 0 - inhabilitado
-        Return True
-    End Function
-
     Public Function TraeDatosSintomasDeBD() As DataTable
         Dim tabla As New DataTable
-        comando.CommandText = "SELECT * FROM sintoma WHERE activo = 1 "
+        comando.CommandText = "Select * FROM sintoma WHERE activo = 1 "
         lector = comando.ExecuteReader()
         tabla.Load(lector)
         Return tabla
@@ -55,7 +37,7 @@ Public Class ModeloSintoma
 
     Public Function TraeDatosSintomasDeBD(sintoma As String) As DataTable
         Dim tabla As New DataTable
-        comando.CommandText = "SELECT * FROM sintoma WHERE activo = 1 AND nombre like '%" + sintoma + "%'"
+        comando.CommandText = "Select * FROM sintoma WHERE activo = 1 And nombre Like '%" + sintoma + "%'"
         lector = comando.ExecuteReader()
         tabla.Load(lector)
         Return tabla
