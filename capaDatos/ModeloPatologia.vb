@@ -29,7 +29,7 @@ Public Class ModeloPatologia
 
             'recorre la lista de sintomas asociados a la patologia
             For Each sintoma In ListaDeSintomasAsociados
-                comando.CommandText = "INSERT INTO asociados VALUES ( " & sqlTexto & " , " & sintoma.ID & ", 1 ) ON DUPLICATE KEY UPDATE  idSintoma=idSintoma"
+                comando.CommandText = "INSERT INTO asociados VALUES ( " & sqlTexto & " , " & sintoma.ID & ", 1 )"
                 comando.ExecuteNonQuery()
             Next
 
@@ -46,8 +46,8 @@ Public Class ModeloPatologia
 
 
     Public Sub eliminarPatologia()
-        'elimina la patologa con el id
-        comando.CommandText = "DELETE FROM patologia WHERE id = " & Me.Id & ""
+        'eliminacion logica de la patologa 
+        comando.CommandText = "UPDATE patologia set activo = 0 WHERE id = " & Me.Id & ""
         comando.ExecuteNonQuery()
     End Sub
 

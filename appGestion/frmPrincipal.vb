@@ -4,22 +4,19 @@ Imports System.Windows.Forms
 Public Class frmPrincipal
     Private Sub PatologiasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PatologiasToolStripMenuItem.Click
         frmPatologia.MdiParent = Me
-        frmPatologia.Location = New Point(0, 0)
-        frmPatologia.StartPosition = FormStartPosition.Manual
+        frmPatologia.BringToFront()
         frmPatologia.Show()
     End Sub
 
     Private Sub SintomasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SintomasToolStripMenuItem.Click
         frmSintomas.MdiParent = Me
-        frmSintomas.Location = New Point(0, 0)
-        frmSintomas.StartPosition = FormStartPosition.Manual
+        frmSintomas.BringToFront()
         frmSintomas.Show()
     End Sub
 
     Private Sub btnVerPatologia_Click(sender As Object, e As EventArgs) Handles btnVerPatologia.Click
         frmPatologia.MdiParent = Me
-        frmPatologia.Location = New Point(0, 0)
-        frmPatologia.StartPosition = FormStartPosition.Manual
+        frmPatologia.BringToFront()
         frmPatologia.Show()
     End Sub
 
