@@ -6,7 +6,7 @@ Public Class ModeloAsociados
     Public IdPatologia As Integer
     Public IdSintoma As Integer
     Public IdSigno As Integer
-    Public incluida As Boolean
+    Public Incluida As Boolean
 
     Public Function CargarListaAsociadosBD()
 

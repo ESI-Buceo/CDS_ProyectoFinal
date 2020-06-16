@@ -1,4 +1,6 @@
 ﻿Public Class PanelPatologia
+    'Genera dinamicamente un panel con los datos de las patologias.
+
     Public Shared id As Integer
     Public nombre As String
     Public descipcion As String

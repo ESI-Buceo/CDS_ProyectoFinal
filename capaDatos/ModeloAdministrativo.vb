@@ -3,14 +3,14 @@ Public Class ModeloAdministrativo
     Inherits ModeloPersona
 
     Public NumeroEmpleado As Integer
-    Public listaDeEmpleados As New List(Of ModeloAdministrativo)
+    Public ListaDeEmpleados As New List(Of ModeloAdministrativo)
 
     Public Function GuardarAdministrativo()
         'guarda los datos de un empleado
         Return True
     End Function
 
-    Public Function eliminarAdministrativo(ByVal numeroEmpleado As Integer)
+    Public Function EliminarAdministrativo(ByVal numeroEmpleado As Integer)
         'modifica el estado de un empleado
         Return True
     End Function
@@ -21,9 +21,9 @@ Public Class ModeloAdministrativo
         Return True
     End Function
 
-    Public Function listarEmpleados()
+    Public Function ListarEmpleados()
         'lista todos los empleados
-        Return listaDeEmpleados
+        Return ListaDeEmpleados
     End Function
 
 

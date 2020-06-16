@@ -7,7 +7,7 @@ Public Class ModeloPatologia
     Public Nombre As String
     Public Ponderacion As Integer
     Public Descripcion As String
-    Public activo As Integer
+    Public Activo As Integer
     Public ListaDeSintomasAsociados As List(Of ModeloSintoma)
 
     Public Sub GuaradrPatologia()
@@ -45,7 +45,7 @@ Public Class ModeloPatologia
     End Sub
 
 
-    Public Sub eliminarPatologia()
+    Public Sub EliminarPatologia()
         'eliminacion logica de la patologa 
         comando.CommandText = "UPDATE patologia set activo = 0 WHERE id = " & Me.Id & ""
         comando.ExecuteNonQuery()
