@@ -6,7 +6,6 @@ Public Class ModeloSintoma
     Public Nombre As String
     Public Estado As Boolean
 
-    Public lector As OdbcDataReader
 
     Public Sub GuardarSintoma()
         Try
@@ -18,6 +17,7 @@ Public Class ModeloSintoma
     End Sub
 
     Public Sub BorrarSintoma()
+        ' eliminiacion logica de sintoma
         comando.CommandText = "DELETE FROM sintoma  WHERE Id = " & Me.ID & " "
         comando.ExecuteNonQuery()
     End Sub
@@ -25,16 +25,16 @@ Public Class ModeloSintoma
     Public Function TraeDatosSintomasDeBD() As DataTable
         Dim tabla As New DataTable
         comando.CommandText = "Select * FROM sintoma WHERE activo = 1 "
-        lector = comando.ExecuteReader()
-        tabla.Load(lector)
+        reader = comando.ExecuteReader()
+        tabla.Load(reader)
         Return tabla
     End Function
 
     Public Function TraeDatosSintomasDeBD(sintoma As String) As DataTable
         Dim tabla As New DataTable
         comando.CommandText = "Select * FROM sintoma WHERE activo = 1 And nombre Like '%" + sintoma + "%'"
-        lector = comando.ExecuteReader()
-        tabla.Load(lector)
+        reader = comando.ExecuteReader()
+        tabla.Load(reader)
         Return tabla
     End Function
 
