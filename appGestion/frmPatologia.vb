@@ -15,16 +15,15 @@ Public Class frmPatologia
     'Guarda los datos de la patologia
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
         opcionesMenu.ClickEnBotonGuardar(toolsMenuPatologia)
-        colorPorDefectoTextoBox()
-        deshabilitarAgregarSintomaYSignos()
-        limpiarControlesDeFormulario()
-
         Try
             ControladorPatologias.AltaPatologia(txtPatologiaID.Text, txtPatologiaNombre.Text, cbPatologiaPonderacion.Text, txtPatologiaDescipcion.Text, chkActiva.CheckState, dgvSintomasPatologia)
             MsgBox("Dato guardado correctamente")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        colorPorDefectoTextoBox()
+        deshabilitarAgregarSintomaYSignos()
+        limpiarControlesDeFormulario()
     End Sub
 
 
@@ -66,15 +65,15 @@ Public Class frmPatologia
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
         opcionesMenu.ClickEnBotonBorrar(toolsMenuPatologia)
-        limpiarControlesDeFormulario()
-
         Try
             ControladorPatologias.BorrarPatologia(txtPatologiaID.Text)
             MsgBox("Patología eliminada con exito")
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        limpiarControlesDeFormulario()
     End Sub
+
 
     ' colorea los campos requeridos
     Private Sub colorearCamposRqueridos()
@@ -83,6 +82,7 @@ Public Class frmPatologia
         txtPatologiaDescipcion.BackColor = Color.Beige
 
     End Sub
+
 
     ' colorea los campos edidables
     Private Sub colorPorDefectoTextoBox()
@@ -153,4 +153,22 @@ Public Class frmPatologia
     End Sub
 
 
+    Private Sub lblEmergencia_MouseMove(sender As Object, e As MouseEventArgs) Handles lblEmergencia.MouseMove
+        tttPonderacion.Show("EMERGENCIA", lblEmergencia, 1000)
+    End Sub
+
+
+    Private Sub lblUrgencia_MouseMove(sender As Object, e As MouseEventArgs) Handles lblUrgencia.MouseMove
+        tttPonderacion.Show("URGENCIA", lblUrgencia, 1000)
+    End Sub
+
+
+    Private Sub lblUrgenciaMenor_MouseMove(sender As Object, e As MouseEventArgs) Handles lblUrgenciaMenor.MouseMove
+        tttPonderacion.Show("URGENCIA MENOR", lblUrgenciaMenor, 1000)
+    End Sub
+
+
+    Private Sub lblSinUrgencia_MouseMove(sender As Object, e As MouseEventArgs) Handles lblSinUrgencia.MouseMove
+        tttPonderacion.Show("SIN URGENCIA", lblSinUrgencia, 1000)
+    End Sub
 End Class
