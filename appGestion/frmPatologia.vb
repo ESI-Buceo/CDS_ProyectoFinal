@@ -4,7 +4,6 @@ Public Class frmPatologia
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
         opcionesMenu.ClickEnBotonAgregar(toolsMenuPatologia)
         limpiarControlesDeFormulario()
-        txtPatologiaID.Text = 0
         habilitarAgregarSintomaYSignos()
         txtPatologiaNombre.Select()
         colorearCamposRqueridos()
@@ -91,12 +90,6 @@ Public Class frmPatologia
         txtPatologiaDescipcion.BackColor = Color.White
 
     End Sub
-
-
-    Private Sub btnAgregarSintoma_Click(sender As Object, e As EventArgs)
-        'agrega sintomas a la lista de sintomas
-    End Sub
-
 
     Private Sub habilitarAgregarSintomaYSignos()
         'habilita los botons para agregar sintomas y signos
