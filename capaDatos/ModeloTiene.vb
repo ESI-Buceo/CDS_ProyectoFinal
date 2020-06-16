@@ -9,6 +9,7 @@ Public Class ModeloTiene
     Public Function guardarRelacionDiagnosticoPatologia()
         comando.CommandText = "INSERT INTO tiene VALUES(" & Me.idDiagnostico & ", " & Me.idPatologia & ")"
         comando.ExecuteNonQuery()
+        cerrarConexion()
         Return True
     End Function
 End Class

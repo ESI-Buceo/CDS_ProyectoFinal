@@ -30,7 +30,7 @@ Public Class frmSintomas
         limpiarTextBox()
         txtSintomaNombre.Select()
         tabDatosSintomas.SelectTab(tabDatos)
-        txtSintomaID.Text = ""
+        txtSintomaID.Text = "0"
     End Sub
 
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
@@ -51,7 +51,7 @@ Public Class frmSintomas
             mensajeError()
         End Try
         limpiarTextBox()
-        txtSintomaID.Text = ""
+        txtSintomaID.Text = "0"
     End Sub
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
@@ -62,7 +62,7 @@ Public Class frmSintomas
             MsgBox("Error! ")
         End Try
         limpiarTextBox()
-        txtSintomaID.Text = ""
+        txtSintomaID.Text = "0"
     End Sub
 
     Private Sub dgSintomas_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgSintomas.RowHeaderMouseClick

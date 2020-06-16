@@ -115,7 +115,7 @@ Public Class frmPrincipal
             btnVerInforme.Visible = False
             btnNuevaConsulta.Visible = True
         Catch ex As Exception
-            MsgBox("Not se creo el diagnostico")
+            MsgBox("Se genero un error y no se genero el informe de diagnostico")
         End Try
 
     End Sub

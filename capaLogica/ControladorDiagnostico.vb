@@ -19,17 +19,22 @@ Public Module ControladorDiagnostico
 
     Private Sub cargarListaRelacionPatologiaSintoma(ByRef tablaAsociados As DataTable)
         For patologiasSintomas = 0 To tablaAsociados.Rows.Count - 1
-            ListaRelacionPatologiaSintoma.Add(New ModeloAsociados With {
-                                            .IdPatologia = tablaAsociados.Rows(patologiasSintomas).Item("idPatologia").ToString,
-                                            .IdSintoma = tablaAsociados.Rows(patologiasSintomas).Item("idSintoma").ToString,
-                                            .IdSigno = tablaAsociados.Rows(patologiasSintomas).Item("idSigno").ToString
-                                              })
+            Dim a As New ModeloAsociados
+            a.IdPatologia = tablaAsociados.Rows(patologiasSintomas).Item("idPatologia").ToString
+            a.IdSintoma = tablaAsociados.Rows(patologiasSintomas).Item("idSintoma").ToString
+            a.IdSigno = tablaAsociados.Rows(patologiasSintomas).Item("idSigno").ToString
+            a.cerrarConexion()
+            ListaRelacionPatologiaSintoma.Add(a)
         Next
     End Sub
 
     Public Function ValidarSintomaSeleccionado(ByVal idSintoma As Integer, sintomaNombre As String)
         If ListaSintomasSeleccionados.Count = 0 Then
-            ListaSintomasSeleccionados.Add(New ModeloSintoma With {.ID = idSintoma, .Nombre = sintomaNombre})
+            Dim s As New ModeloSintoma
+            s.ID = idSintoma
+            s.Nombre = sintomaNombre
+            s.cerrarConexion()
+            ListaSintomasSeleccionados.Add(s)
             Return True
         Else
             Return VerificarSiYaFueIngresado(idSintoma, sintomaNombre)
@@ -39,7 +44,11 @@ Public Module ControladorDiagnostico
     Public Function VerificarSiYaFueIngresado(ByVal idSintoma As Integer, sintomaNombre As String)
         For s = 0 To ListaSintomasSeleccionados.Count - 1
             If ListaSintomasSeleccionados.Item(s).ID <> idSintoma Then
-                ListaSintomasSeleccionados.Add(New ModeloSintoma With {.ID = idSintoma, .Nombre = sintomaNombre})
+                Dim sin As New ModeloSintoma
+                sin.ID = idSintoma
+                sin.Nombre = sintomaNombre
+                sin.cerrarConexion()
+                ListaSintomasSeleccionados.Add(sin)
                 Return True
             End If
         Next
@@ -51,7 +60,12 @@ Public Module ControladorDiagnostico
         ListaFiltradaPatologiasXSintomas.Clear()
         For index = 0 To ListaRelacionPatologiaSintoma.Count - 1
             If ListaRelacionPatologiaSintoma.Item(index).IdSintoma = ListaSintomasSeleccionados.Item(0).ID Then
-                ListaFiltradaPatologiasXSintomas.Add(New ModeloAsociados With {.IdPatologia = ListaRelacionPatologiaSintoma.Item(index).IdPatologia, .IdSintoma = ListaRelacionPatologiaSintoma.Item(index).IdSintoma, .IdSigno = ListaRelacionPatologiaSintoma.Item(index).IdSigno})
+                Dim a As New ModeloAsociados
+                a.IdPatologia = ListaRelacionPatologiaSintoma.Item(index).IdPatologia
+                a.IdSintoma = ListaRelacionPatologiaSintoma.Item(index).IdPatologia
+                a.IdSigno = ListaRelacionPatologiaSintoma.Item(index).IdSigno
+                a.cerrarConexion()
+                ListaFiltradaPatologiasXSintomas.Add(a)
             End If
         Next
         filtroFinalPatologiaXsintomas()

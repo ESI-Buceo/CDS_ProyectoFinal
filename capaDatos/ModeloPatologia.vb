@@ -98,6 +98,7 @@ Public Class ModeloPatologia
         reader = comando.ExecuteReader()
         tabla.Load(reader)
         Return tabla
+        cerrarConexion()
     End Function
 
 
@@ -105,6 +106,7 @@ Public Class ModeloPatologia
         comando.CommandText = "SELECT * FROM patologia WHERE id = " & id
         reader = comando.ExecuteReader()
         Return crearObjetoPatologia(reader)
+        cerrarConexion()
     End Function
 
 
