@@ -1,5 +1,7 @@
 ﻿Imports System.Windows.Forms
 Public Module opcionesMenu
+    'Acciones unificadas de los menu en los formularios
+
     Public Sub ClickEnBotonModificar(menu As ToolStrip)
         menu.Items().Item(0).Enabled = False 'boton agregar
         menu.Items().Item(2).Enabled = True 'boton guardar

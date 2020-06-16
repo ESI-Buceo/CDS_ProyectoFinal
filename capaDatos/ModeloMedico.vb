@@ -4,19 +4,19 @@
     Public NumeroMedico As Integer
     Public ListaMedicos As New List(Of ModeloMedico)
 
-    Public Function guardarMedico()
+    Public Function GuardarMedico()
         'guarda los datos del medico
         Return True
     End Function
 
-    Public Function eliminarMedico(ByVal numeroMedico As Integer)
+    Public Function EliminarMedico(ByVal numeroMedico As Integer)
         'marca un medico como inhabilitado
         Return True
     End Function
 
-    Public Function listarMedicos()
+    Public Function ListarMedicos()
         'lista todos los medicos
-        Return listaMedicos
+        Return ListaMedicos
     End Function
 
     Private Function validarNumeroMedico()

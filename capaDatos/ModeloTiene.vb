@@ -3,10 +3,10 @@
 Public Class ModeloTiene
     Inherits ModeloConexion
 
-    Public idDiagnostico As Integer
-    Public idPatologia As Integer
+    Public IdDiagnostico As Integer
+    Public IdPatologia As Integer
 
-    Public Function guardarRelacionDiagnosticoPatologia()
+    Public Function GuardarRelacionDiagnosticoPatologia()
         comando.CommandText = "INSERT INTO tiene VALUES(" & Me.idDiagnostico & ", " & Me.idPatologia & ")"
         comando.ExecuteNonQuery()
         cerrarConexion()
