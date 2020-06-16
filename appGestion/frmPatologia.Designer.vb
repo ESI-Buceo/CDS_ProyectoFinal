@@ -387,9 +387,8 @@ Partial Class frmPatologia
         '
         'cbPatologiaPonderacion
         '
-        Me.cbPatologiaPonderacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbPatologiaPonderacion.FormattingEnabled = True
-        Me.cbPatologiaPonderacion.Items.AddRange(New Object() {"10", "20", "30", "40"})
+        Me.cbPatologiaPonderacion.Items.AddRange(New Object() {"10", "20", "30", "40", " "})
         Me.cbPatologiaPonderacion.Location = New System.Drawing.Point(747, 22)
         Me.cbPatologiaPonderacion.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cbPatologiaPonderacion.Name = "cbPatologiaPonderacion"
@@ -431,6 +430,7 @@ Partial Class frmPatologia
         Me.txtPatologiaID.ReadOnly = True
         Me.txtPatologiaID.Size = New System.Drawing.Size(104, 27)
         Me.txtPatologiaID.TabIndex = 1
+        Me.txtPatologiaID.Text = "0"
         Me.txtPatologiaID.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblPatologiaID
