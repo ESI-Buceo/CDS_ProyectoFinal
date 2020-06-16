@@ -27,6 +27,7 @@ Public Class ModeloSintoma
         comando.CommandText = "Select * FROM sintoma WHERE activo = 1 "
         reader = comando.ExecuteReader()
         tabla.Load(reader)
+        cerrarConexion()
         Return tabla
     End Function
 
@@ -35,6 +36,7 @@ Public Class ModeloSintoma
         comando.CommandText = "Select * FROM sintoma WHERE activo = 1 And nombre Like '%" + sintoma + "%'"
         reader = comando.ExecuteReader()
         tabla.Load(reader)
+        cerrarConexion()
         Return tabla
     End Function
 
@@ -44,6 +46,7 @@ Public Class ModeloSintoma
         comando.CommandText = "SELECT a.idSintoma, s.nombre FROM asociados a JOIN sintoma s ON s.id = a.idSintoma WHERE a.idPatologia=" & idPatologia
         reader = comando.ExecuteReader()
         tabla.Load(reader)
+        cerrarConexion()
         Return tabla
     End Function
 

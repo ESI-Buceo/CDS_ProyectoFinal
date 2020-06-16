@@ -10,6 +10,7 @@ Public Class ModeloDiagnostico
         'codigo para guardar el diagnostico en la base de datos
         comando.CommandText = "INSERT INTO diagnostico (id, prioridad) VALUES (" & Me.idDiagnostico & ", " & Me.Prioridad & ")"
         comando.ExecuteNonQuery()
-            Return True
+        cerrarConexion()
+        Return True
     End Function
 End Class

@@ -21,4 +21,8 @@ Public MustInherit Class ModeloConexion
         Me.conexion.Open()
         Me.comando.Connection = Me.conexion
     End Sub
+
+    Public Sub cerrarConexion()
+        Me.conexion.Close()
+    End Sub
 End Class
