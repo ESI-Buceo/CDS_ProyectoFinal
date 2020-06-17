@@ -72,7 +72,7 @@ Public Class frmPrincipal
         lblPregunta.Width = 370
         lblPregunta.Height = 200
         lblPregunta.AutoSize = False
-        lblPregunta.Text = "Hemos preparado el siguiente informe de acuerdo a los sintomas que has ingresado. No dejes de consultara tu medico via chat, recuerda que este diagnostico no sustituye la consulta a un profesional."
+        lblPregunta.Text = "Presiona Ver Informe para que podamos generarte un diagnostico de acuerdo a los sintomas que has ingresado. No dejes de consultara tu medico via chat, recuerda que este diagnostico no sustituye la consulta a un profesional."
         panelBotonSiNo.Visible = False
         btnVerInforme.Visible = True
     End Sub
@@ -105,9 +105,38 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub btnVerInforme_Click_1(sender As Object, e As EventArgs) Handles btnVerInforme.Click
+        mensajeDeEsperaProcesoDeDiagnostico()
+    End Sub
+
+    Private Sub mensajeDeEsperaProcesoDeDiagnostico()
+        lblPregunta.Text = "Aguarda mientras preparamos tu informe..."
+        Me.Refresh()
+        crearInformeDiagnostico()
+    End Sub
+
+    Private Sub crearInformeDiagnostico()
+        'Crea informe de diagnostico
+        ControladorDiagnostico.CrearInformeDiagnostico()
+        evaluaInformeDiagnostico()
+    End Sub
+
+    Private Sub evaluaInformeDiagnostico()
+        'Evalua resultado informe de diagnostico
+        If DevolverListaPatologiasDiagnostico.count = 0 Then
+            lblPregunta.Text = "No existen patologias con los sintomas que has ingresado !"
+            btnVerInforme.Visible = False
+            btnNuevaConsulta.Visible = True
+            Me.Refresh()
+        Else
+            mostrarInformeDiagnostico()
+        End If
+    End Sub
+
+    Private Sub mostrarInformeDiagnostico()
+        'Muestra el informe de diagostico
         Try
+            lblPregunta.Text = "Hemos preparado el siguiente informe para ti de acuerdo a los sintomas que has ingresado. Por favor inicia una conversacion por chat con el medico."
             flPanelDiagnostico.Visible = True
-            ControladorDiagnostico.CrearInformeDiagnostico()
             For Each patologias In DevolverListaPatologiasDiagnostico()
                 Dim panel As New PanelPatologia With {.nombre = patologias.nombre, .descipcion = patologias.descripcion}
                 flPanelDiagnostico.Controls.Add(panel.CrearPanelPatologia)
@@ -117,8 +146,8 @@ Public Class frmPrincipal
         Catch ex As Exception
             MsgBox("Se genero un error y no se genero el informe de diagnostico")
         End Try
-
     End Sub
+
 
     Private Sub clicBotonConsulta()
         PanelDeConsulta.Visible = True

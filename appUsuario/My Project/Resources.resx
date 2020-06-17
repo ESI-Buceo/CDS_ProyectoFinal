@@ -121,6 +121,9 @@
   <data name="btnChatSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnChatSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="vida sana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vida sana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btnRelojFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnRelojFocus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,6 +138,9 @@
   </data>
   <data name="vidasana" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vidasana.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnConsultaSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnConsultaSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,7 +163,7 @@
   <data name="btnRelojSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnRelojSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vida sana" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vida sana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="giphy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\giphy.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

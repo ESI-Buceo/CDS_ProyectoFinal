@@ -22,6 +22,7 @@ Partial Class frmPrincipal
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPrincipal))
         Me.PanelInicio = New System.Windows.Forms.Panel()
         Me.btnIngresarInvitado = New System.Windows.Forms.Button()
@@ -50,11 +51,14 @@ Partial Class frmPrincipal
         Me.btnComenzar = New System.Windows.Forms.Button()
         Me.lblMensaje = New System.Windows.Forms.Label()
         Me.picMsVidaSana = New System.Windows.Forms.PictureBox()
+        Me.lblNoResultado = New System.Windows.Forms.Label()
+        Me.tiempoMensaje = New System.Windows.Forms.Timer(Me.components)
         Me.PanelInicio.SuspendLayout()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelCabecera.SuspendLayout()
         CType(Me.picFotoUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelDeConsulta.SuspendLayout()
+        Me.flPanelDiagnostico.SuspendLayout()
         CType(Me.picLogoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelDeSintomas.SuspendLayout()
         Me.panelBotonSiNo.SuspendLayout()
@@ -201,6 +205,7 @@ Partial Class frmPrincipal
         '
         Me.flPanelDiagnostico.AutoScroll = True
         Me.flPanelDiagnostico.BackColor = System.Drawing.SystemColors.Control
+        Me.flPanelDiagnostico.Controls.Add(Me.lblNoResultado)
         Me.flPanelDiagnostico.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
         Me.flPanelDiagnostico.ForeColor = System.Drawing.SystemColors.ActiveCaption
         Me.flPanelDiagnostico.Location = New System.Drawing.Point(819, 12)
@@ -379,6 +384,17 @@ Partial Class frmPrincipal
         Me.picMsVidaSana.TabIndex = 0
         Me.picMsVidaSana.TabStop = False
         '
+        'lblNoResultado
+        '
+        Me.lblNoResultado.AutoSize = True
+        Me.lblNoResultado.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblNoResultado.Location = New System.Drawing.Point(5, 2)
+        Me.lblNoResultado.Name = "lblNoResultado"
+        Me.lblNoResultado.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
+        Me.lblNoResultado.Size = New System.Drawing.Size(161, 44)
+        Me.lblNoResultado.TabIndex = 0
+        Me.lblNoResultado.Text = "No hay resultados"
+        '
         'frmPrincipal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
@@ -402,6 +418,8 @@ Partial Class frmPrincipal
         CType(Me.picFotoUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelDeConsulta.ResumeLayout(False)
         Me.PanelDeConsulta.PerformLayout()
+        Me.flPanelDiagnostico.ResumeLayout(False)
+        Me.flPanelDiagnostico.PerformLayout()
         CType(Me.picLogoCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelDeSintomas.ResumeLayout(False)
         Me.panelDeSintomas.PerformLayout()
@@ -438,4 +456,6 @@ Partial Class frmPrincipal
     Friend WithEvents flPanelDiagnostico As FlowLayoutPanel
     Friend WithEvents btnNuevaConsulta As Button
     Friend WithEvents btnVerInforme As Button
+    Friend WithEvents lblNoResultado As Label
+    Friend WithEvents tiempoMensaje As Timer
 End Class
