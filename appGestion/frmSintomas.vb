@@ -7,7 +7,6 @@ Public Class frmSintomas
         tabDatosSintomas.SelectTab(tabDatos)
         colorPorDefectoTextBox()
         limpiarTextBox()
-        txtSintomaID.Text = ""
     End Sub
 
     Private Sub mnuBtnBuscar_Click(sender As Object, e As EventArgs) Handles mnuBtnBuscar.Click
@@ -30,7 +29,6 @@ Public Class frmSintomas
         limpiarTextBox()
         txtSintomaNombre.Select()
         tabDatosSintomas.SelectTab(tabDatos)
-        txtSintomaID.Text = ""
     End Sub
 
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
@@ -51,7 +49,6 @@ Public Class frmSintomas
             mensajeError()
         End Try
         limpiarTextBox()
-        txtSintomaID.Text = ""
     End Sub
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
@@ -62,7 +59,6 @@ Public Class frmSintomas
             MsgBox("Error! ")
         End Try
         limpiarTextBox()
-        txtSintomaID.Text = ""
     End Sub
 
     Private Sub dgSintomas_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgSintomas.RowHeaderMouseClick
@@ -74,6 +70,7 @@ Public Class frmSintomas
     End Sub
 
     Private Sub limpiarTextBox()
+        txtSintomaID.Text = "0"
         txtSintomaNombre.Text = ""
         chkSintomaEstado.CheckState = CheckState.Checked
     End Sub
@@ -100,11 +97,4 @@ Public Class frmSintomas
         txtSintomaNombre.BackColor = Color.White
     End Sub
 
-    Private Sub chkSintomaEstado_CheckedChanged(sender As Object, e As EventArgs) Handles chkSintomaEstado.CheckedChanged
-
-    End Sub
-
-    Private Sub txtSintomaID_TextChanged(sender As Object, e As EventArgs) Handles txtSintomaID.TextChanged
-
-    End Sub
 End Class

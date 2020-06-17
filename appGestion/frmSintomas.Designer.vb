@@ -256,7 +256,6 @@ Partial Class frmSintomas
         Me.chkSintomaEstado.Size = New System.Drawing.Size(18, 17)
         Me.chkSintomaEstado.TabIndex = 8
         Me.chkSintomaEstado.UseVisualStyleBackColor = True
-        Me.chkSintomaEstado.UseWaitCursor = True
         '
         'txtSintomaNombre
         '
@@ -317,7 +316,6 @@ Partial Class frmSintomas
         Me.dgSintomas.ReadOnly = True
         Me.dgSintomas.Size = New System.Drawing.Size(867, 203)
         Me.dgSintomas.TabIndex = 0
-        Me.dgSintomas.UseWaitCursor = True
         '
         'frmSintomas
         '

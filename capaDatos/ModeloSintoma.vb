@@ -27,6 +27,7 @@ Public Class ModeloSintoma
         comando.CommandText = "Select * FROM sintoma WHERE activo = 1 "
         reader = comando.ExecuteReader()
         tabla.Load(reader)
+        cerrarConexion()
         Return tabla
     End Function
 
@@ -35,15 +36,17 @@ Public Class ModeloSintoma
         comando.CommandText = "Select * FROM sintoma WHERE activo = 1 And nombre Like '%" + sintoma + "%'"
         reader = comando.ExecuteReader()
         tabla.Load(reader)
+        cerrarConexion()
         Return tabla
     End Function
 
-    Public Function listarSintomasXPatologia(ByVal idPatologia As String) As DataTable
+    Public Function ListarSintomasXPatologia(ByVal idPatologia As String) As DataTable
         ' lista los sintomas vinculados a una patologia
         Dim tabla As New DataTable
         comando.CommandText = "SELECT a.idSintoma, s.nombre FROM asociados a JOIN sintoma s ON s.id = a.idSintoma WHERE a.idPatologia=" & idPatologia
         reader = comando.ExecuteReader()
         tabla.Load(reader)
+        cerrarConexion()
         Return tabla
     End Function
 

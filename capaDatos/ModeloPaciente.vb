@@ -9,17 +9,17 @@
     Public Alergico As Boolean
     Public ListaPecientes As New List(Of ModeloPaciente)
 
-    Public Function guardarPaciente()
+    Public Function GuardarPaciente()
         'guarda datos del paciente
         Return True
     End Function
 
-    Public Function eliminarPaciente(ByVal documento As Integer)
+    Public Function EliminarPaciente(ByVal documento As Integer)
         'marca el paciente como inhabilitado
         Return True
     End Function
 
-    Public Function listarPacientes()
+    Public Function ListarPacientes()
         'lista todos los pacientes
         Return ListaPecientes
     End Function
