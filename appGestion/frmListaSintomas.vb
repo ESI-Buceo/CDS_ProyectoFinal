@@ -6,14 +6,14 @@ Public Class frmListaSintomas
         Me.Dispose()
     End Sub
 
-    Private Sub txtNombreSintoma_TextChanged(sender As Object, e As EventArgs) Handles txtNombreSintoma.TextChanged
-    End Sub
-
     Private Sub dgvListaSintomas_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvListaSintomas.RowHeaderMouseDoubleClick
         'selecciona el renglon donde se hace doble click para agregar a la lista de sintomas de la patologia
-        frmPatologia.dgvSintomasPatologia.DataSource = ControladorPatologias.agregarSintomaAPatologia(dgvListaSintomas.Item(0, e.RowIndex).Value, dgvListaSintomas.Item(1, e.RowIndex).Value)
-        Me.Dispose()
-
+        If ControladorPatologias.ValidarIngresoDeSintomaEnPatologia(dgvListaSintomas.Item(0, e.RowIndex).Value) = False Then
+            frmPatologia.dgvSintomasPatologia.DataSource = ControladorPatologias.AgregarSintomaAPatologia(dgvListaSintomas.Item(0, e.RowIndex).Value, dgvListaSintomas.Item(1, e.RowIndex).Value)
+            Me.Dispose()
+        Else
+            MsgBox("El sintoma ya existe", vbExclamation, "AVISO")
+        End If
     End Sub
 
     Private Sub frmListaSintomas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -21,7 +21,4 @@ Public Class frmListaSintomas
         dgvListaSintomas.Columns.Item(1).Width = 350
     End Sub
 
-    Private Sub dgvListaSintomas_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListaSintomas.CellContentClick
-
-    End Sub
 End Class

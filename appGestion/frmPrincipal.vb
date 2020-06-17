@@ -24,13 +24,4 @@ Public Class frmPrincipal
         End
     End Sub
 
-    Private Sub frmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub frmPrincipal_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        MsgBox("No se puede cerrar la aplicacion desde aqui", vbInformation, "Alerta")
-        e.Cancel = True
-    End Sub
-
 End Class

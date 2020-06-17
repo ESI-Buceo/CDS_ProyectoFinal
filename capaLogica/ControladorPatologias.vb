@@ -4,7 +4,7 @@ Imports System.Windows.Forms
 
 Public Module ControladorPatologias
 
-    Dim SintomasDePatologia As New DataTable
+    Private sintomasDePatologia As New DataTable
 
     Public Sub AltaPatologia(id As String, nombre As String, ponderacion As Integer, descripcion As String, activo As Integer, ListaDeSintomas As DataGridView)
         'Guarda los datos de la patologia
@@ -43,7 +43,7 @@ Public Module ControladorPatologias
     End Function
 
 
-    Public Function verPatologia(ByVal id As String) As ModeloPatologia
+    Public Function VerPatologia(ByVal id As String) As ModeloPatologia
         'Muestra los datos de una patologia
         Dim p As New ModeloPatologia
         Return p.BuscarPatologiaPorID(id)
@@ -64,32 +64,42 @@ Public Module ControladorPatologias
     End Function
 
 
-    Public Function cargarSintomaPorPatologia(ByVal id As String) As DataTable
+    Public Function CargarSintomaPorPatologia(ByVal id As String) As DataTable
         ' Carga los sintomas vinculados a una patologia
         Dim s As New ModeloSintoma
-        SintomasDePatologia = s.listarSintomasXPatologia(id)
-        Return SintomasDePatologia
+        sintomasDePatologia = s.ListarSintomasXPatologia(id)
+        Return sintomasDePatologia
     End Function
 
 
-    Public Function crearDataTableSintomasXPatologia()
+    Public Function CrearDataTableSintomasXPatologia()
         'Da formato al datatable que llena la lista de sintomas por patologia
-        SintomasDePatologia.Columns.Clear()
-        SintomasDePatologia.Columns.Add("idSintoma")
-        SintomasDePatologia.Columns.Add("nombre")
-        Return SintomasDePatologia
+        sintomasDePatologia.Rows.Clear()
+        sintomasDePatologia.Columns.Clear()
+        sintomasDePatologia.Columns.Add("idSintoma")
+        sintomasDePatologia.Columns.Add("nombre")
+        Return sintomasDePatologia
     End Function
 
+    Public Function ValidarIngresoDeSintomaEnPatologia(id As String)
+        'Verifica si el sistoma que se va a relacionar con la patologia no existe ya en la lista
+        For Each sintoma As DataRow In sintomasDePatologia.Rows
+            If sintoma("IdSintoma").ToString.Equals(id) Then
+                Return True
+                Exit For
+            End If
+        Next
+        Return False
+    End Function
 
-    Public Function agregarSintomaAPatologia(id As String, nombre As String)
+    Public Function AgregarSintomaAPatologia(id As String, nombre As String)
         ' Agregara al databale de los sintomas en la patologia, el nuevo sintoma seleccionado
         Dim fila As DataRow
-        fila = SintomasDePatologia.NewRow
+        fila = sintomasDePatologia.NewRow
         fila("idSintoma") = id
         fila("nombre") = nombre
-        SintomasDePatologia.Rows.Add(fila)
-        Return SintomasDePatologia
+        sintomasDePatologia.Rows.Add(fila)
+        Return sintomasDePatologia
     End Function
-
 
 End Module
