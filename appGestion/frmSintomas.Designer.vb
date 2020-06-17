@@ -48,6 +48,9 @@ Partial Class frmSintomas
         Me.lblSintomaNombre = New System.Windows.Forms.Label()
         Me.tabBusqueda = New System.Windows.Forms.TabPage()
         Me.dgSintomas = New System.Windows.Forms.DataGridView()
+        Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colActivo = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolsMenuSintoma.SuspendLayout()
         Me.tabDatosSintomas.SuspendLayout()
@@ -308,7 +311,8 @@ Partial Class frmSintomas
         Me.dgSintomas.AllowUserToDeleteRows = False
         Me.dgSintomas.AllowUserToOrderColumns = True
         Me.dgSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgSintomas.Cursor = System.Windows.Forms.Cursors.WaitCursor
+        Me.dgSintomas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colID, Me.colNombre, Me.colActivo})
+        Me.dgSintomas.Cursor = System.Windows.Forms.Cursors.Default
         Me.dgSintomas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgSintomas.Location = New System.Drawing.Point(3, 2)
         Me.dgSintomas.Margin = New System.Windows.Forms.Padding(4)
@@ -316,6 +320,32 @@ Partial Class frmSintomas
         Me.dgSintomas.ReadOnly = True
         Me.dgSintomas.Size = New System.Drawing.Size(867, 203)
         Me.dgSintomas.TabIndex = 0
+        '
+        'colID
+        '
+        Me.colID.DataPropertyName = "id"
+        Me.colID.HeaderText = "ID"
+        Me.colID.Name = "colID"
+        Me.colID.ReadOnly = True
+        Me.colID.Width = 60
+        '
+        'colNombre
+        '
+        Me.colNombre.DataPropertyName = "nombre"
+        Me.colNombre.HeaderText = "Nombre"
+        Me.colNombre.Name = "colNombre"
+        Me.colNombre.ReadOnly = True
+        Me.colNombre.Width = 450
+        '
+        'colActivo
+        '
+        Me.colActivo.DataPropertyName = "activo"
+        Me.colActivo.HeaderText = "Activo"
+        Me.colActivo.Name = "colActivo"
+        Me.colActivo.ReadOnly = True
+        Me.colActivo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.colActivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.colActivo.Width = 60
         '
         'frmSintomas
         '
@@ -368,4 +398,7 @@ Partial Class frmSintomas
     Friend WithEvents tabBusqueda As TabPage
     Friend WithEvents lblSintomaID As Label
     Friend WithEvents txtSintomaID As TextBox
+    Friend WithEvents colID As DataGridViewTextBoxColumn
+    Friend WithEvents colNombre As DataGridViewTextBoxColumn
+    Friend WithEvents colActivo As DataGridViewCheckBoxColumn
 End Class

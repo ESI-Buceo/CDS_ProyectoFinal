@@ -31,7 +31,6 @@ Public Class frmPatologia
         tabDatosPatologia.SelectTab(tabDatos)
         colorPorDefectoTextoBox()
         deshabilitarAgregarSintomaYSignos()
-        limpiarControlesDeFormulario()
     End Sub
 
 
@@ -48,13 +47,10 @@ Public Class frmPatologia
         opcionesMenu.ClickEnBotonBuscar(toolsMenuPatologia)
         tabDatosPatologia.SelectTab(tabPatologiaBusqueda)
         dgvListaDePatologias.DataSource = ControladorPatologias.ListarPatologias(txtPatologiaNombre.Text)
-        dgvListaDePatologias.Columns(2).Visible = False
-        dgvListaDePatologias.Columns(1).Width = 300
     End Sub
 
 
     Private Sub mnuBtnModificar_Click(sender As Object, e As EventArgs) Handles mnuBtnModificar.Click
-
         opcionesMenu.ClickEnBotonModificar(toolsMenuPatologia)
         txtPatologiaNombre.Select()
         colorearCamposRqueridos()

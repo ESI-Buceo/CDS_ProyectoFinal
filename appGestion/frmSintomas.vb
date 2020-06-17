@@ -6,14 +6,12 @@ Public Class frmSintomas
         opcionesMenu.ClickEnBotonCancelar(toolsMenuSintoma)
         tabDatosSintomas.SelectTab(tabDatos)
         colorPorDefectoTextBox()
-        limpiarTextBox()
     End Sub
 
     Private Sub mnuBtnBuscar_Click(sender As Object, e As EventArgs) Handles mnuBtnBuscar.Click
         opcionesMenu.ClickEnBotonBuscar(toolsMenuSintoma)
         tabDatosSintomas.SelectTab(tabBusqueda)
         dgSintomas.DataSource = ControladorSintomas.listarSintomas(UCase(txtSintomaNombre.Text))
-        dgSintomas.Columns.Item(1).Width = 350
     End Sub
 
     Private Sub mnuBtnModificar_Click(sender As Object, e As EventArgs) Handles mnuBtnModificar.Click

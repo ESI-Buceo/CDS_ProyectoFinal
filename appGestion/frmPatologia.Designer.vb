@@ -67,6 +67,11 @@ Partial Class frmPatologia
         Me.lblEmergencia = New System.Windows.Forms.Label()
         Me.lblSinUrgencia = New System.Windows.Forms.Label()
         Me.tttPonderacion = New System.Windows.Forms.ToolTip(Me.components)
+        Me.colD = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colDescripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colPonderacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colActivo = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolsMenuPatologia.SuspendLayout()
         Me.tabDatosPatologia.SuspendLayout()
@@ -460,6 +465,7 @@ Partial Class frmPatologia
         Me.dgvListaDePatologias.AllowUserToDeleteRows = False
         Me.dgvListaDePatologias.AllowUserToOrderColumns = True
         Me.dgvListaDePatologias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvListaDePatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colD, Me.colNombre, Me.colDescripcion, Me.colPonderacion, Me.colActivo})
         Me.dgvListaDePatologias.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvListaDePatologias.Location = New System.Drawing.Point(3, 2)
         Me.dgvListaDePatologias.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -520,6 +526,47 @@ Partial Class frmPatologia
         'tttPonderacion
         '
         Me.tttPonderacion.ToolTipTitle = "Informacion de Patologia"
+        '
+        'colD
+        '
+        Me.colD.DataPropertyName = "id"
+        Me.colD.HeaderText = "ID"
+        Me.colD.Name = "colD"
+        Me.colD.ReadOnly = True
+        Me.colD.Width = 50
+        '
+        'colNombre
+        '
+        Me.colNombre.DataPropertyName = "nombre"
+        Me.colNombre.HeaderText = "Nombre"
+        Me.colNombre.Name = "colNombre"
+        Me.colNombre.ReadOnly = True
+        Me.colNombre.Width = 150
+        '
+        'colDescripcion
+        '
+        Me.colDescripcion.DataPropertyName = "descripcion"
+        Me.colDescripcion.HeaderText = "Descripcion"
+        Me.colDescripcion.Name = "colDescripcion"
+        Me.colDescripcion.ReadOnly = True
+        Me.colDescripcion.Width = 230
+        '
+        'colPonderacion
+        '
+        Me.colPonderacion.DataPropertyName = "ponderacion"
+        Me.colPonderacion.HeaderText = "Ponderacion"
+        Me.colPonderacion.Name = "colPonderacion"
+        Me.colPonderacion.ReadOnly = True
+        '
+        'colActivo
+        '
+        Me.colActivo.DataPropertyName = "activo"
+        Me.colActivo.HeaderText = "Activo"
+        Me.colActivo.Name = "colActivo"
+        Me.colActivo.ReadOnly = True
+        Me.colActivo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.colActivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.colActivo.Width = 60
         '
         'frmPatologia
         '
@@ -598,4 +645,9 @@ Partial Class frmPatologia
     Friend WithEvents lblEmergencia As Label
     Friend WithEvents lblSinUrgencia As Label
     Friend WithEvents tttPonderacion As ToolTip
+    Friend WithEvents colD As DataGridViewTextBoxColumn
+    Friend WithEvents colNombre As DataGridViewTextBoxColumn
+    Friend WithEvents colDescripcion As DataGridViewTextBoxColumn
+    Friend WithEvents colPonderacion As DataGridViewTextBoxColumn
+    Friend WithEvents colActivo As DataGridViewCheckBoxColumn
 End Class
