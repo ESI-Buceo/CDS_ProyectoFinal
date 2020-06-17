@@ -50,6 +50,7 @@ Public Class frmSintomas
     End Sub
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
+        opcionesMenu.ClickEnBotonBorrar(toolsMenuSintoma)
         Try
             ControladorSintomas.BorrarSintomas(txtSintomaID.Text)
             MessageBox.Show("Registro Eliminado Correctamente!", "Sintoma Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information)
