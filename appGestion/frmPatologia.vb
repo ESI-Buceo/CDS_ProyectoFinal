@@ -22,7 +22,6 @@ Public Class frmPatologia
         End Try
         colorPorDefectoTextoBox()
         deshabilitarAgregarSintomaYSignos()
-        limpiarControlesDeFormulario()
     End Sub
 
 
