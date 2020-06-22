@@ -24,7 +24,6 @@ Public Module ControladorDiagnostico
             a.IdPatologia = tablaAsociados.Rows(patologiasSintomas).Item("idPatologia").ToString
             a.IdSintoma = tablaAsociados.Rows(patologiasSintomas).Item("idSintoma").ToString
             a.IdSigno = tablaAsociados.Rows(patologiasSintomas).Item("idSigno").ToString
-            a.cerrarConexion()
             ListaRelacionPatologiaSintoma.Add(a)
         Next
     End Sub
@@ -35,7 +34,6 @@ Public Module ControladorDiagnostico
             Dim s As New ModeloSintoma
             s.ID = idSintoma
             s.Nombre = sintomaNombre
-            s.cerrarConexion()
             ListaSintomasSeleccionados.Add(s)
             Return True
         Else
@@ -50,7 +48,6 @@ Public Module ControladorDiagnostico
                 Dim sin As New ModeloSintoma
                 sin.ID = idSintoma
                 sin.Nombre = sintomaNombre
-                sin.cerrarConexion()
                 ListaSintomasSeleccionados.Add(sin)
                 Return True
             End If
@@ -67,7 +64,6 @@ Public Module ControladorDiagnostico
                 a.IdPatologia = ListaRelacionPatologiaSintoma.Item(index).IdPatologia
                 a.IdSintoma = ListaRelacionPatologiaSintoma.Item(index).IdPatologia
                 a.IdSigno = ListaRelacionPatologiaSintoma.Item(index).IdSigno
-                a.cerrarConexion()
                 ListaFiltradaPatologiasXSintomas.Add(a)
             End If
         Next
@@ -146,10 +142,11 @@ Public Module ControladorDiagnostico
 
     Private Sub guardarDiagnosticoEnBD()
         'Guarda el diagnostico en la bs
+        CodigoDiagnostico = generarCodigoDeDiagnostico()
         Dim d As New ModeloDiagnostico
-        d.idDiagnostico = generarCodigoDeDiagnostico()
+        d.IdDiagnostico = CodigoDiagnostico
         d.Prioridad = PonderacionDiagnostico
-        d.guardarDiagnostico(d)
+        d.GuardarDiagnostico()
         guardarRelacionPacienteDiagnostico()
     End Sub
 
@@ -172,13 +169,12 @@ Public Module ControladorDiagnostico
         Next
     End Sub
 
-    Private Function generarCodigoDeDiagnostico()
+    Private Function generarCodigoDeDiagnostico() As String
         'Genera codigo aleatorio de diagnostico
         Dim fechaHora As Date = DateTime.Now
         Dim codigo As String
-        codigo = fechaHora.ToString("dd yy hh mm ss")
-        CodigoDiagnostico = codigo.Replace(" ", "")
-        Return CodigoDiagnostico
+        codigo = fechaHora.ToString("dd mm ss FFF")
+        Return codigo.Replace(" ", "")
     End Function
 
     Public Sub NuevaConsulta()
@@ -189,6 +185,7 @@ Public Module ControladorDiagnostico
         ListaFiltradaPatologiasXSintomas.Clear()
         PonderacionDiagnostico = 0
         CantidadDeSintomasFiltrados = 0
+        CodigoDiagnostico = ""
     End Sub
 
     Public Function NuevoMensaje() As String

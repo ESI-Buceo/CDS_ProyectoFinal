@@ -7,7 +7,8 @@ Public Class frmListaSintomas
             dgvSintomas.Columns.Item(1).Width = 200
             dgvSintomas.Columns.Item(2).Visible = False
         Catch ex As Exception
-            MsgBox("No se puede cargar la lista de sintomas")
+            MsgBox(ex.Message)
+            'MsgBox("No se puede cargar la lista de sintomas")
         End Try
 
     End Sub
