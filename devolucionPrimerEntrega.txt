@@ -1,0 +1,5 @@
+- Heredar ModeloConexion en todos los modelos
+- Sacar metodos de controladores
+- OpcionesMenu puede ir en la capa visual
+
+Nota: 11
