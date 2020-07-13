@@ -1,6 +1,7 @@
 ﻿Imports capaLogica
 Public Class frmPrincipal
     Dim panelActivo As Panel
+    Public ListaSintomasSeleccionados As New List(Of Integer)
     Public sintomaSeleccionado As Boolean = False
 
     Private Sub btnIniciarAutenticado_Click(sender As Object, e As EventArgs) Handles btnIniciarAutenticado.Click
@@ -54,7 +55,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub opcionIngresarMasSintomas()
-        If ControladorDiagnostico.DevuelveListaSintomasSeleccionados.count > 1 Then
+        If ListaSintomasSeleccionados.Count > 1 Then
             lblPregunta.Text = "Deseas ingresar un nuevo sintoma?"
             preguntarPorNuevoSintoma()
         Else
@@ -110,44 +111,45 @@ Public Class frmPrincipal
 
     Private Sub mensajeDeEsperaProcesoDeDiagnostico()
         lblPregunta.Text = "Aguarda mientras preparamos tu informe..."
+        btnVerInforme.Visible = False
         Me.Refresh()
         crearInformeDiagnostico()
     End Sub
 
     Private Sub crearInformeDiagnostico()
-        'Crea informe de diagnostico
-        ControladorDiagnostico.CrearInformeDiagnostico()
-        evaluaInformeDiagnostico()
-    End Sub
-
-    Private Sub evaluaInformeDiagnostico()
         'Evalua resultado informe de diagnostico
-        If DevolverListaPatologiasDiagnostico.count = 0 Then
+        Dim patologiasParaDiagnostico As New DataTable
+        patologiasParaDiagnostico = ControladorDiagnostico.CrearInformeDiagnostico(ListaSintomasSeleccionados)
+        If patologiasParaDiagnostico.Rows.Count = 0 Then
             lblPregunta.Text = "No existen patologias con los sintomas que has ingresado !"
             btnVerInforme.Visible = False
             btnNuevaConsulta.Visible = True
             Me.Refresh()
         Else
-            mostrarInformeDiagnostico()
+            mostrarInformeDiagnostico(patologiasParaDiagnostico)
         End If
     End Sub
 
-    Private Sub mostrarInformeDiagnostico()
+    Private Sub mostrarInformeDiagnostico(ByRef patologiaParaDiagnostico As DataTable)
         'Muestra el informe de diagostico
         Try
             lblPregunta.Text = "Hemos preparado el siguiente informe para ti de acuerdo a los sintomas que has ingresado. Por favor inicia una conversacion por chat con el medico."
             flPanelDiagnostico.Visible = True
-            For Each patologias In DevolverListaPatologiasDiagnostico()
-                Dim panel As New PanelPatologia With {.nombre = patologias.nombre, .descipcion = patologias.descripcion}
+            For Each patologias As DataRow In patologiaParaDiagnostico.Rows
+                Dim panel As New PanelPatologia With {.nombre = patologias("nombre"), .descipcion = patologias("descripcion")}
                 flPanelDiagnostico.Controls.Add(panel.CrearPanelPatologia)
             Next
-            btnVerInforme.Visible = False
-            btnNuevaConsulta.Visible = True
+            botonesMostrarDiagnostico()
         Catch ex As Exception
             MsgBox("Se genero un error y no se genero el informe de diagnostico")
         End Try
     End Sub
 
+    Private Sub botonesMostrarDiagnostico()
+        btnVerInforme.Visible = False
+        btnNuevaConsulta.Visible = True
+        'btnIniciarChat.Visible = True
+    End Sub
 
     Private Sub clicBotonConsulta()
         PanelDeConsulta.Visible = True
@@ -178,13 +180,13 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub iniciarConsulta()
+        lblPregunta.Text = "Cuentanos cual es tu princial malestar...?"
         panelDeSintomas.Visible = True
         flPanelDiagnostico.Visible = False
         lblMensaje.Visible = False
         btnComenzar.Visible = False
         lblPregunta.Visible = True
         btnSiguienteSintoma.Visible = True
-        lblPregunta.Text = "Cuentanos cual es tu princial malestar...?"
         txtSintoma.Visible = True
         btnNuevaConsulta.Visible = False
         lblLine.Visible = True
@@ -192,6 +194,6 @@ Public Class frmPrincipal
         flPanelDiagnostico.Controls.Clear()
         PanelPatologia.id = 0
         txtSintoma.Select()
-        ControladorDiagnostico.nuevaConsulta()
+        ListaSintomasSeleccionados.Clear()
     End Sub
 End Class

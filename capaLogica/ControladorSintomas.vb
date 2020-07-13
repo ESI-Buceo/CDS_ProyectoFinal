@@ -8,13 +8,11 @@ Public Module ControladorSintomas
         Return s.TraeDatosSintomasDeBD()
     End Function
 
-
     Public Function ListarSintomas(nombre As String) As DataTable
         'Busca los sintomas por nombre
         Dim s As New ModeloSintoma
         Return s.TraeDatosSintomasDeBD(nombre)
     End Function
-
 
     Public Sub GuardarSintomas(ID As String, Nombre As String, Estado As Boolean)
         'Guarda los datos de un sintoma
@@ -31,6 +29,5 @@ Public Module ControladorSintomas
         s.ID = Id
         s.BorrarSintoma()
     End Sub
-
 
 End Module

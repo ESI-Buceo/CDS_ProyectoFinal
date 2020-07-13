@@ -1,7 +1,7 @@
 ﻿Imports System.Data.Odbc
 
 Public Class ModeloPatologia
-
+    Inherits ModeloConexion
 
     Public Id As Integer
     Public Nombre As String
@@ -12,124 +12,95 @@ Public Class ModeloPatologia
 
     Public Sub GuaradrPatologia()
         ' guarda nueva patologia
-        Dim c As New ModeloConexion
         Dim sqlTexto As String
-        c.conectar()
 
         If Me.Id = 0 Then sqlTexto = "last_insert_id()" Else sqlTexto = Me.Id
         Try
-            c.Comando.CommandText = "SET AUTOCOMMIT = OFF;"
-            c.Comando.ExecuteNonQuery()
+            Comando.CommandText = "SET AUTOCOMMIT = OFF;"
+            Comando.ExecuteNonQuery()
 
-            c.Comando.CommandText = "START TRANSACTION;"
-            c.Comando.ExecuteNonQuery()
+            Comando.CommandText = "START TRANSACTION;"
+            Comando.ExecuteNonQuery()
 
-            c.Comando.CommandText = "INSERT INTO patologia (id, nombre, ponderacion, descripcion) VALUES (" & Me.Id & ", '" & Me.Nombre & "', " & Me.Ponderacion & ", '" & Me.Descripcion & "') ON DUPLICATE KEY UPDATE nombre ='" & Me.Nombre & "', ponderacion =" & Me.Ponderacion & ", descripcion='" & Me.Descripcion & "', activo= " & Me.Activo
-            c.Comando.ExecuteNonQuery()
+            Comando.CommandText = "INSERT INTO patologia (id, nombre, ponderacion, descripcion) VALUES (" & Me.Id & ", '" & Me.Nombre & "', " & Me.Ponderacion & ", '" & Me.Descripcion & "') ON DUPLICATE KEY UPDATE nombre ='" & Me.Nombre & "', ponderacion =" & Me.Ponderacion & ", descripcion='" & Me.Descripcion & "', activo= " & Me.Activo
+            Comando.ExecuteNonQuery()
 
-            c.Comando.CommandText = "DELETE FROM asociados WHERE idPatologia =" & Me.Id
-            c.Comando.ExecuteNonQuery()
+            Comando.CommandText = "DELETE FROM asociados WHERE idPatologia =" & Me.Id
+            Comando.ExecuteNonQuery()
 
             'recorre la lista de sintomas asociados a la patologia
             For Each sintoma In ListaDeSintomasAsociados
-                c.Comando.CommandText = "INSERT INTO asociados VALUES ( " & sqlTexto & " , " & sintoma.ID & ", 1 )"
-                c.Comando.ExecuteNonQuery()
+                Comando.CommandText = "INSERT INTO asociados VALUES ( " & sqlTexto & " , " & sintoma.ID & ")"
+                Comando.ExecuteNonQuery()
             Next
 
-            c.Comando.CommandText = "COMMIT;"
-            c.Comando.ExecuteNonQuery()
+            Comando.CommandText = "COMMIT;"
+            Comando.ExecuteNonQuery()
 
         Catch ex As Exception
-            MsgBox(ex.Message)
-            c.Comando.CommandText = "ROLLBACK;"
-            c.Comando.ExecuteNonQuery()
+            Comando.CommandText = "ROLLBACK;"
+            Comando.ExecuteNonQuery()
 
         End Try
     End Sub
 
-
     Public Sub EliminarPatologia()
         'eliminacion logica de la patologa 
-        Dim c As New ModeloConexion
-        c.conectar()
-        c.Comando.CommandText = "UPDATE patologia set activo = 0 WHERE id = " & Me.Id & ""
-        c.Comando.ExecuteNonQuery()
-        c.CerrarConexion()
+        Comando.CommandText = "UPDATE patologia set activo = 0 WHERE id = " & Me.Id & ""
+        Comando.ExecuteNonQuery()
+        CerrarConexion()
     End Sub
-
 
     Private Function validarNombre() As Boolean
         'valida que el nombre no tenga caracteres raros
         Return True
     End Function
 
-
     Private Function validarDescripcion() As Boolean
         'valida que la descripcion no tenga codigos raros
         Return True
     End Function
-
 
     Private Function validarPonderacion() As Boolean
         'valida que la ponderacion sea numerica
         Return True
     End Function
 
-
     Private Function validarEstado() As Boolean
         'valida que el esado true o false
         Return True
     End Function
 
-
     Public Function TraeDatosPatologiasDeBD() As DataTable
         'trae de la base de datos las patolgias registadas
-        Dim c As New ModeloConexion
         Dim tabla As New DataTable
-        c.conectar()
         Try
-            c.Comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 "
-            c.Reader = c.Comando.ExecuteReader()
-            tabla.Load(c.Reader)
+            Comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 "
+            Reader = Comando.ExecuteReader()
+            tabla.Load(Reader)
             Return tabla
         Catch ex As Exception
             Return tabla
         End Try
     End Function
 
-
     Public Function BuscarPatologiaPorNombre(ByVal nombre As String) As DataTable
         'trae de la base de datos las patolgias registadas
-        Dim c As New ModeloConexion
         Dim tabla As New DataTable
-        c.conectar()
-        c.Comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 AND nombre like '%" + nombre + "%'"
-        c.Reader = c.Comando.ExecuteReader()
-        tabla.Load(c.Reader)
+        Comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 AND nombre like '%" + nombre + "%'"
+        Reader = Comando.ExecuteReader()
+        tabla.Load(Reader)
         Return tabla
-        c.CerrarConexion()
+        CerrarConexion()
     End Function
-
 
     Public Function BuscarPatologiaPorID(ByVal id As Integer)
-        Dim c As New ModeloConexion
-        c.conectar()
-        c.Comando.CommandText = "SELECT * FROM patologia WHERE id = " & id
-        c.Reader = c.Comando.ExecuteReader()
-        Return crearObjetoPatologia(c.Reader)
-        c.CerrarConexion()
+        Dim tablaPatologiasParaDiagnostico As New DataTable
+        Comando.CommandText = "SELECT * FROM patologia WHERE id = " & id
+        Reader = Comando.ExecuteReader()
+        tablaPatologiasParaDiagnostico.Load(Reader)
+        Return tablaPatologiasParaDiagnostico
+        CerrarConexion()
     End Function
-
-
-    Private Function crearObjetoPatologia(ByRef patologia As OdbcDataReader) As ModeloPatologia
-        Dim datosPatologia As New ModeloPatologia
-        patologia.Read()
-        datosPatologia.Id = patologia(0)
-        datosPatologia.Nombre = patologia(1)
-        datosPatologia.Ponderacion = patologia(2)
-        datosPatologia.Descripcion = patologia(3)
-        Return datosPatologia
-    End Function
-
 
 End Class

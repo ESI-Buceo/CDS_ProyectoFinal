@@ -44,11 +44,6 @@ Partial Class frmPatologia
         Me.chkActiva = New System.Windows.Forms.CheckBox()
         Me.lblActiva = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnAgregarSigno = New System.Windows.Forms.Button()
-        Me.lblSignos = New System.Windows.Forms.Label()
-        Me.dgvSignosPatologia = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblSintomas = New System.Windows.Forms.Label()
         Me.btnAgregarSintoma = New System.Windows.Forms.Button()
         Me.dgvSintomasPatologia = New System.Windows.Forms.DataGridView()
@@ -62,22 +57,21 @@ Partial Class frmPatologia
         Me.lblPatologiaID = New System.Windows.Forms.Label()
         Me.tabPatologiaBusqueda = New System.Windows.Forms.TabPage()
         Me.dgvListaDePatologias = New System.Windows.Forms.DataGridView()
-        Me.lblUrgenciaMenor = New System.Windows.Forms.Label()
-        Me.lblUrgencia = New System.Windows.Forms.Label()
-        Me.lblEmergencia = New System.Windows.Forms.Label()
-        Me.lblSinUrgencia = New System.Windows.Forms.Label()
-        Me.tttPonderacion = New System.Windows.Forms.ToolTip(Me.components)
         Me.colD = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colDescripcion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colPonderacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colActivo = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.lblUrgenciaMenor = New System.Windows.Forms.Label()
+        Me.lblUrgencia = New System.Windows.Forms.Label()
+        Me.lblEmergencia = New System.Windows.Forms.Label()
+        Me.lblSinUrgencia = New System.Windows.Forms.Label()
+        Me.tttPonderacion = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolsMenuPatologia.SuspendLayout()
         Me.tabDatosPatologia.SuspendLayout()
         Me.tabDatos.SuspendLayout()
         Me.Panel1.SuspendLayout()
-        CType(Me.dgvSignosPatologia, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvSintomasPatologia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabPatologiaBusqueda.SuspendLayout()
         CType(Me.dgvListaDePatologias, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -253,7 +247,7 @@ Partial Class frmPatologia
         Me.chkActiva.AutoSize = True
         Me.chkActiva.Checked = True
         Me.chkActiva.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.chkActiva.Location = New System.Drawing.Point(160, 420)
+        Me.chkActiva.Location = New System.Drawing.Point(160, 377)
         Me.chkActiva.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.chkActiva.Name = "chkActiva"
         Me.chkActiva.Size = New System.Drawing.Size(18, 17)
@@ -263,7 +257,7 @@ Partial Class frmPatologia
         'lblActiva
         '
         Me.lblActiva.AutoSize = True
-        Me.lblActiva.Location = New System.Drawing.Point(73, 420)
+        Me.lblActiva.Location = New System.Drawing.Point(70, 375)
         Me.lblActiva.Name = "lblActiva"
         Me.lblActiva.Size = New System.Drawing.Size(72, 19)
         Me.lblActiva.TabIndex = 13
@@ -271,73 +265,19 @@ Partial Class frmPatologia
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.btnAgregarSigno)
-        Me.Panel1.Controls.Add(Me.lblSignos)
-        Me.Panel1.Controls.Add(Me.dgvSignosPatologia)
         Me.Panel1.Controls.Add(Me.lblSintomas)
         Me.Panel1.Controls.Add(Me.btnAgregarSintoma)
         Me.Panel1.Controls.Add(Me.dgvSintomasPatologia)
         Me.Panel1.Location = New System.Drawing.Point(5, 190)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(833, 219)
+        Me.Panel1.Size = New System.Drawing.Size(835, 171)
         Me.Panel1.TabIndex = 12
-        '
-        'btnAgregarSigno
-        '
-        Me.btnAgregarSigno.Enabled = False
-        Me.btnAgregarSigno.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarSigno.ForeColor = System.Drawing.Color.Green
-        Me.btnAgregarSigno.Location = New System.Drawing.Point(561, 170)
-        Me.btnAgregarSigno.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnAgregarSigno.Name = "btnAgregarSigno"
-        Me.btnAgregarSigno.Size = New System.Drawing.Size(105, 39)
-        Me.btnAgregarSigno.TabIndex = 29
-        Me.btnAgregarSigno.Text = "Agregar"
-        Me.btnAgregarSigno.UseVisualStyleBackColor = True
-        '
-        'lblSignos
-        '
-        Me.lblSignos.AutoSize = True
-        Me.lblSignos.Location = New System.Drawing.Point(475, 15)
-        Me.lblSignos.Name = "lblSignos"
-        Me.lblSignos.Size = New System.Drawing.Size(76, 19)
-        Me.lblSignos.TabIndex = 28
-        Me.lblSignos.Text = "SIGNOS:"
-        '
-        'dgvSignosPatologia
-        '
-        Me.dgvSignosPatologia.AllowUserToAddRows = False
-        Me.dgvSignosPatologia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSignosPatologia.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
-        Me.dgvSignosPatologia.Enabled = False
-        Me.dgvSignosPatologia.Location = New System.Drawing.Point(561, 2)
-        Me.dgvSignosPatologia.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.dgvSignosPatologia.Name = "dgvSignosPatologia"
-        Me.dgvSignosPatologia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader
-        Me.dgvSignosPatologia.RowTemplate.Height = 24
-        Me.dgvSignosPatologia.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.dgvSignosPatologia.Size = New System.Drawing.Size(269, 161)
-        Me.dgvSignosPatologia.TabIndex = 27
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 50
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 180
         '
         'lblSintomas
         '
         Me.lblSintomas.AutoSize = True
-        Me.lblSintomas.Location = New System.Drawing.Point(43, 15)
+        Me.lblSintomas.Location = New System.Drawing.Point(45, 15)
         Me.lblSintomas.Name = "lblSintomas"
         Me.lblSintomas.Size = New System.Drawing.Size(97, 19)
         Me.lblSintomas.TabIndex = 26
@@ -348,7 +288,7 @@ Partial Class frmPatologia
         Me.btnAgregarSintoma.Enabled = False
         Me.btnAgregarSintoma.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarSintoma.ForeColor = System.Drawing.Color.Green
-        Me.btnAgregarSintoma.Location = New System.Drawing.Point(156, 170)
+        Me.btnAgregarSintoma.Location = New System.Drawing.Point(437, 5)
         Me.btnAgregarSintoma.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAgregarSintoma.Name = "btnAgregarSintoma"
         Me.btnAgregarSintoma.Size = New System.Drawing.Size(105, 39)
@@ -360,8 +300,9 @@ Partial Class frmPatologia
         'dgvSintomasPatologia
         '
         Me.dgvSintomasPatologia.AllowUserToAddRows = False
+        Me.dgvSintomasPatologia.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.dgvSintomasPatologia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSintomasPatologia.Location = New System.Drawing.Point(155, 2)
+        Me.dgvSintomasPatologia.Location = New System.Drawing.Point(158, 2)
         Me.dgvSintomasPatologia.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dgvSintomasPatologia.Name = "dgvSintomasPatologia"
         Me.dgvSintomasPatologia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader
@@ -378,13 +319,13 @@ Partial Class frmPatologia
         Me.txtPatologiaDescipcion.Multiline = True
         Me.txtPatologiaDescipcion.Name = "txtPatologiaDescipcion"
         Me.txtPatologiaDescipcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtPatologiaDescipcion.Size = New System.Drawing.Size(675, 114)
+        Me.txtPatologiaDescipcion.Size = New System.Drawing.Size(677, 114)
         Me.txtPatologiaDescipcion.TabIndex = 7
         '
         'lblPatologiaDescripcion
         '
         Me.lblPatologiaDescripcion.AutoSize = True
-        Me.lblPatologiaDescripcion.Location = New System.Drawing.Point(19, 69)
+        Me.lblPatologiaDescripcion.Location = New System.Drawing.Point(15, 69)
         Me.lblPatologiaDescripcion.Name = "lblPatologiaDescripcion"
         Me.lblPatologiaDescripcion.Size = New System.Drawing.Size(127, 19)
         Me.lblPatologiaDescripcion.TabIndex = 6
@@ -441,7 +382,7 @@ Partial Class frmPatologia
         'lblPatologiaID
         '
         Me.lblPatologiaID.AutoSize = True
-        Me.lblPatologiaID.Location = New System.Drawing.Point(115, 26)
+        Me.lblPatologiaID.Location = New System.Drawing.Point(111, 26)
         Me.lblPatologiaID.Name = "lblPatologiaID"
         Me.lblPatologiaID.Size = New System.Drawing.Size(31, 19)
         Me.lblPatologiaID.TabIndex = 0
@@ -474,6 +415,47 @@ Partial Class frmPatologia
         Me.dgvListaDePatologias.RowTemplate.Height = 24
         Me.dgvListaDePatologias.Size = New System.Drawing.Size(861, 474)
         Me.dgvListaDePatologias.TabIndex = 0
+        '
+        'colD
+        '
+        Me.colD.DataPropertyName = "id"
+        Me.colD.HeaderText = "ID"
+        Me.colD.Name = "colD"
+        Me.colD.ReadOnly = True
+        Me.colD.Width = 50
+        '
+        'colNombre
+        '
+        Me.colNombre.DataPropertyName = "nombre"
+        Me.colNombre.HeaderText = "Nombre"
+        Me.colNombre.Name = "colNombre"
+        Me.colNombre.ReadOnly = True
+        Me.colNombre.Width = 150
+        '
+        'colDescripcion
+        '
+        Me.colDescripcion.DataPropertyName = "descripcion"
+        Me.colDescripcion.HeaderText = "Descripcion"
+        Me.colDescripcion.Name = "colDescripcion"
+        Me.colDescripcion.ReadOnly = True
+        Me.colDescripcion.Width = 230
+        '
+        'colPonderacion
+        '
+        Me.colPonderacion.DataPropertyName = "ponderacion"
+        Me.colPonderacion.HeaderText = "Ponderacion"
+        Me.colPonderacion.Name = "colPonderacion"
+        Me.colPonderacion.ReadOnly = True
+        '
+        'colActivo
+        '
+        Me.colActivo.DataPropertyName = "activo"
+        Me.colActivo.HeaderText = "Activo"
+        Me.colActivo.Name = "colActivo"
+        Me.colActivo.ReadOnly = True
+        Me.colActivo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.colActivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.colActivo.Width = 60
         '
         'lblUrgenciaMenor
         '
@@ -527,47 +509,6 @@ Partial Class frmPatologia
         '
         Me.tttPonderacion.ToolTipTitle = "Informacion de Patologia"
         '
-        'colD
-        '
-        Me.colD.DataPropertyName = "id"
-        Me.colD.HeaderText = "ID"
-        Me.colD.Name = "colD"
-        Me.colD.ReadOnly = True
-        Me.colD.Width = 50
-        '
-        'colNombre
-        '
-        Me.colNombre.DataPropertyName = "nombre"
-        Me.colNombre.HeaderText = "Nombre"
-        Me.colNombre.Name = "colNombre"
-        Me.colNombre.ReadOnly = True
-        Me.colNombre.Width = 150
-        '
-        'colDescripcion
-        '
-        Me.colDescripcion.DataPropertyName = "descripcion"
-        Me.colDescripcion.HeaderText = "Descripcion"
-        Me.colDescripcion.Name = "colDescripcion"
-        Me.colDescripcion.ReadOnly = True
-        Me.colDescripcion.Width = 230
-        '
-        'colPonderacion
-        '
-        Me.colPonderacion.DataPropertyName = "ponderacion"
-        Me.colPonderacion.HeaderText = "Ponderacion"
-        Me.colPonderacion.Name = "colPonderacion"
-        Me.colPonderacion.ReadOnly = True
-        '
-        'colActivo
-        '
-        Me.colActivo.DataPropertyName = "activo"
-        Me.colActivo.HeaderText = "Activo"
-        Me.colActivo.Name = "colActivo"
-        Me.colActivo.ReadOnly = True
-        Me.colActivo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.colActivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.colActivo.Width = 60
-        '
         'frmPatologia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -593,7 +534,6 @@ Partial Class frmPatologia
         Me.tabDatos.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.dgvSignosPatologia, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvSintomasPatologia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabPatologiaBusqueda.ResumeLayout(False)
         CType(Me.dgvListaDePatologias, System.ComponentModel.ISupportInitialize).EndInit()
@@ -629,11 +569,6 @@ Partial Class frmPatologia
     Friend WithEvents lblPatologiaDescripcion As Label
     Friend WithEvents dgvListaDePatologias As DataGridView
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents btnAgregarSigno As Button
-    Friend WithEvents lblSignos As Label
-    Public WithEvents dgvSignosPatologia As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents lblSintomas As Label
     Friend WithEvents btnAgregarSintoma As Button
     Public WithEvents dgvSintomasPatologia As DataGridView
