@@ -1,18 +1,19 @@
 ﻿Imports capaLogica
 Public Class frmPatologia
+    Public sintomasDePatologia As New DataTable
 
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
         opcionesMenu.ClickEnBotonAgregar(toolsMenuPatologia)
         limpiarControlesDeFormulario()
-        habilitarAgregarSintomaYSignos()
+        habilitarAgregarSintoma()
         txtPatologiaNombre.Select()
         colorearCamposRqueridos()
-        ControladorPatologias.crearDataTableSintomasXPatologia()
-
+        dgvSintomasPatologia.DataSource = ControladorPatologias.CrearDataTableSintomasXPatologia(sintomasDePatologia)
+        dgvSintomasPatologia.Columns.Item(0).Visible = False
     End Sub
 
-    'Guarda los datos de la patologia
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
+        'Guarda los datos de la patologia
         opcionesMenu.ClickEnBotonGuardar(toolsMenuPatologia)
         Try
             ControladorPatologias.AltaPatologia(txtPatologiaID.Text, txtPatologiaNombre.Text, cbPatologiaPonderacion.Text, txtPatologiaDescipcion.Text, chkActiva.CheckState, dgvSintomasPatologia)
@@ -21,26 +22,23 @@ Public Class frmPatologia
             MsgBox(ex.Message)
         End Try
         colorPorDefectoTextoBox()
-        deshabilitarAgregarSintomaYSignos()
+        deshabilitarAgregarSintoma()
     End Sub
-
 
     Private Sub mnuBtnCancelar_Click(sender As Object, e As EventArgs) Handles mnuBtnCancelar.Click
         opcionesMenu.ClickEnBotonCancelar(toolsMenuPatologia)
         tabDatosPatologia.SelectTab(tabDatos)
         colorPorDefectoTextoBox()
-        deshabilitarAgregarSintomaYSignos()
+        deshabilitarAgregarSintoma()
     End Sub
-
 
     Private Sub mnuBtnNueva_Click(sender As Object, e As EventArgs) Handles mnuBtnNueva.Click
         opcionesMenu.ClickEnBotonNueva(toolsMenuPatologia)
         tabDatosPatologia.SelectTab(tabDatos)
         limpiarControlesDeFormulario()
         txtPatologiaNombre.Select()
-        deshabilitarAgregarSintomaYSignos()
+        deshabilitarAgregarSintoma()
     End Sub
-
 
     Private Sub mnuBtnBuscar_Click(sender As Object, e As EventArgs) Handles mnuBtnBuscar.Click
         opcionesMenu.ClickEnBotonBuscar(toolsMenuPatologia)
@@ -48,12 +46,11 @@ Public Class frmPatologia
         dgvListaDePatologias.DataSource = ControladorPatologias.ListarPatologias(txtPatologiaNombre.Text)
     End Sub
 
-
     Private Sub mnuBtnModificar_Click(sender As Object, e As EventArgs) Handles mnuBtnModificar.Click
         opcionesMenu.ClickEnBotonModificar(toolsMenuPatologia)
         txtPatologiaNombre.Select()
         colorearCamposRqueridos()
-        habilitarAgregarSintomaYSignos()
+        habilitarAgregarSintoma()
     End Sub
 
 
@@ -68,38 +65,32 @@ Public Class frmPatologia
         limpiarControlesDeFormulario()
     End Sub
 
-
-    ' colorea los campos requeridos
     Private Sub colorearCamposRqueridos()
+        ' colorea los campos requeridos
         txtPatologiaNombre.BackColor = Color.Beige
         cbPatologiaPonderacion.BackColor = Color.Beige
         txtPatologiaDescipcion.BackColor = Color.Beige
-
     End Sub
 
-
-    ' colorea los campos edidables
     Private Sub colorPorDefectoTextoBox()
+        ' colorea los campos edidables
         txtPatologiaNombre.BackColor = Color.White
         cbPatologiaPonderacion.BackColor = Color.White
         txtPatologiaDescipcion.BackColor = Color.White
 
     End Sub
 
-    Private Sub habilitarAgregarSintomaYSignos()
+    Private Sub habilitarAgregarSintoma()
         'habilita los botons para agregar sintomas y signos
-        btnAgregarSigno.Enabled = True
         btnAgregarSintoma.Enabled = True
-
+        dgvSintomasPatologia.Enabled = True
     End Sub
 
-
-    Private Sub deshabilitarAgregarSintomaYSignos()
+    Private Sub deshabilitarAgregarSintoma()
         'deshabilita los botons para agregar sintomas y signos
-        btnAgregarSigno.Enabled = False
         btnAgregarSintoma.Enabled = False
+        dgvSintomasPatologia.Enabled = False
     End Sub
-
 
     Private Sub limpiarControlesDeFormulario()
         txtPatologiaID.Text = "0"
@@ -107,9 +98,7 @@ Public Class frmPatologia
         txtPatologiaDescipcion.Text = ""
         cbPatologiaPonderacion.Text = ""
         dgvSintomasPatologia.DataSource = ""
-        dgvSignosPatologia.DataSource = ""
     End Sub
-
 
     Private Sub dgvListaDePatologias_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvListaDePatologias.RowHeaderMouseClick
         opcionesMenu.ClickEnListado(toolsMenuPatologia)
@@ -122,18 +111,12 @@ Public Class frmPatologia
         cargarListaSintomasDePatologia()
     End Sub
 
-
     Private Sub cargarListaSintomasDePatologia()
-        dgvSintomasPatologia.DataSource = ControladorPatologias.cargarSintomaPorPatologia(txtPatologiaID.Text)
+        sintomasDePatologia = ControladorPatologias.CargarSintomaPorPatologia(txtPatologiaID.Text, sintomasDePatologia)
+        dgvSintomasPatologia.DataSource = sintomasDePatologia
         dgvSintomasPatologia.Columns(0).Visible = False
         dgvSintomasPatologia.Columns(1).Width = 150
     End Sub
-
-
-    Private Sub btnAgregarSigno_Click(sender As Object, e As EventArgs) Handles btnAgregarSigno.Click
-        'agrega signos a la lista de signos
-    End Sub
-
 
     Private Sub btnAgregarSintoma_Click_1(sender As Object, e As EventArgs) Handles btnAgregarSintoma.Click
         frmListaSintomas.MdiParent = frmPrincipal

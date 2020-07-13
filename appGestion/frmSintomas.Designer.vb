@@ -318,6 +318,7 @@ Partial Class frmSintomas
         Me.dgSintomas.Margin = New System.Windows.Forms.Padding(4)
         Me.dgSintomas.Name = "dgSintomas"
         Me.dgSintomas.ReadOnly = True
+        Me.dgSintomas.UseWaitCursor = False
         Me.dgSintomas.Size = New System.Drawing.Size(867, 203)
         Me.dgSintomas.TabIndex = 0
         '

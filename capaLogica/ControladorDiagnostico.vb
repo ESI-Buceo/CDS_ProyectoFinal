@@ -2,191 +2,108 @@
 Imports System.Data
 
 Public Module ControladorDiagnostico
-    Public CodigoDiagnostico As String
-    Public PonderacionDiagnostico As Integer
-    Public CantidadDeSintomasFiltrados As Integer
-    Public ListaSintomasSeleccionados As New List(Of ModeloSintoma)
-    Public ListaRelacionPatologiaSintoma As New List(Of ModeloAsociados)
-    Public ListaFiltradaPatologiasXSintomas As New List(Of ModeloAsociados)
-    Public ListaDePatologiasParaDiagnostico As New List(Of ModeloPatologia)
 
-    Public Sub CrearInformeDiagnostico()
-        'Trae la informacion de relacion asociados (patologia, signo, sintoma de la base de datos)
+    Public Function CrearInformeDiagnostico(ByVal listaSintomasSeleccionados As List(Of Integer)) As DataTable
+        'Devuelve las patologias que contienen los sintomas ingresados por el paciente
+        Dim tablaDePatologiasPorSintomas As New DataTable
         Dim a As New ModeloAsociados
-        cargarListaRelacionPatologiaSintoma(a.CargarListaAsociadosBD())
-        FiltrarPatologiasXSintomas()
-    End Sub
-
-    Private Sub cargarListaRelacionPatologiaSintoma(ByRef tablaAsociados As DataTable)
-        'Genera la lista de relacion patologias, signos y sintomas en memoria
-        For patologiasSintomas = 0 To tablaAsociados.Rows.Count - 1
-            Dim a As New ModeloAsociados
-            a.IdPatologia = tablaAsociados.Rows(patologiasSintomas).Item("idPatologia").ToString
-            a.IdSintoma = tablaAsociados.Rows(patologiasSintomas).Item("idSintoma").ToString
-            a.IdSigno = tablaAsociados.Rows(patologiasSintomas).Item("idSigno").ToString
-            ListaRelacionPatologiaSintoma.Add(a)
-        Next
-    End Sub
-
-    Public Function ValidarSintomaSeleccionado(ByVal idSintoma As Integer, sintomaNombre As String)
-        'Completa la lista de sintomas seleccionados por el paciente si esta vacia y sino, llama al metodo verifiar para ver si ya no esta ingresado
-        If ListaSintomasSeleccionados.Count = 0 Then
-            Dim s As New ModeloSintoma
-            s.ID = idSintoma
-            s.Nombre = sintomaNombre
-            ListaSintomasSeleccionados.Add(s)
-            Return True
-        Else
-            Return VerificarSiYaFueIngresado(idSintoma, sintomaNombre)
-        End If
+        tablaDePatologiasPorSintomas = a.FiltrarPatologiasPorSintomas(formarCadenaDeConsulta(listaSintomasSeleccionados), listaSintomasSeleccionados.Count - 1)
+        ponderarDiagnostico(tablaDePatologiasPorSintomas, listaSintomasSeleccionados)
+        Return tablaDePatologiasPorSintomas
     End Function
 
-    Public Function VerificarSiYaFueIngresado(ByVal idSintoma As Integer, sintomaNombre As String)
-        'Valida si el sintoma que selecciono el paciente ya fue seleccionado anteriormente 
-        For s = 0 To ListaSintomasSeleccionados.Count - 1
-            If ListaSintomasSeleccionados.Item(s).ID <> idSintoma Then
-                Dim sin As New ModeloSintoma
-                sin.ID = idSintoma
-                sin.Nombre = sintomaNombre
-                ListaSintomasSeleccionados.Add(sin)
-                Return True
-            End If
+    Private Function formarCadenaDeConsulta(ByVal listaSintomasSeleccionados As List(Of Integer)) As String
+        'forma la cadena para hacer la consulta SQL que trae patologias por los sintomas seleccionado por el paciente
+        Dim texto As String = ""
+        For i = 0 To listaSintomasSeleccionados.Count - 1
+            texto = texto & "," & listaSintomasSeleccionados.Item(i).ToString
         Next
-        Return False
+        Return texto.Remove(0, 1)
     End Function
 
-    Public Sub FiltrarPatologiasXSintomas()
-        ' realiza el primer filtro de la relacion patologia sintomas para obtener las primeras patologias que coinciden con el primer sintoma
-        ListaFiltradaPatologiasXSintomas.Clear()
-        For index = 0 To ListaRelacionPatologiaSintoma.Count - 1
-            If ListaRelacionPatologiaSintoma.Item(index).IdSintoma = ListaSintomasSeleccionados.Item(0).ID Then
-                Dim a As New ModeloAsociados
-                a.IdPatologia = ListaRelacionPatologiaSintoma.Item(index).IdPatologia
-                a.IdSintoma = ListaRelacionPatologiaSintoma.Item(index).IdPatologia
-                a.IdSigno = ListaRelacionPatologiaSintoma.Item(index).IdSigno
-                ListaFiltradaPatologiasXSintomas.Add(a)
-            End If
-        Next
-        filtroFinalPatologiaXsintomas()
-    End Sub
-
-    Private Sub filtroFinalPatologiaXsintomas()
-        'filtra ListaFiltradaPatologiasXSintomas por los otros sintomas ingrsados por el paciente
-        For s = 1 To ListaSintomasSeleccionados.Count - 1
-            For Each patologiasSeleccionadas In ListaFiltradaPatologiasXSintomas
-                For Each listaPrimariaPatologias In ListaRelacionPatologiaSintoma
-                    If listaPrimariaPatologias.IdPatologia = patologiasSeleccionadas.IdPatologia Then
-                        If listaPrimariaPatologias.IdSintoma = ListaSintomasSeleccionados.Item(s).ID Then
-                            patologiasSeleccionadas.incluida = True
-                            Exit For
-                        Else
-                            patologiasSeleccionadas.incluida = False
-                        End If
-                    End If
-                Next
-            Next
-        Next
-        devolverPatologiasParaDiagnostico()
-    End Sub
-
-    Private Sub devolverPatologiasParaDiagnostico()
-        'prepara el listado de patologias para mostrar al paciente
-        ListaDePatologiasParaDiagnostico.Clear()
-        For Each patologiasSelecionadas In ListaFiltradaPatologiasXSintomas
-            If patologiasSelecionadas.incluida Then
-                Dim p As New ModeloPatologia
-                ListaDePatologiasParaDiagnostico.Add(p.BuscarPatologiaPorID(patologiasSelecionadas.IdPatologia))
-            End If
-        Next
-        ponderarDiagnostico()
-    End Sub
-
-    Public Function DevuelveListaSintomasSeleccionados()
-        'Devuelve el listado de sintomas seleccionados
-        Return ListaSintomasSeleccionados
-    End Function
-
-    Public Function DevolverListaPatologiasDiagnostico()
-        'devuelve la lista de patologias del diagnostico
-        Return ListaDePatologiasParaDiagnostico
-    End Function
-
-    Public Function DevolverlistaListaFiltradaPatologiasXSintomas()
-        Return ListaFiltradaPatologiasXSintomas
-    End Function
-
-    Private Sub ponderarDiagnostico()
-        'calcula la ponderacino del diagnostico que despues se utlizara en el chat
-        PonderacionDiagnostico = 0
-        For Each patologias In ListaDePatologiasParaDiagnostico
-            If patologias.Ponderacion = 40 Then
-                PonderacionDiagnostico = 40
+    Private Sub ponderarDiagnostico(ByRef ListaDePatologiasParaDiagnostico As DataTable, listaSintomasSeleccionados As List(Of Integer))
+        'calcula la ponderacion del diagnostico que despues se utlizara en el chat
+        For Each patologias As DataRow In ListaDePatologiasParaDiagnostico.Rows
+            If patologias("ponderacion").ToString = 40 Then
+                ModeloDiagnostico.Ponderacion = 40
                 Exit For
             Else
-                calcularPonderacionDiagnostico()
+                ModeloDiagnostico.Ponderacion = calcularPonderacionDiagnostico(ListaDePatologiasParaDiagnostico)
             End If
         Next
-        guardarDiagnosticoEnBD()
+        guardarDiagnosticoEnBD(ModeloDiagnostico.Ponderacion, ListaDePatologiasParaDiagnostico, listaSintomasSeleccionados)
     End Sub
 
-    Private Sub calcularPonderacionDiagnostico()
+    Private Function calcularPonderacionDiagnostico(ByRef ListaDePatologiasParaDiagnostico As DataTable)
         'Si no hay ninguna patologia de EMERGENCIA calcula el promedio para ordenar en el chat
-        Dim cantidad As Integer = ListaDePatologiasParaDiagnostico.Count
+        Dim cantidad As Integer = ListaDePatologiasParaDiagnostico.Rows.Count
         Dim totalPonderaciones As Integer
-
-        For Each patologias In ListaDePatologiasParaDiagnostico
-            totalPonderaciones = totalPonderaciones + patologias.Ponderacion
+        For Each patologias As DataRow In ListaDePatologiasParaDiagnostico.Rows
+            totalPonderaciones = totalPonderaciones + patologias("ponderacion").ToString
         Next
-        PonderacionDiagnostico = totalPonderaciones / cantidad
-    End Sub
+        Return totalPonderaciones / cantidad
+    End Function
 
-    Private Sub guardarDiagnosticoEnBD()
-        'Guarda el diagnostico en la bs
-        CodigoDiagnostico = generarCodigoDeDiagnostico()
+    Private Sub guardarDiagnosticoEnBD(ByVal ponderacionDiagnostico As String, listaDePatologiasParaDiagnostico As DataTable, listaSintomasSeleccionados As List(Of Integer))
+        'Guarda el diagnostico en la bd
+        ModeloDiagnostico.CodigoDiagnostico = generarCodigoDeDiagnostico()
         Dim d As New ModeloDiagnostico
-        d.IdDiagnostico = CodigoDiagnostico
-        d.Prioridad = PonderacionDiagnostico
         d.GuardarDiagnostico()
-        guardarRelacionPacienteDiagnostico()
+        guardarRelacionPacienteDiagnostico(ModeloDiagnostico.CodigoDiagnostico, listaDePatologiasParaDiagnostico, listaSintomasSeleccionados)
     End Sub
 
-    Private Sub guardarRelacionPacienteDiagnostico()
+    Private Sub guardarRelacionPacienteDiagnostico(ByVal codigoDiagnostico As String, listaDePatologiasParaDiagnostico As DataTable, listaSintomasSeleccionados As List(Of Integer))
         'Guarda la relacion paciente recibe diagnostico en la bd
         Dim pd As New ModeloRecibe
-        pd.docIdentidad = "11111111"
-        pd.idDiagnostico = CodigoDiagnostico
-        pd.guardarRelacionPacienteDiagnostico()
-        guardarRelacionDiagnosticoPatologia()
+        pd.DocIdentidad = "11111111"
+        pd.IdDiagnostico = codigoDiagnostico
+        pd.GuardarRelacionPacienteDiagnostico()
+        formatearStringSQL(codigoDiagnostico, listaDePatologiasParaDiagnostico, listaSintomasSeleccionados)
     End Sub
 
-    Private Sub guardarRelacionDiagnosticoPatologia()
-        'Guarda las patologias que forman parte del diagnosticos
-        For Each patologiasDeDiagnostico In ListaDePatologiasParaDiagnostico
-            Dim guardarTiene As New ModeloTiene
-            guardarTiene.idDiagnostico = CodigoDiagnostico
-            guardarTiene.idPatologia = patologiasDeDiagnostico.Id
-            guardarTiene.guardarRelacionDiagnosticoPatologia()
+    Private Sub formatearStringSQL(codigoDiagnostico As String, listaDePatologiasParaDiagnostico As DataTable, listaSintomasSeleccionados As List(Of Integer))
+        'Da formato a la consulta que se enviara para guardar en la base de datos 
+        Dim stringSQL As String = ""
+        For Each patologiasDeDiagnostico As DataRow In listaDePatologiasParaDiagnostico.Rows
+            For Each sintomasSeleccionados In listaSintomasSeleccionados
+                stringSQL = stringSQL & "(" & codigoDiagnostico & ", " & patologiasDeDiagnostico("IdPatologia").ToString & ", " & sintomasSeleccionados.ToString & "),"
+            Next
         Next
+        guardarSintomasIngresados(stringSQL.Remove(stringSQL.Length - 1, 1))
+    End Sub
+
+    Private Sub guardarSintomasIngresados(ByVal stringSQL As String)
+        'Guarda de UN SOLO INSERT la relacion diagnostico, patologia y sintoma
+        Dim guardarTiene As New ModeloTiene
+        guardarTiene.GuardarRelacionDiagnosticoPatologia(stringSQL)
     End Sub
 
     Private Function generarCodigoDeDiagnostico() As String
-        'Genera codigo aleatorio de diagnostico
+        'Genera codigo unico aleatorio de diagnostico 
         Dim fechaHora As Date = DateTime.Now
         Dim codigo As String
         codigo = fechaHora.ToString("dd mm ss FFF")
         Return codigo.Replace(" ", "")
     End Function
 
-    Public Sub NuevaConsulta()
-        'Resetea todos los listados y la ponderacion cuando se inicia una nueva consulta
-        ListaRelacionPatologiaSintoma.Clear()
-        ListaSintomasSeleccionados.Clear()
-        ListaDePatologiasParaDiagnostico.Clear()
-        ListaFiltradaPatologiasXSintomas.Clear()
-        PonderacionDiagnostico = 0
-        CantidadDeSintomasFiltrados = 0
-        CodigoDiagnostico = ""
-    End Sub
+    Public Function ValidarSintomaSeleccionado(ByVal idSintoma As Integer, ByVal listaSintomasSeleccionados As List(Of Integer)) As Boolean
+        'Completa la lista de sintomas seleccionados por el paciente si esta vacia y sino, llama al metodo verifiar para ver si ya no esta ingresado
+        If listaSintomasSeleccionados.Count = 0 Then
+            Return True
+        Else
+            Return VerificarSiYaFueIngresado(idSintoma, listaSintomasSeleccionados)
+        End If
+    End Function
+
+    Public Function VerificarSiYaFueIngresado(ByVal idSintoma As Integer, listaSintomasSeleccionados As List(Of Integer))
+        'Valida si el sintoma que selecciono el paciente ya fue seleccionado anteriormente 
+        For s = 0 To listaSintomasSeleccionados.Count - 1
+            If listaSintomasSeleccionados.Item(s) <> idSintoma Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
 
     Public Function NuevoMensaje() As String
         'Genera un numero aleatorio del 1 al 4 para luego mostrar mensajes diferentes.

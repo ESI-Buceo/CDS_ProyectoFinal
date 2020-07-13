@@ -1,21 +1,18 @@
 ﻿Imports System.Data.Odbc
 
 Public Class ModeloAsociados
+    Inherits ModeloConexion
 
     Public IdPatologia As Integer
     Public IdSintoma As Integer
-    Public IdSigno As Integer
-    Public Incluida As Boolean
 
-    Public Function CargarListaAsociadosBD()
+    Public Function FiltrarPatologiasPorSintomas(ByVal sqlSintomas As String, cantidadSintomas As Integer)
         'carga la lista de la tabla asociados donde se vinculan patologias, sintomas y signos
-        Dim c As New ModeloConexion
         Dim tabla As New DataTable
-        c.conectar()
-        c.Comando.CommandText = "SELECT DISTINCT(a.idPatologia), a.idPatologia, a.idSintoma, a.idSigno FROM asociados a JOIN patologia p ON p.activo = 1"
-        c.Reader = c.Comando.ExecuteReader()
-        tabla.Load(c.Reader)
-        c.CerrarConexion()
+        Comando.CommandText = "SELECT a.idPatologia, p2.nombre , p2.descripcion , p2.ponderacion FROM asociados a join patologia p2 on p2.id = a.idPatologia and p2.activo = 1 WHERE a.IdSintoma IN (" & sqlSintomas & ") GROUP BY a.idPatologia HAVING count(a.idPatologia ) >=" & cantidadSintomas
+        Reader = Comando.ExecuteReader()
+        tabla.Load(Reader)
+        CerrarConexion()
         Return tabla
     End Function
 

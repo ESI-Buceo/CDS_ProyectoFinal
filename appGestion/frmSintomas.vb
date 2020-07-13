@@ -46,7 +46,6 @@ Public Class frmSintomas
         Catch ex As Exception
             mensajeError()
         End Try
-        limpiarTextBox()
     End Sub
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
