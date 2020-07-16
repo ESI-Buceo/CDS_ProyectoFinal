@@ -36,8 +36,10 @@ Partial Class frmPrincipal
         Me.picFotoUsuario = New System.Windows.Forms.PictureBox()
         Me.PanelDeConsulta = New System.Windows.Forms.Panel()
         Me.flPanelDiagnostico = New System.Windows.Forms.FlowLayoutPanel()
+        Me.lblNoResultado = New System.Windows.Forms.Label()
         Me.picLogoCliente = New System.Windows.Forms.PictureBox()
         Me.panelDeSintomas = New System.Windows.Forms.Panel()
+        Me.btnIniciarChat = New System.Windows.Forms.Button()
         Me.btnVerInforme = New System.Windows.Forms.Button()
         Me.btnNuevaConsulta = New System.Windows.Forms.Button()
         Me.panelBotonSiNo = New System.Windows.Forms.Panel()
@@ -51,8 +53,11 @@ Partial Class frmPrincipal
         Me.btnComenzar = New System.Windows.Forms.Button()
         Me.lblMensaje = New System.Windows.Forms.Label()
         Me.picMsVidaSana = New System.Windows.Forms.PictureBox()
-        Me.lblNoResultado = New System.Windows.Forms.Label()
         Me.tiempoMensaje = New System.Windows.Forms.Timer(Me.components)
+        Me.panelChat = New System.Windows.Forms.Panel()
+        Me.panelChatOpciones = New System.Windows.Forms.Panel()
+        Me.lblEstado = New System.Windows.Forms.Label()
+        Me.lblEstadoChat = New System.Windows.Forms.Label()
         Me.PanelInicio.SuspendLayout()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelCabecera.SuspendLayout()
@@ -63,6 +68,8 @@ Partial Class frmPrincipal
         Me.panelDeSintomas.SuspendLayout()
         Me.panelBotonSiNo.SuspendLayout()
         CType(Me.picMsVidaSana, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.panelChat.SuspendLayout()
+        Me.panelChatOpciones.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelInicio
@@ -122,6 +129,7 @@ Partial Class frmPrincipal
         '
         'btnChat
         '
+        Me.btnChat.Enabled = False
         Me.btnChat.FlatAppearance.BorderSize = 0
         Me.btnChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnChat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer))
@@ -215,6 +223,17 @@ Partial Class frmPrincipal
         Me.flPanelDiagnostico.TabIndex = 6
         Me.flPanelDiagnostico.Visible = False
         '
+        'lblNoResultado
+        '
+        Me.lblNoResultado.AutoSize = True
+        Me.lblNoResultado.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblNoResultado.Location = New System.Drawing.Point(5, 2)
+        Me.lblNoResultado.Name = "lblNoResultado"
+        Me.lblNoResultado.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
+        Me.lblNoResultado.Size = New System.Drawing.Size(161, 44)
+        Me.lblNoResultado.TabIndex = 0
+        Me.lblNoResultado.Text = "No hay resultados"
+        '
         'picLogoCliente
         '
         Me.picLogoCliente.Image = Global.appUsuario.My.Resources.Resources.vidasana
@@ -226,6 +245,7 @@ Partial Class frmPrincipal
         '
         'panelDeSintomas
         '
+        Me.panelDeSintomas.Controls.Add(Me.btnIniciarChat)
         Me.panelDeSintomas.Controls.Add(Me.btnVerInforme)
         Me.panelDeSintomas.Controls.Add(Me.btnNuevaConsulta)
         Me.panelDeSintomas.Controls.Add(Me.panelBotonSiNo)
@@ -238,6 +258,18 @@ Partial Class frmPrincipal
         Me.panelDeSintomas.Size = New System.Drawing.Size(418, 537)
         Me.panelDeSintomas.TabIndex = 4
         Me.panelDeSintomas.Visible = False
+        '
+        'btnIniciarChat
+        '
+        Me.btnIniciarChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnIniciarChat.ForeColor = System.Drawing.Color.Green
+        Me.btnIniciarChat.Location = New System.Drawing.Point(216, 405)
+        Me.btnIniciarChat.Name = "btnIniciarChat"
+        Me.btnIniciarChat.Size = New System.Drawing.Size(171, 44)
+        Me.btnIniciarChat.TabIndex = 10
+        Me.btnIniciarChat.Text = "Iniciar Chat"
+        Me.btnIniciarChat.UseVisualStyleBackColor = True
+        Me.btnIniciarChat.Visible = False
         '
         'btnVerInforme
         '
@@ -384,16 +416,51 @@ Partial Class frmPrincipal
         Me.picMsVidaSana.TabIndex = 0
         Me.picMsVidaSana.TabStop = False
         '
-        'lblNoResultado
+        'panelChat
         '
-        Me.lblNoResultado.AutoSize = True
-        Me.lblNoResultado.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblNoResultado.Location = New System.Drawing.Point(5, 2)
-        Me.lblNoResultado.Name = "lblNoResultado"
-        Me.lblNoResultado.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
-        Me.lblNoResultado.Size = New System.Drawing.Size(161, 44)
-        Me.lblNoResultado.TabIndex = 0
-        Me.lblNoResultado.Text = "No hay resultados"
+        Me.panelChat.Controls.Add(Me.panelChatOpciones)
+        Me.panelChat.Location = New System.Drawing.Point(2, 74)
+        Me.panelChat.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.panelChat.Name = "panelChat"
+        Me.panelChat.Size = New System.Drawing.Size(1142, 581)
+        Me.panelChat.TabIndex = 5
+        Me.panelChat.Visible = False
+        '
+        'panelChatOpciones
+        '
+        Me.panelChatOpciones.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.panelChatOpciones.Controls.Add(Me.lblEstado)
+        Me.panelChatOpciones.Controls.Add(Me.lblEstadoChat)
+        Me.panelChatOpciones.Location = New System.Drawing.Point(1, 0)
+        Me.panelChatOpciones.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.panelChatOpciones.Name = "panelChatOpciones"
+        Me.panelChatOpciones.Size = New System.Drawing.Size(239, 581)
+        Me.panelChatOpciones.TabIndex = 0
+        '
+        'lblEstado
+        '
+        Me.lblEstado.AutoSize = True
+        Me.lblEstado.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.lblEstado.ForeColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.lblEstado.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.lblEstado.Location = New System.Drawing.Point(19, 68)
+        Me.lblEstado.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblEstado.Name = "lblEstado"
+        Me.lblEstado.Size = New System.Drawing.Size(97, 24)
+        Me.lblEstado.TabIndex = 1
+        Me.lblEstado.Text = "En espera"
+        '
+        'lblEstadoChat
+        '
+        Me.lblEstadoChat.AutoSize = True
+        Me.lblEstadoChat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(144, Byte), Integer), CType(CType(144, Byte), Integer), CType(CType(170, Byte), Integer))
+        Me.lblEstadoChat.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.lblEstadoChat.Location = New System.Drawing.Point(18, 35)
+        Me.lblEstadoChat.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblEstadoChat.Name = "lblEstadoChat"
+        Me.lblEstadoChat.Size = New System.Drawing.Size(88, 24)
+        Me.lblEstadoChat.TabIndex = 0
+        Me.lblEstadoChat.Text = "ESTADO"
         '
         'frmPrincipal
         '
@@ -402,6 +469,7 @@ Partial Class frmPrincipal
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1146, 658)
         Me.Controls.Add(Me.panelCabecera)
+        Me.Controls.Add(Me.panelChat)
         Me.Controls.Add(Me.PanelDeConsulta)
         Me.Controls.Add(Me.PanelInicio)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -425,6 +493,9 @@ Partial Class frmPrincipal
         Me.panelDeSintomas.PerformLayout()
         Me.panelBotonSiNo.ResumeLayout(False)
         CType(Me.picMsVidaSana, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.panelChat.ResumeLayout(False)
+        Me.panelChatOpciones.ResumeLayout(False)
+        Me.panelChatOpciones.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -458,4 +529,9 @@ Partial Class frmPrincipal
     Friend WithEvents btnVerInforme As Button
     Friend WithEvents lblNoResultado As Label
     Friend WithEvents tiempoMensaje As Timer
+    Friend WithEvents btnIniciarChat As Button
+    Friend WithEvents panelChat As Panel
+    Friend WithEvents panelChatOpciones As Panel
+    Friend WithEvents lblEstado As Label
+    Friend WithEvents lblEstadoChat As Label
 End Class

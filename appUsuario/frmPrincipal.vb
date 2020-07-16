@@ -22,7 +22,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub btnChat_Click(sender As Object, e As EventArgs) Handles btnChat.Click
-        'cambiarPanel(panelDeChat)
+        cambiarPanel(panelChat)
         clickBotonChat()
     End Sub
 
@@ -148,7 +148,7 @@ Public Class frmPrincipal
     Private Sub botonesMostrarDiagnostico()
         btnVerInforme.Visible = False
         btnNuevaConsulta.Visible = True
-        'btnIniciarChat.Visible = True
+        btnIniciarChat.Visible = True
     End Sub
 
     Private Sub clicBotonConsulta()
@@ -195,5 +195,17 @@ Public Class frmPrincipal
         PanelPatologia.id = 0
         txtSintoma.Select()
         ListaSintomasSeleccionados.Clear()
+    End Sub
+
+    Private Sub btnIniciarChat_Click(sender As Object, e As EventArgs) Handles btnIniciarChat.Click
+        panelChat.Visible = True
+        btnChat.Enabled = True
+        panelActivo = panelChat
+        clickBotonChat()
+        cargarformLoading()
+    End Sub
+
+    Private Sub cargarformLoading()
+        frmLoading.ShowDialog()
     End Sub
 End Class
