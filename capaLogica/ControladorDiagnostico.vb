@@ -5,15 +5,25 @@ Public Module ControladorDiagnostico
 
     Public Function CrearInformeDiagnostico(ByVal listaSintomasSeleccionados As List(Of Integer)) As DataTable
         'Devuelve las patologias que contienen los sintomas ingresados por el paciente
-        Dim tablaDePatologiasPorSintomas As New DataTable
+        Dim tablaPatologiasPorSintomas As New DataTable
+        Dim stringSQL As String = formarCadenaDeConsulta(listaSintomasSeleccionados)
         Dim a As New ModeloAsociados
-        tablaDePatologiasPorSintomas = a.FiltrarPatologiasPorSintomas(formarCadenaDeConsulta(listaSintomasSeleccionados), listaSintomasSeleccionados.Count - 1)
-        ponderarDiagnostico(tablaDePatologiasPorSintomas, listaSintomasSeleccionados)
+        tablaPatologiasPorSintomas = a.FiltrarPatologiasPorSintomas(stringSQL, listaSintomasSeleccionados.Count)
+        Return evalularTablaPatologias(tablaPatologiasPorSintomas, listaSintomasSeleccionados)
+    End Function
+
+    Private Function evalularTablaPatologias(ByRef tablaDePatologias As DataTable, listaSintomasSeleccionados As List(Of Integer))
+        'Evalua si existen patologias con los sintomas seleccionados por el paciente
+        Dim tablaDePatologiasPorSintomas As New DataTable
+        tablaDePatologiasPorSintomas = tablaDePatologias
+        If tablaDePatologiasPorSintomas.Rows.Count > 0 Then
+            ponderarDiagnostico(tablaDePatologiasPorSintomas, listaSintomasSeleccionados)
+            Return tablaDePatologiasPorSintomas
+        End If
         Return tablaDePatologiasPorSintomas
     End Function
 
     Private Function formarCadenaDeConsulta(ByVal listaSintomasSeleccionados As List(Of Integer)) As String
-        'forma la cadena para hacer la consulta SQL que trae patologias por los sintomas seleccionado por el paciente
         Dim texto As String = ""
         For i = 0 To listaSintomasSeleccionados.Count - 1
             texto = texto & "," & listaSintomasSeleccionados.Item(i).ToString
@@ -62,7 +72,7 @@ Public Module ControladorDiagnostico
     End Sub
 
     Private Sub formatearStringSQL(codigoDiagnostico As String, listaDePatologiasParaDiagnostico As DataTable, listaSintomasSeleccionados As List(Of Integer))
-        'Da formato a la consulta que se enviara para guardar en la base de datos 
+        'Da formato a la consulta que se enviara para guardar en la base de datos
         Dim stringSQL As String = ""
         For Each patologiasDeDiagnostico As DataRow In listaDePatologiasParaDiagnostico.Rows
             For Each sintomasSeleccionados In listaSintomasSeleccionados
@@ -73,13 +83,13 @@ Public Module ControladorDiagnostico
     End Sub
 
     Private Sub guardarSintomasIngresados(ByVal stringSQL As String)
-        'Guarda de UN SOLO INSERT la relacion diagnostico, patologia y sintoma
+        'Guarda de un INSERT la relacion diagnostico, patologia y sintoma
         Dim guardarTiene As New ModeloTiene
         guardarTiene.GuardarRelacionDiagnosticoPatologia(stringSQL)
     End Sub
 
     Private Function generarCodigoDeDiagnostico() As String
-        'Genera codigo unico aleatorio de diagnostico 
+        'Genera codigo aleatorio de diagnostico
         Dim fechaHora As Date = DateTime.Now
         Dim codigo As String
         codigo = fechaHora.ToString("dd mm ss FFF")
@@ -105,6 +115,10 @@ Public Module ControladorDiagnostico
         Return False
     End Function
 
+    Public Function devolverIdSesion()
+        Return ModeloDiagnostico.CodigoDiagnostico
+    End Function
+
     Public Function NuevoMensaje() As String
         'Genera un numero aleatorio del 1 al 4 para luego mostrar mensajes diferentes.
         Dim Random As New Random()
@@ -116,13 +130,13 @@ Public Module ControladorDiagnostico
         Dim txtMensaje As String
         Select Case id
             Case 1
-                txtMensaje = "Que mas sientes? "
+                txtMensaje = "Si tienes otro sintoma, ingresado  "
             Case 2
-                txtMensaje = "Sientes otro malestar? "
+                txtMensaje = "Tienes otro sintoma ? ingresalo "
             Case 3
-                txtMensaje = "Que otro sintoma tienes? "
+                txtMensaje = "Que otro sintoma tienes? ingresado"
             Case 4
-                txtMensaje = "Sientes algo mas?"
+                txtMensaje = "Sientes otro sintoma ? ingresalo"
             Case Else
                 txtMensaje = "Mensaje por defecto"
         End Select
