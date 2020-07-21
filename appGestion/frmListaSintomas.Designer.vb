@@ -50,7 +50,7 @@ Partial Class frmListaSintomas
         Me.lblEscribirSintoma.Location = New System.Drawing.Point(13, 89)
         Me.lblEscribirSintoma.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblEscribirSintoma.Name = "lblEscribirSintoma"
-        Me.lblEscribirSintoma.Size = New System.Drawing.Size(129, 17)
+        Me.lblEscribirSintoma.Size = New System.Drawing.Size(166, 22)
         Me.lblEscribirSintoma.TabIndex = 4
         Me.lblEscribirSintoma.Text = "Escribe el sintoma"
         '
@@ -58,7 +58,7 @@ Partial Class frmListaSintomas
         '
         Me.txtNombreSintoma.Location = New System.Drawing.Point(17, 123)
         Me.txtNombreSintoma.Name = "txtNombreSintoma"
-        Me.txtNombreSintoma.Size = New System.Drawing.Size(395, 24)
+        Me.txtNombreSintoma.Size = New System.Drawing.Size(395, 28)
         Me.txtNombreSintoma.TabIndex = 5
         '
         'dgvListaSintomas
@@ -84,7 +84,7 @@ Partial Class frmListaSintomas
         '
         'frmListaSintomas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 21.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(426, 543)
         Me.Controls.Add(Me.btnCerrar)
