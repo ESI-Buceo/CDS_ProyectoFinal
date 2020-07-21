@@ -26,6 +26,7 @@ Public Class frmPrincipal
 
     Private Sub cargarListaDeChatPendientes(ByVal tablaPendientes As DataTable)
         'Carga la lista de chat pendientes
+        flpChatPendientes.Controls.Clear()
         For Each sesion As DataRow In tablaPendientes.Rows
             flpChatPendientes.Controls.Add(crearFichaSesiones(sesion))
         Next
@@ -33,6 +34,7 @@ Public Class frmPrincipal
 
     Private Sub cargarListaChatEnEspera(ByVal tablaEnEspera As DataTable)
         'Carga la lista de chat en espera
+        flpChatenEspera.Controls.Clear()
         For Each sesion As DataRow In tablaEnEspera.Rows
             flpChatenEspera.Controls.Add(crearFichaSesiones(sesion))
         Next

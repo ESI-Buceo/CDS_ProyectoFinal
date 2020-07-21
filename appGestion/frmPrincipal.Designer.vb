@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmPrincipal
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -21,7 +21,7 @@ Partial Class frmPrincipal
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPrincipal))
@@ -48,8 +48,6 @@ Partial Class frmPrincipal
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.ImportarArchivoCVSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SignosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListarSignosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.InformesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RanquinDePatologiasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogDelSistemaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -171,7 +169,7 @@ Partial Class frmPrincipal
         '
         'PatologiasSintomasToolStripMenuItem
         '
-        Me.PatologiasSintomasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PatologiasToolStripMenuItem, Me.ListarPatologiasToolStripMenuItem, Me.ToolStripSeparator2, Me.SintomasToolStripMenuItem, Me.ListarSintomasToolStripMenuItem, Me.ToolStripSeparator3, Me.ImportarArchivoCVSToolStripMenuItem, Me.ToolStripSeparator4, Me.SignosToolStripMenuItem, Me.ListarSignosToolStripMenuItem})
+        Me.PatologiasSintomasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PatologiasToolStripMenuItem, Me.ListarPatologiasToolStripMenuItem, Me.ToolStripSeparator2, Me.SintomasToolStripMenuItem, Me.ListarSintomasToolStripMenuItem, Me.ToolStripSeparator3, Me.ImportarArchivoCVSToolStripMenuItem, Me.ToolStripSeparator4})
         Me.PatologiasSintomasToolStripMenuItem.Name = "PatologiasSintomasToolStripMenuItem"
         Me.PatologiasSintomasToolStripMenuItem.Size = New System.Drawing.Size(121, 27)
         Me.PatologiasSintomasToolStripMenuItem.Text = "&Diagnosticos"
@@ -224,20 +222,6 @@ Partial Class frmPrincipal
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(248, 6)
-        '
-        'SignosToolStripMenuItem
-        '
-        Me.SignosToolStripMenuItem.Image = CType(resources.GetObject("SignosToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SignosToolStripMenuItem.Name = "SignosToolStripMenuItem"
-        Me.SignosToolStripMenuItem.Size = New System.Drawing.Size(251, 28)
-        Me.SignosToolStripMenuItem.Text = "Signos"
-        '
-        'ListarSignosToolStripMenuItem
-        '
-        Me.ListarSignosToolStripMenuItem.Image = CType(resources.GetObject("ListarSignosToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ListarSignosToolStripMenuItem.Name = "ListarSignosToolStripMenuItem"
-        Me.ListarSignosToolStripMenuItem.Size = New System.Drawing.Size(251, 28)
-        Me.ListarSignosToolStripMenuItem.Text = "Listar signos"
         '
         'InformesToolStripMenuItem
         '
@@ -407,6 +391,4 @@ Partial Class frmPrincipal
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents ImportarArchivoCVSToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
-    Friend WithEvents SignosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ListarSignosToolStripMenuItem As ToolStripMenuItem
 End Class
