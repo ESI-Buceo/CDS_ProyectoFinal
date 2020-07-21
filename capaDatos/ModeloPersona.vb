@@ -7,14 +7,14 @@ Public MustInherit Class ModeloPersona
     Public Nombres As String
     Public Apellidos As String
     Public Calle As String
-    Public Numero As Integer
+    Public Numero As String
     Public Barrio As String
     Public Esquina As String
     Public Apartamento As String
-    Public Telefono As Integer
+    Public Telefonos As New DataTable
     Public Password As String
     Public FechaNacimiento As String
-    Public Estado As Boolean
+    Public Activo As Boolean
     Public FechaRegistro As String
 
     Private Function validarDocumento()

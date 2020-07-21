@@ -1,7 +1,7 @@
 ﻿Imports System.Data.Odbc
 Public MustInherit Class ModeloConexion
 
-    Public Driver As String = "MySQL ODBC 5.3 ANSI Driver"
+    Public Driver As String = "MySQL ODBC 8.0 ANSI Driver"
     Public Uid As String = "u876920732_proyectocds"
     Public Pwd As String = "npvtcADR"
     Public Port As String = "3306"
