@@ -118,8 +118,16 @@ Public Class frmPrincipal
 
     Private Sub crearInformeDiagnostico()
         'Evalua resultado informe de diagnostico
-        Dim patologiasParaDiagnostico As New DataTable
-        patologiasParaDiagnostico = ControladorDiagnostico.CrearInformeDiagnostico(ListaSintomasSeleccionados)
+        Try
+            evaluarExitenciaPatologias(ControladorDiagnostico.CrearInformeDiagnostico(ListaSintomasSeleccionados))
+        Catch ex As Exception
+            MsgBox("Error al buscar las patologias", vbOK Or vbInformation, "Error")
+        End Try
+
+    End Sub
+
+    Private Sub evaluarExitenciaPatologias(ByVal patologiasParaDiagnostico As DataTable)
+        'Evalua si existen patologias
         If patologiasParaDiagnostico.Rows.Count = 0 Then
             lblPregunta.Text = "No existen patologias con los sintomas que has ingresado !"
             btnVerInforme.Visible = False
@@ -132,17 +140,13 @@ Public Class frmPrincipal
 
     Private Sub mostrarInformeDiagnostico(ByRef patologiaParaDiagnostico As DataTable)
         'Muestra el informe de diagostico
-        Try
-            lblPregunta.Text = "Hemos preparado el siguiente informe para ti de acuerdo a los sintomas que has ingresado. Por favor inicia una conversacion por chat con el medico."
-            flPanelDiagnostico.Visible = True
-            For Each patologias As DataRow In patologiaParaDiagnostico.Rows
-                Dim panel As New PanelPatologia With {.nombre = patologias("nombre"), .descipcion = patologias("descripcion")}
-                flPanelDiagnostico.Controls.Add(panel.CrearPanelPatologia)
-            Next
-            botonesMostrarDiagnostico()
-        Catch ex As Exception
-            MsgBox("Se genero un error y no se genero el informe de diagnostico")
-        End Try
+        lblPregunta.Text = "Hemos preparado el siguiente informe para ti de acuerdo a los sintomas que has ingresado. Por favor inicia una conversacion por chat con el medico."
+        flPanelDiagnostico.Visible = True
+        For Each patologias As DataRow In patologiaParaDiagnostico.Rows
+            Dim panel As New PanelPatologia With {.nombre = patologias("nombre"), .descipcion = patologias("descripcion")}
+            flPanelDiagnostico.Controls.Add(panel.CrearPanelPatologia)
+        Next
+        botonesMostrarDiagnostico()
     End Sub
 
     Private Sub botonesMostrarDiagnostico()
@@ -180,11 +184,12 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub iniciarConsulta()
-        lblPregunta.Text = "Cuentanos cual es tu princial malestar...?"
+        lblPregunta.Text = "Cuentanos cual es tu princial sintoma...?"
         panelDeSintomas.Visible = True
         flPanelDiagnostico.Visible = False
         lblMensaje.Visible = False
         btnComenzar.Visible = False
+        btnChat.Enabled = False
         lblPregunta.Visible = True
         btnSiguienteSintoma.Visible = True
         txtSintoma.Visible = True
@@ -195,17 +200,172 @@ Public Class frmPrincipal
         PanelPatologia.id = 0
         txtSintoma.Select()
         ListaSintomasSeleccionados.Clear()
+        PanelDeConsulta.Visible = True
+        btnIniciarChat.Visible = False
     End Sub
 
     Private Sub btnIniciarChat_Click(sender As Object, e As EventArgs) Handles btnIniciarChat.Click
         panelChat.Visible = True
-        btnChat.Enabled = True
         panelActivo = panelChat
-        clickBotonChat()
+        estadoBotonesAlIniciarchat()
+        activarControladorTiempoEstado()
+        'ControladorSesion.GuardarSesionDeChat()
         cargarformLoading()
+    End Sub
+
+    Private Sub estadoBotonesAlIniciarchat()
+        btnChat.Enabled = True
+        btnChat.Select()
+        btnNuevaConsulta.Visible = False
+        btnIniciarChat.Visible = False
+        clickBotonChat()
+    End Sub
+
+    Private Sub activarControladorTiempoEstado()
+        'TimerChequearEstado.Enabled = True
+        'TimerChequearEstado.Start()
+    End Sub
+
+    Private Sub desactivarControladorTiempoEstado()
+        'TimerChequearEstado.Enabled = False
+        'TimerChequearEstado.Stop()
     End Sub
 
     Private Sub cargarformLoading()
         frmLoading.ShowDialog()
     End Sub
+
+    'Private Sub TimerChequearEstado_Tick(sender As Object, e As EventArgs) Handles TimerChequearEstado.Tick
+    '    'Chequea el estado de la sesion activa
+    '    'Try
+    '    '    If ControladorSesion.VerificarEstadoDeSesion = 1 Then
+    '    '        establecerInicioDeChat()
+    '    '        frmLoading.Dispose()
+    '    '    End If
+    '    'Catch ex As Exception
+    '    '    MsgBox("Error al conectarse al servidor de chat", vbOK Or vbInformation, "Error")
+    '    'End Try
+    'End Sub
+
+    Private Sub establecerInicioDeChat()
+        'Ajusta los controles para el inicio del chat
+        desactivarControladorTiempoEstado()
+        lblEstado.Text = "On Line"
+        limpiarVentanaDeMensajes()
+        datosDelMedico()
+        'recibirMensajes()
+        activarChat()
+    End Sub
+
+    Private Sub datosDelMedico()
+        'Busca la informacion del medico que inicio la sesion
+        Try
+            'mostrarDatosDelMedico(ControladorSesion.DatosDelMedicoSesion())
+        Catch ex As Exception
+            MsgBox("Error al recuperar datos del medico", vbOK Or vbInformation, "Error")
+        End Try
+    End Sub
+
+    Private Sub mostrarDatosDelMedico(ByVal tablaDatosMedico As DataTable)
+        'Muestra los datos del medico
+        'panelInfoMedico.Visible = True
+        'picMedico.Image = My.Resources.docMas
+        'lblNombreMedico.Text = tablaDatosMedico.Rows(0).Item("NOMBRE") & " " & tablaDatosMedico.Rows(0).Item("APELLIDO")
+        'GuardarIdMedico(tablaDatosMedico.Rows(0).Item("DOCUMENTO"))
+    End Sub
+
+    Private Sub limpiarVentanaDeMensajes()
+        'txtMensajes.Clear()
+    End Sub
+
+    Private Sub activarChat()
+        tiempoMensaje.Enabled = True
+        tiempoMensaje.Start()
+    End Sub
+
+    'Private Sub btnEnviarMensaje_Click(sender As Object, e As EventArgs) Handles btnEnviarMensaje.Click
+    '    'Envia el mensaje 
+    '    If txtMensaje.Text.Length > 0 Then
+    '        Try
+    '            ControladorChat.EnviarMensaje(txtMensaje.Text, "P", ControladorDiagnostico.devolverIdSesion)
+    '            recibirMensajes()
+    '        Catch ex As Exception
+    '            MsgBox("Hubo un error al enviar el mensaje, intenta nuevamente", vbOK Or vbInformation, "Error")
+    '        End Try
+    '    End If
+    '    limpiarCampoDeTexto()
+    'End Sub
+
+    Private Sub limpiarCampoDeTexto()
+        'Limpia y selecciona el campo de texto
+        'txtMensaje.Text = ""
+        'txtMensaje.Select()
+    End Sub
+
+    'Private Sub recibirMensajes()
+    '    'Recuera los mensajes recibidos
+    '    Try
+    '        recorreMensajesRecibidos(ControladorChat.RecibirMensajes())
+    '    Catch ex As Exception
+    '        MsgBox("Error al leer los mensajes recibidos", vbOK Or vbInformation, "Error")
+    '    End Try
+
+    'End Sub
+
+    'Private Sub recorreMensajesRecibidos(ByVal tablaMensajes As DataTable)
+    '    'recorre los mensajes recividos
+    '    txtMensajes.Clear()
+    '    For Each mensaje In tablaMensajes.Rows
+    '        identifiarColorearMensaje(mensaje("emisor"), mensaje("mensaje"))
+    '    Next
+    'End Sub
+
+    'Private Sub identifiarColorearMensaje(ByVal emisor As String, mensaje As String)
+    '    'Muestra y colorea los mensajes dependiente de origen y destino
+    '    If emisor.Equals("P") Then
+    '        txtMensajes.SelectionColor = Color.FromArgb(110, 196, 167)
+    '        txtMensajes.AppendText("Tu ->  " & mensaje & vbNewLine)
+    '    ElseIf emisor.Equals("M") Then
+    '        txtMensajes.SelectionColor = Color.FromArgb(69, 75, 84)
+    '        txtMensajes.AppendText("Doctor -> " & mensaje & vbNewLine)
+    '    End If
+    'End Sub
+
+    'Private Sub tiempoMensaje_Tick(sender As Object, e As EventArgs) Handles tiempoMensaje.Tick
+    '    'Control que cheque nuevos mensajes cada 10 segundos
+    '    recibirMensajes()
+    'End Sub
+
+    'Private Sub btnFinalizarChat_Click(sender As Object, e As EventArgs) Handles btnFinalizarChat.Click
+    '    'Boton que finaliza la sesion de chat
+    '    FinalizarSesionDechat()
+    'End Sub
+
+    Public Sub FinalizarSesionDechat()
+        'Proceso de cierre de sesion de chat
+        Dim finalizar As Integer
+        finalizar = MsgBox("Seguro de cerrar la sesion de chat? ", vbYesNo Or vbExclamation, "Cerrar Sesion")
+        If finalizar = 6 Then
+            cancelarSesionDeChat()
+        End If
+    End Sub
+
+    Private Sub cancelarSesionDeChat()
+        'Cancela la solicitud de chat
+        'Try
+        '    ControladorSesion.CancelarSesionDeChat()
+        '    desactivarControladorTiempoEstado()
+        '    restablecerAPanelDeConsulta()
+        'Catch ex As Exception
+        '    MsgBox("Error al intentar cancelar cerrar la sesion de chat", vbOK Or vbInformation, "Cierre de Sesion")
+        'End Try
+    End Sub
+
+    Private Sub restablecerAPanelDeConsulta()
+        cambiarPanel(PanelDeConsulta)
+        PanelDeConsulta.Visible = False
+        clicBotonConsulta()
+        iniciarConsulta()
+    End Sub
+
 End Class

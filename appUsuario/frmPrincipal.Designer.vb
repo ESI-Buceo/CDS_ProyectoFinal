@@ -58,6 +58,10 @@ Partial Class frmPrincipal
         Me.panelChatOpciones = New System.Windows.Forms.Panel()
         Me.lblEstado = New System.Windows.Forms.Label()
         Me.lblEstadoChat = New System.Windows.Forms.Label()
+        Me.TimerChequearEstado = New System.Windows.Forms.Timer(Me.components)
+        Me.panelInfoMedico = New System.Windows.Forms.Panel()
+        Me.lblNombreMedico = New System.Windows.Forms.Label()
+        Me.picMedico = New System.Windows.Forms.PictureBox()
         Me.PanelInicio.SuspendLayout()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelCabecera.SuspendLayout()
@@ -70,6 +74,8 @@ Partial Class frmPrincipal
         CType(Me.picMsVidaSana, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelChat.SuspendLayout()
         Me.panelChatOpciones.SuspendLayout()
+        Me.panelInfoMedico.SuspendLayout()
+        CType(Me.picMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelInicio
@@ -429,6 +435,7 @@ Partial Class frmPrincipal
         'panelChatOpciones
         '
         Me.panelChatOpciones.BackColor = System.Drawing.Color.FromArgb(CType(CType(41, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.panelChatOpciones.Controls.Add(Me.panelInfoMedico)
         Me.panelChatOpciones.Controls.Add(Me.lblEstado)
         Me.panelChatOpciones.Controls.Add(Me.lblEstadoChat)
         Me.panelChatOpciones.Location = New System.Drawing.Point(1, 0)
@@ -461,6 +468,40 @@ Partial Class frmPrincipal
         Me.lblEstadoChat.Size = New System.Drawing.Size(88, 24)
         Me.lblEstadoChat.TabIndex = 0
         Me.lblEstadoChat.Text = "ESTADO"
+        '
+        'TimerChequearEstado
+        '
+        Me.TimerChequearEstado.Interval = 10000
+        '
+        'panelInfoMedico
+        '
+        Me.panelInfoMedico.Controls.Add(Me.lblNombreMedico)
+        Me.panelInfoMedico.Controls.Add(Me.picMedico)
+        Me.panelInfoMedico.Location = New System.Drawing.Point(29, 192)
+        Me.panelInfoMedico.Name = "panelInfoMedico"
+        Me.panelInfoMedico.Size = New System.Drawing.Size(180, 196)
+        Me.panelInfoMedico.TabIndex = 3
+        Me.panelInfoMedico.Visible = False
+        '
+        'lblNombreMedico
+        '
+        Me.lblNombreMedico.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.lblNombreMedico.Location = New System.Drawing.Point(12, 146)
+        Me.lblNombreMedico.Name = "lblNombreMedico"
+        Me.lblNombreMedico.Size = New System.Drawing.Size(162, 22)
+        Me.lblNombreMedico.TabIndex = 1
+        Me.lblNombreMedico.Text = "nombreMedico"
+        Me.lblNombreMedico.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'picMedico
+        '
+        Me.picMedico.Image = Global.appUsuario.My.Resources.Resources.docMas
+        Me.picMedico.Location = New System.Drawing.Point(30, 13)
+        Me.picMedico.Name = "picMedico"
+        Me.picMedico.Size = New System.Drawing.Size(121, 120)
+        Me.picMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picMedico.TabIndex = 0
+        Me.picMedico.TabStop = False
         '
         'frmPrincipal
         '
@@ -496,6 +537,8 @@ Partial Class frmPrincipal
         Me.panelChat.ResumeLayout(False)
         Me.panelChatOpciones.ResumeLayout(False)
         Me.panelChatOpciones.PerformLayout()
+        Me.panelInfoMedico.ResumeLayout(False)
+        CType(Me.picMedico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -534,4 +577,8 @@ Partial Class frmPrincipal
     Friend WithEvents panelChatOpciones As Panel
     Friend WithEvents lblEstado As Label
     Friend WithEvents lblEstadoChat As Label
+    Friend WithEvents TimerChequearEstado As Timer
+    Friend WithEvents panelInfoMedico As Panel
+    Friend WithEvents lblNombreMedico As Label
+    Friend WithEvents picMedico As PictureBox
 End Class

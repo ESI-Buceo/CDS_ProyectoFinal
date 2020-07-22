@@ -13,10 +13,6 @@ Public Class frmListaSintomas
         End Try
     End Sub
 
-    Private Sub dgvSintomas_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvSintomas.RowHeaderMouseDoubleClick
-        sintomaSeleccionado(dgvSintomas.Item(0, e.RowIndex).Value, dgvSintomas.Item(1, e.RowIndex).Value)
-    End Sub
-
     Private Sub sintomaSeleccionado(ByVal idSintoma As Integer, sintomaNombre As String)
         'Este metodo envia la informacion del sintoma seleccionado al formulario principal
         If ValidarSintomaSeleccionado(idSintoma, frmPrincipal.ListaSintomasSeleccionados) Then
@@ -27,6 +23,12 @@ Public Class frmListaSintomas
             MsgBox("El sintoma ya esta ingresado")
         End If
         Me.Dispose()
+    End Sub
+
+    Private Sub dgvSintomas_CellMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvSintomas.CellMouseClick
+        If e.RowIndex >= 0 Then
+            sintomaSeleccionado(dgvSintomas.Item(0, e.RowIndex).Value, dgvSintomas.Item(1, e.RowIndex).Value)
+        End If
     End Sub
 
 End Class

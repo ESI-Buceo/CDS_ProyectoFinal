@@ -101,7 +101,7 @@ Public Class claseFichaChat
 
     Public Sub MostrarChat()
         'Cambia el estado de la sesion de chat
-        ControladorChat.MensajeInicioDeSesion(Me.idChat)
+        ''ControladorChat.MensajeInicioDeSesion(Me.idChat)
         mostrarDatosChat()
     End Sub
 
@@ -109,7 +109,7 @@ Public Class claseFichaChat
         'Muestra los datos del chat
         IDSESION = Me.idChat
         frmPrincipal.txtMensajes.Clear()
-        ControladorChat.RecibirMensajes(IDSESION)
+        ''ControladorChat.RecibirMensajes(IDSESION)
         frmPrincipal.MostrarPanelMensajes()
         frmPrincipal.DeshabilitarPanelPendientes()
         frmPrincipal.cargarDatosDelPaciente()
