@@ -130,15 +130,15 @@ Public Module ControladorDiagnostico
         Dim txtMensaje As String
         Select Case id
             Case 1
-                txtMensaje = "Si tienes otro sintoma, ingresado  "
+                txtMensaje = "Si tienes otro sintoma, ingresalo  "
             Case 2
                 txtMensaje = "Tienes otro sintoma ? ingresalo "
             Case 3
-                txtMensaje = "Que otro sintoma tienes? ingresado"
+                txtMensaje = "Que otro sintoma tienes? ingresalo"
             Case 4
                 txtMensaje = "Sientes otro sintoma ? ingresalo"
             Case Else
-                txtMensaje = "Mensaje por defecto"
+                txtMensaje = "Algun otro sintoma que sientas?, ingresalo"
         End Select
         Return txtMensaje
     End Function

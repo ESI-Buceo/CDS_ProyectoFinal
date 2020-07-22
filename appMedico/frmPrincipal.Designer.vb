@@ -24,7 +24,7 @@ Partial Class frmPrincipal
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPrincipal))
-        Me.PalenMedico = New System.Windows.Forms.Panel()
+        Me.PanelMedico = New System.Windows.Forms.Panel()
         Me.lblEstado = New System.Windows.Forms.Label()
         Me.picEstado = New System.Windows.Forms.PictureBox()
         Me.lblNombreMedico = New System.Windows.Forms.Label()
@@ -80,7 +80,7 @@ Partial Class frmPrincipal
         Me.lblDocIdentidad = New System.Windows.Forms.Label()
         Me.lblApellidos = New System.Windows.Forms.Label()
         Me.lblNombres = New System.Windows.Forms.Label()
-        Me.PalenMedico.SuspendLayout()
+        Me.PanelMedico.SuspendLayout()
         CType(Me.picEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
@@ -93,18 +93,18 @@ Partial Class frmPrincipal
         Me.panelDatosPaciente.SuspendLayout()
         Me.SuspendLayout()
         '
-        'PalenMedico
+        'PanelMedico
         '
-        Me.PalenMedico.BackColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.PalenMedico.Controls.Add(Me.lblEstado)
-        Me.PalenMedico.Controls.Add(Me.picEstado)
-        Me.PalenMedico.Controls.Add(Me.lblNombreMedico)
-        Me.PalenMedico.Controls.Add(Me.picFotoMedico)
-        Me.PalenMedico.Controls.Add(Me.MenuStrip1)
-        Me.PalenMedico.Location = New System.Drawing.Point(0, 3)
-        Me.PalenMedico.Name = "PalenMedico"
-        Me.PalenMedico.Size = New System.Drawing.Size(371, 100)
-        Me.PalenMedico.TabIndex = 0
+        Me.PanelMedico.BackColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
+        Me.PanelMedico.Controls.Add(Me.lblEstado)
+        Me.PanelMedico.Controls.Add(Me.picEstado)
+        Me.PanelMedico.Controls.Add(Me.lblNombreMedico)
+        Me.PanelMedico.Controls.Add(Me.picFotoMedico)
+        Me.PanelMedico.Controls.Add(Me.MenuStrip1)
+        Me.PanelMedico.Location = New System.Drawing.Point(0, 3)
+        Me.PanelMedico.Name = "PanelMedico"
+        Me.PanelMedico.Size = New System.Drawing.Size(371, 100)
+        Me.PanelMedico.TabIndex = 0
         '
         'lblEstado
         '
@@ -154,9 +154,9 @@ Partial Class frmPrincipal
         Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mtsMenuPrincipal})
-        Me.MenuStrip1.Location = New System.Drawing.Point(181, 2)
+        Me.MenuStrip1.Location = New System.Drawing.Point(331, 2)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(190, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(40, 28)
         Me.MenuStrip1.TabIndex = 5
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -173,20 +173,20 @@ Partial Class frmPrincipal
         '
         Me.tsmOnline.Image = Global.appMedico.My.Resources.Resources.online
         Me.tsmOnline.Name = "tsmOnline"
-        Me.tsmOnline.Size = New System.Drawing.Size(216, 26)
+        Me.tsmOnline.Size = New System.Drawing.Size(129, 26)
         Me.tsmOnline.Text = "Online"
         '
         'tsmOffline
         '
         Me.tsmOffline.Image = Global.appMedico.My.Resources.Resources.offline
         Me.tsmOffline.Name = "tsmOffline"
-        Me.tsmOffline.Size = New System.Drawing.Size(216, 26)
+        Me.tsmOffline.Size = New System.Drawing.Size(129, 26)
         Me.tsmOffline.Text = "Offline"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(213, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(126, 6)
         '
         'flpChatPendientes
         '
@@ -659,7 +659,7 @@ Partial Class frmPrincipal
         Me.Controls.Add(Me.panelCabeceraChatActivo)
         Me.Controls.Add(Me.flpChatenEspera)
         Me.Controls.Add(Me.flpChatPendientes)
-        Me.Controls.Add(Me.PalenMedico)
+        Me.Controls.Add(Me.PanelMedico)
         Me.Font = New System.Drawing.Font("Product Sans", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -669,8 +669,8 @@ Partial Class frmPrincipal
         Me.Name = "frmPrincipal"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "TRIAGE"
-        Me.PalenMedico.ResumeLayout(False)
-        Me.PalenMedico.PerformLayout()
+        Me.PanelMedico.ResumeLayout(False)
+        Me.PanelMedico.PerformLayout()
         CType(Me.picEstado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picFotoMedico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
@@ -690,7 +690,7 @@ Partial Class frmPrincipal
 
     End Sub
 
-    Friend WithEvents PalenMedico As Panel
+    Friend WithEvents PanelMedico As Panel
     Friend WithEvents flpChatPendientes As FlowLayoutPanel
     Friend WithEvents flpChatenEspera As FlowLayoutPanel
     Friend WithEvents panelCabeceraChatActivo As Panel

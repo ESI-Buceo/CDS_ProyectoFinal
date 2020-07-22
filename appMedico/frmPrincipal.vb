@@ -10,12 +10,12 @@ Public Class frmPrincipal
 
     Private Sub cargarMensajesEnElChat()
         'Cheque si existen mensajes pendientes o en espera
-        Try
-            cargarListaDeChatPendientes(ControladorSesion.chequearSesionesPendientes())
-            cargarListaChatEnEspera(ControladorSesion.chequearSesionesEnEspera(USUARIO))
-        Catch ex As Exception
-            MsgBox("Error al chequear mensajes")
-        End Try
+        ''Try
+        ''    cargarListaDeChatPendientes(ControladorSesion.chequearSesionesPendientes())
+        ''    cargarListaChatEnEspera(ControladorSesion.chequearSesionesEnEspera(USUARIO))
+        ''Catch ex As Exception
+        ''    MsgBox("Error al chequear mensajes")
+        ''End Try
     End Sub
 
     Private Sub activarControlDeSesiones()
@@ -54,7 +54,7 @@ Public Class frmPrincipal
 
     Public Sub cargarDatosDelPaciente()
         'Trae los datos del paciente
-        mostrarDatosDelPaciente(DatosPaciente(IDSESION))
+        ''mostrarDatosDelPaciente(DatosPaciente(IDSESION))
     End Sub
 
     Private Sub mostrarDatosDelPaciente(ByVal tablaDatosPaciente As DataTable)
@@ -92,11 +92,11 @@ Public Class frmPrincipal
 
     Private Sub verificarEnfermedadesPreExistentes(ByVal docIdentidad As String)
         'Carga las enfermedades preexistentes del paciente
-        Try
-            mostrarEnfermedadesPreExistentes(CargarEnfermedadesPreExistentes(docIdentidad))
-        Catch ex As Exception
-            MsgBox("Error al cargar enfermedades pre Existentes!")
-        End Try
+        ''Try
+        ''    mostrarEnfermedadesPreExistentes(CargarEnfermedadesPreExistentes(docIdentidad))
+        ''Catch ex As Exception
+        ''    MsgBox("Error al cargar enfermedades pre Existentes!")
+        ''End Try
     End Sub
 
     Private Sub mostrarEnfermedadesPreExistentes(ByVal tablaPreExistentes As DataTable)
@@ -129,11 +129,11 @@ Public Class frmPrincipal
 
     Private Sub mostrarSintomasDelPaciente()
         'Verificar sintomas ingresados por el paciente
-        Try
-            recorrerSintomasPaciente(MostrarSintomasPaciente(IDSESION))
-        Catch ex As Exception
-            MsgBox("No se pudieron cargar los sintomas del paciente !")
-        End Try
+        ''Try
+        ''    recorrerSintomasPaciente(MostrarSintomasPaciente(IDSESION))
+        ''Catch ex As Exception
+        ''    MsgBox("No se pudieron cargar los sintomas del paciente !")
+        ''End Try
     End Sub
 
     Private Sub recorrerSintomasPaciente(ByVal tablaSintomasPaciente As DataTable)
@@ -153,11 +153,11 @@ Public Class frmPrincipal
 
     Private Sub recibirMensajes()
         'Trae los mensajes recibidos
-        Try
-            diferenciarOrigenDeLosMensaje(ControladorChat.RecibirMensajes(IDSESION))
-        Catch ex As Exception
-            MsgBox("Error al cargar los mensajes recibidos")
-        End Try
+        ''Try
+        ''    diferenciarOrigenDeLosMensaje(ControladorChat.RecibirMensajes(IDSESION))
+        ''Catch ex As Exception
+        ''    MsgBox("Error al cargar los mensajes recibidos")
+        ''End Try
     End Sub
 
     Private Sub diferenciarOrigenDeLosMensaje(ByVal tablaMensajes As DataTable)
@@ -170,16 +170,16 @@ Public Class frmPrincipal
 
     Private Sub btnEnviarMensaje_Click(sender As Object, e As EventArgs) Handles btnEnviarMensaje.Click
         'Envia un mensaje
-        If txtMensaje.Text.Length > 0 Then
-            Try
-                ControladorChat.EnviarMensaje(txtMensaje.Text, "M", IDSESION)
-                txtMensaje.Text = ""
-                recibirMensajes()
-                chequearMensajesRecibidos()
-            Catch ex As Exception
-                MsgBox("Error al enviar el mensaje")
-            End Try
-        End If
+        ''If txtMensaje.Text.Length > 0 Then
+        ''    Try
+        ''        ControladorChat.EnviarMensaje(txtMensaje.Text, "M", IDSESION)
+        ''        txtMensaje.Text = ""
+        ''        recibirMensajes()
+        ''        chequearMensajesRecibidos()
+        ''    Catch ex As Exception
+        ''        MsgBox("Error al enviar el mensaje")
+        ''    End Try
+        ''End If
     End Sub
 
     Private Sub identifiarColorearMensaje(ByVal emisor As String, mensaje As String)
@@ -219,12 +219,13 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub tsmBtnPonerEspera_Click(sender As Object, e As EventArgs) Handles tsmBtnPonerEspera.Click
-        ControladorChat.EnviarChatAEspera(IDSESION)
+        'ControladorChat.EnviarChatAEspera(IDSESION)
         ocultarControlesDatosDePacientes()
         OcultarPanelMensajes()
         OcultarPanelDatosPaciente()
         HabilitarPanelPendientes()
-        chequearSesionesEnEspera()
+        restablecerVentanaChat()
+        ''chequearSesionesEnEspera()
     End Sub
 
     Public Sub OcultarPanelDatosPaciente()
@@ -262,9 +263,9 @@ Public Class frmPrincipal
 
     Private Sub tsmBtnFinalizarChat_Click(sender As Object, e As EventArgs) Handles tsmBtnFinalizarChat.Click
         'Antes de finalizar el chat guarda en el estado de la sesion
-        ControladorSesion.GuardarEstadoSesion(IDSESION)
-        confirmarEnvioDeEmailDeChat()
-        restablecerVentanaChat()
+        ''ControladorSesion.GuardarEstadoSesion(IDSESION)
+        ''confirmarEnvioDeEmailDeChat()
+        ''restablecerVentanaChat()
     End Sub
 
     Private Sub confirmarEnvioDeEmailDeChat()
