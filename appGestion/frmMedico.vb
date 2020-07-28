@@ -1,10 +1,12 @@
 ﻿Imports capaLogica
 
 Public Class frmMedico
+    Dim agregar As Boolean
 
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
         'Habilita el ingreso de un nuevo medico
         ClickEnBotonAgregar(toolsMenuMedico)
+        agregar = True
         habilitarDocumento()
         colorearDocumento()
         chkActivo.Visible = False
@@ -20,13 +22,13 @@ Public Class frmMedico
 
     Private Sub habilitarDocumento()
         'habilita el textbox de documento para un nuevo ingreso
-        txtDocIdentidad.ReadOnly = False
+        txtDocIdentidad.Enabled = True
         txtDocIdentidad.Select()
     End Sub
 
     Private Sub deshablitaDocumento()
         'Deshabilita el textbox de documento
-        txtDocIdentidad.ReadOnly = True
+        txtDocIdentidad.Enabled = False
     End Sub
 
     Private Sub crearTablaTelefonoParaDataGrid()
@@ -39,7 +41,6 @@ Public Class frmMedico
         dgvListaTelefonos.Enabled = True
         btnAgregarTelefono.Enabled = True
         btnEliminarTelefono.Enabled = True
-        chkActivo.Enabled = True
         colorearCamposRequeridos()
     End Sub
 
@@ -48,29 +49,22 @@ Public Class frmMedico
         dgvListaTelefonos.Enabled = False
         btnAgregarTelefono.Enabled = False
         btnEliminarTelefono.Enabled = False
-        chkActivo.Enabled = False
         restaurarColorCampos()
     End Sub
 
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
         'Guarda la informacion del medico
+        ClickEnBotonGuardar(toolsMenuMedico)
         Try
             GuardarDatosMedico(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
                                txtCalle.Text, txtNumeroCalle.Text, txtBarrio.Text, txtEsquina.Text, txtApto.Text,
                                Format(dtpFechaNac.Value, "yyyy-MM-dd"), chkActivo.CheckState, dgvListaTelefonos,
-                               txtNumMedico.Text, txtDocIdentidad)
-            ClickEnBotonGuardar(toolsMenuMedico)
+                               txtNumMedico.Text)
             deshabilitarControlesDeEdicion()
             guardadoConExito()
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox("Error al guardar los datos del medico")
         End Try
-    End Sub
-
-    Private Sub deshabilitarListaTelefonos()
-        'Deshabilita la lista de telefonos
-        dgvListaTelefonos.Enabled = False
     End Sub
 
     Private Sub guardadoConExito()
@@ -78,6 +72,11 @@ Public Class frmMedico
         MsgBox("Datos guardado con exito", vbInformation, "Aviso")
         deshablitaDocumento()
         restaurarColorCampos()
+    End Sub
+
+    Private Sub deshabilitarListaTelefonos()
+        'Deshabilita la lista de telefonos
+        dgvListaTelefonos.Enabled = False
     End Sub
 
     Private Sub mnuBtnCancelar_Click(sender As Object, e As EventArgs) Handles mnuBtnCancelar.Click
@@ -91,6 +90,7 @@ Public Class frmMedico
     Private Sub mnuBtnNueva_Click(sender As Object, e As EventArgs) Handles mnuBtnNueva.Click
         'Habilita para una nueva busqueda
         ClickEnBotonNueva(toolsMenuMedico)
+        agregar = False
         crearTablaTelefonoParaDataGrid()
         vaciarControles()
         habilitarDocumento()
@@ -99,17 +99,17 @@ Public Class frmMedico
     End Sub
 
     Private Sub marcarCamposParaBusqueda()
-        txtDocIdentidad.BackColor = Color.FromArgb(167, 234, 210)
-        txtNumMedico.BackColor = Color.FromArgb(167, 234, 210)
-        txtNombres.BackColor = Color.FromArgb(167, 234, 210)
-        txtApellidos.BackColor = Color.FromArgb(167, 234, 210)
+        txtDocIdentidad.BackColor = Color.FromArgb(247, 241, 210)
+        txtNumMedico.BackColor = Color.FromArgb(247, 241, 210)
+        txtNombres.BackColor = Color.FromArgb(247, 241, 210)
+        txtApellidos.BackColor = Color.FromArgb(247, 241, 210)
     End Sub
 
     Private Sub mnuBtnBuscar_Click(sender As Object, e As EventArgs) Handles mnuBtnBuscar.Click
         'Dispara una nueva busqueda
         ClickEnBotonBuscar(toolsMenuMedico)
         tabOpcionesMedico.SelectTab(tabMedicoBusqueda)
-        buscarMedico()
+        formarCadenaDeBusqueda()
     End Sub
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
@@ -142,11 +142,11 @@ Public Class frmMedico
 
     Private Sub colorearCamposRequeridos()
         'Colorea los campos requeridos con amarillo
-        txtNombres.BackColor = Color.FromArgb(234, 222, 164)
-        txtApellidos.BackColor = Color.FromArgb(234, 222, 164)
-        txtEmail.BackColor = Color.FromArgb(234, 222, 164)
-        dtpFechaNac.CalendarTitleBackColor = Color.FromArgb(234, 222, 164)
-        txtNumMedico.BackColor = Color.FromArgb(234, 222, 164)
+        txtNombres.BackColor = Color.FromArgb(247, 241, 210)
+        txtApellidos.BackColor = Color.FromArgb(247, 241, 210)
+        txtEmail.BackColor = Color.FromArgb(247, 241, 210)
+        dtpFechaNac.CalendarTitleBackColor = Color.FromArgb(247, 241, 210)
+        txtNumMedico.BackColor = Color.FromArgb(247, 241, 210)
     End Sub
 
     Private Sub restaurarColorCampos()
@@ -181,12 +181,20 @@ Public Class frmMedico
             restaurarColorCampos()
             tabOpcionesMedico.SelectTab(tabDatos)
             deshablitaDocumento()
+            validarBotonBorrar(dgvListaMedicos.Item(6, e.RowIndex).Value)
             txtNombres.Select()
         Catch ex As Exception
             MsgBox("Error al cargar los datos del usuario", vbExclamation, "Aviso")
         End Try
     End Sub
 
+    Private Sub validarBotonBorrar(ByVal activo As String)
+        'Si ya esta eliminado el boton queda deshabilitado
+        If activo = 0 Then
+            mnuBtnBorrar.Enabled = False
+            chkActivo.Visible = True
+        End If
+    End Sub
     Private Sub mostrarDatosDelMedico(ByVal datosDelMedico As DataTable)
         'Carga todos los datos del medico elegido
         txtDocIdentidad.Text = datosDelMedico.Rows(0).Item("documento").ToString
@@ -202,7 +210,6 @@ Public Class frmMedico
         txtEsquina.Text = datosDelMedico.Rows(0).Item("esquina").ToString
         txtBarrio.Text = datosDelMedico.Rows(0).Item("barrio").ToString
         chkActivo.CheckState = datosDelMedico.Rows(0).Item("activo").ToString
-        chkActivo.Visible = True
         cargarTelefonos(datosDelMedico)
     End Sub
 
@@ -233,26 +240,51 @@ Public Class frmMedico
         dgvListaTelefonos.Rows.Remove(dgvListaTelefonos.CurrentRow)
     End Sub
 
-    Private Sub buscarMedico()
+    Private Sub formarCadenaDeBusqueda()
         'Recorre y verifica los datos ingresados para la busqueda
         Dim stringDeBusqueda As String
         For Each controles As Control In Me.tabDatos.Controls
             If TypeOf controles Is TextBox And controles.Text <> Nothing Then
-                stringDeBusqueda += crearCadenaDeBusqueda(controles.Name, controles.Text) & " AND "
+                stringDeBusqueda += crearCadenaDeBusquedaMedico(controles.Name, controles.Text) & " AND "
             End If
         Next
+        lanzarBusquedaDeMedico(stringDeBusqueda)
+    End Sub
+
+    Private Sub lanzarBusquedaDeMedico(ByVal stringDeBusqueda As String)
         dgvListaMedicos.DataSource = ControladorMedico.buscarMedico(stringDeBusqueda)
-        colorearEliminados()
+        colorearEliminados(dgvListaMedicos)
         crearTablaTelefonoParaDataGrid()
     End Sub
 
-    Private Sub colorearEliminados()
-        For i = 0 To dgvListaMedicos.Rows.Count - 1
-            If dgvListaMedicos.Rows.Item(i).Cells("colActivo").Value.ToString = 0 Then
-                dgvListaMedicos.Rows(i).DefaultCellStyle.BackColor = Color.Red
-                dgvListaMedicos.Rows(i).DefaultCellStyle.ForeColor = Color.White
+    Public Sub colorearEliminados(ByRef lista As DataGridView)
+        For i = 0 To lista.Rows.Count - 1
+            If lista.Rows.Item(i).Cells("colActivo").Value.ToString = 0 Then
+                lista.Rows(i).DefaultCellStyle.BackColor = Color.Red
+                lista.Rows(i).DefaultCellStyle.ForeColor = Color.White
             End If
         Next
     End Sub
 
+
+    Private Sub validarDocumentoDeIdentidad()
+        Try
+            If ControladorMedico.VarificarDocumentoDeIdentidad(txtDocIdentidad.Text) IsNot Nothing Then
+                MsgBox("El documento ingresado ya existe", vbInformation, "AVISO")
+                cancelarProcesoDeIngreso()
+            End If
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub cancelarProcesoDeIngreso()
+        ClickEnBotonCancelar(toolsMenuMedico)
+        deshablitaDocumento()
+        deshabilitarControlesDeEdicion()
+        vaciarControles()
+    End Sub
+
+    Private Sub txtDocIdentidad_LostFocus(sender As Object, e As EventArgs) Handles txtDocIdentidad.LostFocus
+        If agregar Then validarDocumentoDeIdentidad()
+    End Sub
 End Class

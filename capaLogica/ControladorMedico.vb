@@ -3,15 +3,14 @@ Imports System.Windows.Forms
 Imports capaDatos
 Public Module ControladorMedico
 
-    Public Function verificarDocumento(ByVal docidentidad As String)
-        'Verifia si el documento que se va a agregar ya existe
-        Dim m As New ModeloMedico
-        Return m.VerfificarDocumento(docidentidad)
+    Public Function VarificarDocumentoDeIdentidad(ByVal docidentidad As String)
+        Dim a As New ModeloMedico
+        Return a.VerificarDocumentoDeIdentidad(docidentidad)
     End Function
 
     Public Sub GuardarDatosMedico(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                   numero As String, barrio As String, esquina As String, apto As String, fechaNac As String,
-                                  activo As String, telefonos As DataGridView, numeroMedico As String, doc As TextBox)
+                                  activo As String, telefonos As DataGridView, numeroMedico As String)
         'Guarda los datos del medico
         Dim m As New ModeloMedico
         m.Documento = docId
@@ -27,7 +26,7 @@ Public Module ControladorMedico
         m.NumeroMedico = numeroMedico
         m.Activo = activo
         m.Telefonos = cargarGridTelefonosADataTable(telefonos)
-        If doc.ReadOnly Then m.ModificarDatosMedico() Else m.GuardarDatosMedico()
+        m.GuardarDatosMedico()
     End Sub
 
     Private Function cargarGridTelefonosADataTable(ByVal telefonos As DataGridView) As DataTable
@@ -64,7 +63,7 @@ Public Module ControladorMedico
         Return tablaTel
     End Function
 
-    Public Function crearCadenaDeBusqueda(ByVal campoABuscar As String, datoABuscar As String)
+    Public Function crearCadenaDeBusquedaMedico(ByVal campoABuscar As String, datoABuscar As String)
         'Crea la cadena de consulta de acuerdo a los datos ingresados para ello
         Select Case campoABuscar
             Case "txtDocIdentidad" : Return "p.docidentidad=" & datoABuscar

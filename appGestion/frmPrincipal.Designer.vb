@@ -90,7 +90,7 @@ Partial Class frmPrincipal
         Me.EmpleadoToolStripMenuItem.Image = CType(resources.GetObject("EmpleadoToolStripMenuItem.Image"), System.Drawing.Image)
         Me.EmpleadoToolStripMenuItem.Name = "EmpleadoToolStripMenuItem"
         Me.EmpleadoToolStripMenuItem.Size = New System.Drawing.Size(266, 28)
-        Me.EmpleadoToolStripMenuItem.Text = "Adminisativo"
+        Me.EmpleadoToolStripMenuItem.Text = "Administrativo"
         '
         'MisDatosToolStripMenuItem
         '

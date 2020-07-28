@@ -24,16 +24,19 @@ Public Class frmPrincipal
         End
     End Sub
 
-    Private Sub BtnVerUsuario_Click(sender As Object, e As EventArgs) Handles BtnVerUsuario.Click
+    Private Sub btnVerMedico_Click(sender As Object, e As EventArgs) Handles btnVerMedico.Click
+        frmMedico.MdiParent = Me
+        frmMedico.Show()
     End Sub
 
     Private Sub MedicoToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles MedicoToolStripMenuItem1.Click
         frmMedico.MdiParent = Me
         frmMedico.Show()
+
     End Sub
 
-    Private Sub btnVerMedico_Click(sender As Object, e As EventArgs) Handles btnVerMedico.Click
-        frmMedico.MdiParent = Me
-        frmMedico.Show()
+    Private Sub EmpleadoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpleadoToolStripMenuItem.Click
+        frmAdministrativo.MdiParent = Me
+        frmAdministrativo.Show()
     End Sub
 End Class
