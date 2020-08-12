@@ -25,23 +25,11 @@ Public Module ControladorPatologias
 
     End Sub
 
-    'Public Function ListarPatologias() As DataTable
-    '    'Lista las patologias 
-    '    Dim p As New ModeloPatologia
-    '    Return p.TraeDatosPatologiasDeBD()
-    'End Function
-
     Public Function ListarPatologias(ByVal nombre As String, uid As String, pwd As String) As DataTable
         'Busca la patologia por nombre
         Dim p As New ModeloPatologia(uid, pwd)
         Return p.BuscarPatologiaPorNombre(nombre)
     End Function
-
-    'Public Function VerPatologia(ByVal id As String) As ModeloPatologia
-    '    'Muestra los datos de una patologia
-    '    Dim p As New ModeloPatologia
-    '    Return p.BuscarPatologiaPorID(id)
-    'End Function
 
     Private Function formatearListaDeSintomas(ByRef listaSintomas As DataGridView, uid As String, pwd As String)
         'recorre la lista de sintomas y las formatea para enviar a guardar

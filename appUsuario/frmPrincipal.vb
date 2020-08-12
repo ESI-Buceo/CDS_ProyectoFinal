@@ -1,6 +1,6 @@
 ﻿Imports capaLogica
 Public Class frmPrincipal
-    Dim panelActivo As Panel
+    Public panelActivo As Panel
     Public ListaSintomasSeleccionados As New List(Of Integer)
     Public sintomaSeleccionado As Boolean = False
 
@@ -8,12 +8,11 @@ Public Class frmPrincipal
         frmLoginRegistrado.ShowDialog()
     End Sub
 
-    Private Sub btnIngresarInvitado_Click(sender As Object, e As EventArgs) Handles btnIngresarInvitado.Click
+    Private Sub btnIngresarInvitado_Click(sender As Object, e As EventArgs)
         frmLoginInvitado.ShowDialog()
     End Sub
 
     Private Sub frmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        panelActivo = PanelDeConsulta
     End Sub
 
     Private Sub btnHistoria_Click(sender As Object, e As EventArgs) Handles btnHistoria.Click
@@ -28,7 +27,7 @@ Public Class frmPrincipal
 
     Private Sub btnConsulta_Click(sender As Object, e As EventArgs) Handles btnConsulta.Click
         cambiarPanel(PanelDeConsulta)
-        clicBotonConsulta()
+        clickBotonConsulta()
     End Sub
 
     Private Sub cambiarPanel(ByRef panel As Panel)
@@ -119,7 +118,7 @@ Public Class frmPrincipal
     Private Sub crearInformeDiagnostico()
         'Evalua resultado informe de diagnostico
         Try
-            evaluarExitenciaPatologias(ControladorDiagnostico.CrearInformeDiagnostico(ListaSintomasSeleccionados))
+            evaluarExitenciaPatologias(ControladorDiagnostico.CrearInformeDiagnostico(ListaSintomasSeleccionados, USUARIO, PASSWD))
         Catch ex As Exception
             MsgBox("Error al buscar las patologias", vbOK Or vbInformation, "Error")
         End Try
@@ -155,7 +154,7 @@ Public Class frmPrincipal
         btnIniciarChat.Visible = True
     End Sub
 
-    Private Sub clicBotonConsulta()
+    Private Sub clickBotonConsulta()
         PanelDeConsulta.Visible = True
         btnConsulta.Image = My.Resources.btnConsultaSelect
         btnChat.Image = My.Resources.btnChat
@@ -202,15 +201,36 @@ Public Class frmPrincipal
         ListaSintomasSeleccionados.Clear()
         PanelDeConsulta.Visible = True
         btnIniciarChat.Visible = False
+        txtSintoma.Text = ""
+
     End Sub
 
     Private Sub btnIniciarChat_Click(sender As Object, e As EventArgs) Handles btnIniciarChat.Click
-        panelChat.Visible = True
-        panelActivo = panelChat
+        limpiarVentanaDeMensajes()
+        mostrarPanelDeChat()
         estadoBotonesAlIniciarchat()
         activarControladorTiempoEstado()
-        'ControladorSesion.GuardarSesionDeChat()
+        guardarSesionDeChat()
         cargarformLoading()
+    End Sub
+
+    Private Sub ocultarInformacionDelMedico()
+        panelInfoMedico.Visible = False
+    End Sub
+
+    Private Sub mostrarPanelDeChat()
+        panelChat.Visible = True
+        panelActivo = panelChat
+        PanelDeConsulta.Visible = False
+    End Sub
+
+    Private Sub guardarSesionDeChat()
+        'Guada la sesion de chat
+        Try
+            ControladorSesion.GuardarSesionDeChat(USUARIO, PASSWD)
+        Catch ex As Exception
+            MsgBox("Error al guardar la sesion de chat", vbInformation, "Error")
+        End Try
     End Sub
 
     Private Sub estadoBotonesAlIniciarchat()
@@ -222,45 +242,62 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub activarControladorTiempoEstado()
-        'TimerChequearEstado.Enabled = True
-        'TimerChequearEstado.Start()
+        TimerChequearEstado.Enabled = True
+        TimerChequearEstado.Start()
     End Sub
 
     Private Sub desactivarControladorTiempoEstado()
-        'TimerChequearEstado.Enabled = False
-        'TimerChequearEstado.Stop()
+        TimerChequearEstado.Enabled = False
+        TimerChequearEstado.Stop()
     End Sub
 
     Private Sub cargarformLoading()
         frmLoading.ShowDialog()
     End Sub
 
-    'Private Sub TimerChequearEstado_Tick(sender As Object, e As EventArgs) Handles TimerChequearEstado.Tick
-    '    'Chequea el estado de la sesion activa
-    '    'Try
-    '    '    If ControladorSesion.VerificarEstadoDeSesion = 1 Then
-    '    '        establecerInicioDeChat()
-    '    '        frmLoading.Dispose()
-    '    '    End If
-    '    'Catch ex As Exception
-    '    '    MsgBox("Error al conectarse al servidor de chat", vbOK Or vbInformation, "Error")
-    '    'End Try
-    'End Sub
+    Private Sub TimerChequearEstado_Tick(sender As Object, e As EventArgs) Handles TimerChequearEstado.Tick
+        'Chequea el estado de la sesion activa
+        If estadoDeSesion() = 1 Then
+            medicoInicioSesion()
+            frmLoading.Dispose()
+        ElseIf estadoDeSesion() = 3 Then
+            medicoCanceloSesion()
+        End If
+    End Sub
+
+    Private Function estadoDeSesion()
+        'Verifica el estado de la sesion
+        Try
+            Return ControladorSesion.VerificarEstadoDeSesion(USUARIO, PASSWD)
+        Catch ex As Exception
+            MsgBox("Error al conectarse al servidor de chat", vbOK Or vbInformation, "Error")
+        End Try
+    End Function
+
+
+    Private Sub medicoInicioSesion()
+        establecerInicioDeChat()
+    End Sub
+
+    Private Sub medicoCanceloSesion()
+        MsgBox("El Medico finalizo la sesion de chat", vbExclamation, "Cierre de Sesion")
+        TimerChequearEstado.Enabled = False
+        TimerChequearEstado.Stop()
+        restablecerAPanelDeConsulta()
+        frmLoading.Dispose()
+    End Sub
 
     Private Sub establecerInicioDeChat()
         'Ajusta los controles para el inicio del chat
-        desactivarControladorTiempoEstado()
         lblEstado.Text = "On Line"
-        limpiarVentanaDeMensajes()
         datosDelMedico()
-        'recibirMensajes()
         activarChat()
     End Sub
 
     Private Sub datosDelMedico()
         'Busca la informacion del medico que inicio la sesion
         Try
-            'mostrarDatosDelMedico(ControladorSesion.DatosDelMedicoSesion())
+            mostrarDatosDelMedico(ControladorSesion.DatosDelMedicoSesion(USUARIO, PASSWD))
         Catch ex As Exception
             MsgBox("Error al recuperar datos del medico", vbOK Or vbInformation, "Error")
         End Try
@@ -268,14 +305,14 @@ Public Class frmPrincipal
 
     Private Sub mostrarDatosDelMedico(ByVal tablaDatosMedico As DataTable)
         'Muestra los datos del medico
-        'panelInfoMedico.Visible = True
-        'picMedico.Image = My.Resources.docMas
-        'lblNombreMedico.Text = tablaDatosMedico.Rows(0).Item("NOMBRE") & " " & tablaDatosMedico.Rows(0).Item("APELLIDO")
-        'GuardarIdMedico(tablaDatosMedico.Rows(0).Item("DOCUMENTO"))
+        panelInfoMedico.Visible = True
+        picMedico.Image = My.Resources.docMas
+        lblNombreMedico.Text = tablaDatosMedico.Rows(0).Item("NOMBRE") & " " & tablaDatosMedico.Rows(0).Item("APELLIDO")
+        IDMEDICO = tablaDatosMedico.Rows(0).Item("DOCUMENTO")
     End Sub
 
     Private Sub limpiarVentanaDeMensajes()
-        'txtMensajes.Clear()
+        txtMensajes.Clear()
     End Sub
 
     Private Sub activarChat()
@@ -283,63 +320,69 @@ Public Class frmPrincipal
         tiempoMensaje.Start()
     End Sub
 
-    'Private Sub btnEnviarMensaje_Click(sender As Object, e As EventArgs) Handles btnEnviarMensaje.Click
-    '    'Envia el mensaje 
-    '    If txtMensaje.Text.Length > 0 Then
-    '        Try
-    '            ControladorChat.EnviarMensaje(txtMensaje.Text, "P", ControladorDiagnostico.devolverIdSesion)
-    '            recibirMensajes()
-    '        Catch ex As Exception
-    '            MsgBox("Hubo un error al enviar el mensaje, intenta nuevamente", vbOK Or vbInformation, "Error")
-    '        End Try
-    '    End If
-    '    limpiarCampoDeTexto()
-    'End Sub
+    Private Sub enviarMensaje()
+        'Envia el mensaje
+        Try
+            ControladorChat.EnviarMensajePaciente(txtMensaje.Text, ControladorDiagnostico.devolverIdSesion, USUARIO, PASSWD, IDMEDICO)
+            identifiarColorearMensaje("P", txtMensaje.Text)
+            recibirMensajes()
+        Catch ex As Exception
+            MsgBox("Hubo un error al enviar el mensaje, intenta nuevamente", vbOK Or vbInformation, "Error")
+        End Try
+    End Sub
 
     Private Sub limpiarCampoDeTexto()
         'Limpia y selecciona el campo de texto
-        'txtMensaje.Text = ""
-        'txtMensaje.Select()
+        txtMensaje.Text = ""
+        txtMensaje.Select()
     End Sub
 
-    'Private Sub recibirMensajes()
-    '    'Recuera los mensajes recibidos
-    '    Try
-    '        recorreMensajesRecibidos(ControladorChat.RecibirMensajes())
-    '    Catch ex As Exception
-    '        MsgBox("Error al leer los mensajes recibidos", vbOK Or vbInformation, "Error")
-    '    End Try
+    Private Sub recibirMensajes()
+        'Recupera los mensajes recibidos
+        Try
+            recorreMensajesRecibidos(ControladorChat.RecibirMensajes("P", USUARIO, PASSWD))
+        Catch ex As Exception
+            MsgBox("Error al leer los mensajes recibidos", vbOK Or vbInformation, "Error")
+        End Try
+    End Sub
 
-    'End Sub
+    Private Sub recorreMensajesRecibidos(ByVal tablaMensajes As DataTable)
+        'recorre los mensajes recividos
+        For i = 0 To tablaMensajes.Rows.Count - 1
+            identifiarColorearMensaje(tablaMensajes(i)("emisor"), tablaMensajes(i)("mensaje"))
+            marcarMensajeLeido(tablaMensajes, i)
+        Next
+    End Sub
 
-    'Private Sub recorreMensajesRecibidos(ByVal tablaMensajes As DataTable)
-    '    'recorre los mensajes recividos
-    '    txtMensajes.Clear()
-    '    For Each mensaje In tablaMensajes.Rows
-    '        identifiarColorearMensaje(mensaje("emisor"), mensaje("mensaje"))
-    '    Next
-    'End Sub
+    Private Sub marcarMensajeLeido(ByVal tablaMensajes As DataTable, indice As Integer)
+        'Marca el mensaje como leido
+        Try
+            ControladorChat.MarcarMensajeLeido(tablaMensajes.Rows(indice)("id"), USUARIO, PASSWD)
+        Catch ex As Exception
+            MsgBox("Error al marcar el mensaje", vbInformation, "Error")
+        End Try
+    End Sub
 
-    'Private Sub identifiarColorearMensaje(ByVal emisor As String, mensaje As String)
-    '    'Muestra y colorea los mensajes dependiente de origen y destino
-    '    If emisor.Equals("P") Then
-    '        txtMensajes.SelectionColor = Color.FromArgb(110, 196, 167)
-    '        txtMensajes.AppendText("Tu ->  " & mensaje & vbNewLine)
-    '    ElseIf emisor.Equals("M") Then
-    '        txtMensajes.SelectionColor = Color.FromArgb(69, 75, 84)
-    '        txtMensajes.AppendText("Doctor -> " & mensaje & vbNewLine)
-    '    End If
-    'End Sub
+    Private Sub identifiarColorearMensaje(ByVal emisor As String, mensaje As String)
+        'Muestra y colorea los mensajes dependiente de origen y destino
+        If emisor.Equals("P") Then
+            txtMensajes.SelectionColor = Color.FromArgb(110, 196, 167)
+            txtMensajes.AppendText("Tu ->  " & mensaje & vbNewLine)
+        ElseIf emisor.Equals("M") Then
+            txtMensajes.SelectionColor = Color.FromArgb(69, 75, 84)
+            txtMensajes.AppendText("Doctor -> " & mensaje & vbNewLine)
+        End If
+    End Sub
 
-    'Private Sub tiempoMensaje_Tick(sender As Object, e As EventArgs) Handles tiempoMensaje.Tick
-    '    'Control que cheque nuevos mensajes cada 10 segundos
-    '    recibirMensajes()
-    'End Sub
+    Private Sub tiempoMensaje_Tick(sender As Object, e As EventArgs) Handles tiempoMensaje.Tick
+        'Control que cheque nuevos mensajes cada 10 segundos
+        recibirMensajes()
+    End Sub
 
-    'Private Sub btnFinalizarChat_Click(sender As Object, e As EventArgs) Handles btnFinalizarChat.Click
-    '    'Boton que finaliza la sesion de chat
-    '    FinalizarSesionDechat()
-    'End Sub
+    Private Sub btnFinalizarChat_Click(sender As Object, e As EventArgs) Handles btnFinalizarChat.Click
+        'Boton que finaliza la sesion de chat
+        FinalizarSesionDechat()
+    End Sub
 
     Public Sub FinalizarSesionDechat()
         'Proceso de cierre de sesion de chat
@@ -352,20 +395,20 @@ Public Class frmPrincipal
 
     Private Sub cancelarSesionDeChat()
         'Cancela la solicitud de chat
-        'Try
-        '    ControladorSesion.CancelarSesionDeChat()
-        '    desactivarControladorTiempoEstado()
-        '    restablecerAPanelDeConsulta()
-        'Catch ex As Exception
-        '    MsgBox("Error al intentar cancelar cerrar la sesion de chat", vbOK Or vbInformation, "Cierre de Sesion")
-        'End Try
+        Try
+            ControladorSesion.CancelarSesionDeChat(USUARIO, PASSWD)
+            restablecerAPanelDeConsulta()
+        Catch ex As Exception
+            MsgBox("Error al intentar cancelar cerrar la sesion de chat", vbOK Or vbInformation, "Cierre de Sesion")
+        End Try
     End Sub
 
-    Private Sub restablecerAPanelDeConsulta()
+    Public Sub restablecerAPanelDeConsulta()
         cambiarPanel(PanelDeConsulta)
         PanelDeConsulta.Visible = False
-        clicBotonConsulta()
+        clickBotonConsulta()
         iniciarConsulta()
+        TimerChequearEstado.Enabled = False
+        TimerChequearEstado.Stop()
     End Sub
-
 End Class
