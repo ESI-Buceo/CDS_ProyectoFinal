@@ -3,8 +3,14 @@ Public Class ModeloAdministrativo
     Inherits ModeloPersona
 
     Public NumeroEmpleado As Integer
+    Public RangoIP As String = "192.168.1.%"
+
+    Public Sub New(ByVal uid As String, pwd As String)
+        MyBase.New(uid, pwd)
+    End Sub
 
     Public Function VerificarDocumentoDeIdentidad(ByVal docidentidad As String)
+        'Valida la existencia del documento
         Comando.CommandText = "SELECT docidentidad FROM persona WHERE docidentidad =" & docidentidad
         Return Comando.ExecuteScalar
     End Function
@@ -18,6 +24,9 @@ Public Class ModeloAdministrativo
             Comando.CommandText = "START TRANSACTION;"
             Comando.ExecuteNonQuery()
 
+            Comando.CommandText = "LOCK TABLE persona WRITE, administrativo WRITE, telefono WRITE"
+            Comando.ExecuteNonQuery()
+
             Comando.CommandText = "INSERT INTO persona (docidentidad, mail, nombres, apellidos, calle, numero, barrio, esquina, apartamento, fechaNacimiento, activo) 
                                         VALUES(" & Me.Documento & ", '" & Me.Email & "', '" & Me.Nombres & "', '" & Me.Apellidos & "','" & Me.Calle & "', '" & Me.Numero & "', 
                                                 '" & Me.Barrio & "', '" & Me.Esquina & "', '" & Me.Apartamento & "', '" & Me.FechaNacimiento & "', activo =1) 
@@ -26,86 +35,70 @@ Public Class ModeloAdministrativo
                                                 barrio='" & Me.Barrio & "', esquina='" & Me.Esquina & "', apartamento='" & Me.Apartamento & "', fechaNacimiento='" & Me.FechaNacimiento & "', activo =" & Me.Activo
             Comando.ExecuteNonQuery()
 
-            guardarEnCategoriaAdministrativo()
-            guardarTelefonos()
+            Comando.CommandText = "INSERT IGNORE INTO administrativo VALUES(" & Me.Documento & ", " & Me.NumeroEmpleado & ") ON DUPLICATE KEY UPDATE ndeempleado=" & Me.NumeroEmpleado
+            Comando.ExecuteNonQuery()
+
+            Comando.CommandText = "DELETE FROM telefono WHERE docidentidad=" & Me.Documento
+            Comando.ExecuteNonQuery()
+
+            For Each Telefono In Me.Telefonos.Rows
+                If Telefono("Telefono").ToString.Length > 1 Then
+                    Comando.CommandText = "INSERT INTO telefono VALUES(" & Me.Documento & ", '" & Telefono("Telefono").ToString & "')"
+                    Comando.ExecuteNonQuery()
+                End If
+            Next
+
+            Comando.CommandText = "UNLOCK TABLES"
+            Comando.ExecuteNonQuery()
 
             Comando.CommandText = "COMMIT;"
             Comando.ExecuteNonQuery()
 
-            'crearUsuarioBD()
-
         Catch ex As Exception
-            MsgBox(ex.Message)
             Comando.CommandText = "ROLLBACK;"
             Comando.ExecuteNonQuery()
         End Try
     End Sub
 
-    Private Sub guardarEnCategoriaAdministrativo()
-        'Guarda el registro del administrativo en la categoria administrativo
-        Comando.CommandText = "INSERT INTO administrativo VALUES(" & Me.Documento & ", " & Me.NumeroEmpleado & ") ON DUPLICATE KEY UPDATE ndeempleado=" & Me.NumeroEmpleado
-        Comando.ExecuteNonQuery()
-    End Sub
-
-    Private Sub crearUsuarioBD()
+    Public Sub CrearUsuarioBD()
         'Crea el usuario en la base de datos
         Dim gestorPass As String = "Ge." & Me.Documento
         Try
-            Comando.CommandText = "CREATE USER '" & Me.Documento & "'@'192.168.1.%' IDENTIFIED BY '" & gestorPass & "'"
+            Comando.CommandText = "GRANT ALL PRIVILEGES ON *.* TO '" & Me.Documento & "'@'" & Me.RangoIP & "' IDENTIFIED BY '" & gestorPass & "' WITH GRANT OPTION"
             Comando.ExecuteNonQuery()
-            crearPermisosAdministrativo()
+
+            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.persona TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
+            Comando.ExecuteNonQuery()
+
+            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.telefono TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
+            Comando.ExecuteNonQuery()
+
+            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.administrativo TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
+            Comando.ExecuteNonQuery()
+
+            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.medico TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
+            Comando.ExecuteNonQuery()
+
+            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.paciente TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
+            Comando.ExecuteNonQuery()
+
+            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.preexistentes TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
+            Comando.ExecuteNonQuery()
+
+            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.sintoma TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
+            Comando.ExecuteNonQuery()
+
+            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.patologia TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
+            Comando.ExecuteNonQuery()
+
+            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.asociados TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
+            Comando.ExecuteNonQuery()
+
+            Comando.CommandText = "FLUSH PRIVILEGES"
+            Comando.ExecuteNonQuery()
         Catch ex As Exception
             MsgBox("No se pudo crear el usuario!", vbCritical, "ERROR")
         End Try
-
-    End Sub
-
-    Private Sub crearPermisosAdministrativo()
-        'Otorga permiso para crear usuarios y reload de mysql
-        Comando.CommandText = "GRANT CREATE USER, RELOAD ON *.* TO '" & Me.Documento & "'@'192.168.1.%'"
-        Comando.ExecuteNonQuery()
-
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.persona TO '" & Me.Documento & "'@'192.168.1.%'"
-        Comando.ExecuteNonQuery()
-
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.telefono TO '" & Me.Documento & "'@'192.168.1.%'"
-        Comando.ExecuteNonQuery()
-
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.administrativo TO '" & Me.Documento & "'@'192.168.1.%'"
-        Comando.ExecuteNonQuery()
-
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.medico TO '" & Me.Documento & "'@'192.168.1.%'"
-        Comando.ExecuteNonQuery()
-
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.paciente TO '" & Me.Documento & "'@'192.168.1.%'"
-        Comando.ExecuteNonQuery()
-
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.preexistentes TO '" & Me.Documento & "'@'192.168.1.%'"
-        Comando.ExecuteNonQuery()
-
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.sintoma TO '" & Me.Documento & "'@'192.168.1.%'"
-        Comando.ExecuteNonQuery()
-
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.patologia TO '" & Me.Documento & "'@'192.168.1.%'"
-        Comando.ExecuteNonQuery()
-
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.asociados TO '" & Me.Documento & "'@'192.168.1.%'"
-        Comando.ExecuteNonQuery()
-
-        Comando.CommandText = "FLUSH PRIVILEGES"
-        Comando.ExecuteNonQuery()
-    End Sub
-
-    Private Sub guardarTelefonos()
-        Comando.CommandText = "DELETE FROM telefono WHERE docidentidad=" & Me.Documento
-        Comando.ExecuteNonQuery()
-
-        For Each Telefono In Me.Telefonos.Rows
-            If Telefono("Telefono").ToString.Length > 1 Then
-                Comando.CommandText = "INSERT INTO telefono VALUES(" & Me.Documento & ", '" & Telefono("Telefono").ToString & "')"
-                Comando.ExecuteNonQuery()
-            End If
-        Next
     End Sub
 
     Public Function BuscarAdministativo(ByVal stringSql As String)
@@ -115,6 +108,7 @@ Public Class ModeloAdministrativo
                                 JOIN persona p ON p.docidentidad = a.docidentidad WHERE " & stringSql
         Reader = Comando.ExecuteReader
         tablaMedicos.Load(Reader)
+        CerrarConexion()
         Return tablaMedicos
     End Function
 
@@ -128,17 +122,31 @@ Public Class ModeloAdministrativo
                                 WHERE a.docidentidad =" & docidentidad
         Reader = Comando.ExecuteReader
         tablaDatosAdministrativo.Load(Reader)
+        CerrarConexion()
         Return tablaDatosAdministrativo
     End Function
 
-    Public Sub EliminarAdministrativo(ByVal docidentidad As String)
+    Public Function EliminarAdministrativo(ByVal docidentidad As String)
         Comando.CommandText = "UPDATE persona SET activo=0 WHERE docidentidad=" & docidentidad
         Comando.ExecuteNonQuery()
-        EliminarUsuarioBD(docidentidad)
-    End Sub
+        CerrarConexion()
+        Return True
+    End Function
 
     Public Sub EliminarUsuarioBD(ByVal docidentidad As String)
-        Comando.CommandText = "DROP USER '" & docidentidad & "'@'192.168.1.%'"
+        Comando.CommandText = "DROP USER '" & docidentidad & "'@'" & Me.RangoIP & "'"
         Comando.ExecuteNonQuery()
     End Sub
+
+    Public Function ValidarAdministrativo(ByVal uid As String)
+        Dim tablaAdministrativo As New DataTable
+        Comando.CommandText = "SELECT p.docidentidad documento, p.nombres nombres, p.apellidos apellidos
+                                FROM persona p
+                                JOIN administrativo a ON a.docidentidad = p.docidentidad 
+                                WHERE p.docidentidad =" & uid
+        Reader = Comando.ExecuteReader
+        tablaAdministrativo.Load(Reader)
+        CerrarConexion()
+        Return tablaAdministrativo
+    End Function
 End Class

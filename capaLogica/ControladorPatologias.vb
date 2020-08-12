@@ -4,60 +4,57 @@ Imports System.Windows.Forms
 
 Public Module ControladorPatologias
 
-    Public Sub AltaPatologia(id As String, nombre As String, ponderacion As Integer, descripcion As String, activo As Integer, ListaDeSintomas As DataGridView)
+    Public Sub AltaPatologia(id As String, nombre As String, ponderacion As Integer, descripcion As String, activo As Integer,
+                             ListaDeSintomas As DataGridView, uid As String, pwd As String)
         'Guarda los datos de la patologia
-        Dim p As New ModeloPatologia
+        Dim p As New ModeloPatologia(uid, pwd)
         p.Id = id
         p.Nombre = nombre
         p.Ponderacion = ponderacion
         p.Descripcion = descripcion
         p.Activo = activo
-        p.ListaDeSintomasAsociados = formatearListaDeSintomas(ListaDeSintomas)
+        p.ListaDeSintomasAsociados = formatearListaDeSintomas(ListaDeSintomas, uid, pwd)
         p.GuaradrPatologia()
     End Sub
 
-    Public Sub BorrarPatologia(id As Integer)
+    Public Sub BorrarPatologia(id As Integer, uid As String, pwd As String)
         'ELimina logicamene la patologia
-        Dim p As New ModeloPatologia
+        Dim p As New ModeloPatologia(uid, pwd)
         p.Id = id
         p.EliminarPatologia()
 
     End Sub
 
-    Public Function ListarPatologias() As DataTable
-        'Lista las patologias 
-        Dim p As New ModeloPatologia
-        Return p.TraeDatosPatologiasDeBD()
-    End Function
+    'Public Function ListarPatologias() As DataTable
+    '    'Lista las patologias 
+    '    Dim p As New ModeloPatologia
+    '    Return p.TraeDatosPatologiasDeBD()
+    'End Function
 
-    Public Function ListarPatologias(ByVal nombre As String) As DataTable
+    Public Function ListarPatologias(ByVal nombre As String, uid As String, pwd As String) As DataTable
         'Busca la patologia por nombre
-        Dim p As New ModeloPatologia
+        Dim p As New ModeloPatologia(uid, pwd)
         Return p.BuscarPatologiaPorNombre(nombre)
     End Function
 
-    Public Function VerPatologia(ByVal id As String) As ModeloPatologia
-        'Muestra los datos de una patologia
-        Dim p As New ModeloPatologia
-        Return p.BuscarPatologiaPorID(id)
-    End Function
+    'Public Function VerPatologia(ByVal id As String) As ModeloPatologia
+    '    'Muestra los datos de una patologia
+    '    Dim p As New ModeloPatologia
+    '    Return p.BuscarPatologiaPorID(id)
+    'End Function
 
-    Private Function formatearListaDeSintomas(ByRef listaSintomas As DataGridView) As List(Of ModeloSintoma)
+    Private Function formatearListaDeSintomas(ByRef listaSintomas As DataGridView, uid As String, pwd As String)
         'recorre la lista de sintomas y las formatea para enviar a guardar
-        Dim listaFormateadaDeSintomas As New List(Of ModeloSintoma)
-
+        Dim listaFormateadaDeSintomas As New List(Of Integer)
         For s = 0 To listaSintomas.Rows.Count - 1
-            listaFormateadaDeSintomas.Add(New ModeloSintoma With
-                                          {
-                                          .ID = listaSintomas.Item(0, s).Value
-                                          })
+            listaFormateadaDeSintomas.Add(listaSintomas.Item(0, s).Value)
         Next
         Return listaFormateadaDeSintomas
     End Function
 
-    Public Function CargarSintomaPorPatologia(ByVal id As String, sintomasDePatologia As DataTable) As DataTable
+    Public Function CargarSintomaPorPatologia(ByVal id As String, sintomasDePatologia As DataTable, uid As String, pwd As String) As DataTable
         ' Carga los sintomas vinculados a una patologia
-        Dim s As New ModeloSintoma
+        Dim s As New ModeloSintoma(uid, pwd)
         sintomasDePatologia = s.ListarSintomasXPatologia(id)
         Return sintomasDePatologia
     End Function
@@ -92,5 +89,13 @@ Public Module ControladorPatologias
         Return sintomasDePatologia
     End Function
 
-End Module
+    Public Function ListaDePatologias(ByVal uid As String, pwd As String)
+        Dim p As New ModeloPatologia(uid, pwd)
+        Return p.listarPatologias
+    End Function
 
+    Public Function ListaDePatologias(ByVal activo As String, uid As String, pwd As String)
+        Dim p As New ModeloPatologia(uid, pwd)
+        Return p.listarPatologias(activo)
+    End Function
+End Module

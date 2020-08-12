@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmDatosLogin
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,14 +20,13 @@ Partial Class frmDatosLogin
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.lblNumeroGestor = New System.Windows.Forms.Label()
-        Me.txtNumeroGestor = New System.Windows.Forms.TextBox()
+        Me.txtDocIdentidad = New System.Windows.Forms.TextBox()
         Me.lblPasswordGestor = New System.Windows.Forms.Label()
-        Me.txtPasswordGestor = New System.Windows.Forms.TextBox()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.btnGestionIngresar = New System.Windows.Forms.Button()
-        Me.lblLinkRecPassword = New System.Windows.Forms.LinkLabel()
         Me.SuspendLayout()
         '
         'lblNumeroGestor
@@ -40,13 +39,13 @@ Partial Class frmDatosLogin
         Me.lblNumeroGestor.TabIndex = 0
         Me.lblNumeroGestor.Text = "Numero de Gestor"
         '
-        'txtNumeroGestor
+        'txtDocIdentidad
         '
-        Me.txtNumeroGestor.BackColor = System.Drawing.Color.White
-        Me.txtNumeroGestor.Location = New System.Drawing.Point(62, 142)
-        Me.txtNumeroGestor.Name = "txtNumeroGestor"
-        Me.txtNumeroGestor.Size = New System.Drawing.Size(177, 30)
-        Me.txtNumeroGestor.TabIndex = 1
+        Me.txtDocIdentidad.BackColor = System.Drawing.Color.White
+        Me.txtDocIdentidad.Location = New System.Drawing.Point(62, 142)
+        Me.txtDocIdentidad.Name = "txtDocIdentidad"
+        Me.txtDocIdentidad.Size = New System.Drawing.Size(177, 30)
+        Me.txtDocIdentidad.TabIndex = 1
         '
         'lblPasswordGestor
         '
@@ -58,12 +57,12 @@ Partial Class frmDatosLogin
         Me.lblPasswordGestor.TabIndex = 2
         Me.lblPasswordGestor.Text = "Password"
         '
-        'txtPasswordGestor
+        'txtPassword
         '
-        Me.txtPasswordGestor.Location = New System.Drawing.Point(62, 211)
-        Me.txtPasswordGestor.Name = "txtPasswordGestor"
-        Me.txtPasswordGestor.Size = New System.Drawing.Size(177, 30)
-        Me.txtPasswordGestor.TabIndex = 3
+        Me.txtPassword.Location = New System.Drawing.Point(62, 211)
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.Size = New System.Drawing.Size(177, 30)
+        Me.txtPassword.TabIndex = 3
         '
         'btnGestionIngresar
         '
@@ -79,17 +78,6 @@ Partial Class frmDatosLogin
         Me.btnGestionIngresar.Text = "Ingresar"
         Me.btnGestionIngresar.UseVisualStyleBackColor = False
         '
-        'lblLinkRecPassword
-        '
-        Me.lblLinkRecPassword.AutoSize = True
-        Me.lblLinkRecPassword.LinkColor = System.Drawing.Color.White
-        Me.lblLinkRecPassword.Location = New System.Drawing.Point(62, 318)
-        Me.lblLinkRecPassword.Name = "lblLinkRecPassword"
-        Me.lblLinkRecPassword.Size = New System.Drawing.Size(229, 23)
-        Me.lblLinkRecPassword.TabIndex = 5
-        Me.lblLinkRecPassword.TabStop = True
-        Me.lblLinkRecPassword.Text = "Olvidaste tu contraseña?"
-        '
         'frmDatosLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 23.0!)
@@ -97,11 +85,10 @@ Partial Class frmDatosLogin
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(317, 390)
         Me.ControlBox = False
-        Me.Controls.Add(Me.lblLinkRecPassword)
         Me.Controls.Add(Me.btnGestionIngresar)
-        Me.Controls.Add(Me.txtPasswordGestor)
+        Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.lblPasswordGestor)
-        Me.Controls.Add(Me.txtNumeroGestor)
+        Me.Controls.Add(Me.txtDocIdentidad)
         Me.Controls.Add(Me.lblNumeroGestor)
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -117,9 +104,8 @@ Partial Class frmDatosLogin
     End Sub
 
     Friend WithEvents lblNumeroGestor As Label
-    Friend WithEvents txtNumeroGestor As TextBox
+    Friend WithEvents txtDocIdentidad As TextBox
     Friend WithEvents lblPasswordGestor As Label
-    Friend WithEvents txtPasswordGestor As TextBox
+    Friend WithEvents txtPassword As TextBox
     Friend WithEvents btnGestionIngresar As Button
-    Friend WithEvents lblLinkRecPassword As LinkLabel
 End Class

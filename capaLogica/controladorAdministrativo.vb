@@ -4,16 +4,16 @@ Imports capaDatos
 
 Public Module controladorAdministrativo
 
-    Public Function VarificarDocumentoDeIdentidad(ByVal docidentidad As String)
-        Dim a As New ModeloAdministrativo
+    Public Function VarificarDocumentoDeIdentidad(ByVal docidentidad As String, uid As String, pwd As String)
+        Dim a As New ModeloAdministrativo(uid, pwd)
         Return a.VerificarDocumentoDeIdentidad(docidentidad)
     End Function
 
     Public Sub GuardarDatosAdmin(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                  numero As String, barrio As String, esquina As String, apartamento As String, fechaNac As String,
-                                 activo As String, telefonos As DataGridView, numeroAdmin As String)
+                                 activo As String, telefonos As DataGridView, numeroAdmin As String, uid As String, pwd As String)
         'Guarda los datos del administrativo
-        Dim a As New ModeloAdministrativo
+        Dim a As New ModeloAdministrativo(uid, pwd)
         a.Documento = docId
         a.Email = email
         a.Nombres = nombres
@@ -30,8 +30,10 @@ Public Module controladorAdministrativo
         a.GuardarAdministrativo()
     End Sub
 
-    Private Sub guardarNuevoAdmin(ByVal a As ModeloAdministrativo)
-        a.GuardarAdministrativo()
+    Public Sub CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+        Dim a As New ModeloAdministrativo(uid, pwd)
+        a.Documento = docidentidad
+        a.crearUsuarioBD()
     End Sub
 
     Private Function cargarGridTelefonosADataTable(ByVal telefonos As DataGridView) As DataTable
@@ -52,16 +54,23 @@ Public Module controladorAdministrativo
         Return ""
     End Function
 
-    Public Function buscarAdministrativo(ByVal cadenaSql As String)
+    Public Function buscarAdministrativo(ByVal cadenaSql As String, uid As String, pwd As String)
         'Busca los administrativos que coinciden con los criterios de busqueda
-        Dim m As New ModeloAdministrativo
+        Dim m As New ModeloAdministrativo(uid, pwd)
         Return m.BuscarAdministativo(formatearSqlBuscquedaAdministrativo(cadenaSql))
     End Function
 
-    Public Function BuscarAdministrativoPorDocumento(ByVal docidentidad As String)
+    Public Function BuscarAdministrativoPorDocumento(ByVal docidentidad As String, uid As String, pwd As String)
         'Busca un administrativo por el numero de doc
-        Dim a As New ModeloAdministrativo
+        Dim a As New ModeloAdministrativo(uid, pwd)
         Return a.BuscarAdministrativoPorDocumento(docidentidad)
+    End Function
+
+    Public Function crearTablaTelefonos()
+        'Crea la tabla que alimenta el datagrid de telefonos
+        Dim tablaTel As New DataTable
+        tablaTel.Columns.Add("Telefono")
+        Return tablaTel
     End Function
 
     Private Function formatearSqlBuscquedaAdministrativo(ByVal datoString As String)
@@ -72,8 +81,19 @@ Public Module controladorAdministrativo
         Return "p.nombres like '%%'"
     End Function
 
-    Public Sub EliminiarAdmin(ByVal docIdentidad As String)
-        Dim a As New ModeloAdministrativo
-        a.eliminarAdministrativo(docIdentidad)
+    Public Function EliminiarAdmin(ByVal docIdentidad As String, uid As String, pwd As String)
+        Dim a As New ModeloAdministrativo(uid, pwd)
+        Return a.EliminarAdministrativo(docIdentidad)
+    End Function
+
+    Public Function ValidarAdministrativo(ByVal uid As String, pwd As String) As DataTable
+        Dim a As New ModeloAdministrativo(uid, pwd)
+        Return a.ValidarAdministrativo(uid)
+    End Function
+
+    Public Sub eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+        Dim a As New ModeloAdministrativo(uid, pwd)
+        a.EliminarUsuarioBD(docidentidad)
     End Sub
+
 End Module

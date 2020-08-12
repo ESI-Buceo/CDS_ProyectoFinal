@@ -3,16 +3,22 @@ Imports System.Windows.Forms
 Imports capaDatos
 Public Module ControladorMedico
 
-    Public Function VarificarDocumentoDeIdentidad(ByVal docidentidad As String)
-        Dim a As New ModeloMedico
+    Public Function identificarMedico(ByVal uid As String, pwd As String)
+        Dim m As New ModeloMedico(uid, pwd)
+        Return m.buscarMedicoPorDocumento(uid)
+    End Function
+
+    Public Function VarificarDocumentoDeIdentidad(ByVal docidentidad As String, uid As String, pwd As String)
+        'Valida si el documento ya existe en la bd
+        Dim a As New ModeloMedico(uid, pwd)
         Return a.VerificarDocumentoDeIdentidad(docidentidad)
     End Function
 
     Public Sub GuardarDatosMedico(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                   numero As String, barrio As String, esquina As String, apto As String, fechaNac As String,
-                                  activo As String, telefonos As DataGridView, numeroMedico As String)
+                                  activo As String, telefonos As DataGridView, numeroMedico As String, uid As String, pwd As String)
         'Guarda los datos del medico
-        Dim m As New ModeloMedico
+        Dim m As New ModeloMedico(uid, pwd)
         m.Documento = docId
         m.Email = email
         m.Nombres = nombres
@@ -29,6 +35,13 @@ Public Module ControladorMedico
         m.GuardarDatosMedico()
     End Sub
 
+    Public Sub crearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+        'Crea el usuario en la base de datos
+        Dim m As New ModeloMedico(uid, pwd)
+        m.Documento = docidentidad
+        m.CrearUsuarioBD()
+    End Sub
+
     Private Function cargarGridTelefonosADataTable(ByVal telefonos As DataGridView) As DataTable
         'Carga la lista de telefonos
         Dim listaTelefonos As New DataTable
@@ -36,24 +49,21 @@ Public Module ControladorMedico
         Return listaTelefonos
     End Function
 
-    Public Sub EliminiarMedico(ByVal docIdentidad As String)
+    Public Function EliminiarMedico(ByVal docIdentidad As String, uid As String, pwd As String)
         'Elimina logicamente a un medico
-        Dim m As New ModeloMedico
-        m.EliminarMedico(docIdentidad)
-    End Sub
-
-    Public Function buscarMedicoPorDocumento(ByVal docIdentidad As String)
-        'Busca medico por documento
-        Dim m As New ModeloMedico
-        Return m.buscarMedicoPorDocumento(docIdentidad)
+        Dim m As New ModeloMedico(uid, pwd)
+        Return m.EliminarMedico(docIdentidad)
     End Function
 
-    Public Function validardocIdentidad(ByVal docIdentidad As String)
-        'Valida que el documento sea un numero
-        If Integer.TryParse(docIdentidad, 1) And docIdentidad.Length > 6 And docIdentidad.Length < 10 Then
-            Return True
-        End If
-        Return False
+    Public Sub eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+        Dim m As New ModeloMedico(uid, pwd)
+        m.EliminarUsuarioBD(docidentidad)
+    End Sub
+
+    Public Function buscarMedicoPorDocumento(ByVal docIdentidad As String, uid As String, pwd As String)
+        'Busca medico por documento
+        Dim m As New ModeloMedico(uid, pwd)
+        Return m.buscarMedicoPorDocumento(docIdentidad)
     End Function
 
     Public Function crearTablaTelefonos()
@@ -74,9 +84,9 @@ Public Module ControladorMedico
         Return ""
     End Function
 
-    Public Function buscarMedico(ByVal cadenaSql As String)
+    Public Function buscarMedico(ByVal cadenaSql As String, uid As String, pwd As String)
         'Busca los medicos que coinciden con los criterios de busqueda
-        Dim m As New ModeloMedico
+        Dim m As New ModeloMedico(uid, pwd)
         Return m.BuscarMedico(formatearSqlBuscquedaMedico(cadenaSql))
     End Function
 
@@ -87,4 +97,24 @@ Public Module ControladorMedico
         End If
         Return "p.nombres like '%%'"
     End Function
+
+    Public Function ListarMedicos(ByVal uid As String, pwd As String)
+        'Lista todos los medicos registrados
+        Dim m As New ModeloMedico(uid, pwd)
+        Return m.ListarMedicos()
+    End Function
+
+    Public Function ListarMedicos(ByVal activo As String, uid As String, pwd As String)
+        'Listado de medicos por estado
+        Dim m As New ModeloMedico(uid, pwd)
+        Return m.ListarMedicos(activo)
+    End Function
+
+    Public Function ListarTelefonos(ByVal docidentidad As String, uid As String, pwd As String)
+        'Lista los telefonos de un medico
+        Dim m As New ModeloMedico(uid, pwd)
+        Return m.ListarTelefonos(docidentidad)
+    End Function
+
+
 End Module

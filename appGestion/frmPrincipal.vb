@@ -39,4 +39,34 @@ Public Class frmPrincipal
         frmAdministrativo.MdiParent = Me
         frmAdministrativo.Show()
     End Sub
+
+    Private Sub BtnVerUsuario_Click(sender As Object, e As EventArgs) Handles BtnVerUsuario.Click
+        frmPaciente.MdiParent = Me
+        frmPaciente.Show()
+    End Sub
+
+    Private Sub UsuariosToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles UsuariosToolStripMenuItem1.Click
+        frmPaciente.MdiParent = Me
+        frmPaciente.Show()
+    End Sub
+
+    Private Sub ListarMedicosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListarMedicosToolStripMenuItem.Click
+        frmListaDeMedicos.MdiParent = Me
+        frmListaDeMedicos.Show()
+    End Sub
+
+    Private Sub ListarUsuariosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListarUsuariosToolStripMenuItem.Click
+        frmListaDePacientes.MdiParent = Me
+        frmListaDePacientes.Show()
+    End Sub
+
+    Private Sub ListarPatologiasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListarPatologiasToolStripMenuItem.Click
+        frmListaDePatologias.MdiParent = Me
+        frmListaDePatologias.Show()
+    End Sub
+
+    Private Sub frmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'System.Threading.Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.lang)
+        'CargarIdioma()
+    End Sub
 End Class

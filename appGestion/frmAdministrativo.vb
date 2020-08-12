@@ -14,6 +14,11 @@ Public Class frmAdministrativo
         cargarFechaDeHoy()
     End Sub
 
+    Private Sub controlAgregarActivo()
+        agregar = True
+        chkActivo.Visible = False
+    End Sub
+
     Private Sub colorearDocumento()
         'Colorea el textbox de documento para un nuevo ingreso
         txtDocIdentidad.BackColor = Color.FromArgb(234, 222, 164)
@@ -25,9 +30,14 @@ Public Class frmAdministrativo
         txtDocIdentidad.Select()
     End Sub
 
+    Private Sub deshablitaDocumento()
+        'Deshabilita el textbox de documento
+        txtDocIdentidad.Enabled = False
+    End Sub
+
     Private Sub crearTablaTelefonoParaDataGrid()
         'Crea un datatable para el datagrid de telefonos
-        dgvListaTelefonos.DataSource = crearTablaTelefonos()
+        dgvListaTelefonos.DataSource = controladorAdministrativo.crearTablaTelefonos()
     End Sub
 
     Private Sub habilitarControlesDeEdicion()
@@ -35,8 +45,6 @@ Public Class frmAdministrativo
         dgvListaTelefonos.Enabled = True
         btnAgregarTelefono.Enabled = True
         btnEliminarTelefono.Enabled = True
-        txtDocIdentidad.Enabled = True
-        chkActivo.Enabled = True
         colorearCamposRequeridos()
     End Sub
 
@@ -45,28 +53,33 @@ Public Class frmAdministrativo
         dgvListaTelefonos.Enabled = False
         btnAgregarTelefono.Enabled = False
         btnEliminarTelefono.Enabled = False
-        txtDocIdentidad.Enabled = False
-        chkActivo.Visible = False
+        agregar = False
         restaurarColorCampos()
     End Sub
 
-    Private Sub deshablitaDocumento()
-        'Deshabilita el textbox de documento
-        txtDocIdentidad.Enabled = False
+    Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
+        'valida antesde ingresar la informacion del administrativo
+        If ControladorValidaciones.validarFormatoDocumento(txtDocIdentidad.Text) And ControladorValidaciones.validarNombres(txtNombres.Text) _
+            And ControladorValidaciones.validarApellidos(txtApellidos.Text) And ControladorValidaciones.ValidarEmail(txtEmail.Text) _
+            And ControladorValidaciones.ValidarFechaNacimiento(dtpFechaNac.Value) And ControladorValidaciones.validarNumeroEmpleado(txtNumAdmin.Text) Then
+            guardarDatosAdministrativo()
+        Else
+            MsgBox("Faltan datos requeridos o hay datos incorrectos, verifica.", vbInformation, "Aviso")
+        End If
     End Sub
 
-    Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
-        'Guarda la informacion del medico
-        ClickEnBotonGuardar(toolsMenuAdmin)
+    Private Sub guardarDatosAdministrativo()
+        'guarda la informacion del administrativo
         Try
             controladorAdministrativo.GuardarDatosAdmin(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
                                txtCalle.Text, txtNumeroCalle.Text, txtBarrio.Text, txtEsquina.Text, txtApto.Text,
                                Format(dtpFechaNac.Value, "yyyy-MM-dd"), chkActivo.CheckState, dgvListaTelefonos,
-                               txtNumAdmin.Text)
-            deshabilitarControlesDeEdicion()
+                               txtNumAdmin.Text, USUARIO, PASSWORD)
+            opcionesMenu.ClickEnBotonGuardar(toolsMenuAdmin)
             guardadoConExito()
+            deshabilitarControlesDeEdicion()
         Catch ex As Exception
-            MsgBox("Error al guardar los datos del medico")
+            MsgBox("Error al guardar los datos del administrativo", vbCritical, "Error")
         End Try
     End Sub
 
@@ -75,6 +88,18 @@ Public Class frmAdministrativo
         MsgBox("Datos guardado con exito", vbInformation, "Aviso")
         deshablitaDocumento()
         restaurarColorCampos()
+        agregarAdministrativoABD()
+    End Sub
+
+    Private Sub agregarAdministrativoABD()
+        'Agrega el usuario a la base de datos
+        If agregar Then
+            Try
+                controladorAdministrativo.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
+            Catch ex As Exception
+                MsgBox("Error al crear el usuario en la base de datos", vbCritical, "ERROR")
+            End Try
+        End If
     End Sub
 
     Private Sub deshabilitarListaTelefonos()
@@ -84,28 +109,22 @@ Public Class frmAdministrativo
 
     Private Sub mnuBtnCancelar_Click(sender As Object, e As EventArgs) Handles mnuBtnCancelar.Click
         'Cancela los procesos activos
-        ClickEnBotonCancelar(toolsMenuAdmin)
+        opcionesMenu.ClickEnBotonCancelar(toolsMenuAdmin)
         deshablitaDocumento()
         deshabilitarControlesDeEdicion()
         tabOpcionAdmin.SelectTab(tabDatos)
+        desactivarCheckActivo()
     End Sub
 
     Private Sub mnuBtnNueva_Click(sender As Object, e As EventArgs) Handles mnuBtnNueva.Click
         'Habilita para una nueva busqueda
-        ClickEnBotonNueva(toolsMenuAdmin)
+        opcionesMenu.ClickEnBotonNueva(toolsMenuAdmin)
         agregar = False
         crearTablaTelefonoParaDataGrid()
         vaciarControles()
         habilitarDocumento()
         txtDocIdentidad.Select()
         marcarCamposParaBusqueda()
-    End Sub
-
-    Private Sub mnuBtnBuscar_Click(sender As Object, e As EventArgs) Handles mnuBtnBuscar.Click
-        'Buscar un administrativo de acuerdo a los datos ingresados 
-        ClickEnBotonBuscar(toolsMenuAdmin)
-        tabOpcionAdmin.SelectTab(tabBusqueda)
-        formarCadenaDeBusqueda()
     End Sub
 
     Private Sub marcarCamposParaBusqueda()
@@ -116,33 +135,58 @@ Public Class frmAdministrativo
         txtApellidos.BackColor = Color.FromArgb(247, 241, 210)
     End Sub
 
+    Private Sub mnuBtnBuscar_Click(sender As Object, e As EventArgs) Handles mnuBtnBuscar.Click
+        'Buscar un administrativo de acuerdo a los datos ingresados 
+        opcionesMenu.ClickEnBotonBuscar(toolsMenuAdmin)
+        tabOpcionAdmin.SelectTab(tabBusqueda)
+        formarCadenaDeBusqueda()
+    End Sub
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
         'Dispara el proceso de eliminacion logica
-        ClickEnBotonBorrar(toolsMenuAdmin)
-        Dim confirmar As Integer
-        confirmar = MsgBox("Seguro de eliminar al Administrativo?", vbQuestion & vbYesNo, "Confirmar")
-        If confirmar = 6 Then
+        Dim respuesta As Integer
+        respuesta = MsgBox("Seguro de eliminar al Administrativo?", vbQuestion & vbYesNo, "Confirmar eliminacion")
+        If respuesta = 6 Then
             borrarAdministrativo()
         End If
     End Sub
     Private Sub borrarAdministrativo()
         'Procesa baja de administrativo
         Try
-            controladorAdministrativo.EliminiarAdmin(txtDocIdentidad.Text)
-            ClickEnBotonBorrar(toolsMenuAdmin)
-            MsgBox("Administrativo eliminado con exito !", vbInformation, "Aviso")
+            If controladorAdministrativo.EliminiarAdmin(txtDocIdentidad.Text, USUARIO, PASSWORD) Then
+                opcionesMenu.ClickEnBotonBorrar(toolsMenuAdmin)
+                MsgBox("Administrativo eliminado con exito !", vbInformation, "Aviso")
+                eliminarAdmnistrativoBD()
+            End If
         Catch ex As Exception
             MsgBox("Error al eliminar el administrativo", vbCritical, "Aviso")
         End Try
     End Sub
 
+    Private Sub eliminarAdmnistrativoBD()
+        'Elimina el usuario de la base de datos
+        Try
+            controladorAdministrativo.eliminiarUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
+        Catch ex As Exception
+            MsgBox("No se puedo eliminiar el usuario de la base de datos", vbCritical, "ERROR")
+        End Try
+    End Sub
+
     Private Sub mnuBtnModificar_Click(sender As Object, e As EventArgs) Handles mnuBtnModificar.Click
         'Habilita la modificacion del administrativo en pantalla
-        ClickEnBotonModificar(toolsMenuAdmin)
+        opcionesMenu.ClickEnBotonModificar(toolsMenuAdmin)
         habilitarControlesDeEdicion()
         deshablitaDocumento()
-        chkActivo.Visible = True
+        agregar = False
+        activarCheckActivo()
+    End Sub
+
+    Private Sub activarCheckActivo()
+        chkActivo.Enabled = True
+    End Sub
+
+    Private Sub desactivarCheckActivo()
+        chkActivo.Enabled = False
     End Sub
 
     Private Sub colorearCamposRequeridos()
@@ -182,7 +226,7 @@ Public Class frmAdministrativo
         'Evento al hacer clic en la lista de administrativos que muestra los datos del mismo
         ClickEnListado(toolsMenuAdmin)
         Try
-            mostrarDatosDelAdmin(controladorAdministrativo.BuscarAdministrativoPorDocumento(dgvListaAdministrador.Item(0, e.RowIndex).Value))
+            mostrarDatosDelAdmin(controladorAdministrativo.BuscarAdministrativoPorDocumento(dgvListaAdministrador.Item(0, e.RowIndex).Value, USUARIO, PASSWORD))
             restaurarColorCampos()
             tabOpcionAdmin.SelectTab(tabDatos)
             deshablitaDocumento()
@@ -198,6 +242,8 @@ Public Class frmAdministrativo
         If activo = 0 Then
             mnuBtnBorrar.Enabled = False
             chkActivo.Visible = True
+        Else
+            chkActivo.Visible = False
         End If
     End Sub
 
@@ -221,13 +267,21 @@ Public Class frmAdministrativo
 
     Private Sub cargarTelefonos(ByVal telefonos As DataTable)
         'Carga los telefonos del administrativo elegido
-        Dim tablaTelefono As New DataTable
-        tablaTelefono = crearTablaTelefonos()
+        cargarGridTelefonos(controladorAdministrativo.crearTablaTelefonos(), telefonos)
+    End Sub
+
+    Private Sub cargarGridTelefonos(ByVal tablaTelefono As DataTable, telefonos As DataTable)
+        'Carga la tabla con los telefonos registrados
         For t = 0 To telefonos.Rows.Count - 1
             Dim rowTel As DataRow = tablaTelefono.NewRow()
             rowTel("Telefono") = telefonos(t).Item("telefono").ToString
             tablaTelefono.Rows.Add(rowTel)
         Next
+        mostrarTelefonosEnDataGrid(tablaTelefono)
+    End Sub
+
+    Private Sub mostrarTelefonosEnDataGrid(ByVal tablaTelefono As DataTable)
+        'Carga el datagrid con los telefonos
         dgvListaTelefonos.DataSource = tablaTelefono
     End Sub
 
@@ -259,9 +313,14 @@ Public Class frmAdministrativo
 
     Private Sub lanzarBusquedaAdministrativo(ByVal stringDeBusqueda As String)
         'Muestra el resultado del proceso de busqueda
-        dgvListaAdministrador.DataSource = controladorAdministrativo.buscarAdministrativo(stringDeBusqueda)
-        colorearEliminados(dgvListaAdministrador)
-        crearTablaTelefonoParaDataGrid()
+        Try
+            dgvListaAdministrador.DataSource = controladorAdministrativo.buscarAdministrativo(stringDeBusqueda, USUARIO, PASSWORD)
+            colorearEliminados(dgvListaAdministrador)
+            crearTablaTelefonoParaDataGrid()
+        Catch ex As Exception
+            MsgBox("Error al buscar el administrativo", vbCritical, "Error")
+        End Try
+
     End Sub
 
     Public Sub colorearEliminados(ByRef lista As DataGridView)
@@ -273,17 +332,15 @@ Public Class frmAdministrativo
         Next
     End Sub
 
-    Private Sub txtDocIdentidad_LostFocus(sender As Object, e As EventArgs) Handles txtDocIdentidad.LostFocus
-        If agregar Then validarDocumentoDeIdentidad()
-    End Sub
-
     Private Sub validarDocumentoDeIdentidad()
         Try
-            If controladorAdministrativo.VarificarDocumentoDeIdentidad(txtDocIdentidad.Text) IsNot Nothing Then
+            If controladorAdministrativo.VarificarDocumentoDeIdentidad(txtDocIdentidad.Text, USUARIO, PASSWORD) IsNot Nothing Then
                 MsgBox("El documento ingresado ya existe", vbInformation, "AVISO")
                 cancelarProcesoDeIngreso()
             End If
         Catch ex As Exception
+            MsgBox("Error al verificar el documento", vbCritical, "Error")
+            cancelarProcesoDeIngreso()
         End Try
     End Sub
 
@@ -292,5 +349,9 @@ Public Class frmAdministrativo
         deshablitaDocumento()
         deshabilitarControlesDeEdicion()
         vaciarControles()
+    End Sub
+
+    Private Sub txtDocIdentidad_LostFocus(sender As Object, e As EventArgs) Handles txtDocIdentidad.LostFocus
+        If agregar Then validarDocumentoDeIdentidad()
     End Sub
 End Class
