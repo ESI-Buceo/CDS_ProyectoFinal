@@ -6,6 +6,10 @@ Public Class ModeloSintoma
     Public Nombre As String
     Public Estado As Boolean
 
+    Public Sub New(ByVal uid As String, pwd As String)
+        MyBase.New(uid, pwd)
+    End Sub
+
     Public Sub GuardarSintoma()
         Comando.CommandText = "INSERT INTO sintoma (id,nombre, activo) VALUES ( " & Me.ID & " ,'" & Me.Nombre & "', " & Me.Estado & " ) ON DUPLICATE KEY UPDATE nombre ='" & Me.Nombre & "', activo= " & Me.Estado
         Comando.ExecuteNonQuery()
@@ -45,4 +49,12 @@ Public Class ModeloSintoma
         Return tabla
     End Function
 
+    Public Function SintomasIngresadosPorPaciente(ByVal idSesion As String)
+        Dim tablaSintomas As New DataTable
+        Comando.CommandText = "SELECT DISTINCT(s.nombre) NOMBRE FROM tiene t JOIN sintoma s ON s.id = t.idSintoma WHERE t.idDiagnostico = " & idSesion
+        Reader = Comando.ExecuteReader
+        tablaSintomas.Load(Reader)
+        CerrarConexion()
+        Return tablaSintomas
+    End Function
 End Class
