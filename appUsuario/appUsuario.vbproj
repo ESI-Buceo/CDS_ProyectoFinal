@@ -73,6 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="datosGlobales.vb" />
     <Compile Include="frmListaSintomas.Designer.vb">
       <DependentUpon>frmListaSintomas.vb</DependentUpon>
     </Compile>
@@ -217,6 +218,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\docMas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salidaChat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -1,5 +1,6 @@
-﻿Public Module datosGobales
-    Public USUARIO As String = "22222222"
+﻿Public Module datosGlobales
+    Public USUARIO As String
     Public PASSWD As String
     Public IDSESION As String
+    Public IDPACIENTE As String
 End Module

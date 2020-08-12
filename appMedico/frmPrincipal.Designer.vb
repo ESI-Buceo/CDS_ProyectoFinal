@@ -56,7 +56,7 @@ Partial Class frmPrincipal
         Me.tsmBtnFinalizarChat = New System.Windows.Forms.ToolStripMenuItem()
         Me.panelChatActivo = New System.Windows.Forms.Panel()
         Me.timerChkMensajes = New System.Windows.Forms.Timer(Me.components)
-        Me.timeChequearSesion = New System.Windows.Forms.Timer(Me.components)
+        Me.timeChequearNuevasSesiones = New System.Windows.Forms.Timer(Me.components)
         Me.panelDatosPaciente = New System.Windows.Forms.Panel()
         Me.flpPreExistentes = New System.Windows.Forms.FlowLayoutPanel()
         Me.lblPreExistentes = New System.Windows.Forms.Label()
@@ -80,6 +80,7 @@ Partial Class frmPrincipal
         Me.lblDocIdentidad = New System.Windows.Forms.Label()
         Me.lblApellidos = New System.Windows.Forms.Label()
         Me.lblNombres = New System.Windows.Forms.Label()
+        Me.timeEstadoDeSesion = New System.Windows.Forms.Timer(Me.components)
         Me.PanelMedico.SuspendLayout()
         CType(Me.picEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -403,9 +404,9 @@ Partial Class frmPrincipal
         '
         Me.timerChkMensajes.Interval = 10000
         '
-        'timeChequearSesion
+        'timeChequearNuevasSesiones
         '
-        Me.timeChequearSesion.Interval = 10000
+        Me.timeChequearNuevasSesiones.Interval = 10000
         '
         'panelDatosPaciente
         '
@@ -721,7 +722,7 @@ Partial Class frmPrincipal
     Friend WithEvents panelMensajes As Panel
     Friend WithEvents txtMensajes As RichTextBox
     Friend WithEvents timerChkMensajes As Timer
-    Friend WithEvents timeChequearSesion As Timer
+    Friend WithEvents timeChequearNuevasSesiones As Timer
     Friend WithEvents panelDatosPaciente As Panel
     Friend WithEvents lblApellidos As Label
     Friend WithEvents lblNombres As Label
@@ -746,4 +747,5 @@ Partial Class frmPrincipal
     Friend WithEvents lblPreExistentes As Label
     Friend WithEvents flpPreExistentes As FlowLayoutPanel
     Friend WithEvents lblSintomasIngresadosConsulta As Label
+    Friend WithEvents timeEstadoDeSesion As Timer
 End Class

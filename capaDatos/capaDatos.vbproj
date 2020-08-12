@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="ModeloAdministrativo.vb" />
     <Compile Include="ModeloAsociados.vb" />
+    <Compile Include="ModeloChat.vb" />
     <Compile Include="ModeloConexion.vb" />
     <Compile Include="ModeloDiagnostico.vb" />
     <Compile Include="ModeloMedico.vb" />

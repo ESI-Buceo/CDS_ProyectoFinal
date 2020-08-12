@@ -4,7 +4,11 @@
     End Sub
 
     Private Sub lblCancel_Click(sender As Object, e As EventArgs) Handles lblCancel.Click
-        frmPrincipal.FinalizarSesionDechat()
-        Me.Dispose()
+        Dim respuesta As Integer
+        respuesta = MsgBox("Seguro de cancelar la solicitud de chat?", vbQuestion & vbYesNo, "Cancelar Sesion")
+        If respuesta = 6 Then
+            frmPrincipal.restablecerAPanelDeConsulta()
+            Me.Dispose()
+        End If
     End Sub
 End Class

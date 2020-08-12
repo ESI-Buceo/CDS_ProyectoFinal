@@ -18,8 +18,21 @@ Public Class frmListaSintomas
     End Sub
 
     Private Sub frmListaSintomas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dgvListaSintomas.DataSource = ControladorSintomas.ListarSintomas()
-        dgvListaSintomas.Columns.Item(1).Width = 350
+        Try
+            dgvListaSintomas.DataSource = ControladorSintomas.ListarSintomas(USUARIO, PASSWORD)
+            dgvListaSintomas.Columns.Item(1).Width = 330
+        Catch ex As Exception
+            MsgBox("Error al cargar el listado de sintomas", vbCritical, "Error")
+        End Try
     End Sub
 
+    Private Sub txtNombreSintoma_TextChanged(sender As Object, e As EventArgs) Handles txtNombreSintoma.TextChanged
+        'Lista los sintomas
+        Try
+            dgvListaSintomas.DataSource = ControladorSintomas.ListarSintomas(txtNombreSintoma.Text, USUARIO, PASSWORD)
+            dgvListaSintomas.Columns.Item(1).Width = 330
+        Catch ex As Exception
+            MsgBox("Error al listar sintomas", vbCritical, "Error")
+        End Try
+    End Sub
 End Class

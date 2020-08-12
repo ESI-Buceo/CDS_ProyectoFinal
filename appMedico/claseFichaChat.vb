@@ -7,7 +7,9 @@ Public Class claseFichaChat
     Public Mensaje As String
     Public Minutos As String
     Public Ponderacion As Integer
-    Public idChat As Integer
+    Public IdChat As String
+    Public IdPaciente As String
+    Public estado As String
 
     Private Const colorEmergenciaR As Integer = 193
     Private Const colorEmergenciaG As Integer = 141
@@ -29,14 +31,14 @@ Public Class claseFichaChat
     Public Function crearFichaChat() As Panel
         f.Width = 347
         f.Height = 70
-        f.Name = Me.idChat
+        f.Name = Me.IdChat
         f.BackColor = colorPonderacion()
         f.Margin = New Padding(3, 2, 2, 0)
         f.Controls.Add(imgFoto)
         f.Controls.Add(nombrePaciente)
         f.Controls.Add(mensajePaciente)
         f.Controls.Add(horaEnviado)
-        AddHandler f.Click, AddressOf mostrarChat
+        AddHandler f.Click, AddressOf MostrarChat
         Return f
     End Function
 
@@ -58,7 +60,7 @@ Public Class claseFichaChat
         nombre.Width = 200
         nombre.Font = New Font("Product Sans", 12, FontStyle.Bold)
         nombre.Location = New Point(60, 10)
-        AddHandler nombre.Click, AddressOf mostrarChat
+        AddHandler nombre.Click, AddressOf MostrarChat
         Return nombre
     End Function
 
@@ -81,7 +83,7 @@ Public Class claseFichaChat
         msg.Location = New Point(60, 30)
         msg.AutoSize = False
         msg.Width = 250
-        AddHandler msg.Click, AddressOf mostrarChat
+        AddHandler msg.Click, AddressOf MostrarChat
         Return msg
     End Function
 
@@ -101,19 +103,37 @@ Public Class claseFichaChat
 
     Public Sub MostrarChat()
         'Cambia el estado de la sesion de chat
-        ''ControladorChat.MensajeInicioDeSesion(Me.idChat)
+        datosGlobales.IDPACIENTE = Me.IdPaciente
+        validarMensajeDeInicio()
         mostrarDatosChat()
+    End Sub
+
+    Private Sub validarMensajeDeInicio()
+        'Verifica si tiene que enviar el mensaje de inicio de sesion
+        Try
+            ControladorChat.MensajeInicioDeSesion(Me.IdChat, USUARIO, PASSWD, IdPaciente)
+        Catch ex As Exception
+            MsgBox("Error al enviar el mensaje de inicio", vbCritical, "Error")
+        End Try
     End Sub
 
     Private Sub mostrarDatosChat()
         'Muestra los datos del chat
-        IDSESION = Me.idChat
+        IDSESION = Me.IdChat
         frmPrincipal.txtMensajes.Clear()
-        ''ControladorChat.RecibirMensajes(IDSESION)
+        frmPrincipal.txtMensaje.Enabled = True
         frmPrincipal.MostrarPanelMensajes()
         frmPrincipal.DeshabilitarPanelPendientes()
+        frmPrincipal.DeshabilitarPanelEnEspera()
         frmPrincipal.cargarDatosDelPaciente()
+        frmPrincipal.chequearMensajesRecibidos()
+        vuelveDeEspera()
         f.Visible = False
     End Sub
 
+    Private Sub vuelveDeEspera()
+        If Me.estado = 2 Then
+            frmPrincipal.recibirTodosLosMensajes()
+        End If
+    End Sub
 End Class

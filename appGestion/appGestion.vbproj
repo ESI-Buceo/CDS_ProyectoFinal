@@ -73,6 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="datosGlobales.vb" />
     <Compile Include="frmAdministrativo.Designer.vb">
       <DependentUpon>frmAdministrativo.vb</DependentUpon>
     </Compile>
@@ -85,10 +86,40 @@
     <Compile Include="frmDatosLogin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmListaDeMedicos.designer.vb">
+      <DependentUpon>frmListaDeMedicos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaDeMedicos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaDePacientes.designer.vb">
+      <DependentUpon>frmListaDePacientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaDePacientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaDePatologias.designer.vb">
+      <DependentUpon>frmListaDePatologias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaDePatologias.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmListaSintomas.Designer.vb">
       <DependentUpon>frmListaSintomas.vb</DependentUpon>
     </Compile>
     <Compile Include="frmListaSintomas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaSintomasPatologia.designer.vb">
+      <DependentUpon>frmListaSintomasPatologia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaSintomasPatologia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaTelefonos.designer.vb">
+      <DependentUpon>frmListaTelefonos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaTelefonos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.vb">
@@ -102,6 +133,12 @@
       <DependentUpon>frmMedico.vb</DependentUpon>
     </Compile>
     <Compile Include="frmMedico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaciente.designer.vb">
+      <DependentUpon>frmPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaciente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPatologia.Designer.vb">
@@ -146,14 +183,32 @@
     <EmbeddedResource Include="frmDatosLogin.resx">
       <DependentUpon>frmDatosLogin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListaDeMedicos.resx">
+      <DependentUpon>frmListaDeMedicos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaDePacientes.resx">
+      <DependentUpon>frmListaDePacientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaDePatologias.resx">
+      <DependentUpon>frmListaDePatologias.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListaSintomas.resx">
       <DependentUpon>frmListaSintomas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaSintomasPatologia.resx">
+      <DependentUpon>frmListaSintomasPatologia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaTelefonos.resx">
+      <DependentUpon>frmListaTelefonos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMedico.resx">
       <DependentUpon>frmMedico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaciente.resx">
+      <DependentUpon>frmPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPatologia.resx">
       <DependentUpon>frmPatologia.vb</DependentUpon>
@@ -269,6 +324,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\delTel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\listaActivos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\listaInactivos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\listarTodos.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

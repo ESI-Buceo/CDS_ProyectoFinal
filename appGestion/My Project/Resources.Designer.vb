@@ -253,6 +253,36 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property listaActivos() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("listaActivos", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property listaInactivos() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("listaInactivos", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property listarTodos() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("listarTodos", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property medico() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("medico", resourceCulture)
