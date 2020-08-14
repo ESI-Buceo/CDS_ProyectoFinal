@@ -10,8 +10,8 @@
             GRANT SELECT ON dbTriage.patologia TO 'documento'@'%'
             GRANT SELECT, INSERT, UPDATE ON dbTriage.chat TO 'documento'@'%'
             GRANT SELECT, INSERT ON dbTriage.diagnostico TO 'documento'@'%'
-            GRANT INSERT ON dbTriage.recibe TO 'documento'@'%'
-            GRANT INSERT ON dbTriage.tiene TO 'documento'@'%'
+            GRANT INSERT, SELECT ON dbTriage.recibe TO 'documento'@'%'
+            GRANT INSERT, SELECT ON dbTriage.tiene TO 'documento'@'%'
             GRANT SELECT ON dbTriage.asociados TO 'documento'@'%'
             FLUSH PRIVILEGES
 
@@ -38,8 +38,8 @@
             GRANT SELECT, INSERT, UPDATE ON dbTriage.paciente TO 'documento'@'192.168.1.23'
             GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.preexistentes TO 'documento'@'192.168.1.23'
             GRANT SELECT, INSERT, UPDATE ON dbTriage.sintoma TO 'documento'@'192.168.1.23'
-            GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.patologia TO 'documento'@'192.168.1.23'
-            GRANT SELECT, INSERT, UPDATE ON dbTriage.asociados TO 'documento'@'192.168.1.23'
+            GRANT SELECT, INSERT, UPDATE ON dbTriage.patologia TO 'documento'@'192.168.1.23'
+            GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.asociados TO 'documento'@'192.168.1.23'
             FLUSH PRIVILEGES
 
 /* SENTENCIAS DESDE VISUAL BASIC */
@@ -70,10 +70,10 @@
             Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.sintoma TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
             Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.patologia TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
+            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.patologia TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
             Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.asociados TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
+            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.asociados TO '" & Me.Documento & "'@'" & Me.RangoIP & "'"
             Comando.ExecuteNonQuery()
 
             Comando.CommandText = "FLUSH PRIVILEGES"

@@ -58,12 +58,13 @@ Partial Class frmPrincipal
         Me.BtnVerUsuario = New System.Windows.Forms.ToolStripButton()
         Me.btnVerPatologia = New System.Windows.Forms.ToolStripButton()
         Me.btnVerInforme = New System.Windows.Forms.ToolStripButton()
-        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.barraEstado = New System.Windows.Forms.StatusStrip()
+        Me.tssLabelEstado = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.tssLabelGestor = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
-        Me.StatusStrip.SuspendLayout()
+        Me.barraEstado.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip
@@ -310,22 +311,27 @@ Partial Class frmPrincipal
         Me.btnVerInforme.Text = "Informes"
         Me.btnVerInforme.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
-        'StatusStrip
+        'barraEstado
         '
-        Me.StatusStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 637)
-        Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Padding = New System.Windows.Forms.Padding(1, 0, 19, 0)
-        Me.StatusStrip.Size = New System.Drawing.Size(1014, 25)
-        Me.StatusStrip.TabIndex = 7
-        Me.StatusStrip.Text = "StatusStrip"
+        Me.barraEstado.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.barraEstado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tssLabelEstado, Me.tssLabelGestor})
+        Me.barraEstado.Location = New System.Drawing.Point(0, 637)
+        Me.barraEstado.Name = "barraEstado"
+        Me.barraEstado.Padding = New System.Windows.Forms.Padding(1, 0, 19, 0)
+        Me.barraEstado.Size = New System.Drawing.Size(1014, 25)
+        Me.barraEstado.TabIndex = 7
+        Me.barraEstado.Text = "StatusStrip"
         '
-        'ToolStripStatusLabel
+        'tssLabelEstado
         '
-        Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
-        Me.ToolStripStatusLabel.Size = New System.Drawing.Size(54, 20)
-        Me.ToolStripStatusLabel.Text = "Estado"
+        Me.tssLabelEstado.Name = "tssLabelEstado"
+        Me.tssLabelEstado.Size = New System.Drawing.Size(62, 20)
+        Me.tssLabelEstado.Text = "Usuario:"
+        '
+        'tssLabelGestor
+        '
+        Me.tssLabelGestor.Name = "tssLabelGestor"
+        Me.tssLabelGestor.Size = New System.Drawing.Size(0, 20)
         '
         'frmPrincipal
         '
@@ -336,7 +342,7 @@ Partial Class frmPrincipal
         Me.ClientSize = New System.Drawing.Size(1014, 662)
         Me.Controls.Add(Me.ToolStrip)
         Me.Controls.Add(Me.MenuStrip)
-        Me.Controls.Add(Me.StatusStrip)
+        Me.Controls.Add(Me.barraEstado)
         Me.DoubleBuffered = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
@@ -349,15 +355,15 @@ Partial Class frmPrincipal
         Me.MenuStrip.PerformLayout()
         Me.ToolStrip.ResumeLayout(False)
         Me.ToolStrip.PerformLayout()
-        Me.StatusStrip.ResumeLayout(False)
-        Me.StatusStrip.PerformLayout()
+        Me.barraEstado.ResumeLayout(False)
+        Me.barraEstado.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
-    Friend WithEvents ToolStripStatusLabel As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
+    Friend WithEvents tssLabelEstado As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents barraEstado As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStrip As System.Windows.Forms.ToolStrip
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
     Friend WithEvents SistemaToolStripMenuItem As ToolStripMenuItem
@@ -391,4 +397,5 @@ Partial Class frmPrincipal
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents ImportarArchivoCVSToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents tssLabelGestor As ToolStripStatusLabel
 End Class
