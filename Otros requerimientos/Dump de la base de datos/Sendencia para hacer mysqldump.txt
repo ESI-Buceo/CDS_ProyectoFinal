@@ -1,0 +1,1 @@
+mysqldump -uUSUARIO -pPASSWORD dbTriage > Dump.Dbtriage.sql
