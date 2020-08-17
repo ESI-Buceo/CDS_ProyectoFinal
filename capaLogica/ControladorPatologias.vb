@@ -86,9 +86,4 @@ Public Module ControladorPatologias
         Dim p As New ModeloPatologia(uid, pwd)
         Return p.listarPatologias(activo)
     End Function
-
-    Public Function ListaDePatologias(ByVal idSintoma As Integer, uid As String, pwd As String)
-        Dim p As New ModeloPatologia(uid, pwd)
-        Return p.listarPatologias(idSintoma)
-    End Function
 End Module
