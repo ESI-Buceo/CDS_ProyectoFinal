@@ -34,4 +34,14 @@ Public Module ControladorSintomas
         Dim s As New ModeloSintoma(uid, pwd)
         Return s.ListarSintomasXPatologia(idPatologia)
     End Function
+
+    Public Function ListarSintomas(ByVal estado As Integer, uid As String, pwd As String)
+        Dim s As New ModeloSintoma(uid, pwd)
+        Return s.ListarSintomas(estado)
+    End Function
+
+    Public Function ListarTodosLosSintomas(ByVal uid As String, pwd As String)
+        Dim s As New ModeloSintoma(uid, pwd)
+        Return s.ListarTodosLosSintomas
+    End Function
 End Module
