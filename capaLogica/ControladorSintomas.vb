@@ -43,4 +43,5 @@ Public Module ControladorSintomas
     Public Function ListarTodosLosSintomas(ByVal uid As String, pwd As String)
         Dim s As New ModeloSintoma(uid, pwd)
         Return s.ListarTodosLosSintomas
+    End Function
 End Module
