@@ -5,7 +5,6 @@ Public Class ModeloSintoma
     Public ID As Integer
     Public Nombre As String
     Public Estado As Boolean
-    Public TablaSintomas As New DataTable
 
     Public Sub New(ByVal uid As String, pwd As String)
         MyBase.New(uid, pwd)
@@ -57,20 +56,5 @@ Public Class ModeloSintoma
         tablaSintomas.Load(Reader)
         CerrarConexion()
         Return tablaSintomas
-    End Function
-
-    Public Function ListarSintomas(ByVal estado As String)
-        Comando.CommandText = "SELECT id, nombre, activo FROM sintoma WHERE activo =" & estado
-        Reader = Comando.ExecuteReader
-        tablaSintomas.Load(Reader)
-        conexion.Close()
-        Return tablaSintomas
-    End Function
-
-    Public Function ListarTodosLosSintomas()
-        Comando.CommandText = "SELECT id, nombre, activo FROM sintoma"
-        Reader = Comando.ExecuteReader
-        TablaSintomas.Load(Reader)
-        Return TablaSintomas
     End Function
 End Class

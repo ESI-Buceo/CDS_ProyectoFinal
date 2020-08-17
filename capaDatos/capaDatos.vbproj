@@ -70,7 +70,6 @@
     <Compile Include="ModeloChat.vb" />
     <Compile Include="ModeloConexion.vb" />
     <Compile Include="ModeloDiagnostico.vb" />
-    <Compile Include="ModeloInformes.vb" />
     <Compile Include="ModeloMedico.vb" />
     <Compile Include="ModeloPaciente.vb" />
     <Compile Include="ModeloPatologia.vb" />
