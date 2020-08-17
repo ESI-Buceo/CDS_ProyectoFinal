@@ -11,6 +11,8 @@ Public Class ModeloTiene
         MyBase.New(uid, pwd)
     End Sub
 
+
+
     Public Function GuardarRelacionDiagnosticoPatologia(ByVal stringSQL As String)
         Comando.CommandText = "INSERT INTO tiene VALUES" & stringSQL
         Comando.ExecuteNonQuery()
