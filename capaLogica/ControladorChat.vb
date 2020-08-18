@@ -64,4 +64,9 @@ Public Module ControladorChat
         s.GuardarEstado(idSesion, estado)
     End Sub
 
+    Public Sub EnviarChatAEspera(ByVal idSesion As String, uid As String, pwd As String)
+        'pone la sesion en espera
+        Dim c As New ModeloSesion(uid, pwd)
+        c.GuardarEstado(idSesion, "2")
+    End Sub
 End Module
