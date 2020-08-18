@@ -92,4 +92,18 @@
         Return Reader(0).ToString
     End Function
 
+    Public Function DevolverNombreApellidoMedico()
+        'Devuelce los datos del medico que esta en el chat
+        Dim tablaDatosMedico As New DataTable
+        Comando.CommandText = "SELECT p.nombres NOMBRE, p.apellidos APELLIDO, p.docidentidad DOCUMENTO 
+                                FROM chat c 
+                                JOIN medico m ON m.docidentidad = c.docidentidadMedico 
+                                JOIN persona p ON p.docidentidad = m.docidentidad 
+                                WHERE c.idSesion =" & ModeloDiagnostico.CodigoDiagnostico
+        Reader = Comando.ExecuteReader()
+        tablaDatosMedico.Load(Reader)
+        CerrarConexion()
+        Return tablaDatosMedico
+    End Function
+
 End Class
