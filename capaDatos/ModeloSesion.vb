@@ -84,4 +84,12 @@
         Return Reader(0).ToString
     End Function
 
+    Public Function VerificarEstadoSesion(ByVal idSesion As String) As Integer
+        'devuelve el estado de la sesion
+        Comando.CommandText = "SELECT estado FROM sesion WHERE idSesion =" & idSesion
+        Reader = Comando.ExecuteReader
+        Reader.Read()
+        Return Reader(0).ToString
+    End Function
+
 End Class
