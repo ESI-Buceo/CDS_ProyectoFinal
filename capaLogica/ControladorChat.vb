@@ -21,4 +21,15 @@ Public Module ControladorChat
         Return c.RecibirTodosMensajes(idSesion)
     End Function
 
+    Public Sub EnviarMensajePaciente(ByVal mensaje As String, idSesion As String, uid As String, pwd As String, idmedico As String)
+        Dim c As New ModeloChat(uid, pwd)
+        c.idSesion = idSesion
+        c.mensaje = mensaje
+        c.emisor = "P"
+        c.docidentidadMedico = idmedico
+        c.docidentidadPaciente = uid
+        c.enviarMensaje()
+    End Sub
+
+
 End Module
