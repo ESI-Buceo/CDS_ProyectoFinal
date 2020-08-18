@@ -13,6 +13,12 @@ Public Class ModeloChat
         MyBase.New(uid, pwd)
     End Sub
 
+    Public Function enviarMensaje()
+        Comando.CommandText = "INSERT INTO chat (docidentidadPaciente, docidentidadMedico, idSesion, emisor, mensaje) VALUES (" & Me.docidentidadPaciente & "," & Me.docidentidadMedico & ", " & Me.idSesion & ",'" & Me.emisor & "', '" & Me.mensaje & "')"
+        Comando.ExecuteNonQuery()
+        CerrarConexion()
+        Return True
+    End Function
 
     Public Function RecibirMensajes(ByVal emisor As String)
         Dim tablaMensajes As New DataTable
