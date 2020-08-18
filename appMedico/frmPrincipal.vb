@@ -384,6 +384,7 @@ Public Class frmPrincipal
         'Restablece la ventana de chat
         panelCabeceraChatActivo.Visible = False
         panelOpcionesChat.Visible = False
+        panelChatActivo.Visible = True
         flpChatPendientes.Enabled = True
         flpChatenEspera.Enabled = True
     End Sub
