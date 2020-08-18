@@ -280,9 +280,9 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub medicoCanceloSesion()
-        MsgBox("El Medico finalizo la sesion de chat", vbExclamation, "Cierre de Sesion")
         TimerChequearEstado.Enabled = False
         TimerChequearEstado.Stop()
+        MsgBox("El Medico finalizo la sesion de chat", vbExclamation, "Cierre de Sesion")
         restablecerAPanelDeConsulta()
         frmLoading.Dispose()
     End Sub
