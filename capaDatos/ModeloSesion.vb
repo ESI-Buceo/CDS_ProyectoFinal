@@ -112,4 +112,11 @@
         Comando.ExecuteNonQuery()
     End Sub
 
+    Public Sub GuardarEstado(ByVal estado As String)
+        'Guarda el estado de la sesion cuando esta no fue cancelada por el usuario
+        Comando.CommandText = "UPDATE sesion SET estado = '" & estado & "' WHERE idSesion =" & Me.IdSesion & " AND estado <> 4"
+        Comando.ExecuteNonQuery()
+        CerrarConexion()
+    End Sub
+
 End Class
