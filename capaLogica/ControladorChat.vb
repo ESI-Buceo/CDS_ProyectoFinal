@@ -69,4 +69,29 @@ Public Module ControladorChat
         Dim c As New ModeloSesion(uid, pwd)
         c.GuardarEstado(idSesion, "2")
     End Sub
+
+    Public Sub MensajeInicioDeSesion(ByVal IdSesion As String, uid As String, pwd As String, idpaciente As String)
+        'Si es la primera vez que abre sesion manda mensaje de inicio
+        Dim s As New ModeloSesion(uid, pwd)
+        If s.VerificarEstadoSesion(IdSesion) = 0 Then
+            enviarMensajeDeEspera(IdSesion, uid, pwd, idpaciente)
+        End If
+        marcarchatEnProceso(IdSesion, uid, pwd)
+    End Sub
+
+    Private Sub marcarchatEnProceso(ByVal idSesion As String, uid As String, pwd As String)
+        'Marca el estado del chat en proceso
+        ControladorChat.MarcarEnProceso(idSesion, "1", uid, pwd)
+    End Sub
+
+    Private Sub enviarMensajeDeEspera(ByVal idSesion As String, uid As String, pwd As String, idpaciente As String)
+        Dim c As New ModeloChat(uid, pwd) With {
+        .mensaje = "El medico ha iniciado sesion, aguarda por favor...",
+        .emisor = "M",
+        .docidentidadPaciente = idpaciente,
+        .docidentidadMedico = uid,
+        .idSesion = idSesion
+        }
+        c.enviarMensaje()
+    End Sub
 End Module
