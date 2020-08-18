@@ -28,4 +28,16 @@
         Return tablaSesion
     End Function
 
+    Public Function MostrarSesionesEnProceso() As DataTable
+        'Muestra las sesiones en proceso
+        Dim tablaSesion As New DataTable
+        Comando.CommandText = "SELECT s.idSesion SESION, p.docidentidad DOC, pe.nombres NOMBRES, pe.apellidos APELLIDOS, s.prioridad PRIORIDAD, s.estado ESTADO
+                                FROM sesion s JOIN recibe r ON r.idDiagnostico = s.idSesion JOIN paciente p ON p.docidentidad = r.idPaciente 
+                                JOIN persona pe ON pe.docidentidad = p.docidentidad  WHERE s.estado = '1'"
+        Reader = Comando.ExecuteReader
+        tablaSesion.Load(Reader)
+        CerrarConexion()
+        Return tablaSesion
+    End Function
+
 End Class
