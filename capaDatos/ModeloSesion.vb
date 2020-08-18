@@ -76,4 +76,12 @@
         Return tablaSesion
     End Function
 
+    Public Function VerificarEstadoSesion()
+        'devuelve el estado de la sesion
+        Comando.CommandText = "SELECT estado FROM sesion WHERE idSesion =" & ModeloDiagnostico.CodigoDiagnostico
+        Reader = Comando.ExecuteReader
+        Reader.Read()
+        Return Reader(0).ToString
+    End Function
+
 End Class
