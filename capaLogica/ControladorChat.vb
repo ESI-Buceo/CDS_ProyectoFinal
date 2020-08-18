@@ -58,5 +58,10 @@ Public Module ControladorChat
         Return s.SintomasIngresadosPorPaciente(idSesion)
     End Function
 
+    Public Sub MarcarEnProceso(ByVal idSesion As String, estado As String, uid As String, pwd As String)
+        'Marca la sesion en proceso
+        Dim s As New ModeloSesion(uid, pwd)
+        s.GuardarEstado(idSesion, estado)
+    End Sub
 
 End Module
