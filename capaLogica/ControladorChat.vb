@@ -46,5 +46,11 @@ Public Module ControladorChat
         c.MarcarMensajeLeido(id)
     End Sub
 
+    Public Function DatosPaciente(ByVal idSesion As String, uid As String, pwd As String)
+        'retorna los datos del paciente que solicito el chat
+        Dim p As New ModeloPaciente(uid, pwd)
+        Return p.DatosPaciente(idSesion)
+    End Function
+
 
 End Module
