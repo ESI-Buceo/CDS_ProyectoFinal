@@ -31,8 +31,8 @@ Partial Class frmPrincipal
         Me.picFotoMedico = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.mtsMenuPrincipal = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmOnline = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tsmOffline = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCerrarSesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmSalir = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.flpChatPendientes = New System.Windows.Forms.FlowLayoutPanel()
         Me.lblChatVacio = New System.Windows.Forms.Label()
@@ -81,6 +81,7 @@ Partial Class frmPrincipal
         Me.lblApellidos = New System.Windows.Forms.Label()
         Me.lblNombres = New System.Windows.Forms.Label()
         Me.timeEstadoDeSesion = New System.Windows.Forms.Timer(Me.components)
+        Me.ttMensajePonderacion = New System.Windows.Forms.ToolTip(Me.components)
         Me.PanelMedico.SuspendLayout()
         CType(Me.picEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -140,7 +141,7 @@ Partial Class frmPrincipal
         '
         'picFotoMedico
         '
-        Me.picFotoMedico.Image = Global.appMedico.My.Resources.Resources.bg_medico1
+        Me.picFotoMedico.Image = Global.appMedico.My.Resources.Resources.docMas
         Me.picFotoMedico.Location = New System.Drawing.Point(22, 23)
         Me.picFotoMedico.Name = "picFotoMedico"
         Me.picFotoMedico.Size = New System.Drawing.Size(50, 50)
@@ -164,30 +165,28 @@ Partial Class frmPrincipal
         'mtsMenuPrincipal
         '
         Me.mtsMenuPrincipal.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.mtsMenuPrincipal.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmOnline, Me.tsmOffline, Me.ToolStripSeparator1})
+        Me.mtsMenuPrincipal.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCerrarSesion, Me.tsmSalir, Me.ToolStripSeparator1})
         Me.mtsMenuPrincipal.Image = Global.appMedico.My.Resources.Resources.menu
         Me.mtsMenuPrincipal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.mtsMenuPrincipal.Name = "mtsMenuPrincipal"
         Me.mtsMenuPrincipal.Size = New System.Drawing.Size(32, 24)
         '
-        'tsmOnline
+        'tsmCerrarSesion
         '
-        Me.tsmOnline.Image = Global.appMedico.My.Resources.Resources.online
-        Me.tsmOnline.Name = "tsmOnline"
-        Me.tsmOnline.Size = New System.Drawing.Size(129, 26)
-        Me.tsmOnline.Text = "Online"
+        Me.tsmCerrarSesion.Name = "tsmCerrarSesion"
+        Me.tsmCerrarSesion.Size = New System.Drawing.Size(171, 26)
+        Me.tsmCerrarSesion.Text = "Cerrar Sesion"
         '
-        'tsmOffline
+        'tsmSalir
         '
-        Me.tsmOffline.Image = Global.appMedico.My.Resources.Resources.offline
-        Me.tsmOffline.Name = "tsmOffline"
-        Me.tsmOffline.Size = New System.Drawing.Size(129, 26)
-        Me.tsmOffline.Text = "Offline"
+        Me.tsmSalir.Name = "tsmSalir"
+        Me.tsmSalir.Size = New System.Drawing.Size(171, 26)
+        Me.tsmSalir.Text = "Salir"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(126, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(168, 6)
         '
         'flpChatPendientes
         '
@@ -402,11 +401,11 @@ Partial Class frmPrincipal
         '
         'timerChkMensajes
         '
-        Me.timerChkMensajes.Interval = 10000
+        Me.timerChkMensajes.Interval = 5000
         '
         'timeChequearNuevasSesiones
         '
-        Me.timeChequearNuevasSesiones.Interval = 10000
+        Me.timeChequearNuevasSesiones.Interval = 5000
         '
         'panelDatosPaciente
         '
@@ -646,6 +645,10 @@ Partial Class frmPrincipal
         Me.lblNombres.TabIndex = 0
         Me.lblNombres.Text = "Nombres:"
         '
+        'timeEstadoDeSesion
+        '
+        Me.timeEstadoDeSesion.Interval = 5000
+        '
         'frmPrincipal
         '
         Me.AcceptButton = Me.btnEnviarMensaje
@@ -704,8 +707,7 @@ Partial Class frmPrincipal
     Friend WithEvents lblEstado As Label
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents mtsMenuPrincipal As ToolStripMenuItem
-    Friend WithEvents tsmOnline As ToolStripMenuItem
-    Friend WithEvents tsmOffline As ToolStripMenuItem
+    Friend WithEvents tsmSalir As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents picAvatarPaciente As PictureBox
     Friend WithEvents lblEmailPaciente As Label
@@ -748,4 +750,6 @@ Partial Class frmPrincipal
     Friend WithEvents flpPreExistentes As FlowLayoutPanel
     Friend WithEvents lblSintomasIngresadosConsulta As Label
     Friend WithEvents timeEstadoDeSesion As Timer
+    Friend WithEvents tsmCerrarSesion As ToolStripMenuItem
+    Friend WithEvents ttMensajePonderacion As ToolTip
 End Class

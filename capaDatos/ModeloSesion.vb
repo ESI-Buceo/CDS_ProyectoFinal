@@ -103,6 +103,7 @@
         'Guarda el estado de la sesion cuando esta no fue cancelada por el usuario
         Comando.CommandText = "UPDATE sesion SET estado = '" & estado & "' WHERE idSesion =" & idSesion & " AND estado <> 4"
         Comando.ExecuteNonQuery()
+        CerrarConexion()
     End Sub
 
     Public Sub GuardarEstado(ByVal estado As String)
@@ -114,10 +115,13 @@
 
     Public Function VerificarEstadoSesion(ByVal idSesion As String) As Integer
         'devuelve el estado de la sesion
+        Dim estado As Integer
         Comando.CommandText = "SELECT estado FROM sesion WHERE idSesion =" & idSesion
         Reader = Comando.ExecuteReader
         Reader.Read()
-        Return Reader(0).ToString
+        estado = Reader(0).ToString
+        CerrarConexion()
+        Return estado
     End Function
 
 End Class

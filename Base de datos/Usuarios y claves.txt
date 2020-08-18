@@ -1,0 +1,17 @@
+Aplicacion de gestion
+usuario: 11111111
+pass: 11111111
+
+Aplicacion medico
+usuario: 19266171
+pass: 19266171
+
+usuario: 19266173
+pass: 19266173
+
+Aplicacion paciente
+usuario: 19248371
+pass: 19248371
+
+usuario: 19248373
+password: 19248373

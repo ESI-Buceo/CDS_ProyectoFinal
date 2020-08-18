@@ -334,5 +334,20 @@
   <ItemGroup>
     <None Include="Resources\listarTodos.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emergencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sinurgencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\umenor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\urgencia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\listaSintomas.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

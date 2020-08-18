@@ -411,4 +411,12 @@ Public Class frmPrincipal
         TimerChequearEstado.Enabled = False
         TimerChequearEstado.Stop()
     End Sub
+
+    Private Sub btnEnviarMensaje_Click(sender As Object, e As EventArgs) Handles btnEnviarMensaje.Click
+        'Verifica si hay mensaje 
+        If txtMensaje.Text.Length > 0 Then
+            enviarMensaje()
+            limpiarCampoDeTexto()
+        End If
+    End Sub
 End Class

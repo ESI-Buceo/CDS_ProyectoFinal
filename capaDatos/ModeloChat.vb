@@ -56,19 +56,4 @@ Public Class ModeloChat
         CerrarConexion()
     End Sub
 
-    Private Sub marcarchatEnProceso(ByVal idSesion As String, uid As String, pwd As String)
-        'Marca el estado del chat en proceso
-        ControladorChat.MarcarEnProceso(idSesion, "1", uid, pwd)
-    End Sub
-
-    Private Sub enviarMensajeDeEspera(ByVal idSesion As String, uid As String, pwd As String, idpaciente As String)
-        Dim c As New ModeloChat(uid, pwd) With {
-        .mensaje = "El medico ha iniciado sesion, aguarda por favor...",
-        .emisor = "M",
-        .docidentidadPaciente = idpaciente,
-        .docidentidadMedico = uid,
-        .idSesion = idSesion
-        }
-        c.enviarMensaje()
-    End Sub
 End Class
