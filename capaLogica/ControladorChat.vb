@@ -41,5 +41,10 @@ Public Module ControladorChat
         c.enviarMensaje()
     End Sub
 
+    Public Sub MarcarMensajeLeido(ByVal id As String, uid As String, pwd As String)
+        Dim c As New ModeloChat(uid, pwd)
+        c.MarcarMensajeLeido(id)
+    End Sub
+
 
 End Module
