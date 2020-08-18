@@ -49,4 +49,10 @@ Public Class ModeloChat
         CerrarConexion()
         Return tablaMensajes
     End Function
+
+    Public Sub MarcarMensajeLeido(ByVal id As String)
+        Comando.CommandText = "UPDATE chat SET leido = 1 WHERE id =" & id
+        Comando.ExecuteNonQuery()
+        CerrarConexion()
+    End Sub
 End Class
