@@ -52,5 +52,11 @@ Public Module ControladorChat
         Return p.DatosPaciente(idSesion)
     End Function
 
+    Public Function MostrarSintomasPaciente(ByVal idSesion As String, uid As String, pwd As String)
+        'Muestra el nombre de los sintomas ingresados por el paciente
+        Dim s As New ModeloSintoma(uid, pwd)
+        Return s.SintomasIngresadosPorPaciente(idSesion)
+    End Function
+
 
 End Module
