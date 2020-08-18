@@ -106,4 +106,10 @@
         Return tablaDatosMedico
     End Function
 
+    Public Sub GuardarEstado(ByVal idSesion As String, ByVal estado As String)
+        'Guarda el estado de la sesion cuando esta no fue cancelada por el usuario
+        Comando.CommandText = "UPDATE sesion SET estado = '" & estado & "' WHERE idSesion =" & idSesion & " AND estado <> 4"
+        Comando.ExecuteNonQuery()
+    End Sub
+
 End Class
