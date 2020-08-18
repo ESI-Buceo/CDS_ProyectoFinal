@@ -80,6 +80,7 @@ Partial Class frmDatosLogin
         '
         'frmDatosLogin
         '
+        Me.AcceptButton = Me.btnGestionIngresar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 23.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black

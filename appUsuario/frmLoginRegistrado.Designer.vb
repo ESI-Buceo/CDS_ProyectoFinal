@@ -26,7 +26,6 @@ Partial Class frmLoginRegistrado
         Me.txtDocumento = New System.Windows.Forms.TextBox()
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.txtPassword = New System.Windows.Forms.TextBox()
-        Me.linkRecuperarPass = New System.Windows.Forms.LinkLabel()
         Me.picLogo = New System.Windows.Forms.PictureBox()
         Me.btnIngresar = New System.Windows.Forms.Button()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -67,16 +66,6 @@ Partial Class frmLoginRegistrado
         Me.txtPassword.Size = New System.Drawing.Size(217, 29)
         Me.txtPassword.TabIndex = 4
         '
-        'linkRecuperarPass
-        '
-        Me.linkRecuperarPass.AutoSize = True
-        Me.linkRecuperarPass.Location = New System.Drawing.Point(174, 483)
-        Me.linkRecuperarPass.Name = "linkRecuperarPass"
-        Me.linkRecuperarPass.Size = New System.Drawing.Size(189, 24)
-        Me.linkRecuperarPass.TabIndex = 5
-        Me.linkRecuperarPass.TabStop = True
-        Me.linkRecuperarPass.Text = "Restaurar contraseña"
-        '
         'picLogo
         '
         Me.picLogo.Image = Global.appUsuario.My.Resources.Resources.logo_App
@@ -105,7 +94,6 @@ Partial Class frmLoginRegistrado
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(527, 554)
         Me.Controls.Add(Me.btnIngresar)
-        Me.Controls.Add(Me.linkRecuperarPass)
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.lblPassword)
         Me.Controls.Add(Me.txtDocumento)
@@ -128,6 +116,5 @@ Partial Class frmLoginRegistrado
     Friend WithEvents txtDocumento As TextBox
     Friend WithEvents lblPassword As Label
     Friend WithEvents txtPassword As TextBox
-    Friend WithEvents linkRecuperarPass As LinkLabel
     Friend WithEvents btnIngresar As Button
 End Class

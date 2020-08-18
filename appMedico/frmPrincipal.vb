@@ -14,6 +14,7 @@ Public Class frmPrincipal
             cargarListaDeChatPendientes(ControladorSesion.ChequearSesionesPendientes(USUARIO, PASSWD))
             cargarListaChatEnEspera(ControladorSesion.chequearSesionesEnEspera(USUARIO, PASSWD))
         Catch ex As Exception
+            MsgBox(ex.Message)
             MsgBox("Error al chequear mensajes")
         End Try
     End Sub
@@ -175,6 +176,7 @@ Public Class frmPrincipal
         Try
             recorreMensajesRecibidos(ControladorChat.RecibirMensajes(IDSESION, "M", USUARIO, PASSWD))
         Catch ex As Exception
+            MsgBox(ex.Message)
             MsgBox("Error al cargar los mensajes recibidos")
         End Try
     End Sub
@@ -414,6 +416,7 @@ Public Class frmPrincipal
         Catch ex As Exception
             timeEstadoDeSesion.Enabled = False
             timeEstadoDeSesion.Stop()
+            MsgBox(ex.Message)
             MsgBox("Error al verificar el estado de la sesion", vbCritical, "Error")
         End Try
 
