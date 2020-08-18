@@ -13,6 +13,12 @@ Public Class ModeloChat
         MyBase.New(uid, pwd)
     End Sub
 
+    Public Function enviarMensaje()
+        Comando.CommandText = "INSERT INTO chat (docidentidadPaciente, docidentidadMedico, idSesion, emisor, mensaje) VALUES (" & Me.docidentidadPaciente & "," & Me.docidentidadMedico & ", " & Me.idSesion & ",'" & Me.emisor & "', '" & Me.mensaje & "')"
+        Comando.ExecuteNonQuery()
+        CerrarConexion()
+        Return True
+    End Function
 
     Public Function RecibirMensajes(ByVal emisor As String)
         Dim tablaMensajes As New DataTable
@@ -43,4 +49,26 @@ Public Class ModeloChat
         CerrarConexion()
         Return tablaMensajes
     End Function
+
+    Public Sub MarcarMensajeLeido(ByVal id As String)
+        Comando.CommandText = "UPDATE chat SET leido = 1 WHERE id =" & id
+        Comando.ExecuteNonQuery()
+        CerrarConexion()
+    End Sub
+
+    Private Sub marcarchatEnProceso(ByVal idSesion As String, uid As String, pwd As String)
+        'Marca el estado del chat en proceso
+        ControladorChat.MarcarEnProceso(idSesion, "1", uid, pwd)
+    End Sub
+
+    Private Sub enviarMensajeDeEspera(ByVal idSesion As String, uid As String, pwd As String, idpaciente As String)
+        Dim c As New ModeloChat(uid, pwd) With {
+        .mensaje = "El medico ha iniciado sesion, aguarda por favor...",
+        .emisor = "M",
+        .docidentidadPaciente = idpaciente,
+        .docidentidadMedico = uid,
+        .idSesion = idSesion
+        }
+        c.enviarMensaje()
+    End Sub
 End Class
