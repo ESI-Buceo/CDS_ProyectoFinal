@@ -1,0 +1,3 @@
+- Revisar detalles y terminaciones (campos en read only, formulario principal que se cierra y no cierra la app)
+
+Nota: 11
