@@ -61,6 +61,7 @@ Partial Class frmDatosLogin
         '
         Me.txtPassword.Location = New System.Drawing.Point(62, 211)
         Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(177, 30)
         Me.txtPassword.TabIndex = 3
         '

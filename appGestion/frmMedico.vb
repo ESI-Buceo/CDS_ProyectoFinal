@@ -28,13 +28,14 @@ Public Class frmMedico
 
     Private Sub habilitarDocumento()
         'habilita el textbox de documento para un nuevo ingreso
+        txtDocIdentidad.ReadOnly = False
         txtDocIdentidad.Enabled = True
         txtDocIdentidad.Select()
     End Sub
 
     Private Sub deshablitaDocumento()
         'Deshabilita el textbox de documento
-        txtDocIdentidad.Enabled = False
+        txtDocIdentidad.ReadOnly = True
     End Sub
 
     Private Sub crearTablaTelefonoParaDataGrid()
@@ -48,6 +49,7 @@ Public Class frmMedico
         dgvListaTelefonos.Enabled = True
         btnAgregarTelefono.Enabled = True
         btnEliminarTelefono.Enabled = True
+        txtDocIdentidad.ReadOnly = False
         colorearCamposRequeridos()
     End Sub
 
@@ -56,6 +58,7 @@ Public Class frmMedico
         dgvListaTelefonos.Enabled = False
         btnAgregarTelefono.Enabled = False
         btnEliminarTelefono.Enabled = False
+        txtDocIdentidad.ReadOnly = True
         agregar = False
         restaurarColorCampos()
     End Sub
@@ -113,6 +116,7 @@ Public Class frmMedico
     Private Sub mnuBtnCancelar_Click(sender As Object, e As EventArgs) Handles mnuBtnCancelar.Click
         'Cancela la operacion
         opcionesMenu.ClickEnBotonCancelar(toolsMenuMedico)
+        agregar = False
         deshablitaDocumento()
         deshabilitarControlesDeEdicion()
         tabOpcionesMedico.SelectTab(tabDatos)

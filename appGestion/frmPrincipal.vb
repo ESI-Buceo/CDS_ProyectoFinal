@@ -69,4 +69,8 @@ Public Class frmPrincipal
         'System.Threading.Thread.CurrentThread.CurrentUICulture = New Globalization.CultureInfo(My.Settings.lang)
         'CargarIdioma()
     End Sub
+
+    Private Sub frmPrincipal_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
+        End
+    End Sub
 End Class
