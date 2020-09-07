@@ -12,9 +12,6 @@ Public Class frmPrincipal
         frmLoginInvitado.ShowDialog()
     End Sub
 
-    Private Sub frmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    End Sub
-
     Private Sub btnHistoria_Click(sender As Object, e As EventArgs) Handles btnHistoria.Click
         cambiarPanel(PanelDeConsulta)
         clickBotonHistoria()
@@ -126,11 +123,12 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub evaluarExitenciaPatologias(ByVal patologiasParaDiagnostico As DataTable)
-        'Evalua si existen patologias
+        'Evalua si existen un diagnostico de acuerdo a los sintomas ingresados
         If patologiasParaDiagnostico.Rows.Count = 0 Then
-            lblPregunta.Text = "No existen patologias con los sintomas que has ingresado !"
+            lblPregunta.Text = "No existen patologias con los sintomas que has ingresado !, puedes iniciar sesion con un medico para consultar"
             btnVerInforme.Visible = False
             btnNuevaConsulta.Visible = True
+            btnIniciarChat.Visible = True
             Me.Refresh()
         Else
             mostrarInformeDiagnostico(patologiasParaDiagnostico)
@@ -274,7 +272,6 @@ Public Class frmPrincipal
         End Try
     End Function
 
-
     Private Sub medicoInicioSesion()
         establecerInicioDeChat()
     End Sub
@@ -318,6 +315,14 @@ Public Class frmPrincipal
     Private Sub activarChat()
         tiempoMensaje.Enabled = True
         tiempoMensaje.Start()
+    End Sub
+
+    Private Sub btnEnviarMensaje_Click(sender As Object, e As EventArgs) Handles btnEnviarMensaje.Click
+        'Verifica si hay mensaje 
+        If txtMensaje.Text.Length > 0 Then
+            enviarMensaje()
+            limpiarCampoDeTexto()
+        End If
     End Sub
 
     Private Sub enviarMensaje()
@@ -412,11 +417,4 @@ Public Class frmPrincipal
         TimerChequearEstado.Stop()
     End Sub
 
-    Private Sub btnEnviarMensaje_Click(sender As Object, e As EventArgs) Handles btnEnviarMensaje.Click
-        'Verifica si hay mensaje 
-        If txtMensaje.Text.Length > 0 Then
-            enviarMensaje()
-            limpiarCampoDeTexto()
-        End If
-    End Sub
 End Class

@@ -7,8 +7,8 @@ Public Class frmDatosLogin
     End Sub
 
     Private Sub btnGestionIngresar_Click(sender As Object, e As EventArgs) Handles btnGestionIngresar.Click
-
-        If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) And txtDocIdentidad.Text > 0 Then
+        'Accion que valida los datos ingresados
+        If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) And txtDocIdentidad.Text.Length > 0 Then
             validarCredenciales()
         End If
     End Sub

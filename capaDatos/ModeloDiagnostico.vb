@@ -17,4 +17,5 @@ Public Class ModeloDiagnostico
         CerrarConexion()
         Return True
     End Function
+
 End Class
