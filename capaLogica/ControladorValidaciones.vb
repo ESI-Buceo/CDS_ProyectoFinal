@@ -90,4 +90,39 @@ Public Module ControladorValidaciones
         End If
         Return True
     End Function
+
+    Public Function ValidarPassYRePass(ByVal pass As String, repass As String)
+        If pass.Equals(repass) Then
+            Return True
+        End If
+        Return False
+    End Function
+
+    Public Function ValidarDatosAExportar(ByVal grid As DataGridView)
+        'Verifica que todas las columnas contengan informacion
+        Dim filas As Integer = grid.Rows.Count
+
+        For f = 1 To filas - 1
+            For c = 0 To grid.ColumnCount - 1
+                If grid.Item(c, f).Value Is Nothing Then
+                    Return False
+                End If
+            Next
+        Next
+        Return True
+    End Function
+
+    Public Function ValidarCantidadCamposPatologias(ByVal datos As DataGridView)
+        If datos.Columns.Count <> 3 Then
+            Return False
+        End If
+        Return True
+    End Function
+
+    Public Function ValidarCantidadCamposSintomas(ByVal datos As DataGridView)
+        If datos.Columns.Count <> 1 Then
+            Return False
+        End If
+        Return True
+    End Function
 End Module

@@ -47,7 +47,7 @@ Partial Class frmListaDePacientes
         Me.colEmail = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colTelefonos = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.colFechRegistro = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colActivo = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolsMenuLista.SuspendLayout()
         CType(Me.dgvListaPacientes, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -232,6 +232,8 @@ Partial Class frmListaDePacientes
         Me.colActivo.HeaderText = "Activo"
         Me.colActivo.Name = "colActivo"
         Me.colActivo.ReadOnly = True
+        Me.colActivo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.colActivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.colActivo.Visible = False
         '
         'frmListaDePacientes
@@ -269,5 +271,5 @@ Partial Class frmListaDePacientes
     Friend WithEvents colEmail As DataGridViewTextBoxColumn
     Friend WithEvents colTelefonos As DataGridViewButtonColumn
     Friend WithEvents colFechRegistro As DataGridViewTextBoxColumn
-    Friend WithEvents colActivo As DataGridViewTextBoxColumn
+    Friend WithEvents colActivo As DataGridViewCheckBoxColumn
 End Class

@@ -24,6 +24,7 @@ Partial Class frmListaDeMedicos
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmListaDeMedicos))
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -31,26 +32,25 @@ Partial Class frmListaDeMedicos
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmListaDeMedicos))
         Me.toolsMenuLista = New System.Windows.Forms.ToolStrip()
+        Me.mnuBtnSoloActivos = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnSoloInactivos = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnTodos = New System.Windows.Forms.ToolStripButton()
         Me.tabSeperador2 = New System.Windows.Forms.ToolStripSeparator()
         Me.lblTipo = New System.Windows.Forms.ToolStripLabel()
         Me.dgvListaMedicos = New System.Windows.Forms.DataGridView()
+        Me.ImprimirDocumento = New System.Drawing.Printing.PrintDocument()
+        Me.picEncabezado = New System.Windows.Forms.PictureBox()
         Me.colDocumento = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNDeMedico = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colNombers = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colApellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colEmail = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colTelefonos = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.colFechRegistro = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ImprimirDocumento = New System.Drawing.Printing.PrintDocument()
-        Me.mnuBtnSoloActivos = New System.Windows.Forms.ToolStripButton()
-        Me.mnuBtnSoloInactivos = New System.Windows.Forms.ToolStripButton()
-        Me.mnuBtnTodos = New System.Windows.Forms.ToolStripButton()
-        Me.picEncabezado = New System.Windows.Forms.PictureBox()
+        Me.colActivo = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.toolsMenuLista.SuspendLayout()
         CType(Me.dgvListaMedicos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,15 +70,45 @@ Partial Class frmListaDeMedicos
         Me.toolsMenuLista.Size = New System.Drawing.Size(946, 44)
         Me.toolsMenuLista.TabIndex = 5
         '
+        'mnuBtnSoloActivos
+        '
+        Me.mnuBtnSoloActivos.Image = Global.appGestion.My.Resources.Resources.listaActivos
+        Me.mnuBtnSoloActivos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnSoloActivos.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnSoloActivos.Name = "mnuBtnSoloActivos"
+        Me.mnuBtnSoloActivos.Size = New System.Drawing.Size(126, 29)
+        Me.mnuBtnSoloActivos.Text = "Solo Activos"
+        Me.mnuBtnSoloActivos.ToolTipText = "Muestra solo los activos"
+        '
         'tabSeparador
         '
         Me.tabSeparador.Name = "tabSeparador"
         Me.tabSeparador.Size = New System.Drawing.Size(6, 23)
         '
+        'mnuBtnSoloInactivos
+        '
+        Me.mnuBtnSoloInactivos.Image = Global.appGestion.My.Resources.Resources.listaInactivos
+        Me.mnuBtnSoloInactivos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnSoloInactivos.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnSoloInactivos.Name = "mnuBtnSoloInactivos"
+        Me.mnuBtnSoloInactivos.Size = New System.Drawing.Size(139, 29)
+        Me.mnuBtnSoloInactivos.Text = "Solo Inactivos"
+        Me.mnuBtnSoloInactivos.ToolTipText = "Muestra solo los inactivos"
+        '
         'tabSeparador1
         '
         Me.tabSeparador1.Name = "tabSeparador1"
         Me.tabSeparador1.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnuBtnTodos
+        '
+        Me.mnuBtnTodos.Image = Global.appGestion.My.Resources.Resources.listarTodos
+        Me.mnuBtnTodos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnTodos.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnTodos.Name = "mnuBtnTodos"
+        Me.mnuBtnTodos.Size = New System.Drawing.Size(80, 29)
+        Me.mnuBtnTodos.Text = "Todos"
+        Me.mnuBtnTodos.ToolTipText = "Muestra todos los registros"
         '
         'tabSeperador2
         '
@@ -107,7 +137,7 @@ Partial Class frmListaDeMedicos
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvListaMedicos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvListaMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvListaMedicos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colDocumento, Me.colNDeMedico, Me.colNombers, Me.colApellidos, Me.colEmail, Me.colTelefonos, Me.colFechRegistro, Me.colActivo})
+        Me.dgvListaMedicos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colDocumento, Me.colNDeMedico, Me.colNombres, Me.colApellidos, Me.colEmail, Me.colTelefonos, Me.colFechRegistro, Me.colActivo})
         DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle9.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -122,6 +152,17 @@ Partial Class frmListaDeMedicos
         Me.dgvListaMedicos.RowTemplate.Height = 24
         Me.dgvListaMedicos.Size = New System.Drawing.Size(946, 388)
         Me.dgvListaMedicos.TabIndex = 6
+        '
+        'picEncabezado
+        '
+        Me.picEncabezado.Image = CType(resources.GetObject("picEncabezado.Image"), System.Drawing.Image)
+        Me.picEncabezado.Location = New System.Drawing.Point(-14, 0)
+        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.picEncabezado.Name = "picEncabezado"
+        Me.picEncabezado.Size = New System.Drawing.Size(988, 79)
+        Me.picEncabezado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.picEncabezado.TabIndex = 4
+        Me.picEncabezado.TabStop = False
         '
         'colDocumento
         '
@@ -144,15 +185,15 @@ Partial Class frmListaDeMedicos
         Me.colNDeMedico.ReadOnly = True
         Me.colNDeMedico.Width = 150
         '
-        'colNombers
+        'colNombres
         '
-        Me.colNombers.DataPropertyName = "nombres"
+        Me.colNombres.DataPropertyName = "nombres"
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.colNombers.DefaultCellStyle = DataGridViewCellStyle4
-        Me.colNombers.HeaderText = "Nombres"
-        Me.colNombers.Name = "colNombers"
-        Me.colNombers.ReadOnly = True
-        Me.colNombers.Width = 150
+        Me.colNombres.DefaultCellStyle = DataGridViewCellStyle4
+        Me.colNombres.HeaderText = "Nombres"
+        Me.colNombres.Name = "colNombres"
+        Me.colNombres.ReadOnly = True
+        Me.colNombres.Width = 150
         '
         'colApellidos
         '
@@ -205,48 +246,9 @@ Partial Class frmListaDeMedicos
         Me.colActivo.HeaderText = "Activo"
         Me.colActivo.Name = "colActivo"
         Me.colActivo.ReadOnly = True
+        Me.colActivo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.colActivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.colActivo.Visible = False
-        '
-        'mnuBtnSoloActivos
-        '
-        Me.mnuBtnSoloActivos.Image = Global.appGestion.My.Resources.Resources.listaActivos
-        Me.mnuBtnSoloActivos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnSoloActivos.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnSoloActivos.Name = "mnuBtnSoloActivos"
-        Me.mnuBtnSoloActivos.Size = New System.Drawing.Size(126, 29)
-        Me.mnuBtnSoloActivos.Text = "Solo Activos"
-        Me.mnuBtnSoloActivos.ToolTipText = "Muestra solo los activos"
-        '
-        'mnuBtnSoloInactivos
-        '
-        Me.mnuBtnSoloInactivos.Image = Global.appGestion.My.Resources.Resources.listaInactivos
-        Me.mnuBtnSoloInactivos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnSoloInactivos.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnSoloInactivos.Name = "mnuBtnSoloInactivos"
-        Me.mnuBtnSoloInactivos.Size = New System.Drawing.Size(139, 29)
-        Me.mnuBtnSoloInactivos.Text = "Solo Inactivos"
-        Me.mnuBtnSoloInactivos.ToolTipText = "Muestra solo los inactivos"
-        '
-        'mnuBtnTodos
-        '
-        Me.mnuBtnTodos.Image = Global.appGestion.My.Resources.Resources.listarTodos
-        Me.mnuBtnTodos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnTodos.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnTodos.Name = "mnuBtnTodos"
-        Me.mnuBtnTodos.Size = New System.Drawing.Size(80, 29)
-        Me.mnuBtnTodos.Text = "Todos"
-        Me.mnuBtnTodos.ToolTipText = "Muestra todos los registros"
-        '
-        'picEncabezado
-        '
-        Me.picEncabezado.Image = CType(resources.GetObject("picEncabezado.Image"), System.Drawing.Image)
-        Me.picEncabezado.Location = New System.Drawing.Point(-14, 0)
-        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.picEncabezado.Name = "picEncabezado"
-        Me.picEncabezado.Size = New System.Drawing.Size(988, 79)
-        Me.picEncabezado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.picEncabezado.TabIndex = 4
-        Me.picEncabezado.TabStop = False
         '
         'frmListaDeMedicos
         '
@@ -277,13 +279,13 @@ Partial Class frmListaDeMedicos
     Friend WithEvents tabSeperador2 As ToolStripSeparator
     Friend WithEvents dgvListaMedicos As DataGridView
     Friend WithEvents ImprimirDocumento As Printing.PrintDocument
+    Friend WithEvents lblTipo As ToolStripLabel
     Friend WithEvents colDocumento As DataGridViewTextBoxColumn
     Friend WithEvents colNDeMedico As DataGridViewTextBoxColumn
-    Friend WithEvents colNombers As DataGridViewTextBoxColumn
+    Friend WithEvents colNombres As DataGridViewTextBoxColumn
     Friend WithEvents colApellidos As DataGridViewTextBoxColumn
     Friend WithEvents colEmail As DataGridViewTextBoxColumn
     Friend WithEvents colTelefonos As DataGridViewButtonColumn
     Friend WithEvents colFechRegistro As DataGridViewTextBoxColumn
-    Friend WithEvents colActivo As DataGridViewTextBoxColumn
-    Friend WithEvents lblTipo As ToolStripLabel
+    Friend WithEvents colActivo As DataGridViewCheckBoxColumn
 End Class

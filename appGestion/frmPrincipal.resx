@@ -121,7 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="EmpleadoToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmAdministrativo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADwSURBVDhPYxj6wMorTMHaO3y+jVfYfiBeD8QJUCnS
@@ -131,17 +131,7 @@
         rKgKQC4sXteAFxP0JjIAJYm85Q4EMOn5eLgCBgYA+hJ5D5wKxQkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="MisDatosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADwSURBVDhPYxj6wMorTMHaO3y+jVfYfiBeD8QJUCnS
-        AVCzAdCw+zBDoIavB1kAVkAqAGkGGuYA5cIBUHw/0HADKJd4ADTsPJSJAkAuBhraAOUSD6huIAEvK0C5
-        xANoJIAjBcgWAIUbyBIg7ocqIRHkLRdgSJ8eYOYXB0s285lj6xuA4iRGCMig4nX9DEVrz0Pp+wyFq/cD
-        MZC/fj6Qvx4ofp6hcBVGcGACkGElG84DNRVARbCDvOUKYHXF6wgkdJBBhAyDAZDlhasJGbhmP1gh1QAo
-        rKgKQC4sXteAFxP0JjIAJYm85Q4EMOn5eLgCBgYA+hJ5D5wKxQkAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="ParametrosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmParametros.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADhSURBVDhP7VS7DcIwFMwIHiEjUPORUoeGKqyRijqb
@@ -151,7 +141,7 @@
         WrX3Vy+Guvrs5/DLyLIbud/QwEBqb0UAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="CambioDeContraseñaToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmCambioPass.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEGSURBVDhP7VS7EYMwDPUIjJARqPO5o4YmFbSMQOWa
@@ -162,7 +152,7 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="SalirToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmSalir.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEdSURBVDhPYxjpIG+5AUPJhv8Mxev/M6RN/S8TVfHf
@@ -173,7 +163,7 @@
         gJyXQQUFyJWjADtgYAAAxmTCtL25AqwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="MedicoToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmMedico.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEGSURBVDhP7ZK9DcIwEIUzQkbIBmQBpPQ0iIaWkgaJ
@@ -184,7 +174,7 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="ListarMedicosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmListaMedicos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADgSURBVDhP3ZSxDYMwEEU9QkZgBBaIRJ/GXVpGSOWa
@@ -194,7 +184,7 @@
         wErxhWFLOQ6+PCeRMR83Ps7XhFIuywAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="UsuariosToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmPaciente.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADwSURBVDhPYxj6wMorTMHaO3y+jVfYfiBeD8QJUCnS
@@ -204,7 +194,7 @@
         rKgKQC4sXteAFxP0JjIAJYm85Q4EMOn5eLgCBgYA+hJ5D5wKxQkAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ListarUsuariosToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmListaPacientes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADmSURBVDhP3ZSxDYMwEEUZgREYgQUi0adxl9YjULlm
@@ -214,7 +204,7 @@
         GBTOB6nIKJ7T9EJ4R+Gt84eqqgdFl/WwG8TFzQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="PatologiasToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmPatologias.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGKSURBVDhPYxhGoGyrAZRFOeDJ7CkIior9z5A9LQEq
@@ -227,7 +217,7 @@
         MDAAAEEt3TFwIETWAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="ListarPatologiasToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmListaPatologias.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADmSURBVDhP3ZSxDYMwEEUZgREYgQUi0adxl9YjULlm
@@ -237,7 +227,7 @@
         GBTOB6nIKJ7T9EJ4R+Gt84eqqgdFl/WwG8TFzQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="SintomasToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmSintomas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEYSURBVDhP7VMxDoJAELwn8ARKS2pjQW1FYkJNaWJC
@@ -248,7 +238,7 @@
         fhHvFf7jSzj3ALeLlgH1O5+nAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="ListarSintomasToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmListaSintomas.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADmSURBVDhP3ZSxDYMwEEUZgREYgQUi0adxl9YjULlm
@@ -258,17 +248,7 @@
         GBTOB6nIKJ7T9EJ4R+Gt84eqqgdFl/WwG8TFzQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="RanquinDePatologiasToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
-        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADgSURBVDhP3ZSxDYMwEEU9QkZgBBaIRJ/GXVpGSOWa
-        DTJCRqByzSiM4BGS/89HgsCxwHR86Un24fvcWbbNCeR8DUal1mihnA/gDRrQ6jjo141y3kqS84MYLBVN
-        +Y1rrEYzcr77LvxVOCdWGH/cyTiraNjozFxv9/S+xW3YbgijJ+gVC7oZjxLDFtDsAo4bcohEmrUSX6qg
-        wgGMgBWxfc4nXiWGNfh/LAoNuY+sqAKMTfD27DZkm4HJgG3PW+73GkqrSKwkltKOg807y4eA1ysH16RP
-        wErxhWFLOQ6+PCeRMR83Ps7XhFIuywAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="LogDelSistemaToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="tsmRankingPat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAADgSURBVDhP3ZSxDYMwEEU9QkZgBBaIRJ/GXVpGSOWa

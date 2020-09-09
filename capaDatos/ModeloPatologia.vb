@@ -10,6 +10,7 @@ Public Class ModeloPatologia
     Public Activo As Integer
     Public ListaDeSintomasAsociados As List(Of Integer)
     Public tablaPatologiasParaDiagnostico As New DataTable
+    Public TablaPatologia As New DataTable
 
     Public Sub New(ByVal uid As String, pwd As String)
         MyBase.New(uid, pwd)
@@ -49,59 +50,71 @@ Public Class ModeloPatologia
             Comando.CommandText = "COMMIT;"
             Comando.ExecuteNonQuery()
 
+            conexion.Close()
         Catch ex As Exception
             Comando.CommandText = "ROLLBACK;"
             Comando.ExecuteNonQuery()
         End Try
     End Sub
 
-
-    Public Sub EliminarPatologia()
+    Public Sub CambiarEstadoPatologia(ByVal id As String, estado As String)
         'eliminacion logica de la patologa 
-        Comando.CommandText = "UPDATE patologia set activo = 0 WHERE id = " & Me.Id & ""
+        Comando.CommandText = "UPDATE patologia set activo = " & estado & " WHERE id = " & id & ""
         Comando.ExecuteNonQuery()
         CerrarConexion()
     End Sub
 
     Public Function BuscarPatologiaPorNombre(ByVal nombre As String) As DataTable
         'trae de la base de datos las patolgias registadas
-        Dim tabla As New DataTable
         Comando.CommandText = "SELECT * FROM patologia WHERE activo = 1 AND nombre like '%" + nombre + "%'"
         Reader = Comando.ExecuteReader()
-        tabla.Load(Reader)
+        TablaPatologia.Load(Reader)
         CerrarConexion()
-        Return tabla
-    End Function
-
-
-    Public Function BuscarPatologiaPorID(ByVal id As Integer)
-        Comando.CommandText = "SELECT * FROM patologia WHERE id = " & id
-        Reader = Comando.ExecuteReader()
-        tablaPatologiasParaDiagnostico.Load(Reader)
-        CerrarConexion()
-        Return tablaPatologiasParaDiagnostico
+        Return TablaPatologia
     End Function
 
     Public Function listarPatologias()
-        Dim tablaPatologias As New DataTable
+        'Lista las patologias
         Comando.CommandText = "SELECT DISTINCT(p.id), p.nombre, p.ponderacion, p.activo 
                                 FROM patologia p 
                                 JOIN asociados a ON a.idPatologia = p.id"
         Reader = Comando.ExecuteReader
-        tablaPatologias.Load(Reader)
+        TablaPatologia.Load(Reader)
         CerrarConexion()
-        Return tablaPatologias
+        Return TablaPatologia
     End Function
 
-    Public Function listarPatologias(ByVal activo As String)
-        Dim tablaPatologias As New DataTable
+    Public Function ListarPatologias(ByVal activo As String)
+        'Lista las patologias por estado
         Comando.CommandText = "SELECT DISTINCT(p.id), p.nombre, p.ponderacion, p.activo 
                                 FROM patologia p 
                                 JOIN asociados a ON a.idPatologia = p.id 
                                 WHERE p.activo =" & activo
         Reader = Comando.ExecuteReader
-        tablaPatologias.Load(Reader)
+        TablaPatologia.Load(Reader)
         CerrarConexion()
-        Return tablaPatologias
+        Return TablaPatologia
+    End Function
+
+    Public Function ListarPatologias(ByVal idSintomas As Integer)
+        'Lista las patologias por sintoma
+        Comando.CommandText = "SELECT p.nombre FROM asociados a
+                                JOIN patologia p ON p.id = a.idPatologia 
+                                WHERE a.IdSintoma = " & idSintomas
+        Reader = Comando.ExecuteReader()
+        TablaPatologia.Load(Reader)
+        conexion.Close()
+        Return TablaPatologia
+    End Function
+
+    Public Function ListarPatologiasDeDiagnostico(ByVal idDiagnostico As String)
+        'Muestra al paciente las patologias de sus diagnosticos
+        Comando.CommandText = "SELECT DISTINCT(p.nombre) FROM tiene t 
+                                JOIN patologia p ON p.id = t.idPatologia 
+                                WHERE t.idDiagnostico =" & idDiagnostico
+        Reader = Comando.ExecuteReader
+        TablaPatologia.Load(Reader)
+        conexion.Close()
+        Return TablaPatologia
     End Function
 End Class

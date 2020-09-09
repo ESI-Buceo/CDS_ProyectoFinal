@@ -8,7 +8,6 @@ Public Class frmAdministrativo
         agregar = True
         habilitarDocumento()
         colorearDocumento()
-        chkActivo.Visible = False
         vaciarControles()
         habilitarControlesDeEdicion()
         cargarFechaDeHoy()
@@ -16,7 +15,6 @@ Public Class frmAdministrativo
 
     Private Sub controlAgregarActivo()
         agregar = True
-        chkActivo.Visible = False
     End Sub
 
     Private Sub colorearDocumento()
@@ -62,9 +60,18 @@ Public Class frmAdministrativo
         If ControladorValidaciones.validarFormatoDocumento(txtDocIdentidad.Text) And ControladorValidaciones.validarNombres(txtNombres.Text) _
             And ControladorValidaciones.validarApellidos(txtApellidos.Text) And ControladorValidaciones.ValidarEmail(txtEmail.Text) _
             And ControladorValidaciones.ValidarFechaNacimiento(dtpFechaNac.Value) And ControladorValidaciones.validarNumeroEmpleado(txtNumAdmin.Text) Then
-            guardarDatosAdministrativo()
+            validarSiEsNuevo()
         Else
-            MsgBox("Faltan datos requeridos o hay datos incorrectos, verifica.", vbInformation, "Aviso")
+            MsgBox(VFaltanDatosRequeridos, vbInformation, VAviso)
+        End If
+    End Sub
+
+    Private Sub validarSiEsNuevo()
+        'Si es nuevo verifica que el documento no este registrado
+        If agregar Then
+            validarDocumentoDeIdentidad()
+        Else
+            guardarDatosAdministrativo()
         End If
     End Sub
 
@@ -73,19 +80,18 @@ Public Class frmAdministrativo
         Try
             controladorAdministrativo.GuardarDatosAdmin(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
                                txtCalle.Text, txtNumeroCalle.Text, txtBarrio.Text, txtEsquina.Text, txtApto.Text,
-                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), chkActivo.CheckState, dgvListaTelefonos,
-                               txtNumAdmin.Text, USUARIO, PASSWORD)
+                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), dgvListaTelefonos, txtNumAdmin.Text, USUARIO, PASSWORD)
             opcionesMenu.ClickEnBotonGuardar(toolsMenuAdmin)
             guardadoConExito()
             deshabilitarControlesDeEdicion()
         Catch ex As Exception
-            MsgBox("Error al guardar los datos del administrativo", vbCritical, "Error")
+            MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
     End Sub
 
     Private Sub guardadoConExito()
         'Mensaje de guardo con exito
-        MsgBox("Datos guardado con exito", vbInformation, "Aviso")
+        MsgBox(VDatosGuardadosConExito, vbInformation, VAviso)
         deshablitaDocumento()
         restaurarColorCampos()
         agregarAdministrativoABD()
@@ -97,7 +103,7 @@ Public Class frmAdministrativo
             Try
                 controladorAdministrativo.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
             Catch ex As Exception
-                MsgBox("Error al crear el usuario en la base de datos", vbCritical, "ERROR")
+                MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
             End Try
         End If
     End Sub
@@ -113,7 +119,6 @@ Public Class frmAdministrativo
         deshablitaDocumento()
         deshabilitarControlesDeEdicion()
         tabOpcionAdmin.SelectTab(tabDatos)
-        desactivarCheckActivo()
     End Sub
 
     Private Sub mnuBtnNueva_Click(sender As Object, e As EventArgs) Handles mnuBtnNueva.Click
@@ -145,21 +150,22 @@ Public Class frmAdministrativo
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
         'Dispara el proceso de eliminacion logica
         Dim respuesta As Integer
-        respuesta = MsgBox("Seguro de eliminar al Administrativo?", vbQuestion & vbYesNo, "Confirmar eliminacion")
+        respuesta = MsgBox(VseguroEliminiarRegistro, vbQuestion & vbYesNo, VAvisoAlerta)
         If respuesta = 6 Then
             borrarAdministrativo()
         End If
     End Sub
+
     Private Sub borrarAdministrativo()
         'Procesa baja de administrativo
         Try
-            If controladorAdministrativo.EliminiarAdmin(txtDocIdentidad.Text, USUARIO, PASSWORD) Then
+            If controladorAdministrativo.cambiarEstadoAdmin(txtDocIdentidad.Text, 0, USUARIO, PASSWORD) Then
                 opcionesMenu.ClickEnBotonBorrar(toolsMenuAdmin)
-                MsgBox("Administrativo eliminado con exito !", vbInformation, "Aviso")
+                MsgBox(VRegistroEliminado, vbInformation, VAviso)
                 eliminarAdmnistrativoBD()
             End If
         Catch ex As Exception
-            MsgBox("Error al eliminar el administrativo", vbCritical, "Aviso")
+            MsgBox(VErrorBorrarRegistro, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -168,7 +174,7 @@ Public Class frmAdministrativo
         Try
             controladorAdministrativo.eliminiarUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
         Catch ex As Exception
-            MsgBox("No se puedo eliminiar el usuario de la base de datos", vbCritical, "ERROR")
+            MsgBox(VErrorBorrarRegistro, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -178,15 +184,6 @@ Public Class frmAdministrativo
         habilitarControlesDeEdicion()
         deshablitaDocumento()
         agregar = False
-        activarCheckActivo()
-    End Sub
-
-    Private Sub activarCheckActivo()
-        chkActivo.Enabled = True
-    End Sub
-
-    Private Sub desactivarCheckActivo()
-        chkActivo.Enabled = False
     End Sub
 
     Private Sub colorearCamposRequeridos()
@@ -214,6 +211,7 @@ Public Class frmAdministrativo
                 controles.Text = Nothing
             End If
         Next
+        dtpFechaNac.Value = "01/01/1753"
         crearTablaTelefonoParaDataGrid()
     End Sub
 
@@ -233,7 +231,7 @@ Public Class frmAdministrativo
             validarBotonBorrar(dgvListaAdministrador.Item(6, e.RowIndex).Value)
             txtNombres.Select()
         Catch ex As Exception
-            MsgBox("Error al cargar los datos del usuario", vbExclamation, "Aviso")
+            MsgBox(VErrorRecuperarDatos, vbExclamation, VAviso)
         End Try
     End Sub
 
@@ -241,9 +239,15 @@ Public Class frmAdministrativo
         'Si ya esta eliminado el boton queda deshabilitado
         If activo = 0 Then
             mnuBtnBorrar.Enabled = False
-            chkActivo.Visible = True
+            mnuBtnModificar.Enabled = False
+            mnuBtnReactivar.Enabled = True
+            mnuBtnCancelar.Enabled = False
+            mnuBtnNueva.Enabled = True
+            mnuBtnAgregar.Enabled = True
         Else
-            chkActivo.Visible = False
+            mnuBtnCancelar.Enabled = True
+            mnuBtnModificar.Enabled = True
+            mnuBtnReactivar.Enabled = False
         End If
     End Sub
 
@@ -261,7 +265,6 @@ Public Class frmAdministrativo
         txtApto.Text = datosAdministrativo.Rows(0).Item("apto").ToString
         txtEsquina.Text = datosAdministrativo.Rows(0).Item("esquina").ToString
         txtBarrio.Text = datosAdministrativo.Rows(0).Item("barrio").ToString
-        chkActivo.CheckState = datosAdministrativo.Rows(0).Item("activo").ToString
         cargarTelefonos(datosAdministrativo)
     End Sub
 
@@ -318,7 +321,7 @@ Public Class frmAdministrativo
             colorearEliminados(dgvListaAdministrador)
             crearTablaTelefonoParaDataGrid()
         Catch ex As Exception
-            MsgBox("Error al buscar el administrativo", vbCritical, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
 
     End Sub
@@ -333,13 +336,16 @@ Public Class frmAdministrativo
     End Sub
 
     Private Sub validarDocumentoDeIdentidad()
+        'Valida que el documento de identida no exista
         Try
             If controladorAdministrativo.VarificarDocumentoDeIdentidad(txtDocIdentidad.Text, USUARIO, PASSWORD) IsNot Nothing Then
-                MsgBox("El documento ingresado ya existe", vbInformation, "AVISO")
-                cancelarProcesoDeIngreso()
+                MsgBox(VDocumentoExiste, vbInformation, VAviso)
+                txtDocIdentidad.Select()
+            Else
+                guardarDatosAdministrativo()
             End If
         Catch ex As Exception
-            MsgBox("Error al verificar el documento", vbCritical, "Error")
+            MsgBox(VErrorVerificarDocumento, vbCritical, VAvisoError)
             cancelarProcesoDeIngreso()
         End Try
     End Sub
@@ -351,7 +357,87 @@ Public Class frmAdministrativo
         vaciarControles()
     End Sub
 
-    Private Sub txtDocIdentidad_LostFocus(sender As Object, e As EventArgs) Handles txtDocIdentidad.LostFocus
-        If agregar Then validarDocumentoDeIdentidad()
+    Private Sub frmAdministrativo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargarTexto()
     End Sub
+
+    Private Sub cargarTexto()
+        mnuBtnAgregar.Text = VAgregar
+        mnuBtnAgregar.ToolTipText = VToolBotonAgregar
+        mnuBtnGuardar.Text = VGuardar
+        mnuBtnGuardar.ToolTipText = VToolBotonGuardar
+        mnuBtnCancelar.Text = VCancelar
+        mnuBtnCancelar.ToolTipText = VToolBotonCancelar
+        mnuBtnNueva.Text = VNueva
+        mnuBtnNueva.ToolTipText = VToolBotonNueva
+        mnuBtnBuscar.Text = VBuscar
+        mnuBtnBuscar.ToolTipText = VToolBotonBuscar
+        mnuBtnBorrar.Text = VBorrar
+        mnuBtnBorrar.ToolTipText = VToolBotonBorrar
+        mnuBtnModificar.Text = VModificar
+        mnuBtnModificar.ToolTipText = VToolBotonModificar
+        mnuBtnReactivar.Text = VReactivar
+        mnuBtnReactivar.ToolTipText = VToolsBotonReactivar
+        tabDatos.Text = VDato
+        tabBusqueda.Text = VBusqueda
+        lblDocIdentidad.Text = VDocumento
+        lblFechaReg.Text = VFecha
+        lblFechaNacM.Text = VFechaNac
+        lblNumeroEmpleado.Text = VNEmpleado
+        lblNombreM.Text = VNombres
+        lblApellidosM.Text = VApellidos
+        lblEmailM.Text = VEmail
+        lblOtrosDatos.Text = VOtrosDatos.ToUpper
+        lblDireccionM.Text = VDireccion
+        lblNumeroCalleM.Text = VNum
+        lblAptoM.Text = VApto
+        lblEsquinaM.Text = VEsquina
+        lblBarrioM.Text = VBarrio
+        lblTelefonos.Text = VTelefonos.ToUpper
+        dgvListaTelefonos.Columns(0).HeaderText = VTelefonos
+        Me.Text = VAdministrativo.ToUpper
+        dgvListaAdministrador.Columns(0).HeaderText = VDocumento
+        dgvListaAdministrador.Columns(1).HeaderText = VNEmpleado
+        dgvListaAdministrador.Columns(2).HeaderText = VNombres
+        dgvListaAdministrador.Columns(3).HeaderText = VApellidos
+        dgvListaAdministrador.Columns(4).HeaderText = VEmail
+        dgvListaAdministrador.Columns(5).HeaderText = VFecha
+    End Sub
+
+    Private Sub mnuBtnReactivar_Click(sender As Object, e As EventArgs) Handles mnuBtnReactivar.Click
+        ClickEnBotonReactivar(toolsMenuAdmin)
+        confirmarReActivacionAdmin()
+    End Sub
+
+    Private Sub confirmarReActivacionAdmin()
+        'Solicita confirmacion para reactivar el registro
+        Dim respuesta As Integer
+        respuesta = MsgBox(VSeguroReactivarCuenta, vbQuestion & vbYesNo, VAvisoAlerta)
+        If respuesta = 6 Then
+            reactivarCuentaAdmin()
+        End If
+    End Sub
+
+    Private Sub reactivarCuentaAdmin()
+        'Ejecuta el proceso de reactivacion del medico
+        Try
+            If controladorAdministrativo.CambiarEstadoAdmin(txtDocIdentidad.Text, 1, USUARIO, PASSWORD) Then
+                crearUsuarioBD()
+                MsgBox(VReactivacionCuentaExitosa, vbInformation, VAviso)
+            End If
+        Catch ex As Exception
+            MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub crearUsuarioBD()
+        'Crea el usuario en la base de datos
+        Try
+            controladorAdministrativo.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
+            ClickEnBotonCancelar(toolsMenuAdmin)
+        Catch ex As Exception
+            MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
 End Class

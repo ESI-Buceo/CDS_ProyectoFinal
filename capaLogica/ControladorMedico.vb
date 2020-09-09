@@ -16,7 +16,7 @@ Public Module ControladorMedico
 
     Public Sub GuardarDatosMedico(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                   numero As String, barrio As String, esquina As String, apto As String, fechaNac As String,
-                                  activo As String, telefonos As DataGridView, numeroMedico As String, uid As String, pwd As String)
+                                  telefonos As DataGridView, numeroMedico As String, uid As String, pwd As String)
         'Guarda los datos del medico
         Dim m As New ModeloMedico(uid, pwd)
         m.Documento = docId
@@ -30,7 +30,6 @@ Public Module ControladorMedico
         m.Apartamento = apto
         m.FechaNacimiento = fechaNac
         m.NumeroMedico = numeroMedico
-        m.Activo = activo
         m.Telefonos = cargarGridTelefonosADataTable(telefonos)
         m.GuardarDatosMedico()
     End Sub
@@ -49,10 +48,10 @@ Public Module ControladorMedico
         Return listaTelefonos
     End Function
 
-    Public Function EliminiarMedico(ByVal docIdentidad As String, uid As String, pwd As String)
-        'Elimina logicamente a un medico
+    Public Function CambiarEstadoMedico(ByVal docIdentidad As String, estado As String, uid As String, pwd As String)
+        'Cambia el estado del medico
         Dim m As New ModeloMedico(uid, pwd)
-        Return m.EliminarMedico(docIdentidad)
+        Return m.CambiarEstadoMedico(docIdentidad, estado)
     End Function
 
     Public Sub eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
@@ -115,6 +114,5 @@ Public Module ControladorMedico
         Dim m As New ModeloMedico(uid, pwd)
         Return m.ListarTelefonos(docidentidad)
     End Function
-
 
 End Module

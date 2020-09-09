@@ -28,4 +28,8 @@
         Return label
     End Function
 
+    Private Sub frmListaSintomasPatologia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Text = VListaSintomas
+        btnCerrar.Text = VCerrar
+    End Sub
 End Class

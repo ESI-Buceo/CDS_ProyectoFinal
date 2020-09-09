@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="abril" xml:space="preserve">
+    <value>Abril</value>
+  </data>
+  <data name="acercade" xml:space="preserve">
+    <value>Acerca de ...</value>
+  </data>
+  <data name="activo" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="administrativo" xml:space="preserve">
+    <value>Administrativo</value>
+  </data>
+  <data name="administrativos" xml:space="preserve">
+    <value>Administrativos</value>
+  </data>
+  <data name="agosto" xml:space="preserve">
+    <value>Agosto</value>
+  </data>
+  <data name="agregar" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="ano" xml:space="preserve">
+    <value>Año</value>
+  </data>
+  <data name="apellidos" xml:space="preserve">
+    <value>APELLIDOS</value>
+  </data>
+  <data name="apto" xml:space="preserve">
+    <value>APTO</value>
+  </data>
+  <data name="aviso" xml:space="preserve">
+    <value>Aviso</value>
+  </data>
+  <data name="avisoalerta" xml:space="preserve">
+    <value>Confirmación de Acción</value>
+  </data>
+  <data name="avisoerror" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ayuda" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="barrio" xml:space="preserve">
+    <value>BARRIO</value>
+  </data>
+  <data name="borrar" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="buscar" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="busqueda" xml:space="preserve">
+    <value>Búsqueda</value>
+  </data>
+  <data name="cambiopass" xml:space="preserve">
+    <value>Cambio de contraseña</value>
+  </data>
+  <data name="cambiopasswordfailed" xml:space="preserve">
+    <value>Error al cambiar la contraseña</value>
+  </data>
+  <data name="cambiopasswordsuccess" xml:space="preserve">
+    <value>Se cambio correctamente la contraseña</value>
+  </data>
+  <data name="cancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="cerrar" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="confirmar" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="datos" xml:space="preserve">
+    <value>Datos</value>
+  </data>
+  <data name="datosguardadosconexito" xml:space="preserve">
+    <value>Datos guardados con exito</value>
+  </data>
+  <data name="descripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="destino" xml:space="preserve">
+    <value>Destino</value>
+  </data>
+  <data name="diagnosticos" xml:space="preserve">
+    <value>Diagnósticos</value>
+  </data>
+  <data name="diagnosticosgenerados" xml:space="preserve">
+    <value>Diagnósticos Generados</value>
+  </data>
+  <data name="diciembre" xml:space="preserve">
+    <value>Diciembre</value>
+  </data>
+  <data name="direccion" xml:space="preserve">
+    <value>DIRECCION</value>
+  </data>
+  <data name="docidentidad" xml:space="preserve">
+    <value>Documento de Identidad</value>
+  </data>
+  <data name="documento" xml:space="preserve">
+    <value>DOCUMENTO</value>
+  </data>
+  <data name="documentoexiste" xml:space="preserve">
+    <value>El documento ingresado ya existe. Verifica el número</value>
+  </data>
+  <data name="elsistomayaexiste" xml:space="preserve">
+    <value>El síntoma ya existe</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>EMAIL</value>
+  </data>
+  <data name="emergencia" xml:space="preserve">
+    <value>Emergencia</value>
+  </data>
+  <data name="enero" xml:space="preserve">
+    <value>Enero</value>
+  </data>
+  <data name="enfermedades" xml:space="preserve">
+    <value>Enfermedades</value>
+  </data>
+  <data name="erroracceso" xml:space="preserve">
+    <value>Error de acceso</value>
+  </data>
+  <data name="erroralguardardatos" xml:space="preserve">
+    <value>Error al guardar los datos</value>
+  </data>
+  <data name="errorborrarregistro" xml:space="preserve">
+    <value>Error al borrar el registro</value>
+  </data>
+  <data name="errorcrearusuario" xml:space="preserve">
+    <value>Error al crear el usuario en la base de datos</value>
+  </data>
+  <data name="errorexportardatos" xml:space="preserve">
+    <value>Error al exportar datos</value>
+  </data>
+  <data name="errorrecuperardatos" xml:space="preserve">
+    <value>Error al recuperar los datos</value>
+  </data>
+  <data name="errorverificardocumento" xml:space="preserve">
+    <value>Error al verificar el documento</value>
+  </data>
+  <data name="esquina" xml:space="preserve">
+    <value>ESQUINA</value>
+  </data>
+  <data name="exportarabasededatos" xml:space="preserve">
+    <value>Exportar a BD</value>
+  </data>
+  <data name="faltandatosrequeridos" xml:space="preserve">
+    <value>Faltan datos requeridos o hay datos incorrectos, verifica...</value>
+  </data>
+  <data name="febrero" xml:space="preserve">
+    <value>Febrero</value>
+  </data>
+  <data name="fecha" xml:space="preserve">
+    <value>FECHA</value>
+  </data>
+  <data name="fechanacimiento" xml:space="preserve">
+    <value>FECHA NAC.</value>
+  </data>
+  <data name="guardar" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="importarcsv" xml:space="preserve">
+    <value>Importar datos de archivo CSV</value>
+  </data>
+  <data name="informacionpatologias" xml:space="preserve">
+    <value>Información Patologías</value>
+  </data>
+  <data name="informechat" xml:space="preserve">
+    <value>Informe de Chats</value>
+  </data>
+  <data name="informediagnosticosgenerados" xml:space="preserve">
+    <value>Informe de Diagnósticos Generados</value>
+  </data>
+  <data name="informes" xml:space="preserve">
+    <value>Informes</value>
+  </data>
+  <data name="informeuso" xml:space="preserve">
+    <value>Informe de Diagnósticos</value>
+  </data>
+  <data name="ingresar" xml:space="preserve">
+    <value>Ingresar</value>
+  </data>
+  <data name="julio" xml:space="preserve">
+    <value>Julio</value>
+  </data>
+  <data name="junio" xml:space="preserve">
+    <value>Junio</value>
+  </data>
+  <data name="listademedicos" xml:space="preserve">
+    <value>LISTA DE MEDICOS</value>
+  </data>
+  <data name="listamedicos" xml:space="preserve">
+    <value>Listar médicos</value>
+  </data>
+  <data name="listapacientes" xml:space="preserve">
+    <value>Lista de pacientes</value>
+  </data>
+  <data name="listapatologias" xml:space="preserve">
+    <value>Lista de patologías</value>
+  </data>
+  <data name="listartodos" xml:space="preserve">
+    <value>Listar Todos</value>
+  </data>
+  <data name="listasintomas" xml:space="preserve">
+    <value>Lista de síntomas</value>
+  </data>
+  <data name="loginincorrecto" xml:space="preserve">
+    <value>Documento de identidad o contraseña incorrectos, verifica</value>
+  </data>
+  <data name="logsistema" xml:space="preserve">
+    <value>Log del sistema</value>
+  </data>
+  <data name="marzo" xml:space="preserve">
+    <value>Marzo</value>
+  </data>
+  <data name="mayo" xml:space="preserve">
+    <value>Mayo</value>
+  </data>
+  <data name="medico" xml:space="preserve">
+    <value>Médico</value>
+  </data>
+  <data name="medicos" xml:space="preserve">
+    <value>Médicos</value>
+  </data>
+  <data name="mes" xml:space="preserve">
+    <value>Mes</value>
+  </data>
+  <data name="mesanoconsulta" xml:space="preserve">
+    <value>Mes y Año de Consulta</value>
+  </data>
+  <data name="meses" xml:space="preserve">
+    <value>Meses</value>
+  </data>
+  <data name="modificar" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="nombres" xml:space="preserve">
+    <value>NOMBRES</value>
+  </data>
+  <data name="noviembre" xml:space="preserve">
+    <value>Noviembre</value>
+  </data>
+  <data name="nueva" xml:space="preserve">
+    <value>Nueva</value>
+  </data>
+  <data name="nuevopassword" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="numero" xml:space="preserve">
+    <value>Nº:</value>
+  </data>
+  <data name="numeroempelado" xml:space="preserve">
+    <value>Nº EMPLEADO</value>
+  </data>
+  <data name="numeromedico" xml:space="preserve">
+    <value>Nº MEDICO</value>
+  </data>
+  <data name="octubre" xml:space="preserve">
+    <value>Octubre</value>
+  </data>
+  <data name="origendestino" xml:space="preserve">
+    <value>Origen y Destino</value>
+  </data>
+  <data name="otrosdatos" xml:space="preserve">
+    <value>Otros datos</value>
+  </data>
+  <data name="paciente" xml:space="preserve">
+    <value>Paciente</value>
+  </data>
+  <data name="pacientes" xml:space="preserve">
+    <value>Pacientes</value>
+  </data>
+  <data name="parametros" xml:space="preserve">
+    <value>Parametros</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="patologias" xml:space="preserve">
+    <value>Patologías</value>
+  </data>
+  <data name="patologiasporsintoma" xml:space="preserve">
+    <value>Patologías por síntoma</value>
+  </data>
+  <data name="ponderacion" xml:space="preserve">
+    <value>Ponderación</value>
+  </data>
+  <data name="preexistentes" xml:space="preserve">
+    <value>Pre-existentes</value>
+  </data>
+  <data name="rankingdepatologias" xml:space="preserve">
+    <value>Ranking de patologías</value>
+  </data>
+  <data name="recuperar" xml:space="preserve">
+    <value>Recuperar</value>
+  </data>
+  <data name="registroeleminado" xml:space="preserve">
+    <value>Registro eliminado correctamente !</value>
+  </data>
+  <data name="renuevopassword" xml:space="preserve">
+    <value>Reescribe la contraseña</value>
+  </data>
+  <data name="salir" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="segurodeeliminiar" xml:space="preserve">
+    <value>Seguro de eliminar el registro?</value>
+  </data>
+  <data name="seleccionaelinforme" xml:space="preserve">
+    <value>Selecciona el Informe</value>
+  </data>
+  <data name="setiembre" xml:space="preserve">
+    <value>Setiembre</value>
+  </data>
+  <data name="si" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="sintomas" xml:space="preserve">
+    <value>Síntomas</value>
+  </data>
+  <data name="sinurgencia" xml:space="preserve">
+    <value>Sin Urgencia</value>
+  </data>
+  <data name="softwaregestionmedica" xml:space="preserve">
+    <value>Software de Gestión Médica</value>
+  </data>
+  <data name="soloactivos" xml:space="preserve">
+    <value>Solo Activos</value>
+  </data>
+  <data name="soloinactivos" xml:space="preserve">
+    <value>Solo Inactivos</value>
+  </data>
+  <data name="subitutlodiagnosticosgenerados" xml:space="preserve">
+    <value>Informe de diagnósticos generados en los últimos 12 meses móviles</value>
+  </data>
+  <data name="subtituloinfochatmes" xml:space="preserve">
+    <value>Chat generados en el mes requerido</value>
+  </data>
+  <data name="subtituloinfochatmeses" xml:space="preserve">
+    <value>Chat registrados en los últimos 12 meses móviles</value>
+  </data>
+  <data name="telefonos" xml:space="preserve">
+    <value>Teléfonos</value>
+  </data>
+  <data name="tituloinfochat" xml:space="preserve">
+    <value>Chat Generados</value>
+  </data>
+  <data name="toolbotonagregar" xml:space="preserve">
+    <value>Habilita el ingreso de un nuevo registro</value>
+  </data>
+  <data name="toolbotonborrar" xml:space="preserve">
+    <value>Borrar el registro en pantalla</value>
+  </data>
+  <data name="toolbotonbuscar" xml:space="preserve">
+    <value>Buscar por el nombre ingresado</value>
+  </data>
+  <data name="toolbotoncancelar" xml:space="preserve">
+    <value>Cancela los cambios</value>
+  </data>
+  <data name="toolbotonguardar" xml:space="preserve">
+    <value>Guarda los cambios</value>
+  </data>
+  <data name="toolbotonmodificar" xml:space="preserve">
+    <value>Habilita la modificación de una patología</value>
+  </data>
+  <data name="toolbotonnueva" xml:space="preserve">
+    <value>Inicia una nueva búsqueda</value>
+  </data>
+  <data name="urgencia" xml:space="preserve">
+    <value>Urgencia</value>
+  </data>
+  <data name="urgenciamenor" xml:space="preserve">
+    <value>Urgencia Menor</value>
+  </data>
+  <data name="verinformes" xml:space="preserve">
+    <value>Ver Informes</value>
+  </data>
+  <data name="verMedico" xml:space="preserve">
+    <value>Ver Médico</value>
+  </data>
+  <data name="verpatologia" xml:space="preserve">
+    <value>Ver Patología</value>
+  </data>
+  <data name="cantidad" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="habilitado" xml:space="preserve">
+    <value>Habilitado</value>
+  </data>
+  <data name="patologiasdiagnosticadas" xml:space="preserve">
+    <value>Patologías mas diagnosticadas, últimos 12 meses</value>
+  </data>
+  <data name="alertacambioidioma" xml:space="preserve">
+    <value>Este cambio requiere reiniciar la aplicación, seguro de continuar?</value>
+  </data>
+  <data name="cantidaddesintomas" xml:space="preserve">
+    <value>Cantidad de síntomas</value>
+  </data>
+  <data name="desccantidadsintomas" xml:space="preserve">
+    <value>Esta opción permite establecer la cantidad mínima de síntomas que debe ingrear un paciente para poder recibir un diagnóstico primario</value>
+  </data>
+  <data name="descidiomadelsistema" xml:space="preserve">
+    <value>Idioma del sistema, este cambio requiere reiniciar la aplicación.</value>
+  </data>
+  <data name="en" xml:space="preserve">
+    <value>Ingles</value>
+  </data>
+  <data name="es" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="idiomasistema" xml:space="preserve">
+    <value>Idioma del Sistema</value>
+  </data>
+  <data name="lenguaje" xml:space="preserve">
+    <value>Lenguaje</value>
+  </data>
+  <data name="cantidadchatrealizados" xml:space="preserve">
+    <value>Cantidad de chat realizados</value>
+  </data>
+  <data name="cantidaddiagnosticosrecibidos" xml:space="preserve">
+    <value>Cantidad de diagnósticos recibidos</value>
+  </data>
+  <data name="chat" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="chats" xml:space="preserve">
+    <value>Chats</value>
+  </data>
+  <data name="datosestadisticos" xml:space="preserve">
+    <value>Datos Estadísticos</value>
+  </data>
+  <data name="historicodechats" xml:space="preserve">
+    <value>Histórico de Chats</value>
+  </data>
+  <data name="registroshistoricos" xml:space="preserve">
+    <value>Registros Históricos</value>
+  </data>
+  <data name="sesion" xml:space="preserve">
+    <value>Sesión</value>
+  </data>
+  <data name="verchat" xml:space="preserve">
+    <value>Ver Chat</value>
+  </data>
+  <data name="errorborrarusuario" xml:space="preserve">
+    <value>Error el intentar borrar el usuario</value>
+  </data>
+  <data name="opcionagregartelefono" xml:space="preserve">
+    <value>Permite el ingreso de un nuevo telefono</value>
+  </data>
+  <data name="opcioneliminartelefono" xml:space="preserve">
+    <value>Elimina el telefono seleccionado en la lista</value>
+  </data>
+  <data name="opcionestelefonos" xml:space="preserve">
+    <value>Opciones de telefonos</value>
+  </data>
+  <data name="confirmarreactivarregistro" xml:space="preserve">
+    <value>Estas seguro de reactivar la cuenta?</value>
+  </data>
+  <data name="usuariorestauradoexito" xml:space="preserve">
+    <value>La cuenta se ha re activado con exito !</value>
+  </data>
+  <data name="patologiareactivadaconexito" xml:space="preserve">
+    <value>Patologia reactivada con exito</value>
+  </data>
+  <data name="segurodereactivarpatologia" xml:space="preserve">
+    <value>Estas seguro de reactivar la patologia?</value>
+  </data>
+  <data name="reactivar" xml:space="preserve">
+    <value>Reactivar</value>
+  </data>
+  <data name="toolbotonreactivar" xml:space="preserve">
+    <value>Reactiva la cuenta en pantalla</value>
+  </data>
+  <data name="usuario" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="listaadministrativos" xml:space="preserve">
+    <value>Lista de Administrativos</value>
+  </data>
+  <data name="faltandatosarapoderimportar" xml:space="preserve">
+    <value>Faltan datos para poder importar </value>
+  </data>
+  <data name="formatoincorrectoparaimportar" xml:space="preserve">
+    <value>Formato incorrecto para importar</value>
+  </data>
+  <data name="importacionexitosa" xml:space="preserve">
+    <value>Los datos se importaron correctamente</value>
+  </data>
+</root>

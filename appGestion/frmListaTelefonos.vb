@@ -3,7 +3,8 @@
         Me.Dispose()
     End Sub
 
-    Private Sub dgvListaTelefonos_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListaTelefonos.CellContentClick
-
+    Private Sub frmListaTelefonos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dgvListaTelefonos.Columns(0).HeaderText = VTelefonos
+        btnCerrar.Text = VCerrar
     End Sub
 End Class

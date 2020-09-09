@@ -156,4 +156,14 @@ Public Module ControladorDiagnostico
         Return txtMensaje
     End Function
 
+    Public Function TraerDiagnosticos(ByVal uid As String, pwd As String, documento As String)
+        Dim d As New ModeloDiagnostico(uid, pwd)
+        Return d.TraerDiagnosticos(documento)
+    End Function
+
+    Public Function CantidadDeDiagnosticos(ByVal uid As String, pwd As String, documento As String)
+        Dim d As New ModeloDiagnostico(uid, pwd)
+        Return d.cantidadDeDiagnosticos(documento)
+    End Function
+
 End Module

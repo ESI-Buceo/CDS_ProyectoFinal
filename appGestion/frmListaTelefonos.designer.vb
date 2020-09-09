@@ -26,8 +26,8 @@ Partial Class frmListaTelefonos
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dgvListaTelefonos = New System.Windows.Forms.DataGridView()
-        Me.btnCerrar = New System.Windows.Forms.Button()
         Me.colTelefono = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnCerrar = New System.Windows.Forms.Button()
         CType(Me.dgvListaTelefonos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -60,15 +60,6 @@ Partial Class frmListaTelefonos
         Me.dgvListaTelefonos.Size = New System.Drawing.Size(312, 294)
         Me.dgvListaTelefonos.TabIndex = 0
         '
-        'btnCerrar
-        '
-        Me.btnCerrar.Location = New System.Drawing.Point(211, 310)
-        Me.btnCerrar.Name = "btnCerrar"
-        Me.btnCerrar.Size = New System.Drawing.Size(106, 37)
-        Me.btnCerrar.TabIndex = 1
-        Me.btnCerrar.Text = "Cerrar"
-        Me.btnCerrar.UseVisualStyleBackColor = True
-        '
         'colTelefono
         '
         Me.colTelefono.DataPropertyName = "telefono"
@@ -78,6 +69,15 @@ Partial Class frmListaTelefonos
         Me.colTelefono.Name = "colTelefono"
         Me.colTelefono.ReadOnly = True
         Me.colTelefono.Width = 180
+        '
+        'btnCerrar
+        '
+        Me.btnCerrar.Location = New System.Drawing.Point(211, 310)
+        Me.btnCerrar.Name = "btnCerrar"
+        Me.btnCerrar.Size = New System.Drawing.Size(106, 37)
+        Me.btnCerrar.TabIndex = 1
+        Me.btnCerrar.Text = "Cerrar"
+        Me.btnCerrar.UseVisualStyleBackColor = True
         '
         'frmListaTelefonos
         '

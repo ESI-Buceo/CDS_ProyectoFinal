@@ -64,11 +64,11 @@ Public Module controladorPacientes
         Return TablaPreExistentes
     End Function
 
-    Public Sub EliminiarPaciente(ByVal docIdentidad As String, uid As String, pwd As String)
+    Public Function CambiarEstadoPaciente(ByVal docIdentidad As String, estado As String, uid As String, pwd As String)
         'Elimina logicamente a un medico
         Dim p As New ModeloPaciente(uid, pwd)
-        p.EliminarPaciente(docIdentidad)
-    End Sub
+        Return p.CambiarEstadoPaciente(docIdentidad, estado)
+    End Function
 
     Public Function buscarPacientePorDocumento(ByVal docIdentidad As String, uid As String, pwd As String)
         'Busca medico por documento

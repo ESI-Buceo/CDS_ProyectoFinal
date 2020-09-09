@@ -17,12 +17,10 @@ Public Module ControladorPatologias
         p.GuaradrPatologia()
     End Sub
 
-    Public Sub BorrarPatologia(id As Integer, uid As String, pwd As String)
+    Public Sub cambiarEstadoPatologia(id As Integer, estado As String, uid As String, pwd As String)
         'ELimina logicamene la patologia
         Dim p As New ModeloPatologia(uid, pwd)
-        p.Id = id
-        p.EliminarPatologia()
-
+        p.CambiarEstadoPatologia(id, estado)
     End Sub
 
     Public Function ListarPatologias(ByVal nombre As String, uid As String, pwd As String) As DataTable
@@ -85,5 +83,23 @@ Public Module ControladorPatologias
     Public Function ListaDePatologias(ByVal activo As String, uid As String, pwd As String)
         Dim p As New ModeloPatologia(uid, pwd)
         Return p.listarPatologias(activo)
+    End Function
+
+    Public Sub ExportarDatosADB(ByVal uid As String, pwd As String, datos As DataGridView)
+        'Guarda informacion en la base de datos
+        Dim p As New ModeloPatologia(uid, pwd)
+        For f = 0 To datos.Rows.Count - 1
+            p.Id = 0
+            p.Nombre = datos.Item(0, f).Value.ToString
+            p.Ponderacion = datos(1, f).Value.ToString
+            p.Descripcion = datos(2, f).Value.ToString
+            p.GuaradrPatologia()
+        Next
+    End Sub
+
+    Public Function ListarPatologiasPorDiagnostico(ByVal uid As String, pwd As String, idDiagnostico As String)
+        'Recuepera las patologias quue conforman un diagnostico
+        Dim p As New ModeloPatologia(uid, pwd)
+        Return p.ListarPatologiasDeDiagnostico(idDiagnostico)
     End Function
 End Module

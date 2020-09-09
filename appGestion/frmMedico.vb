@@ -9,7 +9,6 @@ Public Class frmMedico
         agregar = True
         habilitarDocumento()
         colorearDocumento()
-        chkActivo.Visible = False
         vaciarControles()
         controlAgregarActivo()
         habilitarControlesDeEdicion()
@@ -18,7 +17,6 @@ Public Class frmMedico
 
     Private Sub controlAgregarActivo()
         agregar = True
-        chkActivo.Visible = False
     End Sub
 
     Private Sub colorearDocumento()
@@ -28,14 +26,13 @@ Public Class frmMedico
 
     Private Sub habilitarDocumento()
         'habilita el textbox de documento para un nuevo ingreso
-        txtDocIdentidad.ReadOnly = False
         txtDocIdentidad.Enabled = True
         txtDocIdentidad.Select()
     End Sub
 
     Private Sub deshablitaDocumento()
         'Deshabilita el textbox de documento
-        txtDocIdentidad.ReadOnly = True
+        txtDocIdentidad.Enabled = False
     End Sub
 
     Private Sub crearTablaTelefonoParaDataGrid()
@@ -49,7 +46,6 @@ Public Class frmMedico
         dgvListaTelefonos.Enabled = True
         btnAgregarTelefono.Enabled = True
         btnEliminarTelefono.Enabled = True
-        txtDocIdentidad.ReadOnly = False
         colorearCamposRequeridos()
     End Sub
 
@@ -58,7 +54,6 @@ Public Class frmMedico
         dgvListaTelefonos.Enabled = False
         btnAgregarTelefono.Enabled = False
         btnEliminarTelefono.Enabled = False
-        txtDocIdentidad.ReadOnly = True
         agregar = False
         restaurarColorCampos()
     End Sub
@@ -68,9 +63,18 @@ Public Class frmMedico
         If ControladorValidaciones.validarFormatoDocumento(txtDocIdentidad.Text) And ControladorValidaciones.validarNombres(txtNombres.Text) _
             And ControladorValidaciones.validarApellidos(txtApellidos.Text) And ControladorValidaciones.ValidarEmail(txtEmail.Text) _
             And ControladorValidaciones.ValidarFechaNacimiento(dtpFechaNac.Value) And ControladorValidaciones.ValidarNumeroMedico(txtNumMedico.Text) Then
-            guardarDatosDelMedico()
+            validarSiEsNuevo()
         Else
-            MsgBox("Faltan datos requeridos o hay datos incorrectos, verifica.", vbInformation, "Aviso")
+            MsgBox(VFaltanDatosRequeridos, vbInformation, VAviso)
+        End If
+    End Sub
+
+    Private Sub validarSiEsNuevo()
+        'Si es nuevo verifica que el documento no este registrado
+        If agregar Then
+            validarDocumentoDeIdentidad()
+        Else
+            guardarDatosDelMedico()
         End If
     End Sub
 
@@ -79,19 +83,18 @@ Public Class frmMedico
         Try
             ControladorMedico.GuardarDatosMedico(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
                                txtCalle.Text, txtNumeroCalle.Text, txtBarrio.Text, txtEsquina.Text, txtApto.Text,
-                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), chkActivo.CheckState, dgvListaTelefonos,
-                               txtNumMedico.Text, USUARIO, PASSWORD)
+                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), dgvListaTelefonos, txtNumMedico.Text, USUARIO, PASSWORD)
             opcionesMenu.ClickEnBotonGuardar(toolsMenuMedico)
             guardadoConExito()
             deshabilitarControlesDeEdicion()
         Catch ex As Exception
-            MsgBox("Error al guardar los datos del medico")
+            MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
     End Sub
 
     Private Sub guardadoConExito()
         'Mensaje de guardo con exito
-        MsgBox("Datos guardado con exito", vbInformation, "Aviso")
+        MsgBox(VDatosGuardadosConExito, vbInformation, VAviso)
         deshablitaDocumento()
         restaurarColorCampos()
         agregarUsuarioABD()
@@ -103,7 +106,7 @@ Public Class frmMedico
             Try
                 ControladorMedico.crearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
             Catch ex As Exception
-                MsgBox("Error al crear el usuario en la base de datos", vbCritical, "ERROR")
+                MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
             End Try
         End If
     End Sub
@@ -116,11 +119,9 @@ Public Class frmMedico
     Private Sub mnuBtnCancelar_Click(sender As Object, e As EventArgs) Handles mnuBtnCancelar.Click
         'Cancela la operacion
         opcionesMenu.ClickEnBotonCancelar(toolsMenuMedico)
-        agregar = False
         deshablitaDocumento()
         deshabilitarControlesDeEdicion()
         tabOpcionesMedico.SelectTab(tabDatos)
-        desactivarCheckActivo()
     End Sub
 
     Private Sub mnuBtnNueva_Click(sender As Object, e As EventArgs) Handles mnuBtnNueva.Click
@@ -151,7 +152,7 @@ Public Class frmMedico
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
         'Borra el registro del medico en pantalla
         Dim respuesta As Integer
-        respuesta = MsgBox("Seguro de eliminar el medico?", vbQuestion & vbYesNo, "Confirmar eliminacion")
+        respuesta = MsgBox(VseguroEliminiarRegistro, vbQuestion & vbYesNo, VAvisoAlerta)
         If respuesta = 6 Then
             borrarMedico()
         End If
@@ -160,13 +161,13 @@ Public Class frmMedico
     Private Sub borrarMedico()
         'Procesa baja de medico
         Try
-            If ControladorMedico.EliminiarMedico(txtDocIdentidad.Text, USUARIO, PASSWORD) Then
+            If ControladorMedico.CambiarEstadoMEdico(txtDocIdentidad.Text, 0, USUARIO, PASSWORD) Then
                 opcionesMenu.ClickEnBotonBorrar(toolsMenuMedico)
-                MsgBox("Medico eliminado con exito !", vbInformation, "Aviso")
+                MsgBox(VRegistroEliminado, vbInformation, VAviso)
                 eliminarMedicoDeBD()
             End If
         Catch ex As Exception
-            MsgBox("Error al eliminar el medico", vbCritical, "Aviso")
+            MsgBox(VErrorBorrarRegistro, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -174,8 +175,9 @@ Public Class frmMedico
         'Elimina el usuario de la base de datos
         Try
             ControladorMedico.eliminiarUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
+            validarBotonBorrar(0)
         Catch ex As Exception
-            MsgBox("No se puedo eliminiar el usuario de la base de datos", vbCritical, "ERROR")
+            MsgBox(VErrorBorrarRegistro, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -185,15 +187,6 @@ Public Class frmMedico
         habilitarControlesDeEdicion()
         deshablitaDocumento()
         agregar = False
-        activarCheckActivo()
-    End Sub
-
-    Private Sub activarCheckActivo()
-        chkActivo.Enabled = True
-    End Sub
-
-    Private Sub desactivarCheckActivo()
-        chkActivo.Enabled = False
     End Sub
 
     Private Sub colorearCamposRequeridos()
@@ -240,17 +233,23 @@ Public Class frmMedico
             validarBotonBorrar(dgvListaMedicos.Item(6, e.RowIndex).Value)
             txtNombres.Select()
         Catch ex As Exception
-            MsgBox("Error al cargar los datos del usuario", vbExclamation, "Aviso")
+            MsgBox(VErrorRecuperarDatos, vbExclamation, VAvisoError)
         End Try
     End Sub
 
     Private Sub validarBotonBorrar(ByVal activo As String)
-        'Si ya esta eliminado el boton queda deshabilitado
+        'Acciones de los bontones al borrar registro
         If activo = 0 Then
             mnuBtnBorrar.Enabled = False
-            chkActivo.Visible = True
+            mnuBtnModificar.Enabled = False
+            mnuReactivar.Enabled = True
+            mnuBtnCancelar.Enabled = False
+            mnuBtnNueva.Enabled = True
+            mnuBtnAgregar.Enabled = True
         Else
-            chkActivo.Visible = False
+            mnuBtnCancelar.Enabled = True
+            mnuBtnModificar.Enabled = True
+            mnuReactivar.Enabled = False
         End If
     End Sub
 
@@ -268,7 +267,6 @@ Public Class frmMedico
         txtApto.Text = datosDelMedico.Rows(0).Item("apto").ToString
         txtEsquina.Text = datosDelMedico.Rows(0).Item("esquina").ToString
         txtBarrio.Text = datosDelMedico.Rows(0).Item("barrio").ToString
-        chkActivo.CheckState = datosDelMedico.Rows(0).Item("activo").ToString
         cargarTelefonos(datosDelMedico)
     End Sub
 
@@ -325,7 +323,8 @@ Public Class frmMedico
             colorearEliminados(dgvListaMedicos)
             crearTablaTelefonoParaDataGrid()
         Catch ex As Exception
-            MsgBox("Error al buscar medico", vbCritical, "Error")
+            MsgBox(ex.Message)
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -342,11 +341,13 @@ Public Class frmMedico
         'Verifica si ya existe el documento en la bd
         Try
             If ControladorMedico.VarificarDocumentoDeIdentidad(txtDocIdentidad.Text, USUARIO, PASSWORD) IsNot Nothing Then
-                MsgBox("El documento ingresado ya existe. No se puede continuar", vbInformation, "AVISO")
-                cancelarProcesoDeIngreso()
+                MsgBox(VDocumentoExiste, vbInformation, VAviso)
+                txtDocIdentidad.Select()
+            Else
+                guardarDatosDelMedico()
             End If
         Catch ex As Exception
-            MsgBox("Error al verificar el documento", vbCritical, "Error")
+            MsgBox(VErrorVerificarDocumento, vbCritical, VAvisoError)
             cancelarProcesoDeIngreso()
         End Try
     End Sub
@@ -356,10 +357,92 @@ Public Class frmMedico
         deshablitaDocumento()
         deshabilitarControlesDeEdicion()
         vaciarControles()
+        agregar = False
     End Sub
 
-    Private Sub txtDocIdentidad_LostFocus(sender As Object, e As EventArgs) Handles txtDocIdentidad.LostFocus
-        If agregar Then validarDocumentoDeIdentidad()
+    Private Sub frmMedico_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargarTexto()
     End Sub
 
+    Private Sub cargarTexto()
+        mnuBtnAgregar.Text = VAgregar
+        mnuBtnAgregar.ToolTipText = VToolBotonAgregar
+        mnuBtnGuardar.Text = VGuardar
+        mnuBtnGuardar.ToolTipText = VToolBotonGuardar
+        mnuBtnCancelar.Text = VCancelar
+        mnuBtnCancelar.ToolTipText = VToolBotonCancelar
+        mnuBtnNueva.Text = VNueva
+        mnuBtnNueva.ToolTipText = VToolBotonNueva
+        mnuBtnBuscar.Text = VBuscar
+        mnuBtnBuscar.ToolTipText = VToolBotonBuscar
+        mnuBtnBorrar.Text = VBorrar
+        mnuBtnBorrar.ToolTipText = VToolBotonBorrar
+        mnuBtnModificar.Text = VModificar
+        mnuBtnModificar.ToolTipText = VToolBotonModificar
+        mnuReactivar.Text = VReactivar
+        mnuReactivar.ToolTipText = VToolsBotonReactivar
+        tttTelefono.ToolTipTitle = VOpcionesTelefonos
+        tttTelefono.SetToolTip(btnAgregarTelefono, VOpcionAgregarTelefono)
+        tttTelefono.SetToolTip(btnEliminarTelefono, VOpcinoEliminarTelefono)
+        tabDatos.Text = VDato
+        tabMedicoBusqueda.Text = VBusqueda
+        lblDocIdentidad.Text = VDocumento
+        lblFechaReg.Text = VFecha
+        lblFechaNacM.Text = VFechaNac
+        lblNumeroMedico.Text = VNumeroMedico
+        lblNombreM.Text = VNombres
+        lblApellidosM.Text = VApellidos
+        lblEmailM.Text = VEmail
+        lblOtrosDatos.Text = VOtrosDatos.ToUpper
+        lblDireccionM.Text = VDireccion
+        lblNumeroCalleM.Text = VNum
+        lblAptoM.Text = VApto
+        lblEsquinaM.Text = VEsquina
+        lblBarrioM.Text = VBarrio
+        lblTelefonos.Text = VTelefonos.ToUpper
+        dgvListaTelefonos.Columns(0).HeaderText = VTelefonos
+        dgvListaMedicos.Columns(0).HeaderText = VDocumento
+        dgvListaMedicos.Columns(1).HeaderText = VNumeroMedico
+        dgvListaMedicos.Columns(2).HeaderText = VNombres
+        dgvListaMedicos.Columns(3).HeaderText = VApellidos
+        dgvListaMedicos.Columns(4).HeaderText = VEmail
+        dgvListaMedicos.Columns(5).HeaderText = VFecha
+        Me.Text = VMedico.ToUpper
+    End Sub
+
+    Private Sub confirmarReActivacionMedico()
+        'Solicita confirmacion para reactivar el medico
+        Dim respuesta As Integer
+        respuesta = MsgBox(VSeguroReactivarCuenta, vbQuestion & vbYesNo, VAvisoAlerta)
+        If respuesta = 6 Then
+            reactivarCuentaMedico()
+        End If
+    End Sub
+
+    Private Sub reactivarCuentaMedico()
+        'Ejecuta el proceso de reactivacion del medico
+        Try
+            If ControladorMedico.CambiarEstadoMedico(txtDocIdentidad.Text, 1, USUARIO, PASSWORD) Then
+                crearUsuarioBD()
+                MsgBox(VReactivacionCuentaExitosa, vbInformation, VAviso)
+            End If
+        Catch ex As Exception
+            MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub crearUsuarioBD()
+        'Crea el usuario en la base de datos
+        Try
+            ControladorMedico.crearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
+            ClickEnBotonCancelar(toolsMenuMedico)
+        Catch ex As Exception
+            MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub mnuReactivar_Click(sender As Object, e As EventArgs) Handles mnuReactivar.Click
+        ClickEnBotonReactivar(toolsMenuMedico)
+        confirmarReActivacionMedico()
+    End Sub
 End Class

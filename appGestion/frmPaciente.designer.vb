@@ -23,24 +23,13 @@ Partial Class frmPaciente
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPaciente))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.toolsMenuPaciente = New System.Windows.Forms.ToolStrip()
-        Me.mnuBtnAgregar = New System.Windows.Forms.ToolStripButton()
-        Me.tabSeparador = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuBtnGuardar = New System.Windows.Forms.ToolStripButton()
-        Me.tabSeparador1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuBtnCancelar = New System.Windows.Forms.ToolStripButton()
-        Me.tabSeperador2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuBtnNueva = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuBtnBuscar = New System.Windows.Forms.ToolStripButton()
-        Me.tabSeparador3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuBtnBorrar = New System.Windows.Forms.ToolStripButton()
-        Me.tabSeparador4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.picEncabezado = New System.Windows.Forms.PictureBox()
         Me.tabOpcionesPaciente = New System.Windows.Forms.TabControl()
         Me.tabDatos = New System.Windows.Forms.TabPage()
@@ -48,7 +37,7 @@ Partial Class frmPaciente
         Me.btnAgregarEnfermedad = New System.Windows.Forms.Button()
         Me.dgvListaPreExistentes = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblEnfermedades = New System.Windows.Forms.Label()
         Me.btnEliminarTelefono = New System.Windows.Forms.Button()
         Me.btnAgregarTelefono = New System.Windows.Forms.Button()
         Me.chkActivo = New System.Windows.Forms.CheckBox()
@@ -75,7 +64,7 @@ Partial Class frmPaciente
         Me.lblNumeroCalleM = New System.Windows.Forms.Label()
         Me.lblDireccionM = New System.Windows.Forms.Label()
         Me.lblApellidosM = New System.Windows.Forms.Label()
-        Me.lnlNombreM = New System.Windows.Forms.Label()
+        Me.lblNombres = New System.Windows.Forms.Label()
         Me.lblFechaReg = New System.Windows.Forms.Label()
         Me.lblDocIdentidad = New System.Windows.Forms.Label()
         Me.tabBusqueda = New System.Windows.Forms.TabPage()
@@ -86,7 +75,42 @@ Partial Class frmPaciente
         Me.colEmail = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFechRegistro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.toolsMenuPaciente.SuspendLayout()
+        Me.tabHistoria = New System.Windows.Forms.TabPage()
+        Me.gbVerChat = New System.Windows.Forms.GroupBox()
+        Me.rtbMensajes = New System.Windows.Forms.RichTextBox()
+        Me.gbListaDiagnosticos = New System.Windows.Forms.GroupBox()
+        Me.dgvHistoriaDiagnosticos = New System.Windows.Forms.DataGridView()
+        Me.colDiagnostico = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFechaDiagnostico = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colPonderacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.gbHistoricoChats = New System.Windows.Forms.GroupBox()
+        Me.dgvHistoriaChat = New System.Windows.Forms.DataGridView()
+        Me.colFecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colIDSesion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colMedico = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.gbEstadisticas = New System.Windows.Forms.GroupBox()
+        Me.txtCantChat = New System.Windows.Forms.TextBox()
+        Me.lblDetChatRealizados = New System.Windows.Forms.Label()
+        Me.lblChats = New System.Windows.Forms.Label()
+        Me.txtCantDiag = New System.Windows.Forms.TextBox()
+        Me.lblDescCantDiag = New System.Windows.Forms.Label()
+        Me.lblDiagnosticos = New System.Windows.Forms.Label()
+        Me.toolsMenuPaciente = New System.Windows.Forms.ToolStrip()
+        Me.mnuBtnAgregar = New System.Windows.Forms.ToolStripButton()
+        Me.tabSeparador = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnGuardar = New System.Windows.Forms.ToolStripButton()
+        Me.tabSeparador1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnCancelar = New System.Windows.Forms.ToolStripButton()
+        Me.tabSeperador2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnNueva = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnBuscar = New System.Windows.Forms.ToolStripButton()
+        Me.tabSeparador3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnBorrar = New System.Windows.Forms.ToolStripButton()
+        Me.tabSeparador4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuReactivar = New System.Windows.Forms.ToolStripButton()
+        Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabOpcionesPaciente.SuspendLayout()
         Me.tabDatos.SuspendLayout()
@@ -94,136 +118,23 @@ Partial Class frmPaciente
         CType(Me.dgvListaTelefonos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabBusqueda.SuspendLayout()
         CType(Me.dgvListaPacientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabHistoria.SuspendLayout()
+        Me.gbVerChat.SuspendLayout()
+        Me.gbListaDiagnosticos.SuspendLayout()
+        CType(Me.dgvHistoriaDiagnosticos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbHistoricoChats.SuspendLayout()
+        CType(Me.dgvHistoriaChat, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbEstadisticas.SuspendLayout()
+        Me.toolsMenuPaciente.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'toolsMenuPaciente
-        '
-        Me.toolsMenuPaciente.AutoSize = False
-        Me.toolsMenuPaciente.Dock = System.Windows.Forms.DockStyle.None
-        Me.toolsMenuPaciente.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.toolsMenuPaciente.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.toolsMenuPaciente.ImeMode = System.Windows.Forms.ImeMode.[On]
-        Me.toolsMenuPaciente.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuBtnModificar})
-        Me.toolsMenuPaciente.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
-        Me.toolsMenuPaciente.Location = New System.Drawing.Point(7, 82)
-        Me.toolsMenuPaciente.Name = "toolsMenuPaciente"
-        Me.toolsMenuPaciente.Size = New System.Drawing.Size(961, 44)
-        Me.toolsMenuPaciente.TabIndex = 6
-        '
-        'mnuBtnAgregar
-        '
-        Me.mnuBtnAgregar.Image = CType(resources.GetObject("mnuBtnAgregar.Image"), System.Drawing.Image)
-        Me.mnuBtnAgregar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnAgregar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnAgregar.Name = "mnuBtnAgregar"
-        Me.mnuBtnAgregar.Size = New System.Drawing.Size(97, 29)
-        Me.mnuBtnAgregar.Text = "Agregar"
-        Me.mnuBtnAgregar.ToolTipText = "Habilita el ingreso de una nueva patologia"
-        '
-        'tabSeparador
-        '
-        Me.tabSeparador.Name = "tabSeparador"
-        Me.tabSeparador.Size = New System.Drawing.Size(6, 23)
-        '
-        'mnuBtnGuardar
-        '
-        Me.mnuBtnGuardar.Enabled = False
-        Me.mnuBtnGuardar.Image = CType(resources.GetObject("mnuBtnGuardar.Image"), System.Drawing.Image)
-        Me.mnuBtnGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnGuardar.Name = "mnuBtnGuardar"
-        Me.mnuBtnGuardar.Size = New System.Drawing.Size(98, 29)
-        Me.mnuBtnGuardar.Text = "Guardar"
-        Me.mnuBtnGuardar.ToolTipText = "Guarda los cambios"
-        '
-        'tabSeparador1
-        '
-        Me.tabSeparador1.Name = "tabSeparador1"
-        Me.tabSeparador1.Size = New System.Drawing.Size(6, 23)
-        '
-        'mnuBtnCancelar
-        '
-        Me.mnuBtnCancelar.Enabled = False
-        Me.mnuBtnCancelar.Image = CType(resources.GetObject("mnuBtnCancelar.Image"), System.Drawing.Image)
-        Me.mnuBtnCancelar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnCancelar.Name = "mnuBtnCancelar"
-        Me.mnuBtnCancelar.Size = New System.Drawing.Size(104, 29)
-        Me.mnuBtnCancelar.Text = "Cancelar"
-        Me.mnuBtnCancelar.ToolTipText = "Cancela los cambios"
-        '
-        'tabSeperador2
-        '
-        Me.tabSeperador2.Name = "tabSeperador2"
-        Me.tabSeperador2.Size = New System.Drawing.Size(6, 23)
-        '
-        'mnuBtnNueva
-        '
-        Me.mnuBtnNueva.Image = CType(resources.GetObject("mnuBtnNueva.Image"), System.Drawing.Image)
-        Me.mnuBtnNueva.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnNueva.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnNueva.Name = "mnuBtnNueva"
-        Me.mnuBtnNueva.Size = New System.Drawing.Size(83, 29)
-        Me.mnuBtnNueva.Text = "Nueva"
-        Me.mnuBtnNueva.ToolTipText = "Inicia una nueva busqueda"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 23)
-        '
-        'mnuBtnBuscar
-        '
-        Me.mnuBtnBuscar.Enabled = False
-        Me.mnuBtnBuscar.Image = CType(resources.GetObject("mnuBtnBuscar.Image"), System.Drawing.Image)
-        Me.mnuBtnBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnBuscar.Name = "mnuBtnBuscar"
-        Me.mnuBtnBuscar.Size = New System.Drawing.Size(90, 29)
-        Me.mnuBtnBuscar.Text = "Buscar"
-        Me.mnuBtnBuscar.ToolTipText = "Buscar por el nombre ingresado"
-        '
-        'tabSeparador3
-        '
-        Me.tabSeparador3.Name = "tabSeparador3"
-        Me.tabSeparador3.Size = New System.Drawing.Size(6, 23)
-        '
-        'mnuBtnBorrar
-        '
-        Me.mnuBtnBorrar.Enabled = False
-        Me.mnuBtnBorrar.Image = CType(resources.GetObject("mnuBtnBorrar.Image"), System.Drawing.Image)
-        Me.mnuBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnBorrar.Name = "mnuBtnBorrar"
-        Me.mnuBtnBorrar.Size = New System.Drawing.Size(85, 29)
-        Me.mnuBtnBorrar.Text = "Borrar"
-        Me.mnuBtnBorrar.ToolTipText = "Borrar el registro en pantalla"
-        '
-        'tabSeparador4
-        '
-        Me.tabSeparador4.Name = "tabSeparador4"
-        Me.tabSeparador4.Size = New System.Drawing.Size(6, 23)
-        '
-        'mnuBtnModificar
-        '
-        Me.mnuBtnModificar.Enabled = False
-        Me.mnuBtnModificar.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mnuBtnModificar.Image = CType(resources.GetObject("mnuBtnModificar.Image"), System.Drawing.Image)
-        Me.mnuBtnModificar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnModificar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnModificar.Name = "mnuBtnModificar"
-        Me.mnuBtnModificar.Size = New System.Drawing.Size(106, 29)
-        Me.mnuBtnModificar.Text = "Modificar"
-        Me.mnuBtnModificar.ToolTipText = "Habilita la modificacion de una patologia"
         '
         'picEncabezado
         '
         Me.picEncabezado.Image = CType(resources.GetObject("picEncabezado.Image"), System.Drawing.Image)
-        Me.picEncabezado.Location = New System.Drawing.Point(-10, 0)
+        Me.picEncabezado.Location = New System.Drawing.Point(5, 0)
         Me.picEncabezado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.picEncabezado.Name = "picEncabezado"
-        Me.picEncabezado.Size = New System.Drawing.Size(978, 79)
-        Me.picEncabezado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.picEncabezado.Size = New System.Drawing.Size(1003, 79)
         Me.picEncabezado.TabIndex = 5
         Me.picEncabezado.TabStop = False
         '
@@ -231,8 +142,9 @@ Partial Class frmPaciente
         '
         Me.tabOpcionesPaciente.Controls.Add(Me.tabDatos)
         Me.tabOpcionesPaciente.Controls.Add(Me.tabBusqueda)
+        Me.tabOpcionesPaciente.Controls.Add(Me.tabHistoria)
         Me.tabOpcionesPaciente.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tabOpcionesPaciente.Location = New System.Drawing.Point(5, 126)
+        Me.tabOpcionesPaciente.Location = New System.Drawing.Point(27, 127)
         Me.tabOpcionesPaciente.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabOpcionesPaciente.Name = "tabOpcionesPaciente"
         Me.tabOpcionesPaciente.SelectedIndex = 0
@@ -245,7 +157,7 @@ Partial Class frmPaciente
         Me.tabDatos.Controls.Add(Me.btnEliminarEnfermedad)
         Me.tabDatos.Controls.Add(Me.btnAgregarEnfermedad)
         Me.tabDatos.Controls.Add(Me.dgvListaPreExistentes)
-        Me.tabDatos.Controls.Add(Me.Label1)
+        Me.tabDatos.Controls.Add(Me.lblEnfermedades)
         Me.tabDatos.Controls.Add(Me.btnEliminarTelefono)
         Me.tabDatos.Controls.Add(Me.btnAgregarTelefono)
         Me.tabDatos.Controls.Add(Me.chkActivo)
@@ -271,7 +183,7 @@ Partial Class frmPaciente
         Me.tabDatos.Controls.Add(Me.lblNumeroCalleM)
         Me.tabDatos.Controls.Add(Me.lblDireccionM)
         Me.tabDatos.Controls.Add(Me.lblApellidosM)
-        Me.tabDatos.Controls.Add(Me.lnlNombreM)
+        Me.tabDatos.Controls.Add(Me.lblNombres)
         Me.tabDatos.Controls.Add(Me.lblFechaReg)
         Me.tabDatos.Controls.Add(Me.lblDocIdentidad)
         Me.tabDatos.Location = New System.Drawing.Point(4, 28)
@@ -325,22 +237,22 @@ Partial Class frmPaciente
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "preExistentes"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridViewTextBoxColumn1.HeaderText = "PRE-EXISTENTES"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.Width = 200
         '
-        'Label1
+        'lblEnfermedades
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.Label1.Location = New System.Drawing.Point(553, 306)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(123, 21)
-        Me.Label1.TabIndex = 24
-        Me.Label1.Text = "ENFERMEDADES"
+        Me.lblEnfermedades.AutoSize = True
+        Me.lblEnfermedades.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEnfermedades.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
+        Me.lblEnfermedades.Location = New System.Drawing.Point(553, 306)
+        Me.lblEnfermedades.Name = "lblEnfermedades"
+        Me.lblEnfermedades.Size = New System.Drawing.Size(123, 21)
+        Me.lblEnfermedades.TabIndex = 24
+        Me.lblEnfermedades.Text = "ENFERMEDADES"
         '
         'btnEliminarTelefono
         '
@@ -412,8 +324,8 @@ Partial Class frmPaciente
         'colTelefono
         '
         Me.colTelefono.DataPropertyName = "Telefono"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle9
         Me.colTelefono.HeaderText = "TELEFONOS"
         Me.colTelefono.Name = "colTelefono"
         Me.colTelefono.Width = 200
@@ -637,16 +549,16 @@ Partial Class frmPaciente
         Me.lblApellidosM.TabIndex = 3
         Me.lblApellidosM.Text = "APELLIDOS:"
         '
-        'lnlNombreM
+        'lblNombres
         '
-        Me.lnlNombreM.AutoSize = True
-        Me.lnlNombreM.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnlNombreM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lnlNombreM.Location = New System.Drawing.Point(63, 60)
-        Me.lnlNombreM.Name = "lnlNombreM"
-        Me.lnlNombreM.Size = New System.Drawing.Size(86, 21)
-        Me.lnlNombreM.TabIndex = 2
-        Me.lnlNombreM.Text = "NOMBRES:"
+        Me.lblNombres.AutoSize = True
+        Me.lblNombres.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombres.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
+        Me.lblNombres.Location = New System.Drawing.Point(63, 60)
+        Me.lblNombres.Name = "lblNombres"
+        Me.lblNombres.Size = New System.Drawing.Size(86, 21)
+        Me.lblNombres.TabIndex = 2
+        Me.lblNombres.Text = "NOMBRES:"
         '
         'lblFechaReg
         '
@@ -699,8 +611,8 @@ Partial Class frmPaciente
         'colDocIdentidad
         '
         Me.colDocIdentidad.DataPropertyName = "DOCUMENTO"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle10
         Me.colDocIdentidad.HeaderText = "DOCUMENTO"
         Me.colDocIdentidad.Name = "colDocIdentidad"
         Me.colDocIdentidad.ReadOnly = True
@@ -724,8 +636,8 @@ Partial Class frmPaciente
         'colEmail
         '
         Me.colEmail.DataPropertyName = "EMAIL"
-        DataGridViewCellStyle4.NullValue = "yes"
-        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle11.NullValue = "yes"
+        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle11
         Me.colEmail.HeaderText = "EMAIL"
         Me.colEmail.Name = "colEmail"
         Me.colEmail.ReadOnly = True
@@ -747,19 +659,365 @@ Partial Class frmPaciente
         Me.colActivo.ReadOnly = True
         Me.colActivo.Visible = False
         '
+        'tabHistoria
+        '
+        Me.tabHistoria.Controls.Add(Me.gbVerChat)
+        Me.tabHistoria.Controls.Add(Me.gbListaDiagnosticos)
+        Me.tabHistoria.Controls.Add(Me.gbHistoricoChats)
+        Me.tabHistoria.Controls.Add(Me.gbEstadisticas)
+        Me.tabHistoria.Location = New System.Drawing.Point(4, 28)
+        Me.tabHistoria.Name = "tabHistoria"
+        Me.tabHistoria.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabHistoria.Size = New System.Drawing.Size(948, 505)
+        Me.tabHistoria.TabIndex = 2
+        Me.tabHistoria.Text = "Registros Historicos"
+        Me.tabHistoria.UseVisualStyleBackColor = True
+        '
+        'gbVerChat
+        '
+        Me.gbVerChat.Controls.Add(Me.rtbMensajes)
+        Me.gbVerChat.Location = New System.Drawing.Point(424, 218)
+        Me.gbVerChat.Name = "gbVerChat"
+        Me.gbVerChat.Size = New System.Drawing.Size(506, 265)
+        Me.gbVerChat.TabIndex = 7
+        Me.gbVerChat.TabStop = False
+        Me.gbVerChat.Text = "Ver chat"
+        '
+        'rtbMensajes
+        '
+        Me.rtbMensajes.BackColor = System.Drawing.Color.White
+        Me.rtbMensajes.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.rtbMensajes.Location = New System.Drawing.Point(11, 26)
+        Me.rtbMensajes.Name = "rtbMensajes"
+        Me.rtbMensajes.Size = New System.Drawing.Size(480, 222)
+        Me.rtbMensajes.TabIndex = 0
+        Me.rtbMensajes.Text = ""
+        '
+        'gbListaDiagnosticos
+        '
+        Me.gbListaDiagnosticos.Controls.Add(Me.dgvHistoriaDiagnosticos)
+        Me.gbListaDiagnosticos.Location = New System.Drawing.Point(17, 218)
+        Me.gbListaDiagnosticos.Name = "gbListaDiagnosticos"
+        Me.gbListaDiagnosticos.Size = New System.Drawing.Size(389, 266)
+        Me.gbListaDiagnosticos.TabIndex = 6
+        Me.gbListaDiagnosticos.TabStop = False
+        Me.gbListaDiagnosticos.Text = "Diagnosticos recibidos"
+        '
+        'dgvHistoriaDiagnosticos
+        '
+        Me.dgvHistoriaDiagnosticos.AllowUserToAddRows = False
+        Me.dgvHistoriaDiagnosticos.AllowUserToDeleteRows = False
+        Me.dgvHistoriaDiagnosticos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvHistoriaDiagnosticos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colDiagnostico, Me.colFechaDiagnostico, Me.colPonderacion})
+        Me.dgvHistoriaDiagnosticos.Location = New System.Drawing.Point(13, 32)
+        Me.dgvHistoriaDiagnosticos.Name = "dgvHistoriaDiagnosticos"
+        Me.dgvHistoriaDiagnosticos.ReadOnly = True
+        Me.dgvHistoriaDiagnosticos.RowTemplate.Height = 24
+        Me.dgvHistoriaDiagnosticos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvHistoriaDiagnosticos.Size = New System.Drawing.Size(362, 217)
+        Me.dgvHistoriaDiagnosticos.TabIndex = 0
+        '
+        'colDiagnostico
+        '
+        Me.colDiagnostico.DataPropertyName = "id"
+        Me.colDiagnostico.HeaderText = "Diagnostico"
+        Me.colDiagnostico.Name = "colDiagnostico"
+        Me.colDiagnostico.ReadOnly = True
+        Me.colDiagnostico.Width = 120
+        '
+        'colFechaDiagnostico
+        '
+        Me.colFechaDiagnostico.DataPropertyName = "fechahora"
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.colFechaDiagnostico.DefaultCellStyle = DataGridViewCellStyle12
+        Me.colFechaDiagnostico.HeaderText = "Fecha / Hora"
+        Me.colFechaDiagnostico.Name = "colFechaDiagnostico"
+        Me.colFechaDiagnostico.ReadOnly = True
+        Me.colFechaDiagnostico.Width = 150
+        '
+        'colPonderacion
+        '
+        Me.colPonderacion.DataPropertyName = "prioridad"
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colPonderacion.DefaultCellStyle = DataGridViewCellStyle13
+        Me.colPonderacion.HeaderText = "Ponderacion"
+        Me.colPonderacion.Name = "colPonderacion"
+        Me.colPonderacion.ReadOnly = True
+        Me.colPonderacion.Width = 120
+        '
+        'gbHistoricoChats
+        '
+        Me.gbHistoricoChats.Controls.Add(Me.dgvHistoriaChat)
+        Me.gbHistoricoChats.Location = New System.Drawing.Point(423, 21)
+        Me.gbHistoricoChats.Name = "gbHistoricoChats"
+        Me.gbHistoricoChats.Size = New System.Drawing.Size(508, 177)
+        Me.gbHistoricoChats.TabIndex = 5
+        Me.gbHistoricoChats.TabStop = False
+        Me.gbHistoricoChats.Text = "Historico de Chats"
+        '
+        'dgvHistoriaChat
+        '
+        Me.dgvHistoriaChat.AllowUserToAddRows = False
+        Me.dgvHistoriaChat.AllowUserToDeleteRows = False
+        Me.dgvHistoriaChat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvHistoriaChat.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colFecha, Me.colIDSesion, Me.colMedico, Me.colNombre})
+        Me.dgvHistoriaChat.Location = New System.Drawing.Point(12, 31)
+        Me.dgvHistoriaChat.MultiSelect = False
+        Me.dgvHistoriaChat.Name = "dgvHistoriaChat"
+        Me.dgvHistoriaChat.ReadOnly = True
+        Me.dgvHistoriaChat.RowTemplate.Height = 24
+        Me.dgvHistoriaChat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvHistoriaChat.Size = New System.Drawing.Size(490, 130)
+        Me.dgvHistoriaChat.TabIndex = 0
+        '
+        'colFecha
+        '
+        Me.colFecha.DataPropertyName = "FechaHora"
+        Me.colFecha.HeaderText = "Fecha"
+        Me.colFecha.Name = "colFecha"
+        Me.colFecha.ReadOnly = True
+        Me.colFecha.Width = 150
+        '
+        'colIDSesion
+        '
+        Me.colIDSesion.DataPropertyName = "Sesion"
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colIDSesion.DefaultCellStyle = DataGridViewCellStyle14
+        Me.colIDSesion.HeaderText = "Sesion"
+        Me.colIDSesion.Name = "colIDSesion"
+        Me.colIDSesion.ReadOnly = True
+        '
+        'colMedico
+        '
+        Me.colMedico.DataPropertyName = "apellidos"
+        Me.colMedico.HeaderText = "Medico"
+        Me.colMedico.Name = "colMedico"
+        Me.colMedico.ReadOnly = True
+        Me.colMedico.Width = 180
+        '
+        'colNombre
+        '
+        Me.colNombre.DataPropertyName = "nombres"
+        Me.colNombre.HeaderText = "Nombre"
+        Me.colNombre.Name = "colNombre"
+        Me.colNombre.ReadOnly = True
+        Me.colNombre.Visible = False
+        '
+        'gbEstadisticas
+        '
+        Me.gbEstadisticas.Controls.Add(Me.txtCantChat)
+        Me.gbEstadisticas.Controls.Add(Me.lblDetChatRealizados)
+        Me.gbEstadisticas.Controls.Add(Me.lblChats)
+        Me.gbEstadisticas.Controls.Add(Me.txtCantDiag)
+        Me.gbEstadisticas.Controls.Add(Me.lblDescCantDiag)
+        Me.gbEstadisticas.Controls.Add(Me.lblDiagnosticos)
+        Me.gbEstadisticas.Location = New System.Drawing.Point(17, 21)
+        Me.gbEstadisticas.Name = "gbEstadisticas"
+        Me.gbEstadisticas.Size = New System.Drawing.Size(390, 177)
+        Me.gbEstadisticas.TabIndex = 4
+        Me.gbEstadisticas.TabStop = False
+        Me.gbEstadisticas.Text = "Datos estadisticos"
+        '
+        'txtCantChat
+        '
+        Me.txtCantChat.Enabled = False
+        Me.txtCantChat.Location = New System.Drawing.Point(304, 104)
+        Me.txtCantChat.Name = "txtCantChat"
+        Me.txtCantChat.Size = New System.Drawing.Size(72, 27)
+        Me.txtCantChat.TabIndex = 5
+        Me.txtCantChat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblDetChatRealizados
+        '
+        Me.lblDetChatRealizados.AutoSize = True
+        Me.lblDetChatRealizados.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDetChatRealizados.Location = New System.Drawing.Point(19, 113)
+        Me.lblDetChatRealizados.Name = "lblDetChatRealizados"
+        Me.lblDetChatRealizados.Size = New System.Drawing.Size(189, 17)
+        Me.lblDetChatRealizados.TabIndex = 4
+        Me.lblDetChatRealizados.Text = "Cantidad de chat realizados"
+        '
+        'lblChats
+        '
+        Me.lblChats.AutoSize = True
+        Me.lblChats.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblChats.Location = New System.Drawing.Point(18, 90)
+        Me.lblChats.Name = "lblChats"
+        Me.lblChats.Size = New System.Drawing.Size(55, 19)
+        Me.lblChats.TabIndex = 3
+        Me.lblChats.Text = "Chats"
+        '
+        'txtCantDiag
+        '
+        Me.txtCantDiag.Enabled = False
+        Me.txtCantDiag.Location = New System.Drawing.Point(304, 44)
+        Me.txtCantDiag.Name = "txtCantDiag"
+        Me.txtCantDiag.Size = New System.Drawing.Size(72, 27)
+        Me.txtCantDiag.TabIndex = 2
+        Me.txtCantDiag.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'lblDescCantDiag
+        '
+        Me.lblDescCantDiag.AutoSize = True
+        Me.lblDescCantDiag.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDescCantDiag.Location = New System.Drawing.Point(18, 54)
+        Me.lblDescCantDiag.Name = "lblDescCantDiag"
+        Me.lblDescCantDiag.Size = New System.Drawing.Size(235, 17)
+        Me.lblDescCantDiag.TabIndex = 1
+        Me.lblDescCantDiag.Text = "Cantidad de diagnosticos recibidos"
+        '
+        'lblDiagnosticos
+        '
+        Me.lblDiagnosticos.AutoSize = True
+        Me.lblDiagnosticos.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDiagnosticos.Location = New System.Drawing.Point(18, 32)
+        Me.lblDiagnosticos.Name = "lblDiagnosticos"
+        Me.lblDiagnosticos.Size = New System.Drawing.Size(111, 19)
+        Me.lblDiagnosticos.TabIndex = 0
+        Me.lblDiagnosticos.Text = "Diagnosticos"
+        '
+        'toolsMenuPaciente
+        '
+        Me.toolsMenuPaciente.AutoSize = False
+        Me.toolsMenuPaciente.Dock = System.Windows.Forms.DockStyle.None
+        Me.toolsMenuPaciente.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.toolsMenuPaciente.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.toolsMenuPaciente.ImeMode = System.Windows.Forms.ImeMode.[On]
+        Me.toolsMenuPaciente.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuReactivar, Me.mnuBtnModificar})
+        Me.toolsMenuPaciente.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
+        Me.toolsMenuPaciente.Location = New System.Drawing.Point(5, 81)
+        Me.toolsMenuPaciente.Name = "toolsMenuPaciente"
+        Me.toolsMenuPaciente.Size = New System.Drawing.Size(1005, 44)
+        Me.toolsMenuPaciente.TabIndex = 8
+        '
+        'mnuBtnAgregar
+        '
+        Me.mnuBtnAgregar.Image = CType(resources.GetObject("mnuBtnAgregar.Image"), System.Drawing.Image)
+        Me.mnuBtnAgregar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnAgregar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnAgregar.Name = "mnuBtnAgregar"
+        Me.mnuBtnAgregar.Size = New System.Drawing.Size(97, 29)
+        Me.mnuBtnAgregar.Text = "Agregar"
+        Me.mnuBtnAgregar.ToolTipText = "Habilita el ingreso de una nueva patologia"
+        '
+        'tabSeparador
+        '
+        Me.tabSeparador.Name = "tabSeparador"
+        Me.tabSeparador.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnuBtnGuardar
+        '
+        Me.mnuBtnGuardar.Enabled = False
+        Me.mnuBtnGuardar.Image = CType(resources.GetObject("mnuBtnGuardar.Image"), System.Drawing.Image)
+        Me.mnuBtnGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnGuardar.Name = "mnuBtnGuardar"
+        Me.mnuBtnGuardar.Size = New System.Drawing.Size(98, 29)
+        Me.mnuBtnGuardar.Text = "Guardar"
+        Me.mnuBtnGuardar.ToolTipText = "Guarda los cambios"
+        '
+        'tabSeparador1
+        '
+        Me.tabSeparador1.Name = "tabSeparador1"
+        Me.tabSeparador1.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnuBtnCancelar
+        '
+        Me.mnuBtnCancelar.Enabled = False
+        Me.mnuBtnCancelar.Image = CType(resources.GetObject("mnuBtnCancelar.Image"), System.Drawing.Image)
+        Me.mnuBtnCancelar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnCancelar.Name = "mnuBtnCancelar"
+        Me.mnuBtnCancelar.Size = New System.Drawing.Size(104, 29)
+        Me.mnuBtnCancelar.Text = "Cancelar"
+        Me.mnuBtnCancelar.ToolTipText = "Cancela los cambios"
+        '
+        'tabSeperador2
+        '
+        Me.tabSeperador2.Name = "tabSeperador2"
+        Me.tabSeperador2.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnuBtnNueva
+        '
+        Me.mnuBtnNueva.Image = CType(resources.GetObject("mnuBtnNueva.Image"), System.Drawing.Image)
+        Me.mnuBtnNueva.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnNueva.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnNueva.Name = "mnuBtnNueva"
+        Me.mnuBtnNueva.Size = New System.Drawing.Size(83, 29)
+        Me.mnuBtnNueva.Text = "Nueva"
+        Me.mnuBtnNueva.ToolTipText = "Inicia una nueva busqueda"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnuBtnBuscar
+        '
+        Me.mnuBtnBuscar.Enabled = False
+        Me.mnuBtnBuscar.Image = CType(resources.GetObject("mnuBtnBuscar.Image"), System.Drawing.Image)
+        Me.mnuBtnBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnBuscar.Name = "mnuBtnBuscar"
+        Me.mnuBtnBuscar.Size = New System.Drawing.Size(90, 29)
+        Me.mnuBtnBuscar.Text = "Buscar"
+        Me.mnuBtnBuscar.ToolTipText = "Buscar por el nombre ingresado"
+        '
+        'tabSeparador3
+        '
+        Me.tabSeparador3.Name = "tabSeparador3"
+        Me.tabSeparador3.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnuBtnBorrar
+        '
+        Me.mnuBtnBorrar.Enabled = False
+        Me.mnuBtnBorrar.Image = CType(resources.GetObject("mnuBtnBorrar.Image"), System.Drawing.Image)
+        Me.mnuBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnBorrar.Name = "mnuBtnBorrar"
+        Me.mnuBtnBorrar.Size = New System.Drawing.Size(85, 29)
+        Me.mnuBtnBorrar.Text = "Borrar"
+        Me.mnuBtnBorrar.ToolTipText = "Borrar el registro en pantalla"
+        '
+        'tabSeparador4
+        '
+        Me.tabSeparador4.Name = "tabSeparador4"
+        Me.tabSeparador4.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnuReactivar
+        '
+        Me.mnuReactivar.AutoSize = False
+        Me.mnuReactivar.Enabled = False
+        Me.mnuReactivar.Image = CType(resources.GetObject("mnuReactivar.Image"), System.Drawing.Image)
+        Me.mnuReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuReactivar.Name = "mnuReactivar"
+        Me.mnuReactivar.Size = New System.Drawing.Size(106, 29)
+        Me.mnuReactivar.Text = "Reactivar"
+        Me.mnuReactivar.ToolTipText = "Reactiva el registro a la vista"
+        '
+        'mnuBtnModificar
+        '
+        Me.mnuBtnModificar.Enabled = False
+        Me.mnuBtnModificar.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mnuBtnModificar.Image = CType(resources.GetObject("mnuBtnModificar.Image"), System.Drawing.Image)
+        Me.mnuBtnModificar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnModificar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnModificar.Name = "mnuBtnModificar"
+        Me.mnuBtnModificar.Size = New System.Drawing.Size(106, 29)
+        Me.mnuBtnModificar.Text = "Modificar"
+        Me.mnuBtnModificar.ToolTipText = "Habilita la modificacion de una patologia"
+        '
         'frmPaciente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(970, 674)
-        Me.Controls.Add(Me.tabOpcionesPaciente)
+        Me.ClientSize = New System.Drawing.Size(1008, 674)
         Me.Controls.Add(Me.toolsMenuPaciente)
+        Me.Controls.Add(Me.tabOpcionesPaciente)
         Me.Controls.Add(Me.picEncabezado)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "frmPaciente"
         Me.Text = "PACIENTE"
-        Me.toolsMenuPaciente.ResumeLayout(False)
-        Me.toolsMenuPaciente.PerformLayout()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabOpcionesPaciente.ResumeLayout(False)
         Me.tabDatos.ResumeLayout(False)
@@ -768,24 +1026,19 @@ Partial Class frmPaciente
         CType(Me.dgvListaTelefonos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabBusqueda.ResumeLayout(False)
         CType(Me.dgvListaPacientes, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabHistoria.ResumeLayout(False)
+        Me.gbVerChat.ResumeLayout(False)
+        Me.gbListaDiagnosticos.ResumeLayout(False)
+        CType(Me.dgvHistoriaDiagnosticos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbHistoricoChats.ResumeLayout(False)
+        CType(Me.dgvHistoriaChat, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbEstadisticas.ResumeLayout(False)
+        Me.gbEstadisticas.PerformLayout()
+        Me.toolsMenuPaciente.ResumeLayout(False)
+        Me.toolsMenuPaciente.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents toolsMenuPaciente As ToolStrip
-    Friend WithEvents mnuBtnAgregar As ToolStripButton
-    Friend WithEvents tabSeparador As ToolStripSeparator
-    Friend WithEvents mnuBtnGuardar As ToolStripButton
-    Friend WithEvents tabSeparador1 As ToolStripSeparator
-    Friend WithEvents mnuBtnCancelar As ToolStripButton
-    Friend WithEvents tabSeperador2 As ToolStripSeparator
-    Friend WithEvents mnuBtnNueva As ToolStripButton
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents mnuBtnBuscar As ToolStripButton
-    Friend WithEvents tabSeparador3 As ToolStripSeparator
-    Friend WithEvents mnuBtnBorrar As ToolStripButton
-    Friend WithEvents tabSeparador4 As ToolStripSeparator
-    Friend WithEvents mnuBtnModificar As ToolStripButton
     Friend WithEvents picEncabezado As PictureBox
     Friend WithEvents tabOpcionesPaciente As TabControl
     Friend WithEvents tabDatos As TabPage
@@ -815,7 +1068,7 @@ Partial Class frmPaciente
     Friend WithEvents lblNumeroCalleM As Label
     Friend WithEvents lblDireccionM As Label
     Friend WithEvents lblApellidosM As Label
-    Friend WithEvents lnlNombreM As Label
+    Friend WithEvents lblNombres As Label
     Friend WithEvents lblFechaReg As Label
     Friend WithEvents lblDocIdentidad As Label
     Friend WithEvents tabBusqueda As TabPage
@@ -826,9 +1079,45 @@ Partial Class frmPaciente
     Friend WithEvents colEmail As DataGridViewTextBoxColumn
     Friend WithEvents colFechRegistro As DataGridViewTextBoxColumn
     Friend WithEvents colActivo As DataGridViewTextBoxColumn
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblEnfermedades As Label
     Friend WithEvents dgvListaPreExistentes As DataGridView
     Friend WithEvents btnEliminarEnfermedad As Button
     Friend WithEvents btnAgregarEnfermedad As Button
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents tabHistoria As TabPage
+    Friend WithEvents gbVerChat As GroupBox
+    Friend WithEvents gbListaDiagnosticos As GroupBox
+    Friend WithEvents dgvHistoriaDiagnosticos As DataGridView
+    Friend WithEvents colDiagnostico As DataGridViewTextBoxColumn
+    Friend WithEvents colFechaDiagnostico As DataGridViewTextBoxColumn
+    Friend WithEvents colPonderacion As DataGridViewTextBoxColumn
+    Friend WithEvents gbHistoricoChats As GroupBox
+    Friend WithEvents dgvHistoriaChat As DataGridView
+    Friend WithEvents colFecha As DataGridViewTextBoxColumn
+    Friend WithEvents colIDSesion As DataGridViewTextBoxColumn
+    Friend WithEvents colMedico As DataGridViewTextBoxColumn
+    Friend WithEvents colNombre As DataGridViewTextBoxColumn
+    Friend WithEvents gbEstadisticas As GroupBox
+    Friend WithEvents txtCantChat As TextBox
+    Friend WithEvents lblDetChatRealizados As Label
+    Friend WithEvents lblChats As Label
+    Friend WithEvents txtCantDiag As TextBox
+    Friend WithEvents lblDescCantDiag As Label
+    Friend WithEvents lblDiagnosticos As Label
+    Friend WithEvents rtbMensajes As RichTextBox
+    Friend WithEvents toolsMenuPaciente As ToolStrip
+    Friend WithEvents mnuBtnAgregar As ToolStripButton
+    Friend WithEvents tabSeparador As ToolStripSeparator
+    Friend WithEvents mnuBtnGuardar As ToolStripButton
+    Friend WithEvents tabSeparador1 As ToolStripSeparator
+    Friend WithEvents mnuBtnCancelar As ToolStripButton
+    Friend WithEvents tabSeperador2 As ToolStripSeparator
+    Friend WithEvents mnuBtnNueva As ToolStripButton
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents mnuBtnBuscar As ToolStripButton
+    Friend WithEvents tabSeparador3 As ToolStripSeparator
+    Friend WithEvents mnuBtnBorrar As ToolStripButton
+    Friend WithEvents tabSeparador4 As ToolStripSeparator
+    Friend WithEvents mnuReactivar As ToolStripButton
+    Friend WithEvents mnuBtnModificar As ToolStripButton
 End Class

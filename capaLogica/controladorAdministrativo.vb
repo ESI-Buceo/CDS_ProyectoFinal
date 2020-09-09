@@ -11,7 +11,7 @@ Public Module controladorAdministrativo
 
     Public Sub GuardarDatosAdmin(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                  numero As String, barrio As String, esquina As String, apartamento As String, fechaNac As String,
-                                 activo As String, telefonos As DataGridView, numeroAdmin As String, uid As String, pwd As String)
+                                 telefonos As DataGridView, numeroAdmin As String, uid As String, pwd As String)
         'Guarda los datos del administrativo
         Dim a As New ModeloAdministrativo(uid, pwd)
         a.Documento = docId
@@ -25,7 +25,6 @@ Public Module controladorAdministrativo
         a.Apartamento = apartamento
         a.FechaNacimiento = fechaNac
         a.NumeroEmpleado = numeroAdmin
-        a.Activo = activo
         a.Telefonos = cargarGridTelefonosADataTable(telefonos)
         a.GuardarAdministrativo()
     End Sub
@@ -81,9 +80,9 @@ Public Module controladorAdministrativo
         Return "p.nombres like '%%'"
     End Function
 
-    Public Function EliminiarAdmin(ByVal docIdentidad As String, uid As String, pwd As String)
+    Public Function cambiarEstadoAdmin(ByVal docIdentidad As String, estado As String, uid As String, pwd As String)
         Dim a As New ModeloAdministrativo(uid, pwd)
-        Return a.EliminarAdministrativo(docIdentidad)
+        Return a.CambiarEstadoAdmin(docIdentidad, estado)
     End Function
 
     Public Function ValidarAdministrativo(ByVal uid As String, pwd As String) As DataTable
@@ -96,4 +95,26 @@ Public Module controladorAdministrativo
         a.EliminarUsuarioBD(docidentidad)
     End Sub
 
+    Public Sub CambiarPassword(ByVal pass As String, uid As String, pwd As String)
+        Dim a As New ModeloAdministrativo(uid, pwd)
+        a.Documento = uid
+        a.CambiarPassword(pass)
+    End Sub
+
+    Public Function ListarAdministrativos(ByVal estado As String, uid As String, pwd As String)
+        'Lista los administrativos por estado
+        Dim a As New ModeloAdministrativo(uid, pwd)
+        Return a.ListarAdministrativos(estado)
+    End Function
+
+    Public Function ListarAdministrativos(ByVal uid As String, pwd As String)
+        'Lista todos los administrativos
+        Dim a As New ModeloAdministrativo(uid, pwd)
+        Return a.ListarAdministrativos()
+    End Function
+
+    Public Function ListarTelefonos(ByVal docidentidad As String, uid As String, pwd As String)
+        Dim a As New ModeloAdministrativo(uid, pwd)
+        Return a.ListarTelefonos(docidentidad)
+    End Function
 End Module

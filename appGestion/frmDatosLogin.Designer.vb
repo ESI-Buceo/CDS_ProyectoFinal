@@ -22,22 +22,22 @@ Partial Class frmDatosLogin
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.lblNumeroGestor = New System.Windows.Forms.Label()
+        Me.lblDocIdentidad = New System.Windows.Forms.Label()
         Me.txtDocIdentidad = New System.Windows.Forms.TextBox()
-        Me.lblPasswordGestor = New System.Windows.Forms.Label()
+        Me.lblPassword = New System.Windows.Forms.Label()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.btnGestionIngresar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'lblNumeroGestor
+        'lblDocIdentidad
         '
-        Me.lblNumeroGestor.AutoSize = True
-        Me.lblNumeroGestor.ForeColor = System.Drawing.Color.White
-        Me.lblNumeroGestor.Location = New System.Drawing.Point(62, 116)
-        Me.lblNumeroGestor.Name = "lblNumeroGestor"
-        Me.lblNumeroGestor.Size = New System.Drawing.Size(173, 23)
-        Me.lblNumeroGestor.TabIndex = 0
-        Me.lblNumeroGestor.Text = "Numero de Gestor"
+        Me.lblDocIdentidad.ForeColor = System.Drawing.Color.White
+        Me.lblDocIdentidad.Location = New System.Drawing.Point(39, 102)
+        Me.lblDocIdentidad.Name = "lblDocIdentidad"
+        Me.lblDocIdentidad.Size = New System.Drawing.Size(220, 37)
+        Me.lblDocIdentidad.TabIndex = 0
+        Me.lblDocIdentidad.Text = "Numero de Gestor"
+        Me.lblDocIdentidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtDocIdentidad
         '
@@ -46,16 +46,17 @@ Partial Class frmDatosLogin
         Me.txtDocIdentidad.Name = "txtDocIdentidad"
         Me.txtDocIdentidad.Size = New System.Drawing.Size(177, 30)
         Me.txtDocIdentidad.TabIndex = 1
+        Me.txtDocIdentidad.Text = "11111111"
         '
-        'lblPasswordGestor
+        'lblPassword
         '
-        Me.lblPasswordGestor.AutoSize = True
-        Me.lblPasswordGestor.ForeColor = System.Drawing.Color.White
-        Me.lblPasswordGestor.Location = New System.Drawing.Point(62, 187)
-        Me.lblPasswordGestor.Name = "lblPasswordGestor"
-        Me.lblPasswordGestor.Size = New System.Drawing.Size(98, 23)
-        Me.lblPasswordGestor.TabIndex = 2
-        Me.lblPasswordGestor.Text = "Password"
+        Me.lblPassword.ForeColor = System.Drawing.Color.White
+        Me.lblPassword.Location = New System.Drawing.Point(62, 187)
+        Me.lblPassword.Name = "lblPassword"
+        Me.lblPassword.Size = New System.Drawing.Size(173, 23)
+        Me.lblPassword.TabIndex = 2
+        Me.lblPassword.Text = "Password"
+        Me.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtPassword
         '
@@ -64,6 +65,7 @@ Partial Class frmDatosLogin
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(177, 30)
         Me.txtPassword.TabIndex = 3
+        Me.txtPassword.Text = "11111111"
         '
         'btnGestionIngresar
         '
@@ -89,9 +91,9 @@ Partial Class frmDatosLogin
         Me.ControlBox = False
         Me.Controls.Add(Me.btnGestionIngresar)
         Me.Controls.Add(Me.txtPassword)
-        Me.Controls.Add(Me.lblPasswordGestor)
+        Me.Controls.Add(Me.lblPassword)
         Me.Controls.Add(Me.txtDocIdentidad)
-        Me.Controls.Add(Me.lblNumeroGestor)
+        Me.Controls.Add(Me.lblDocIdentidad)
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4)
@@ -105,9 +107,9 @@ Partial Class frmDatosLogin
 
     End Sub
 
-    Friend WithEvents lblNumeroGestor As Label
+    Friend WithEvents lblDocIdentidad As Label
     Friend WithEvents txtDocIdentidad As TextBox
-    Friend WithEvents lblPasswordGestor As Label
+    Friend WithEvents lblPassword As Label
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents btnGestionIngresar As Button
 End Class

@@ -15,7 +15,7 @@ Public Class frmSintomas
             opcionesMenu.ClickEnBotonBuscar(toolsMenuSintoma)
             tabDatosSintomas.SelectTab(tabBusqueda)
         Catch ex As Exception
-            MsgBox("Surgio un error al buscar el sintoma", vbCritical, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -61,9 +61,9 @@ Public Class frmSintomas
             ControladorSintomas.BorrarSintomas(txtSintomaID.Text, USUARIO, PASSWORD)
             opcionesMenu.ClickEnBotonBorrar(toolsMenuSintoma)
             limpiarTextBox()
-            MessageBox.Show("Registro Eliminado Correctamente!", "Sintoma Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show(VRegistroEliminado, VAviso, MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
-            MsgBox("Error! ")
+            MsgBox(VErrorBorrarRegistro, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -82,16 +82,15 @@ Public Class frmSintomas
     End Sub
 
     Private Sub mensajeError()
-        MessageBox.Show("Error : No se pudo guardar" & txtSintomaNombre.Text)
+        MessageBox.Show(VErrorAlGuardar & txtSintomaNombre.Text)
     End Sub
 
     Private Sub mensajeOk()
-        MessageBox.Show("Sintoma : " & txtSintomaNombre.Text & " Ingresado", "Registro Guardado Correctamente!", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
+        MsgBox(VDatosGuardadosConExito, vbInformation, VAviso)
     End Sub
 
     Private Sub campoVacio()
-        MessageBox.Show("Nombre no puede estar vacío!", "Error, Campo  Vacío", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        MsgBox(VFaltanDatosRequeridos, vbExclamation, VAvisoError)
     End Sub
 
     Private Sub marcarTextBoxRequeridos()
@@ -100,6 +99,34 @@ Public Class frmSintomas
 
     Private Sub colorPorDefectoTextBox()
         txtSintomaNombre.BackColor = Color.White
+    End Sub
+
+    Private Sub frmSintomas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargarTextos()
+    End Sub
+
+    Private Sub cargarTextos()
+        mnuBtnAgregar.Text = VAgregar
+        mnuBtnAgregar.ToolTipText = VToolBotonAgregar
+        mnuBtnGuardar.Text = VGuardar
+        mnuBtnGuardar.ToolTipText = VToolBotonGuardar
+        mnuBtnCancelar.Text = VCancelar
+        mnuBtnCancelar.ToolTipText = VToolBotonCancelar
+        mnuBtnNueva.Text = VNueva
+        mnuBtnNueva.ToolTipText = VToolBotonNueva
+        mnuBtnBuscar.Text = VBuscar
+        mnuBtnBuscar.ToolTipText = VToolBotonBuscar
+        mnuBtnBorrar.Text = VBorrar
+        mnuBtnBorrar.ToolTipText = VToolBotonBorrar
+        mnuBtnModificar.Text = VModificar
+        mnuBtnModificar.ToolTipText = VToolBotonModificar
+        Me.Text = VSintomas.ToUpper
+        lblSintomaNombre.Text = VNombre.ToUpper
+        lblSintomaEstado.Text = VHabilitado.ToUpper
+        tabDatos.Text = VDato
+        tabBusqueda.Text = VBusqueda
+        dgSintomas.Columns(1).HeaderText = VNombre.ToUpper
+        dgSintomas.Columns(2).HeaderText = Vactivo.ToUpper
     End Sub
 
 End Class

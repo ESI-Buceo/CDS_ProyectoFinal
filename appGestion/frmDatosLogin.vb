@@ -2,6 +2,8 @@
 
 Public Class frmDatosLogin
     Private Sub datosLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CargarIdioma()
+        cargarTextos()
         Me.SetStyle(ControlStyles.SupportsTransparentBackColor, True)
         Me.BackColor = Color.Transparent
     End Sub
@@ -19,7 +21,7 @@ Public Class frmDatosLogin
             cargarAdminitrativo(controladorAdministrativo.ValidarAdministrativo(txtDocIdentidad.Text, "Ge." + txtPassword.Text))
             setearUsuario()
         Catch ex As Exception
-            MsgBox("Documento de identidad o contraseña incorrectos, verifica", vbInformation, "Error de Acceso")
+            MsgBox(VLoginIncorrecto, vbInformation, VErrorAcceso)
         End Try
 
     End Sub
@@ -38,5 +40,11 @@ Public Class frmDatosLogin
         frmPrincipal.Show()
         frmLogin.Hide()
         Me.Hide()
+    End Sub
+
+    Private Sub cargarTextos()
+        lblDocIdentidad.Text = VDocDeIdentidad
+        lblPassword.Text = VPassword
+        btnGestionIngresar.Text = VIngesar
     End Sub
 End Class

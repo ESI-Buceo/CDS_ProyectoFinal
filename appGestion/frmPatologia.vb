@@ -26,7 +26,7 @@ Public Class frmPatologia
             And ControladorValidaciones.ValidarListaCargada(dgvSintomasPatologia) Then
             guardarInformacionPatologia()
         Else
-            MsgBox("Falta informacion para guardar la patologia, verifica", vbInformation, "Falta de informacion")
+            MsgBox(VFaltanDatosRequeridos, vbInformation, VAviso)
         End If
     End Sub
 
@@ -38,9 +38,9 @@ Public Class frmPatologia
             opcionesMenu.ClickEnBotonGuardar(toolsMenuPatologia)
             colorPorDefectoTextoBox()
             deshabilitarAgregarSintoma()
-            MsgBox("Dato guardado correctamente")
+            MsgBox(VDatosGuardadosConExito, vbInformation, VAviso)
         Catch ex As Exception
-            MsgBox("Error al guarda la informacion de patologia", vbCritical, "Error")
+            MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -66,7 +66,7 @@ Public Class frmPatologia
         Try
             dgvListaDePatologias.DataSource = ControladorPatologias.ListarPatologias(txtPatologiaNombre.Text, USUARIO, PASSWORD)
         Catch ex As Exception
-            MsgBox("Error al buscar patologias", vbCritical, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -78,14 +78,18 @@ Public Class frmPatologia
     End Sub
 
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
+        borrarPAtologia()
+    End Sub
+
+    Private Sub borrarPAtologia()
         'Borra logicamente una patologia
         Try
-            ControladorPatologias.BorrarPatologia(txtPatologiaID.Text, USUARIO, PASSWORD)
+            ControladorPatologias.cambiarEstadoPatologia(txtPatologiaID.Text, 0, USUARIO, PASSWORD)
             opcionesMenu.ClickEnBotonBorrar(toolsMenuPatologia)
             limpiarControlesDeFormulario()
-            MsgBox("Patología eliminada con exito")
+            MsgBox(VRegistroEliminado, vbInformation, VAviso)
         Catch ex As Exception
-            MsgBox("Error al borrar la patologia", vbCritical, "Error")
+            MsgBox(VErrorBorrarRegistro, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -144,7 +148,7 @@ Public Class frmPatologia
             dgvSintomasPatologia.Columns(0).Visible = False
             dgvSintomasPatologia.Columns(1).Width = 150
         Catch ex As Exception
-            MsgBox("Error al listar sintomas", vbCritical, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -154,19 +158,52 @@ Public Class frmPatologia
     End Sub
 
     Private Sub lblEmergencia_MouseMove(sender As Object, e As MouseEventArgs) Handles lblEmergencia.MouseMove
-        tttPonderacion.Show("EMERGENCIA", lblEmergencia, 1000)
+        tttPonderacion.Show(VEmergencia.ToUpper, lblEmergencia, 1000)
     End Sub
 
     Private Sub lblUrgencia_MouseMove(sender As Object, e As MouseEventArgs) Handles lblUrgencia.MouseMove
-        tttPonderacion.Show("URGENCIA", lblUrgencia, 1000)
+        tttPonderacion.Show(VUrgencia.ToUpper, lblUrgencia, 1000)
     End Sub
 
     Private Sub lblUrgenciaMenor_MouseMove(sender As Object, e As MouseEventArgs) Handles lblUrgenciaMenor.MouseMove
-        tttPonderacion.Show("URGENCIA MENOR", lblUrgenciaMenor, 1000)
+        tttPonderacion.Show(VUrgenciaMenor.ToUpper, lblUrgenciaMenor, 1000)
     End Sub
 
     Private Sub lblSinUrgencia_MouseMove(sender As Object, e As MouseEventArgs) Handles lblSinUrgencia.MouseMove
-        tttPonderacion.Show("SIN URGENCIA", lblSinUrgencia, 1000)
+        tttPonderacion.Show(VSinUrgencia.ToUpper, lblSinUrgencia, 1000)
     End Sub
 
+    Private Sub frmPatologia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargarTextos()
+    End Sub
+
+    Private Sub cargarTextos()
+        Me.Text = VPatologias.ToUpper
+        mnuBtnAgregar.Text = VAgregar
+        mnuBtnAgregar.ToolTipText = VToolBotonAgregar
+        mnuBtnGuardar.Text = VGuardar
+        mnuBtnGuardar.ToolTipText = VToolBotonGuardar
+        mnuBtnCancelar.Text = VCancelar
+        mnuBtnCancelar.ToolTipText = VToolBotonCancelar
+        mnuBtnNueva.Text = VNueva
+        mnuBtnNueva.ToolTipText = VToolBotonNueva
+        mnuBtnBuscar.Text = VBuscar
+        mnuBtnBuscar.ToolTipText = VToolBotonBuscar
+        mnuBtnBorrar.Text = VBorrar
+        mnuBtnBorrar.ToolTipText = VToolBotonBorrar
+        mnuBtnModificar.Text = VModificar
+        mnuBtnModificar.ToolTipText = VToolBotonModificar
+        tabDatos.Text = VDato
+        tabPatologiaBusqueda.Text = VBusqueda
+        lblPatologiaNombre.Text = VNombre.ToUpper
+        lblPatologiaPonderacion.Text = VPonderacion.ToUpper
+        lblPatologiaDescripcion.Text = VDescripcion.ToUpper
+        lblSintomas.Text = VSintomas.ToUpper
+        btnAgregarSintoma.Text = VAgregar
+        tttPonderacion.ToolTipTitle = VInformacionPatologias
+        dgvListaDePatologias.Columns(1).HeaderText = VNombre.ToUpper
+        dgvListaDePatologias.Columns(2).HeaderText = VDescripcion.ToUpper
+        dgvListaDePatologias.Columns(3).HeaderText = VPonderacion.ToUpper
+        dgvListaDePatologias.Columns(4).HeaderText = Vactivo.ToUpper
+    End Sub
 End Class

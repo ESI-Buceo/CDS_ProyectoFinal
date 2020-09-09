@@ -8,6 +8,7 @@ Public Class ModeloChat
     Public docidentidadMedico As String
     Public emisor As String
     Public mensaje As String
+    Public TablaChat As New DataTable
 
     Public Sub New(ByVal uid As String, pwd As String)
         MyBase.New(uid, pwd)
@@ -55,5 +56,25 @@ Public Class ModeloChat
         Comando.ExecuteNonQuery()
         CerrarConexion()
     End Sub
+
+    Public Function ListaHistoricaChatPaciente(ByVal idPaciente As String)
+        'Lista el historico de chat del paciente
+        Comando.CommandText = "SELECT DISTINCT(s.idSesion ) sesion, s.fechaHoraInicioSesion FechaHora, p.apellidos, p.nombres from chat c 
+                                JOIN sesion s ON s.idSesion = c.idSesion
+                                JOIN persona p ON p.docidentidad = c.docidentidadMedico 
+                                WHERE c.docidentidadPaciente =" & idPaciente & " ORDER BY FechaHora DESC"
+        Reader = Comando.ExecuteReader()
+        TablaChat.Load(Reader)
+        conexion.Close()
+        Return TablaChat
+    End Function
+
+    Public Function CantidadDeChats(ByVal docidentidad As String)
+        'Muestra la cantida de chat iniciados por el documento ingresado
+        Comando.CommandText = "SELECT count(DISTINCT(idSesion )) cant FROM chat WHEre docidentidadPaciente=" & docidentidad
+        Reader = Comando.ExecuteReader
+        Reader.Read()
+        Return Reader("cant").ToString
+    End Function
 
 End Class

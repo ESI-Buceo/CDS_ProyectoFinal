@@ -51,6 +51,7 @@ Partial Class frmSintomas
         Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colActivo = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.mnuBtnReactivar = New System.Windows.Forms.ToolStripButton()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolsMenuSintoma.SuspendLayout()
         Me.tabDatosSintomas.SuspendLayout()
@@ -78,7 +79,7 @@ Partial Class frmSintomas
         Me.toolsMenuSintoma.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.toolsMenuSintoma.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.toolsMenuSintoma.ImeMode = System.Windows.Forms.ImeMode.[On]
-        Me.toolsMenuSintoma.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuBtnModificar})
+        Me.toolsMenuSintoma.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuBtnReactivar, Me.mnuBtnModificar})
         Me.toolsMenuSintoma.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.toolsMenuSintoma.Location = New System.Drawing.Point(12, 84)
         Me.toolsMenuSintoma.Name = "toolsMenuSintoma"
@@ -312,15 +313,15 @@ Partial Class frmSintomas
         Me.dgSintomas.AllowUserToOrderColumns = True
         Me.dgSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgSintomas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colID, Me.colNombre, Me.colActivo})
-        Me.dgSintomas.Cursor = System.Windows.Forms.Cursors.Default
+        Me.dgSintomas.Cursor = System.Windows.Forms.Cursors.WaitCursor
         Me.dgSintomas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgSintomas.Location = New System.Drawing.Point(3, 2)
         Me.dgSintomas.Margin = New System.Windows.Forms.Padding(4)
         Me.dgSintomas.Name = "dgSintomas"
         Me.dgSintomas.ReadOnly = True
-        Me.dgSintomas.UseWaitCursor = False
         Me.dgSintomas.Size = New System.Drawing.Size(867, 203)
         Me.dgSintomas.TabIndex = 0
+        Me.dgSintomas.UseWaitCursor = True
         '
         'colID
         '
@@ -347,6 +348,16 @@ Partial Class frmSintomas
         Me.colActivo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.colActivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.colActivo.Width = 60
+        '
+        'mnuBtnReactivar
+        '
+        Me.mnuBtnReactivar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.mnuBtnReactivar.Image = CType(resources.GetObject("mnuBtnReactivar.Image"), System.Drawing.Image)
+        Me.mnuBtnReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnReactivar.Name = "mnuBtnReactivar"
+        Me.mnuBtnReactivar.Size = New System.Drawing.Size(24, 24)
+        Me.mnuBtnReactivar.Text = "ToolStripButton1"
+        Me.mnuBtnReactivar.Visible = False
         '
         'frmSintomas
         '
@@ -402,4 +413,5 @@ Partial Class frmSintomas
     Friend WithEvents colID As DataGridViewTextBoxColumn
     Friend WithEvents colNombre As DataGridViewTextBoxColumn
     Friend WithEvents colActivo As DataGridViewCheckBoxColumn
+    Friend WithEvents mnuBtnReactivar As ToolStripButton
 End Class
