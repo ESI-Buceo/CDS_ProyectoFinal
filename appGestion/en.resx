@@ -612,4 +612,7 @@
   <data name="importacionexitosa" xml:space="preserve">
     <value>The data was imported successfully</value>
   </data>
+  <data name="errorarchivo" xml:space="preserve">
+    <value>The configuration file cannot be found. Can't continue</value>
+  </data>
 </root>

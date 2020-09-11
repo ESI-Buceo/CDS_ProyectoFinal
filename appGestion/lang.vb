@@ -155,6 +155,7 @@
     Public VFaltanDatosParaPoderImportar As String
     Public VFormatoIncorrectoParaImportar As String
     Public VImportacionExitosa As String
+    Public VErrorArchivo As String
 
     Public Sub CargarIdioma()
         VIdiomaActivo = My.Settings.lenguaje
@@ -321,6 +322,7 @@
         VFaltanDatosParaPoderImportar = My.Resources.es.faltandatosarapoderimportar
         VFormatoIncorrectoParaImportar = My.Resources.es.formatoincorrectoparaimportar
         VImportacionExitosa = My.Resources.es.importacionexitosa
+        VErrorArchivo = My.Resources.es.errorarchivo
     End Sub
 
     Public Sub idioma_en()
@@ -478,6 +480,7 @@
         VFaltanDatosParaPoderImportar = My.Resources.en.faltandatosarapoderimportar
         VFormatoIncorrectoParaImportar = My.Resources.en.formatoincorrectoparaimportar
         VImportacionExitosa = My.Resources.en.importacionexitosa
+        VErrorArchivo = My.Resources.en.errorarchivo
     End Sub
 
     Public Sub GuardarIdioma(ByVal idioma As String)

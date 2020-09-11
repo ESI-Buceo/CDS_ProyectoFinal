@@ -612,4 +612,7 @@
   <data name="importacionexitosa" xml:space="preserve">
     <value>Los datos se importaron correctamente</value>
   </data>
+  <data name="errorarchivo" xml:space="preserve">
+    <value>No se encuentra el archivo de configuracion. No puede continuar</value>
+  </data>
 </root>

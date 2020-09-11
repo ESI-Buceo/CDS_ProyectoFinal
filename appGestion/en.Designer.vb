@@ -551,6 +551,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a The configuration file cannot be found. Can&apos;t continue.
+        '''</summary>
+        Friend Shared ReadOnly Property errorarchivo() As String
+            Get
+                Return ResourceManager.GetString("errorarchivo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Failed to delete record.
         '''</summary>
         Friend Shared ReadOnly Property errorborrarregistro() As String

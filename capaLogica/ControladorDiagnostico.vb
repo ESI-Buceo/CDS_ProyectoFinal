@@ -132,30 +132,6 @@ Public Module ControladorDiagnostico
         Return ModeloDiagnostico.CodigoDiagnostico
     End Function
 
-    Public Function NuevoMensaje() As String
-        'Genera un numero aleatorio del 1 al 4 para luego mostrar mensajes diferentes.
-        Dim Random As New Random()
-        Dim numero As Integer = Random.Next(1, 4)
-        Return mensaje(numero)
-    End Function
-
-    Private Function mensaje(id As Integer) As String
-        Dim txtMensaje As String
-        Select Case id
-            Case 1
-                txtMensaje = "Si tienes otro sintoma, ingresado  "
-            Case 2
-                txtMensaje = "Tienes otro sintoma ? ingresalo "
-            Case 3
-                txtMensaje = "Que otro sintoma tienes? ingresado"
-            Case 4
-                txtMensaje = "Sientes otro sintoma ? ingresalo"
-            Case Else
-                txtMensaje = "Mensaje por defecto"
-        End Select
-        Return txtMensaje
-    End Function
-
     Public Function TraerDiagnosticos(ByVal uid As String, pwd As String, documento As String)
         Dim d As New ModeloDiagnostico(uid, pwd)
         Return d.TraerDiagnosticos(documento)
