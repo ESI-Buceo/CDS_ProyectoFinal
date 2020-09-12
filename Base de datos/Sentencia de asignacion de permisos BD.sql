@@ -96,4 +96,3 @@
             GRANT SELECT, INSERT, UPDATE ON dbTriage.patologia TO '22222222'@'192.168.56.%';
             GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.asociados TO '22222222'@'192.168.56.%';
             FLUSH PRIVILEGES;
-

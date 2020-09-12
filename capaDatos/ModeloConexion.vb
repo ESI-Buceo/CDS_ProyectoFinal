@@ -2,7 +2,8 @@
 Public MustInherit Class ModeloConexion
     Public Driver As String = "MySQL ODBC 8.0 ANSI Driver"
     Public Port As String = "3306"
-    Public Database As String = "dbTriage"
+    'Public Database As String = "dbTriage"
+    Public Database As String = "dbPrueba"
     Public Server As String = My.Settings.IPServer
     Public conexion As New OdbcConnection
 
