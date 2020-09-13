@@ -44,7 +44,7 @@ Partial Class frmDatosLogin
         Me.txtDocIdentidad.BackColor = System.Drawing.Color.White
         Me.txtDocIdentidad.Location = New System.Drawing.Point(62, 142)
         Me.txtDocIdentidad.Name = "txtDocIdentidad"
-        Me.txtDocIdentidad.Size = New System.Drawing.Size(177, 30)
+        Me.txtDocIdentidad.Size = New System.Drawing.Size(177, 26)
         Me.txtDocIdentidad.TabIndex = 1
         Me.txtDocIdentidad.Text = "11111111"
         '
@@ -63,7 +63,7 @@ Partial Class frmDatosLogin
         Me.txtPassword.Location = New System.Drawing.Point(62, 211)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(177, 30)
+        Me.txtPassword.Size = New System.Drawing.Size(177, 26)
         Me.txtPassword.TabIndex = 3
         Me.txtPassword.Text = "11111111"
         '
@@ -84,7 +84,7 @@ Partial Class frmDatosLogin
         'frmDatosLogin
         '
         Me.AcceptButton = Me.btnGestionIngresar
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 23.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(317, 390)

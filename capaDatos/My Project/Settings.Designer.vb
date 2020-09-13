@@ -65,7 +65,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("192.168.1.%")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("127.0.0.1")>  _
         Public ReadOnly Property RangoIpMedicos() As String
             Get
                 Return CType(Me("RangoIpMedicos"),String)
@@ -74,7 +74,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("192.168.1.%")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("127.0.0.1")>  _
         Public Property IPGestor() As String
             Get
                 Return CType(Me("IPGestor"),String)
@@ -86,7 +86,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("%")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("127.0.0.1")>  _
         Public Property IPPacientes() As String
             Get
                 Return CType(Me("IPPacientes"),String)
