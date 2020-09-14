@@ -66,31 +66,31 @@ Public Class ModeloAdministrativo
         Comando.CommandText = "GRANT ALL PRIVILEGES ON *.* TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "' IDENTIFIED BY '" & gestorPass & "' WITH GRANT OPTION"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.persona TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".persona TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.telefono TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".telefono TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.administrativo TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".administrativo TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.medico TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".medico TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.paciente TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".paciente TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.preexistentes TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".preexistentes TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.sintoma TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".sintoma TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.patologia TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".patologia TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.asociados TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".asociados TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "FLUSH PRIVILEGES"
@@ -98,7 +98,7 @@ Public Class ModeloAdministrativo
     End Sub
 
     Public Function BuscarAdministativo(ByVal stringSql As String)
-        Comando.CommandText = "SELECT a.docidentidad DOCUMENTO, p.mail EMAIL, p.nombres NOMBRES, p.apellidos APELLIDOS, p.fechaRegistro FECHREG, a.ndeempleado NEMPLEADO, p.activo ACTIVO 
+        Comando.CommandText = "SELECT a.docidentidad DOCUMENTO, p.mail EMAIL, p.nombres NOMBRES, p.apellidos APELLIDOS, p.fechaRegistro FECHREG, a.ndeempleado EMPLEADO, p.activo ACTIVO 
                                 FROM administrativo a 
                                 JOIN persona p ON p.docidentidad = a.docidentidad WHERE " & stringSql
         Reader = Comando.ExecuteReader

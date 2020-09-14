@@ -63,4 +63,16 @@ Imports capaDatos
 
     End Sub
 
+    <TestMethod()> Public Sub TestBuscarAdministativo()
+        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            a.BuscarAdministativo("12345678")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+    End Sub
+
 End Class
