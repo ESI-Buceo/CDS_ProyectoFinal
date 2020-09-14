@@ -32,7 +32,7 @@ Public Class ModeloDiagnostico
         Return TablaDatos
     End Function
 
-    Public Function cantidadDeDiagnosticos(ByVal docidentidad As String)
+    Public Function CantidadDeDiagnosticos(ByVal docidentidad As String)
         'Muestra la cantidad de diagnosticos del documento indicado
         Comando.CommandText = "SELECT COUNT(*) cant FROM recibe WHERE  idPaciente =" & docidentidad
         Reader = Comando.ExecuteReader
