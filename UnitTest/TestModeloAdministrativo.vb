@@ -50,11 +50,13 @@ Imports capaDatos
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
         Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+        Dim NumeroAleatorio As New Random()
+        a.Documento = System.Convert.ToString(NumeroAleatorio.Next(10000000, 99999999))
         Dim Resultado As Boolean
         Try
             a.CrearUsuarioBD()
             Resultado = True
-        Catch ex As Exception
+        Catch ex As Odbc.OdbcException
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
