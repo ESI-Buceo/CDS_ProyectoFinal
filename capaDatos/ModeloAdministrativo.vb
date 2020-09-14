@@ -67,34 +67,34 @@ Public Class ModeloAdministrativo
         Comando.CommandText = "GRANT ALL PRIVILEGES ON *.* TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "' IDENTIFIED BY '" & gestorPass & "' WITH GRANT OPTION"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.persona TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".persona TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.telefono TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".telefono TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.administrativo TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".administrativo TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.medico TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".medico TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.paciente TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".paciente TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.preexistentes TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".preexistentes TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.sintoma TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".sintoma TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.patologia TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".patologia TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.asociados TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".asociados TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON dbTriage.setting TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".setting TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "FLUSH PRIVILEGES"

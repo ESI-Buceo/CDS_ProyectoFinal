@@ -74,43 +74,43 @@
         Comando.CommandText = "CREATE USER '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "' IDENTIFIED BY '" & pacientePass & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.persona TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".persona TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.medico TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".medico TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.paciente TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".paciente TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.telefono TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".telefono TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.sesion TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".sesion TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.sintoma TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".sintoma TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.patologia TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".patologia TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.chat TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".chat TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT ON dbTriage.diagnostico TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT ON " + Database + ".diagnostico TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT INSERT ON dbTriage.recibe TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT INSERT ON " + Database + ".recibe TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT INSERT ON dbTriage.tiene TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT INSERT ON " + Database + ".tiene TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.asociados TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".asociados TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.setting TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".setting TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "FLUSH PRIVILEGES"
