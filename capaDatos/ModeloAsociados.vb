@@ -19,4 +19,5 @@ Public Class ModeloAsociados
         CerrarConexion()
         Return tabla
     End Function
+
 End Class
