@@ -38,6 +38,7 @@ Public Module ControladorMedico
         'Crea el usuario en la base de datos
         Dim m As New ModeloMedico(uid, pwd)
         m.Documento = docidentidad
+        m.RangoIpMedico = ControladorConfiguracion.LeerRangoIpMedicos(uid, pwd)
         m.CrearUsuarioBD()
     End Sub
 

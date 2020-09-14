@@ -32,7 +32,8 @@ Public Module controladorAdministrativo
     Public Sub CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         Dim a As New ModeloAdministrativo(uid, pwd)
         a.Documento = docidentidad
-        a.crearUsuarioBD()
+        a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
+        a.CrearUsuarioBD()
     End Sub
 
     Private Function cargarGridTelefonosADataTable(ByVal telefonos As DataGridView) As DataTable
@@ -92,12 +93,14 @@ Public Module controladorAdministrativo
 
     Public Sub eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         Dim a As New ModeloAdministrativo(uid, pwd)
+        a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
         a.EliminarUsuarioBD(docidentidad)
     End Sub
 
     Public Sub CambiarPassword(ByVal pass As String, uid As String, pwd As String)
         Dim a As New ModeloAdministrativo(uid, pwd)
         a.Documento = uid
+        a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
         a.CambiarPassword(pass)
     End Sub
 
@@ -117,4 +120,5 @@ Public Module controladorAdministrativo
         Dim a As New ModeloAdministrativo(uid, pwd)
         Return a.ListarTelefonos(docidentidad)
     End Function
+
 End Module

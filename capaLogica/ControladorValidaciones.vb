@@ -1,4 +1,5 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.Net
+Imports System.Text.RegularExpressions
 Imports System.Windows.Forms
 
 Public Module ControladorValidaciones
@@ -125,4 +126,13 @@ Public Module ControladorValidaciones
         End If
         Return True
     End Function
+
+    Public Function validarNumero(ByVal numero As String)
+
+        If Char.IsNumber(numero) And numero IsNot Nothing Then
+            Return True
+        End If
+        Return False
+    End Function
+
 End Module

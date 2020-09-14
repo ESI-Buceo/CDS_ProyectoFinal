@@ -41,6 +41,7 @@ Public Module controladorPacientes
         'Crea el usuario en la base de datos
         Dim p As New ModeloPaciente(uid, pwd)
         p.Documento = docidentidad
+        p.RangoIpPaciente = ControladorConfiguracion.LeerRangoIpPacientes(uid, pwd)
         p.CrearUsuarioBD()
     End Sub
 

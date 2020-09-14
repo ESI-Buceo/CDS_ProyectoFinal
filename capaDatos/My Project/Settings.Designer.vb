@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("192.168.1.15")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("192.168.1.%")>  _
         Public ReadOnly Property IPServer() As String
             Get
                 Return CType(Me("IPServer"),String)
