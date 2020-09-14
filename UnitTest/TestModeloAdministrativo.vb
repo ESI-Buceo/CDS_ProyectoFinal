@@ -50,8 +50,7 @@ Imports capaDatos
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
         Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
-        Dim NumeroAleatorio As New Random()
-        a.Documento = System.Convert.ToString(NumeroAleatorio.Next(10000000, 99999999))
+        a.Documento = "32165498"
         Dim Resultado As Boolean
         Try
             a.CrearUsuarioBD()
@@ -73,6 +72,108 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
+    End Sub
+
+    <TestMethod()> Public Sub TestBuscarAdministrativoPorDocumento()
+        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            a.BuscarAdministativo("77777777")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+    End Sub
+
+    <TestMethod()> Public Sub TestCambiarEstadoAdmin()
+        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            a.CambiarEstadoAdmin("77777777", "1")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+    End Sub
+
+    <TestMethod()> Public Sub TestEliminarUsuarioBD()
+        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            a.EliminarUsuarioBD("32165498")
+            Resultado = True
+        Catch ex As Odbc.OdbcException
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestValidarAdministrativo()
+        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            a.ValidarAdministrativo("19266173")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestCambiarPassword()
+        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            a.CambiarPassword("11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestListarAdministrativosSegunEstado()
+        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            a.ListarAdministrativos("1")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestListarAdministrativos()
+        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            a.ListarAdministrativos()
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestListarTelefonos()
+        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            a.ListarTelefonos("407138496")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+
     End Sub
 
 End Class

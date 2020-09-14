@@ -180,4 +180,5 @@ Public Class ModeloAdministrativo
         CerrarConexion()
         Return tablaTelefonos
     End Function
+
 End Class
