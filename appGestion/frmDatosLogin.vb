@@ -32,6 +32,7 @@ Public Class frmDatosLogin
             cargarAdminitrativo(controladorAdministrativo.ValidarAdministrativo(txtDocIdentidad.Text, "Ge." + txtPassword.Text))
             setearUsuario()
         Catch ex As Exception
+            MsgBox(ex.Message)
             MsgBox(VLoginIncorrecto, vbInformation, VErrorAcceso)
         End Try
     End Sub

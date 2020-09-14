@@ -615,4 +615,64 @@
   <data name="errorarchivo" xml:space="preserve">
     <value>The configuration file cannot be found. Can't continue</value>
   </data>
+  <data name="cantidaddesintomasincorrecta" xml:space="preserve">
+    <value>The number of symptoms is incorrect, check ...</value>
+  </data>
+  <data name="haycambiossinguardar" xml:space="preserve">
+    <value>There are unsaved changes, do you want to continue?</value>
+  </data>
+  <data name="algoenlaconfiguracionnoestabien" xml:space="preserve">
+    <value>Something in the configuration is not right, check</value>
+  </data>
+  <data name="aplicar" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="conexiones" xml:space="preserve">
+    <value>Connections</value>
+  </data>
+  <data name="configuracion" xml:space="preserve">
+    <value>Setting</value>
+  </data>
+  <data name="configuraremail" xml:space="preserve">
+    <value>Configure Email</value>
+  </data>
+  <data name="credencial" xml:space="preserve">
+    <value>Credential</value>
+  </data>
+  <data name="datosemail" xml:space="preserve">
+    <value>Email data</value>
+  </data>
+  <data name="emaildecontacto" xml:space="preserve">
+    <value>Contact email</value>
+  </data>
+  <data name="errorconfiguracion" xml:space="preserve">
+    <value>There is an error in the configuration, it could not be saved. Check</value>
+  </data>
+  <data name="ipgestion" xml:space="preserve">
+    <value>Admin IP Range</value>
+  </data>
+  <data name="ipmedicos" xml:space="preserve">
+    <value>Medical IP Range</value>
+  </data>
+  <data name="ippacientes" xml:space="preserve">
+    <value>IP Patients</value>
+  </data>
+  <data name="puertosmtp" xml:space="preserve">
+    <value>SMTP port</value>
+  </data>
+  <data name="seguardolaconfiguracion" xml:space="preserve">
+    <value>The configuration was saved successfully</value>
+  </data>
+  <data name="servidorsmtp" xml:space="preserve">
+    <value>SMTP server</value>
+  </data>
+  <data name="subsitulosintomas" xml:space="preserve">
+    <value>Minimum number of symptoms that a patient must indicate to receive a diagnosis</value>
+  </data>
+  <data name="subtituloconexiones" xml:space="preserve">
+    <value>Connection IP address configuration for different applications</value>
+  </data>
+  <data name="subtituloemail" xml:space="preserve">
+    <value>Save the necessary configuration for sending Email from the medical app</value>
+  </data>
 </root>
