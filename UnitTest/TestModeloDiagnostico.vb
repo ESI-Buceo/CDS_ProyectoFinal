@@ -5,7 +5,9 @@ Imports capaDatos
 <TestClass()> Public Class TestModeloDiagnostico
 
     <TestMethod()> Public Sub TestGuardarDiagnostico()
-        ModeloDiagnostico.CodigoDiagnostico = "123456789"
+        Dim numAleatorio As New Random()
+        Dim valorAleatorio As String = numAleatorio.Next(100000000, 999999999)
+        ModeloDiagnostico.CodigoDiagnostico = valorAleatorio
         ModeloDiagnostico.Ponderacion = "10"
         Dim d As New ModeloDiagnostico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
