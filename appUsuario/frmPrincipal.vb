@@ -649,10 +649,6 @@ Public Class frmPrincipal
 
     End Sub
 
-    Private Sub frmPrincipal_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
-
-    End Sub
-
     Private Sub confirmarCierre()
         Dim respuesta As Integer
         respuesta = MsgBox(VSeguroCerrarAplicacion, vbQuestion + vbYesNo, VAvisoConfirmacion)
