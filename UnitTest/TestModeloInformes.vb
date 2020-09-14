@@ -8,36 +8,36 @@ Imports capaDatos
         Dim i As New ModeloInformes("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            i.RankigPatologias("")
+            i.RankigPatologias(DateTime.Now.ToString("MM"))
             Resultado = True
         Catch ex As Exception
             Resultado = False
         End Try
-
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestDiagnosticosBrindados()
         Dim i As New ModeloInformes("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            i.DiagnosticosBrindados("")
+            i.DiagnosticosBrindados(DateTime.Now.ToString("MM"))
             Resultado = True
         Catch ex As Exception
             Resultado = False
         End Try
-
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestCantidadChat()
         Dim i As New ModeloInformes("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            i.CantidadChat("")
+            i.CantidadChat(DateTime.Now.ToString("MM"))
             Resultado = True
         Catch ex As Exception
             Resultado = False
         End Try
-
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestCantidadChatMes()
@@ -49,7 +49,7 @@ Imports capaDatos
         Catch ex As Exception
             Resultado = False
         End Try
-
+        Assert.IsTrue(Resultado)
     End Sub
 
 End Class

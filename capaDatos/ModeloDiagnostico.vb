@@ -1,4 +1,5 @@
 ﻿Imports System.Data.Odbc
+Imports capaDatos
 
 Public Class ModeloDiagnostico
     Inherits ModeloConexion
@@ -39,4 +40,5 @@ Public Class ModeloDiagnostico
         Reader.Read()
         Return Reader("cant").ToString
     End Function
+
 End Class

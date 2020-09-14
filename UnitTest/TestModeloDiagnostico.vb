@@ -5,6 +5,8 @@ Imports capaDatos
 <TestClass()> Public Class TestModeloDiagnostico
 
     <TestMethod()> Public Sub TestGuardarDiagnostico()
+        ModeloDiagnostico.CodigoDiagnostico = "123456789"
+        ModeloDiagnostico.Ponderacion = "10"
         Dim d As New ModeloDiagnostico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
@@ -13,7 +15,7 @@ Imports capaDatos
         Catch ex As Exception
             Resultado = False
         End Try
-
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestTraerDiagnosticos()
@@ -25,7 +27,7 @@ Imports capaDatos
         Catch ex As Exception
             Resultado = False
         End Try
-
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestCantidadDeDiagnosticos()
@@ -37,7 +39,7 @@ Imports capaDatos
         Catch ex As Exception
             Resultado = False
         End Try
-
+        Assert.IsTrue(Resultado)
     End Sub
 
 End Class
