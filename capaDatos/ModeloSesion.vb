@@ -9,12 +9,13 @@
         MyBase.New(uid, pwd)
     End Sub
 
-    Public Sub GuardarSesion()
+    Public Function GuardarSesion()
         'Guarda el inicio de una sesion con su prioridad
         Comando.CommandText = "INSERT INTO sesion (idSesion, prioridad) VALUES(" & Me.IdSesion & ", " & Me.Prioridad & ")"
         Comando.ExecuteNonQuery()
         CerrarConexion()
-    End Sub
+        Return Me.IdSesion
+    End Function
 
     Public Function MostrarSesionesPendientes() As DataTable
         'Muestra las sesiones pendientes de inicio ordenadas por prioridad

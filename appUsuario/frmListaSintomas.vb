@@ -3,6 +3,11 @@
 Public Class frmListaSintomas
 
     Private Sub frmListaSintomas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargarTextos()
+        mostrarListaSintomas()
+    End Sub
+
+    Private Sub mostrarListaSintomas()
         'Lista los sintomas por nombre
         Try
             dgvSintomas.DataSource = ControladorSintomas.ListarSintomas(UCase(frmPrincipal.txtSintoma.Text), USUARIO, PASSWD)
@@ -10,7 +15,7 @@ Public Class frmListaSintomas
             dgvSintomas.Columns.Item(1).Width = 200
             dgvSintomas.Columns.Item(2).Visible = False
         Catch ex As Exception
-            MsgBox("No se puede cargar la lista de sintomas")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoErrorAccesoDatos)
         End Try
     End Sub
 
@@ -20,12 +25,11 @@ Public Class frmListaSintomas
             If ControladorDiagnostico.ValidarSintomaSeleccionado(idSintoma, frmPrincipal.ListaSintomasSeleccionados) Then
                 agregarSintomaSeleccionado(idSintoma, sintomaNombre)
             Else
-                MsgBox("El sintoma ya esta ingresado")
+                MsgBox(VElSintomaYaEstaIngresado, vbExclamation, VError)
             End If
         Catch ex As Exception
-            MsgBox("Error al cargar lista de sintomas", vbCritical, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VErrorDatosAcceso)
         End Try
-
         Me.Dispose()
     End Sub
 
@@ -40,5 +44,10 @@ Public Class frmListaSintomas
         If e.RowIndex >= 0 Then
             sintomaSeleccionado(dgvSintomas.Item(0, e.RowIndex).Value, dgvSintomas.Item(1, e.RowIndex).Value)
         End If
+    End Sub
+
+    Private Sub cargarTextos()
+        Me.Text = VListaDeSintomas
+        dgvSintomas.Columns("colNombre").HeaderText = VNombre
     End Sub
 End Class

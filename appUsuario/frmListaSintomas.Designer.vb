@@ -23,6 +23,9 @@ Partial Class frmListaSintomas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.dgvSintomas = New System.Windows.Forms.DataGridView()
+        Me.colId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvSintomas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -33,6 +36,7 @@ Partial Class frmListaSintomas
         Me.dgvSintomas.AllowUserToOrderColumns = True
         Me.dgvSintomas.BackgroundColor = System.Drawing.SystemColors.ButtonFace
         Me.dgvSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSintomas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colId, Me.colNombre, Me.colActivo})
         Me.dgvSintomas.Location = New System.Drawing.Point(1, 0)
         Me.dgvSintomas.Name = "dgvSintomas"
         Me.dgvSintomas.ReadOnly = True
@@ -40,9 +44,33 @@ Partial Class frmListaSintomas
         Me.dgvSintomas.Size = New System.Drawing.Size(276, 424)
         Me.dgvSintomas.TabIndex = 0
         '
+        'colId
+        '
+        Me.colId.DataPropertyName = "id"
+        Me.colId.HeaderText = "ID"
+        Me.colId.Name = "colId"
+        Me.colId.ReadOnly = True
+        Me.colId.Visible = False
+        '
+        'colNombre
+        '
+        Me.colNombre.DataPropertyName = "nombre"
+        Me.colNombre.HeaderText = "Nombre"
+        Me.colNombre.Name = "colNombre"
+        Me.colNombre.ReadOnly = True
+        Me.colNombre.Width = 200
+        '
+        'colActivo
+        '
+        Me.colActivo.DataPropertyName = "activo"
+        Me.colActivo.HeaderText = "Activo"
+        Me.colActivo.Name = "colActivo"
+        Me.colActivo.ReadOnly = True
+        Me.colActivo.Visible = False
+        '
         'frmListaSintomas
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(280, 424)
         Me.Controls.Add(Me.dgvSintomas)
@@ -60,4 +88,7 @@ Partial Class frmListaSintomas
     End Sub
 
     Friend WithEvents dgvSintomas As DataGridView
+    Friend WithEvents colId As DataGridViewTextBoxColumn
+    Friend WithEvents colNombre As DataGridViewTextBoxColumn
+    Friend WithEvents colActivo As DataGridViewTextBoxColumn
 End Class

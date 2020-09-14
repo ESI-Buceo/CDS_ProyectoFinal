@@ -25,7 +25,7 @@ Public Class ModeloDiagnostico
                                 FROM recibe r 
                                 JOIN diagnostico d ON d.id = r.idDiagnostico
                                 JOIN tiene t ON t.idDiagnostico = d.id 
-                                WHERE r.idPaciente =" & documento & " ORDER BY d.prioridad DESC"
+                                WHERE r.idPaciente =" & documento & " ORDER BY r.fechaHora DESC"
         Reader = Comando.ExecuteReader()
         TablaDatos.Load(Reader)
         conexion.Close()
