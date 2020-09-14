@@ -71,7 +71,7 @@ Public Class ModeloChat
 
     Public Function CantidadDeChats(ByVal docidentidad As String)
         'Muestra la cantida de chat iniciados por el documento ingresado
-        Comando.CommandText = "SELECT count(DISTINCT(idSesion )) cant FROM chat WHEre docidentidadPaciente=" & docidentidad
+        Comando.CommandText = "SELECT count(DISTINCT(idSesion)) cant FROM chat WHERE docidentidadPaciente=" & docidentidad
         Reader = Comando.ExecuteReader
         Reader.Read()
         Return Reader("cant").ToString
