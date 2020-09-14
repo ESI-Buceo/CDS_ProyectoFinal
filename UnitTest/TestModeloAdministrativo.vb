@@ -127,6 +127,7 @@ Imports capaDatos
     <TestMethod()> Public Sub TestCambiarPassword()
         Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
+        a.Documento = "11111111"
         Try
             a.CambiarPassword("11111111")
             Resultado = True

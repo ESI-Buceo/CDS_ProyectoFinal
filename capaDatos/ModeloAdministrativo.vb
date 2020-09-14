@@ -144,7 +144,8 @@ Public Class ModeloAdministrativo
     End Function
 
     Public Sub CambiarPassword(ByVal pass As String)
-        Comando.CommandText = "ALTER USER '" & Me.Documento & "'@'" & My.Settings.IPGestor & "' IDENTIFIED BY '" & "Ge." & pass & "'"
+        'Comando.CommandText = "ALTER USER '" & Me.Documento & "'@'" & My.Settings.IPGestor & "' IDENTIFIED BY '" & "Ge." & pass & "'"
+        Comando.CommandText = "ALTER USER '" & Me.Documento & "'@'%' IDENTIFIED BY '" & "Ge." & pass & "'"
         Comando.ExecuteNonQuery()
     End Sub
 
