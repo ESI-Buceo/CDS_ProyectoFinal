@@ -64,7 +64,7 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestBuscarMedico()
-        Dim m As New ModeloMedico("22222222", "Ge.22222222")
+        Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             m.BuscarMedico("19266171")
@@ -80,7 +80,7 @@ Imports capaDatos
         Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            m.BuscarMedico("19266173")
+            m.BuscarMedicoPorDocumento("19266173")
             Resultado = True
         Catch ex As Exception
             Resultado = False

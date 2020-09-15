@@ -72,40 +72,40 @@
         Comando.CommandText = "CREATE USER '" & Me.Documento & "'@'%' IDENTIFIED BY '" & pacientePass & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.persona TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".persona TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.medico TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".medico TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.paciente TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".paciente TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.telefono TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".telefono TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.sesion TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".sesion TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.sintoma TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT SELECT ON" + Database + ".sintoma TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.patologia TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".patologia TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON dbTriage.chat TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".chat TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT ON dbTriage.diagnostico TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT ON " + Database + ".diagnostico TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT INSERT ON dbTriage.recibe TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT INSERT ON " + Database + ".recibe TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT INSERT ON dbTriage.tiene TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT INSERT ON " + Database + ".tiene TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT ON dbTriage.asociados TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".asociados TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "FLUSH PRIVILEGES"

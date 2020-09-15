@@ -86,7 +86,7 @@ Public Module ControladorMedico
     Public Function buscarMedico(ByVal cadenaSql As String, uid As String, pwd As String)
         'Busca los medicos que coinciden con los criterios de busqueda
         Dim m As New ModeloMedico(uid, pwd)
-        Return m.BuscarMedico(formatearSqlBuscquedaMedico(cadenaSql))
+        Return m.buscarMedico(formatearSqlBuscquedaMedico(cadenaSql))
     End Function
 
     Private Function formatearSqlBuscquedaMedico(ByVal datoString As String)
