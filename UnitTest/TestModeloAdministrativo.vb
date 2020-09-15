@@ -50,7 +50,7 @@ Imports capaDatos
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
         Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
-        a.Documento = "32165498"
+        a.Documento = "40717849"
         Dim Resultado As Boolean
         Try
             a.CrearUsuarioBD()
@@ -66,7 +66,7 @@ Imports capaDatos
         Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            a.BuscarAdministativo("12345678")
+            a.BuscarAdministativo("77777777")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -90,7 +90,7 @@ Imports capaDatos
         Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            a.CambiarEstadoAdmin("77777777", "1")
+            a.CambiarEstadoAdmin("40717849", "1")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -102,7 +102,7 @@ Imports capaDatos
         Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            a.EliminarUsuarioBD("32165498")
+            a.EliminarUsuarioBD("40717849")
             Resultado = True
         Catch ex As Odbc.OdbcException
             Resultado = False
@@ -115,7 +115,7 @@ Imports capaDatos
         Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            a.ValidarAdministrativo("19266173")
+            a.ValidarAdministrativo("40717849")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -168,7 +168,7 @@ Imports capaDatos
         Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            a.ListarTelefonos("407138496")
+            a.ListarTelefonos("40717849")
             Resultado = True
         Catch ex As Exception
             Resultado = False

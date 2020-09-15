@@ -120,7 +120,7 @@
         Return True
     End Function
 
-    Public Function buscarMedicoPorDocumento(ByVal docIdentidad As String)
+    Public Function BuscarMedicoPorDocumento(ByVal docIdentidad As String)
         'Busca la informacion del medico por docuemento de identidad
         Dim tablaDatos As New DataTable
         Comando.CommandText = "SELECT m.docidentidad as documento, p.mail as mail, p.nombres as nombres, p.apellidos as apellidos, p.calle as calle, p.numero as numero, p.barrio as barrio, 

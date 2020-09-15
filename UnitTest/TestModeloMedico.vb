@@ -5,10 +5,10 @@ Imports capaDatos
 <TestClass()> Public Class TestModeloMedico
 
     <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
-        Dim m As New ModeloMedico("19266171", "Me.19266171")
+        Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            m.VerificarDocumentoDeIdentidad("19266171")
+            m.VerificarDocumentoDeIdentidad("19266175")
             Resultado = True
         Catch ex As Exception
             Resultado = True
@@ -21,21 +21,22 @@ Imports capaDatos
         Dim Resultado As Boolean
         Dim Telefono As New DataTable
         Telefono.Columns.Add("Telefono")
-        Telefono.Rows.Add("097050602")
-        Telefono.Rows.Add("098451212")
-        Dim m As New ModeloMedico("22222222", "Ge.22222222")
-        m.Documento = "56512328"
+        Telefono.Rows.Add("097650602")
+        Telefono.Rows.Add("099451212")
+        Dim m As New ModeloMedico("11111111", "Ge.11111111")
+        m.Documento = "36512328"
         m.Email = "nuevo@medico.com"
-        m.Nombres = "Carlos"
-        m.Apellidos = "Chacon"
+        m.Nombres = "Carlitos"
+        m.Apellidos = "Hacelaplancha"
         m.Calle = "Atahualpa"
         m.Numero = "1245"
         m.Barrio = "Yupanqui"
         m.Esquina = "Del Infinito"
         m.Apartamento = "3"
-        m.FechaNacimiento = "1976-12-20"
-        m.NumeroMedico = "4594"
+        m.FechaNacimiento = "1986-12-20"
+        m.NumeroMedico = "4598"
         m.Telefonos = Telefono
+
 
         Try
             m.GuardarDatosMedico()
@@ -50,7 +51,7 @@ Imports capaDatos
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
         Dim m As New ModeloMedico("11111111", "Ge.11111111")
-        m.Documento = "56512329"
+        m.Documento = "36512327"
         Dim Resultado As Boolean
         Try
             m.CrearUsuarioBD()
@@ -63,10 +64,36 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestBuscarMedico()
+        Dim m As New ModeloMedico("22222222", "Ge.22222222")
+        Dim Resultado As Boolean
+        Try
+            m.BuscarMedico("19266171")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestBuscarMedicoPorDocumento()
         Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            m.BuscarMedico("19266175")
+            m.BuscarMedico("19266173")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestCambiarEstadoMedico()
+        Dim m As New ModeloMedico("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            m.CambiarEstadoMedico("19266171", "1")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -78,9 +105,48 @@ Imports capaDatos
         Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            m.EliminarUsuarioBD("56512329")
+            m.EliminarUsuarioBD("36512327")
             Resultado = True
         Catch ex As Odbc.OdbcException
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestListarMedicos()
+        Dim m As New ModeloMedico("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            m.ListarMedicos()
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestListarMedicosPorEstado()
+        Dim m As New ModeloMedico("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            m.ListarMedicos("0")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+
+    End Sub
+
+    <TestMethod()> Public Sub TestListarTelefonos()
+        Dim m As New ModeloMedico("11111111", "Ge.11111111")
+        Dim Resultado As Boolean
+        Try
+            m.ListarTelefonos("19266173")
+            Resultado = True
+        Catch ex As Exception
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
