@@ -3,9 +3,8 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports capaDatos
 
 <TestClass()> Public Class TestModeloMedico
-
+    Dim m As New ModeloMedico("11111111", "Ge.11111111")
     <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
-        Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             m.VerificarDocumentoDeIdentidad("19266175")
@@ -13,6 +12,7 @@ Imports capaDatos
         Catch ex As Exception
             Resultado = True
         End Try
+
         Assert.IsTrue(Resultado)
 
     End Sub
@@ -23,7 +23,7 @@ Imports capaDatos
         Telefono.Columns.Add("Telefono")
         Telefono.Rows.Add("097650602")
         Telefono.Rows.Add("099451212")
-        Dim m As New ModeloMedico("11111111", "Ge.11111111")
+
         m.Documento = "36512328"
         m.Email = "nuevo@medico.com"
         m.Nombres = "Carlitos"
@@ -50,7 +50,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
-        Dim m As New ModeloMedico("11111111", "Ge.11111111")
         m.Documento = "36512327"
         Dim Resultado As Boolean
         Try
@@ -64,7 +63,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestBuscarMedico()
-        Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             m.BuscarMedico("19266171")
@@ -77,7 +75,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestBuscarMedicoPorDocumento()
-        Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             m.BuscarMedicoPorDocumento("19266173")
@@ -90,7 +87,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestCambiarEstadoMedico()
-        Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             m.CambiarEstadoMedico("19266171", "1")
@@ -102,7 +98,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestEliminarUsuarioBD()
-        Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             m.EliminarUsuarioBD("36512327")
@@ -115,7 +110,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestListarMedicos()
-        Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             m.ListarMedicos()
@@ -128,10 +122,9 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestListarMedicosPorEstado()
-        Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
-            m.ListarMedicos("0")
+            m.ListarMedicos("1")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -141,7 +134,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestListarTelefonos()
-        Dim m As New ModeloMedico("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             m.ListarTelefonos("19266173")

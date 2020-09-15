@@ -101,6 +101,7 @@
     <Compile Include="TestModeloInformes.vb" />
     <Compile Include="TestModeloMedico.vb" />
     <Compile Include="TestModeloPaciente.vb" />
+    <Compile Include="TestModeloTiene.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

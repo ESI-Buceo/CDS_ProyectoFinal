@@ -3,9 +3,8 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports capaDatos
 
 <TestClass()> Public Class TestModeloAdministrativo
-
+    Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
     <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
-        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             a.VerificarDocumentoDeIdentidad("19266173")
@@ -23,7 +22,7 @@ Imports capaDatos
         Telefono.Columns.Add("Telefono")
         Telefono.Rows.Add("097050602")
         Telefono.Rows.Add("098451212")
-        Dim a As New ModeloAdministrativo("22222222", "Ge.22222222")
+
         a.Documento = "40717849"
         a.Email = "nuevo@admin.com"
         a.Nombres = "maria"
@@ -49,7 +48,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
-        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         a.Documento = "40717849"
         Dim Resultado As Boolean
         Try
@@ -63,7 +61,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestBuscarAdministativo()
-        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             a.BuscarAdministativo("77777777")
@@ -75,7 +72,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestBuscarAdministrativoPorDocumento()
-        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             a.BuscarAdministativo("77777777")
@@ -87,7 +83,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestCambiarEstadoAdmin()
-        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             a.CambiarEstadoAdmin("40717849", "1")
@@ -99,7 +94,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestEliminarUsuarioBD()
-        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             a.EliminarUsuarioBD("40717849")
@@ -112,7 +106,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestValidarAdministrativo()
-        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             a.ValidarAdministrativo("40717849")
@@ -125,7 +118,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestCambiarPassword()
-        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         a.Documento = "11111111"
         Try
@@ -139,7 +131,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestListarAdministrativosSegunEstado()
-        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             a.ListarAdministrativos("1")
@@ -152,7 +143,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestListarAdministrativos()
-        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             a.ListarAdministrativos()
@@ -165,7 +155,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestListarTelefonos()
-        Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             a.ListarTelefonos("40717849")

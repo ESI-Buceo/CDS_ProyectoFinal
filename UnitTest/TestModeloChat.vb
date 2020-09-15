@@ -3,9 +3,8 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports capaDatos
 
 <TestClass()> Public Class TestModeloChat
-
+    Dim c As New ModeloChat("19266171", "Me.19266171")
     <TestMethod()> Public Sub TestEnviarMensaje()
-        Dim c As New ModeloChat("19266171", "Me.19266171")
         c.docidentidadPaciente = "19248371"
         c.docidentidadMedico = "19266171"
         c.idSesion = "161348021"
@@ -24,7 +23,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestRecibirMensajes()
-        Dim c As New ModeloChat("19266171", "Me.19266171")
         ModeloDiagnostico.CodigoDiagnostico = "161348021"
 
         Dim Resultado As Boolean
@@ -40,7 +38,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestRecibirMensajesAppPaciente()
-        Dim c As New ModeloChat("19248371", "Pa.19248371")
         Dim Resultado As Boolean
         Try
             c.RecibirMensajes("161348021", emisor:="M")
@@ -54,7 +51,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestRecibirTodosMensajes()
-        Dim c As New ModeloChat("19248371", "Pa.19248371")
         Dim Resultado As Boolean
         Try
             c.RecibirTodosMensajes("161348021")
@@ -68,7 +64,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestMarcarMensajeLeido()
-        Dim c As New ModeloChat("19248371", "Pa.19248371")
         Dim Resultado As Boolean
         Try
             c.MarcarMensajeLeido("16")
@@ -96,7 +91,6 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestCantidadDeChats()
-        Dim c As New ModeloChat("19248371", "Pa.19248371")
         Dim Resultado As Boolean
         Try
             c.CantidadDeChats("19248371")

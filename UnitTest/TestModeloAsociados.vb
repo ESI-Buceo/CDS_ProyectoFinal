@@ -4,9 +4,8 @@ Imports capaDatos
 
 
 <TestClass()> Public Class TestModeloAsociados
-
+    Dim a As New ModeloAsociados("11111111", "Ge.11111111")
     <TestMethod()> Public Sub TestFiltrarPatologiasPorSintomas()
-        Dim a As New ModeloAsociados("11111111", "Ge.11111111")
         Dim Resultado As Boolean
         Try
             a.FiltrarPatologiasPorSintomas("1", "1")
