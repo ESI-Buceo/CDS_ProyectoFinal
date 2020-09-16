@@ -12,7 +12,7 @@
     Public EmailSSL As Boolean
     Public EmailCredencial As String
     Public Docidentidad As String
-    Public TablaConfiuracion As New DataTable
+    Public TablaConfiguracion As New DataTable
 
     Public Sub New(ByVal uid As String, pwd As String)
         MyBase.New(uid, pwd)
@@ -21,9 +21,9 @@
     Public Function LeerConfiguracion()
         Comando.CommandText = "SELECT * FROM setting"
         Reader = Comando.ExecuteReader
-        TablaConfiuracion.Load(Reader)
+        TablaConfiguracion.Load(Reader)
         CerrarConexion()
-        Return TablaConfiuracion
+        Return TablaConfiguracion
     End Function
 
     Public Sub GuardarConfiguracion()
@@ -64,5 +64,13 @@
         Reader = Comando.ExecuteReader()
         Reader.Read()
         Return Reader(0).ToString
+    End Function
+
+    Public Function LeerConfiguracionEmail()
+        Comando.CommandText = "SELECT emailContacto de, emailPuertoSMTP puerto, emailServidorSMPT servidorSalida, emailSSL emailssl, emailCredencial credencial FROM setting"
+        Reader = Comando.ExecuteReader
+        TablaConfiguracion.Load(Reader)
+        CerrarConexion()
+        Return TablaConfiguracion
     End Function
 End Class

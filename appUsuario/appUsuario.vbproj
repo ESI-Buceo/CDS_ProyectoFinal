@@ -92,6 +92,12 @@
     <Compile Include="frmHistoriaChat.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmInfoPatologia.Designer.vb">
+      <DependentUpon>frmInfoPatologia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInfoPatologia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmListaSintomas.Designer.vb">
       <DependentUpon>frmListaSintomas.vb</DependentUpon>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHistoriaChat.resx">
       <DependentUpon>frmHistoriaChat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfoPatologia.resx">
+      <DependentUpon>frmInfoPatologia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaSintomas.resx">
       <DependentUpon>frmListaSintomas.vb</DependentUpon>

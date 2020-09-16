@@ -45,8 +45,13 @@
         'Muestra las sesiones en espera
         Dim tablaSesion As New DataTable
         Comando.CommandText = "SELECT DISTINCT(s.idSesion) SESION, s.fechaHoraInicioSesion HORA, p.docidentidad DOC, pe.nombres NOMBRES, pe.apellidos APELLIDOS, s.prioridad PRIORIDAD, s.estado ESTADO
-                                FROM sesion s JOIN recibe r ON r.idDiagnostico = s.idSesion JOIN paciente p ON p.docidentidad = r.idPaciente 
-                                JOIN persona pe ON pe.docidentidad = p.docidentidad JOIN chat ch ON ch.docidentidadMedico = '" & idMedico & "' WHERE s.estado ='2' ORDER BY s.prioridad DESC "
+                                FROM sesion s 
+                                JOIN recibe r ON r.idDiagnostico = s.idSesion 
+                                JOIN paciente p ON p.docidentidad = r.idPaciente 
+                                JOIN persona pe ON pe.docidentidad = p.docidentidad 
+                                JOIN chat ch ON ch.docidentidadMedico = '" & idMedico & "' AND ch.idSesion = s.idSesion 
+                                WHERE s.estado ='2' 
+                                ORDER BY s.prioridad DESC "
         Reader = Comando.ExecuteReader
         tablaSesion.Load(Reader)
         CerrarConexion()
@@ -84,7 +89,6 @@
         Reader.Read()
         Return Reader(0).ToString
     End Function
-
 
     Public Function DevolverNombreApellidoMedico()
         'Devuelce los datos del medico que esta en el chat

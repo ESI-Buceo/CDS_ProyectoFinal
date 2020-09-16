@@ -55,4 +55,10 @@ Public Module ControladorConfiguracion
         Dim c As New ModeloConfiguracion(uid, pwd)
         Return c.LeerCantSintomas()
     End Function
+
+    Public Function LeerConfiguracionEmail(ByVal uid As String, pwd As String)
+        'Lee la configuracion para poder enviar correos
+        Dim c As New ModeloConfiguracion(uid, pwd)
+        Return c.LeerConfiguracionEmail
+    End Function
 End Module

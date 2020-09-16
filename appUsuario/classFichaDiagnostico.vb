@@ -8,22 +8,6 @@ Public Class classFichaDiagnostico
     Public CantPatologias As Integer
     Public AltoPanelDiagnostico As Integer
 
-    Private Const colorEmergenciaR As Integer = 193
-    Private Const colorEmergenciaG As Integer = 141
-    Private Const colorEmergenciaB As Integer = 41
-
-    Private Const colorUrgenciaR As Integer = 210
-    Private Const colorUrgenciaG As Integer = 214
-    Private Const colorUrgenciaB As Integer = 47
-
-    Private Const colorUrgenciaMenorR As Integer = 64
-    Private Const colorUrgenciaMenorG As Integer = 142
-    Private Const colorUrgenciaMenorB As Integer = 67
-
-    Private Const colorSinUrgenciaR As Integer = 56
-    Private Const colorSinUrgenciaG As Integer = 61
-    Private Const colorSinUrgenciaB As Integer = 140
-
     Private panel As New Panel
     Public Function crearFichaChat() As Panel
         panel.Width = 350
@@ -76,20 +60,6 @@ Public Class classFichaDiagnostico
         patologia.AutoSize = False
         patologia.Width = 250
         Return patologia
-    End Function
-
-    Private Function colorPonderacion() As Color
-        Dim color As Color
-        If Me.Ponderacion = 40 Then
-            color = Color.FromArgb(colorEmergenciaR, colorEmergenciaG, colorEmergenciaB)
-        ElseIf Me.Ponderacion < 40 And Me.Ponderacion >= 30 Then
-            color = Color.FromArgb(colorUrgenciaR, colorUrgenciaG, colorUrgenciaB)
-        ElseIf Me.Ponderacion < 30 And Me.Ponderacion >= 20 Then
-            color = Color.FromArgb(colorUrgenciaMenorR, colorUrgenciaMenorG, colorUrgenciaMenorB)
-        Else
-            color = Color.FromArgb(colorSinUrgenciaR, colorSinUrgenciaG, colorSinUrgenciaB)
-        End If
-        Return color
     End Function
 
     Public Sub ListarPatologiasDelDiagnostico(ByVal tablaPatologias As DataTable)

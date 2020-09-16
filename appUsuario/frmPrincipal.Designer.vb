@@ -488,6 +488,7 @@ Partial Class frmPrincipal
         '
         'tiempoMensaje
         '
+        Me.tiempoMensaje.Interval = 1000
         '
         'panelChat
         '
@@ -617,7 +618,7 @@ Partial Class frmPrincipal
         '
         'TimerChequearEstado
         '
-        Me.TimerChequearEstado.Interval = 10000
+        Me.TimerChequearEstado.Interval = 5000
         '
         'panelHistoria
         '
