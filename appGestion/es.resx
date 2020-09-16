@@ -675,4 +675,13 @@
   <data name="subtituloemail" xml:space="preserve">
     <value>Guarda la configuaracion necesaria para el envio de Email desde la app medico</value>
   </data>
+  <data name="accion" xml:space="preserve">
+    <value>Accion</value>
+  </data>
+  <data name="basededatos" xml:space="preserve">
+    <value>Base de datos</value>
+  </data>
+  <data name="servidor" xml:space="preserve">
+    <value>Servidor</value>
+  </data>
 </root>

@@ -73,8 +73,8 @@ Public Class frmLeerArchivo
     Private Sub validarColumnasDeDestinoPatologias()
         'Si el formato de los datos a importar es correcto los importa
         Try
-            If ControladorValidaciones.ValidarCantidadCamposPatologias(dgvDatosCSV) Then
-                ControladorPatologias.ExportarDatosADB(USUARIO, PASSWORD, dgvDatosCSV)
+            If ControladorValidaciones.ValidarCantidadCamposPatologias(pasarDatosCSVPatologias) Then
+                ControladorPatologias.ExportarDatosADB(USUARIO, PASSWORD, pasarDatosCSVPatologias)
                 MsgBox(VImportacionExitosa, vbInformation, VAviso)
             Else
                 MsgBox(VFormatoIncorrectoParaImportar, vbInformation, VAviso)
@@ -83,12 +83,30 @@ Public Class frmLeerArchivo
             MsgBox(VErrorExportarDatos, vbCritical, VAvisoError)
         End Try
     End Sub
+
+    Private Function pasarDatosCSVPatologias()
+        'Cra una tabla para enviar los datos de las patologias
+        Dim tablaPatologias As New DataTable
+
+        tablaPatologias.Columns.Add("columna1")
+        tablaPatologias.Columns.Add("columna2")
+        tablaPatologias.Columns.Add("columna3")
+
+        For i = 0 To dgvDatosCSV.Rows.Count
+            Dim renglon As DataRow = tablaPatologias.NewRow()
+            renglon("columna1") = dgvDatosCSV.Item(0, i).Value
+            renglon("columna2") = dgvDatosCSV.Item(1, i).Value
+            renglon("columna3") = dgvDatosCSV.Item(2, i).Value
+            tablaPatologias.Rows.Add(renglon)
+        Next
+        Return tablaPatologias
+    End Function
 
     Private Sub validarColumnasDeDestinoSintomas()
         'Si el formato de los datos a importar es correcto los importa
         Try
-            If ControladorValidaciones.ValidarCantidadCamposSintomas(dgvDatosCSV) Then
-                ControladorSintomas.ExportarDatosADB(USUARIO, PASSWORD, dgvDatosCSV)
+            If ControladorValidaciones.ValidarCantidadCamposSintomas(pasarDatosCSVSintomas) Then
+                ControladorSintomas.ExportarDatosADB(USUARIO, PASSWORD, pasarDatosCSVSintomas)
                 MsgBox(VImportacionExitosa, vbInformation, VAviso)
             Else
                 MsgBox(VFormatoIncorrectoParaImportar, vbInformation, VAviso)
@@ -98,6 +116,20 @@ Public Class frmLeerArchivo
         End Try
 
     End Sub
+
+    Private Function pasarDatosCSVSintomas()
+        'Cra una tabla para enviar los datos de las patologias
+        Dim tablaSintomas As New DataTable
+
+        tablaSintomas.Columns.Add("columna1")
+
+        For i = 0 To dgvDatosCSV.Rows.Count
+            Dim renglon As DataRow = tablaSintomas.NewRow()
+            renglon("columna1") = dgvDatosCSV.Item(0, i).Value
+            tablaSintomas.Rows.Add(renglon)
+        Next
+        Return tablaSintomas
+    End Function
 
     Private Sub cargarTextos()
         Me.Text = VImportarArchivo

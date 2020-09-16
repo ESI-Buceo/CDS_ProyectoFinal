@@ -1,4 +1,5 @@
-﻿Imports System.Net
+﻿Imports System.Data
+Imports System.Net
 Imports System.Text.RegularExpressions
 Imports System.Windows.Forms
 
@@ -113,7 +114,7 @@ Public Module ControladorValidaciones
         Return True
     End Function
 
-    Public Function ValidarCantidadCamposPatologias(ByVal datos As DataGridView)
+    Public Function ValidarCantidadCamposPatologias(ByVal datos As DataTable)
         If datos.Columns.Count <> 3 Then
             Return False
         End If

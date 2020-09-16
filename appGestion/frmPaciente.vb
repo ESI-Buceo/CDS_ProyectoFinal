@@ -95,7 +95,7 @@ Public Class frmPaciente
         Try
             controladorPacientes.GuardarDatosPaciente(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
                                txtCalle.Text, txtNumeroCalle.Text, txtBarrio.Text, txtEsquina.Text, txtApto.Text,
-                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), chkActivo.CheckState, dgvListaTelefonos, dgvListaPreExistentes, USUARIO, PASSWORD)
+                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), chkActivo.CheckState, listaDeTelefonos, listaDePreExistentes, USUARIO, PASSWORD)
             opcionesMenu.ClickEnBotonGuardar(toolsMenuPaciente)
             guardadoConExito()
             deshabilitarControlesDeEdicion()
@@ -103,6 +103,24 @@ Public Class frmPaciente
             MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
     End Sub
+
+    Private Function listaDeTelefonos()
+        'Recorre el array para entregar una lista de telefonos
+        Dim telefonos As New List(Of Integer)
+        For t = 0 To dgvListaTelefonos.Rows.Count - 1
+            telefonos.Add(dgvListaTelefonos.Item(0, t).Value)
+        Next
+        Return telefonos
+    End Function
+
+    Private Function listaDePreExistentes()
+        'Crea una lista con las enfermedades del datagridview
+        Dim listaEnfermedades As New List(Of String)
+        For e = 0 To dgvListaPreExistentes.Rows.Count - 1
+            listaEnfermedades.Add(dgvListaPreExistentes.Item(0, e).Value)
+        Next
+        Return listaEnfermedades
+    End Function
 
     Private Sub guardadoConExito()
         'Mensaje de guardo con exito

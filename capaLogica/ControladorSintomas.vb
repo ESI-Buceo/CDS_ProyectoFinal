@@ -46,13 +46,13 @@ Public Module ControladorSintomas
         Return s.ListarTodosLosSintomas
     End Function
 
-    Public Sub ExportarDatosADB(ByVal uid As String, pwd As String, datos As DataGridView)
+    Public Sub ExportarDatosADB(ByVal uid As String, pwd As String, datos As DataTable)
         'Guarda informacion en la base de datos
-        Dim p As New ModeloSintoma(uid, pwd)
-        For f = 0 To datos.Rows.Count - 1
-            p.ID = 0
-            p.Nombre = datos.Item(0, f).Value.ToString
-            p.GuardarSintoma()
+        Dim s As New ModeloSintoma(uid, pwd)
+        For Each sintoma As DataRow In datos.Rows
+            s.ID = 0
+            s.Nombre = sintoma("columna1").ToString
+            s.GuardarSintoma()
         Next
     End Sub
 End Module

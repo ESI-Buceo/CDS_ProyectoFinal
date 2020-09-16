@@ -1,7 +1,7 @@
 ﻿Public Class ModeloPaciente
     Inherits ModeloPersona
 
-    Public TablaPreExistente As DataTable
+    Public ListaPreExistentes As List(Of String)
     Public RangoIpPaciente As String
 
     Public Sub New(ByVal uid As String, pwd As String)
@@ -39,9 +39,9 @@
             Comando.CommandText = "DELETE FROM telefono WHERE docidentidad=" & Me.Documento
             Comando.ExecuteNonQuery()
 
-            For Each Telefono In Me.Telefonos.Rows
-                If Telefono("Telefono").ToString.Length > 1 Then
-                    Comando.CommandText = "INSERT INTO telefono VALUES(" & Me.Documento & ", '" & Telefono("Telefono").ToString & "')"
+            For Each Telefono In Me.Telefonos
+                If Telefono.ToString.Length > 1 Then
+                    Comando.CommandText = "INSERT INTO telefono VALUES(" & Me.Documento & ", '" & Telefono.ToString & "')"
                     Comando.ExecuteNonQuery()
                 End If
             Next
@@ -49,9 +49,9 @@
             Comando.CommandText = "DELETE FROM preexistentes WHERE docidentidad=" & Me.Documento
             Comando.ExecuteNonQuery()
 
-            For Each PreExistentes In Me.TablaPreExistente.Rows
-                If PreExistentes("preExistentes").ToString.Length > 1 Then
-                    Comando.CommandText = "INSERT INTO preexistentes VALUES(" & Me.Documento & ", '" & PreExistentes("preExistentes").ToString & "')"
+            For Each PreExistentes In Me.ListaPreExistentes
+                If PreExistentes.ToString.Length > 1 Then
+                    Comando.CommandText = "INSERT INTO preexistentes VALUES(" & Me.Documento & ", '" & PreExistentes.ToString & "')"
                     Comando.ExecuteNonQuery()
                 End If
             Next

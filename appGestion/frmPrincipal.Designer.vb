@@ -63,9 +63,13 @@ Partial Class frmPrincipal
         Me.btnVerPatologia = New System.Windows.Forms.ToolStripButton()
         Me.btnVerInforme = New System.Windows.Forms.ToolStripButton()
         Me.barraEstado = New System.Windows.Forms.StatusStrip()
-        Me.tssLabelEstado = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tssLabelGestor = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tssLabelServidor = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tssServidorIp = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tssDBaseLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tssBaseDeDatos = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.tssLabelEstado = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.barraEstado.SuspendLayout()
@@ -141,14 +145,14 @@ Partial Class frmPrincipal
         '
         Me.tsmMedico.Image = CType(resources.GetObject("tsmMedico.Image"), System.Drawing.Image)
         Me.tsmMedico.Name = "tsmMedico"
-        Me.tsmMedico.Size = New System.Drawing.Size(216, 28)
+        Me.tsmMedico.Size = New System.Drawing.Size(196, 28)
         Me.tsmMedico.Text = "Medico"
         '
         'tsmListaMedicos
         '
         Me.tsmListaMedicos.Image = CType(resources.GetObject("tsmListaMedicos.Image"), System.Drawing.Image)
         Me.tsmListaMedicos.Name = "tsmListaMedicos"
-        Me.tsmListaMedicos.Size = New System.Drawing.Size(216, 28)
+        Me.tsmListaMedicos.Size = New System.Drawing.Size(196, 28)
         Me.tsmListaMedicos.Text = "Listar medicos"
         '
         'tsmPacientes
@@ -162,14 +166,14 @@ Partial Class frmPrincipal
         '
         Me.tsmPaciente.Image = CType(resources.GetObject("tsmPaciente.Image"), System.Drawing.Image)
         Me.tsmPaciente.Name = "tsmPaciente"
-        Me.tsmPaciente.Size = New System.Drawing.Size(216, 28)
+        Me.tsmPaciente.Size = New System.Drawing.Size(205, 28)
         Me.tsmPaciente.Text = "Paciente"
         '
         'tsmListaPacientes
         '
         Me.tsmListaPacientes.Image = CType(resources.GetObject("tsmListaPacientes.Image"), System.Drawing.Image)
         Me.tsmListaPacientes.Name = "tsmListaPacientes"
-        Me.tsmListaPacientes.Size = New System.Drawing.Size(216, 28)
+        Me.tsmListaPacientes.Size = New System.Drawing.Size(205, 28)
         Me.tsmListaPacientes.Text = "Listar pacientes"
         '
         'tsmDiagnosticos
@@ -346,7 +350,7 @@ Partial Class frmPrincipal
         'barraEstado
         '
         Me.barraEstado.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.barraEstado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tssLabelEstado, Me.tssLabelGestor})
+        Me.barraEstado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tssLabelEstado, Me.tssLabelGestor, Me.tssLabelServidor, Me.tssServidorIp, Me.tssDBaseLabel, Me.tssBaseDeDatos})
         Me.barraEstado.Location = New System.Drawing.Point(0, 637)
         Me.barraEstado.Name = "barraEstado"
         Me.barraEstado.Padding = New System.Windows.Forms.Padding(1, 0, 19, 0)
@@ -354,16 +358,42 @@ Partial Class frmPrincipal
         Me.barraEstado.TabIndex = 7
         Me.barraEstado.Text = "StatusStrip"
         '
+        'tssLabelGestor
+        '
+        Me.tssLabelGestor.Name = "tssLabelGestor"
+        Me.tssLabelGestor.Size = New System.Drawing.Size(0, 20)
+        '
+        'tssLabelServidor
+        '
+        Me.tssLabelServidor.AutoSize = False
+        Me.tssLabelServidor.Name = "tssLabelServidor"
+        Me.tssLabelServidor.Size = New System.Drawing.Size(150, 20)
+        Me.tssLabelServidor.Text = "Servidor"
+        Me.tssLabelServidor.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'tssServidorIp
+        '
+        Me.tssServidorIp.Name = "tssServidorIp"
+        Me.tssServidorIp.Size = New System.Drawing.Size(0, 20)
+        '
+        'tssDBaseLabel
+        '
+        Me.tssDBaseLabel.AutoSize = False
+        Me.tssDBaseLabel.Name = "tssDBaseLabel"
+        Me.tssDBaseLabel.Size = New System.Drawing.Size(150, 20)
+        Me.tssDBaseLabel.Text = "Base de datos"
+        Me.tssDBaseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'tssBaseDeDatos
+        '
+        Me.tssBaseDeDatos.Name = "tssBaseDeDatos"
+        Me.tssBaseDeDatos.Size = New System.Drawing.Size(0, 20)
+        '
         'tssLabelEstado
         '
         Me.tssLabelEstado.Name = "tssLabelEstado"
         Me.tssLabelEstado.Size = New System.Drawing.Size(62, 20)
         Me.tssLabelEstado.Text = "Usuario:"
-        '
-        'tssLabelGestor
-        '
-        Me.tssLabelGestor.Name = "tssLabelGestor"
-        Me.tssLabelGestor.Size = New System.Drawing.Size(0, 20)
         '
         'frmPrincipal
         '
@@ -394,7 +424,6 @@ Partial Class frmPrincipal
 
     End Sub
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
-    Friend WithEvents tssLabelEstado As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents barraEstado As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStrip As System.Windows.Forms.ToolStrip
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
@@ -434,4 +463,9 @@ Partial Class frmPrincipal
     Friend WithEvents tsmInformechatMes As ToolStripMenuItem
     Friend WithEvents tsmVerAyuda As ToolStripMenuItem
     Friend WithEvents tsmListaAdministrativos As ToolStripMenuItem
+    Friend WithEvents tssLabelServidor As ToolStripStatusLabel
+    Friend WithEvents tssServidorIp As ToolStripStatusLabel
+    Friend WithEvents tssDBaseLabel As ToolStripStatusLabel
+    Friend WithEvents tssBaseDeDatos As ToolStripStatusLabel
+    Friend WithEvents tssLabelEstado As ToolStripStatusLabel
 End Class

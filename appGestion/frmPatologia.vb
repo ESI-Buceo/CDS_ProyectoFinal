@@ -34,7 +34,7 @@ Public Class frmPatologia
         'Guarda la informacion de la patologia
         Try
             ControladorPatologias.AltaPatologia(txtPatologiaID.Text, txtPatologiaNombre.Text, cbPatologiaPonderacion.Text,
-                                                txtPatologiaDescipcion.Text, chkActiva.CheckState, dgvSintomasPatologia, USUARIO, PASSWORD)
+                                                txtPatologiaDescipcion.Text, chkActiva.CheckState, listaDeSintomas, USUARIO, PASSWORD)
             opcionesMenu.ClickEnBotonGuardar(toolsMenuPatologia)
             colorPorDefectoTextoBox()
             deshabilitarAgregarSintoma()
@@ -43,6 +43,15 @@ Public Class frmPatologia
             MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
     End Sub
+
+    Private Function listaDeSintomas()
+        'Genera una lista con los sintomas del datagridview
+        Dim listaSintomas As New List(Of Integer)
+        For s = 0 To dgvSintomasPatologia.Rows.Count - 1
+            listaSintomas.Add(dgvSintomasPatologia.Item(0, s).Value)
+        Next
+        Return listaSintomas
+    End Function
 
     Private Sub mnuBtnCancelar_Click(sender As Object, e As EventArgs) Handles mnuBtnCancelar.Click
         opcionesMenu.ClickEnBotonCancelar(toolsMenuPatologia)

@@ -98,10 +98,13 @@ Public Class frmLoginRegistrado
     End Sub
 
     Private Sub cargarConfiguracion()
+        'Carga la informacion de conexion
         archivoConf = Application.StartupPath & "\config.ini"
+        DRIVE = ControladorArchivoIni.leerConfiguracion("Server", "Drive")
+        IPSERVER = ControladorArchivoIni.leerConfiguracion("Server", "ip")
+        DBASE = ControladorArchivoIni.leerConfiguracion("Server", "dbase")
 
-        If ControladorConfiguracion.cargarConfiguracion(ControladorArchivoIni.leerConfiguracion("Server", "Drive"),
-                                                     ControladorArchivoIni.leerConfiguracion("Server", "ip")) Then
+        If ControladorConfiguracion.cargarConfiguracion(DRIVE, IPSERVER, DBASE) Then
             validarCredenciales()
         Else
             MsgBox(VErrorArchivo, vbCritical, VError)

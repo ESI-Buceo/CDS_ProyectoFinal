@@ -176,7 +176,9 @@
     Public VPuertoSMTP As String
     Public VServidorSMTP As String
     Public VCredencial As String
-
+    Public VAccion As String
+    Public VServidor As String
+    Public VBaseDeDatos As String
 
     Public Sub CargarIdioma()
         VIdiomaActivo = My.Settings.lenguaje
@@ -364,6 +366,9 @@
         VPuertoSMTP = My.Resources.es.puertosmtp
         VServidorSMTP = My.Resources.es.servidorsmtp
         VCredencial = My.Resources.es.credencial
+        VAccion = My.Resources.es.accion
+        VServidor = My.Resources.es.servidor
+        VBaseDeDatos = My.Resources.es.basededatos
     End Sub
 
     Public Sub idioma_en()
@@ -542,6 +547,9 @@
         VPuertoSMTP = My.Resources.en.puertosmtp
         VServidorSMTP = My.Resources.en.servidorsmtp
         VCredencial = My.Resources.en.credencial
+        VAccion = My.Resources.en.accion
+        VServidor = My.Resources.en.servidor
+        VBaseDeDatos = My.Resources.en.basededatos
     End Sub
 
     Public Sub GuardarIdioma(ByVal idioma As String)

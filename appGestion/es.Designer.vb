@@ -74,6 +74,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Accion.
+        '''</summary>
+        Friend Shared ReadOnly Property accion() As String
+            Get
+                Return ResourceManager.GetString("accion", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Acerca de ....
         '''</summary>
         Friend Shared ReadOnly Property acercade() As String
@@ -223,6 +232,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property barrio() As String
             Get
                 Return ResourceManager.GetString("barrio", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Base de datos.
+        '''</summary>
+        Friend Shared ReadOnly Property basededatos() As String
+            Get
+                Return ResourceManager.GetString("basededatos", resourceCulture)
             End Get
         End Property
         
@@ -1438,6 +1456,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property seleccionaelinforme() As String
             Get
                 Return ResourceManager.GetString("seleccionaelinforme", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Servidor.
+        '''</summary>
+        Friend Shared ReadOnly Property servidor() As String
+            Get
+                Return ResourceManager.GetString("servidor", resourceCulture)
             End Get
         End Property
         

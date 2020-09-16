@@ -25,7 +25,7 @@ Public Class ModeloSintoma
 
     Public Function TraeDatosSintomasDeBD()
         'Lista todos los sintomas activos
-        Comando.CommandText = "Select * FROM sintoma WHERE activo = 1 "
+        Comando.CommandText = "Select id, nombre FROM sintoma WHERE activo = 1 "
         Reader = Comando.ExecuteReader()
         TablaSintomas.Load(Reader)
         CerrarConexion()

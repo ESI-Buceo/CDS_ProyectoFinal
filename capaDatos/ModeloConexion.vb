@@ -2,8 +2,8 @@
 Public MustInherit Class ModeloConexion
     Public Shared Driver As String
     Public Shared ipServer As String
+    Public Shared Database As String
     Public Port As String = "3306"
-    Public Database As String = "dbTriage"
     Public conexion As New OdbcConnection
 
     Public Comando As New OdbcCommand
@@ -14,7 +14,7 @@ Public MustInherit Class ModeloConexion
                                     ";UID=" + usuario +
                                     ";PWD=" + pass +
                                     ";PORT=" + Me.Port +
-                                    ";DATABASE=" + Me.Database +
+                                    ";DATABASE=" + Database +
                                     ";SERVER=" + ipServer
         conexion.Open()
         Me.Comando.Connection = conexion

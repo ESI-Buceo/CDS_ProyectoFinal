@@ -147,6 +147,10 @@ Public Class frmPrincipal
         btnVerPatologia.Text = VPatologias
         btnVerInforme.Text = VVerInformes
         tssLabelEstado.Text = VUsuario
+        tssLabelServidor.Text = VServidor
+        tssDBaseLabel.Text = VBaseDeDatos
+        tssBaseDeDatos.Text = DBASE
+        tssServidorIp.Text = IPSERVER
     End Sub
 
     Private Sub tsmImportarDatosCSV_Click(sender As Object, e As EventArgs) Handles tsmImportarDatosCSV.Click
@@ -167,4 +171,5 @@ Public Class frmPrincipal
         frmListaDeAdministrativos.MdiParent = Me
         frmListaDeAdministrativos.Show()
     End Sub
+
 End Class

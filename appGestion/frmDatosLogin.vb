@@ -11,7 +11,6 @@ Public Class frmDatosLogin
     Private Sub btnGestionIngresar_Click(sender As Object, e As EventArgs) Handles btnGestionIngresar.Click
         'Accion que valida los datos ingresados
         If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) And txtDocIdentidad.Text.Length > 0 Then
-            'validarCredenciales()
             validarConexion()
         End If
     End Sub
@@ -32,7 +31,6 @@ Public Class frmDatosLogin
             cargarAdminitrativo(controladorAdministrativo.ValidarAdministrativo(txtDocIdentidad.Text, "Ge." + txtPassword.Text))
             setearUsuario()
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VLoginIncorrecto, vbInformation, VErrorAcceso)
         End Try
     End Sub
@@ -60,10 +58,13 @@ Public Class frmDatosLogin
     End Sub
 
     Private Sub cargarConfiguracion()
+        'Lee la configuracion de inicio
         archivoConf = Application.StartupPath & "\config.ini"
+        DRIVE = ControladorArchivoIni.leerConfiguracion("Server", "Drive")
+        IPSERVER = ControladorArchivoIni.leerConfiguracion("Server", "ip")
+        DBASE = ControladorArchivoIni.leerConfiguracion("Server", "dbase")
 
-        If ControladorConfiguracion.cargarConfiguracion(ControladorArchivoIni.leerConfiguracion("Server", "Drive"),
-                                                     ControladorArchivoIni.leerConfiguracion("Server", "ip")) Then
+        If ControladorConfiguracion.cargarConfiguracion(DRIVE, IPSERVER, DBASE) Then
             validarCredenciales()
         Else
             MsgBox(VErrorArchivo, vbCritical, VAvisoError)

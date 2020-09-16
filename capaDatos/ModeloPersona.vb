@@ -11,7 +11,7 @@ Public MustInherit Class ModeloPersona
     Public Barrio As String
     Public Esquina As String
     Public Apartamento As String
-    Public Telefonos As DataTable
+    Public Telefonos As List(Of Integer)
     Public Password As String
     Public FechaNacimiento As String
     Public Activo As Boolean
