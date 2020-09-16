@@ -1,6 +1,7 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports capaDatos
+Imports System.Threading
 
 <TestClass()> Public Class TestModeloChat
     Dim c As New ModeloChat("19266171", "Me.19266171")
@@ -19,7 +20,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestRecibirMensajes()
@@ -34,7 +35,7 @@ Imports capaDatos
         End Try
 
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestRecibirMensajesAppPaciente()
@@ -47,7 +48,7 @@ Imports capaDatos
         End Try
 
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestRecibirTodosMensajes()
@@ -60,7 +61,7 @@ Imports capaDatos
         End Try
 
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestMarcarMensajeLeido()
@@ -73,7 +74,7 @@ Imports capaDatos
         End Try
 
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListaHistoricaChatPaciente()
@@ -87,7 +88,7 @@ Imports capaDatos
         End Try
 
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCantidadDeChats()
@@ -100,7 +101,7 @@ Imports capaDatos
         End Try
 
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
 End Class

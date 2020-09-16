@@ -4,7 +4,7 @@ Imports capaDatos
 
 Public Module controladorAdministrativo
 
-    Public Function VarificarDocumentoDeIdentidad(ByVal docidentidad As String, uid As String, pwd As String)
+    Public Function VerificarDocumentoDeIdentidad(ByVal docidentidad As String, uid As String, pwd As String)
         Dim a As New ModeloAdministrativo(uid, pwd)
         Return a.VerificarDocumentoDeIdentidad(docidentidad)
     End Function

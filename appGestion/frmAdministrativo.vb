@@ -338,7 +338,7 @@ Public Class frmAdministrativo
     Private Sub validarDocumentoDeIdentidad()
         'Valida que el documento de identida no exista
         Try
-            If controladorAdministrativo.VarificarDocumentoDeIdentidad(txtDocIdentidad.Text, USUARIO, PASSWORD) IsNot Nothing Then
+            If controladorAdministrativo.VerificarDocumentoDeIdentidad(txtDocIdentidad.Text, USUARIO, PASSWORD) IsNot Nothing Then
                 MsgBox(VDocumentoExiste, vbInformation, VAviso)
                 txtDocIdentidad.Select()
             Else

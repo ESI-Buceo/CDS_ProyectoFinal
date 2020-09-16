@@ -1,6 +1,7 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports capaDatos
+Imports System.Threading
 
 <TestClass()> Public Class TestModeloRecibe
     Dim r As New ModeloRecibe("11111111", "Ge.11111111")
@@ -15,7 +16,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
 End Class

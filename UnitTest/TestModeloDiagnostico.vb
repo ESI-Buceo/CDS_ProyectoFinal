@@ -1,6 +1,7 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports capaDatos
+Imports System.Threading
 
 <TestClass()> Public Class TestModeloDiagnostico
     Dim d As New ModeloDiagnostico("11111111", "Ge.11111111")
@@ -18,7 +19,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestTraerDiagnosticos()
@@ -30,6 +31,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCantidadDeDiagnosticos()
@@ -41,6 +43,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
     End Sub
 
 End Class

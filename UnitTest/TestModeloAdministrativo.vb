@@ -1,6 +1,7 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports capaDatos
+Imports System.Threading
 
 <TestClass()> Public Class TestModeloAdministrativo
     Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
@@ -13,7 +14,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestGuardarAdministrativo()
@@ -44,7 +45,7 @@ Imports capaDatos
         End Try
 
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
@@ -57,40 +58,43 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestBuscarAdministativo()
         Dim Resultado As Boolean
         Try
-            a.BuscarAdministativo("77777777")
+            a.BuscarAdministativo("11111111")
             Resultado = True
         Catch ex As Exception
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestBuscarAdministrativoPorDocumento()
         Dim Resultado As Boolean
         Try
-            a.BuscarAdministativo("77777777")
+            a.BuscarAdministativo("11111111")
             Resultado = True
         Catch ex As Exception
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCambiarEstadoAdmin()
         Dim Resultado As Boolean
         Try
-            a.CambiarEstadoAdmin("40717849", "1")
+            a.CambiarEstadoAdmin("22222222", "1")
             Resultado = True
         Catch ex As Exception
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestEliminarUsuarioBD()
@@ -102,7 +106,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestValidarAdministrativo()
@@ -114,7 +118,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCambiarPassword()
@@ -127,7 +131,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarAdministrativosSegunEstado()
@@ -139,7 +143,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarAdministrativos()
@@ -151,7 +155,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarTelefonos()
@@ -163,7 +167,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
 End Class

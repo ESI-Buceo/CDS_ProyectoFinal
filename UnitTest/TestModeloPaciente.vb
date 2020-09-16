@@ -1,6 +1,7 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports capaDatos
+Imports System.Threading
 
 <TestClass()> Public Class TestModeloPaciente
     Dim p As New ModeloPaciente("11111111", "Ge.11111111")
@@ -12,8 +13,8 @@ Imports capaDatos
         Catch ex As Exception
             Resultado = False
         End Try
-
         Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestGuardarDatosPaciente()
@@ -43,11 +44,11 @@ Imports capaDatos
         End Try
 
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
-        p.Documento = "31256542"
+        p.Documento = "5487965546"
         Dim Resultado As Boolean
         Try
             p.CrearUsuarioBD()
@@ -56,7 +57,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestBuscarPaciente()
@@ -68,6 +69,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCambiarEstadoPaciente()
@@ -79,18 +81,19 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestEliminarUsuarioBD()
         Dim Resultado As Boolean
         Try
-            p.EliminarUsuarioBD("31256542")
+            p.EliminarUsuarioBD("45698231")
             Resultado = True
         Catch ex As Odbc.OdbcException
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestbuscarPacientePorDocumento()
@@ -102,6 +105,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestDatosPaciente()
@@ -113,6 +117,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCargarPreExistentes()
@@ -125,7 +130,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarPacientes()
@@ -137,7 +142,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarPacientesSegunEstado()
@@ -149,7 +154,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarTelefonos()
@@ -161,7 +166,7 @@ Imports capaDatos
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-
+        Thread.Sleep(20)
     End Sub
 
 End Class
