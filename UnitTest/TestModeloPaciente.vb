@@ -47,7 +47,8 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
-        p.Documento = "5487965546"
+        p.RangoIpPaciente = "localhost"
+        p.Documento = "54895632"
         Dim Resultado As Boolean
         Try
             p.CrearUsuarioBD()
@@ -84,9 +85,10 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestEliminarUsuarioBD()
+        p.RangoIpPaciente = "localhost"
         Dim Resultado As Boolean
         Try
-            p.EliminarUsuarioBD("45698231")
+            p.EliminarUsuarioBD("54895632")
             Resultado = True
         Catch ex As Odbc.OdbcException
             Resultado = False
