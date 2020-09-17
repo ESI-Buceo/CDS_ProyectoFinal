@@ -5,6 +5,8 @@ Imports System.Threading
 
 <TestClass()> Public Class TestModeloMedico
     Dim m As New ModeloMedico("11111111", "Ge.11111111")
+    Public Property Comando As Object
+
     <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
         Dim Resultado As Boolean
         Try
@@ -126,13 +128,14 @@ Imports System.Threading
     <TestMethod()> Public Sub TestListarMedicosPorEstado()
         Dim Resultado As Boolean
         Try
-            m.ListarMedicos("1")
+            m.ListarMedicos("0")
             Resultado = True
         Catch ex As Exception
             Resultado = False
+            MsgBox(ex.Message)
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(50)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarTelefonos()

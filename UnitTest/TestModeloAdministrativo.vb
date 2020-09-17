@@ -14,7 +14,7 @@ Imports System.Threading
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        Thread.Sleep(100)
     End Sub
 
     <TestMethod()> Public Sub TestGuardarAdministrativo()
@@ -45,7 +45,7 @@ Imports System.Threading
         End Try
 
         Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        Thread.Sleep(100)
     End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
@@ -64,25 +64,27 @@ Imports System.Threading
     <TestMethod()> Public Sub TestBuscarAdministativo()
         Dim Resultado As Boolean
         Try
-            a.BuscarAdministativo("11111111")
+            a.BuscarAdministativo("p.docidentidad = '11111111' AND p.nombres = 'Mario Juan'")
             Resultado = True
         Catch ex As Exception
             Resultado = False
+            MsgBox(ex.Message)
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        Thread.Sleep(50)
     End Sub
 
     <TestMethod()> Public Sub TestBuscarAdministrativoPorDocumento()
         Dim Resultado As Boolean
         Try
-            a.BuscarAdministativo("11111111")
+            a.BuscarAdministrativoPorDocumento("'77777777'")
             Resultado = True
         Catch ex As Exception
             Resultado = False
+            MsgBox(ex.Message)
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        Thread.Sleep(50)
     End Sub
 
     <TestMethod()> Public Sub TestCambiarEstadoAdmin()
@@ -116,6 +118,7 @@ Imports System.Threading
             Resultado = True
         Catch ex As Exception
             Resultado = False
+            MsgBox(ex.Message)
         End Try
         Assert.IsTrue(Resultado)
         Thread.Sleep(20)
@@ -141,6 +144,7 @@ Imports System.Threading
             Resultado = True
         Catch ex As Exception
             Resultado = False
+            MsgBox(ex.Message)
         End Try
         Assert.IsTrue(Resultado)
         Thread.Sleep(20)
