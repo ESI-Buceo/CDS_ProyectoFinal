@@ -20,10 +20,10 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestGuardarDatosMedico()
         Dim Resultado As Boolean
-        Dim Telefono As New DataTable
-        Telefono.Columns.Add("Telefono")
-        Telefono.Rows.Add("097650602")
-        Telefono.Rows.Add("099451212")
+        Dim Telefono As New List(Of Integer)
+        Telefono.Add("Telefono")
+        Telefono.Add("097650602")
+        Telefono.Add("099451212")
 
         m.Documento = "36512328"
         m.Email = "nuevo@medico.com"

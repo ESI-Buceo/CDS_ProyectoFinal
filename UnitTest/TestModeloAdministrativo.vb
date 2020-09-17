@@ -19,12 +19,12 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestGuardarAdministrativo()
         Dim Resultado As Boolean
-        Dim Telefono As New DataTable
-        Telefono.Columns.Add("Telefono")
-        Telefono.Rows.Add("097050602")
-        Telefono.Rows.Add("098451212")
+        Dim Telefono As New List(Of Integer)
+        Telefono.Add("095623215")
+        Telefono.Add("097050602")
+        Telefono.Add("098451212")
 
-        a.Documento = "40717849"
+        a.Documento = "43219563"
         a.Email = "nuevo@admin.com"
         a.Nombres = "maria"
         a.Apellidos = "calambres"
