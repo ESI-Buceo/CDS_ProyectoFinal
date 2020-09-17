@@ -28,6 +28,8 @@ Partial Class frmListaSintomas
         Me.txtNombreSintoma = New System.Windows.Forms.TextBox()
         Me.dgvListaSintomas = New System.Windows.Forms.DataGridView()
         Me.btnCerrar = New System.Windows.Forms.Button()
+        Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvListaSintomas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -66,6 +68,7 @@ Partial Class frmListaSintomas
         Me.dgvListaSintomas.AllowUserToAddRows = False
         Me.dgvListaSintomas.AllowUserToDeleteRows = False
         Me.dgvListaSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvListaSintomas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colID, Me.colNombre})
         Me.dgvListaSintomas.Location = New System.Drawing.Point(17, 167)
         Me.dgvListaSintomas.Name = "dgvListaSintomas"
         Me.dgvListaSintomas.ReadOnly = True
@@ -81,6 +84,22 @@ Partial Class frmListaSintomas
         Me.btnCerrar.TabIndex = 7
         Me.btnCerrar.Text = "Cerrar"
         Me.btnCerrar.UseVisualStyleBackColor = True
+        '
+        'colID
+        '
+        Me.colID.DataPropertyName = "id"
+        Me.colID.HeaderText = "id"
+        Me.colID.Name = "colID"
+        Me.colID.ReadOnly = True
+        Me.colID.Visible = False
+        '
+        'colNombre
+        '
+        Me.colNombre.DataPropertyName = "nombre"
+        Me.colNombre.HeaderText = "Nombre"
+        Me.colNombre.Name = "colNombre"
+        Me.colNombre.ReadOnly = True
+        Me.colNombre.Width = 330
         '
         'frmListaSintomas
         '
@@ -111,4 +130,6 @@ Partial Class frmListaSintomas
     Friend WithEvents txtNombreSintoma As TextBox
     Friend WithEvents dgvListaSintomas As DataGridView
     Friend WithEvents btnCerrar As Button
+    Friend WithEvents colID As DataGridViewTextBoxColumn
+    Friend WithEvents colNombre As DataGridViewTextBoxColumn
 End Class

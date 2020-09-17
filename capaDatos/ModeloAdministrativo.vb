@@ -3,6 +3,7 @@ Public Class ModeloAdministrativo
     Inherits ModeloPersona
 
     Public NumeroEmpleado As Integer
+    Public RangoIpAdministrativo As String
     Public TablaAdmin As New DataTable
 
     Public Sub New(ByVal uid As String, pwd As String)
@@ -41,9 +42,9 @@ Public Class ModeloAdministrativo
             Comando.CommandText = "DELETE FROM telefono WHERE docidentidad=" & Me.Documento
             Comando.ExecuteNonQuery()
 
-            For Each Telefono In Me.Telefonos.Rows
-                If Telefono("Telefono").ToString.Length > 1 Then
-                    Comando.CommandText = "INSERT INTO telefono VALUES(" & Me.Documento & ", '" & Telefono("Telefono").ToString & "')"
+            For Each Telefono In Me.Telefonos
+                If Telefono.ToString.Length > 1 Then
+                    Comando.CommandText = "INSERT INTO telefono VALUES(" & Me.Documento & ", '" & Telefono.ToString & "')"
                     Comando.ExecuteNonQuery()
                 End If
             Next
@@ -63,34 +64,37 @@ Public Class ModeloAdministrativo
     Public Sub CrearUsuarioBD()
         'Crea el usuario en la base de datos
         Dim gestorPass As String = "Ge." & Me.Documento
-        Comando.CommandText = "GRANT ALL PRIVILEGES ON *.* TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "' IDENTIFIED BY '" & gestorPass & "' WITH GRANT OPTION"
+        Comando.CommandText = "GRANT ALL PRIVILEGES ON *.* TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "' IDENTIFIED BY '" & gestorPass & "' WITH GRANT OPTION"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".persona TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".persona TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".telefono TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".telefono TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".administrativo TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".administrativo TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".medico TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".medico TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".paciente TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".paciente TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".preexistentes TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".preexistentes TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".sintoma TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".sintoma TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".patologia TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".patologia TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".asociados TO '" & Me.Documento & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".asociados TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
+        Comando.ExecuteNonQuery()
+
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE, DELETE ON " + Database + ".setting TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "FLUSH PRIVILEGES"
@@ -98,7 +102,7 @@ Public Class ModeloAdministrativo
     End Sub
 
     Public Function BuscarAdministativo(ByVal stringSql As String)
-        Comando.CommandText = "SELECT a.docidentidad DOCUMENTO, p.mail EMAIL, p.nombres NOMBRES, p.apellidos APELLIDOS, p.fechaRegistro FECHREG, a.ndeempleado EMPLEADO, p.activo ACTIVO 
+        Comando.CommandText = "SELECT a.docidentidad DOCUMENTO, p.mail EMAIL, p.nombres NOMBRES, p.apellidos APELLIDOS, p.fechaRegistro FECHREG, a.ndeempleado NEMPLEADO, p.activo ACTIVO 
                                 FROM administrativo a 
                                 JOIN persona p ON p.docidentidad = a.docidentidad WHERE " & stringSql
         Reader = Comando.ExecuteReader
@@ -128,7 +132,7 @@ Public Class ModeloAdministrativo
     End Function
 
     Public Sub EliminarUsuarioBD(ByVal docidentidad As String)
-        Comando.CommandText = "DROP USER '" & docidentidad & "'@'" & My.Settings.IPGestor & "'"
+        Comando.CommandText = "DROP USER '" & docidentidad & "'@'" & Me.RangoIpAdministrativo & "'"
         Comando.ExecuteNonQuery()
     End Sub
 
@@ -144,9 +148,12 @@ Public Class ModeloAdministrativo
     End Function
 
     Public Sub CambiarPassword(ByVal pass As String)
-        'Comando.CommandText = "ALTER USER '" & Me.Documento & "'@'" & My.Settings.IPGestor & "' IDENTIFIED BY '" & "Ge." & pass & "'"
-        Comando.CommandText = "ALTER USER '" & Me.Documento & "'@'%' IDENTIFIED BY '" & "Ge." & pass & "'"
+        Comando.CommandText = "ALTER USER '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "' IDENTIFIED BY '" & "Ge." & pass & "'"
         Comando.ExecuteNonQuery()
+
+        Comando.CommandText = "FLUSH PRIVILEGES"
+        Comando.ExecuteNonQuery()
+
     End Sub
 
     Public Function ListarAdministrativos(ByVal estado As String)
@@ -181,5 +188,4 @@ Public Class ModeloAdministrativo
         CerrarConexion()
         Return tablaTelefonos
     End Function
-
 End Class

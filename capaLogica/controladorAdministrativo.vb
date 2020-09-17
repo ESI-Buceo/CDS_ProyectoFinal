@@ -11,7 +11,7 @@ Public Module controladorAdministrativo
 
     Public Sub GuardarDatosAdmin(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                  numero As String, barrio As String, esquina As String, apartamento As String, fechaNac As String,
-                                 telefonos As DataGridView, numeroAdmin As String, uid As String, pwd As String)
+                                 telefonos As List(Of Integer), numeroAdmin As String, uid As String, pwd As String)
         'Guarda los datos del administrativo
         Dim a As New ModeloAdministrativo(uid, pwd)
         a.Documento = docId
@@ -25,22 +25,16 @@ Public Module controladorAdministrativo
         a.Apartamento = apartamento
         a.FechaNacimiento = fechaNac
         a.NumeroEmpleado = numeroAdmin
-        a.Telefonos = cargarGridTelefonosADataTable(telefonos)
+        a.Telefonos = telefonos
         a.GuardarAdministrativo()
     End Sub
 
     Public Sub CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         Dim a As New ModeloAdministrativo(uid, pwd)
         a.Documento = docidentidad
-        a.crearUsuarioBD()
+        a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
+        a.CrearUsuarioBD()
     End Sub
-
-    Private Function cargarGridTelefonosADataTable(ByVal telefonos As DataGridView) As DataTable
-        'Carga la lista de telefonos
-        Dim listaTelefonos As New DataTable
-        listaTelefonos = TryCast(telefonos.DataSource, DataTable)
-        Return listaTelefonos
-    End Function
 
     Public Function crearCadenaDeBusquedaAdministrativo(ByVal campoABuscar As String, datoABuscar As String)
         'Crea la cadena de consulta de acuerdo a los datos ingresados para ello
@@ -92,12 +86,14 @@ Public Module controladorAdministrativo
 
     Public Sub eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         Dim a As New ModeloAdministrativo(uid, pwd)
+        a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
         a.EliminarUsuarioBD(docidentidad)
     End Sub
 
     Public Sub CambiarPassword(ByVal pass As String, uid As String, pwd As String)
         Dim a As New ModeloAdministrativo(uid, pwd)
         a.Documento = uid
+        a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
         a.CambiarPassword(pass)
     End Sub
 
@@ -117,4 +113,5 @@ Public Module controladorAdministrativo
         Dim a As New ModeloAdministrativo(uid, pwd)
         Return a.ListarTelefonos(docidentidad)
     End Function
+
 End Module

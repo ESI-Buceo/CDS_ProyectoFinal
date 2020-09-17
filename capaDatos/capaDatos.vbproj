@@ -69,6 +69,7 @@
     <Compile Include="ModeloAsociados.vb" />
     <Compile Include="ModeloChat.vb" />
     <Compile Include="ModeloConexion.vb" />
+    <Compile Include="ModeloConfiguracion.vb" />
     <Compile Include="ModeloDiagnostico.vb" />
     <Compile Include="ModeloInformes.vb" />
     <Compile Include="ModeloMedico.vb" />

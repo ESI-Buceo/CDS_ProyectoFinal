@@ -80,7 +80,7 @@ Public Class frmAdministrativo
         Try
             controladorAdministrativo.GuardarDatosAdmin(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
                                txtCalle.Text, txtNumeroCalle.Text, txtBarrio.Text, txtEsquina.Text, txtApto.Text,
-                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), dgvListaTelefonos, txtNumAdmin.Text, USUARIO, PASSWORD)
+                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), listaDeTelefonos, txtNumAdmin.Text, USUARIO, PASSWORD)
             opcionesMenu.ClickEnBotonGuardar(toolsMenuAdmin)
             guardadoConExito()
             deshabilitarControlesDeEdicion()
@@ -88,6 +88,15 @@ Public Class frmAdministrativo
             MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
     End Sub
+
+    Private Function listaDeTelefonos()
+        'Recorre el array para entregar una lista de telefonos
+        Dim telefonos As New List(Of Integer)
+        For t = 0 To dgvListaTelefonos.Rows.Count - 1
+            telefonos.Add(dgvListaTelefonos.Item(0, t).Value)
+        Next
+        Return telefonos
+    End Function
 
     Private Sub guardadoConExito()
         'Mensaje de guardo con exito

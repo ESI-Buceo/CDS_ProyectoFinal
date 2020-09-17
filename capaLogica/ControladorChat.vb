@@ -8,7 +8,6 @@ Public Module ControladorChat
         Return c.RecibirMensajes(emisor)
     End Function
 
-
     Public Function RecibirMensajes(ByVal idSesion As String, emisor As String, uid As String, pwd As String)
         'Muestra los mensajes recibidos por id
         Dim c As New ModeloChat(uid, pwd)

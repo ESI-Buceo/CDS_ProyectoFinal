@@ -155,6 +155,30 @@
     Public VFaltanDatosParaPoderImportar As String
     Public VFormatoIncorrectoParaImportar As String
     Public VImportacionExitosa As String
+    Public VErrorArchivo As String
+    Public VHayCambiosSinGuardar As String
+    Public VCantidadSintomasIncorrecto As String
+    Public VAlgoEnLaConfiguracionNoEstaBien As String
+    Public VErrorConfiguracion As String
+    Public VSeGuardoLaConfiguracion As String
+    Public VConfiguracion As String
+    Public VAplicar As String
+    Public VSubTituloSintomas As String
+    Public VConexiones As String
+    Public VSubTituloConexiones As String
+    Public VIpGestion As String
+    Public VIpMedicos As String
+    Public VIpPacientes As String
+    Public VConfigurarEmail As String
+    Public VDatosEmail As String
+    Public VSubTituloEmail As String
+    Public VEmailDeContacto As String
+    Public VPuertoSMTP As String
+    Public VServidorSMTP As String
+    Public VCredencial As String
+    Public VAccion As String
+    Public VServidor As String
+    Public VBaseDeDatos As String
 
     Public Sub CargarIdioma()
         VIdiomaActivo = My.Settings.lenguaje
@@ -321,6 +345,30 @@
         VFaltanDatosParaPoderImportar = My.Resources.es.faltandatosarapoderimportar
         VFormatoIncorrectoParaImportar = My.Resources.es.formatoincorrectoparaimportar
         VImportacionExitosa = My.Resources.es.importacionexitosa
+        VErrorArchivo = My.Resources.es.errorarchivo
+        VHayCambiosSinGuardar = My.Resources.es.haycambiossinguardar
+        VCantidadSintomasIncorrecto = My.Resources.es.cantidaddesintomasincorrecta
+        VAlgoEnLaConfiguracionNoEstaBien = My.Resources.es.algoenlaconfiguracionnoestabien
+        VErrorConfiguracion = My.Resources.es.errorconfiguracion
+        VSeGuardoLaConfiguracion = My.Resources.es.seguardolaconfiguracion
+        VConfiguracion = My.Resources.es.configuracion
+        VAplicar = My.Resources.es.aplicar
+        VSubTituloSintomas = My.Resources.es.subsitulosintomas
+        VConexiones = My.Resources.es.conexiones
+        VSubTituloConexiones = My.Resources.es.subtituloconexiones
+        VIpGestion = My.Resources.es.ipgestion
+        VIpMedicos = My.Resources.es.ipmedicos
+        VIpPacientes = My.Resources.es.ippacientes
+        VConfigurarEmail = My.Resources.es.configuraremail
+        VDatosEmail = My.Resources.es.datosemail
+        VSubTituloEmail = My.Resources.es.subtituloemail
+        VEmailDeContacto = My.Resources.es.emaildecontacto
+        VPuertoSMTP = My.Resources.es.puertosmtp
+        VServidorSMTP = My.Resources.es.servidorsmtp
+        VCredencial = My.Resources.es.credencial
+        VAccion = My.Resources.es.accion
+        VServidor = My.Resources.es.servidor
+        VBaseDeDatos = My.Resources.es.basededatos
     End Sub
 
     Public Sub idioma_en()
@@ -478,6 +526,30 @@
         VFaltanDatosParaPoderImportar = My.Resources.en.faltandatosarapoderimportar
         VFormatoIncorrectoParaImportar = My.Resources.en.formatoincorrectoparaimportar
         VImportacionExitosa = My.Resources.en.importacionexitosa
+        VErrorArchivo = My.Resources.en.errorarchivo
+        VHayCambiosSinGuardar = My.Resources.en.haycambiossinguardar
+        VCantidadSintomasIncorrecto = My.Resources.en.cantidaddesintomasincorrecta
+        VAlgoEnLaConfiguracionNoEstaBien = My.Resources.en.algoenlaconfiguracionnoestabien
+        VErrorConfiguracion = My.Resources.en.errorconfiguracion
+        VSeGuardoLaConfiguracion = My.Resources.en.seguardolaconfiguracion
+        VConfiguracion = My.Resources.en.configuracion
+        VAplicar = My.Resources.en.aplicar
+        VSubTituloSintomas = My.Resources.en.subsitulosintomas
+        VConexiones = My.Resources.en.conexiones
+        VSubTituloConexiones = My.Resources.en.subtituloconexiones
+        VIpGestion = My.Resources.en.ipgestion
+        VIpMedicos = My.Resources.en.ipmedicos
+        VIpPacientes = My.Resources.en.ippacientes
+        VConfigurarEmail = My.Resources.en.configuraremail
+        VDatosEmail = My.Resources.en.datosemail
+        VSubTituloEmail = My.Resources.en.subtituloemail
+        VEmailDeContacto = My.Resources.en.emaildecontacto
+        VPuertoSMTP = My.Resources.en.puertosmtp
+        VServidorSMTP = My.Resources.en.servidorsmtp
+        VCredencial = My.Resources.en.credencial
+        VAccion = My.Resources.en.accion
+        VServidor = My.Resources.en.servidor
+        VBaseDeDatos = My.Resources.en.basededatos
     End Sub
 
     Public Sub GuardarIdioma(ByVal idioma As String)

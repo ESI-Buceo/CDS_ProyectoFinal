@@ -16,7 +16,7 @@ Public Module ControladorMedico
 
     Public Sub GuardarDatosMedico(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                   numero As String, barrio As String, esquina As String, apto As String, fechaNac As String,
-                                  telefonos As DataGridView, numeroMedico As String, uid As String, pwd As String)
+                                  telefonos As List(Of Integer), numeroMedico As String, uid As String, pwd As String)
         'Guarda los datos del medico
         Dim m As New ModeloMedico(uid, pwd)
         m.Documento = docId
@@ -30,7 +30,7 @@ Public Module ControladorMedico
         m.Apartamento = apto
         m.FechaNacimiento = fechaNac
         m.NumeroMedico = numeroMedico
-        m.Telefonos = cargarGridTelefonosADataTable(telefonos)
+        m.Telefonos = telefonos
         m.GuardarDatosMedico()
     End Sub
 
@@ -38,15 +38,9 @@ Public Module ControladorMedico
         'Crea el usuario en la base de datos
         Dim m As New ModeloMedico(uid, pwd)
         m.Documento = docidentidad
+        m.RangoIpMedico = ControladorConfiguracion.LeerRangoIpMedicos(uid, pwd)
         m.CrearUsuarioBD()
     End Sub
-
-    Private Function cargarGridTelefonosADataTable(ByVal telefonos As DataGridView) As DataTable
-        'Carga la lista de telefonos
-        Dim listaTelefonos As New DataTable
-        listaTelefonos = TryCast(telefonos.DataSource, DataTable)
-        Return listaTelefonos
-    End Function
 
     Public Function CambiarEstadoMedico(ByVal docIdentidad As String, estado As String, uid As String, pwd As String)
         'Cambia el estado del medico

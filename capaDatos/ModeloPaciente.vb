@@ -1,7 +1,8 @@
 ﻿Public Class ModeloPaciente
     Inherits ModeloPersona
 
-    Public TablaPreExistente As DataTable
+    Public ListaPreExistentes As List(Of String)
+    Public RangoIpPaciente As String
 
     Public Sub New(ByVal uid As String, pwd As String)
         MyBase.New(uid, pwd)
@@ -38,9 +39,9 @@
             Comando.CommandText = "DELETE FROM telefono WHERE docidentidad=" & Me.Documento
             Comando.ExecuteNonQuery()
 
-            For Each Telefono In Me.Telefonos.Rows
-                If Telefono("Telefono").ToString.Length > 1 Then
-                    Comando.CommandText = "INSERT INTO telefono VALUES(" & Me.Documento & ", '" & Telefono("Telefono").ToString & "')"
+            For Each Telefono In Me.Telefonos
+                If Telefono.ToString.Length > 1 Then
+                    Comando.CommandText = "INSERT INTO telefono VALUES(" & Me.Documento & ", '" & Telefono.ToString & "')"
                     Comando.ExecuteNonQuery()
                 End If
             Next
@@ -48,9 +49,9 @@
             Comando.CommandText = "DELETE FROM preexistentes WHERE docidentidad=" & Me.Documento
             Comando.ExecuteNonQuery()
 
-            For Each PreExistentes In Me.TablaPreExistente.Rows
-                If PreExistentes("preExistentes").ToString.Length > 1 Then
-                    Comando.CommandText = "INSERT INTO preexistentes VALUES(" & Me.Documento & ", '" & PreExistentes("preExistentes").ToString & "')"
+            For Each PreExistentes In Me.ListaPreExistentes
+                If PreExistentes.ToString.Length > 1 Then
+                    Comando.CommandText = "INSERT INTO preexistentes VALUES(" & Me.Documento & ", '" & PreExistentes.ToString & "')"
                     Comando.ExecuteNonQuery()
                 End If
             Next
@@ -68,53 +69,52 @@
     End Sub
 
     Public Sub CrearUsuarioBD()
-        Try
-            Dim pacientePass As String = "Pa." & Me.Documento
-            Comando.CommandText = "CREATE USER '" & Me.Documento & "'@'%' IDENTIFIED BY '" & pacientePass & "'"
-            Comando.ExecuteNonQuery()
+        Dim pacientePass As String = "Pa." & Me.Documento
 
-            Comando.CommandText = "GRANT SELECT ON " + Database + ".persona TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "CREATE USER '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "' IDENTIFIED BY '" & pacientePass & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT SELECT ON " + Database + ".medico TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".persona TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT SELECT ON " + Database + ".paciente TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".medico TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT SELECT ON " + Database + ".telefono TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".paciente TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".sesion TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".telefono TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT SELECT ON" + Database + ".sintoma TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".sesion TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT SELECT ON " + Database + ".patologia TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".sintoma TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".chat TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".patologia TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT SELECT, INSERT ON " + Database + ".diagnostico TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".chat TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT INSERT ON " + Database + ".recibe TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "GRANT SELECT, INSERT ON " + Database + ".diagnostico TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT INSERT ON " + Database + ".tiene TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "GRANT INSERT ON " + Database + ".recibe TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "GRANT SELECT ON " + Database + ".asociados TO '" & Me.Documento & "'@'" & My.Settings.IPPacientes & "'"
-            Comando.ExecuteNonQuery()
+        Comando.CommandText = "GRANT INSERT ON " + Database + ".tiene TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
-            Comando.CommandText = "FLUSH PRIVILEGES"
-            Comando.ExecuteNonQuery()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".asociados TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
 
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".setting TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
+
+        Comando.CommandText = "FLUSH PRIVILEGES"
+        Comando.ExecuteNonQuery()
     End Sub
 
     Public Function BuscarPaciente(ByVal stringSql As String)
@@ -137,7 +137,7 @@
 
     Public Sub EliminarUsuarioBD(ByVal docidentidad As String)
         'Elimina el usuario de la base de datos
-        Comando.CommandText = "DROP USER '" & docidentidad & "'@'" & My.Settings.IPPacientes & "'"
+        Comando.CommandText = "DROP USER '" & docidentidad & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
         CerrarConexion()
     End Sub
@@ -204,5 +204,4 @@
         CerrarConexion()
         Return tablaTelefonos
     End Function
-
 End Class

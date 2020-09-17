@@ -1,22 +1,21 @@
 ﻿Imports System.Data.Odbc
 Public MustInherit Class ModeloConexion
-    Public Driver As String = "MySQL ODBC 8.0 ANSI Driver"
+    Public Shared Driver As String
+    Public Shared ipServer As String
+    Public Shared Database As String
     Public Port As String = "3306"
-    'Public Database As String = "dbTriage"
-    Public Database As String = "dbPrueba"
-    Public Server As String = My.Settings.IPServer
     Public conexion As New OdbcConnection
 
     Public Comando As New OdbcCommand
     Public Reader As OdbcDataReader
 
     Public Sub New(ByVal usuario As String, pass As String)
-        conexion.ConnectionString = "DRIVER=" + Me.Driver +
+        conexion.ConnectionString = "DRIVER=" + Driver +
                                     ";UID=" + usuario +
                                     ";PWD=" + pass +
                                     ";PORT=" + Me.Port +
-                                    ";DATABASE=" + Me.Database +
-                                    ";SERVER=" + Me.Server
+                                    ";DATABASE=" + Database +
+                                    ";SERVER=" + ipServer
         conexion.Open()
         Me.Comando.Connection = conexion
     End Sub

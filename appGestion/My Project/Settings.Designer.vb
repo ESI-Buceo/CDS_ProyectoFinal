@@ -56,18 +56,6 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("soporte@vidasana.com")>  _
-        Public Property emailCorp() As String
-            Get
-                Return CType(Me("emailCorp"),String)
-            End Get
-            Set
-                Me("emailCorp") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("es")>  _
         Public Property lenguaje() As String
             Get
@@ -75,6 +63,18 @@ Namespace My
             End Get
             Set
                 Me("lenguaje") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property configurarEmail() As String
+            Get
+                Return CType(Me("configurarEmail"),String)
+            End Get
+            Set
+                Me("configurarEmail") = value
             End Set
         End Property
     End Class

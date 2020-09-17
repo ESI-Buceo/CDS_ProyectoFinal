@@ -37,6 +37,7 @@ Partial Class frmSintomas
         Me.tabSeparador3 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnuBtnBorrar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnReactivar = New System.Windows.Forms.ToolStripButton()
         Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
         Me.tabDatosSintomas = New System.Windows.Forms.TabControl()
         Me.tabDatos = New System.Windows.Forms.TabPage()
@@ -51,7 +52,6 @@ Partial Class frmSintomas
         Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colActivo = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.mnuBtnReactivar = New System.Windows.Forms.ToolStripButton()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolsMenuSintoma.SuspendLayout()
         Me.tabDatosSintomas.SuspendLayout()
@@ -180,6 +180,16 @@ Partial Class frmSintomas
         Me.tabSeparador4.Name = "tabSeparador4"
         Me.tabSeparador4.Size = New System.Drawing.Size(6, 23)
         '
+        'mnuBtnReactivar
+        '
+        Me.mnuBtnReactivar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.mnuBtnReactivar.Image = CType(resources.GetObject("mnuBtnReactivar.Image"), System.Drawing.Image)
+        Me.mnuBtnReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnReactivar.Name = "mnuBtnReactivar"
+        Me.mnuBtnReactivar.Size = New System.Drawing.Size(24, 24)
+        Me.mnuBtnReactivar.Text = "ToolStripButton1"
+        Me.mnuBtnReactivar.Visible = False
+        '
         'mnuBtnModificar
         '
         Me.mnuBtnModificar.Enabled = False
@@ -280,7 +290,7 @@ Partial Class frmSintomas
         Me.lblSintomaEstado.Size = New System.Drawing.Size(109, 19)
         Me.lblSintomaEstado.TabIndex = 2
         Me.lblSintomaEstado.Text = "HABILITADO:"
-        Me.lblSintomaEstado.UseWaitCursor = True
+        Me.lblSintomaEstado.UseWaitCursor = False
         '
         'lblSintomaNombre
         '
@@ -291,7 +301,7 @@ Partial Class frmSintomas
         Me.lblSintomaNombre.Size = New System.Drawing.Size(83, 19)
         Me.lblSintomaNombre.TabIndex = 1
         Me.lblSintomaNombre.Text = "NOMBRE:"
-        Me.lblSintomaNombre.UseWaitCursor = True
+        Me.lblSintomaNombre.UseWaitCursor = False
         '
         'tabBusqueda
         '
@@ -304,7 +314,7 @@ Partial Class frmSintomas
         Me.tabBusqueda.Size = New System.Drawing.Size(873, 207)
         Me.tabBusqueda.TabIndex = 1
         Me.tabBusqueda.Text = "Busqueda"
-        Me.tabBusqueda.UseWaitCursor = True
+        Me.tabBusqueda.UseWaitCursor = False
         '
         'dgSintomas
         '
@@ -313,7 +323,7 @@ Partial Class frmSintomas
         Me.dgSintomas.AllowUserToOrderColumns = True
         Me.dgSintomas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgSintomas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colID, Me.colNombre, Me.colActivo})
-        Me.dgSintomas.Cursor = System.Windows.Forms.Cursors.WaitCursor
+        Me.dgSintomas.Cursor = System.Windows.Forms.Cursors.Default
         Me.dgSintomas.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgSintomas.Location = New System.Drawing.Point(3, 2)
         Me.dgSintomas.Margin = New System.Windows.Forms.Padding(4)
@@ -321,7 +331,6 @@ Partial Class frmSintomas
         Me.dgSintomas.ReadOnly = True
         Me.dgSintomas.Size = New System.Drawing.Size(867, 203)
         Me.dgSintomas.TabIndex = 0
-        Me.dgSintomas.UseWaitCursor = True
         '
         'colID
         '
@@ -348,16 +357,6 @@ Partial Class frmSintomas
         Me.colActivo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.colActivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.colActivo.Width = 60
-        '
-        'mnuBtnReactivar
-        '
-        Me.mnuBtnReactivar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.mnuBtnReactivar.Image = CType(resources.GetObject("mnuBtnReactivar.Image"), System.Drawing.Image)
-        Me.mnuBtnReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnReactivar.Name = "mnuBtnReactivar"
-        Me.mnuBtnReactivar.Size = New System.Drawing.Size(24, 24)
-        Me.mnuBtnReactivar.Text = "ToolStripButton1"
-        Me.mnuBtnReactivar.Visible = False
         '
         'frmSintomas
         '
