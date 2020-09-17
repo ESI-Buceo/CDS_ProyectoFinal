@@ -1,6 +1,7 @@
 ﻿Imports System.Text
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports capaLogica
+Imports capaDatos
 Imports System.Windows.Forms
 Imports System.Threading
 
@@ -11,34 +12,17 @@ Imports System.Threading
         Thread.Sleep(20)
     End Sub
 
-    '<TestMethod()> Public Sub TestGuardarDatosAdmin()
-    '    Dim Telefonos As DataGridView
-    '    Dim row(1) As String
-    '    Telefonos.ColumnCount = 1
-    '    Telefonos.Columns(0).Name = "Telefono"
+    <TestMethod()> Public Sub TestGuardarDatosAdmin()
+        Dim Tel As New List(Of Integer)
 
-    '    row(0) = "097055621"
-    '    Dim Telefono As String() = New String() {row(1), row(2)}
-    '    Telefonos.Rows.Add(row)
-
-
-
-
-    '    Assert.IsNotNull(controladorAdministrativo.GuardarDatosAdmin("12345678", "nuevo@admincontrolador.com",
-    '                                                                 "Cacho", "Castaña", "Argentina", "1234",
-    '                                                                 "La Boca", "Tanguito", "", "1950-10-10", Telefonos,
-    '                                                                 "3288", "11111111", "Ge.11111111"))
-    'End Sub
+        Assert.IsTrue(controladorAdministrativo.GuardarDatosAdmin("12345678", "nuevo@admincontrolador.com",
+                                                                     "Cacho", "Castaña", "Argentina", "1234",
+                                                                     "La Boca", "Tanguito", "", "1950-10-10", Tel,
+                                                                     "3288", "11111111", "Ge.11111111"))
+    End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
-        Dim Resultado As Boolean
-        Try
-            controladorAdministrativo.CrearUsuarioBD("12345678", "11111111", "Ge.11111111")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
+        Assert.IsTrue(controladorAdministrativo.CrearUsuarioBD("65495251", "11111111", "Ge.11111111"))
         Thread.Sleep(20)
     End Sub
 
@@ -54,6 +38,51 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestBuscarAdministrativoPorDocumento()
         Assert.IsNotNull(controladorAdministrativo.BuscarAdministrativoPorDocumento("77777777", "11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestcrearTablaTelefono()
+        Assert.IsNotNull(controladorAdministrativo.crearTablaTelefonos())
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestformatearSqlBuscquedaAdministrativo()
+        Assert.IsNotNull(controladorAdministrativo.formatearSqlBuscquedaAdministrativo("13245"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestcambiarEstadoAdmin()
+        Assert.IsNotNull(controladorAdministrativo.cambiarEstadoAdmin("22222222", "1", "11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestValidarAdministrativo()
+        Assert.IsNotNull(controladorAdministrativo.ValidarAdministrativo("11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TesteliminiarUsuarioBD()
+        Assert.IsTrue(controladorAdministrativo.eliminiarUsuarioBD("65495251", "11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestCambiarPassword()
+        Assert.IsTrue(controladorAdministrativo.CambiarPassword("11111111", "11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestListarAdministrativosPorEstado()
+        Assert.IsNotNull(controladorAdministrativo.ListarAdministrativos("1", "11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestListarAdministrativos()
+        Assert.IsNotNull(controladorAdministrativo.ListarAdministrativos("11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestListarTelefonos()
+        Assert.IsNotNull(controladorAdministrativo.ListarTelefonos("11111111", "11111111", "Ge.11111111"))
         Thread.Sleep(20)
     End Sub
 

@@ -148,7 +148,8 @@ Public Class ModeloAdministrativo
     End Function
 
     Public Sub CambiarPassword(ByVal pass As String)
-        Comando.CommandText = "ALTER USER '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "' IDENTIFIED BY '" & "Ge." & pass & "'"
+        'Comando.CommandText = "ALTER USER '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "' IDENTIFIED BY '" & "Ge." & pass & "'"
+        Comando.CommandText = "ALTER USER '" & Me.Documento & "'@'%' IDENTIFIED BY '" & "Ge." & pass & "'"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "FLUSH PRIVILEGES"

@@ -21,7 +21,6 @@ Imports System.Threading
     <TestMethod()> Public Sub TestGuardarDatosMedico()
         Dim Resultado As Boolean
         Dim Telefono As New List(Of Integer)
-        Telefono.Add("Telefono")
         Telefono.Add("097650602")
         Telefono.Add("099451212")
 
@@ -48,6 +47,7 @@ Imports System.Threading
 
         Assert.IsTrue(Resultado)
         Thread.Sleep(50)
+
     End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()

@@ -20,7 +20,6 @@ Imports System.Threading
     <TestMethod()> Public Sub TestGuardarDatosPaciente()
         Dim Resultado As Boolean
         Dim Telefono As New List(Of Integer)
-        Telefono.Add("Telefono")
         Telefono.Add("097654978")
         Telefono.Add("097789456")
 

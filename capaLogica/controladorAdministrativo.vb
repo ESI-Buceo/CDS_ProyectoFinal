@@ -9,32 +9,44 @@ Public Module controladorAdministrativo
         Return a.VerificarDocumentoDeIdentidad(docidentidad)
     End Function
 
-    Public Sub GuardarDatosAdmin(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
+    Public Function GuardarDatosAdmin(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                  numero As String, barrio As String, esquina As String, apartamento As String, fechaNac As String,
                                  telefonos As List(Of Integer), numeroAdmin As String, uid As String, pwd As String)
         'Guarda los datos del administrativo
-        Dim a As New ModeloAdministrativo(uid, pwd)
-        a.Documento = docId
-        a.Email = email
-        a.Nombres = nombres
-        a.Apellidos = apellidos
-        a.Calle = calle
-        a.Numero = numero
-        a.Barrio = barrio
-        a.Esquina = esquina
-        a.Apartamento = apartamento
-        a.FechaNacimiento = fechaNac
-        a.NumeroEmpleado = numeroAdmin
-        a.Telefonos = telefonos
-        a.GuardarAdministrativo()
-    End Sub
+        Try
+            Dim a As New ModeloAdministrativo(uid, pwd)
+            a.Documento = docId
+            a.Email = email
+            a.Nombres = nombres
+            a.Apellidos = apellidos
+            a.Calle = calle
+            a.Numero = numero
+            a.Barrio = barrio
+            a.Esquina = esquina
+            a.Apartamento = apartamento
+            a.FechaNacimiento = fechaNac
+            a.NumeroEmpleado = numeroAdmin
+            a.Telefonos = telefonos
+            a.GuardarAdministrativo()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
 
-    Public Sub CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
-        Dim a As New ModeloAdministrativo(uid, pwd)
-        a.Documento = docidentidad
-        a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
-        a.CrearUsuarioBD()
-    End Sub
+    End Function
+
+    Public Function CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+        Try
+            Dim a As New ModeloAdministrativo(uid, pwd)
+            a.Documento = docidentidad
+            a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
+            a.CrearUsuarioBD()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
 
     Public Function crearCadenaDeBusquedaAdministrativo(ByVal campoABuscar As String, datoABuscar As String)
         'Crea la cadena de consulta de acuerdo a los datos ingresados para ello
@@ -66,7 +78,7 @@ Public Module controladorAdministrativo
         Return tablaTel
     End Function
 
-    Private Function formatearSqlBuscquedaAdministrativo(ByVal datoString As String)
+    Public Function formatearSqlBuscquedaAdministrativo(ByVal datoString As String)
         'Elimina el ultimo and de la consulta
         If datoString IsNot Nothing Then
             Return datoString.Remove(datoString.Length - 4, 4)
@@ -84,18 +96,29 @@ Public Module controladorAdministrativo
         Return a.ValidarAdministrativo(uid)
     End Function
 
-    Public Sub eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
-        Dim a As New ModeloAdministrativo(uid, pwd)
-        a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
-        a.EliminarUsuarioBD(docidentidad)
-    End Sub
+    Public Function eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+        Try
+            Dim a As New ModeloAdministrativo(uid, pwd)
+            a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
+            a.EliminarUsuarioBD(docidentidad)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
 
-    Public Sub CambiarPassword(ByVal pass As String, uid As String, pwd As String)
-        Dim a As New ModeloAdministrativo(uid, pwd)
-        a.Documento = uid
-        a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
-        a.CambiarPassword(pass)
-    End Sub
+    Public Function CambiarPassword(ByVal pass As String, uid As String, pwd As String)
+        Try
+            Dim a As New ModeloAdministrativo(uid, pwd)
+            a.Documento = uid
+            a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
+            a.CambiarPassword(pass)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
 
     Public Function ListarAdministrativos(ByVal estado As String, uid As String, pwd As String)
         'Lista los administrativos por estado
