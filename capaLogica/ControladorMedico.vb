@@ -14,33 +14,45 @@ Public Module ControladorMedico
         Return a.VerificarDocumentoDeIdentidad(docidentidad)
     End Function
 
-    Public Sub GuardarDatosMedico(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
+    Public Function GuardarDatosMedico(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                   numero As String, barrio As String, esquina As String, apto As String, fechaNac As String,
                                   telefonos As List(Of Integer), numeroMedico As String, uid As String, pwd As String)
         'Guarda los datos del medico
-        Dim m As New ModeloMedico(uid, pwd)
-        m.Documento = docId
-        m.Email = email
-        m.Nombres = nombres
-        m.Apellidos = apellidos
-        m.Calle = calle
-        m.Numero = numero
-        m.Barrio = barrio
-        m.Esquina = esquina
-        m.Apartamento = apto
-        m.FechaNacimiento = fechaNac
-        m.NumeroMedico = numeroMedico
-        m.Telefonos = telefonos
-        m.GuardarDatosMedico()
-    End Sub
+        Try
+            Dim m As New ModeloMedico(uid, pwd)
+            m.Documento = docId
+            m.Email = email
+            m.Nombres = nombres
+            m.Apellidos = apellidos
+            m.Calle = calle
+            m.Numero = numero
+            m.Barrio = barrio
+            m.Esquina = esquina
+            m.Apartamento = apto
+            m.FechaNacimiento = fechaNac
+            m.NumeroMedico = numeroMedico
+            m.Telefonos = telefonos
+            m.GuardarDatosMedico()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
 
-    Public Sub crearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+    End Function
+
+    Public Function crearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         'Crea el usuario en la base de datos
-        Dim m As New ModeloMedico(uid, pwd)
-        m.Documento = docidentidad
-        m.RangoIpMedico = ControladorConfiguracion.LeerRangoIpMedicos(uid, pwd)
-        m.CrearUsuarioBD()
-    End Sub
+        Try
+            Dim m As New ModeloMedico(uid, pwd)
+            m.Documento = docidentidad
+            m.RangoIpMedico = ControladorConfiguracion.LeerRangoIpMedicos(uid, pwd)
+            m.CrearUsuarioBD()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
 
     Public Function CambiarEstadoMedico(ByVal docIdentidad As String, estado As String, uid As String, pwd As String)
         'Cambia el estado del medico
@@ -48,10 +60,18 @@ Public Module ControladorMedico
         Return m.CambiarEstadoMedico(docIdentidad, estado)
     End Function
 
-    Public Sub eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
-        Dim m As New ModeloMedico(uid, pwd)
-        m.EliminarUsuarioBD(docidentidad)
-    End Sub
+    Public Function eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+        Try
+            Dim m As New ModeloMedico(uid, pwd)
+            m.Documento = docidentidad
+            m.RangoIpMedico = ControladorConfiguracion.LeerRangoIpMedicos(uid, pwd)
+            m.EliminarUsuarioBD(docidentidad)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
 
     Public Function buscarMedicoPorDocumento(ByVal docIdentidad As String, uid As String, pwd As String)
         'Busca medico por documento
@@ -83,7 +103,7 @@ Public Module ControladorMedico
         Return m.buscarMedico(formatearSqlBuscquedaMedico(cadenaSql))
     End Function
 
-    Private Function formatearSqlBuscquedaMedico(ByVal datoString As String)
+    Public Function formatearSqlBuscquedaMedico(ByVal datoString As String)
         'Elimina el ultimo and de la consulta
         If datoString IsNot Nothing Then
             Return datoString.Remove(datoString.Length - 4, 4)
