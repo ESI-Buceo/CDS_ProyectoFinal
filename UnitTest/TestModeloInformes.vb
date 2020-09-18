@@ -14,7 +14,7 @@ Imports System.Threading
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        Thread.Sleep(1000)
     End Sub
 
     <TestMethod()> Public Sub TestDiagnosticosBrindados()
@@ -26,7 +26,7 @@ Imports System.Threading
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        Thread.Sleep(1000)
     End Sub
 
     <TestMethod()> Public Sub TestCantidadChat()
@@ -38,7 +38,7 @@ Imports System.Threading
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        Thread.Sleep(1000)
     End Sub
 
     <TestMethod()> Public Sub TestCantidadChatMes()
@@ -50,7 +50,7 @@ Imports System.Threading
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        Thread.Sleep(1000)
     End Sub
 
 End Class

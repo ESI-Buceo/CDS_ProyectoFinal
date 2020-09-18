@@ -38,31 +38,9 @@ Imports System.Threading
         Thread.Sleep(20)
     End Sub
 
-    <TestMethod()> Public Sub TestRecibirMensajesAppPaciente()
-        Dim Resultado As Boolean
-        Try
-            c.RecibirMensajes("161348021", emisor:="M")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
 
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
 
-    <TestMethod()> Public Sub TestRecibirTodosMensajes()
-        Dim Resultado As Boolean
-        Try
-            c.RecibirTodosMensajes("161348021")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
 
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
 
     <TestMethod()> Public Sub TestMarcarMensajeLeido()
         Dim Resultado As Boolean
@@ -77,19 +55,7 @@ Imports System.Threading
         Thread.Sleep(20)
     End Sub
 
-    <TestMethod()> Public Sub TestListaHistoricaChatPaciente()
-        Dim c As New ModeloChat("19248371", "Pa.19248371")
-        Dim Resultado As Boolean
-        Try
-            c.ListaHistoricaChatPaciente("19248371")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
 
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
 
     <TestMethod()> Public Sub TestCantidadDeChats()
         Dim Resultado As Boolean

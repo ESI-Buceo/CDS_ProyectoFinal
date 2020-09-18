@@ -97,12 +97,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="TestControladorPaciente.vb" />
+    <Compile Include="TestModeloAdministrativo2.vb" />
     <Compile Include="TestModeloAsociados.vb" />
     <Compile Include="TestModeloChat.vb" />
+    <Compile Include="TestModelochat2.vb" />
     <Compile Include="TestModeloDiagnostico.vb" />
     <Compile Include="TestModeloInformes.vb" />
     <Compile Include="TestModeloMedico.vb" />
+    <Compile Include="TestModeloMedico2.vb" />
     <Compile Include="TestModeloPaciente.vb" />
+    <Compile Include="TestModeloPaciente2.vb" />
     <Compile Include="TestModeloRecibe.vb" />
     <Compile Include="TestModeloTiene.vb" />
   </ItemGroup>

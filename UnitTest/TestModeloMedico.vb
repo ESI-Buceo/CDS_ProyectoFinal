@@ -10,47 +10,17 @@ Imports System.Threading
     <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
         Dim Resultado As Boolean
         Try
-            m.VerificarDocumentoDeIdentidad("19266175")
+            m.VerificarDocumentoDeIdentidad("'19266175'")
             Resultado = True
         Catch ex As Exception
             Resultado = True
         End Try
 
         Assert.IsTrue(Resultado)
-        Thread.Sleep(100)
+        Thread.Sleep(20)
     End Sub
 
-    <TestMethod()> Public Sub TestGuardarDatosMedico()
-        Dim Resultado As Boolean
-        Dim Telefono As New List(Of Integer)
-        Telefono.Add("097650602")
-        Telefono.Add("099451212")
 
-        m.Documento = "36512328"
-        m.Email = "nuevo@medico.com"
-        m.Nombres = "Carlitos"
-        m.Apellidos = "Hacelaplancha"
-        m.Calle = "Atahualpa"
-        m.Numero = "1245"
-        m.Barrio = "Yupanqui"
-        m.Esquina = "Del Infinito"
-        m.Apartamento = "3"
-        m.FechaNacimiento = "1986-12-20"
-        m.NumeroMedico = "4598"
-        m.Telefonos = Telefono
-
-
-        Try
-            m.GuardarDatosMedico()
-            Resultado = True
-        Catch ex As Odbc.OdbcException
-            Resultado = False
-        End Try
-
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(50)
-
-    End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
         m.Documento = "36512327"
@@ -62,37 +32,39 @@ Imports System.Threading
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(50)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestBuscarMedico()
         Dim Resultado As Boolean
         Try
-            m.BuscarMedico("40717849")
+            m.BuscarMedico("p.docidentidad = '40717849' AND p.nombres = 'Carlos'")
             Resultado = True
         Catch ex As Exception
             Resultado = False
+            MsgBox(ex.Message)
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(50)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestBuscarMedicoPorDocumento()
         Dim Resultado As Boolean
         Try
-            m.BuscarMedicoPorDocumento("40717849")
+            m.buscarMedicoPorDocumento("'40717849'")
             Resultado = True
         Catch ex As Exception
             Resultado = False
+            MsgBox(ex.Message)
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(50)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCambiarEstadoMedico()
         Dim Resultado As Boolean
         Try
-            m.CambiarEstadoMedico("19266171", "1")
+            m.CambiarEstadoMedico("'19266171'", "'1'")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -110,7 +82,7 @@ Imports System.Threading
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(50)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarMedicos()
@@ -128,7 +100,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestListarMedicosPorEstado()
         Dim Resultado As Boolean
         Try
-            m.ListarMedicos("0")
+            m.ListarMedicos("'0'")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -141,7 +113,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestListarTelefonos()
         Dim Resultado As Boolean
         Try
-            m.ListarTelefonos("19266173")
+            m.ListarTelefonos("'19266173'")
             Resultado = True
         Catch ex As Exception
             Resultado = False
