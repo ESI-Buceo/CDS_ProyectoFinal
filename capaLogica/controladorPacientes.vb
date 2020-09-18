@@ -113,7 +113,7 @@ Public Module controladorPacientes
         Return p.BuscarPaciente(formatearSqlBuscquedaPaciente(cadenaSql))
     End Function
 
-    Private Function formatearSqlBuscquedaPaciente(ByVal datoString As String)
+    Public Function formatearSqlBuscquedaPaciente(ByVal datoString As String)
         'Elimina el ultimo and de la consulta
         If datoString IsNot Nothing Then
             Return datoString.Remove(datoString.Length - 4, 4)

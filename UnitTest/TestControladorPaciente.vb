@@ -35,5 +35,59 @@ Imports capaDatos
         Thread.Sleep(20)
     End Sub
 
+    <TestMethod()> Public Sub TestCambiarEstadoPaciente()
+        Assert.IsNotNull(controladorPacientes.CambiarEstadoPaciente("96325874", "1", "11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestbuscarPacientePorDocumento()
+        Assert.IsNotNull(controladorPacientes.buscarPacientePorDocumento("96325874", "11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestbuscarPaciente()
+        Assert.IsNotNull(controladorPacientes.buscarPaciente("96325874", "11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestformatearSqlBuscquedaPaciente()
+        Assert.IsNotNull(controladorPacientes.formatearSqlBuscquedaPaciente("13245"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestcrearTablaTelefono()
+        Assert.IsNotNull(controladorPacientes.crearTablaTelefonos())
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestcrearTablaPreExistentes()
+        Assert.IsNotNull(controladorPacientes.crearTablaPreExistentes())
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestcrearCadenaDeBusquedaPaciente()
+        Assert.IsNotNull(controladorPacientes.crearCadenaDeBusquedaPaciente("txtDocIdentidad", "11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestCargarEnfermedadesPreExistentes()
+        Assert.IsNotNull(controladorPacientes.CargarEnfermedadesPreExistentes("96325874", "11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestListarPacientes()
+        Assert.IsNotNull(controladorPacientes.ListarPacientes("11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestListarPacientesPorEstado()
+        Assert.IsNotNull(controladorPacientes.ListarPacientes("1", "11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestListarTelefonos()
+        Assert.IsNotNull(controladorPacientes.ListarTelefonos("96325874", "11111111", "Ge.11111111"))
+        Thread.Sleep(20)
+    End Sub
 
 End Class
