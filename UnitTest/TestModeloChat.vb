@@ -38,10 +38,6 @@ Imports System.Threading
         Thread.Sleep(20)
     End Sub
 
-
-
-
-
     <TestMethod()> Public Sub TestMarcarMensajeLeido()
         Dim Resultado As Boolean
         Try

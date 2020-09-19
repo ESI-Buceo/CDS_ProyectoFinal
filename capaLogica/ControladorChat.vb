@@ -20,30 +20,48 @@ Public Module ControladorChat
         Return c.RecibirTodosMensajes(idSesion)
     End Function
 
-    Public Sub EnviarMensajePaciente(ByVal mensaje As String, idSesion As String, uid As String, pwd As String, idmedico As String)
-        Dim c As New ModeloChat(uid, pwd)
-        c.idSesion = idSesion
-        c.mensaje = mensaje
-        c.emisor = "P"
-        c.docidentidadMedico = idmedico
-        c.docidentidadPaciente = uid
-        c.enviarMensaje()
-    End Sub
+    Public Function EnviarMensajePaciente(ByVal mensaje As String, idSesion As String, uid As String, pwd As String, idmedico As String)
+        Try
+            Dim c As New ModeloChat(uid, pwd)
+            c.idSesion = idSesion
+            c.mensaje = mensaje
+            c.emisor = "P"
+            c.docidentidadMedico = idmedico
+            c.docidentidadPaciente = uid
+            c.enviarMensaje()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
 
-    Public Sub EnviarMensajeMedico(ByVal mensaje As String, idSesion As String, uid As String, pwd As String, idpaciente As String)
-        Dim c As New ModeloChat(uid, pwd)
-        c.idSesion = idSesion
-        c.mensaje = mensaje
-        c.emisor = "M"
-        c.docidentidadPaciente = idpaciente
-        c.docidentidadMedico = uid
-        c.enviarMensaje()
-    End Sub
+    End Function
 
-    Public Sub MarcarMensajeLeido(ByVal id As String, uid As String, pwd As String)
-        Dim c As New ModeloChat(uid, pwd)
-        c.MarcarMensajeLeido(id)
-    End Sub
+    Public Function EnviarMensajeMedico(ByVal mensaje As String, idSesion As String, uid As String, pwd As String, idpaciente As String)
+        Try
+            Dim c As New ModeloChat(uid, pwd)
+            c.idSesion = idSesion
+            c.mensaje = mensaje
+            c.emisor = "M"
+            c.docidentidadPaciente = idpaciente
+            c.docidentidadMedico = uid
+            c.enviarMensaje()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
+
+    Public Function MarcarMensajeLeido(ByVal id As String, uid As String, pwd As String)
+        Try
+            Dim c As New ModeloChat(uid, pwd)
+            c.MarcarMensajeLeido(id)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
 
     Public Function DatosPaciente(ByVal idSesion As String, uid As String, pwd As String)
         'retorna los datos del paciente que solicito el chat
@@ -57,42 +75,72 @@ Public Module ControladorChat
         Return s.SintomasIngresadosPorPaciente(idSesion)
     End Function
 
-    Public Sub MarcarEnProceso(ByVal idSesion As String, estado As String, uid As String, pwd As String)
-        'Marca la sesion en proceso
-        Dim s As New ModeloSesion(uid, pwd)
-        s.GuardarEstado(idSesion, estado)
-    End Sub
+    Public Function MarcarEnProceso(ByVal idSesion As String, estado As String, uid As String, pwd As String)
+        Try
+            'Marca la sesion en proceso
+            Dim s As New ModeloSesion(uid, pwd)
+            s.GuardarEstado(idSesion, estado)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
 
-    Public Sub EnviarChatAEspera(ByVal idSesion As String, uid As String, pwd As String)
-        'pone la sesion en espera
-        Dim c As New ModeloSesion(uid, pwd)
-        c.GuardarEstado(idSesion, "2")
-    End Sub
+    End Function
 
-    Public Sub MensajeInicioDeSesion(ByVal IdSesion As String, uid As String, pwd As String, idpaciente As String)
-        'Si es la primera vez que abre sesion manda mensaje de inicio
-        Dim s As New ModeloSesion(uid, pwd)
-        If s.VerificarEstadoSesion(IdSesion) = 0 Then
-            enviarMensajeDeEspera(IdSesion, uid, pwd, idpaciente)
-        End If
-        marcarchatEnProceso(IdSesion, uid, pwd)
-    End Sub
+    Public Function EnviarChatAEspera(ByVal idSesion As String, uid As String, pwd As String)
+        Try
+            'pone la sesion en espera
+            Dim c As New ModeloSesion(uid, pwd)
+            c.GuardarEstado(idSesion, "2")
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
 
-    Private Sub marcarchatEnProceso(ByVal idSesion As String, uid As String, pwd As String)
-        'Marca el estado del chat en proceso
-        ControladorChat.MarcarEnProceso(idSesion, "1", uid, pwd)
-    End Sub
+    End Function
 
-    Private Sub enviarMensajeDeEspera(ByVal idSesion As String, uid As String, pwd As String, idpaciente As String)
-        Dim c As New ModeloChat(uid, pwd) With {
+    Public Function MensajeInicioDeSesion(ByVal IdSesion As String, uid As String, pwd As String, idpaciente As String)
+        Try
+            'Si es la primera vez que abre sesion manda mensaje de inicio
+            Dim s As New ModeloSesion(uid, pwd)
+            If s.VerificarEstadoSesion(IdSesion) = 0 Then
+                enviarMensajeDeEspera(IdSesion, uid, pwd, idpaciente)
+            End If
+            marcarchatEnProceso(IdSesion, uid, pwd)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
+
+    Public Function marcarchatEnProceso(ByVal idSesion As String, uid As String, pwd As String)
+        Try
+            'Marca el estado del chat en proceso
+            ControladorChat.MarcarEnProceso(idSesion, "1", uid, pwd)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
+
+    Public Function enviarMensajeDeEspera(ByVal idSesion As String, uid As String, pwd As String, idpaciente As String)
+        Try
+            Dim c As New ModeloChat(uid, pwd) With {
         .mensaje = "El medico ha iniciado sesion, aguarda por favor...",
         .emisor = "M",
         .docidentidadPaciente = idpaciente,
         .docidentidadMedico = uid,
         .idSesion = idSesion
         }
-        c.enviarMensaje()
-    End Sub
+            c.enviarMensaje()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
 
     Public Function ListaHistoricaChatPaciente(ByVal uid As String, pwd As String, docidentidad As String)
         'Trae la lista de chat del paciente
@@ -104,4 +152,5 @@ Public Module ControladorChat
         Dim c As New ModeloChat(uid, pwd)
         Return c.CantidadDeChats(documento)
     End Function
+
 End Module
