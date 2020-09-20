@@ -80,7 +80,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TestControladorAdministrativo.vb" />
-    <Compile Include="TestControladorchat.vb" />
+    <Compile Include="TestControladorChat.vb" />
+    <Compile Include="TestControladorDiagnostico.vb" />
     <Compile Include="TestControladorMedico.vb" />
     <Compile Include="TestModeloAdministrativo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />

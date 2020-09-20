@@ -12,7 +12,7 @@ Public Module ControladorDiagnostico
         Return evaluarTablaPatologias(tablaPatologiasPorSintomas, listaSintomasSeleccionados, uid, pwd)
     End Function
 
-    Private Function evaluarTablaPatologias(ByRef tablaDePatologias As DataTable, listaSintomasSeleccionados As List(Of Integer), uid As String, pwd As String)
+    Public Function evaluarTablaPatologias(ByRef tablaDePatologias As DataTable, listaSintomasSeleccionados As List(Of Integer), uid As String, pwd As String)
         'Evalua si existen patologias con los sintomas seleccionados por el paciente y hace los registros
         If tablaDePatologias.Rows.Count > 0 Then
             ponderarDiagnostico(tablaDePatologias)
@@ -110,7 +110,7 @@ Public Module ControladorDiagnostico
     End Function
 
     Public Function ValidarSintomaSeleccionado(ByVal idSintoma As Integer, ByVal listaSintomasSeleccionados As List(Of Integer)) As Boolean
-        'Completa la lista de sintomas seleccionados por el paciente si esta vacia y sino, llama al metodo verifiar para ver si ya no esta ingresado
+        'Completa la lista de sintomas seleccionados por el paciente si esta vacia, y sino llama al metodo verifiar para ver si ya no esta ingresado
         If listaSintomasSeleccionados.Count = 0 Then
             Return True
         Else

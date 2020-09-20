@@ -4,7 +4,7 @@ Imports capaLogica
 Imports capaDatos
 Imports System.Threading
 
-<TestClass()> Public Class TestControladorchat
+<TestClass()> Public Class TestControladorChat
 
     <TestMethod()> Public Sub TestRecibirMensajes()
         ModeloDiagnostico.CodigoDiagnostico = "161348021"
