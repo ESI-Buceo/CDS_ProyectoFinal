@@ -33,7 +33,7 @@ Imports capaDatos
         End Try
 
         Assert.IsTrue(Resultado)
-        Thread.Sleep(100)
+        Thread.Sleep(20)
     End Sub
 
 End Class
