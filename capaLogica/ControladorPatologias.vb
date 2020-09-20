@@ -4,24 +4,35 @@ Imports System.Windows.Forms
 
 Public Module ControladorPatologias
 
-    Public Sub AltaPatologia(id As String, nombre As String, ponderacion As Integer, descripcion As String, activo As Integer,
+    Public Function AltaPatologia(id As String, nombre As String, ponderacion As Integer, descripcion As String, activo As Integer,
                              ListaDeSintomas As List(Of Integer), uid As String, pwd As String)
-        'Guarda los datos de la patologia
-        Dim p As New ModeloPatologia(uid, pwd)
-        p.Id = id
-        p.Nombre = nombre
-        p.Ponderacion = ponderacion
-        p.Descripcion = descripcion
-        p.Activo = activo
-        p.ListaDeSintomasAsociados = ListaDeSintomas
-        p.GuaradrPatologia()
-    End Sub
+        Try
+            'Guarda los datos de la patologia
+            Dim p As New ModeloPatologia(uid, pwd)
+            p.Id = id
+            p.Nombre = nombre
+            p.Ponderacion = ponderacion
+            p.Descripcion = descripcion
+            p.Activo = activo
+            p.ListaDeSintomasAsociados = ListaDeSintomas
+            p.GuaradrPatologia()
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
 
-    Public Sub cambiarEstadoPatologia(id As Integer, estado As String, uid As String, pwd As String)
+    Public Function cambiarEstadoPatologia(id As Integer, estado As String, uid As String, pwd As String)
         'ELimina logicamene la patologia
-        Dim p As New ModeloPatologia(uid, pwd)
-        p.CambiarEstadoPatologia(id, estado)
-    End Sub
+        Try
+            Dim p As New ModeloPatologia(uid, pwd)
+            p.CambiarEstadoPatologia(id, estado)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
 
     Public Function ListarPatologias(ByVal nombre As String, uid As String, pwd As String) As DataTable
         'Busca la patologia por nombre
@@ -76,21 +87,28 @@ Public Module ControladorPatologias
         Return p.listarPatologias(activo)
     End Function
 
-    Public Sub ExportarDatosADB(ByVal uid As String, pwd As String, datos As DataTable)
+    Public Function ExportarDatosADB(ByVal uid As String, pwd As String, datos As DataTable)
         'Guarda informacion en la base de datos
-        Dim p As New ModeloPatologia(uid, pwd)
-        For Each patologia As DataRow In datos.Rows
-            p.Id = 0
-            p.Nombre = patologia("columna1").ToString
-            p.Ponderacion = patologia("columna2").ToString
-            p.Descripcion = patologia("columna3").ToString
-            p.GuaradrPatologia()
-        Next
-    End Sub
+        Try
+            Dim p As New ModeloPatologia(uid, pwd)
+            For Each patologia As DataRow In datos.Rows
+                p.Id = 0
+                p.Nombre = patologia("columna1").ToString
+                p.Ponderacion = patologia("columna2").ToString
+                p.Descripcion = patologia("columna3").ToString
+                p.GuaradrPatologia()
+            Next
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
 
     Public Function ListarPatologiasPorDiagnostico(ByVal uid As String, pwd As String, idDiagnostico As String)
         'Recuepera las patologias quue conforman un diagnostico
         Dim p As New ModeloPatologia(uid, pwd)
         Return p.ListarPatologiasDeDiagnostico(idDiagnostico)
     End Function
+
 End Module
