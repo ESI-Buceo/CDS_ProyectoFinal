@@ -37,16 +37,28 @@ Public Module ControladorSesion
         Return s.DevolverNombreApellidoMedico
     End Function
 
-    Public Sub CancelarSesionDeChat(ByVal uid As String, pwd As String)
+    Public Function CancelarSesionDeChat(ByVal uid As String, pwd As String)
         'Guarda el estado cuando el paciente cancela el chat
-        Dim s As New ModeloSesion(uid, pwd)
-        s.GuardarEstado("4")
-    End Sub
+        Try
+            Dim s As New ModeloSesion(uid, pwd)
+            s.GuardarEstado("4")
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
 
-    Public Sub GuardarEstadoSesion(ByVal idSesion As String, uid As String, pwd As String)
-        'Guarda el estado de finalizacion por parte del medico - Estado 3
-        Dim s As New ModeloSesion(uid, pwd)
-        s.GuardarEstado(idSesion, 3)
-    End Sub
+    End Function
+
+    Public Function GuardarEstadoSesion(ByVal idSesion As String, uid As String, pwd As String)
+        Try
+            'Guarda el estado de finalizacion por parte del medico - Estado 3
+            Dim s As New ModeloSesion(uid, pwd)
+            s.GuardarEstado(idSesion, 3)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
 
 End Module
