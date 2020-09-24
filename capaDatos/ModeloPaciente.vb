@@ -101,16 +101,19 @@
         Comando.CommandText = "GRANT SELECT, INSERT ON " + Database + ".diagnostico TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT INSERT ON " + Database + ".recibe TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT INSERT, SELECT ON " + Database + ".recibe TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
-        Comando.CommandText = "GRANT INSERT ON " + Database + ".tiene TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.CommandText = "GRANT INSERT, SELECT ON " + Database + ".tiene TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "GRANT SELECT ON " + Database + ".asociados TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "GRANT SELECT ON " + Database + ".setting TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
+        Comando.ExecuteNonQuery()
+
+        Comando.CommandText = "GRANT SELECT ON " + Database + ".preexistentes TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "FLUSH PRIVILEGES"

@@ -27,6 +27,11 @@ Public Module ControladorInformes
         Return cargarTablaConDatosMes(i.CantidadChatMes(mes, ano), ano, mes)
     End Function
 
+    Public Function SintomasNuncaSeleccionados(ByVal uid As String, pwd As String)
+        Dim i As New ModeloInformes(uid, pwd)
+        Return i.SintomasNuncaSeleccionados
+    End Function
+
     Private Function formarCadenaMesesDeConsulta()
         'Genera el string de busqueda de 12 meses moviles
         Dim cadenaDeConsulta As String

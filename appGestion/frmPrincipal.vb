@@ -172,4 +172,8 @@ Public Class frmPrincipal
         frmListaDeAdministrativos.Show()
     End Sub
 
+    Private Sub tsmSintomasNSeleccionados_Click(sender As Object, e As EventArgs) Handles tsmSintomasNSeleccionados.Click
+        frmListaSintomasNSelec.MdiParent = Me
+        frmListaSintomasNSelec.Show()
+    End Sub
 End Class

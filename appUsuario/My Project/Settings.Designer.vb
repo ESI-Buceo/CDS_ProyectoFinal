@@ -54,15 +54,6 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
-        Public ReadOnly Property cantSintomas() As String
-            Get
-                Return CType(Me("cantSintomas"),String)
-            End Get
-        End Property
-        
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("")>  _
@@ -109,15 +100,6 @@ Namespace My
             Set
                 Me("lenguaje") = value
             End Set
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("antecionalcliente@vidasana.com")>  _
-        Public ReadOnly Property mailContacto() As String
-            Get
-                Return CType(Me("mailContacto"),String)
-            End Get
         End Property
     End Class
 End Namespace

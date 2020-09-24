@@ -24,20 +24,25 @@ Public Class frmLeerArchivo
     Private Sub cargarDatosEnGrid(ByVal archivo As String)
         'Recorre el archivo seleccionado
         dgvDatosCSV.Columns.Clear()
-        ' Lee la primera linea y la toma como encabezado de columna
-        Dim cabecera As String = IO.File.ReadLines(archivo)(0)
-        Dim columnas As String() = cabecera.Split(",")
-        dgvDatosCSV.ColumnCount = columnas.Count
-        'Asigna nombre a los encabezados
-        For i = 0 To columnas.Count - 1
-            dgvDatosCSV.Columns(i).Name = columnas(i)
-        Next
+        Try
+            ' Lee la primera linea y la toma como encabezado de columna
+            Dim cabecera As String = IO.File.ReadLines(archivo)(0)
+            Dim columnas As String() = cabecera.Split(",")
+            dgvDatosCSV.ColumnCount = columnas.Count
+            'Asigna nombre a los encabezados
+            For i = 0 To columnas.Count - 1
+                dgvDatosCSV.Columns(i).Name = columnas(i)
+            Next
 
-        'Recorre el resto de las lineas del arhivo
-        For i = 1 To IO.File.ReadLines(archivo).Count - 1
-            Dim fila As String() = IO.File.ReadLines(archivo)(i).Split(",")
-            dgvDatosCSV.Rows.Add(fila)
-        Next
+            'Recorre el resto de las lineas del arhivo
+            For i = 1 To IO.File.ReadLines(archivo).Count - 1
+                Dim fila As String() = IO.File.ReadLines(archivo)(i).Split(",")
+                dgvDatosCSV.Rows.Add(fila)
+            Next
+        Catch ex As Exception
+            MsgBox(VErrorAccesoArchivo, vbCritical, VAvisoError)
+        End Try
+
 
     End Sub
 

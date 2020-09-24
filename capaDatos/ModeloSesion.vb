@@ -93,7 +93,7 @@
     Public Function DevolverNombreApellidoMedico()
         'Devuelce los datos del medico que esta en el chat
         Dim tablaDatosMedico As New DataTable
-        Comando.CommandText = "SELECT p.nombres NOMBRE, p.apellidos APELLIDO, p.docidentidad DOCUMENTO 
+        Comando.CommandText = "SELECT DISTINCT p.nombres NOMBRE, p.apellidos APELLIDO, p.docidentidad DOCUMENTO 
                                 FROM chat c 
                                 JOIN medico m ON m.docidentidad = c.docidentidadMedico 
                                 JOIN persona p ON p.docidentidad = m.docidentidad 

@@ -48,6 +48,7 @@ Public Module controladorPacientes
     Public Sub eliminiarPacienteBD(ByVal docidentidad As String, uid As String, pwd As String)
         'Eliminia el usuario de la base de datos
         Dim p As New ModeloPaciente(uid, pwd)
+        p.RangoIpPaciente = ControladorConfiguracion.LeerRangoIpPacientes(uid, pwd)
         p.EliminarUsuarioBD(docidentidad)
     End Sub
 

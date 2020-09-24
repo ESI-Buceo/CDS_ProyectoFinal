@@ -49,6 +49,7 @@ Partial Class frmPrincipal
         Me.tsmImportarDatosCSV = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsmInformes = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmSintomasNSeleccionados = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmRankingPat = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmInformeDiagnosticos = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmInformeDeChat = New System.Windows.Forms.ToolStripMenuItem()
@@ -63,13 +64,13 @@ Partial Class frmPrincipal
         Me.btnVerPatologia = New System.Windows.Forms.ToolStripButton()
         Me.btnVerInforme = New System.Windows.Forms.ToolStripButton()
         Me.barraEstado = New System.Windows.Forms.StatusStrip()
+        Me.tssLabelEstado = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tssLabelGestor = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tssLabelServidor = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tssServidorIp = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tssDBaseLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tssBaseDeDatos = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.tssLabelEstado = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.barraEstado.SuspendLayout()
@@ -234,23 +235,30 @@ Partial Class frmPrincipal
         '
         'tsmInformes
         '
-        Me.tsmInformes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmRankingPat, Me.tsmInformeDiagnosticos, Me.tsmInformeDeChat})
+        Me.tsmInformes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmSintomasNSeleccionados, Me.tsmRankingPat, Me.tsmInformeDiagnosticos, Me.tsmInformeDeChat})
         Me.tsmInformes.Name = "tsmInformes"
         Me.tsmInformes.Size = New System.Drawing.Size(93, 27)
         Me.tsmInformes.Text = "&Informes"
+        '
+        'tsmSintomasNSeleccionados
+        '
+        Me.tsmSintomasNSeleccionados.Image = Global.appGestion.My.Resources.Resources.list
+        Me.tsmSintomasNSeleccionados.Name = "tsmSintomasNSeleccionados"
+        Me.tsmSintomasNSeleccionados.Size = New System.Drawing.Size(319, 28)
+        Me.tsmSintomasNSeleccionados.Text = "Sintomas nunca seleccionados"
         '
         'tsmRankingPat
         '
         Me.tsmRankingPat.Image = CType(resources.GetObject("tsmRankingPat.Image"), System.Drawing.Image)
         Me.tsmRankingPat.Name = "tsmRankingPat"
-        Me.tsmRankingPat.Size = New System.Drawing.Size(268, 28)
+        Me.tsmRankingPat.Size = New System.Drawing.Size(319, 28)
         Me.tsmRankingPat.Text = "Ranking de patologias "
         '
         'tsmInformeDiagnosticos
         '
         Me.tsmInformeDiagnosticos.Image = Global.appGestion.My.Resources.Resources.grafico
         Me.tsmInformeDiagnosticos.Name = "tsmInformeDiagnosticos"
-        Me.tsmInformeDiagnosticos.Size = New System.Drawing.Size(268, 28)
+        Me.tsmInformeDiagnosticos.Size = New System.Drawing.Size(319, 28)
         Me.tsmInformeDiagnosticos.Text = "Diagnosticos otorgados"
         '
         'tsmInformeDeChat
@@ -258,7 +266,7 @@ Partial Class frmPrincipal
         Me.tsmInformeDeChat.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmInformeChatMeses, Me.tsmInformechatMes})
         Me.tsmInformeDeChat.Image = Global.appGestion.My.Resources.Resources.grafico
         Me.tsmInformeDeChat.Name = "tsmInformeDeChat"
-        Me.tsmInformeDeChat.Size = New System.Drawing.Size(268, 28)
+        Me.tsmInformeDeChat.Size = New System.Drawing.Size(319, 28)
         Me.tsmInformeDeChat.Text = "Cantidad de chat"
         '
         'tsmInformeChatMeses
@@ -358,6 +366,12 @@ Partial Class frmPrincipal
         Me.barraEstado.TabIndex = 7
         Me.barraEstado.Text = "StatusStrip"
         '
+        'tssLabelEstado
+        '
+        Me.tssLabelEstado.Name = "tssLabelEstado"
+        Me.tssLabelEstado.Size = New System.Drawing.Size(62, 20)
+        Me.tssLabelEstado.Text = "Usuario:"
+        '
         'tssLabelGestor
         '
         Me.tssLabelGestor.Name = "tssLabelGestor"
@@ -388,12 +402,6 @@ Partial Class frmPrincipal
         '
         Me.tssBaseDeDatos.Name = "tssBaseDeDatos"
         Me.tssBaseDeDatos.Size = New System.Drawing.Size(0, 20)
-        '
-        'tssLabelEstado
-        '
-        Me.tssLabelEstado.Name = "tssLabelEstado"
-        Me.tssLabelEstado.Size = New System.Drawing.Size(62, 20)
-        Me.tssLabelEstado.Text = "Usuario:"
         '
         'frmPrincipal
         '
@@ -468,4 +476,5 @@ Partial Class frmPrincipal
     Friend WithEvents tssDBaseLabel As ToolStripStatusLabel
     Friend WithEvents tssBaseDeDatos As ToolStripStatusLabel
     Friend WithEvents tssLabelEstado As ToolStripStatusLabel
+    Friend WithEvents tsmSintomasNSeleccionados As ToolStripMenuItem
 End Class

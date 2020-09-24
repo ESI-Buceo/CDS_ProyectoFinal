@@ -684,4 +684,13 @@
   <data name="servidor" xml:space="preserve">
     <value>Server</value>
   </data>
+  <data name="erroraccesoarchivo" xml:space="preserve">
+    <value>The file cannot be accessed, it may be in use</value>
+  </data>
+  <data name="sintomasnuncaseleccionados" xml:space="preserve">
+    <value>Symptoms never selected</value>
+  </data>
+  <data name="subtitulolistasintomasnoseleccionados" xml:space="preserve">
+    <value>Displays the list of symptoms that patients never reported</value>
+  </data>
 </root>

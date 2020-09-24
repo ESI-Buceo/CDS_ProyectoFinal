@@ -172,6 +172,12 @@
     <Compile Include="frmListaSintomas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmListaSintomasNSelec.Designer.vb">
+      <DependentUpon>frmListaSintomasNSelec.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaSintomasNSelec.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmListaSintomasPatologia.designer.vb">
       <DependentUpon>frmListaSintomasPatologia.vb</DependentUpon>
     </Compile>
@@ -309,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaSintomas.resx">
       <DependentUpon>frmListaSintomas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaSintomasNSelec.resx">
+      <DependentUpon>frmListaSintomasNSelec.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaSintomasPatologia.resx">
       <DependentUpon>frmListaSintomasPatologia.vb</DependentUpon>

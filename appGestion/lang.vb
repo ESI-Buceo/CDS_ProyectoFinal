@@ -179,6 +179,9 @@
     Public VAccion As String
     Public VServidor As String
     Public VBaseDeDatos As String
+    Public VErrorAccesoArchivo As String
+    Public VSintomasNuncaSeleccionados As String
+    Public VLeyendaSintomaNuncaSeleccionados As String
 
     Public Sub CargarIdioma()
         VIdiomaActivo = My.Settings.lenguaje
@@ -369,6 +372,9 @@
         VAccion = My.Resources.es.accion
         VServidor = My.Resources.es.servidor
         VBaseDeDatos = My.Resources.es.basededatos
+        VErrorAccesoArchivo = My.Resources.es.erroraccesoarchivo
+        VSintomasNuncaSeleccionados = My.Resources.es.sintomasnuncaseleccionados
+        VSubTituloSintomas = My.Resources.es.subtitulolistasintomasnoseleccionados
     End Sub
 
     Public Sub idioma_en()
@@ -550,6 +556,9 @@
         VAccion = My.Resources.en.accion
         VServidor = My.Resources.en.servidor
         VBaseDeDatos = My.Resources.en.basededatos
+        VErrorAccesoArchivo = My.Resources.en.erroraccesoarchivo
+        VSintomasNuncaSeleccionados = My.Resources.en.sintomasnuncaseleccionados
+        VSubTituloSintomas = My.Resources.en.subtitulolistasintomasnoseleccionados
     End Sub
 
     Public Sub GuardarIdioma(ByVal idioma As String)

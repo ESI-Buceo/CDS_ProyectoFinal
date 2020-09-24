@@ -30,7 +30,6 @@ Public Class ModeloChat
         Return tablaMensajes
     End Function
 
-
     Public Function RecibirMensajes(ByVal idSesion As String, emisor As String)
         'Lo utiliza la app del paciente
         Dim tablaMensajes As New DataTable
@@ -40,7 +39,6 @@ Public Class ModeloChat
         CerrarConexion()
         Return tablaMensajes
     End Function
-
 
     Public Function RecibirTodosMensajes(ByVal idSesion As String)
         Dim tablaMensajes As New DataTable

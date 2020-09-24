@@ -175,7 +175,16 @@ Public Class frmParametros
             txtEmailContacto.Select()
         Else
             gbEmail.Enabled = False
+            borrarConfiguracionEmail()
         End If
+    End Sub
+
+    Private Sub borrarConfiguracionEmail()
+        txtEmailContacto.Text = Nothing
+        txtEmailCredencial.Text = Nothing
+        txtEmailPuerto.Text = Nothing
+        txtServidorSMTP.Text = Nothing
+        chkEmailSSL.CheckState = 0
     End Sub
 
 End Class

@@ -20,6 +20,7 @@
                                 LIMIT 10"
         Reader = Comando.ExecuteReader()
         tablaInformes.Load(Reader)
+        conexion.Close()
         Return tablaInformes
     End Function
 
@@ -56,6 +57,18 @@
                                 WHERE MONTH(s.fechaHoraInicioSesion ) IN (" & mes & ") AND 
                                 YEAR(s.fechaHoraInicioSesion) = " & ano & "
                                 GROUP BY DAY (s.fechaHoraInicioSesion ) "
+        Reader = Comando.ExecuteReader
+        tablaInformes.Load(Reader)
+        conexion.Close()
+        Return tablaInformes
+    End Function
+
+    Public Function SintomasNuncaSeleccionados()
+        Comando.CommandText = "Select s.id ID, s.nombre Nombre
+                                From sintoma s 
+                                WHERE NOT EXISTS(SELECT NULL
+                                From tiene t
+                                WHERE t.idSintoma = s.id ) And s.activo"
         Reader = Comando.ExecuteReader
         tablaInformes.Load(Reader)
         conexion.Close()

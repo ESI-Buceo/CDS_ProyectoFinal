@@ -641,6 +641,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a No se puede acceder al archivo, puede que este en uso....
+        '''</summary>
+        Friend Shared ReadOnly Property erroraccesoarchivo() As String
+            Get
+                Return ResourceManager.GetString("erroraccesoarchivo", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Error al guardar los datos.
         '''</summary>
         Friend Shared ReadOnly Property erroralguardardatos() As String
@@ -1514,6 +1523,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Sintomas nunca seleccionados.
+        '''</summary>
+        Friend Shared ReadOnly Property sintomasnuncaseleccionados() As String
+            Get
+                Return ResourceManager.GetString("sintomasnuncaseleccionados", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Sin Urgencia.
         '''</summary>
         Friend Shared ReadOnly Property sinurgencia() As String
@@ -1600,6 +1618,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property subtituloinfochatmeses() As String
             Get
                 Return ResourceManager.GetString("subtituloinfochatmeses", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Muestra la lista de sintomas que los pacientes nunca indicaron.
+        '''</summary>
+        Friend Shared ReadOnly Property subtitulolistasintomasnoseleccionados() As String
+            Get
+                Return ResourceManager.GetString("subtitulolistasintomasnoseleccionados", resourceCulture)
             End Get
         End Property
         

@@ -576,7 +576,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub llblEmail_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llblEmail.LinkClicked
-        Dim para As String = My.Settings.mailContacto
+        Dim para As String = EMAIL
         Dim subject As String = VDatosPersonales
         Process.Start(String.Format("mailto:{0}?subject={1}", para, subject))
     End Sub
@@ -670,5 +670,9 @@ Public Class frmPrincipal
         If panelChat.Visible Then
             confirmarCierre()
         End If
+    End Sub
+
+    Private Sub panelCabecera_Paint(sender As Object, e As PaintEventArgs) Handles panelCabecera.Paint
+
     End Sub
 End Class
