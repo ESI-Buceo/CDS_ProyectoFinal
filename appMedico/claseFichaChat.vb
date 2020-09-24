@@ -46,7 +46,7 @@ Public Class claseFichaChat
         Dim img As New PictureBox
         img.Width = 40
         img.Height = 40
-        img.Image = My.Resources.bg_medico
+        img.Image = My.Resources.usuario
         img.SizeMode = PictureBoxSizeMode.StretchImage
         img.Location = New Point(10, 10)
         Return img

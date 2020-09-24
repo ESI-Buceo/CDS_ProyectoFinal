@@ -31,9 +31,12 @@ Partial Class frmPrincipal
         Me.picFotoMedico = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.mtsMenuPrincipal = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCambiarIdioma = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tmiEspanol = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tmiIngles = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmCerrarSesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsmSalir = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.flpChatPendientes = New System.Windows.Forms.FlowLayoutPanel()
         Me.lblChatVacio = New System.Windows.Forms.Label()
         Me.flpChatenEspera = New System.Windows.Forms.FlowLayoutPanel()
@@ -165,28 +168,47 @@ Partial Class frmPrincipal
         'mtsMenuPrincipal
         '
         Me.mtsMenuPrincipal.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.mtsMenuPrincipal.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCerrarSesion, Me.tsmSalir, Me.ToolStripSeparator1})
+        Me.mtsMenuPrincipal.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCambiarIdioma, Me.tsmCerrarSesion, Me.ToolStripSeparator2, Me.tsmSalir})
         Me.mtsMenuPrincipal.Image = Global.appMedico.My.Resources.Resources.menu
         Me.mtsMenuPrincipal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.mtsMenuPrincipal.Name = "mtsMenuPrincipal"
         Me.mtsMenuPrincipal.Size = New System.Drawing.Size(32, 24)
         '
+        'tsmCambiarIdioma
+        '
+        Me.tsmCambiarIdioma.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tmiEspanol, Me.tmiIngles})
+        Me.tsmCambiarIdioma.Name = "tsmCambiarIdioma"
+        Me.tsmCambiarIdioma.Size = New System.Drawing.Size(191, 26)
+        Me.tsmCambiarIdioma.Text = "Cambiar Idioma"
+        '
+        'tmiEspanol
+        '
+        Me.tmiEspanol.Name = "tmiEspanol"
+        Me.tmiEspanol.Size = New System.Drawing.Size(136, 26)
+        Me.tmiEspanol.Text = "Español"
+        '
+        'tmiIngles
+        '
+        Me.tmiIngles.Name = "tmiIngles"
+        Me.tmiIngles.Size = New System.Drawing.Size(136, 26)
+        Me.tmiIngles.Text = "Ingles"
+        '
         'tsmCerrarSesion
         '
         Me.tsmCerrarSesion.Name = "tsmCerrarSesion"
-        Me.tsmCerrarSesion.Size = New System.Drawing.Size(171, 26)
+        Me.tsmCerrarSesion.Size = New System.Drawing.Size(191, 26)
         Me.tsmCerrarSesion.Text = "Cerrar Sesion"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(188, 6)
         '
         'tsmSalir
         '
         Me.tsmSalir.Name = "tsmSalir"
-        Me.tsmSalir.Size = New System.Drawing.Size(171, 26)
+        Me.tsmSalir.Size = New System.Drawing.Size(191, 26)
         Me.tsmSalir.Text = "Salir"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(168, 6)
         '
         'flpChatPendientes
         '
@@ -291,7 +313,7 @@ Partial Class frmPrincipal
         '
         'picAvatarPaciente
         '
-        Me.picAvatarPaciente.Image = Global.appMedico.My.Resources.Resources.ava2
+        Me.picAvatarPaciente.Image = Global.appMedico.My.Resources.Resources.usuario
         Me.picAvatarPaciente.Location = New System.Drawing.Point(14, 14)
         Me.picAvatarPaciente.Name = "picAvatarPaciente"
         Me.picAvatarPaciente.Size = New System.Drawing.Size(73, 68)
@@ -344,6 +366,7 @@ Partial Class frmPrincipal
         'txtMensaje
         '
         Me.txtMensaje.Location = New System.Drawing.Point(9, 532)
+        Me.txtMensaje.MaxLength = 80
         Me.txtMensaje.Name = "txtMensaje"
         Me.txtMensaje.Size = New System.Drawing.Size(610, 29)
         Me.txtMensaje.TabIndex = 1
@@ -708,7 +731,6 @@ Partial Class frmPrincipal
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents mtsMenuPrincipal As ToolStripMenuItem
     Friend WithEvents tsmSalir As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents picAvatarPaciente As PictureBox
     Friend WithEvents lblEmailPaciente As Label
     Friend WithEvents lblNombrePaciente As Label
@@ -752,4 +774,8 @@ Partial Class frmPrincipal
     Friend WithEvents timeEstadoDeSesion As Timer
     Friend WithEvents tsmCerrarSesion As ToolStripMenuItem
     Friend WithEvents ttMensajePonderacion As ToolTip
+    Friend WithEvents tsmCambiarIdioma As ToolStripMenuItem
+    Friend WithEvents tmiEspanol As ToolStripMenuItem
+    Friend WithEvents tmiIngles As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
 End Class

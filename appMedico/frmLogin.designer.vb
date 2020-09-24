@@ -30,6 +30,7 @@ Partial Class frmLogin
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.btnIngresar = New System.Windows.Forms.Button()
+        Me.chkRecordar = New System.Windows.Forms.CheckBox()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -100,12 +101,22 @@ Partial Class frmLogin
         '
         Me.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnIngresar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnIngresar.Location = New System.Drawing.Point(136, 451)
+        Me.btnIngresar.Location = New System.Drawing.Point(136, 453)
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.Size = New System.Drawing.Size(182, 52)
         Me.btnIngresar.TabIndex = 7
         Me.btnIngresar.Text = "Ingresar"
         Me.btnIngresar.UseVisualStyleBackColor = True
+        '
+        'chkRecordar
+        '
+        Me.chkRecordar.AutoSize = True
+        Me.chkRecordar.Location = New System.Drawing.Point(136, 420)
+        Me.chkRecordar.Name = "chkRecordar"
+        Me.chkRecordar.Size = New System.Drawing.Size(178, 24)
+        Me.chkRecordar.TabIndex = 9
+        Me.chkRecordar.Text = "Recordar mis datos"
+        Me.chkRecordar.UseVisualStyleBackColor = True
         '
         'frmLogin
         '
@@ -113,6 +124,7 @@ Partial Class frmLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(458, 575)
+        Me.Controls.Add(Me.chkRecordar)
         Me.Controls.Add(Me.btnIngresar)
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.lblPassword)
@@ -143,4 +155,5 @@ Partial Class frmLogin
     Friend WithEvents lblPassword As Label
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents btnIngresar As Button
+    Friend WithEvents chkRecordar As CheckBox
 End Class

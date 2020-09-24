@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.Net.Mail
 Imports capaLogica
 
 Public Class frmPrincipal
@@ -6,6 +7,7 @@ Public Class frmPrincipal
     Private Sub frmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         VerificarNuevasSolicitudesDeChat()
         activarControlDeSesiones()
+        mostarIdioma()
     End Sub
 
     Private Sub VerificarNuevasSolicitudesDeChat()
@@ -193,7 +195,7 @@ Public Class frmPrincipal
     Private Sub recorreMensajesRecibidos(ByVal tablaMensajes As DataTable)
         'Identifica los destinatario
         For i = 0 To tablaMensajes.Rows.Count - 1
-            identifiarColorearMensaje(tablaMensajes(i)("emisor"), tablaMensajes(i)("mensaje"))
+            identifiarColorearMensaje(tablaMensajes(i)("emisor"), tablaMensajes(i)("mensaje"), tablaMensajes(i)("docidentidadMedico"))
             marcarMensajeLeido(tablaMensajes, i)
         Next
     End Sub
@@ -218,7 +220,7 @@ Public Class frmPrincipal
         'Envia el mensaje
         Try
             ControladorChat.EnviarMensajeMedico(txtMensaje.Text, IDSESION, USUARIO, PASSWD, IDPACIENTE)
-            identifiarColorearMensaje("M", txtMensaje.Text)
+            identifiarColorearMensaje("M", txtMensaje.Text, USUARIO)
             limpiarCampoDeTexto()
             recibirMensajes()
             ChequearMensajesRecibidos()
@@ -232,14 +234,14 @@ Public Class frmPrincipal
         txtMensaje.Text = ""
     End Sub
 
-    Private Sub identifiarColorearMensaje(ByVal emisor As String, mensaje As String)
+    Private Sub identifiarColorearMensaje(ByVal emisor As String, mensaje As String, idmedico As String)
         'colorea el mensaje segun el emisor
         If emisor.Equals("P") Then
             txtMensajes.SelectionColor = Color.FromArgb(92, 160, 136)
-            txtMensajes.AppendText("Paciente ->  " & mensaje & vbNewLine)
+            txtMensajes.AppendText(lblNombrePaciente.Text & " ->  " & mensaje & vbNewLine)
         ElseIf emisor.Equals("M") Then
             txtMensajes.SelectionColor = Color.FromArgb(69, 75, 84)
-            txtMensajes.AppendText("Tu -> " & mensaje & vbNewLine)
+            txtMensajes.AppendText(lblNombreMedico.Text & " -> " & mensaje & vbNewLine)
         End If
     End Sub
 
@@ -376,7 +378,7 @@ Public Class frmPrincipal
         Dim respuesta As Integer
         respuesta = MsgBox("Desea enviar ua copia del chat al email del paciente?", vbYesNo, "AVISO ANTES DE CIERRE")
         If respuesta = 6 Then
-            MsgBox("Enviar Email")
+            enviarEmail()
         End If
     End Sub
 
@@ -455,4 +457,104 @@ Public Class frmPrincipal
         End If
         Return True
     End Function
+
+    Private Sub enviarEmail()
+        Dim email As New MailMessage
+        Dim smtp As New SmtpClient
+        Dim logo As Image = My.Resources.logo_App
+        Dim datosConexion As New DataTable
+        datosConexion = LeerConfiguracionEmail()
+        If datosConexion.Rows(0).Item("de").ToString <> Nothing Then
+
+            email.From = New MailAddress(datosConexion.Rows(0).Item("de").ToString)
+            email.To.Add(lblEmailPaciente.Text)
+            email.Subject = "Conversacion de chat - Sesion #" + IDSESION + " - FECHA: " + Date.Now
+            email.IsBodyHtml = True
+            email.Body = "<HTML><body>
+                            <h2>" & "Mensajes del chat" & "</h2>
+                            <span>" & recorrerMensajesChat() & "</span>
+                            <h4> Medico tratante: Dr.: " & lblNombreMedico.Text & "</h4>
+                            <span>Gracias por utilizar nuestro sistema</span>
+                            <h4>El equipo de Vida Sana</h4>
+                        </body></HTML>"
+
+            smtp.Port = datosConexion.Rows(0).Item("puerto").ToString
+            smtp.Host = datosConexion.Rows(0).Item("servidorSalida").ToString
+            smtp.UseDefaultCredentials = False
+            smtp.EnableSsl = datosConexion.Rows(0).Item("emailssl").ToString
+            smtp.Credentials = New Net.NetworkCredential(datosConexion.Rows(0).Item("de").ToString, datosConexion.Rows(0).Item("credencial").ToString)
+
+            Try
+                smtp.Send(email)
+                MsgBox("Mensaje Enviado correctamente")
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                MsgBox("Error al enviar el mensaje")
+            End Try
+        Else
+            MsgBox("En envio de email no esta habilitado")
+        End If
+    End Sub
+
+    Private Function recorrerMensajesChat()
+        'formatea los mensajes para enviarlos por email
+        Dim mensajes As String = ""
+
+        For i = 0 To txtMensajes.Lines.Count - 1
+            mensajes += "<span>" & txtMensajes.Lines(i).ToString & "</span><br>"
+        Next
+        Return mensajes
+    End Function
+
+    Private Function LeerConfiguracionEmail()
+        Try
+            Return ControladorConfiguracion.LeerConfiguracionEmail(USUARIO, PASSWD)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            MsgBox("Error")
+        End Try
+        Return False
+    End Function
+
+
+    Private Sub mostarIdioma()
+        If My.Settings.lenguaje.Equals("es") Then
+            tmiEspanol.Checked = True
+            tmiIngles.Checked = False
+        Else
+            tmiIngles.Checked = True
+            tmiEspanol.Checked = False
+        End If
+    End Sub
+
+    Private Sub cambiarIdioma(ByVal idioma As String)
+        Dim respuesta As Integer
+        respuesta = MsgBox("Este cambio requerira que se reinicie la aplicacion, esta seguro?", vbQuestion + vbYesNo, "Cambio de Idioma")
+        If respuesta = 6 Then
+            My.Settings.lenguaje = idioma
+            My.Settings.Save()
+            End
+        Else
+            mostarIdioma()
+        End If
+    End Sub
+
+    Private Sub tmiEspanol_Click(sender As Object, e As EventArgs) Handles tmiEspanol.Click
+        tmiEspanol.Checked = True
+        tmiIngles.Checked = False
+        validarCambioIdioma("es")
+    End Sub
+
+    Private Sub tmiIngles_Click(sender As Object, e As EventArgs) Handles tmiIngles.Click
+        tmiEspanol.Checked = False
+        tmiIngles.Checked = True
+        validarCambioIdioma("en")
+    End Sub
+
+    Private Sub validarCambioIdioma(ByVal idioma As String)
+        If idioma <> My.Settings.lenguaje Then
+            cambiarIdioma(idioma)
+        End If
+    End Sub
+
 End Class
