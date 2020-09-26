@@ -48,10 +48,28 @@ Public Module lang
     Public VAviso As String
     Public VNoCerrarChatEnProceso As String
     Public VAlertaCierre As String
-
+    Public VRecordarMisDatos As String
+    Public VErrorRecuperarDatos As String
+    Public VCambioDeIdioma As String
+    Public VConversacionDeChat As String
+    Public VElEnvioDeChatDeshabilitado As String
+    Public VElEquipoDe As String
+    Public VEmailEnviadoCorrectamente As String
+    Public VErrorEnvioDeEmail As String
+    Public VEstaCambioRequiereReinicar As String
+    Public VGraciasPorUtilizarElSistema As String
+    Public VMedicoTratante As String
+    Public VMensajeDeChat As String
+    Public VErrorLeerArchivoConfiguracion As String
+    Public VCambiarIdioma As String
+    Public VCerrarSesion As String
+    Public VEspanol As String
+    Public VIngles As String
+    Public VSalir As String
+    Public VEnEspera As String
 
     'Metodo que seleccione el idioma
-    Public Sub SeleccionDeIdioma()
+    Public Sub cargarIdioma()
         If My.Settings.lenguaje = "es" Then
             cargarEspanol()
         Else
@@ -111,14 +129,31 @@ Public Module lang
         VAviso = My.Resources.es.aviso
         VNoCerrarChatEnProceso = My.Resources.es.nocerrarchatenproceso
         VAlertaCierre = My.Resources.es.alertadecierre
-
-
+        VRecordarMisDatos = My.Resources.es.recordarmisdatos
+        VErrorRecuperarDatos = My.Resources.es.errorrecuperardatos
+        VCambioDeIdioma = My.Resources.es.cambiodeidioma
+        VConversacionDeChat = My.Resources.es.conversaciondechat
+        VElEnvioDeChatDeshabilitado = My.Resources.es.elenviodeemaildeshabilitado
+        VElEquipoDe = My.Resources.es.elequipode
+        VEmailEnviadoCorrectamente = My.Resources.es.emailenviadocorrectamente
+        VErrorEnvioDeEmail = My.Resources.es.errorenviodeemail
+        VEstaCambioRequiereReinicar = My.Resources.es.estecambiorequierereinicio
+        VGraciasPorUtilizarElSistema = My.Resources.es.graciasporutilizarelsistema
+        VMedicoTratante = My.Resources.es.medicotratante
+        VMensajeDeChat = My.Resources.es.mensajedechat
+        VErrorLeerArchivoConfiguracion = My.Resources.es.errorleerarchivoconfiguracion
+        VCambiarIdioma = My.Resources.es.cambiaridioma
+        VCerrarSesion = My.Resources.es.cerrarsesion
+        VEspanol = My.Resources.es.espanol
+        VIngles = My.Resources.es.ingles
+        VSalir = My.Resources.es.salir
+        VEnEspera = My.Resources.es.enespera
     End Sub
 
     Private Sub cargarIngles()
         VIngresoAlSistema = My.Resources.en.ingresoalsistema
         VBienvenido = My.Resources.en.bienvenido
-        VBienvenido = My.Resources.en.leyendalogin
+        VLeyendaLogin = My.Resources.en.leyendalogin
         VDocumento = My.Resources.en.documento
         VPassword = My.Resources.en.password
         VIngresar = My.Resources.en.ingresar
@@ -163,8 +198,25 @@ Public Module lang
         VAviso = My.Resources.en.aviso
         VNoCerrarChatEnProceso = My.Resources.en.nocerrarchatenproceso
         VAlertaCierre = My.Resources.en.alertadecierre
-
-
+        VRecordarMisDatos = My.Resources.en.recordarmisdatos
+        VErrorRecuperarDatos = My.Resources.en.errorrecuperardatos
+        VCambioDeIdioma = My.Resources.en.cambiodeidioma
+        VConversacionDeChat = My.Resources.en.conversaciondechat
+        VElEnvioDeChatDeshabilitado = My.Resources.en.elenviodeemaildeshabilitado
+        VElEquipoDe = My.Resources.en.elequipode
+        VEmailEnviadoCorrectamente = My.Resources.en.emailenviadocorrectamente
+        VErrorEnvioDeEmail = My.Resources.en.errorenviodeemail
+        VEstaCambioRequiereReinicar = My.Resources.en.estecambiorequierereinicio
+        VGraciasPorUtilizarElSistema = My.Resources.en.graciasporutilizarelsistema
+        VMedicoTratante = My.Resources.en.medicotratante
+        VMensajeDeChat = My.Resources.en.mensajedechat
+        VErrorLeerArchivoConfiguracion = My.Resources.en.errorleerarchivoconfiguracion
+        VCambiarIdioma = My.Resources.en.cambiaridioma
+        VCerrarSesion = My.Resources.en.cerrarsesion
+        VEspanol = My.Resources.en.espanol
+        VIngles = My.Resources.en.ingles
+        VSalir = My.Resources.en.salir
+        VEnEspera = My.Resources.en.enespera
     End Sub
 
 End Module
