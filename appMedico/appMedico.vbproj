@@ -96,6 +96,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>en.resx</DependentUpon>
     </Compile>
+    <Compile Include="es.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>es.resx</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
@@ -131,6 +136,11 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>en.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="es.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>es.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
