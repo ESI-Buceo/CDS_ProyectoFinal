@@ -12,7 +12,7 @@ Public Class frmLogin
         Try
             cargarConfiguracion()
         Catch ex As Exception
-            MsgBox("", vbCritical, "")
+            MsgBox(VErrorVerificarEstadoSesion, vbCritical, VErrorVerificarEstadoSesion)
             End
         End Try
     End Sub
@@ -23,7 +23,7 @@ Public Class frmLogin
             identificarMedico(ControladorMedico.identificarMedico(txtDocumento.Text, "Me." & txtPassword.Text))
             setearUsuario()
         Catch ex As Exception
-            MsgBox("Error de usuario o contraseña, verifica.", vbExclamation, "Error al ingresar")
+            MsgBox(VErrorDeLogin, vbExclamation, VErrorAcceso)
             txtDocumento.Select()
         End Try
     End Sub
@@ -46,7 +46,7 @@ Public Class frmLogin
     End Sub
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'cargarIdioma()
+        cargarIdioma()
         cargarTextos()
         txtDocumento.Text = My.Settings.user
         txtPassword.Text = My.Settings.pass
@@ -67,7 +67,13 @@ Public Class frmLogin
     End Sub
 
     Private Sub cargarTextos()
-
+        Me.Text = VIngresoAlSistema.ToUpper
+        lblBienvenido.Text = VBienvenido
+        lblLeyenda.Text = VLeyendaLogin
+        lblDocumento.Text = VDocumento
+        lblPassword.Text = VPassword
+        chkRecordar.Text = VRecordarMisDatos
+        btnIngresar.Text = VIngresar
     End Sub
 
     Private Sub cargarConfiguracion()
@@ -79,7 +85,7 @@ Public Class frmLogin
         If ControladorConfiguracion.cargarConfiguracion(DRIVE, IPSERVER, DBASE) Then
             validarCredenciales()
         Else
-            MsgBox("", vbCritical, "")
+            MsgBox(VErrorLeerArchivoConfiguracion, vbCritical, VError)
             End
         End If
     End Sub

@@ -46,13 +46,13 @@ Partial Class frmLogin
         '
         'lblBienvenido
         '
-        Me.lblBienvenido.AutoSize = True
         Me.lblBienvenido.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBienvenido.Location = New System.Drawing.Point(173, 174)
+        Me.lblBienvenido.Location = New System.Drawing.Point(99, 174)
         Me.lblBienvenido.Name = "lblBienvenido"
-        Me.lblBienvenido.Size = New System.Drawing.Size(109, 25)
+        Me.lblBienvenido.Size = New System.Drawing.Size(259, 20)
         Me.lblBienvenido.TabIndex = 1
         Me.lblBienvenido.Text = "Bienvenido"
+        Me.lblBienvenido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblLeyenda
         '
@@ -65,43 +65,43 @@ Partial Class frmLogin
         '
         'lblDocumento
         '
-        Me.lblDocumento.AutoSize = True
         Me.lblDocumento.Location = New System.Drawing.Point(132, 277)
         Me.lblDocumento.Name = "lblDocumento"
-        Me.lblDocumento.Size = New System.Drawing.Size(190, 20)
+        Me.lblDocumento.Size = New System.Drawing.Size(187, 18)
         Me.lblDocumento.TabIndex = 3
         Me.lblDocumento.Text = "Documento de identidad"
+        Me.lblDocumento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtDocumento
         '
-        Me.txtDocumento.Location = New System.Drawing.Point(136, 307)
+        Me.txtDocumento.Location = New System.Drawing.Point(136, 299)
         Me.txtDocumento.MaxLength = 9
         Me.txtDocumento.Name = "txtDocumento"
-        Me.txtDocumento.Size = New System.Drawing.Size(183, 27)
+        Me.txtDocumento.Size = New System.Drawing.Size(183, 23)
         Me.txtDocumento.TabIndex = 4
         '
         'lblPassword
         '
-        Me.lblPassword.AutoSize = True
-        Me.lblPassword.Location = New System.Drawing.Point(142, 353)
+        Me.lblPassword.Location = New System.Drawing.Point(136, 334)
         Me.lblPassword.Name = "lblPassword"
-        Me.lblPassword.Size = New System.Drawing.Size(171, 20)
+        Me.lblPassword.Size = New System.Drawing.Size(182, 22)
         Me.lblPassword.TabIndex = 5
         Me.lblPassword.Text = "Ingresa tu contraseña"
+        Me.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(136, 382)
+        Me.txtPassword.Location = New System.Drawing.Point(136, 359)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(183, 27)
+        Me.txtPassword.Size = New System.Drawing.Size(183, 23)
         Me.txtPassword.TabIndex = 6
         '
         'btnIngresar
         '
         Me.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnIngresar.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnIngresar.Location = New System.Drawing.Point(136, 453)
+        Me.btnIngresar.Location = New System.Drawing.Point(136, 443)
         Me.btnIngresar.Name = "btnIngresar"
         Me.btnIngresar.Size = New System.Drawing.Size(182, 52)
         Me.btnIngresar.TabIndex = 7
@@ -111,9 +111,9 @@ Partial Class frmLogin
         'chkRecordar
         '
         Me.chkRecordar.AutoSize = True
-        Me.chkRecordar.Location = New System.Drawing.Point(136, 420)
+        Me.chkRecordar.Location = New System.Drawing.Point(136, 395)
         Me.chkRecordar.Name = "chkRecordar"
-        Me.chkRecordar.Size = New System.Drawing.Size(178, 24)
+        Me.chkRecordar.Size = New System.Drawing.Size(150, 21)
         Me.chkRecordar.TabIndex = 9
         Me.chkRecordar.Text = "Recordar mis datos"
         Me.chkRecordar.UseVisualStyleBackColor = True
@@ -121,7 +121,7 @@ Partial Class frmLogin
         'frmLogin
         '
         Me.AcceptButton = Me.btnIngresar
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(458, 575)
         Me.Controls.Add(Me.chkRecordar)
