@@ -91,6 +91,11 @@
     <Compile Include="claseFichaChat.vb" />
     <Compile Include="claseTabSintoma.vb" />
     <Compile Include="datosGobales.vb" />
+    <Compile Include="en.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>en.resx</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </Compile>
@@ -122,6 +127,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="en.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>en.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
