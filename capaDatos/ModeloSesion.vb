@@ -129,4 +129,18 @@
         Return estado
     End Function
 
+    Public Function SesionesPorMedico(ByVal listaDeMeses As String, docidentidad As String)
+        Dim tablaSesiones As New DataTable
+        Comando.CommandText = "SELECT COUNT(DISTINCT(s.idSesion) ) cant, MONTH(s.fechaHoraInicioSesion ) mes
+                                FROM sesion s 
+                                JOIN chat c2 ON c2.idSesion = s.idSesion 
+                                JOIN medico m2 ON c2.docidentidadMedico = m2.docidentidad 
+                                WHERE MONTH(s.fechaHoraInicioSesion ) IN (" & listaDeMeses & ") AND m2.docidentidad = " & docidentidad & "
+                                GROUP BY MONTH(s.fechaHoraInicioSesion ) "
+        Reader = Comando.ExecuteReader
+        tablaSesiones.Load(Reader)
+        conexion.Close()
+        Return tablaSesiones
+    End Function
+
 End Class

@@ -23,10 +23,10 @@ Partial Class frmPaciente
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPaciente))
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -237,22 +237,22 @@ Partial Class frmPaciente
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "preExistentes"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridViewTextBoxColumn1.HeaderText = "PRE-EXISTENTES"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.Width = 200
         '
         'lblEnfermedades
         '
-        Me.lblEnfermedades.AutoSize = True
-        Me.lblEnfermedades.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEnfermedades.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEnfermedades.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
         Me.lblEnfermedades.Location = New System.Drawing.Point(553, 306)
         Me.lblEnfermedades.Name = "lblEnfermedades"
-        Me.lblEnfermedades.Size = New System.Drawing.Size(123, 21)
+        Me.lblEnfermedades.Size = New System.Drawing.Size(355, 21)
         Me.lblEnfermedades.TabIndex = 24
         Me.lblEnfermedades.Text = "ENFERMEDADES"
+        Me.lblEnfermedades.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnEliminarTelefono
         '
@@ -286,7 +286,7 @@ Partial Class frmPaciente
         Me.chkActivo.Checked = True
         Me.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkActivo.Enabled = False
-        Me.chkActivo.Location = New System.Drawing.Point(57, 380)
+        Me.chkActivo.Location = New System.Drawing.Point(23, 457)
         Me.chkActivo.Name = "chkActivo"
         Me.chkActivo.Size = New System.Drawing.Size(75, 23)
         Me.chkActivo.TabIndex = 21
@@ -324,8 +324,8 @@ Partial Class frmPaciente
         'colTelefono
         '
         Me.colTelefono.DataPropertyName = "Telefono"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle11
         Me.colTelefono.HeaderText = "TELEFONOS"
         Me.colTelefono.Name = "colTelefono"
         Me.colTelefono.Width = 200
@@ -343,11 +343,11 @@ Partial Class frmPaciente
         'txtEsquina
         '
         Me.txtEsquina.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtEsquina.Location = New System.Drawing.Point(404, 224)
+        Me.txtEsquina.Location = New System.Drawing.Point(454, 224)
         Me.txtEsquina.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtEsquina.MaxLength = 40
         Me.txtEsquina.Name = "txtEsquina"
-        Me.txtEsquina.Size = New System.Drawing.Size(505, 27)
+        Me.txtEsquina.Size = New System.Drawing.Size(455, 27)
         Me.txtEsquina.TabIndex = 10
         '
         'txtApto
@@ -452,135 +452,135 @@ Partial Class frmPaciente
         '
         'lblTelefonos
         '
-        Me.lblTelefonos.AutoSize = True
-        Me.lblTelefonos.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTelefonos.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTelefonos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
         Me.lblTelefonos.Location = New System.Drawing.Point(167, 306)
         Me.lblTelefonos.Name = "lblTelefonos"
-        Me.lblTelefonos.Size = New System.Drawing.Size(90, 21)
+        Me.lblTelefonos.Size = New System.Drawing.Size(357, 21)
         Me.lblTelefonos.TabIndex = 12
         Me.lblTelefonos.Text = "TELEFONOS"
+        Me.lblTelefonos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'lblEmailM
         '
-        Me.lblEmailM.AutoSize = True
-        Me.lblEmailM.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmailM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEmailM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblEmailM.Location = New System.Drawing.Point(100, 98)
+        Me.lblEmailM.Location = New System.Drawing.Point(19, 96)
         Me.lblEmailM.Name = "lblEmailM"
-        Me.lblEmailM.Size = New System.Drawing.Size(59, 21)
+        Me.lblEmailM.Size = New System.Drawing.Size(145, 24)
         Me.lblEmailM.TabIndex = 10
         Me.lblEmailM.Text = "EMAIL:"
+        Me.lblEmailM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblFechaNacM
         '
-        Me.lblFechaNacM.AutoSize = True
-        Me.lblFechaNacM.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFechaNacM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFechaNacM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblFechaNacM.Location = New System.Drawing.Point(651, 18)
+        Me.lblFechaNacM.Location = New System.Drawing.Point(630, 16)
         Me.lblFechaNacM.Name = "lblFechaNacM"
-        Me.lblFechaNacM.Size = New System.Drawing.Size(99, 21)
+        Me.lblFechaNacM.Size = New System.Drawing.Size(145, 24)
         Me.lblFechaNacM.TabIndex = 9
         Me.lblFechaNacM.Text = "FECHA NAC.:"
+        Me.lblFechaNacM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblBarrioM
         '
-        Me.lblBarrioM.AutoSize = True
-        Me.lblBarrioM.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBarrioM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBarrioM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblBarrioM.Location = New System.Drawing.Point(84, 266)
+        Me.lblBarrioM.Location = New System.Drawing.Point(19, 263)
         Me.lblBarrioM.Name = "lblBarrioM"
-        Me.lblBarrioM.Size = New System.Drawing.Size(67, 21)
+        Me.lblBarrioM.Size = New System.Drawing.Size(145, 24)
         Me.lblBarrioM.TabIndex = 8
         Me.lblBarrioM.Text = "BARRIO:"
+        Me.lblBarrioM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblEsquinaM
         '
-        Me.lblEsquinaM.AutoSize = True
         Me.lblEsquinaM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEsquinaM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblEsquinaM.Location = New System.Drawing.Point(308, 228)
+        Me.lblEsquinaM.Location = New System.Drawing.Point(303, 225)
         Me.lblEsquinaM.Name = "lblEsquinaM"
-        Me.lblEsquinaM.Size = New System.Drawing.Size(86, 19)
+        Me.lblEsquinaM.Size = New System.Drawing.Size(145, 24)
         Me.lblEsquinaM.TabIndex = 7
         Me.lblEsquinaM.Text = "ESQUINA:"
+        Me.lblEsquinaM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblAptoM
         '
-        Me.lblAptoM.AutoSize = True
-        Me.lblAptoM.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAptoM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAptoM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblAptoM.Location = New System.Drawing.Point(99, 228)
+        Me.lblAptoM.Location = New System.Drawing.Point(19, 225)
         Me.lblAptoM.Name = "lblAptoM"
-        Me.lblAptoM.Size = New System.Drawing.Size(53, 21)
+        Me.lblAptoM.Size = New System.Drawing.Size(145, 24)
         Me.lblAptoM.TabIndex = 6
         Me.lblAptoM.Text = "APTO:"
+        Me.lblAptoM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblNumeroCalleM
         '
-        Me.lblNumeroCalleM.AutoSize = True
         Me.lblNumeroCalleM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNumeroCalleM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblNumeroCalleM.Location = New System.Drawing.Point(744, 187)
+        Me.lblNumeroCalleM.Location = New System.Drawing.Point(692, 185)
         Me.lblNumeroCalleM.Name = "lblNumeroCalleM"
-        Me.lblNumeroCalleM.Size = New System.Drawing.Size(30, 19)
+        Me.lblNumeroCalleM.Size = New System.Drawing.Size(82, 22)
         Me.lblNumeroCalleM.TabIndex = 5
         Me.lblNumeroCalleM.Text = "Nº:"
+        Me.lblNumeroCalleM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblDireccionM
         '
-        Me.lblDireccionM.AutoSize = True
-        Me.lblDireccionM.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDireccionM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDireccionM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblDireccionM.Location = New System.Drawing.Point(53, 187)
+        Me.lblDireccionM.Location = New System.Drawing.Point(19, 184)
         Me.lblDireccionM.Name = "lblDireccionM"
-        Me.lblDireccionM.Size = New System.Drawing.Size(90, 21)
+        Me.lblDireccionM.Size = New System.Drawing.Size(145, 24)
         Me.lblDireccionM.TabIndex = 4
         Me.lblDireccionM.Text = "DIRECCION:"
+        Me.lblDireccionM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblApellidosM
         '
-        Me.lblApellidosM.AutoSize = True
-        Me.lblApellidosM.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblApellidosM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblApellidosM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblApellidosM.Location = New System.Drawing.Point(492, 60)
+        Me.lblApellidosM.Location = New System.Drawing.Point(471, 58)
         Me.lblApellidosM.Name = "lblApellidosM"
-        Me.lblApellidosM.Size = New System.Drawing.Size(89, 21)
+        Me.lblApellidosM.Size = New System.Drawing.Size(140, 24)
         Me.lblApellidosM.TabIndex = 3
         Me.lblApellidosM.Text = "APELLIDOS:"
+        Me.lblApellidosM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblNombres
         '
-        Me.lblNombres.AutoSize = True
-        Me.lblNombres.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombres.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNombres.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblNombres.Location = New System.Drawing.Point(63, 60)
+        Me.lblNombres.Location = New System.Drawing.Point(19, 58)
         Me.lblNombres.Name = "lblNombres"
-        Me.lblNombres.Size = New System.Drawing.Size(86, 21)
+        Me.lblNombres.Size = New System.Drawing.Size(145, 24)
         Me.lblNombres.TabIndex = 2
         Me.lblNombres.Text = "NOMBRES:"
+        Me.lblNombres.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblFechaReg
         '
-        Me.lblFechaReg.AutoSize = True
-        Me.lblFechaReg.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFechaReg.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFechaReg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblFechaReg.Location = New System.Drawing.Point(397, 18)
+        Me.lblFechaReg.Location = New System.Drawing.Point(333, 16)
         Me.lblFechaReg.Name = "lblFechaReg"
-        Me.lblFechaReg.Size = New System.Drawing.Size(61, 21)
+        Me.lblFechaReg.Size = New System.Drawing.Size(145, 24)
         Me.lblFechaReg.TabIndex = 1
         Me.lblFechaReg.Text = "FECHA:"
+        Me.lblFechaReg.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblDocIdentidad
         '
-        Me.lblDocIdentidad.AutoSize = True
-        Me.lblDocIdentidad.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDocIdentidad.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDocIdentidad.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblDocIdentidad.Location = New System.Drawing.Point(35, 18)
+        Me.lblDocIdentidad.Location = New System.Drawing.Point(19, 16)
         Me.lblDocIdentidad.Name = "lblDocIdentidad"
-        Me.lblDocIdentidad.Size = New System.Drawing.Size(109, 21)
+        Me.lblDocIdentidad.Size = New System.Drawing.Size(145, 24)
         Me.lblDocIdentidad.TabIndex = 0
         Me.lblDocIdentidad.Text = "DOCUMENTO:"
+        Me.lblDocIdentidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'tabBusqueda
         '
@@ -603,16 +603,18 @@ Partial Class frmPaciente
         Me.dgvListaPacientes.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvListaPacientes.Location = New System.Drawing.Point(3, 2)
         Me.dgvListaPacientes.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgvListaPacientes.MultiSelect = False
         Me.dgvListaPacientes.Name = "dgvListaPacientes"
         Me.dgvListaPacientes.ReadOnly = True
+        Me.dgvListaPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvListaPacientes.Size = New System.Drawing.Size(942, 501)
         Me.dgvListaPacientes.TabIndex = 0
         '
         'colDocIdentidad
         '
         Me.colDocIdentidad.DataPropertyName = "DOCUMENTO"
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle8
         Me.colDocIdentidad.HeaderText = "DOCUMENTO"
         Me.colDocIdentidad.Name = "colDocIdentidad"
         Me.colDocIdentidad.ReadOnly = True
@@ -636,8 +638,8 @@ Partial Class frmPaciente
         'colEmail
         '
         Me.colEmail.DataPropertyName = "EMAIL"
-        DataGridViewCellStyle11.NullValue = "yes"
-        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle9.NullValue = "yes"
+        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle9
         Me.colEmail.HeaderText = "EMAIL"
         Me.colEmail.Name = "colEmail"
         Me.colEmail.ReadOnly = True

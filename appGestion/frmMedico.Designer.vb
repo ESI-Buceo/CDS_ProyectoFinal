@@ -24,10 +24,15 @@ Partial Class frmMedico
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMedico))
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.toolsMenuMedico = New System.Windows.Forms.ToolStrip()
         Me.mnuBtnAgregar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador = New System.Windows.Forms.ToolStripSeparator()
@@ -78,6 +83,16 @@ Partial Class frmMedico
         Me.lblDocIdentidad = New System.Windows.Forms.Label()
         Me.tabMedicoBusqueda = New System.Windows.Forms.TabPage()
         Me.dgvListaMedicos = New System.Windows.Forms.DataGridView()
+        Me.tabActividad = New System.Windows.Forms.TabPage()
+        Me.gbActividad = New System.Windows.Forms.GroupBox()
+        Me.chartActMedico = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.gbSesiones = New System.Windows.Forms.GroupBox()
+        Me.dgvSesionesMedico = New System.Windows.Forms.DataGridView()
+        Me.tttTelefono = New System.Windows.Forms.ToolTip(Me.components)
+        Me.picEncabezado = New System.Windows.Forms.PictureBox()
+        Me.colSesion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colPonderacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colDocIdentidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNMedico = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -85,14 +100,17 @@ Partial Class frmMedico
         Me.colEmail = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFechRegistro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tttTelefono = New System.Windows.Forms.ToolTip(Me.components)
-        Me.picEncabezado = New System.Windows.Forms.PictureBox()
         Me.toolsMenuMedico.SuspendLayout()
         Me.tabOpcionesMedico.SuspendLayout()
         Me.tabDatos.SuspendLayout()
         CType(Me.dgvListaTelefonos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabMedicoBusqueda.SuspendLayout()
         CType(Me.dgvListaMedicos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabActividad.SuspendLayout()
+        Me.gbActividad.SuspendLayout()
+        CType(Me.chartActMedico, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbSesiones.SuspendLayout()
+        CType(Me.dgvSesionesMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -231,6 +249,7 @@ Partial Class frmMedico
         '
         Me.tabOpcionesMedico.Controls.Add(Me.tabDatos)
         Me.tabOpcionesMedico.Controls.Add(Me.tabMedicoBusqueda)
+        Me.tabOpcionesMedico.Controls.Add(Me.tabActividad)
         Me.tabOpcionesMedico.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tabOpcionesMedico.Location = New System.Drawing.Point(33, 127)
         Me.tabOpcionesMedico.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -241,7 +260,7 @@ Partial Class frmMedico
         '
         'tabDatos
         '
-        Me.tabDatos.BackColor = System.Drawing.Color.Gainsboro
+        Me.tabDatos.BackColor = System.Drawing.Color.WhiteSmoke
         Me.tabDatos.Controls.Add(Me.btnEliminarTelefono)
         Me.tabDatos.Controls.Add(Me.btnAgregarTelefono)
         Me.tabDatos.Controls.Add(Me.chkActivo)
@@ -353,8 +372,8 @@ Partial Class frmMedico
         'colTelefono
         '
         Me.colTelefono.DataPropertyName = "Telefono"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle16
         Me.colTelefono.HeaderText = "TELEFONOS"
         Me.colTelefono.Name = "colTelefono"
         Me.colTelefono.Width = 200
@@ -642,16 +661,130 @@ Partial Class frmMedico
         Me.dgvListaMedicos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvListaMedicos.Location = New System.Drawing.Point(3, 2)
         Me.dgvListaMedicos.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgvListaMedicos.MultiSelect = False
         Me.dgvListaMedicos.Name = "dgvListaMedicos"
         Me.dgvListaMedicos.ReadOnly = True
+        Me.dgvListaMedicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvListaMedicos.Size = New System.Drawing.Size(942, 500)
         Me.dgvListaMedicos.TabIndex = 0
+        '
+        'tabActividad
+        '
+        Me.tabActividad.Controls.Add(Me.gbActividad)
+        Me.tabActividad.Controls.Add(Me.gbSesiones)
+        Me.tabActividad.Location = New System.Drawing.Point(4, 28)
+        Me.tabActividad.Name = "tabActividad"
+        Me.tabActividad.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabActividad.Size = New System.Drawing.Size(948, 504)
+        Me.tabActividad.TabIndex = 2
+        Me.tabActividad.Text = "Actividad"
+        Me.tabActividad.UseVisualStyleBackColor = True
+        '
+        'gbActividad
+        '
+        Me.gbActividad.Controls.Add(Me.chartActMedico)
+        Me.gbActividad.Location = New System.Drawing.Point(342, 20)
+        Me.gbActividad.Name = "gbActividad"
+        Me.gbActividad.Size = New System.Drawing.Size(584, 457)
+        Me.gbActividad.TabIndex = 1
+        Me.gbActividad.TabStop = False
+        Me.gbActividad.Text = "Actividad ultimos 12 meses moviles"
+        '
+        'chartActMedico
+        '
+        ChartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea3.AxisX.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea3.AxisY.LineColor = System.Drawing.Color.LightGray
+        ChartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea3.Name = "ChartArea1"
+        Me.chartActMedico.ChartAreas.Add(ChartArea3)
+        Legend3.Alignment = System.Drawing.StringAlignment.Far
+        Legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
+        Legend3.Name = "Legend1"
+        Me.chartActMedico.Legends.Add(Legend3)
+        Me.chartActMedico.Location = New System.Drawing.Point(9, 32)
+        Me.chartActMedico.Name = "chartActMedico"
+        Me.chartActMedico.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Sesiones"
+        Me.chartActMedico.Series.Add(Series3)
+        Me.chartActMedico.Size = New System.Drawing.Size(561, 409)
+        Me.chartActMedico.TabIndex = 0
+        Me.chartActMedico.Text = "Chart1"
+        '
+        'gbSesiones
+        '
+        Me.gbSesiones.Controls.Add(Me.dgvSesionesMedico)
+        Me.gbSesiones.Location = New System.Drawing.Point(20, 20)
+        Me.gbSesiones.Name = "gbSesiones"
+        Me.gbSesiones.Size = New System.Drawing.Size(309, 458)
+        Me.gbSesiones.TabIndex = 0
+        Me.gbSesiones.TabStop = False
+        Me.gbSesiones.Text = "Sesiones"
+        '
+        'dgvSesionesMedico
+        '
+        Me.dgvSesionesMedico.AllowUserToAddRows = False
+        Me.dgvSesionesMedico.AllowUserToDeleteRows = False
+        Me.dgvSesionesMedico.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
+        Me.dgvSesionesMedico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSesionesMedico.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colSesion, Me.colFecha, Me.colPonderacion})
+        Me.dgvSesionesMedico.Location = New System.Drawing.Point(11, 25)
+        Me.dgvSesionesMedico.Name = "dgvSesionesMedico"
+        Me.dgvSesionesMedico.ReadOnly = True
+        Me.dgvSesionesMedico.RowTemplate.Height = 24
+        Me.dgvSesionesMedico.ShowRowErrors = False
+        Me.dgvSesionesMedico.Size = New System.Drawing.Size(291, 417)
+        Me.dgvSesionesMedico.TabIndex = 0
+        '
+        'tttTelefono
+        '
+        Me.tttTelefono.ToolTipTitle = "Opciones de Telefonos"
+        '
+        'picEncabezado
+        '
+        Me.picEncabezado.Image = CType(resources.GetObject("picEncabezado.Image"), System.Drawing.Image)
+        Me.picEncabezado.Location = New System.Drawing.Point(0, -1)
+        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.picEncabezado.Name = "picEncabezado"
+        Me.picEncabezado.Size = New System.Drawing.Size(1020, 79)
+        Me.picEncabezado.TabIndex = 3
+        Me.picEncabezado.TabStop = False
+        '
+        'colSesion
+        '
+        Me.colSesion.DataPropertyName = "idSesion"
+        Me.colSesion.HeaderText = "Sesion"
+        Me.colSesion.Name = "colSesion"
+        Me.colSesion.ReadOnly = True
+        '
+        'colFecha
+        '
+        Me.colFecha.DataPropertyName = "fechaHoraInicioSesion"
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.colFecha.DefaultCellStyle = DataGridViewCellStyle17
+        Me.colFecha.HeaderText = "Fecha y hora"
+        Me.colFecha.Name = "colFecha"
+        Me.colFecha.ReadOnly = True
+        Me.colFecha.Width = 120
+        '
+        'colPonderacion
+        '
+        Me.colPonderacion.DataPropertyName = "prioridad"
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colPonderacion.DefaultCellStyle = DataGridViewCellStyle18
+        Me.colPonderacion.HeaderText = "Ponderacion"
+        Me.colPonderacion.Name = "colPonderacion"
+        Me.colPonderacion.ReadOnly = True
+        Me.colPonderacion.Width = 80
         '
         'colDocIdentidad
         '
         Me.colDocIdentidad.DataPropertyName = "DOCUMENTO"
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle13
         Me.colDocIdentidad.HeaderText = "DOCUMENTO"
         Me.colDocIdentidad.Name = "colDocIdentidad"
         Me.colDocIdentidad.ReadOnly = True
@@ -659,12 +792,12 @@ Partial Class frmMedico
         'colNMedico
         '
         Me.colNMedico.DataPropertyName = "NMEDICO"
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colNMedico.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colNMedico.DefaultCellStyle = DataGridViewCellStyle14
         Me.colNMedico.HeaderText = "Nº MEDICO"
         Me.colNMedico.Name = "colNMedico"
         Me.colNMedico.ReadOnly = True
-        Me.colNMedico.Width = 110
+        Me.colNMedico.Width = 130
         '
         'colNombres
         '
@@ -672,6 +805,7 @@ Partial Class frmMedico
         Me.colNombres.HeaderText = "NOMBRES"
         Me.colNombres.Name = "colNombres"
         Me.colNombres.ReadOnly = True
+        Me.colNombres.Width = 120
         '
         'colApellidos
         '
@@ -679,12 +813,13 @@ Partial Class frmMedico
         Me.colApellidos.HeaderText = "APELLIDOS"
         Me.colApellidos.Name = "colApellidos"
         Me.colApellidos.ReadOnly = True
+        Me.colApellidos.Width = 120
         '
         'colEmail
         '
         Me.colEmail.DataPropertyName = "EMAIL"
-        DataGridViewCellStyle12.NullValue = "yes"
-        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle15.NullValue = "yes"
+        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle15
         Me.colEmail.HeaderText = "EMAIL"
         Me.colEmail.Name = "colEmail"
         Me.colEmail.ReadOnly = True
@@ -706,20 +841,6 @@ Partial Class frmMedico
         Me.colActivo.ReadOnly = True
         Me.colActivo.Visible = False
         '
-        'tttTelefono
-        '
-        Me.tttTelefono.ToolTipTitle = "Opciones de Telefonos"
-        '
-        'picEncabezado
-        '
-        Me.picEncabezado.Image = CType(resources.GetObject("picEncabezado.Image"), System.Drawing.Image)
-        Me.picEncabezado.Location = New System.Drawing.Point(0, -1)
-        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.picEncabezado.Name = "picEncabezado"
-        Me.picEncabezado.Size = New System.Drawing.Size(1020, 79)
-        Me.picEncabezado.TabIndex = 3
-        Me.picEncabezado.TabStop = False
-        '
         'frmMedico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -740,6 +861,11 @@ Partial Class frmMedico
         CType(Me.dgvListaTelefonos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabMedicoBusqueda.ResumeLayout(False)
         CType(Me.dgvListaMedicos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabActividad.ResumeLayout(False)
+        Me.gbActividad.ResumeLayout(False)
+        CType(Me.chartActMedico, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbSesiones.ResumeLayout(False)
+        CType(Me.dgvSesionesMedico, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -796,6 +922,15 @@ Partial Class frmMedico
     Friend WithEvents btnAgregarTelefono As Button
     Friend WithEvents btnEliminarTelefono As Button
     Friend WithEvents tttTelefono As ToolTip
+    Friend WithEvents mnuReactivar As ToolStripButton
+    Friend WithEvents tabActividad As TabPage
+    Friend WithEvents gbActividad As GroupBox
+    Friend WithEvents gbSesiones As GroupBox
+    Friend WithEvents dgvSesionesMedico As DataGridView
+    Friend WithEvents chartActMedico As DataVisualization.Charting.Chart
+    Friend WithEvents colSesion As DataGridViewTextBoxColumn
+    Friend WithEvents colFecha As DataGridViewTextBoxColumn
+    Friend WithEvents colPonderacion As DataGridViewTextBoxColumn
     Friend WithEvents colDocIdentidad As DataGridViewTextBoxColumn
     Friend WithEvents colNMedico As DataGridViewTextBoxColumn
     Friend WithEvents colNombres As DataGridViewTextBoxColumn
@@ -803,5 +938,4 @@ Partial Class frmMedico
     Friend WithEvents colEmail As DataGridViewTextBoxColumn
     Friend WithEvents colFechRegistro As DataGridViewTextBoxColumn
     Friend WithEvents colActivo As DataGridViewTextBoxColumn
-    Friend WithEvents mnuReactivar As ToolStripButton
 End Class

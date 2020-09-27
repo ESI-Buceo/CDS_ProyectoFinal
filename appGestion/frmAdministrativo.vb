@@ -220,7 +220,7 @@ Public Class frmAdministrativo
                 controles.Text = Nothing
             End If
         Next
-        dtpFechaNac.Value = "01/01/1753"
+        dtpFechaNac.Value = "01/01/1900"
         crearTablaTelefonoParaDataGrid()
     End Sub
 
@@ -370,6 +370,42 @@ Public Class frmAdministrativo
         cargarTexto()
     End Sub
 
+    Private Sub mnuBtnReactivar_Click(sender As Object, e As EventArgs) Handles mnuBtnReactivar.Click
+        ClickEnBotonReactivar(toolsMenuAdmin)
+        confirmarReActivacionAdmin()
+    End Sub
+
+    Private Sub confirmarReActivacionAdmin()
+        'Solicita confirmacion para reactivar el registro
+        Dim respuesta As Integer
+        respuesta = MsgBox(VSeguroReactivarCuenta, vbQuestion & vbYesNo, VAvisoAlerta)
+        If respuesta = 6 Then
+            reactivarCuentaAdmin()
+        End If
+    End Sub
+
+    Private Sub reactivarCuentaAdmin()
+        'Ejecuta el proceso de reactivacion del medico
+        Try
+            If controladorAdministrativo.CambiarEstadoAdmin(txtDocIdentidad.Text, 1, USUARIO, PASSWORD) Then
+                crearUsuarioBD()
+                MsgBox(VReactivacionCuentaExitosa, vbInformation, VAviso)
+            End If
+        Catch ex As Exception
+            MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub crearUsuarioBD()
+        'Crea el usuario en la base de datos
+        Try
+            controladorAdministrativo.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
+            ClickEnBotonCancelar(toolsMenuAdmin)
+        Catch ex As Exception
+            MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
     Private Sub cargarTexto()
         mnuBtnAgregar.Text = VAgregar
         mnuBtnAgregar.ToolTipText = VToolBotonAgregar
@@ -411,42 +447,8 @@ Public Class frmAdministrativo
         dgvListaAdministrador.Columns(3).HeaderText = VApellidos
         dgvListaAdministrador.Columns(4).HeaderText = VEmail
         dgvListaAdministrador.Columns(5).HeaderText = VFecha
-    End Sub
-
-    Private Sub mnuBtnReactivar_Click(sender As Object, e As EventArgs) Handles mnuBtnReactivar.Click
-        ClickEnBotonReactivar(toolsMenuAdmin)
-        confirmarReActivacionAdmin()
-    End Sub
-
-    Private Sub confirmarReActivacionAdmin()
-        'Solicita confirmacion para reactivar el registro
-        Dim respuesta As Integer
-        respuesta = MsgBox(VSeguroReactivarCuenta, vbQuestion & vbYesNo, VAvisoAlerta)
-        If respuesta = 6 Then
-            reactivarCuentaAdmin()
-        End If
-    End Sub
-
-    Private Sub reactivarCuentaAdmin()
-        'Ejecuta el proceso de reactivacion del medico
-        Try
-            If controladorAdministrativo.CambiarEstadoAdmin(txtDocIdentidad.Text, 1, USUARIO, PASSWORD) Then
-                crearUsuarioBD()
-                MsgBox(VReactivacionCuentaExitosa, vbInformation, VAviso)
-            End If
-        Catch ex As Exception
-            MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
-        End Try
-    End Sub
-
-    Private Sub crearUsuarioBD()
-        'Crea el usuario en la base de datos
-        Try
-            controladorAdministrativo.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
-            ClickEnBotonCancelar(toolsMenuAdmin)
-        Catch ex As Exception
-            MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
-        End Try
+        dtpFechaNac.Format = DateTimePickerFormat.Custom
+        dtpFechaNac.CustomFormat = Nothing
     End Sub
 
 End Class

@@ -92,6 +92,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Activity.
+        '''</summary>
+        Friend Shared ReadOnly Property actividad() As String
+            Get
+                Return ResourceManager.GetString("actividad", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Activity last 12 mobile months.
+        '''</summary>
+        Friend Shared ReadOnly Property actividaddoceMeses() As String
+            Get
+                Return ResourceManager.GetString("actividaddoceMeses", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Active.
         '''</summary>
         Friend Shared ReadOnly Property activo() As String
@@ -1492,6 +1510,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property sesion() As String
             Get
                 Return ResourceManager.GetString("sesion", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Sections.
+        '''</summary>
+        Friend Shared ReadOnly Property sesiones() As String
+            Get
+                Return ResourceManager.GetString("sesiones", resourceCulture)
             End Get
         End Property
         

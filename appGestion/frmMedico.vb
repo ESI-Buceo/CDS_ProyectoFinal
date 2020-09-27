@@ -1,4 +1,5 @@
-﻿Imports capaLogica
+﻿Imports System.Windows.Forms.DataVisualization.Charting
+Imports capaLogica
 
 Public Class frmMedico
     Dim agregar As Boolean
@@ -60,8 +61,8 @@ Public Class frmMedico
 
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
         'valida antes de ingresar la informacion del medico
-        If ControladorValidaciones.validarFormatoDocumento(txtDocIdentidad.Text) And ControladorValidaciones.validarNombres(txtNombres.Text) _
-            And ControladorValidaciones.validarApellidos(txtApellidos.Text) And ControladorValidaciones.ValidarEmail(txtEmail.Text) _
+        If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) And ControladorValidaciones.ValidarNombres(txtNombres.Text) _
+            And ControladorValidaciones.ValidarApellidos(txtApellidos.Text) And ControladorValidaciones.ValidarEmail(txtEmail.Text) _
             And ControladorValidaciones.ValidarFechaNacimiento(dtpFechaNac.Value) And ControladorValidaciones.ValidarNumeroMedico(txtNumMedico.Text) Then
             validarSiEsNuevo()
         Else
@@ -170,7 +171,7 @@ Public Class frmMedico
     Private Sub borrarMedico()
         'Procesa baja de medico
         Try
-            If ControladorMedico.CambiarEstadoMEdico(txtDocIdentidad.Text, 0, USUARIO, PASSWORD) Then
+            If ControladorMedico.CambiarEstadoMedico(txtDocIdentidad.Text, 0, USUARIO, PASSWORD) Then
                 opcionesMenu.ClickEnBotonBorrar(toolsMenuMedico)
                 MsgBox(VRegistroEliminado, vbInformation, VAviso)
                 eliminarMedicoDeBD()
@@ -223,27 +224,13 @@ Public Class frmMedico
                 controles.Text = Nothing
             End If
         Next
+        dtpFechaNac.Value = "01/01/1900"
         crearTablaTelefonoParaDataGrid()
     End Sub
 
     Private Sub cargarFechaDeHoy()
         'Carga la fecha del dia de hoy
         txtFechaRegistro.Text = Format(CDate(Now), "dd/MM/yyyy")
-    End Sub
-
-    Private Sub dgvListaMedicos_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvListaMedicos.RowHeaderMouseClick
-        'Evento al hacer clic en la lista de medicos que muestra los datos del mismo
-        ClickEnListado(toolsMenuMedico)
-        Try
-            mostrarDatosDelMedico(ControladorMedico.buscarMedicoPorDocumento(dgvListaMedicos.Item(0, e.RowIndex).Value, USUARIO, PASSWORD))
-            restaurarColorCampos()
-            tabOpcionesMedico.SelectTab(tabDatos)
-            deshablitaDocumento()
-            validarBotonBorrar(dgvListaMedicos.Item(6, e.RowIndex).Value)
-            txtNombres.Select()
-        Catch ex As Exception
-            MsgBox(VErrorRecuperarDatos, vbExclamation, VAvisoError)
-        End Try
     End Sub
 
     Private Sub validarBotonBorrar(ByVal activo As String)
@@ -277,11 +264,22 @@ Public Class frmMedico
         txtEsquina.Text = datosDelMedico.Rows(0).Item("esquina").ToString
         txtBarrio.Text = datosDelMedico.Rows(0).Item("barrio").ToString
         cargarTelefonos(datosDelMedico)
+        cargarActividad(datosDelMedico.Rows(0).Item("documento").ToString)
+        cargarHistoriaChat(datosDelMedico.Rows(0).Item("documento").ToString)
     End Sub
 
     Private Sub cargarTelefonos(ByVal telefonos As DataTable)
         'Carga los telefonos del medico elegido
         cargarGridTelefonos(ControladorMedico.crearTablaTelefonos(), telefonos)
+    End Sub
+
+    Private Sub cargarActividad(ByVal docidentidad As String)
+        'Carga la actividad del medico
+        Try
+            cargarDatosGrafico(ControladorInformes.SesionesPorMedico(USUARIO, PASSWORD, docidentidad), "Dia")
+        Catch ex As Exception
+            MsgBox("Erorr")
+        End Try
     End Sub
 
     Private Sub cargarGridTelefonos(ByVal tablaTelefono As DataTable, telefonos As DataTable)
@@ -417,6 +415,12 @@ Public Class frmMedico
         dgvListaMedicos.Columns(4).HeaderText = VEmail
         dgvListaMedicos.Columns(5).HeaderText = VFecha
         Me.Text = VMedico.ToUpper
+        tabActividad.Text = VActividad
+        gbSesiones.Text = VSesiones
+        gbActividad.Text = VActividad12Meses
+        dgvSesionesMedico.Columns(0).HeaderText = VSesion
+        dgvSesionesMedico.Columns(1).HeaderText = VFecha
+        dgvSesionesMedico.Columns(2).HeaderText = VPonderacion
     End Sub
 
     Private Sub confirmarReActivacionMedico()
@@ -453,5 +457,35 @@ Public Class frmMedico
     Private Sub mnuReactivar_Click(sender As Object, e As EventArgs) Handles mnuReactivar.Click
         ClickEnBotonReactivar(toolsMenuMedico)
         confirmarReActivacionMedico()
+    End Sub
+
+    Private Sub cargarDatosGrafico(ByVal tablaDatos As DataTable, columna As String)
+        For Each datos As DataRow In tablaDatos.Rows
+            chartActMedico.Series("Sesiones").Points.AddXY(datos("Mes"), datos("Cantidad"))
+        Next
+    End Sub
+
+    Private Sub cargarHistoriaChat(ByVal docidentidad As String)
+        'Recupera la lista de chat que mantuvo el medico
+        Try
+            dgvSesionesMedico.DataSource = ControladorMedico.ListarSesionesDeChat(USUARIO, PASSWORD, docidentidad)
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub dgvListaMedicos_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles dgvListaMedicos.RowHeaderMouseClick
+        'Evento al hacer clic en la lista de medicos que muestra los datos del mismo
+        ClickEnListado(toolsMenuMedico)
+        Try
+            mostrarDatosDelMedico(ControladorMedico.buscarMedicoPorDocumento(dgvListaMedicos.Item(0, e.RowIndex).Value, USUARIO, PASSWORD))
+            restaurarColorCampos()
+            tabOpcionesMedico.SelectTab(tabDatos)
+            deshablitaDocumento()
+            validarBotonBorrar(dgvListaMedicos.Item(6, e.RowIndex).Value)
+            txtNombres.Select()
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbExclamation, VAvisoError)
+        End Try
     End Sub
 End Class

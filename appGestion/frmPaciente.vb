@@ -544,16 +544,6 @@ Public Class frmPaciente
         End Try
     End Sub
 
-    Private Sub dgvHistoriaChat_RowLeave(sender As Object, e As DataGridViewCellEventArgs) Handles dgvHistoriaChat.RowLeave
-        'Muestra la conversacion de chat
-        Try
-            recorreMensajesRecibidos(ControladorChat.RecibirTodosMensajes(dgvHistoriaChat.Item(0, e.RowIndex).Value,
-                                                                          USUARIO, PASSWORD), dgvHistoriaChat.Item(2, e.RowIndex).Value)
-        Catch ex As Exception
-            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
-        End Try
-    End Sub
-
     Private Sub recorreMensajesRecibidos(ByVal tablaMensajes As DataTable, doctor As String)
         'recorre los mensajes recividos
         rtbMensajes.ResetText()
@@ -617,4 +607,20 @@ Public Class frmPaciente
             MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
         End Try
     End Sub
+
+    Private Sub dgvHistoriaChat_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvHistoriaChat.CellContentClick
+        'Muestra la conversacion de chat
+        Try
+            recorreMensajesRecibidos(ControladorChat.RecibirTodosMensajes(dgvHistoriaChat.Item(0, e.RowIndex).Value,
+                                                                          USUARIO, PASSWORD), dgvHistoriaChat.Item(2, e.RowIndex).Value)
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub dgvHistoriaChat_MouseMove(sender As Object, e As MouseEventArgs) Handles dgvHistoriaChat.MouseMove
+        dgvHistoriaChat.Cursor = Cursors.Hand
+    End Sub
+
+
 End Class

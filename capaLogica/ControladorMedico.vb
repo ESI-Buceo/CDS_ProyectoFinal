@@ -109,4 +109,10 @@ Public Module ControladorMedico
         Return m.ListarTelefonos(docidentidad)
     End Function
 
+    Public Function ListarSesionesDeChat(ByVal uid As String, pwd As String, docidentidad As String)
+        'Lista las sesiones de chat del medico
+        Dim m As New ModeloMedico(uid, pwd)
+        Return m.ListarSesionesChatMedico(docidentidad)
+    End Function
+
 End Module

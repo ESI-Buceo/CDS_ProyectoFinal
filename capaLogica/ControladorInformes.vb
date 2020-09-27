@@ -32,6 +32,11 @@ Public Module ControladorInformes
         Return i.SintomasNuncaSeleccionados
     End Function
 
+    Public Function SesionesPorMedico(ByVal uid As String, pwd As String, docidentidad As String)
+        Dim s As New ModeloSesion(uid, pwd)
+        Return cargaTablaConDatosMeses(s.SesionesPorMedico(formarCadenaMesesDeConsulta, docidentidad))
+    End Function
+
     Private Function formarCadenaMesesDeConsulta()
         'Genera el string de busqueda de 12 meses moviles
         Dim cadenaDeConsulta As String

@@ -184,4 +184,14 @@
         Return tablaTelefonos
     End Function
 
+    Public Function ListarSesionesChatMedico(ByVal docIdentidad As String)
+        Dim tablaSesiones As New DataTable
+        Comando.CommandText = "SELECT DISTINCT(s.idSesion ), s.fechaHoraInicioSesion, s.prioridad from sesion s
+                                JOIN chat c on c.docidentidadMedico = '" & docIdentidad & "' ORDER BY s.fechaHoraInicioSesion DESC"
+        Reader = Comando.ExecuteReader
+        tablaSesiones.Load(Reader)
+        conexion.Close()
+        Return tablaSesiones
+    End Function
+
 End Class

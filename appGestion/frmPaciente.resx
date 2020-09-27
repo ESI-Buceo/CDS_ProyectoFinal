@@ -625,18 +625,6 @@
         JxAgSuh9EhDoqJEjHrCBAlRII/KJAh0vVUSVAgQOpMHpCBAgZcE6P//Z
 </value>
   </data>
-  <metadata name="DataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colTelefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colTelefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="colDocIdentidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -655,22 +643,16 @@
   <metadata name="colActivo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colDocIdentidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="DataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colNombres.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="DataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colApellidos.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="colTelefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="colEmail.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colFechRegistro.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colActivo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="colTelefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="colDiagnostico.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -806,22 +788,22 @@
   <data name="mnuReactivar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAANwSURBVFhH7VfNahNRFM4j9BH6CHkDpUkZkizSJEqtFA22
-        CCVNUl24KwwuLCg4uLGgSBBNZyGSlSsXQTPgMo/QR+gj1PudzIln7tyZTOaniHjgI8mdc8/55tzzc1NK
-        KsOZeztv+KazS99zJwPPvc4bsD2cjjbISVoZep/LJuN5APbx8vBBztIIjsJkPA/Aft8bT4889yo1yZsg
-        iO+pSd4UQSAVySIJDn+5m3oBrk3SRBBG8OY6sK7rxoEKRFUxPoO2Fus+hXgxERz+HO/4jwOCdV13FXKp
-        4uMf7rw/c22TgyIB3z6NaEGo6/uPukXmYhQSEazUOqNqrTX96wjeajY3QKxa71xXrc6VImoDe2en9tG3
-        D3Zv9unSaFRVJvYPZhcj/D723C4ZTCjSbiRBkNuy2nMiFwFE9mD8xl63ctdBJMHt+t0yomYipqO2u++g
-        iEwOsiL2iEGyUu9cLsmo446KqnXn/qQIkrEEIcujVuT8JVpDLuoRBkmZPzQRRLPlnES78pdCAv1EOSiF
-        iqXROkEzRVPlpLes5qYeURQQGweof2pTJmoKMeT+RAT7s4sTfEKZN8Ix3pbIi0iCcJ5HnYggKavjQeTk
-        Zia5XW93ZRS77185Ui8LkhOMAEdXFlOje0C59kfHteEoKdbOQelMB3IGOqpoHBHFwPUJDvU8i4Pcm5kg
-        AB2qaiaoKl53lBZEEMYZqExiJcS0kYHoQEcnKI8pCxYERf4g4YmVENNGBtoOdBTBEdvAd03PgSMJfgHk
-        cOCZuk+GclAZnbBx2ZBZWNkEGNBbTWvQCxYJbsuqUCS4J+rP1JojZzsR1NtEpdEJJCYrh6BaD54Hjlfh
-        8Ot5bn/yiaAeARw51oidEn0TTQL1tnhGlwpBzmrvzmUEsoIILhwFo4iJAOd4RiNO5QpIIUd4vm7V2jv6
-        PH785e3yePlFJNQ6NXHTM0boiFlkojOwxkRZiJjKVV23/XQQmCC5E4SYSCYByEnDeSFEEEJJrx1dFJCv
-        916cjoogBxgJQtCwFVEncGEVQI52nj2Z9L5/DN1cuHUse52hzRD8aUNXMn9N/Q63mVXy8N3L8t7r5w7u
-        eg/Oz9BCnLhJwc1XjLtQowawTvpKb7luatSrxDcWIHFT+E8wK/4NgpA8/2ckBXz67lcLxhv+kwTaRIGA
-        r8VILZV+A5mmT/DycqGwAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAANwSURBVFhH7VfNahNRFM4j9BH6CHkDpUkZkizSZJRaKRps
+        USRNUl24KwwuLCg4uLGgSBBNZyGSlSsXQTPgMo/QR+gj1PudzIln7tyZTGYmRcQDH0nunHvON+een5tS
+        WhlMvZtFIzCdX3q+N+773lXRgO3BZLhBTrLKwP9cNhkvArCPl4cPcpZFcBQm40UA9nv+aPLI9y4zk7wO
+        gviemeR1EQQykVwnwcEvb1MvwJVJmgjCCN5cB9Z13SRQgagqxmfY1nw9oJAsJoKDn6Od4HFIsK7rLkMh
+        VXz0w5v1pp5jcrBOwHdAI14Q6vr+g846czEOqQhWavawWmtN/jqCN5rNDRCr1u2rqmVfKqIOsHd64jz+
+        9sHpTj9dGI2qysT+/vR8iN9HvtchgylF2o0lCHJbVntG5GKAyB6M3jirVu4qiCW4Xb9dRtRMxHTUdvdd
+        FJHJQV4kHjFIVur2xYKMOu64qFq37o7XQTKRIGRx1IpcsERryEU9wiAp84cmgmi2nJNoV8FSRKCfKgel
+        ULE0WsdopmiqnPSW1dzUI4oCYuMA9U9tysRNIYbcn4pgb3p+jE8o80Y4xtsSeRFJEC7yqFMRJGV1PIic
+        3Mwkt+vtjoxi5/0rV+rlQXqCMeDoymJqdA4o1/7oeA4cpcXKOSid6UDOQEcVjSuiGLo+waGeZ0mQe3MT
+        BKBDVc0EVcXrjrKCCMI4A5VJrISYNjIQHejoBOUx5cGcoMgfJDyxEmLayEDbgY4iOGQb+K7puXAkwS+A
+        HA49U/fJSA4qo2M2LhsyCyubAAN6q2n1u+EiwW1ZFYoE90T9mVpz5WwngnqbqDTsUGKycgSq9eB56HgV
+        Dr+eFfYnnwjqEcCRY43YKdE30SRQb4tndKkQ5Kz27kxGIC+I4NxROIqYCHCOZzTiVK6AFHKE5+tWrb2j
+        z+OHX94ujpdfREKtUxM3PWNEjphFJjoDa0yUhYipXNV120/7oQlSOEGIiWQagJw0XBQiBCGU9NrRxQH5
+        eufFyXAd5AAjQQgatiLqhi6sAshR+9mTcff7x8jNhVvHotcZ2gwhmDZ0JQvW1O9om1km99+9LO+9fu7i
+        rnfv7BQtxE2aFNx8xbiLNGoA66Sv9Bbrpka9TAJjIRLXhf8E8+LfIAgp8n9GWsBn4H65YLzhP0moTawR
+        8DUfqaXSb23ET8IHWHFbAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="mnuBtnModificar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

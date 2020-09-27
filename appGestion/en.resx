@@ -693,4 +693,13 @@
   <data name="subtitulolistasintomasnoseleccionados" xml:space="preserve">
     <value>Displays the list of symptoms that patients never reported</value>
   </data>
+  <data name="actividad" xml:space="preserve">
+    <value>Activity</value>
+  </data>
+  <data name="actividaddoceMeses" xml:space="preserve">
+    <value>Activity last 12 mobile months</value>
+  </data>
+  <data name="sesiones" xml:space="preserve">
+    <value>Sections</value>
+  </data>
 </root>

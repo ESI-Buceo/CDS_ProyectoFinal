@@ -22,11 +22,11 @@ Partial Class frmAdministrativo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAdministrativo))
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tabOpcionAdmin = New System.Windows.Forms.TabControl()
         Me.tabDatos = New System.Windows.Forms.TabPage()
         Me.btnEliminarTelefono = New System.Windows.Forms.Button()
@@ -62,13 +62,6 @@ Partial Class frmAdministrativo
         Me.lblDocIdentidad = New System.Windows.Forms.Label()
         Me.tabBusqueda = New System.Windows.Forms.TabPage()
         Me.dgvListaAdministrador = New System.Windows.Forms.DataGridView()
-        Me.colDocIdentidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colNMedico = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colNombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colApellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colEmail = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colFechRegistro = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.picEncabezado = New System.Windows.Forms.PictureBox()
         Me.toolsMenuAdmin = New System.Windows.Forms.ToolStrip()
         Me.mnuBtnAgregar = New System.Windows.Forms.ToolStripButton()
@@ -85,6 +78,13 @@ Partial Class frmAdministrativo
         Me.tabSeparador4 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnuBtnReactivar = New System.Windows.Forms.ToolStripButton()
         Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
+        Me.colDocIdentidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNMedico = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colApellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colEmail = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFechRegistro = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabOpcionAdmin.SuspendLayout()
         Me.tabDatos.SuspendLayout()
         CType(Me.dgvListaTelefonos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -193,9 +193,11 @@ Partial Class frmAdministrativo
         Me.dtpFechaNac.CalendarMonthBackground = System.Drawing.SystemColors.Highlight
         Me.dtpFechaNac.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.dtpFechaNac.CalendarTrailingForeColor = System.Drawing.Color.Gray
+        Me.dtpFechaNac.CustomFormat = ""
         Me.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaNac.Location = New System.Drawing.Point(768, 53)
         Me.dtpFechaNac.Margin = New System.Windows.Forms.Padding(4)
+        Me.dtpFechaNac.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpFechaNac.Name = "dtpFechaNac"
         Me.dtpFechaNac.Size = New System.Drawing.Size(137, 27)
         Me.dtpFechaNac.TabIndex = 60
@@ -218,8 +220,8 @@ Partial Class frmAdministrativo
         'colTelefono
         '
         Me.colTelefono.DataPropertyName = "Telefono"
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle8
         Me.colTelefono.HeaderText = "TELEFONOS"
         Me.colTelefono.Name = "colTelefono"
         Me.colTelefono.Width = 200
@@ -336,13 +338,13 @@ Partial Class frmAdministrativo
         '
         'txtFechaRegistro
         '
-        Me.txtFechaRegistro.Enabled = False
         Me.txtFechaRegistro.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFechaRegistro.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtFechaRegistro.Location = New System.Drawing.Point(767, 15)
         Me.txtFechaRegistro.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtFechaRegistro.MaxLength = 65535
         Me.txtFechaRegistro.Name = "txtFechaRegistro"
+        Me.txtFechaRegistro.ReadOnly = True
         Me.txtFechaRegistro.Size = New System.Drawing.Size(139, 27)
         Me.txtFechaRegistro.TabIndex = 57
         Me.txtFechaRegistro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -537,72 +539,12 @@ Partial Class frmAdministrativo
         Me.dgvListaAdministrador.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvListaAdministrador.Location = New System.Drawing.Point(3, 3)
         Me.dgvListaAdministrador.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgvListaAdministrador.MultiSelect = False
         Me.dgvListaAdministrador.Name = "dgvListaAdministrador"
         Me.dgvListaAdministrador.ReadOnly = True
+        Me.dgvListaAdministrador.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvListaAdministrador.Size = New System.Drawing.Size(930, 458)
         Me.dgvListaAdministrador.TabIndex = 1
-        '
-        'colDocIdentidad
-        '
-        Me.colDocIdentidad.DataPropertyName = "DOCUMENTO"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle2
-        Me.colDocIdentidad.HeaderText = "DOCUMENTO"
-        Me.colDocIdentidad.Name = "colDocIdentidad"
-        Me.colDocIdentidad.ReadOnly = True
-        Me.colDocIdentidad.Width = 120
-        '
-        'colNMedico
-        '
-        Me.colNMedico.DataPropertyName = "NEMPLEADO"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colNMedico.DefaultCellStyle = DataGridViewCellStyle3
-        Me.colNMedico.HeaderText = "Nº EMPLEADO"
-        Me.colNMedico.Name = "colNMedico"
-        Me.colNMedico.ReadOnly = True
-        Me.colNMedico.Width = 130
-        '
-        'colNombres
-        '
-        Me.colNombres.DataPropertyName = "NOMBRES"
-        Me.colNombres.HeaderText = "NOMBRES"
-        Me.colNombres.Name = "colNombres"
-        Me.colNombres.ReadOnly = True
-        Me.colNombres.Width = 150
-        '
-        'colApellidos
-        '
-        Me.colApellidos.DataPropertyName = "APELLIDOS"
-        Me.colApellidos.HeaderText = "APELLIDOS"
-        Me.colApellidos.Name = "colApellidos"
-        Me.colApellidos.ReadOnly = True
-        Me.colApellidos.Width = 150
-        '
-        'colEmail
-        '
-        Me.colEmail.DataPropertyName = "EMAIL"
-        DataGridViewCellStyle4.NullValue = "yes"
-        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle4
-        Me.colEmail.HeaderText = "EMAIL"
-        Me.colEmail.Name = "colEmail"
-        Me.colEmail.ReadOnly = True
-        Me.colEmail.Width = 200
-        '
-        'colFechRegistro
-        '
-        Me.colFechRegistro.DataPropertyName = "FECHREG"
-        Me.colFechRegistro.HeaderText = "FECHA REGISTRO"
-        Me.colFechRegistro.Name = "colFechRegistro"
-        Me.colFechRegistro.ReadOnly = True
-        Me.colFechRegistro.Width = 180
-        '
-        'colActivo
-        '
-        Me.colActivo.DataPropertyName = "ACTIVO"
-        Me.colActivo.HeaderText = "Activo"
-        Me.colActivo.Name = "colActivo"
-        Me.colActivo.ReadOnly = True
-        Me.colActivo.Visible = False
         '
         'picEncabezado
         '
@@ -744,6 +686,68 @@ Partial Class frmAdministrativo
         Me.mnuBtnModificar.Text = "Modificar"
         Me.mnuBtnModificar.ToolTipText = "Habilita la modificacion de una patologia"
         '
+        'colDocIdentidad
+        '
+        Me.colDocIdentidad.DataPropertyName = "DOCUMENTO"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle5
+        Me.colDocIdentidad.HeaderText = "DOCUMENTO"
+        Me.colDocIdentidad.Name = "colDocIdentidad"
+        Me.colDocIdentidad.ReadOnly = True
+        Me.colDocIdentidad.Width = 120
+        '
+        'colNMedico
+        '
+        Me.colNMedico.DataPropertyName = "NEMPLEADO"
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colNMedico.DefaultCellStyle = DataGridViewCellStyle6
+        Me.colNMedico.HeaderText = "Nº EMPLEADO"
+        Me.colNMedico.Name = "colNMedico"
+        Me.colNMedico.ReadOnly = True
+        Me.colNMedico.Width = 150
+        '
+        'colNombres
+        '
+        Me.colNombres.DataPropertyName = "NOMBRES"
+        Me.colNombres.HeaderText = "NOMBRES"
+        Me.colNombres.Name = "colNombres"
+        Me.colNombres.ReadOnly = True
+        Me.colNombres.Width = 150
+        '
+        'colApellidos
+        '
+        Me.colApellidos.DataPropertyName = "APELLIDOS"
+        Me.colApellidos.HeaderText = "APELLIDOS"
+        Me.colApellidos.Name = "colApellidos"
+        Me.colApellidos.ReadOnly = True
+        Me.colApellidos.Width = 150
+        '
+        'colEmail
+        '
+        Me.colEmail.DataPropertyName = "EMAIL"
+        DataGridViewCellStyle7.NullValue = "yes"
+        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle7
+        Me.colEmail.HeaderText = "EMAIL"
+        Me.colEmail.Name = "colEmail"
+        Me.colEmail.ReadOnly = True
+        Me.colEmail.Width = 200
+        '
+        'colFechRegistro
+        '
+        Me.colFechRegistro.DataPropertyName = "FECHREG"
+        Me.colFechRegistro.HeaderText = "FECHA REGISTRO"
+        Me.colFechRegistro.Name = "colFechRegistro"
+        Me.colFechRegistro.ReadOnly = True
+        Me.colFechRegistro.Width = 180
+        '
+        'colActivo
+        '
+        Me.colActivo.DataPropertyName = "ACTIVO"
+        Me.colActivo.HeaderText = "Activo"
+        Me.colActivo.Name = "colActivo"
+        Me.colActivo.ReadOnly = True
+        Me.colActivo.Visible = False
+        '
         'frmAdministrativo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -819,6 +823,7 @@ Partial Class frmAdministrativo
     Friend WithEvents mnuBtnBorrar As ToolStripButton
     Friend WithEvents tabSeparador4 As ToolStripSeparator
     Friend WithEvents mnuBtnModificar As ToolStripButton
+    Friend WithEvents mnuBtnReactivar As ToolStripButton
     Friend WithEvents colDocIdentidad As DataGridViewTextBoxColumn
     Friend WithEvents colNMedico As DataGridViewTextBoxColumn
     Friend WithEvents colNombres As DataGridViewTextBoxColumn
@@ -826,5 +831,4 @@ Partial Class frmAdministrativo
     Friend WithEvents colEmail As DataGridViewTextBoxColumn
     Friend WithEvents colFechRegistro As DataGridViewTextBoxColumn
     Friend WithEvents colActivo As DataGridViewTextBoxColumn
-    Friend WithEvents mnuBtnReactivar As ToolStripButton
 End Class
