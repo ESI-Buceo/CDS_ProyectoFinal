@@ -460,6 +460,8 @@ Public Class frmMedico
     End Sub
 
     Private Sub cargarDatosGrafico(ByVal tablaDatos As DataTable, columna As String)
+        chartActMedico.Series.Clear()
+        chartActMedico.Series.Add("Sesiones")
         For Each datos As DataRow In tablaDatos.Rows
             chartActMedico.Series("Sesiones").Points.AddXY(datos("Mes"), datos("Cantidad"))
         Next

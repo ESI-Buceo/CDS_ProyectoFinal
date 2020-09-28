@@ -24,15 +24,15 @@ Partial Class frmMedico
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMedico))
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.toolsMenuMedico = New System.Windows.Forms.ToolStrip()
         Me.mnuBtnAgregar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador = New System.Windows.Forms.ToolStripSeparator()
@@ -83,6 +83,13 @@ Partial Class frmMedico
         Me.lblDocIdentidad = New System.Windows.Forms.Label()
         Me.tabMedicoBusqueda = New System.Windows.Forms.TabPage()
         Me.dgvListaMedicos = New System.Windows.Forms.DataGridView()
+        Me.colDocIdentidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNMedico = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colNombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colApellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colEmail = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFechRegistro = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tabActividad = New System.Windows.Forms.TabPage()
         Me.gbActividad = New System.Windows.Forms.GroupBox()
         Me.chartActMedico = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -93,13 +100,7 @@ Partial Class frmMedico
         Me.colSesion = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colPonderacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colDocIdentidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colNMedico = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colNombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colApellidos = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colEmail = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colFechRegistro = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colDoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.toolsMenuMedico.SuspendLayout()
         Me.tabOpcionesMedico.SuspendLayout()
         Me.tabDatos.SuspendLayout()
@@ -372,8 +373,8 @@ Partial Class frmMedico
         'colTelefono
         '
         Me.colTelefono.DataPropertyName = "Telefono"
-        DataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle1
         Me.colTelefono.HeaderText = "TELEFONOS"
         Me.colTelefono.Name = "colTelefono"
         Me.colTelefono.Width = 200
@@ -668,6 +669,67 @@ Partial Class frmMedico
         Me.dgvListaMedicos.Size = New System.Drawing.Size(942, 500)
         Me.dgvListaMedicos.TabIndex = 0
         '
+        'colDocIdentidad
+        '
+        Me.colDocIdentidad.DataPropertyName = "DOCUMENTO"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle2
+        Me.colDocIdentidad.HeaderText = "DOCUMENTO"
+        Me.colDocIdentidad.Name = "colDocIdentidad"
+        Me.colDocIdentidad.ReadOnly = True
+        '
+        'colNMedico
+        '
+        Me.colNMedico.DataPropertyName = "NMEDICO"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colNMedico.DefaultCellStyle = DataGridViewCellStyle3
+        Me.colNMedico.HeaderText = "Nº MEDICO"
+        Me.colNMedico.Name = "colNMedico"
+        Me.colNMedico.ReadOnly = True
+        Me.colNMedico.Width = 130
+        '
+        'colNombres
+        '
+        Me.colNombres.DataPropertyName = "NOMBRES"
+        Me.colNombres.HeaderText = "NOMBRES"
+        Me.colNombres.Name = "colNombres"
+        Me.colNombres.ReadOnly = True
+        Me.colNombres.Width = 120
+        '
+        'colApellidos
+        '
+        Me.colApellidos.DataPropertyName = "APELLIDOS"
+        Me.colApellidos.HeaderText = "APELLIDOS"
+        Me.colApellidos.Name = "colApellidos"
+        Me.colApellidos.ReadOnly = True
+        Me.colApellidos.Width = 120
+        '
+        'colEmail
+        '
+        Me.colEmail.DataPropertyName = "EMAIL"
+        DataGridViewCellStyle4.NullValue = "yes"
+        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle4
+        Me.colEmail.HeaderText = "EMAIL"
+        Me.colEmail.Name = "colEmail"
+        Me.colEmail.ReadOnly = True
+        Me.colEmail.Width = 200
+        '
+        'colFechRegistro
+        '
+        Me.colFechRegistro.DataPropertyName = "FECHREG"
+        Me.colFechRegistro.HeaderText = "FECHA REGISTRO"
+        Me.colFechRegistro.Name = "colFechRegistro"
+        Me.colFechRegistro.ReadOnly = True
+        Me.colFechRegistro.Width = 180
+        '
+        'colActivo
+        '
+        Me.colActivo.DataPropertyName = "ACTIVO"
+        Me.colActivo.HeaderText = "Activo"
+        Me.colActivo.Name = "colActivo"
+        Me.colActivo.ReadOnly = True
+        Me.colActivo.Visible = False
+        '
         'tabActividad
         '
         Me.tabActividad.Controls.Add(Me.gbActividad)
@@ -692,24 +754,24 @@ Partial Class frmMedico
         '
         'chartActMedico
         '
-        ChartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
-        ChartArea3.AxisX.LineColor = System.Drawing.Color.Gainsboro
-        ChartArea3.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro
-        ChartArea3.AxisY.LineColor = System.Drawing.Color.LightGray
-        ChartArea3.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro
-        ChartArea3.Name = "ChartArea1"
-        Me.chartActMedico.ChartAreas.Add(ChartArea3)
-        Legend3.Alignment = System.Drawing.StringAlignment.Far
-        Legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
-        Legend3.Name = "Legend1"
-        Me.chartActMedico.Legends.Add(Legend3)
+        ChartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea1.AxisX.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea1.AxisY.LineColor = System.Drawing.Color.LightGray
+        ChartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea1.Name = "ChartArea1"
+        Me.chartActMedico.ChartAreas.Add(ChartArea1)
+        Legend1.Alignment = System.Drawing.StringAlignment.Far
+        Legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
+        Legend1.Name = "Legend1"
+        Me.chartActMedico.Legends.Add(Legend1)
         Me.chartActMedico.Location = New System.Drawing.Point(9, 32)
         Me.chartActMedico.Name = "chartActMedico"
         Me.chartActMedico.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series3.ChartArea = "ChartArea1"
-        Series3.Legend = "Legend1"
-        Series3.Name = "Sesiones"
-        Me.chartActMedico.Series.Add(Series3)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Sesiones"
+        Me.chartActMedico.Series.Add(Series1)
         Me.chartActMedico.Size = New System.Drawing.Size(561, 409)
         Me.chartActMedico.TabIndex = 0
         Me.chartActMedico.Text = "Chart1"
@@ -730,7 +792,7 @@ Partial Class frmMedico
         Me.dgvSesionesMedico.AllowUserToDeleteRows = False
         Me.dgvSesionesMedico.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
         Me.dgvSesionesMedico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvSesionesMedico.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colSesion, Me.colFecha, Me.colPonderacion})
+        Me.dgvSesionesMedico.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colSesion, Me.colFecha, Me.colPonderacion, Me.colDoc})
         Me.dgvSesionesMedico.Location = New System.Drawing.Point(11, 25)
         Me.dgvSesionesMedico.Name = "dgvSesionesMedico"
         Me.dgvSesionesMedico.ReadOnly = True
@@ -763,8 +825,8 @@ Partial Class frmMedico
         'colFecha
         '
         Me.colFecha.DataPropertyName = "fechaHoraInicioSesion"
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.colFecha.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.colFecha.DefaultCellStyle = DataGridViewCellStyle5
         Me.colFecha.HeaderText = "Fecha y hora"
         Me.colFecha.Name = "colFecha"
         Me.colFecha.ReadOnly = True
@@ -773,73 +835,20 @@ Partial Class frmMedico
         'colPonderacion
         '
         Me.colPonderacion.DataPropertyName = "prioridad"
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colPonderacion.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colPonderacion.DefaultCellStyle = DataGridViewCellStyle6
         Me.colPonderacion.HeaderText = "Ponderacion"
         Me.colPonderacion.Name = "colPonderacion"
         Me.colPonderacion.ReadOnly = True
         Me.colPonderacion.Width = 80
         '
-        'colDocIdentidad
+        'colDoc
         '
-        Me.colDocIdentidad.DataPropertyName = "DOCUMENTO"
-        DataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle13
-        Me.colDocIdentidad.HeaderText = "DOCUMENTO"
-        Me.colDocIdentidad.Name = "colDocIdentidad"
-        Me.colDocIdentidad.ReadOnly = True
-        '
-        'colNMedico
-        '
-        Me.colNMedico.DataPropertyName = "NMEDICO"
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colNMedico.DefaultCellStyle = DataGridViewCellStyle14
-        Me.colNMedico.HeaderText = "Nº MEDICO"
-        Me.colNMedico.Name = "colNMedico"
-        Me.colNMedico.ReadOnly = True
-        Me.colNMedico.Width = 130
-        '
-        'colNombres
-        '
-        Me.colNombres.DataPropertyName = "NOMBRES"
-        Me.colNombres.HeaderText = "NOMBRES"
-        Me.colNombres.Name = "colNombres"
-        Me.colNombres.ReadOnly = True
-        Me.colNombres.Width = 120
-        '
-        'colApellidos
-        '
-        Me.colApellidos.DataPropertyName = "APELLIDOS"
-        Me.colApellidos.HeaderText = "APELLIDOS"
-        Me.colApellidos.Name = "colApellidos"
-        Me.colApellidos.ReadOnly = True
-        Me.colApellidos.Width = 120
-        '
-        'colEmail
-        '
-        Me.colEmail.DataPropertyName = "EMAIL"
-        DataGridViewCellStyle15.NullValue = "yes"
-        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle15
-        Me.colEmail.HeaderText = "EMAIL"
-        Me.colEmail.Name = "colEmail"
-        Me.colEmail.ReadOnly = True
-        Me.colEmail.Width = 200
-        '
-        'colFechRegistro
-        '
-        Me.colFechRegistro.DataPropertyName = "FECHREG"
-        Me.colFechRegistro.HeaderText = "FECHA REGISTRO"
-        Me.colFechRegistro.Name = "colFechRegistro"
-        Me.colFechRegistro.ReadOnly = True
-        Me.colFechRegistro.Width = 180
-        '
-        'colActivo
-        '
-        Me.colActivo.DataPropertyName = "ACTIVO"
-        Me.colActivo.HeaderText = "Activo"
-        Me.colActivo.Name = "colActivo"
-        Me.colActivo.ReadOnly = True
-        Me.colActivo.Visible = False
+        Me.colDoc.DataPropertyName = "docidentidadMedico"
+        Me.colDoc.HeaderText = "documento"
+        Me.colDoc.Name = "colDoc"
+        Me.colDoc.ReadOnly = True
+        Me.colDoc.Visible = False
         '
         'frmMedico
         '
@@ -928,9 +937,6 @@ Partial Class frmMedico
     Friend WithEvents gbSesiones As GroupBox
     Friend WithEvents dgvSesionesMedico As DataGridView
     Friend WithEvents chartActMedico As DataVisualization.Charting.Chart
-    Friend WithEvents colSesion As DataGridViewTextBoxColumn
-    Friend WithEvents colFecha As DataGridViewTextBoxColumn
-    Friend WithEvents colPonderacion As DataGridViewTextBoxColumn
     Friend WithEvents colDocIdentidad As DataGridViewTextBoxColumn
     Friend WithEvents colNMedico As DataGridViewTextBoxColumn
     Friend WithEvents colNombres As DataGridViewTextBoxColumn
@@ -938,4 +944,8 @@ Partial Class frmMedico
     Friend WithEvents colEmail As DataGridViewTextBoxColumn
     Friend WithEvents colFechRegistro As DataGridViewTextBoxColumn
     Friend WithEvents colActivo As DataGridViewTextBoxColumn
+    Friend WithEvents colSesion As DataGridViewTextBoxColumn
+    Friend WithEvents colFecha As DataGridViewTextBoxColumn
+    Friend WithEvents colPonderacion As DataGridViewTextBoxColumn
+    Friend WithEvents colDoc As DataGridViewTextBoxColumn
 End Class

@@ -186,8 +186,10 @@
 
     Public Function ListarSesionesChatMedico(ByVal docIdentidad As String)
         Dim tablaSesiones As New DataTable
-        Comando.CommandText = "SELECT DISTINCT(s.idSesion ), s.fechaHoraInicioSesion, s.prioridad from sesion s
-                                JOIN chat c on c.docidentidadMedico = '" & docIdentidad & "' ORDER BY s.fechaHoraInicioSesion DESC"
+        Comando.CommandText = "SELECT DISTINCT(s.idSesion), s.fechaHoraInicioSesion , s.prioridad FROM chat c
+                                JOIN sesion s ON s.idSesion = c.idSesion 
+                                WHERE c.docidentidadMedico = " & docIdentidad & "
+                                ORDER BY s.fechaHoraInicioSesion DESC"
         Reader = Comando.ExecuteReader
         tablaSesiones.Load(Reader)
         conexion.Close()

@@ -210,7 +210,7 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAANwSURBVFhH7VfNahNRFM4j9BH6CHkDpUkZkizSZJRaKRps
-        ESVNUl24KwwuLCg4uLGgSBBNZyGSlSsXQTPgMo/QR+gj1PudzIln7tyZTGYmRcQDH0nunHvON+een5tS
+        USRNUl24KwwuLCg4uLGgSBBNZyGSlSsXQTPgMo/QR+gj1PudzIln7tyZTGYmRcQDH0nunHvON+een5tS
         WhlMvZtFIzCdX3q+N+773lXRgO3BZLhBTrLKwP9cNhkvArCPl4cPcpZFcBQm40UA9nv+aPLI9y4zk7wO
         gviemeR1EQQykVwnwcEvb1MvwJVJmgjCCN5cB9Z13SRQgagqxmfY1nw9oJAsJoKDn6Od4HFIsK7rLkMh
         VXz0w5v1pp5jcrBOwHdAI14Q6vr+g846czEOqQhWavawWmtN/jqCN5rNDRCr1u2rqmVfKqIOsHd64jz+
@@ -224,7 +224,7 @@
         z+OHX94ujpdfREKtUxM3PWNEjphFJjoDa0yUhYipXNV120/7oQlSOEGIiWQagJw0XBQiBCGU9NrRxQH5
         eufFyXAd5AAjQQgatiLqhi6sAshR+9mTcff7x8jNhVvHotcZ2gwhmDZ0JQvW1O9om1km99+9LO+9fu7i
         rnfv7BQtxE2aFNx8xbiLNGoA66Sv9Bbrpka9TAJjIRLXhf8E8+LfIAgp8n9GWsBn4H65YLzhP0moTawR
-        8DUfqaXSb4O1T9kfWLNuAAAAAElFTkSuQmCC
+        8DUfqaXSb23ET8IHWHFbAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="mnuBtnModificar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -239,6 +239,12 @@
         zgCjx1L/M/5XSXAwnfZ+AVFbDBVuHQKYAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="tttTelefono.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>198, 17</value>
+  </metadata>
+  <metadata name="colTelefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="colDocIdentidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -260,15 +266,6 @@
   <metadata name="colActivo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="tttTelefono.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>198, 17</value>
-  </metadata>
-  <metadata name="colTelefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colTelefono.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="colSesion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -278,8 +275,8 @@
   <metadata name="colPonderacion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="tttTelefono.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>198, 17</value>
+  <metadata name="colDoc.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
   <data name="picEncabezado.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -788,13 +785,4 @@
         JxAgSuh9EhDoqJEjHrCBAlRII/KJAh0vVUSVAgQOpMHpCBAgZcE6P//Z
 </value>
   </data>
-  <metadata name="colSesion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colFecha.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colPonderacion.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>
