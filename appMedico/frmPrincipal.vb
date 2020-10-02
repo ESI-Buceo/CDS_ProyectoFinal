@@ -450,7 +450,7 @@ Public Class frmPrincipal
 
     Private Function validarCierreDeLaAplicacion()
         'Verifica si no hay chat abiertos para poder cerrar la app
-        If panelCabeceraChatActivo.Visible Then
+        If panelCabeceraChatActivo.Visible Or flpChatenEspera.Controls.Count > 0 Then
             MsgBox(VNoCerrarChatEnProceso, vbInformation & vbOK, VAlertaCierre)
             Return False
         End If
