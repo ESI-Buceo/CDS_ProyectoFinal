@@ -8,12 +8,6 @@
         MyBase.New(uid, pwd)
     End Sub
 
-    Public Function VerificarDocumentoDeIdentidad(ByVal docidentidad As String)
-        'Verifica si la cedula ya esta registrada en persona
-        Comando.CommandText = "SELECT docidentidad FROM persona WHERE docidentidad =" & docidentidad
-        Return Comando.ExecuteScalar
-    End Function
-
     Public Sub GuardarDatosMedico()
         'Guarda la informacion del medico nueva o actualiza
         Try
@@ -28,7 +22,7 @@
 
             Comando.CommandText = "INSERT INTO persona (docidentidad, mail, nombres, apellidos, calle, numero, barrio, esquina, apartamento, fechaNacimiento, activo) 
                                         VALUES(" & Me.Documento & ", '" & Me.Email & "', '" & Me.Nombres & "', '" & Me.Apellidos & "','" & Me.Calle & "', '" & Me.Numero & "', 
-                                                '" & Me.Barrio & "', '" & Me.Esquina & "', '" & Me.Apartamento & "', '" & Me.FechaNacimiento & "', activo =1) 
+                                                '" & Me.Barrio & "', '" & Me.Esquina & "', '" & Me.Apartamento & "', '" & Me.FechaNacimiento & "', activo =0) 
                                         ON DUPLICATE KEY UPDATE 
                                                 mail='" & Me.Email & "', nombres='" & Me.Nombres & "', apellidos='" & Me.Apellidos & "', calle ='" & Me.Calle & "', numero='" & Me.Numero & "',
                                                 barrio='" & Me.Barrio & "', esquina='" & Me.Esquina & "', apartamento='" & Me.Apartamento & "', fechaNacimiento='" & Me.FechaNacimiento & "'"
@@ -60,11 +54,10 @@
         End Try
     End Sub
 
-    Public Sub CrearUsuarioBD()
+    Public Function CrearUsuarioBD()
         'Crea el usuario para la base de datos
-        Dim medicoPass As String = "Me." & Me.Documento
 
-        Comando.CommandText = "CREATE USER '" & Me.Documento & "'@'" & Me.RangoIpMedico & "' IDENTIFIED BY '" & medicoPass & "'"
+        Comando.CommandText = "CREATE USER '" & Me.Documento & "'@'" & Me.RangoIpMedico & "' IDENTIFIED BY '" & Me.Password & "'"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "GRANT SELECT ON " + Database + ".persona TO '" & Me.Documento & "'@'" & Me.RangoIpMedico & "'"
@@ -102,7 +95,9 @@
 
         Comando.CommandText = "FLUSH PRIVILEGES"
         Comando.ExecuteNonQuery()
-    End Sub
+
+        Return Me.Password
+    End Function
 
     Public Function BuscarMedico(ByVal stringSql As String)
         'Busca un medico por los datos ingresados por el gestor

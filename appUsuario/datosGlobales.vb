@@ -6,5 +6,5 @@
     Public IPSERVER As String
     Public DBASE As String
     Public DRIVE As String
-    Public EMAIL As String = "contacto@contacto.com"
+    Public EMAIL As String
 End Module

@@ -500,8 +500,10 @@ Public Class frmPrincipal
     Private Sub cargarTelefonos(ByVal datos As DataTable)
         'Recorre los telefonos del paciente
         flpTelefonos.Controls.Clear()
-        For Each telefono As DataRow In datos.Rows
-            mostrarTelefono(telefono("telefono"))
+        For i = 0 To datos.Rows.Count - 1
+            If datos(i).Item("telefono").ToString <> "" Then
+                mostrarTelefono(datos(i).Item("telefono"))
+            End If
         Next
     End Sub
 

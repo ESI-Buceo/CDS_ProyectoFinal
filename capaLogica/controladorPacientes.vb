@@ -17,7 +17,7 @@ Public Module controladorPacientes
 
     Public Sub GuardarDatosPaciente(ByVal docidentidad As String, email As String, nombres As String, apellidos As String,
                                calle As String, numero As String, barrio As String, esquina As String, apartamento As String,
-                               fechaNac As String, activo As String, telefonos As List(Of Integer), preExistentes As List(Of String),
+                               fechaNac As String, activo As String, telefonos As List(Of String), preExistentes As List(Of String),
                                     uid As String, pwd As String)
         'Guarda la informacion del paciente
         Dim p As New ModeloPaciente(uid, pwd)
@@ -33,17 +33,18 @@ Public Module controladorPacientes
         p.FechaNacimiento = fechaNac
         p.Activo = activo
         p.Telefonos = telefonos
-        p.listaPreExistentes = preExistentes
+        p.ListaPreExistentes = preExistentes
         p.GuardarDatosPaciente()
     End Sub
 
-    Public Sub CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+    Public Function CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         'Crea el usuario en la base de datos
         Dim p As New ModeloPaciente(uid, pwd)
         p.Documento = docidentidad
+        p.Password = generarPassword()
         p.RangoIpPaciente = ControladorConfiguracion.LeerRangoIpPacientes(uid, pwd)
-        p.CrearUsuarioBD()
-    End Sub
+        Return p.CrearUsuarioBD()
+    End Function
 
     Public Sub eliminiarPacienteBD(ByVal docidentidad As String, uid As String, pwd As String)
         'Eliminia el usuario de la base de datos
@@ -126,4 +127,5 @@ Public Module controladorPacientes
         Dim m As New ModeloMedico(uid, pwd)
         Return m.ListarTelefonos(docidentidad)
     End Function
+
 End Module

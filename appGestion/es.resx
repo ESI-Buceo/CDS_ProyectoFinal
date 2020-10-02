@@ -591,8 +591,8 @@
   <data name="segurodereactivarpatologia" xml:space="preserve">
     <value>Estas seguro de reactivar la patologia?</value>
   </data>
-  <data name="reactivar" xml:space="preserve">
-    <value>Reactivar</value>
+  <data name="Activar" xml:space="preserve">
+    <value>Activar</value>
   </data>
   <data name="toolbotonreactivar" xml:space="preserve">
     <value>Reactiva la cuenta en pantalla</value>
@@ -701,5 +701,44 @@
   </data>
   <data name="sesiones" xml:space="preserve">
     <value>Sesiones</value>
+  </data>
+  <data name="asuntoaltacuenta" xml:space="preserve">
+    <value>Activacion de cuenta en Vida Sana</value>
+  </data>
+  <data name="buenasnoticias" xml:space="preserve">
+    <value>Buenas Noticias</value>
+  </data>
+  <data name="elenviodeemaildeshabilitado" xml:space="preserve">
+    <value>El envio de email esta deshabilitado</value>
+  </data>
+  <data name="elquipode" xml:space="preserve">
+    <value>El equipo de</value>
+  </data>
+  <data name="emailenviadocorrectamente" xml:space="preserve">
+    <value>El email se envio correctamente </value>
+  </data>
+  <data name="errorenviodeemail" xml:space="preserve">
+    <value>Error al intentar enviar el mail</value>
+  </data>
+  <data name="graciasporpreferinos" xml:space="preserve">
+    <value>Gracias por preferirnos</value>
+  </data>
+  <data name="tucuentaactivada" xml:space="preserve">
+    <value>Tu cuenta en Vida Sana ha sido activada, ahora podras ingresar a la aplicacion con la siguiente información</value>
+  </data>
+  <data name="descripcionrecuperacion" xml:space="preserve">
+    <value>Hemos restablecido tu contraseña. Estos son los nuevos datos de conexión:</value>
+  </data>
+  <data name="recuperacionpassword" xml:space="preserve">
+    <value>Generacion de nueva contraseña</value>
+  </data>
+  <data name="titulorecuperarpassword" xml:space="preserve">
+    <value>Recuperacion de contraseña</value>
+  </data>
+  <data name="mensajerestablecerpassword" xml:space="preserve">
+    <value>Vas a generar una nueva contraseña para el usuario, este cambio no se puede revertir, deseas continuar ?</value>
+  </data>
+  <data name="restablecerpassword" xml:space="preserve">
+    <value>Restablecer contraseña</value>
   </data>
 </root>

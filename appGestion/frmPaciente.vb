@@ -6,6 +6,7 @@ Public Class frmPaciente
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
         'Habilita el ingreso de un nuevo paciente
         opcionesMenu.ClickEnBotonAgregar(toolsMenuPaciente)
+        tabOpcionesPaciente.SelectTab(tabDatos)
         agregar = True
         habilitarDocumento()
         colorearDocumento()
@@ -68,6 +69,7 @@ Public Class frmPaciente
         agregar = False
         btnEliminarEnfermedad.Enabled = False
         restaurarColorCampos()
+        desactivarPassword()
     End Sub
 
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
@@ -106,7 +108,7 @@ Public Class frmPaciente
 
     Private Function listaDeTelefonos()
         'Recorre el array para entregar una lista de telefonos
-        Dim telefonos As New List(Of Integer)
+        Dim telefonos As New List(Of String)
         For t = 0 To dgvListaTelefonos.Rows.Count - 1
             telefonos.Add(dgvListaTelefonos.Item(0, t).Value)
         Next
@@ -127,18 +129,6 @@ Public Class frmPaciente
         MsgBox(VDatosGuardadosConExito, vbInformation, VAviso)
         deshablitaDocumento()
         restaurarColorCampos()
-        agregarUsuarioABD()
-    End Sub
-
-    Private Sub agregarUsuarioABD()
-        'Agrega el usuario a la base de datos
-        If agregar Then
-            Try
-                controladorPacientes.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
-            Catch ex As Exception
-                MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
-            End Try
-        End If
     End Sub
 
     Private Sub deshabilitarListaTelefonos()
@@ -280,6 +270,14 @@ Public Class frmPaciente
         End Try
     End Sub
 
+    Private Sub activarBotonPassword()
+        btnRestPass.Enabled = True
+    End Sub
+
+    Private Sub desactivarPassword()
+        btnRestPass.Enabled = False
+    End Sub
+
     Private Sub validarBotonBorrar(ByVal activo As String)
         'Activar y desactivar botones si ya esta eliminado
         If activo = 0 Then
@@ -289,12 +287,12 @@ Public Class frmPaciente
             mnuBtnCancelar.Enabled = False
             mnuBtnNueva.Enabled = True
             mnuBtnAgregar.Enabled = True
-            chkActivo.Visible = True
+            desactivarPassword()
         Else
             mnuBtnCancelar.Enabled = True
             mnuBtnModificar.Enabled = True
             mnuReactivar.Enabled = False
-            chkActivo.Visible = False
+            activarBotonPassword()
         End If
     End Sub
 
@@ -322,7 +320,6 @@ Public Class frmPaciente
         cantidadDeDiagnosticosRecibidos(documento)
         cantidadDeChatsRealizados(documento)
         mostrarHistoriaDeChat(documento)
-        listarDiagnosticosRecibidos(documento)
     End Sub
 
     Private Sub crearTablaTelefonos(ByVal telefonos As DataTable)
@@ -510,11 +507,8 @@ Public Class frmPaciente
         dgvHistoriaChat.Columns(0).HeaderText = VFecha
         dgvHistoriaChat.Columns(1).HeaderText = VSesion.ToUpper
         dgvHistoriaChat.Columns(2).HeaderText = VMedico.ToUpper
-        gbListaDiagnosticos.Text = VDiagnosticoSGenerados
         gbVerChat.Text = VVerChat
-        dgvHistoriaDiagnosticos.Columns(0).HeaderText = VDiagnosticos.ToUpper
-        dgvHistoriaDiagnosticos.Columns(1).HeaderText = VFecha
-        dgvHistoriaDiagnosticos.Columns(2).HeaderText = VPonderacion.ToUpper
+        btnRestPass.Text = VRestablecerPassword
     End Sub
 
     Private Sub cantidadDeDiagnosticosRecibidos(ByVal documento As String)
@@ -563,15 +557,6 @@ Public Class frmPaciente
         End If
     End Sub
 
-    Private Sub listarDiagnosticosRecibidos(ByVal documento As String)
-        'Lista los diagnosticos que recibio el usuario
-        Try
-            dgvHistoriaDiagnosticos.DataSource = ControladorDiagnostico.TraerDiagnosticos(USUARIO, PASSWORD, documento)
-        Catch ex As Exception
-            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
-        End Try
-    End Sub
-
     Private Sub mnuReactivar_Click(sender As Object, e As EventArgs) Handles mnuReactivar.Click
         confirmarReActivarCuenta()
     End Sub
@@ -601,7 +586,7 @@ Public Class frmPaciente
     Private Sub crearUsuarioBD()
         'Crea el usuario en la base de datos
         Try
-            controladorPacientes.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
+            EnviarEmail(txtDocIdentidad.Text, controladorPacientes.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD), txtEmail.Text, VAsuntoAltaCuenta, VGraciasPorPreferinos, VTuCuentaActivada)
             ClickEnBotonCancelar(toolsMenuPaciente)
         Catch ex As Exception
             MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
@@ -622,5 +607,32 @@ Public Class frmPaciente
         dgvHistoriaChat.Cursor = Cursors.Hand
     End Sub
 
+    Private Sub btnRestPass_Click(sender As Object, e As EventArgs) Handles btnRestPass.Click
+        'Confirma la generacion de un nuevo password para el usuario en pantalla
+        Dim respuesta As Integer
+        respuesta = MsgBox(VMensajeRestablecerPassword, vbQuestion + vbYesNo, VAvisoAlerta)
+        If respuesta = 6 Then
+            generarNuevaPassword()
+        End If
+    End Sub
 
+    Private Sub generarNuevaPassword()
+        'Cambia la contraseña del usuario en la bd
+        Try
+            Dim newPass As String = ControladorPersona.generarPassword()
+            ControladorPersona.CambiarPassword(txtDocIdentidad.Text, newPass,
+                                               ControladorConfiguracion.LeerRangoIpPacientes(USUARIO, PASSWORD),
+                                               USUARIO, PASSWORD)
+            enviarEmailNuevoPassword(newPass)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            MsgBox("Error al cambios el pass")
+        End Try
+    End Sub
+
+    Private Sub enviarEmailNuevoPassword(ByVal nuevoPass As String)
+        'Notifica al usuario por email del nuevo password
+        EnviarEmail(txtDocIdentidad.Text, nuevoPass, txtEmail.Text,
+        VRecuperacionAsunto, VRecuperacionTitulo, VRecuperacionDescipcion)
+    End Sub
 End Class

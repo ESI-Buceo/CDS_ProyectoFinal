@@ -8,12 +8,6 @@
         MyBase.New(uid, pwd)
     End Sub
 
-    Public Function VerificarDocumentoDeIdentidad(ByVal docidentidad As String)
-        Comando.CommandText = "SELECT docidentidad FROM persona WHERE docidentidad=" & docidentidad
-        Return Comando.ExecuteScalar
-        CerrarConexion()
-    End Function
-
     Public Sub GuardarDatosPaciente()
         Try
             Comando.CommandText = "SET AUTOCOMMIT = OFF;"
@@ -27,7 +21,7 @@
 
             Comando.CommandText = "INSERT INTO persona (docidentidad, mail, nombres, apellidos, calle, numero, barrio, esquina, apartamento, fechaNacimiento, activo) 
                                         VALUES(" & Me.Documento & ", '" & Me.Email & "', '" & Me.Nombres & "', '" & Me.Apellidos & "','" & Me.Calle & "', '" & Me.Numero & "', 
-                                                '" & Me.Barrio & "', '" & Me.Esquina & "', '" & Me.Apartamento & "', '" & Me.FechaNacimiento & "', activo =1) 
+                                                '" & Me.Barrio & "', '" & Me.Esquina & "', '" & Me.Apartamento & "', '" & Me.FechaNacimiento & "', activo =0) 
                                         ON DUPLICATE KEY UPDATE 
                                                 mail='" & Me.Email & "', nombres='" & Me.Nombres & "', apellidos='" & Me.Apellidos & "', calle ='" & Me.Calle & "', numero='" & Me.Numero & "',
                                                 barrio='" & Me.Barrio & "', esquina='" & Me.Esquina & "', apartamento='" & Me.Apartamento & "', fechaNacimiento='" & Me.FechaNacimiento & "', activo =" & Me.Activo
@@ -68,10 +62,9 @@
         End Try
     End Sub
 
-    Public Sub CrearUsuarioBD()
-        Dim pacientePass As String = "Pa." & Me.Documento
+    Public Function CrearUsuarioBD()
 
-        Comando.CommandText = "CREATE USER '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "' IDENTIFIED BY '" & pacientePass & "'"
+        Comando.CommandText = "CREATE USER '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "' IDENTIFIED BY '" & Me.Password & "'"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "GRANT SELECT ON " + Database + ".persona TO '" & Me.Documento & "'@'" & Me.RangoIpPaciente & "'"
@@ -118,7 +111,9 @@
 
         Comando.CommandText = "FLUSH PRIVILEGES"
         Comando.ExecuteNonQuery()
-    End Sub
+
+        Return Me.Password
+    End Function
 
     Public Function BuscarPaciente(ByVal stringSql As String)
         Dim tablaPacientes As New DataTable

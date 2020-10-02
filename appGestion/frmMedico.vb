@@ -7,6 +7,7 @@ Public Class frmMedico
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
         'Habilita el ingreso de un nuevo medico
         opcionesMenu.ClickEnBotonAgregar(toolsMenuMedico)
+        tabOpcionesMedico.SelectTab(tabDatos)
         agregar = True
         habilitarDocumento()
         colorearDocumento()
@@ -55,6 +56,7 @@ Public Class frmMedico
         dgvListaTelefonos.Enabled = False
         btnAgregarTelefono.Enabled = False
         btnEliminarTelefono.Enabled = False
+        desactivarPassword()
         agregar = False
         restaurarColorCampos()
     End Sub
@@ -89,13 +91,14 @@ Public Class frmMedico
             guardadoConExito()
             deshabilitarControlesDeEdicion()
         Catch ex As Exception
+            MsgBox(ex.Message)
             MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
     End Sub
 
     Private Function listaDeTelefonos()
         'Recorre el array para entregar una lista de telefonos
-        Dim telefonos As New List(Of Integer)
+        Dim telefonos As New List(Of String)
         For t = 0 To dgvListaTelefonos.Rows.Count - 1
             telefonos.Add(dgvListaTelefonos.Item(0, t).Value)
         Next
@@ -107,18 +110,6 @@ Public Class frmMedico
         MsgBox(VDatosGuardadosConExito, vbInformation, VAviso)
         deshablitaDocumento()
         restaurarColorCampos()
-        agregarUsuarioABD()
-    End Sub
-
-    Private Sub agregarUsuarioABD()
-        'Agrega el usuario a la base de datos
-        If agregar Then
-            Try
-                ControladorMedico.crearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
-            Catch ex As Exception
-                MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
-            End Try
-        End If
     End Sub
 
     Private Sub deshabilitarListaTelefonos()
@@ -242,10 +233,12 @@ Public Class frmMedico
             mnuBtnCancelar.Enabled = False
             mnuBtnNueva.Enabled = True
             mnuBtnAgregar.Enabled = True
+            desactivarPassword()
         Else
             mnuBtnCancelar.Enabled = True
             mnuBtnModificar.Enabled = True
             mnuReactivar.Enabled = False
+            activarBotonPassword()
         End If
     End Sub
 
@@ -386,7 +379,7 @@ Public Class frmMedico
         mnuBtnBorrar.ToolTipText = VToolBotonBorrar
         mnuBtnModificar.Text = VModificar
         mnuBtnModificar.ToolTipText = VToolBotonModificar
-        mnuReactivar.Text = VReactivar
+        mnuReactivar.Text = VActivar
         mnuReactivar.ToolTipText = VToolsBotonReactivar
         tttTelefono.ToolTipTitle = VOpcionesTelefonos
         tttTelefono.SetToolTip(btnAgregarTelefono, VOpcionAgregarTelefono)
@@ -421,6 +414,7 @@ Public Class frmMedico
         dgvSesionesMedico.Columns(0).HeaderText = VSesion
         dgvSesionesMedico.Columns(1).HeaderText = VFecha
         dgvSesionesMedico.Columns(2).HeaderText = VPonderacion
+        btnRestPass.Text = VRestablecerPassword
     End Sub
 
     Private Sub confirmarReActivacionMedico()
@@ -447,7 +441,7 @@ Public Class frmMedico
     Private Sub crearUsuarioBD()
         'Crea el usuario en la base de datos
         Try
-            ControladorMedico.crearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
+            EnviarEmail(txtDocIdentidad.Text, ControladorMedico.crearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD), txtEmail.Text, VAsuntoAltaCuenta, VGraciasPorPreferinos, VTuCuentaActivada)
             ClickEnBotonCancelar(toolsMenuMedico)
         Catch ex As Exception
             MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
@@ -487,7 +481,44 @@ Public Class frmMedico
             validarBotonBorrar(dgvListaMedicos.Item(6, e.RowIndex).Value)
             txtNombres.Select()
         Catch ex As Exception
+            MsgBox(ex.Message)
             MsgBox(VErrorRecuperarDatos, vbExclamation, VAvisoError)
         End Try
+    End Sub
+
+    Private Sub btnRestPass_Click(sender As Object, e As EventArgs) Handles btnRestPass.Click
+        'Confirma la generacion de un nuevo password para el usuario en pantalla
+        Dim respuesta As Integer
+        respuesta = MsgBox(VMensajeRestablecerPassword, vbQuestion + vbYesNo, VAvisoAlerta)
+        If respuesta = 6 Then
+            generarNuevaPassword()
+        End If
+    End Sub
+
+    Private Sub generarNuevaPassword()
+        'Cambia la contraseña del usuario en la bd
+        Try
+            Dim newPass As String = ControladorPersona.generarPassword()
+            ControladorPersona.CambiarPassword(txtDocIdentidad.Text, newPass,
+                                               ControladorConfiguracion.LeerRangoIpMedicos(USUARIO, PASSWORD),
+                                               USUARIO, PASSWORD)
+            enviarEmailNuevoPassword(newPass)
+        Catch ex As Exception
+            MsgBox("Error al cambios el pass")
+        End Try
+    End Sub
+
+    Private Sub enviarEmailNuevoPassword(ByVal nuevoPass As String)
+        'Notifica al usuario por email del nuevo password
+        EnviarEmail(txtDocIdentidad.Text, nuevoPass, txtEmail.Text,
+        VRecuperacionAsunto, VRecuperacionTitulo, VRecuperacionDescipcion)
+    End Sub
+
+    Private Sub activarBotonPassword()
+        btnRestPass.Enabled = True
+    End Sub
+
+    Private Sub desactivarPassword()
+        btnRestPass.Enabled = False
     End Sub
 End Class
