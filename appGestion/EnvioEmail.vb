@@ -20,7 +20,7 @@ Public Module EnvioEmail
                             <h2>" + tituloEmail + "</h2>
                             <span>" + descripcion + "</span>
                             <h4> " + VDocumento + ": " + documento + "</h4>
-                            <h5> " + VPassword + ":" + pass + "</5><br>
+                            <h5> " + VPassword + ": " + pass + "</5><br>
                             <span>" + VGraciasPorPreferinos + "</span>
                             <h4>" + VElEquipoDe + " Vida Sana</h4>
                         </body></HTML>"

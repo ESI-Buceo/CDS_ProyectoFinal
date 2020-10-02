@@ -741,4 +741,7 @@
   <data name="restablecerpassword" xml:space="preserve">
     <value>Restablecer contraseña</value>
   </data>
+  <data name="errorcambiarpassword" xml:space="preserve">
+    <value>Hubo un error al pretender cambiar la contraseña</value>
+  </data>
 </root>

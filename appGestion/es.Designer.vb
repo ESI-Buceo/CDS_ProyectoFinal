@@ -767,6 +767,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Hubo un error al pretender cambiar la contraseña.
+        '''</summary>
+        Friend Shared ReadOnly Property errorcambiarpassword() As String
+            Get
+                Return ResourceManager.GetString("errorcambiarpassword", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Existe un error en la configuracion, no se pudo guardar. Verifica.
         '''</summary>
         Friend Shared ReadOnly Property errorconfiguracion() As String

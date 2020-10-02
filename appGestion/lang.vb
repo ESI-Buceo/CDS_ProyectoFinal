@@ -198,6 +198,7 @@
     Public VRecuperacionDescipcion As String
     Public VMensajeRestablecerPassword As String
     Public VRestablecerPassword As String
+    Public VErrorCambiarPassword As String
 
     Public Sub CargarIdioma()
         VIdiomaActivo = My.Settings.lenguaje
@@ -407,6 +408,7 @@
         VRecuperacionDescipcion = My.Resources.es.descripcionrecuperacion
         VMensajeRestablecerPassword = My.Resources.es.mensajerestablecerpassword
         VRestablecerPassword = My.Resources.es.restablecerpassword
+        VErrorCambiarPassword = My.Resources.es.errorcambiarpassword
     End Sub
 
     Public Sub idioma_en()
@@ -607,6 +609,7 @@
         VRecuperacionDescipcion = My.Resources.en.descripcionrecuperacion
         VMensajeRestablecerPassword = My.Resources.en.mensajerestablecerpassword
         VRestablecerPassword = My.Resources.en.restablecerpassword
+        VErrorCambiarPassword = My.Resources.en.errorcambiarpassword
     End Sub
 
     Public Sub GuardarIdioma(ByVal idioma As String)
