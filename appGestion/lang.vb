@@ -148,7 +148,7 @@
     Public VReactivacionCuentaExitosa As String
     Public VSeguroDeReactivarPatologia As String
     Public VPatologiaReactivadaConExito As String
-    Public VReactivar As String
+    Public VActivar As String
     Public VToolsBotonReactivar As String
     Public VUsuario As String
     Public VListaAdministrativos As String
@@ -185,7 +185,20 @@
     Public VActividad As String
     Public VSesiones As String
     Public VActividad12Meses As String
-
+    Public VAsuntoAltaCuenta As String
+    Public VBuenasNoticias As String
+    Public VTuCuentaActivada As String
+    Public VGraciasPorPreferinos As String
+    Public VElEquipoDe As String
+    Public VEmailEnviadoCorrectamente As String
+    Public VErrorEnvioDeEmail As String
+    Public VElEnvioDeChatDeshabilitado As String
+    Public VRecuperacionAsunto As String
+    Public VRecuperacionTitulo As String
+    Public VRecuperacionDescipcion As String
+    Public VMensajeRestablecerPassword As String
+    Public VRestablecerPassword As String
+    Public VErrorCambiarPassword As String
 
     Public Sub CargarIdioma()
         VIdiomaActivo = My.Settings.lenguaje
@@ -345,7 +358,7 @@
         VReactivacionCuentaExitosa = My.Resources.es.usuariorestauradoexito
         VSeguroDeReactivarPatologia = My.Resources.es.segurodereactivarpatologia
         VPatologiaReactivadaConExito = My.Resources.es.patologiareactivadaconexito
-        VReactivar = My.Resources.es.reactivar
+        VActivar = My.Resources.es.Activar
         VToolsBotonReactivar = My.Resources.es.toolbotonreactivar
         VUsuario = My.Resources.es.usuario
         VListaAdministrativos = My.Resources.es.listaadministrativos
@@ -382,6 +395,20 @@
         VActividad = My.Resources.es.actividad
         VSesiones = My.Resources.es.sesiones
         VActividad12Meses = My.Resources.es.actividaddoceMeses
+        VAsuntoAltaCuenta = My.Resources.es.asuntoaltacuenta
+        VBuenasNoticias = My.Resources.es.buenasnoticias
+        VTuCuentaActivada = My.Resources.es.tucuentaactivada
+        VGraciasPorPreferinos = My.Resources.es.graciasporpreferinos
+        VElEquipoDe = My.Resources.es.elquipode
+        VEmailEnviadoCorrectamente = My.Resources.es.emailenviadocorrectamente
+        VErrorEnvioDeEmail = My.Resources.es.errorenviodeemail
+        VElEnvioDeChatDeshabilitado = My.Resources.es.elenviodeemaildeshabilitado
+        VRecuperacionAsunto = My.Resources.es.recuperacionpassword
+        VRecuperacionTitulo = My.Resources.es.titulorecuperarpassword
+        VRecuperacionDescipcion = My.Resources.es.descripcionrecuperacion
+        VMensajeRestablecerPassword = My.Resources.es.mensajerestablecerpassword
+        VRestablecerPassword = My.Resources.es.restablecerpassword
+        VErrorCambiarPassword = My.Resources.es.errorcambiarpassword
     End Sub
 
     Public Sub idioma_en()
@@ -532,7 +559,7 @@
         VReactivacionCuentaExitosa = My.Resources.en.usuariorestauradoexito
         VSeguroDeReactivarPatologia = My.Resources.en.segurodereactivarpatologia
         VPatologiaReactivadaConExito = My.Resources.en.patologiareactivadaconexito
-        VReactivar = My.Resources.en.reactivar
+        VActivar = My.Resources.en.activar
         VToolsBotonReactivar = My.Resources.en.toolbotonreactivar
         VUsuario = My.Resources.en.usuario
         VListaAdministrativos = My.Resources.en.listaadministrativos
@@ -569,6 +596,20 @@
         VActividad = My.Resources.en.actividad
         VSesiones = My.Resources.en.sesiones
         VActividad12Meses = My.Resources.en.actividaddoceMeses
+        VAsuntoAltaCuenta = My.Resources.en.asuntoaltacuenta
+        VBuenasNoticias = My.Resources.en.buenasnoticias
+        VTuCuentaActivada = My.Resources.en.tucuentaactivada
+        VGraciasPorPreferinos = My.Resources.en.graciasporpreferinos
+        VElEquipoDe = My.Resources.en.elquipode
+        VEmailEnviadoCorrectamente = My.Resources.en.emailenviadocorrectamente
+        VErrorEnvioDeEmail = My.Resources.en.errorenviodeemail
+        VElEnvioDeChatDeshabilitado = My.Resources.en.elenviodeemaildeshabilitado
+        VRecuperacionAsunto = My.Resources.en.recuperacionpassword
+        VRecuperacionTitulo = My.Resources.en.titulorecuperarpassword
+        VRecuperacionDescipcion = My.Resources.en.descripcionrecuperacion
+        VMensajeRestablecerPassword = My.Resources.en.mensajerestablecerpassword
+        VRestablecerPassword = My.Resources.en.restablecerpassword
+        VErrorCambiarPassword = My.Resources.en.errorcambiarpassword
     End Sub
 
     Public Sub GuardarIdioma(ByVal idioma As String)

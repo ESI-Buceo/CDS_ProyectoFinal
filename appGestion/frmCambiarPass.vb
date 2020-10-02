@@ -9,8 +9,9 @@ Public Class frmCambiarPass
 
     Private Sub cambiarPassword(ByVal pass As String)
         Try
-            controladorAdministrativo.CambiarPassword(pass, USUARIO, PASSWORD)
+            ControladorPersona.CambiarPassword(USUARIO, pass, ControladorConfiguracion.leerRangoIpGestion(USUARIO, PASSWORD), USUARIO, PASSWORD)
             MsgBox(VCambioPassSuccess, vbInformation, VCambiarPassword)
+            PASSWORD = txtPass.Text
             Me.Dispose()
         Catch ex As Exception
             MsgBox(ex.Message)

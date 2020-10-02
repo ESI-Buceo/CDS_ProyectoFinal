@@ -5,6 +5,7 @@ Public Class frmAdministrativo
 
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
         ClickEnBotonAgregar(toolsMenuAdmin)
+        tabOpcionAdmin.SelectTab(tabDatos)
         agregar = True
         habilitarDocumento()
         colorearDocumento()
@@ -51,6 +52,7 @@ Public Class frmAdministrativo
         dgvListaTelefonos.Enabled = False
         btnAgregarTelefono.Enabled = False
         btnEliminarTelefono.Enabled = False
+
         agregar = False
         restaurarColorCampos()
     End Sub
@@ -78,12 +80,15 @@ Public Class frmAdministrativo
     Private Sub guardarDatosAdministrativo()
         'guarda la informacion del administrativo
         Try
-            controladorAdministrativo.GuardarDatosAdmin(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
+            If controladorAdministrativo.GuardarDatosAdmin(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
                                txtCalle.Text, txtNumeroCalle.Text, txtBarrio.Text, txtEsquina.Text, txtApto.Text,
-                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), listaDeTelefonos, txtNumAdmin.Text, USUARIO, PASSWORD)
-            opcionesMenu.ClickEnBotonGuardar(toolsMenuAdmin)
-            guardadoConExito()
-            deshabilitarControlesDeEdicion()
+                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), listaDeTelefonos, txtNumAdmin.Text, USUARIO, PASSWORD) Then
+                opcionesMenu.ClickEnBotonGuardar(toolsMenuAdmin)
+                guardadoConExito()
+                deshabilitarControlesDeEdicion()
+            Else
+                MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
+            End If
         Catch ex As Exception
             MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
@@ -91,7 +96,7 @@ Public Class frmAdministrativo
 
     Private Function listaDeTelefonos()
         'Recorre el array para entregar una lista de telefonos
-        Dim telefonos As New List(Of Integer)
+        Dim telefonos As New List(Of String)
         For t = 0 To dgvListaTelefonos.Rows.Count - 1
             telefonos.Add(dgvListaTelefonos.Item(0, t).Value)
         Next
@@ -103,18 +108,6 @@ Public Class frmAdministrativo
         MsgBox(VDatosGuardadosConExito, vbInformation, VAviso)
         deshablitaDocumento()
         restaurarColorCampos()
-        agregarAdministrativoABD()
-    End Sub
-
-    Private Sub agregarAdministrativoABD()
-        'Agrega el usuario a la base de datos
-        If agregar Then
-            Try
-                controladorAdministrativo.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
-            Catch ex As Exception
-                MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
-            End Try
-        End If
     End Sub
 
     Private Sub deshabilitarListaTelefonos()
@@ -127,6 +120,7 @@ Public Class frmAdministrativo
         opcionesMenu.ClickEnBotonCancelar(toolsMenuAdmin)
         deshablitaDocumento()
         deshabilitarControlesDeEdicion()
+        desactivarPassword()
         tabOpcionAdmin.SelectTab(tabDatos)
     End Sub
 
@@ -253,10 +247,12 @@ Public Class frmAdministrativo
             mnuBtnCancelar.Enabled = False
             mnuBtnNueva.Enabled = True
             mnuBtnAgregar.Enabled = True
+            desactivarPassword()
         Else
             mnuBtnCancelar.Enabled = True
             mnuBtnModificar.Enabled = True
             mnuBtnReactivar.Enabled = False
+            activarBotonPassword()
         End If
     End Sub
 
@@ -399,7 +395,7 @@ Public Class frmAdministrativo
     Private Sub crearUsuarioBD()
         'Crea el usuario en la base de datos
         Try
-            controladorAdministrativo.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
+            EnviarEmail(txtDocIdentidad.Text, controladorAdministrativo.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD), txtEmail.Text, VAsuntoAltaCuenta, VBuenasNoticias, VTuCuentaActivada)
             ClickEnBotonCancelar(toolsMenuAdmin)
         Catch ex As Exception
             MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
@@ -421,7 +417,7 @@ Public Class frmAdministrativo
         mnuBtnBorrar.ToolTipText = VToolBotonBorrar
         mnuBtnModificar.Text = VModificar
         mnuBtnModificar.ToolTipText = VToolBotonModificar
-        mnuBtnReactivar.Text = VReactivar
+        mnuBtnReactivar.Text = VActivar
         mnuBtnReactivar.ToolTipText = VToolsBotonReactivar
         tabDatos.Text = VDato
         tabBusqueda.Text = VBusqueda
@@ -449,6 +445,42 @@ Public Class frmAdministrativo
         dgvListaAdministrador.Columns(5).HeaderText = VFecha
         dtpFechaNac.Format = DateTimePickerFormat.Custom
         dtpFechaNac.CustomFormat = Nothing
+        btnRestPass.Text = VRestablecerPassword
     End Sub
 
+    Private Sub btnRestPass_Click(sender As Object, e As EventArgs) Handles btnRestPass.Click
+        'Confirma la generacion de un nuevo password para el usuario en pantalla
+        Dim respuesta As Integer
+        respuesta = MsgBox(VMensajeRestablecerPassword, vbQuestion + vbYesNo, VAvisoAlerta)
+        If respuesta = 6 Then
+            generarNuevaPassword()
+        End If
+    End Sub
+
+    Private Sub generarNuevaPassword()
+        'Cambia la contraseña del usuario en la bd
+        Try
+            Dim newPass As String = ControladorPersona.generarPassword()
+            ControladorPersona.CambiarPassword(txtDocIdentidad.Text, newPass,
+                                               ControladorConfiguracion.leerRangoIpGestion(USUARIO, PASSWORD),
+                                               USUARIO, PASSWORD)
+            enviarEmailNuevoPassword(newPass)
+        Catch ex As Exception
+            MsgBox(VErrorCambiarPassword, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub enviarEmailNuevoPassword(ByVal nuevoPass As String)
+        'Notifica al usuario por email del nuevo password
+        EnviarEmail(txtDocIdentidad.Text, nuevoPass, txtEmail.Text,
+        VRecuperacionAsunto, VRecuperacionTitulo, VRecuperacionDescipcion)
+    End Sub
+
+    Private Sub activarBotonPassword()
+        btnRestPass.Enabled = True
+    End Sub
+
+    Private Sub desactivarPassword()
+        btnRestPass.Enabled = False
+    End Sub
 End Class

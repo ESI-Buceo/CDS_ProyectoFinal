@@ -20,7 +20,7 @@ Public Class frmLogin
     Private Sub validarCredenciales()
         'Valida las credenciales del medico
         Try
-            identificarMedico(ControladorMedico.identificarMedico(txtDocumento.Text, "Me." & txtPassword.Text))
+            identificarMedico(ControladorMedico.identificarMedico(txtDocumento.Text, txtPassword.Text))
             setearUsuario()
         Catch ex As Exception
             MsgBox(VErrorDeLogin, vbExclamation, VErrorAcceso)
@@ -31,7 +31,7 @@ Public Class frmLogin
     Private Sub setearUsuario()
         'Carga los datos en las variables globales
         USUARIO = txtDocumento.Text
-        PASSWD = "Me." & txtPassword.Text
+        PASSWD = txtPassword.Text
         recordarDatos()
         cargarFormulario()
     End Sub

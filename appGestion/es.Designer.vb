@@ -92,6 +92,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Activar.
+        '''</summary>
+        Friend Shared ReadOnly Property Activar() As String
+            Get
+                Return ResourceManager.GetString("Activar", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Actividad.
         '''</summary>
         Friend Shared ReadOnly Property actividad() As String
@@ -209,6 +218,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Activacion de cuenta en Vida Sana.
+        '''</summary>
+        Friend Shared ReadOnly Property asuntoaltacuenta() As String
+            Get
+                Return ResourceManager.GetString("asuntoaltacuenta", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Aviso.
         '''</summary>
         Friend Shared ReadOnly Property aviso() As String
@@ -268,6 +286,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property borrar() As String
             Get
                 Return ResourceManager.GetString("borrar", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Buenas Noticias.
+        '''</summary>
+        Friend Shared ReadOnly Property buenasnoticias() As String
+            Get
+                Return ResourceManager.GetString("buenasnoticias", resourceCulture)
             End Get
         End Property
         
@@ -515,6 +542,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Hemos restablecido tu contraseña. Estos son los nuevos datos de conexión:.
+        '''</summary>
+        Friend Shared ReadOnly Property descripcionrecuperacion() As String
+            Get
+                Return ResourceManager.GetString("descripcionrecuperacion", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Destino.
         '''</summary>
         Friend Shared ReadOnly Property destino() As String
@@ -587,6 +623,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a El envio de email esta deshabilitado.
+        '''</summary>
+        Friend Shared ReadOnly Property elenviodeemaildeshabilitado() As String
+            Get
+                Return ResourceManager.GetString("elenviodeemaildeshabilitado", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a El equipo de.
+        '''</summary>
+        Friend Shared ReadOnly Property elquipode() As String
+            Get
+                Return ResourceManager.GetString("elquipode", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a El síntoma ya existe.
         '''</summary>
         Friend Shared ReadOnly Property elsistomayaexiste() As String
@@ -610,6 +664,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property emaildecontacto() As String
             Get
                 Return ResourceManager.GetString("emaildecontacto", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a El email se envio correctamente .
+        '''</summary>
+        Friend Shared ReadOnly Property emailenviadocorrectamente() As String
+            Get
+                Return ResourceManager.GetString("emailenviadocorrectamente", resourceCulture)
             End Get
         End Property
         
@@ -704,6 +767,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Hubo un error al pretender cambiar la contraseña.
+        '''</summary>
+        Friend Shared ReadOnly Property errorcambiarpassword() As String
+            Get
+                Return ResourceManager.GetString("errorcambiarpassword", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Existe un error en la configuracion, no se pudo guardar. Verifica.
         '''</summary>
         Friend Shared ReadOnly Property errorconfiguracion() As String
@@ -718,6 +790,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property errorcrearusuario() As String
             Get
                 Return ResourceManager.GetString("errorcrearusuario", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Error al intentar enviar el mail.
+        '''</summary>
+        Friend Shared ReadOnly Property errorenviodeemail() As String
+            Get
+                Return ResourceManager.GetString("errorenviodeemail", resourceCulture)
             End Get
         End Property
         
@@ -826,6 +907,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property formatoincorrectoparaimportar() As String
             Get
                 Return ResourceManager.GetString("formatoincorrectoparaimportar", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Gracias por preferirnos.
+        '''</summary>
+        Friend Shared ReadOnly Property graciasporpreferinos() As String
+            Get
+                Return ResourceManager.GetString("graciasporpreferinos", resourceCulture)
             End Get
         End Property
         
@@ -1118,6 +1208,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Vas a generar una nueva contraseña para el usuario, este cambio no se puede revertir, deseas continuar ?.
+        '''</summary>
+        Friend Shared ReadOnly Property mensajerestablecerpassword() As String
+            Get
+                Return ResourceManager.GetString("mensajerestablecerpassword", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Mes.
         '''</summary>
         Friend Shared ReadOnly Property mes() As String
@@ -1397,11 +1496,11 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Busca una cadena traducida similar a Reactivar.
+        '''  Busca una cadena traducida similar a Generacion de nueva contraseña.
         '''</summary>
-        Friend Shared ReadOnly Property reactivar() As String
+        Friend Shared ReadOnly Property recuperacionpassword() As String
             Get
-                Return ResourceManager.GetString("reactivar", resourceCulture)
+                Return ResourceManager.GetString("recuperacionpassword", resourceCulture)
             End Get
         End Property
         
@@ -1438,6 +1537,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property renuevopassword() As String
             Get
                 Return ResourceManager.GetString("renuevopassword", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Restablecer contraseña.
+        '''</summary>
+        Friend Shared ReadOnly Property restablecerpassword() As String
+            Get
+                Return ResourceManager.GetString("restablecerpassword", resourceCulture)
             End Get
         End Property
         
@@ -1676,6 +1784,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Recuperacion de contraseña.
+        '''</summary>
+        Friend Shared ReadOnly Property titulorecuperarpassword() As String
+            Get
+                Return ResourceManager.GetString("titulorecuperarpassword", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Habilita el ingreso de un nuevo registro.
         '''</summary>
         Friend Shared ReadOnly Property toolbotonagregar() As String
@@ -1744,6 +1861,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property toolbotonreactivar() As String
             Get
                 Return ResourceManager.GetString("toolbotonreactivar", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Tu cuenta en Vida Sana ha sido activada, ahora podras ingresar a la aplicacion con la siguiente información.
+        '''</summary>
+        Friend Shared ReadOnly Property tucuentaactivada() As String
+            Get
+                Return ResourceManager.GetString("tucuentaactivada", resourceCulture)
             End Get
         End Property
         

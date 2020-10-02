@@ -16,7 +16,7 @@ Public Module ControladorMedico
 
     Public Sub GuardarDatosMedico(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                   numero As String, barrio As String, esquina As String, apto As String, fechaNac As String,
-                                  telefonos As List(Of Integer), numeroMedico As String, uid As String, pwd As String)
+                                  telefonos As List(Of String), numeroMedico As String, uid As String, pwd As String)
         'Guarda los datos del medico
         Dim m As New ModeloMedico(uid, pwd)
         m.Documento = docId
@@ -34,13 +34,14 @@ Public Module ControladorMedico
         m.GuardarDatosMedico()
     End Sub
 
-    Public Sub crearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
-        'Crea el usuario en la base de datos
+    Public Function crearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+        'Crea el usuario en la base de datos y devuelve pass para enviar por email
         Dim m As New ModeloMedico(uid, pwd)
         m.Documento = docidentidad
+        m.Password = generarPassword()
         m.RangoIpMedico = ControladorConfiguracion.LeerRangoIpMedicos(uid, pwd)
-        m.CrearUsuarioBD()
-    End Sub
+        Return m.CrearUsuarioBD()
+    End Function
 
     Public Function CambiarEstadoMedico(ByVal docIdentidad As String, estado As String, uid As String, pwd As String)
         'Cambia el estado del medico
@@ -50,6 +51,7 @@ Public Module ControladorMedico
 
     Public Sub eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         Dim m As New ModeloMedico(uid, pwd)
+        m.RangoIpMedico = ControladorConfiguracion.LeerRangoIpMedicos(uid, pwd)
         m.EliminarUsuarioBD(docidentidad)
     End Sub
 

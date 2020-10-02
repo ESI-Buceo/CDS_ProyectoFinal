@@ -28,7 +28,7 @@ Public Class frmDatosLogin
     Private Sub validarCredenciales()
         'Valida las credenciales ingrsadas 
         Try
-            cargarAdminitrativo(controladorAdministrativo.ValidarAdministrativo(txtDocIdentidad.Text, "Ge." + txtPassword.Text))
+            cargarAdminitrativo(controladorAdministrativo.ValidarAdministrativo(txtDocIdentidad.Text, txtPassword.Text))
             setearUsuario()
         Catch ex As Exception
             MsgBox(VLoginIncorrecto, vbInformation, VErrorAcceso)
@@ -42,7 +42,7 @@ Public Class frmDatosLogin
 
     Private Sub setearUsuario()
         USUARIO = txtDocIdentidad.Text
-        PASSWORD = "Ge." & txtPassword.Text
+        PASSWORD = txtPassword.Text
     End Sub
 
     Private Sub cargarFormulario()

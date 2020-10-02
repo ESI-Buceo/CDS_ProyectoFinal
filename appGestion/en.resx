@@ -591,8 +591,8 @@
   <data name="segurodereactivarpatologia" xml:space="preserve">
     <value>Are you sure to reactivate the pathology?</value>
   </data>
-  <data name="reactivar" xml:space="preserve">
-    <value>Reactivate</value>
+  <data name="activar" xml:space="preserve">
+    <value>Activate</value>
   </data>
   <data name="toolbotonreactivar" xml:space="preserve">
     <value>Reactivate account on screen</value>
@@ -701,5 +701,47 @@
   </data>
   <data name="sesiones" xml:space="preserve">
     <value>Sections</value>
+  </data>
+  <data name="asuntoaltacuenta" xml:space="preserve">
+    <value>Account registration in Vida Sana</value>
+  </data>
+  <data name="buenasnoticias" xml:space="preserve">
+    <value>Good news</value>
+  </data>
+  <data name="elquipode" xml:space="preserve">
+    <value>The team of</value>
+  </data>
+  <data name="emailenviadocorrectamente" xml:space="preserve">
+    <value>The email was sent successfully</value>
+  </data>
+  <data name="errorenviodeemail" xml:space="preserve">
+    <value>Error when trying to send the mail</value>
+  </data>
+  <data name="graciasporpreferinos" xml:space="preserve">
+    <value>Thanks for choosing us</value>
+  </data>
+  <data name="tucuentaactivada" xml:space="preserve">
+    <value>Your account in Vida Sana has been activated, now you can enter the diagnostic application with the following information</value>
+  </data>
+  <data name="elenviodeemaildeshabilitado" xml:space="preserve">
+    <value>Email sending is disabled</value>
+  </data>
+  <data name="descripcionrecuperacion" xml:space="preserve">
+    <value>We have reset your password. These are the new connection data:</value>
+  </data>
+  <data name="recuperacionpassword" xml:space="preserve">
+    <value>New password generation</value>
+  </data>
+  <data name="titulorecuperarpassword" xml:space="preserve">
+    <value>Password recovery</value>
+  </data>
+  <data name="mensajerestablecerpassword" xml:space="preserve">
+    <value>You are going to generate a new password for the user, this change cannot be reversed, do you want to continue?</value>
+  </data>
+  <data name="restablecerpassword" xml:space="preserve">
+    <value>Recovery password</value>
+  </data>
+  <data name="errorcambiarpassword" xml:space="preserve">
+    <value>There was an error trying to change the password</value>
   </data>
 </root>

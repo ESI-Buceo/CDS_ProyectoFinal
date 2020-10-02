@@ -10,13 +10,7 @@ Public Class ModeloAdministrativo
         MyBase.New(uid, pwd)
     End Sub
 
-    Public Function VerificarDocumentoDeIdentidad(ByVal docidentidad As String)
-        'Valida la existencia del documento
-        Comando.CommandText = "SELECT docidentidad FROM persona WHERE docidentidad =" & docidentidad
-        Return Comando.ExecuteScalar
-    End Function
-
-    Public Sub GuardarAdministrativo()
+    Public Function GuardarAdministrativo()
         'guarda los datos de un administrativo nuevo
         Try
             Comando.CommandText = "SET AUTOCOMMIT = OFF;"
@@ -30,7 +24,7 @@ Public Class ModeloAdministrativo
 
             Comando.CommandText = "INSERT INTO persona (docidentidad, mail, nombres, apellidos, calle, numero, barrio, esquina, apartamento, fechaNacimiento, activo) 
                                         VALUES(" & Me.Documento & ", '" & Me.Email & "', '" & Me.Nombres & "', '" & Me.Apellidos & "','" & Me.Calle & "', '" & Me.Numero & "', 
-                                                '" & Me.Barrio & "', '" & Me.Esquina & "', '" & Me.Apartamento & "', '" & Me.FechaNacimiento & "', activo = 1) 
+                                                '" & Me.Barrio & "', '" & Me.Esquina & "', '" & Me.Apartamento & "', '" & Me.FechaNacimiento & "', activo = 0) 
                                         ON DUPLICATE KEY UPDATE 
                                                 mail='" & Me.Email & "', nombres='" & Me.Nombres & "', apellidos='" & Me.Apellidos & "', calle ='" & Me.Calle & "', numero='" & Me.Numero & "',
                                                 barrio='" & Me.Barrio & "', esquina='" & Me.Esquina & "', apartamento='" & Me.Apartamento & "', fechaNacimiento='" & Me.FechaNacimiento & "'"
@@ -54,17 +48,20 @@ Public Class ModeloAdministrativo
 
             Comando.CommandText = "COMMIT;"
             Comando.ExecuteNonQuery()
+            Return True
 
         Catch ex As Exception
             Comando.CommandText = "ROLLBACK;"
             Comando.ExecuteNonQuery()
+            CerrarConexion()
+            Return False
         End Try
-    End Sub
+    End Function
 
-    Public Sub CrearUsuarioBD()
+    Public Function CrearUsuarioBD()
         'Crea el usuario en la base de datos
-        Dim gestorPass As String = "Ge." & Me.Documento
-        Comando.CommandText = "GRANT ALL PRIVILEGES ON *.* TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "' IDENTIFIED BY '" & gestorPass & "' WITH GRANT OPTION"
+
+        Comando.CommandText = "GRANT ALL PRIVILEGES ON *.* TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "' IDENTIFIED BY '" & Me.Password & "' WITH GRANT OPTION"
         Comando.ExecuteNonQuery()
 
         Comando.CommandText = "GRANT SELECT, INSERT, UPDATE ON " + Database + ".persona TO '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "'"
@@ -99,7 +96,10 @@ Public Class ModeloAdministrativo
 
         Comando.CommandText = "FLUSH PRIVILEGES"
         Comando.ExecuteNonQuery()
-    End Sub
+
+        Return Me.Password
+
+    End Function
 
     Public Function BuscarAdministativo(ByVal stringSql As String)
         Comando.CommandText = "SELECT a.docidentidad DOCUMENTO, p.mail EMAIL, p.nombres NOMBRES, p.apellidos APELLIDOS, p.fechaRegistro FECHREG, a.ndeempleado NEMPLEADO, p.activo ACTIVO 
@@ -146,15 +146,6 @@ Public Class ModeloAdministrativo
         CerrarConexion()
         Return TablaAdmin
     End Function
-
-    Public Sub CambiarPassword(ByVal pass As String)
-        Comando.CommandText = "ALTER USER '" & Me.Documento & "'@'" & Me.RangoIpAdministrativo & "' IDENTIFIED BY '" & "Ge." & pass & "'"
-        Comando.ExecuteNonQuery()
-
-        Comando.CommandText = "FLUSH PRIVILEGES"
-        Comando.ExecuteNonQuery()
-
-    End Sub
 
     Public Function ListarAdministrativos(ByVal estado As String)
         'Lista los administratvos segun su estado

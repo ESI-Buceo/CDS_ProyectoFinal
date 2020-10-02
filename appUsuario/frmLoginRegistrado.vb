@@ -19,7 +19,7 @@ Public Class frmLoginRegistrado
     Private Sub validarCredenciales()
         'Valida los datos ingresados
         Try
-            identificarPaciente(controladorPacientes.identificarPaciente(txtDocumento.Text, "Pa." + txtPassword.Text))
+            identificarPaciente(controladorPacientes.identificarPaciente(txtDocumento.Text, txtPassword.Text))
             setearUsuario()
         Catch ex As Exception
             MsgBox(VErrorDatosAcceso, vbExclamation, VErrorAcceso)
@@ -30,7 +30,7 @@ Public Class frmLoginRegistrado
     Private Sub setearUsuario()
         'Carga los datos en variables globales
         USUARIO = txtDocumento.Text
-        PASSWD = "Pa." & txtPassword.Text
+        PASSWD = txtPassword.Text
         validarRecordarDatos()
         Me.Hide()
         cargarInformacionPaciente()
