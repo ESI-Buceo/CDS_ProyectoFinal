@@ -7,7 +7,7 @@ Imports capaDatos
     Dim m As New ModeloMedico("11111111", "Ge.11111111")
     <TestMethod()> Public Sub TestGuardarDatosMedico()
         Dim Resultado As Boolean
-        Dim Telefono As New List(Of Integer)
+        Dim Telefono As New List(Of String)
         Telefono.Add("097650602")
         Telefono.Add("099451212")
 

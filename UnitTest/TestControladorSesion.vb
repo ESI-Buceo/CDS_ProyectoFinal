@@ -5,7 +5,7 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestControladorSesion
-
+    Dim Resultado As Boolean
     <TestMethod()> Public Sub TestGuardarSesionDeChat()
         Dim numAleatorio As New Random()
         Dim valorAleatorio As Integer = numAleatorio.Next(500000000, 999999999)
@@ -47,15 +47,16 @@ Imports System.Threading
         Thread.Sleep(20)
     End Sub
 
-    <TestMethod()> Public Sub TestCancelarSesionDeChat()
-        ModeloDiagnostico.CodigoDiagnostico = "131345728"
-        Assert.IsTrue(CancelarSesionDeChat("19266171", "Me.19266171"))
-        Thread.Sleep(20)
-    End Sub
+    '<TestMethod()> Public Sub TestCancelarSesionDeChat()
+    '    ModeloDiagnostico.CodigoDiagnostico = "131345728"
 
-    <TestMethod()> Public Sub TestGuardarEstadoSesion()
-        Assert.IsTrue(GuardarEstadoSesion("131345728", "19266171", "Me.19266171"))
-        Thread.Sleep(20)
-    End Sub
+    '    Assert.IsTrue(CancelarSesionDeChat("19266171", "Me.19266171"))
+    '    Thread.Sleep(20)
+    'End Sub
+
+    '<TestMethod()> Public Sub TestGuardarEstadoSesion()
+    '    Assert.IsTrue(GuardarEstadoSesion("131345728", "19266171", "Me.19266171"))
+    '    Thread.Sleep(20)
+    'End Sub
 
 End Class

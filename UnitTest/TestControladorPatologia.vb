@@ -4,21 +4,34 @@ Imports capaLogica
 Imports System.Threading
 
 <TestClass()> Public Class TestControladorPatologia
-
+    Dim Resultado As Boolean
     <TestMethod()> Public Sub TestAltaPatologia()
         Dim ListaDeSintomas As New List(Of Integer)
-        Assert.IsTrue(AltaPatologia("100", "Dolor de cosito", "40", "Cuando te duele algo que no sabes que es", "1",
-                                       ListaDeSintomas, "11111111", "Ge.11111111"))
+        Try
+            AltaPatologia("100", "Dolor de cosito", "40", "Cuando te duele algo que no sabes que es", "1",
+                                       ListaDeSintomas, "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestcambiarEstadoPatologia()
-        Assert.IsTrue(cambiarEstadoPatologia("2", "1", "11111111", "Ge.11111111"))
+        Try
+            cambiarEstadoPatologia("2", "1", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = True
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarPatologias()
-        Assert.IsNotNull(ListarPatologias("Dolor de cosito", "11111111", "Ge.11111111"))
+        Dim Lista As New DataTable
+        Assert.AreSame(ListarPatologias("Dolor de cosito", "11111111", "Ge.11111111"), Lista)
         Thread.Sleep(20)
     End Sub
 
@@ -63,7 +76,13 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestExportarDatosADB()
         Dim datos As New DataTable
-        Assert.IsTrue(ControladorPatologias.ExportarDatosADB("11111111", "Ge.11111111", datos))
+        Try
+            ControladorPatologias.ExportarDatosADB("11111111", "Ge.11111111", datos)
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 

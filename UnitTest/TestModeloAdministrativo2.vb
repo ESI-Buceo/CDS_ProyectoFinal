@@ -7,7 +7,7 @@ Imports capaDatos
     Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
     <TestMethod()> Public Sub TestGuardarAdministrativo()
         Dim Resultado As Boolean
-        Dim Telefono As New List(Of Integer)
+        Dim Telefono As New List(Of String)
         Telefono.Add("095623215")
         Telefono.Add("097050602")
         Telefono.Add("098451212")

@@ -12,7 +12,6 @@ Imports System.Threading
             Resultado = True
         Catch ex As Exception
             Resultado = False
-            MsgBox(ex.Message)
         End Try
         Assert.IsTrue(Resultado)
         Thread.Sleep(50)

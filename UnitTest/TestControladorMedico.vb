@@ -4,7 +4,7 @@ Imports capaLogica
 Imports System.Threading
 
 <TestClass()> Public Class TestControladorMedico
-
+    Dim Resultado As Boolean
     <TestMethod()> Public Sub TestidentificarMedico()
         Assert.IsNotNull(ControladorMedico.identificarMedico("19266171", "Me.19266171"))
         Thread.Sleep(20)
@@ -16,16 +16,27 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestGuardarDatosMedico()
-        Dim Tel As New List(Of Integer)
-
-        Assert.IsTrue(ControladorMedico.GuardarDatosMedico("78345678", "nuevo@medicocontrolador.com",
+        Dim Tel As New List(Of String)
+        Try
+            ControladorMedico.GuardarDatosMedico("78345678", "nuevo@medicocontrolador.com",
                                                                      "Alberto", "Curita", "Algo", "1234",
                                                                      "La Boca", "Tanguito", "", "1950-10-10", Tel,
-                                                                     "3288", "11111111", "Ge.11111111"))
+                                                                     "3288", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
-        Assert.IsTrue(ControladorMedico.crearUsuarioBD("41752836", "11111111", "Ge.11111111"))
+        Try
+            ControladorMedico.crearUsuarioBD("41752836", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
@@ -49,10 +60,10 @@ Imports System.Threading
         Thread.Sleep(20)
     End Sub
 
-    <TestMethod()> Public Sub TestformatearSqlBuscquedaMedico()
-        Assert.IsNotNull(ControladorMedico.formatearSqlBuscquedaMedico("13245"))
-        Thread.Sleep(20)
-    End Sub
+    '<TestMethod()> Public Sub TestformatearSqlBuscquedaMedico()
+    '    Assert.IsNotNull(ControladorMedico.formatearSqlBuscquedaMedico("13245"))
+    '    Thread.Sleep(20)
+    'End Sub
 
     <TestMethod()> Public Sub TestcambiarEstadoMedico()
         Assert.IsNotNull(ControladorMedico.CambiarEstadoMedico("78345678", "1", "11111111", "Ge.11111111"))
@@ -60,7 +71,13 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TesteliminiarUsuarioBD()
-        Assert.IsTrue(ControladorMedico.eliminiarUsuarioBD("41752836", "11111111", "Ge.11111111"))
+        Try
+            ControladorMedico.eliminiarUsuarioBD("41752836", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 

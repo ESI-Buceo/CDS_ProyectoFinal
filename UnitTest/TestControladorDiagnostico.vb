@@ -13,29 +13,29 @@ Imports System.Threading
         Thread.Sleep(20)
     End Sub
 
-    <TestMethod()> Public Sub TestevaluarTablaPatologiasSinPatologia()
-        Dim patologias As New DataTable
-        Dim CantidadDeSintomas As New List(Of Integer)
-        CantidadDeSintomas.Add("7")
-        Assert.IsNotNull(evaluarTablaPatologias(patologias, CantidadDeSintomas, "19248371", "Pa.19248371"))
-        Thread.Sleep(20)
-    End Sub
+    '<TestMethod()> Public Sub TestevaluarTablaPatologiasSinPatologia()
+    '    Dim patologias As New DataTable
+    '    Dim CantidadDeSintomas As New List(Of Integer)
+    '    CantidadDeSintomas.Add("7")
+    '    Assert.IsNotNull(evaluarTablaPatologias(patologias, CantidadDeSintomas, "19248371", "Pa.19248371"))
+    '    Thread.Sleep(20)
+    'End Sub
 
-    <TestMethod()> Public Sub TestevaluarTablaPatologiasConPatologia()
-        Dim patologias As New DataTable
-        patologias.Columns.Add("Patologia")
-        patologias.Columns.Add("ponderacion")
-        patologias.Columns.Add("IdPatologia")
-        Dim Renglon As DataRow = patologias.NewRow()
-        Renglon("Patologia") = "Gripe A"
-        Renglon("ponderacion") = "40"
-        Renglon("IdPatologia") = "2"
-        patologias.Rows.Add(Renglon)
-        Dim CantidadDeSintomas As New List(Of Integer)
-        CantidadDeSintomas.Add("1")
-        Assert.IsNotNull(evaluarTablaPatologias(patologias, CantidadDeSintomas, "19248371", "Pa.19248371"))
-        Thread.Sleep(20)
-    End Sub
+    '<TestMethod()> Public Sub TestevaluarTablaPatologiasConPatologia()
+    '    Dim patologias As New DataTable
+    '    patologias.Columns.Add("Patologia")
+    '    patologias.Columns.Add("ponderacion")
+    '    patologias.Columns.Add("IdPatologia")
+    '    Dim Renglon As DataRow = patologias.NewRow()
+    '    Renglon("Patologia") = "Gripe A"
+    '    Renglon("ponderacion") = "40"
+    '    Renglon("IdPatologia") = "2"
+    '    patologias.Rows.Add(Renglon)
+    '    Dim CantidadDeSintomas As New List(Of Integer)
+    '    CantidadDeSintomas.Add("1")
+    '    Assert.IsNotNull(evaluarTablaPatologias(patologias, CantidadDeSintomas, "19248371", "Pa.19248371"))
+    '    Thread.Sleep(20)
+    'End Sub
 
     <TestMethod()> Public Sub TestValidarSintomaSeleccionado()
         Dim Sintomas As New List(Of Integer)

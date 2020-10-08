@@ -7,82 +7,149 @@ Imports System.Threading
 
 <TestClass()> Public Class TestControladorAdministrativo
 
+    Dim Resultado As Boolean
+
     <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
-        Assert.IsNotNull(controladorAdministrativo.VerificarDocumentoDeIdentidad("11111111", "11111111", "Ge.11111111"))
+        'La función devuelve un documento que se pasa por parámetro. 
+        'Se comparan los resultados.
+        Dim Documento As Integer = "11111111"
+        Assert.AreEqual(controladorAdministrativo.VarificarDocumentoDeIdentidad("11111111", "11111111", "Ge.11111111"), Documento)
         Thread.Sleep(20)
+        'El metodo de llama vArificar por algún motivo 
     End Sub
 
     <TestMethod()> Public Sub TestGuardarDatosAdmin()
-        Dim Tel As New List(Of Integer)
-
-        Assert.IsTrue(controladorAdministrativo.GuardarDatosAdmin("12345678", "nuevo@admincontrolador.com",
+        Dim Tel As New List(Of String)
+        Try
+            controladorAdministrativo.GuardarDatosAdmin("12345678", "nuevo@admincontrolador.com",
                                                                      "Cacho", "Castaña", "Argentina", "1234",
                                                                      "La Boca", "Tanguito", "", "1950-10-10", Tel,
-                                                                     "3288", "11111111", "Ge.11111111"))
+                                                                     "3288", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
     End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
-        Assert.IsTrue(controladorAdministrativo.CrearUsuarioBD("65495251", "11111111", "Ge.11111111"))
+        Try
+            controladorAdministrativo.CrearUsuarioBD("65495251", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestcrearCadenaDeBusquedaAdministrativo()
-        Assert.IsNotNull(controladorAdministrativo.crearCadenaDeBusquedaAdministrativo("txtDocIdentidad", "11111111"))
+        'Con los parametros que se envian a la función, la misma debería devolver 
+        'exactamente el valor que se encuentra dentro de la variable Cadena.
+        Dim Cadena As String = "p.docidentidad=11111111"
+        Assert.AreEqual(controladorAdministrativo.crearCadenaDeBusquedaAdministrativo("txtDocIdentidad", "11111111"), Cadena)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestbuscarAdministrativo()
-        Assert.IsNotNull(controladorAdministrativo.buscarAdministrativo("77777777", "11111111", "Ge.11111111"))
+        Try
+            controladorAdministrativo.buscarAdministrativo("p.apellidos LIKE '%fernandez%' AND p.nombres 
+                                                                        LIKE '%mario juan%' AND p.docidentidad=11111111 
+                                                                        AND", "11111111", "Ge.11111111")
+
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestBuscarAdministrativoPorDocumento()
-        Assert.IsNotNull(controladorAdministrativo.BuscarAdministrativoPorDocumento("77777777", "11111111", "Ge.11111111"))
+        Try
+            controladorAdministrativo.BuscarAdministrativoPorDocumento("77777777", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestcrearTablaTelefono()
-        Assert.IsNotNull(controladorAdministrativo.crearTablaTelefonos())
-        Thread.Sleep(20)
-    End Sub
-
-    <TestMethod()> Public Sub TestformatearSqlBuscquedaAdministrativo()
-        Assert.IsNotNull(controladorAdministrativo.formatearSqlBuscquedaAdministrativo("13245"))
+        Try
+            controladorAdministrativo.crearTablaTelefonos()
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestcambiarEstadoAdmin()
-        Assert.IsNotNull(controladorAdministrativo.cambiarEstadoAdmin("22222222", "1", "11111111", "Ge.11111111"))
+        Try
+            controladorAdministrativo.cambiarEstadoAdmin("22222222", "1", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestValidarAdministrativo()
-        Assert.IsNotNull(controladorAdministrativo.ValidarAdministrativo("11111111", "Ge.11111111"))
+        Try
+            controladorAdministrativo.ValidarAdministrativo("11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TesteliminiarUsuarioBD()
-        Assert.IsTrue(controladorAdministrativo.eliminiarUsuarioBD("65495251", "11111111", "Ge.11111111"))
-        Thread.Sleep(20)
-    End Sub
-
-    <TestMethod()> Public Sub TestCambiarPassword()
-        Assert.IsTrue(controladorAdministrativo.CambiarPassword("11111111", "11111111", "Ge.11111111"))
+        Try
+            controladorAdministrativo.eliminiarUsuarioBD("65495251", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarAdministrativosPorEstado()
-        Assert.IsNotNull(controladorAdministrativo.ListarAdministrativos("1", "11111111", "Ge.11111111"))
+        Try
+            controladorAdministrativo.ListarAdministrativos("1", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarAdministrativos()
-        Assert.IsNotNull(controladorAdministrativo.ListarAdministrativos("11111111", "Ge.11111111"))
+        Try
+            controladorAdministrativo.ListarAdministrativos("11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarTelefonos()
-        Assert.IsNotNull(controladorAdministrativo.ListarTelefonos("11111111", "11111111", "Ge.11111111"))
+        Try
+            controladorAdministrativo.ListarTelefonos("11111111", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 

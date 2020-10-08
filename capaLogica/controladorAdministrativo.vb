@@ -3,6 +3,7 @@ Imports System.Windows.Forms
 Imports capaDatos
 
 Public Module controladorAdministrativo
+
     Public Function VarificarDocumentoDeIdentidad(ByVal docidentidad As String, uid As String, pwd As String)
         'Valida si el documento ya existe en la bd
         Dim a As New ModeloAdministrativo(uid, pwd)
@@ -66,6 +67,7 @@ Public Module controladorAdministrativo
         Dim tablaTel As New DataTable
         tablaTel.Columns.Add("Telefono")
         Return tablaTel
+
     End Function
 
     Private Function formatearSqlBuscquedaAdministrativo(ByVal datoString As String)

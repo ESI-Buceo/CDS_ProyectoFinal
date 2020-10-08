@@ -7,7 +7,7 @@ Imports System.Threading
     Dim p As New ModeloPaciente("11111111", "Ge.11111111")
     <TestMethod()> Public Sub TestGuardarDatosPaciente()
         Dim Resultado As Boolean
-        Dim Telefono As New List(Of Integer)
+        Dim Telefono As New List(Of String)
         Telefono.Add("097654978")
         Telefono.Add("097789456")
 
