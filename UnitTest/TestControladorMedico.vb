@@ -6,12 +6,19 @@ Imports System.Threading
 <TestClass()> Public Class TestControladorMedico
     Dim Resultado As Boolean
     <TestMethod()> Public Sub TestidentificarMedico()
-        Assert.IsNotNull(ControladorMedico.identificarMedico("19266171", "Me.19266171"))
+        Try
+            ControladorMedico.identificarMedico("19266171", "Me.19266171")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
-        Assert.IsNotNull(ControladorMedico.VarificarDocumentoDeIdentidad("19266173", "11111111", "Ge.11111111"))
+        Dim Documento As Integer = "19266173"
+        Assert.AreEqual(ControladorMedico.VarificarDocumentoDeIdentidad("19266173", "11111111", "Ge.11111111"), Documento)
         Thread.Sleep(20)
     End Sub
 

@@ -110,7 +110,7 @@ Public Module ControladorDiagnostico
     End Function
 
     Public Function ValidarSintomaSeleccionado(ByVal idSintoma As Integer, ByVal listaSintomasSeleccionados As List(Of Integer)) As Boolean
-        'Completa la lista de sintomas seleccionados por el paciente si esta vacia y sino, llama al metodo verifiar para ver si ya no esta ingresado
+        'Completa la lista de sintomas seleccionados por el paciente si esta vacia y sino, llama al metodo verificar para ver si ya no esta ingresado
         If listaSintomasSeleccionados.Count = 0 Then
             Return True
         Else
