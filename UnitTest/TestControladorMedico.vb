@@ -48,32 +48,57 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestcrearCadenaDeBusqueda()
-        Assert.IsNotNull(ControladorMedico.crearCadenaDeBusquedaMedico("txtDocIdentidad", "78345678"))
+        'Con los parametros que se envian a la función, la misma debería devolver 
+        'exactamente el valor que se encuentra dentro de la variable Cadena.
+        Dim Cadena As String = "p.docidentidad=78345678"
+        Assert.AreEqual(ControladorMedico.crearCadenaDeBusquedaMedico("txtDocIdentidad", "78345678"), Cadena)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestbuscarMedico()
-        Assert.IsNotNull(ControladorMedico.buscarMedico("78345678", "11111111", "Ge.11111111"))
+        Try
+            ControladorMedico.buscarMedico("p.apellidos LIKE '%Curita%' AND p.nombres 
+                                            LIKE '%Alberto%' AND p.docidentidad=78345678 
+                                            AND", "11111111", "Ge.11111111")
+
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestbuscarMedicoPorDocumento()
-        Assert.IsNotNull(ControladorMedico.buscarMedicoPorDocumento("19266173", "11111111", "Ge.11111111"))
+        Try
+            ControladorMedico.buscarMedicoPorDocumento("19266173", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestcrearTablaTelefono()
-        Assert.IsNotNull(ControladorMedico.crearTablaTelefonos())
+        Try
+            ControladorMedico.crearTablaTelefonos()
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
-    '<TestMethod()> Public Sub TestformatearSqlBuscquedaMedico()
-    '    Assert.IsNotNull(ControladorMedico.formatearSqlBuscquedaMedico("13245"))
-    '    Thread.Sleep(20)
-    'End Sub
-
     <TestMethod()> Public Sub TestcambiarEstadoMedico()
-        Assert.IsNotNull(ControladorMedico.CambiarEstadoMedico("78345678", "1", "11111111", "Ge.11111111"))
+        Try
+            ControladorMedico.CambiarEstadoMedico("78345678", "1", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
@@ -89,17 +114,46 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestListarMedicosPorEstado()
-        Assert.IsNotNull(ControladorMedico.ListarMedicos("1", "11111111", "Ge.11111111"))
+        Try
+            ControladorMedico.ListarMedicos("1", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarMedicos()
-        Assert.IsNotNull(ControladorMedico.ListarMedicos("11111111", "Ge.11111111"))
+        Try
+            ControladorMedico.ListarMedicos("11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarTelefonos()
-        Assert.IsNotNull(ControladorMedico.ListarTelefonos("19266173", "11111111", "Ge.11111111"))
+        Try
+            ControladorMedico.ListarTelefonos("19266173", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestListarSesionesDeChat()
+        Try
+            ControladorMedico.ListarSesionesDeChat("11111111", "Ge.11111111", "19266173")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
