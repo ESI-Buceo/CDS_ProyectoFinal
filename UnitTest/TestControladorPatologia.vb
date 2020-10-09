@@ -31,19 +31,31 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestListarPatologias()
         Dim Lista As New DataTable
-        Assert.AreSame(ListarPatologias("Dolor de cosito", "11111111", "Ge.11111111"), Lista)
+        Assert.AreSame(ListarPatologias("Dolor de cosito", "11111111", "Ge.11111111").GetType(), Lista.GetType())
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCargarSintomaPorPatologia()
-        Dim sintomasDePatologia As New DataTable
-        Assert.IsNotNull(CargarSintomaPorPatologia("2", sintomasDePatologia, "11111111", "Ge.11111111"))
+        Try
+            Dim sintomasDePatologia As New DataTable
+            Assert.IsNotNull(CargarSintomaPorPatologia("2", sintomasDePatologia, "11111111", "Ge.11111111"))
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCrearDataTableSintomasXPatologia()
-        Dim sintomasDePatologia As New DataTable
-        Assert.IsNotNull(CrearDataTableSintomasXPatologia(sintomasDePatologia))
+        Try
+            Dim sintomasDePatologia As New DataTable
+            Assert.IsNotNull(CrearDataTableSintomasXPatologia(sintomasDePatologia))
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
@@ -65,12 +77,24 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestListaDePatologias()
-        Assert.IsNotNull(ListaDePatologias("11111111", "Ge.11111111"))
+        Try
+            ListaDePatologias("11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListaDePatologiasSegunEstado()
-        Assert.IsNotNull(ListaDePatologias("1", "11111111", "Ge.11111111"))
+        Try
+            ListaDePatologias("1", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
@@ -87,7 +111,14 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestListarPatologiasPorDiagnostico()
-        Assert.IsNotNull(ListarPatologiasPorDiagnostico("11111111", "Ge.11111111", "109354173"))
+        Dim datos As New DataTable
+        Try
+            ListarPatologiasPorDiagnostico("11111111", "Ge.11111111", "109354173")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 

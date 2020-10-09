@@ -7,12 +7,21 @@ Imports capaDatos
 <TestClass()> Public Class TestControladorPaciente
     Dim Resultado As Boolean
     <TestMethod()> Public Sub TestidentificarPaciente()
-        Assert.IsNotNull(controladorPacientes.identificarPaciente("19248371", "Pa.19248371"))
+        Try
+            controladorPacientes.identificarPaciente("19248371", "Pa.19248371")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestVarificarDocumentoDeIdentidad()
-        Assert.IsNotNull(controladorPacientes.VarificarDocumentoDeIdentidad("19248371", "19248371", "Pa.19248371"))
+        'La función devuelve un documento que se pasa por parámetro. 
+        'Se comparan los resultados.
+        Dim Documento As Integer = "19248371"
+        Assert.AreEqual(controladorPacientes.VarificarDocumentoDeIdentidad("19248371", "19248371", "Pa.19248371"), Documento)
         Thread.Sleep(20)
     End Sub
 
@@ -54,57 +63,112 @@ Imports capaDatos
     End Sub
 
     <TestMethod()> Public Sub TestCambiarEstadoPaciente()
-        Assert.IsNotNull(controladorPacientes.CambiarEstadoPaciente("96325874", "1", "11111111", "Ge.11111111"))
+        Try
+            controladorPacientes.CambiarEstadoPaciente("96325874", "1", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestbuscarPacientePorDocumento()
-        Assert.IsNotNull(controladorPacientes.buscarPacientePorDocumento("96325874", "11111111", "Ge.11111111"))
+        Try
+            controladorPacientes.buscarPacientePorDocumento("96325874", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestbuscarPaciente()
-        Assert.IsNotNull(controladorPacientes.buscarPaciente("96325874", "11111111", "Ge.11111111"))
+        Try
+            controladorPacientes.buscarPaciente("p.apellidos LIKE '%Perez%' AND p.nombres 
+                                                 LIKE '%Coso%' AND p.docidentidad=96325874
+                                                 AND", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
+
     End Sub
 
-    '<TestMethod()> Public Sub TestformatearSqlBuscquedaPaciente()
-    '    Assert.IsNotNull(controladorPacientes.formatearSqlBuscquedaPaciente("13245"))
-    '    Thread.Sleep(20)
-    'End Sub
-
     <TestMethod()> Public Sub TestcrearTablaTelefono()
-        Assert.IsNotNull(controladorPacientes.crearTablaTelefonos())
+        Try
+            controladorPacientes.crearTablaTelefonos()
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestcrearTablaPreExistentes()
-        Assert.IsNotNull(controladorPacientes.crearTablaPreExistentes())
+        Try
+            controladorPacientes.crearTablaPreExistentes()
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestcrearCadenaDeBusquedaPaciente()
-        Assert.IsNotNull(controladorPacientes.crearCadenaDeBusquedaPaciente("txtDocIdentidad", "11111111"))
+        'Con los parametros que se envian a la función, la misma debería devolver 
+        'exactamente el valor que se encuentra dentro de la variable Cadena.
+        Dim Cadena As String = "p.docidentidad=96325874"
+        Assert.AreEqual(controladorPacientes.crearCadenaDeBusquedaPaciente("txtDocIdentidad", "96325874"), Cadena)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCargarEnfermedadesPreExistentes()
-        Assert.IsNotNull(controladorPacientes.CargarEnfermedadesPreExistentes("96325874", "11111111", "Ge.11111111"))
+        Try
+            controladorPacientes.CargarEnfermedadesPreExistentes("96325874", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarPacientes()
-        Assert.IsNotNull(controladorPacientes.ListarPacientes("11111111", "Ge.11111111"))
+        Try
+            controladorPacientes.ListarPacientes("11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarPacientesPorEstado()
-        Assert.IsNotNull(controladorPacientes.ListarPacientes("1", "11111111", "Ge.11111111"))
+        Try
+            controladorPacientes.ListarPacientes("1", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarTelefonos()
-        Assert.IsNotNull(controladorPacientes.ListarTelefonos("96325874", "11111111", "Ge.11111111"))
+        Try
+            controladorPacientes.ListarTelefonos("96325874", "11111111", "Ge.11111111")
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
