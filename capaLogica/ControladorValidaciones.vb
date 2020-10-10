@@ -129,7 +129,6 @@ Public Module ControladorValidaciones
     End Function
 
     Public Function validarNumero(ByVal numero As String)
-
         If Char.IsNumber(numero) And numero IsNot Nothing Then
             Return True
         End If
