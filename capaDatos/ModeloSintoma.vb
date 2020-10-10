@@ -80,5 +80,6 @@ Public Class ModeloSintoma
         TablaSintomas.Load(Reader)
         Return TablaSintomas
     End Function
+
 End Class
 

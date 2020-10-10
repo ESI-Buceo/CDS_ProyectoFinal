@@ -4,7 +4,7 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModeloRecibe
-    Dim r As New ModeloRecibe("11111111", "Ge.11111111")
+    Dim r As New ModeloRecibe("19248371", "Pa.19248371")
     <TestMethod()> Public Sub TestGuardarRelacionPacienteDiagnostico()
         Dim Resultado As Boolean
         r.DocIdentidad = "19248371"
