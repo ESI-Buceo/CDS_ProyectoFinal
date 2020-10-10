@@ -8,7 +8,8 @@ Imports System.Threading
     <TestMethod()> Public Sub TestBuscarAdministativo()
         Dim Resultado As Boolean
         Try
-            a.BuscarAdministativo("p.docidentidad = '11111111' AND p.nombres = 'Mario Juan'")
+            a.BuscarAdministativo("p.apellidos LIKE '%fernandez%' AND p.nombres 
+                                   LIKE '%mario juan%' AND p.docidentidad=11111111")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -20,7 +21,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestBuscarAdministrativoPorDocumento()
         Dim Resultado As Boolean
         Try
-            a.BuscarAdministrativoPorDocumento("'77777777'")
+            a.BuscarAdministrativoPorDocumento("77777777")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -47,7 +48,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestValidarAdministrativo()
         Dim Resultado As Boolean
         Try
-            a.ValidarAdministrativo("40717849")
+            a.ValidarAdministrativo("11111111")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -68,19 +69,6 @@ Imports System.Threading
         Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
-    <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
-        Dim Resultado As Boolean
-        Try
-            a.VerificarDocumentoDeIdentidad("19266173")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(100)
-    End Sub
-
-
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
         a.Documento = "40717849"
@@ -102,19 +90,6 @@ Imports System.Threading
             a.EliminarUsuarioBD("40717849")
             Resultado = True
         Catch ex As Odbc.OdbcException
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
-
-    <TestMethod()> Public Sub TestCambiarPassword()
-        Dim Resultado As Boolean
-        a.Documento = "11111111"
-        Try
-            a.CambiarPassword("11111111")
-            Resultado = True
-        Catch ex As Exception
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)

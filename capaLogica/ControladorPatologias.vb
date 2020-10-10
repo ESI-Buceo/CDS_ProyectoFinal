@@ -93,4 +93,5 @@ Public Module ControladorPatologias
         Dim p As New ModeloPatologia(uid, pwd)
         Return p.ListarPatologiasDeDiagnostico(idDiagnostico)
     End Function
+
 End Module

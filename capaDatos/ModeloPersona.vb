@@ -35,6 +35,6 @@ Public Class ModeloPersona
 
         Comando.CommandText = "FLUSH PRIVILEGES"
         Comando.ExecuteNonQuery()
-
     End Sub
+
 End Class

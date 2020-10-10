@@ -118,6 +118,8 @@
     <Compile Include="TestControladorSesion.vb" />
     <Compile Include="TestControladorSintomas.vb" />
     <Compile Include="TestControladorValidaciones.vb" />
+    <Compile Include="TestModeloPersona.vb" />
+    <Compile Include="TestControladorPersona.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

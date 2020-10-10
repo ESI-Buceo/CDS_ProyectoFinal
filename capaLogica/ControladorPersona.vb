@@ -13,6 +13,7 @@ Public Module ControladorPersona
         Next
 
         Return "Vs." + res.ToString()
+
     End Function
 
     Public Sub CambiarPassword(ByVal docidentidad As String, pass As String, rangoIP As String, uid As String, pwd As String)
@@ -20,6 +21,7 @@ Public Module ControladorPersona
         a.Documento = docidentidad
         a.RangoIP = rangoIP
         a.CambiarPassword(pass)
+
     End Sub
 
 End Module
