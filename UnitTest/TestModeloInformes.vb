@@ -5,6 +5,7 @@ Imports System.Threading
 
 <TestClass()> Public Class TestModeloInformes
     Dim i As New ModeloInformes("11111111", "Ge.11111111")
+
     <TestMethod()> Public Sub TestRankigPatologias()
         Dim Resultado As Boolean
         Try
@@ -14,7 +15,7 @@ Imports System.Threading
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(1000)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestDiagnosticosBrindados()
@@ -26,7 +27,7 @@ Imports System.Threading
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(1000)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCantidadChat()
@@ -38,7 +39,7 @@ Imports System.Threading
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(1000)
+        Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCantidadChatMes()
@@ -50,7 +51,19 @@ Imports System.Threading
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(1000)
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestSintomasNuncaSeleccionados()
+        Dim Resultado As Boolean
+        Try
+            i.SintomasNuncaSeleccionados()
+            Resultado = True
+        Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
     End Sub
 
 End Class

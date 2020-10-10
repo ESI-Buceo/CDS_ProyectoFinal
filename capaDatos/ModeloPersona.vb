@@ -26,6 +26,7 @@ Public Class ModeloPersona
         'Valida la existencia del documento
         Comando.CommandText = "SELECT docidentidad FROM persona WHERE docidentidad =" & docidentidad
         Return Comando.ExecuteScalar
+
     End Function
 
     Public Sub CambiarPassword(ByVal pass As String)

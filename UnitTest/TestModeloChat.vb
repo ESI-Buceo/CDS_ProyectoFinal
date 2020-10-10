@@ -78,30 +78,4 @@ Imports System.Threading
         Thread.Sleep(20)
     End Sub
 
-    <TestMethod()> Public Sub TestRecibirTodosMensajes()
-        Dim Resultado As Boolean
-        Try
-            c.RecibirTodosMensajes("161348021")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
-
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
-
-    <TestMethod()> Public Sub TestRecibirMensajesPorSesion()
-        Dim Resultado As Boolean
-        Try
-            c.RecibirMensajes("161348021", "M")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
-
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
-
 End Class

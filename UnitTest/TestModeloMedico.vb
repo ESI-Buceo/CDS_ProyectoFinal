@@ -5,26 +5,11 @@ Imports System.Threading
 
 <TestClass()> Public Class TestModeloMedico
     Dim m As New ModeloMedico("11111111", "Ge.11111111")
-    Public Property Comando As Object
-
-    <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
-        Dim Resultado As Boolean
-        Try
-            m.VerificarDocumentoDeIdentidad("'19266175'")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = True
-        End Try
-
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
-
-
-
+    Dim Resultado As Boolean
     <TestMethod()> Public Sub TestCrearUsuarioBD()
         m.Documento = "36512327"
-        Dim Resultado As Boolean
+        m.RangoIpMedico = "%"
+        m.Password = "Me.36512327"
         Try
             m.CrearUsuarioBD()
             Resultado = True
@@ -36,22 +21,19 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestBuscarMedico()
-        Dim Resultado As Boolean
         Try
-            m.BuscarMedico("p.docidentidad = '40717849' AND p.nombres = 'Carlos'")
+            m.BuscarMedico("p.apellidos Like '%Chacon%' AND p.nombres LIKE '%Carlos%' AND p.docidentidad = 40717849")
             Resultado = True
         Catch ex As Exception
             Resultado = False
-            MsgBox(ex.Message)
         End Try
         Assert.IsTrue(Resultado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestBuscarMedicoPorDocumento()
-        Dim Resultado As Boolean
         Try
-            m.buscarMedicoPorDocumento("'40717849'")
+            m.buscarMedicoPorDocumento("40717849")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -62,9 +44,8 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestCambiarEstadoMedico()
-        Dim Resultado As Boolean
         Try
-            m.CambiarEstadoMedico("'19266171'", "'1'")
+            m.CambiarEstadoMedico("19266171", "1")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -74,7 +55,7 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestEliminarUsuarioBD()
-        Dim Resultado As Boolean
+        m.RangoIpMedico = "%"
         Try
             m.EliminarUsuarioBD("36512327")
             Resultado = True
@@ -86,7 +67,6 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestListarMedicos()
-        Dim Resultado As Boolean
         Try
             m.ListarMedicos()
             Resultado = True
@@ -98,9 +78,8 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestListarMedicosPorEstado()
-        Dim Resultado As Boolean
         Try
-            m.ListarMedicos("'0'")
+            m.ListarMedicos("0")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -111,15 +90,14 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestListarTelefonos()
-        Dim Resultado As Boolean
         Try
-            m.ListarTelefonos("'19266173'")
+            m.ListarTelefonos("19266173")
             Resultado = True
         Catch ex As Exception
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)
-        Thread.Sleep(50)
+        Thread.Sleep(20)
     End Sub
 
 End Class

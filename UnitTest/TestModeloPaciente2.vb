@@ -5,8 +5,8 @@ Imports System.Threading
 
 <TestClass()> Public Class TestModeloPaciente2
     Dim p As New ModeloPaciente("11111111", "Ge.11111111")
+    Dim Resultado As Boolean
     <TestMethod()> Public Sub TestGuardarDatosPaciente()
-        Dim Resultado As Boolean
         Dim Telefono As New List(Of String)
         Telefono.Add("097654978")
         Telefono.Add("097789456")
@@ -35,9 +35,8 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestbuscarPacientePorDocumento()
-        Dim Resultado As Boolean
         Try
-            p.buscarPacientePorDocumento("'31256542'")
+            p.buscarPacientePorDocumento("31256542")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -46,38 +45,24 @@ Imports System.Threading
         Thread.Sleep(20)
     End Sub
 
-    <TestMethod()> Public Sub TestCargarPreExistentes()
-        p.Documento = "19248371"
-        Dim Resultado As Boolean
-        Try
-            p.CargarPreExistentes()
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
-
-
-    <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
-        Dim Resultado As Boolean
-        Try
-            p.VerificarDocumentoDeIdentidad("19248371")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
 
     <TestMethod()> Public Sub TestBuscarPaciente()
-        Dim Resultado As Boolean
         Try
-            p.BuscarPaciente("p.docidentidad = '19248371' AND p.nombres = 'Andrea Laura'")
+            p.BuscarPaciente("p.Apellidos LIKE '%Gonzalez Sanchez%'AND p.nombres LIKE '%Andrea Laura%' AND p.docidentidad = 19248371")
             Resultado = True
         Catch ex As Exception
+            Resultado = False
+        End Try
+        Assert.IsTrue(Resultado)
+        Thread.Sleep(20)
+    End Sub
+
+    <TestMethod()> Public Sub TestEliminarUsuarioBD()
+        p.RangoIpPaciente = "%"
+        Try
+            p.EliminarUsuarioBD("54895632")
+            Resultado = True
+        Catch ex As Odbc.OdbcException
             Resultado = False
         End Try
         Assert.IsTrue(Resultado)

@@ -39,4 +39,5 @@ Public Class ModeloDiagnostico
         Reader.Read()
         Return Reader("cant").ToString
     End Function
+
 End Class

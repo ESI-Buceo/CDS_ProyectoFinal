@@ -74,4 +74,5 @@
         conexion.Close()
         Return tablaInformes
     End Function
+
 End Class
