@@ -72,6 +72,8 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
         a.Documento = "40717849"
+        a.RangoIpAdministrativo = "%"
+        a.Password = "Ge.40717849"
         Dim Resultado As Boolean
         Try
             a.CrearUsuarioBD()
@@ -86,6 +88,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestEliminarUsuarioBD()
         Dim Resultado As Boolean
+        a.RangoIpAdministrativo = "%"
         Try
             a.EliminarUsuarioBD("40717849")
             Resultado = True
