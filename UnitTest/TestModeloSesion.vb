@@ -7,7 +7,9 @@ Imports System.Threading
     Dim s As New ModeloSesion("11111111", "Ge.11111111")
     Dim Resultado As New Boolean
     <TestMethod()> Public Sub TestGuardarSesion()
-        s.IdSesion = "12345678"
+        Dim numAleatorio As New Random()
+        Dim valorAleatorio As Integer = numAleatorio.Next(500000000, 999999999)
+        s.IdSesion = valorAleatorio
         s.Prioridad = "20"
 
         Try
