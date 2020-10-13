@@ -283,7 +283,7 @@ Public Class frmPaciente
         If activo = 0 Then
             mnuBtnBorrar.Enabled = False
             mnuBtnModificar.Enabled = False
-            mnuReactivar.Enabled = True
+            mnuBtnReactivar.Enabled = True
             mnuBtnCancelar.Enabled = False
             mnuBtnNueva.Enabled = True
             mnuBtnAgregar.Enabled = True
@@ -291,7 +291,7 @@ Public Class frmPaciente
         Else
             mnuBtnCancelar.Enabled = True
             mnuBtnModificar.Enabled = True
-            mnuReactivar.Enabled = False
+            mnuBtnReactivar.Enabled = False
             activarBotonPassword()
         End If
     End Sub
@@ -456,61 +456,6 @@ Public Class frmPaciente
         cargarTextos()
     End Sub
 
-    Private Sub cargarTextos()
-        Me.Text = VPacientes.ToUpper
-        mnuBtnAgregar.Text = VAgregar
-        mnuBtnAgregar.ToolTipText = VToolBotonAgregar
-        mnuBtnGuardar.Text = VGuardar
-        mnuBtnGuardar.ToolTipText = VToolBotonGuardar
-        mnuBtnCancelar.Text = VCancelar
-        mnuBtnCancelar.ToolTipText = VToolBotonCancelar
-        mnuBtnNueva.Text = VNueva
-        mnuBtnNueva.ToolTipText = VToolBotonNueva
-        mnuBtnBuscar.Text = VBuscar
-        mnuBtnBuscar.ToolTipText = VToolBotonBuscar
-        mnuBtnBorrar.Text = VBorrar
-        mnuBtnBorrar.ToolTipText = VToolBotonBorrar
-        mnuBtnModificar.Text = VModificar
-        mnuBtnModificar.ToolTipText = VToolBotonModificar
-        tabDatos.Text = VDato
-        tabBusqueda.Text = VBusqueda
-        tabHistoria.Text = VRegistrosHistoricos
-        lblDocIdentidad.Text = VDocumento
-        lblFechaReg.Text = VFecha
-        lblFechaNacM.Text = VFechaNac
-        lblNombres.Text = VNombres
-        lblApellidosM.Text = VApellidos
-        lblEmailM.Text = VEmail
-        lblOtrosDatos.Text = VOtrosDatos.ToUpper
-        lblDireccionM.Text = VDireccion
-        lblNumeroCalleM.Text = VNum
-        lblAptoM.Text = VApto
-        lblEsquinaM.Text = VEsquina
-        lblBarrioM.Text = VBarrio
-        lblTelefonos.Text = VTelefonos
-        dgvListaTelefonos.Columns(0).HeaderText = VTelefonos
-        dgvListaPreExistentes.Columns(0).HeaderText = VPreExistentes
-        chkActivo.Text = Vactivo
-        lblTelefonos.Text = VTelefonos.ToUpper
-        lblEnfermedades.Text = VEnfermedades.ToUpper
-        dgvListaPacientes.Columns(0).HeaderText = VDocumento.ToUpper
-        dgvListaPacientes.Columns(1).HeaderText = VNombres
-        dgvListaPacientes.Columns(2).HeaderText = VApellidos
-        dgvListaPacientes.Columns(3).HeaderText = VEmail
-        dgvListaPacientes.Columns(4).HeaderText = VFecha
-        gbEstadisticas.Text = VDatosEstadisticos
-        lblDiagnosticos.Text = VDiagnosticos
-        lblChats.Text = VChats
-        lblDescCantDiag.Text = VCantidadDeDiagnosticosRecibos
-        lblDetChatRealizados.Text = VCantidaChatRealizados
-        gbHistoricoChats.Text = VHistoricoDeChats
-        dgvHistoriaChat.Columns(0).HeaderText = VFecha
-        dgvHistoriaChat.Columns(1).HeaderText = VSesion.ToUpper
-        dgvHistoriaChat.Columns(2).HeaderText = VMedico.ToUpper
-        gbVerChat.Text = VVerChat
-        btnRestPass.Text = VRestablecerPassword
-    End Sub
-
     Private Sub cantidadDeDiagnosticosRecibidos(ByVal documento As String)
         'Muestra el numero de diagnosticos recidos por el paciente
         Try
@@ -557,7 +502,7 @@ Public Class frmPaciente
         End If
     End Sub
 
-    Private Sub mnuReactivar_Click(sender As Object, e As EventArgs) Handles mnuReactivar.Click
+    Private Sub mnuReactivar_Click(sender As Object, e As EventArgs) Handles mnuBtnReactivar.Click
         confirmarReActivarCuenta()
     End Sub
 
@@ -633,5 +578,61 @@ Public Class frmPaciente
         'Notifica al usuario por email del nuevo password
         EnviarEmail(txtDocIdentidad.Text, nuevoPass, txtEmail.Text,
         VRecuperacionAsunto, VRecuperacionTitulo, VRecuperacionDescipcion)
+    End Sub
+
+    Private Sub cargarTextos()
+        Me.Text = VPacientes.ToUpper
+        mnuBtnAgregar.Text = VAgregar
+        mnuBtnAgregar.ToolTipText = VToolBotonAgregar
+        mnuBtnGuardar.Text = VGuardar
+        mnuBtnGuardar.ToolTipText = VToolBotonGuardar
+        mnuBtnCancelar.Text = VCancelar
+        mnuBtnCancelar.ToolTipText = VToolBotonCancelar
+        mnuBtnNueva.Text = VNueva
+        mnuBtnNueva.ToolTipText = VToolBotonNueva
+        mnuBtnBuscar.Text = VBuscar
+        mnuBtnBuscar.ToolTipText = VToolBotonBuscar
+        mnuBtnBorrar.Text = VBorrar
+        mnuBtnBorrar.ToolTipText = VToolBotonBorrar
+        mnuBtnModificar.Text = VModificar
+        mnuBtnModificar.ToolTipText = VToolBotonModificar
+        mnuBtnReactivar.Text = VActivar
+        tabDatos.Text = VDato
+        tabBusqueda.Text = VBusqueda
+        tabHistoria.Text = VRegistrosHistoricos
+        lblDocIdentidad.Text = VDocumento
+        lblFechaReg.Text = VFecha
+        lblFechaNacM.Text = VFechaNac
+        lblNombres.Text = VNombres
+        lblApellidosM.Text = VApellidos
+        lblEmailM.Text = VEmail
+        lblOtrosDatos.Text = VOtrosDatos.ToUpper
+        lblDireccionM.Text = VDireccion
+        lblNumeroCalleM.Text = VNum
+        lblAptoM.Text = VApto
+        lblEsquinaM.Text = VEsquina
+        lblBarrioM.Text = VBarrio
+        lblTelefonos.Text = VTelefonos
+        dgvListaTelefonos.Columns(0).HeaderText = VTelefonos
+        dgvListaPreExistentes.Columns(0).HeaderText = VPreExistentes
+        chkActivo.Text = Vactivo
+        lblTelefonos.Text = VTelefonos.ToUpper
+        lblEnfermedades.Text = VEnfermedades.ToUpper
+        dgvListaPacientes.Columns(0).HeaderText = VDocumento.ToUpper
+        dgvListaPacientes.Columns(1).HeaderText = VNombres
+        dgvListaPacientes.Columns(2).HeaderText = VApellidos
+        dgvListaPacientes.Columns(3).HeaderText = VEmail
+        dgvListaPacientes.Columns(4).HeaderText = VFecha
+        gbEstadisticas.Text = VDatosEstadisticos
+        lblDiagnosticos.Text = VDiagnosticos
+        lblChats.Text = VChats
+        lblDescCantDiag.Text = VCantidadDeDiagnosticosRecibos
+        lblDetChatRealizados.Text = VCantidaChatRealizados
+        gbHistoricoChats.Text = VHistoricoDeChats
+        dgvHistoriaChat.Columns(0).HeaderText = VFecha
+        dgvHistoriaChat.Columns(1).HeaderText = VSesion.ToUpper
+        dgvHistoriaChat.Columns(2).HeaderText = VMedico.ToUpper
+        gbVerChat.Text = VVerChat
+        btnRestPass.Text = VRestablecerPassword
     End Sub
 End Class
