@@ -648,7 +648,7 @@ Public Class frmPrincipal
         lblInfoContacto.Text = VComunicateConNosotros
         tabDiagnosticos.Text = VDiagnosticosRecibidos
         tabChats.Text = VHistoricoChat
-
+        btnAyuda.Text = VAyuda
     End Sub
 
     Private Sub confirmarCierre()
@@ -677,4 +677,27 @@ Public Class frmPrincipal
     Private Sub panelCabecera_Paint(sender As Object, e As PaintEventArgs) Handles panelCabecera.Paint
 
     End Sub
+
+    Private Sub btnAyuda_Click(sender As Object, e As EventArgs) Handles btnAyuda.Click
+        Process.Start(Application.StartupPath & "\Triage - Paciente.chm")
+    End Sub
+
+    Private Sub btnAyuda_MouseMove(sender As Object, e As MouseEventArgs) Handles btnAyuda.MouseMove
+        btnAyuda.Image = My.Resources.btnHelpFocus
+        btnRecibeFoco(btnAyuda)
+    End Sub
+
+    Private Sub btnAyuda_MouseLeave(sender As Object, e As EventArgs) Handles btnAyuda.MouseLeave
+        btnAyuda.Image = My.Resources.btnHelp
+        btnPierdeFoco(btnAyuda)
+    End Sub
+
+    Private Sub btnRecibeFoco(ByVal boton As Button)
+        boton.ForeColor = Color.FromArgb(6, 5, 6)
+    End Sub
+
+    Private Sub btnPierdeFoco(ByVal boton As Button)
+        boton.ForeColor = Color.FromArgb(130, 129, 129)
+    End Sub
+
 End Class

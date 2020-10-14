@@ -727,7 +727,7 @@
     <value>Tu cuenta en Vida Sana ha sido activada, ahora podras ingresar a la aplicacion con la siguiente información</value>
   </data>
   <data name="descripcionrecuperacion" xml:space="preserve">
-    <value>Hemos restablecido tu contraseña. Estos son los nuevos datos de conexión:</value>
+    <value>Hemos restablecido tu contraseña. Estos son los nuevos datos de inicio de sesión:</value>
   </data>
   <data name="recuperacionpassword" xml:space="preserve">
     <value>Generacion de nueva contraseña</value>

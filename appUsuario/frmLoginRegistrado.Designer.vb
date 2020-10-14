@@ -29,6 +29,7 @@ Partial Class frmLoginRegistrado
         Me.picLogo = New System.Windows.Forms.PictureBox()
         Me.btnIngresar = New System.Windows.Forms.Button()
         Me.chkRecordar = New System.Windows.Forms.CheckBox()
+        Me.lblLinkAyuda = New System.Windows.Forms.LinkLabel()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -99,12 +100,24 @@ Partial Class frmLoginRegistrado
         Me.chkRecordar.Text = "Recordar mis datos"
         Me.chkRecordar.UseVisualStyleBackColor = True
         '
+        'lblLinkAyuda
+        '
+        Me.lblLinkAyuda.AutoSize = True
+        Me.lblLinkAyuda.Font = New System.Drawing.Font("Product Sans", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLinkAyuda.Location = New System.Drawing.Point(229, 506)
+        Me.lblLinkAyuda.Name = "lblLinkAyuda"
+        Me.lblLinkAyuda.Size = New System.Drawing.Size(50, 19)
+        Me.lblLinkAyuda.TabIndex = 9
+        Me.lblLinkAyuda.TabStop = True
+        Me.lblLinkAyuda.Text = "Ayuda"
+        '
         'frmLoginRegistrado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 23.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(527, 554)
+        Me.Controls.Add(Me.lblLinkAyuda)
         Me.Controls.Add(Me.chkRecordar)
         Me.Controls.Add(Me.btnIngresar)
         Me.Controls.Add(Me.txtPassword)
@@ -131,4 +144,5 @@ Partial Class frmLoginRegistrado
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents btnIngresar As Button
     Friend WithEvents chkRecordar As CheckBox
+    Friend WithEvents lblLinkAyuda As LinkLabel
 End Class

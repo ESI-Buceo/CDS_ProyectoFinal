@@ -49,6 +49,7 @@ Partial Class frmPrincipal
         Me.btnIniciarAutenticado = New System.Windows.Forms.Button()
         Me.picLogo = New System.Windows.Forms.PictureBox()
         Me.panelCabecera = New System.Windows.Forms.Panel()
+        Me.btnAyuda = New System.Windows.Forms.Button()
         Me.btnChat = New System.Windows.Forms.Button()
         Me.btnHistoria = New System.Windows.Forms.Button()
         Me.btnConsulta = New System.Windows.Forms.Button()
@@ -407,6 +408,7 @@ Partial Class frmPrincipal
         'panelCabecera
         '
         Me.panelCabecera.BackColor = System.Drawing.Color.Gainsboro
+        Me.panelCabecera.Controls.Add(Me.btnAyuda)
         Me.panelCabecera.Controls.Add(Me.btnChat)
         Me.panelCabecera.Controls.Add(Me.btnHistoria)
         Me.panelCabecera.Controls.Add(Me.btnConsulta)
@@ -418,6 +420,22 @@ Partial Class frmPrincipal
         Me.panelCabecera.TabIndex = 2
         Me.panelCabecera.Visible = False
         '
+        'btnAyuda
+        '
+        Me.btnAyuda.FlatAppearance.BorderSize = 0
+        Me.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAyuda.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAyuda.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.btnAyuda.Image = Global.appUsuario.My.Resources.Resources.btnHelp
+        Me.btnAyuda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAyuda.Location = New System.Drawing.Point(1028, 2)
+        Me.btnAyuda.Name = "btnAyuda"
+        Me.btnAyuda.Size = New System.Drawing.Size(104, 62)
+        Me.btnAyuda.TabIndex = 6
+        Me.btnAyuda.Text = "Ayuda"
+        Me.btnAyuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAyuda.UseVisualStyleBackColor = True
+        '
         'btnChat
         '
         Me.btnChat.Enabled = False
@@ -426,7 +444,7 @@ Partial Class frmPrincipal
         Me.btnChat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer))
         Me.btnChat.Image = Global.appUsuario.My.Resources.Resources.btnChat
         Me.btnChat.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnChat.Location = New System.Drawing.Point(873, 2)
+        Me.btnChat.Location = New System.Drawing.Point(810, 2)
         Me.btnChat.Name = "btnChat"
         Me.btnChat.Size = New System.Drawing.Size(104, 62)
         Me.btnChat.TabIndex = 5
@@ -442,7 +460,7 @@ Partial Class frmPrincipal
         Me.btnHistoria.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer))
         Me.btnHistoria.Image = Global.appUsuario.My.Resources.Resources.btnReloj
         Me.btnHistoria.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnHistoria.Location = New System.Drawing.Point(977, 2)
+        Me.btnHistoria.Location = New System.Drawing.Point(919, 2)
         Me.btnHistoria.Name = "btnHistoria"
         Me.btnHistoria.Size = New System.Drawing.Size(104, 62)
         Me.btnHistoria.TabIndex = 4
@@ -458,7 +476,7 @@ Partial Class frmPrincipal
         Me.btnConsulta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(137, Byte), Integer))
         Me.btnConsulta.Image = Global.appUsuario.My.Resources.Resources.btnConsultaSelect
         Me.btnConsulta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnConsulta.Location = New System.Drawing.Point(769, 2)
+        Me.btnConsulta.Location = New System.Drawing.Point(701, 2)
         Me.btnConsulta.Name = "btnConsulta"
         Me.btnConsulta.Size = New System.Drawing.Size(104, 62)
         Me.btnConsulta.TabIndex = 2
@@ -1156,4 +1174,5 @@ Partial Class frmPrincipal
     Friend WithEvents flpDiagnosticos As FlowLayoutPanel
     Friend WithEvents tabChats As TabPage
     Friend WithEvents flpChats As FlowLayoutPanel
+    Friend WithEvents btnAyuda As Button
 End Class

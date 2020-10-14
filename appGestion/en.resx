@@ -727,7 +727,7 @@
     <value>Email sending is disabled</value>
   </data>
   <data name="descripcionrecuperacion" xml:space="preserve">
-    <value>We have reset your password. These are the new connection data:</value>
+    <value>We have reset your password. These are the new login data:</value>
   </data>
   <data name="recuperacionpassword" xml:space="preserve">
     <value>New password generation</value>

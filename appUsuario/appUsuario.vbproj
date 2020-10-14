@@ -266,5 +266,14 @@
   <ItemGroup>
     <None Include="Resources\ava1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnHelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnHelpFocus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnHelpSelect.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -129,6 +129,9 @@
   <data name="avisoconfirmacion" xml:space="preserve">
     <value>Confirmar Accion</value>
   </data>
+  <data name="ayuda" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
   <data name="barrio" xml:space="preserve">
     <value>Barrio</value>
   </data>

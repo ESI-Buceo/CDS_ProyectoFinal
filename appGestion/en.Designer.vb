@@ -542,7 +542,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Busca una cadena traducida similar a We have reset your password. These are the new connection data:.
+        '''  Busca una cadena traducida similar a We have reset your password. These are the new login data:.
         '''</summary>
         Friend Shared ReadOnly Property descripcionrecuperacion() As String
             Get

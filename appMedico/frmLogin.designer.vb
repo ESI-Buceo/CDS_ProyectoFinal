@@ -77,7 +77,7 @@ Partial Class frmLogin
         Me.txtDocumento.Location = New System.Drawing.Point(136, 299)
         Me.txtDocumento.MaxLength = 9
         Me.txtDocumento.Name = "txtDocumento"
-        Me.txtDocumento.Size = New System.Drawing.Size(183, 23)
+        Me.txtDocumento.Size = New System.Drawing.Size(183, 27)
         Me.txtDocumento.TabIndex = 4
         '
         'lblPassword
@@ -94,7 +94,7 @@ Partial Class frmLogin
         Me.txtPassword.Location = New System.Drawing.Point(136, 359)
         Me.txtPassword.Name = "txtPassword"
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPassword.Size = New System.Drawing.Size(183, 23)
+        Me.txtPassword.Size = New System.Drawing.Size(183, 27)
         Me.txtPassword.TabIndex = 6
         '
         'btnIngresar
@@ -113,7 +113,7 @@ Partial Class frmLogin
         Me.chkRecordar.AutoSize = True
         Me.chkRecordar.Location = New System.Drawing.Point(136, 395)
         Me.chkRecordar.Name = "chkRecordar"
-        Me.chkRecordar.Size = New System.Drawing.Size(150, 21)
+        Me.chkRecordar.Size = New System.Drawing.Size(178, 24)
         Me.chkRecordar.TabIndex = 9
         Me.chkRecordar.Text = "Recordar mis datos"
         Me.chkRecordar.UseVisualStyleBackColor = True
@@ -121,7 +121,7 @@ Partial Class frmLogin
         'frmLogin
         '
         Me.AcceptButton = Me.btnIngresar
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(458, 575)
         Me.Controls.Add(Me.chkRecordar)
@@ -138,7 +138,6 @@ Partial Class frmLogin
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmLogin"
         Me.ShowIcon = False
-        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ingreso al sistema"
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).EndInit()
