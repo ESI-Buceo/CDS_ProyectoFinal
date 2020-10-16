@@ -142,16 +142,16 @@
     <value>Year</value>
   </data>
   <data name="apellidos" xml:space="preserve">
-    <value>LAST NAME</value>
+    <value>Surname </value>
   </data>
   <data name="apto" xml:space="preserve">
     <value>SUIT</value>
   </data>
   <data name="aviso" xml:space="preserve">
-    <value>Notice</value>
+    <value>Notification</value>
   </data>
   <data name="avisoalerta" xml:space="preserve">
-    <value>Confirm action</value>
+    <value>Warning</value>
   </data>
   <data name="avisoerror" xml:space="preserve">
     <value>Error</value>
@@ -166,19 +166,19 @@
     <value>Delete</value>
   </data>
   <data name="buscar" xml:space="preserve">
-    <value>Look for</value>
+    <value>Search</value>
   </data>
   <data name="busqueda" xml:space="preserve">
     <value>Search</value>
   </data>
   <data name="cambiopass" xml:space="preserve">
-    <value>Change of password</value>
+    <value>Change password</value>
   </data>
   <data name="cambiopasswordfailed" xml:space="preserve">
-    <value>Failed change password</value>
+    <value>Changing password Failed</value>
   </data>
   <data name="cambiopasswordsuccess" xml:space="preserve">
-    <value>Successful password change</value>
+    <value>Password has been changed successfully</value>
   </data>
   <data name="cancelar" xml:space="preserve">
     <value>Cancel</value>
@@ -187,13 +187,13 @@
     <value>Close</value>
   </data>
   <data name="confirmar" xml:space="preserve">
-    <value>Confirm</value>
+    <value>Save</value>
   </data>
   <data name="datos" xml:space="preserve">
     <value>Data</value>
   </data>
   <data name="datosguardadosconexito" xml:space="preserve">
-    <value>Save success</value>
+    <value>Saved successfully</value>
   </data>
   <data name="descripcion" xml:space="preserve">
     <value>Description</value>
@@ -205,7 +205,7 @@
     <value>Diagnosis</value>
   </data>
   <data name="diagnosticosgenerados" xml:space="preserve">
-    <value>Diagnosis generated</value>
+    <value>Given diagnoses</value>
   </data>
   <data name="diciembre" xml:space="preserve">
     <value>December</value>
@@ -214,16 +214,16 @@
     <value>ADDRESS</value>
   </data>
   <data name="docidentidad" xml:space="preserve">
-    <value>Identification ID</value>
+    <value>Id</value>
   </data>
   <data name="documento" xml:space="preserve">
-    <value>IDENTIFICATION</value>
+    <value>Id</value>
   </data>
   <data name="documentoexiste" xml:space="preserve">
-    <value>The document already exists. Verify document</value>
+    <value>This document already exists. Please check again</value>
   </data>
   <data name="elsistomayaexiste" xml:space="preserve">
-    <value>The symptom already exists</value>
+    <value>The selected symptom already exists</value>
   </data>
   <data name="email" xml:space="preserve">
     <value>EMAIL</value>
@@ -244,25 +244,25 @@
     <value>Save failed</value>
   </data>
   <data name="errorborrarregistro" xml:space="preserve">
-    <value>Failed to delete record</value>
+    <value>Record delete failed</value>
   </data>
   <data name="errorcrearusuario" xml:space="preserve">
-    <value>Error creating user in database</value>
+    <value>User creation failed </value>
   </data>
   <data name="errorexportardatos" xml:space="preserve">
-    <value>Error exporting data</value>
+    <value>Data export failed</value>
   </data>
   <data name="errorrecuperardatos" xml:space="preserve">
-    <value>Failed to retrieve data</value>
+    <value>Data recovery failed</value>
   </data>
   <data name="errorverificardocumento" xml:space="preserve">
-    <value>Failed to verify the document</value>
+    <value>Document verification failed</value>
   </data>
   <data name="esquina" xml:space="preserve">
-    <value>CORNER</value>
+    <value>STREET CORNER  </value>
   </data>
   <data name="exportarabasededatos" xml:space="preserve">
-    <value>Export to BD</value>
+    <value>Export to DB's</value>
   </data>
   <data name="faltandatosrequeridos" xml:space="preserve">
     <value>Required data is missing, check ...</value>
@@ -508,7 +508,7 @@
     <value>See Pathology</value>
   </data>
   <data name="cantidad" xml:space="preserve">
-    <value>Quantity</value>
+    <value>Total</value>
   </data>
   <data name="habilitado" xml:space="preserve">
     <value>Enabled</value>
@@ -517,16 +517,16 @@
     <value>Most diagnosed pathologies, last 12 months</value>
   </data>
   <data name="cantidaddesintomas" xml:space="preserve">
-    <value>Number of Symptoms</value>
+    <value>Total of Symptoms</value>
   </data>
   <data name="alertacambioidioma" xml:space="preserve">
-    <value>This change requires a reboot system, are you sure?</value>
+    <value>This change requires restarting the application. Are you sure you want to apply the previous changes?</value>
   </data>
   <data name="desccantidadsintomas" xml:space="preserve">
-    <value>This option allows establishing the minimum number of symptoms that a patient must enter in order to receive a primary diagnosis.</value>
+    <value>This option allow you to establish the minimum number of symptoms that a patient must entered in order to receive a primary diagnosis.</value>
   </data>
   <data name="descidiomadelsistema" xml:space="preserve">
-    <value>System language, this change requires restarting the application.</value>
+    <value>Aplication language, this change will require an application restart.</value>
   </data>
   <data name="en" xml:space="preserve">
     <value>English</value>
@@ -541,10 +541,10 @@
     <value>Language</value>
   </data>
   <data name="cantidadchatrealizados" xml:space="preserve">
-    <value>Amount of chat made</value>
+    <value>Number of chat made </value>
   </data>
   <data name="cantidaddiagnosticosrecibidos" xml:space="preserve">
-    <value>Number of diagnoses received</value>
+    <value>Total diagnoses received</value>
   </data>
   <data name="chat" xml:space="preserve">
     <value>Chat</value>
@@ -553,7 +553,7 @@
     <value>Chats</value>
   </data>
   <data name="datosestadisticos" xml:space="preserve">
-    <value>Statistical data</value>
+    <value>Statistics</value>
   </data>
   <data name="historicodechats" xml:space="preserve">
     <value>Chat history</value>
@@ -568,7 +568,7 @@
     <value>View Chat</value>
   </data>
   <data name="errorborrarusuario" xml:space="preserve">
-    <value>Error trying to delete user</value>
+    <value>User delete failed </value>
   </data>
   <data name="opcionagregartelefono" xml:space="preserve">
     <value>Allows the entry of a new phone</value>
@@ -580,7 +580,7 @@
     <value>Phone options</value>
   </data>
   <data name="confirmarreactivarregistro" xml:space="preserve">
-    <value>Are you sure to reactivate the account?</value>
+    <value>Are you sure you want to reactivate this account?</value>
   </data>
   <data name="usuariorestauradoexito" xml:space="preserve">
     <value>Account has been successfully activated</value>
@@ -613,16 +613,16 @@
     <value>The data was imported successfully</value>
   </data>
   <data name="errorarchivo" xml:space="preserve">
-    <value>The configuration file cannot be found. Can't continue</value>
+    <value>Configuration file cannot be found. Can't continue</value>
   </data>
   <data name="cantidaddesintomasincorrecta" xml:space="preserve">
-    <value>The number of symptoms is incorrect, check ...</value>
+    <value>The amount of symptoms entered is incorrect, please check and try again.</value>
   </data>
   <data name="haycambiossinguardar" xml:space="preserve">
     <value>There are unsaved changes, do you want to continue?</value>
   </data>
   <data name="algoenlaconfiguracionnoestabien" xml:space="preserve">
-    <value>Something in the configuration is not right, check</value>
+    <value>Something went wrong ! Please try again</value>
   </data>
   <data name="aplicar" xml:space="preserve">
     <value>Apply</value>
@@ -634,19 +634,19 @@
     <value>Setting</value>
   </data>
   <data name="configuraremail" xml:space="preserve">
-    <value>Configure Email</value>
+    <value>Email config.</value>
   </data>
   <data name="credencial" xml:space="preserve">
     <value>Credential</value>
   </data>
   <data name="datosemail" xml:space="preserve">
-    <value>Email data</value>
+    <value>Email information </value>
   </data>
   <data name="emaildecontacto" xml:space="preserve">
     <value>Contact email</value>
   </data>
   <data name="errorconfiguracion" xml:space="preserve">
-    <value>There is an error in the configuration, it could not be saved. Check</value>
+    <value>There is an issue in the App configuration, the work in progress could not be saved. Please check and try again</value>
   </data>
   <data name="ipgestion" xml:space="preserve">
     <value>Admin IP Range</value>
@@ -685,7 +685,7 @@
     <value>Server</value>
   </data>
   <data name="erroraccesoarchivo" xml:space="preserve">
-    <value>The file cannot be accessed, it may be in use</value>
+    <value>Cannot access to this file, it may be in use.</value>
   </data>
   <data name="sintomasnuncaseleccionados" xml:space="preserve">
     <value>Symptoms never selected</value>
@@ -703,16 +703,16 @@
     <value>Sections</value>
   </data>
   <data name="asuntoaltacuenta" xml:space="preserve">
-    <value>Account registration in Vida Sana</value>
+    <value>[Vida Sana] New credentials</value>
   </data>
   <data name="buenasnoticias" xml:space="preserve">
     <value>Good news</value>
   </data>
   <data name="elquipode" xml:space="preserve">
-    <value>The team of</value>
+    <value>The CDS Solution team</value>
   </data>
   <data name="emailenviadocorrectamente" xml:space="preserve">
-    <value>The email was sent successfully</value>
+    <value>Email sent successfully</value>
   </data>
   <data name="errorenviodeemail" xml:space="preserve">
     <value>Error when trying to send the mail</value>
@@ -724,10 +724,10 @@
     <value>Your account in Vida Sana has been activated, now you can enter the diagnostic application with the following information</value>
   </data>
   <data name="elenviodeemaildeshabilitado" xml:space="preserve">
-    <value>Email sending is disabled</value>
+    <value>Mailing service is disabled</value>
   </data>
   <data name="descripcionrecuperacion" xml:space="preserve">
-    <value>We have reset your password. These are the new connection data:</value>
+    <value>We have reset your password. These are your new access data:</value>
   </data>
   <data name="recuperacionpassword" xml:space="preserve">
     <value>New password generation</value>
@@ -742,6 +742,6 @@
     <value>Recovery password</value>
   </data>
   <data name="errorcambiarpassword" xml:space="preserve">
-    <value>There was an error trying to change the password</value>
+    <value>There was an issue trying to change the password</value>
   </data>
 </root>
