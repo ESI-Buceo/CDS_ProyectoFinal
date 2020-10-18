@@ -200,7 +200,7 @@ Partial Class frmPaciente
         Me.btnEliminarEnfermedad.Location = New System.Drawing.Point(607, 457)
         Me.btnEliminarEnfermedad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnEliminarEnfermedad.Name = "btnEliminarEnfermedad"
-        Me.btnEliminarEnfermedad.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.btnEliminarEnfermedad.Padding = New System.Windows.Forms.Padding(5)
         Me.btnEliminarEnfermedad.Size = New System.Drawing.Size(44, 37)
         Me.btnEliminarEnfermedad.TabIndex = 27
         Me.btnEliminarEnfermedad.UseVisualStyleBackColor = True
@@ -214,7 +214,7 @@ Partial Class frmPaciente
         Me.btnAgregarEnfermedad.Location = New System.Drawing.Point(557, 457)
         Me.btnAgregarEnfermedad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAgregarEnfermedad.Name = "btnAgregarEnfermedad"
-        Me.btnAgregarEnfermedad.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.btnAgregarEnfermedad.Padding = New System.Windows.Forms.Padding(5)
         Me.btnAgregarEnfermedad.Size = New System.Drawing.Size(44, 37)
         Me.btnAgregarEnfermedad.TabIndex = 26
         Me.btnAgregarEnfermedad.UseVisualStyleBackColor = True
@@ -227,7 +227,7 @@ Partial Class frmPaciente
         Me.dgvListaPreExistentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvListaPreExistentes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
         Me.dgvListaPreExistentes.Location = New System.Drawing.Point(555, 338)
-        Me.dgvListaPreExistentes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvListaPreExistentes.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvListaPreExistentes.Name = "dgvListaPreExistentes"
         Me.dgvListaPreExistentes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvListaPreExistentes.Size = New System.Drawing.Size(353, 112)
@@ -262,7 +262,7 @@ Partial Class frmPaciente
         Me.btnEliminarTelefono.Location = New System.Drawing.Point(221, 457)
         Me.btnEliminarTelefono.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnEliminarTelefono.Name = "btnEliminarTelefono"
-        Me.btnEliminarTelefono.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.btnEliminarTelefono.Padding = New System.Windows.Forms.Padding(5)
         Me.btnEliminarTelefono.Size = New System.Drawing.Size(44, 37)
         Me.btnEliminarTelefono.TabIndex = 23
         Me.btnEliminarTelefono.UseVisualStyleBackColor = True
@@ -276,7 +276,7 @@ Partial Class frmPaciente
         Me.btnAgregarTelefono.Location = New System.Drawing.Point(171, 457)
         Me.btnAgregarTelefono.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAgregarTelefono.Name = "btnAgregarTelefono"
-        Me.btnAgregarTelefono.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.btnAgregarTelefono.Padding = New System.Windows.Forms.Padding(5)
         Me.btnAgregarTelefono.Size = New System.Drawing.Size(44, 37)
         Me.btnAgregarTelefono.TabIndex = 22
         Me.btnAgregarTelefono.UseVisualStyleBackColor = True
@@ -304,7 +304,7 @@ Partial Class frmPaciente
         Me.dtpFechaNac.CalendarTrailingForeColor = System.Drawing.Color.Gray
         Me.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaNac.Location = New System.Drawing.Point(780, 15)
-        Me.dtpFechaNac.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtpFechaNac.Margin = New System.Windows.Forms.Padding(4)
         Me.dtpFechaNac.Name = "dtpFechaNac"
         Me.dtpFechaNac.Size = New System.Drawing.Size(137, 27)
         Me.dtpFechaNac.TabIndex = 3
@@ -317,7 +317,7 @@ Partial Class frmPaciente
         Me.dgvListaTelefonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvListaTelefonos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colTelefono})
         Me.dgvListaTelefonos.Location = New System.Drawing.Point(171, 338)
-        Me.dgvListaTelefonos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvListaTelefonos.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvListaTelefonos.Name = "dgvListaTelefonos"
         Me.dgvListaTelefonos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvListaTelefonos.Size = New System.Drawing.Size(353, 112)
@@ -446,7 +446,7 @@ Partial Class frmPaciente
         Me.txtDocIdentidad.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.txtDocIdentidad.Location = New System.Drawing.Point(171, 15)
         Me.txtDocIdentidad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtDocIdentidad.MaxLength = 11
+        Me.txtDocIdentidad.MaxLength = 8
         Me.txtDocIdentidad.Name = "txtDocIdentidad"
         Me.txtDocIdentidad.Size = New System.Drawing.Size(159, 27)
         Me.txtDocIdentidad.TabIndex = 0
@@ -604,7 +604,7 @@ Partial Class frmPaciente
         Me.dgvListaPacientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colDocIdentidad, Me.colNombres, Me.colApellidos, Me.colEmail, Me.colFechRegistro, Me.colActivo})
         Me.dgvListaPacientes.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvListaPacientes.Location = New System.Drawing.Point(3, 2)
-        Me.dgvListaPacientes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvListaPacientes.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvListaPacientes.MultiSelect = False
         Me.dgvListaPacientes.Name = "dgvListaPacientes"
         Me.dgvListaPacientes.ReadOnly = True

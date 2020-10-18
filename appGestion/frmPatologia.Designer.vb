@@ -38,6 +38,7 @@ Partial Class frmPatologia
         Me.tabSeparador3 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnuBtnBorrar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnubtnReactivar = New System.Windows.Forms.ToolStripButton()
         Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
         Me.tabDatosPatologia = New System.Windows.Forms.TabControl()
         Me.tabDatos = New System.Windows.Forms.TabPage()
@@ -67,7 +68,6 @@ Partial Class frmPatologia
         Me.lblEmergencia = New System.Windows.Forms.Label()
         Me.lblSinUrgencia = New System.Windows.Forms.Label()
         Me.tttPonderacion = New System.Windows.Forms.ToolTip(Me.components)
-        Me.mnubtnReactivar = New System.Windows.Forms.ToolStripButton()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.toolsMenuPatologia.SuspendLayout()
         Me.tabDatosPatologia.SuspendLayout()
@@ -197,6 +197,16 @@ Partial Class frmPatologia
         Me.tabSeparador4.Name = "tabSeparador4"
         Me.tabSeparador4.Size = New System.Drawing.Size(6, 23)
         '
+        'mnubtnReactivar
+        '
+        Me.mnubtnReactivar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.mnubtnReactivar.Image = CType(resources.GetObject("mnubtnReactivar.Image"), System.Drawing.Image)
+        Me.mnubtnReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnubtnReactivar.Name = "mnubtnReactivar"
+        Me.mnubtnReactivar.Size = New System.Drawing.Size(24, 24)
+        Me.mnubtnReactivar.Text = "ToolStripButton1"
+        Me.mnubtnReactivar.Visible = False
+        '
         'mnuBtnModificar
         '
         Me.mnuBtnModificar.Enabled = False
@@ -317,6 +327,7 @@ Partial Class frmPatologia
         Me.txtPatologiaDescipcion.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtPatologiaDescipcion.Location = New System.Drawing.Point(163, 69)
         Me.txtPatologiaDescipcion.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtPatologiaDescipcion.MaxLength = 500
         Me.txtPatologiaDescipcion.Multiline = True
         Me.txtPatologiaDescipcion.Name = "txtPatologiaDescipcion"
         Me.txtPatologiaDescipcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
@@ -510,16 +521,6 @@ Partial Class frmPatologia
         'tttPonderacion
         '
         Me.tttPonderacion.ToolTipTitle = "Informacion de Patologia"
-        '
-        'mnubtnReactivar
-        '
-        Me.mnubtnReactivar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.mnubtnReactivar.Image = CType(resources.GetObject("mnubtnReactivar.Image"), System.Drawing.Image)
-        Me.mnubtnReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnubtnReactivar.Name = "mnubtnReactivar"
-        Me.mnubtnReactivar.Size = New System.Drawing.Size(24, 24)
-        Me.mnubtnReactivar.Text = "ToolStripButton1"
-        Me.mnubtnReactivar.Visible = False
         '
         'frmPatologia
         '

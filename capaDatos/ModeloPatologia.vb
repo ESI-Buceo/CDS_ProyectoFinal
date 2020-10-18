@@ -50,7 +50,8 @@ Public Class ModeloPatologia
             Comando.CommandText = "COMMIT;"
             Comando.ExecuteNonQuery()
 
-            conexion.Close()
+            CerrarConexion()
+
         Catch ex As Exception
             Comando.CommandText = "ROLLBACK;"
             Comando.ExecuteNonQuery()

@@ -85,6 +85,7 @@ Partial Class frmPrincipal
         Me.lblNombres = New System.Windows.Forms.Label()
         Me.timeEstadoDeSesion = New System.Windows.Forms.Timer(Me.components)
         Me.ttMensajePonderacion = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PanelMedico.SuspendLayout()
         CType(Me.picEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -118,7 +119,7 @@ Partial Class frmPrincipal
         Me.lblEstado.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblEstado.Location = New System.Drawing.Point(108, 50)
         Me.lblEstado.Name = "lblEstado"
-        Me.lblEstado.Size = New System.Drawing.Size(54, 17)
+        Me.lblEstado.Size = New System.Drawing.Size(63, 20)
         Me.lblEstado.TabIndex = 4
         Me.lblEstado.Text = "OnLine"
         '
@@ -138,7 +139,7 @@ Partial Class frmPrincipal
         Me.lblNombreMedico.ForeColor = System.Drawing.Color.White
         Me.lblNombreMedico.Location = New System.Drawing.Point(80, 23)
         Me.lblNombreMedico.Name = "lblNombreMedico"
-        Me.lblNombreMedico.Size = New System.Drawing.Size(138, 18)
+        Me.lblNombreMedico.Size = New System.Drawing.Size(178, 24)
         Me.lblNombreMedico.TabIndex = 1
         Me.lblNombreMedico.Text = "Nombre del medico"
         '
@@ -159,16 +160,16 @@ Partial Class frmPrincipal
         Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mtsMenuPrincipal})
-        Me.MenuStrip1.Location = New System.Drawing.Point(331, 2)
+        Me.MenuStrip1.Location = New System.Drawing.Point(181, 2)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(40, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(190, 28)
         Me.MenuStrip1.TabIndex = 5
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'mtsMenuPrincipal
         '
         Me.mtsMenuPrincipal.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.mtsMenuPrincipal.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCambiarIdioma, Me.tsmCerrarSesion, Me.ToolStripSeparator2, Me.tsmSalir})
+        Me.mtsMenuPrincipal.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCambiarIdioma, Me.ToolStripMenuItem1, Me.tsmCerrarSesion, Me.ToolStripSeparator2, Me.tsmSalir})
         Me.mtsMenuPrincipal.Image = Global.appMedico.My.Resources.Resources.menu
         Me.mtsMenuPrincipal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.mtsMenuPrincipal.Name = "mtsMenuPrincipal"
@@ -178,36 +179,36 @@ Partial Class frmPrincipal
         '
         Me.tsmCambiarIdioma.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tmiEspanol, Me.tmiIngles})
         Me.tsmCambiarIdioma.Name = "tsmCambiarIdioma"
-        Me.tsmCambiarIdioma.Size = New System.Drawing.Size(180, 22)
+        Me.tsmCambiarIdioma.Size = New System.Drawing.Size(216, 26)
         Me.tsmCambiarIdioma.Text = "Cambiar Idioma"
         '
         'tmiEspanol
         '
         Me.tmiEspanol.Name = "tmiEspanol"
-        Me.tmiEspanol.Size = New System.Drawing.Size(180, 22)
+        Me.tmiEspanol.Size = New System.Drawing.Size(136, 26)
         Me.tmiEspanol.Text = "Español"
         '
         'tmiIngles
         '
         Me.tmiIngles.Name = "tmiIngles"
-        Me.tmiIngles.Size = New System.Drawing.Size(180, 22)
+        Me.tmiIngles.Size = New System.Drawing.Size(136, 26)
         Me.tmiIngles.Text = "Ingles"
         '
         'tsmCerrarSesion
         '
         Me.tsmCerrarSesion.Name = "tsmCerrarSesion"
-        Me.tsmCerrarSesion.Size = New System.Drawing.Size(180, 22)
+        Me.tsmCerrarSesion.Size = New System.Drawing.Size(216, 26)
         Me.tsmCerrarSesion.Text = "Cerrar Sesion"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(213, 6)
         '
         'tsmSalir
         '
         Me.tsmSalir.Name = "tsmSalir"
-        Me.tsmSalir.Size = New System.Drawing.Size(180, 22)
+        Me.tsmSalir.Size = New System.Drawing.Size(216, 26)
         Me.tsmSalir.Text = "Salir"
         '
         'flpChatPendientes
@@ -280,7 +281,7 @@ Partial Class frmPrincipal
         Me.lblSintomasIngresadosConsulta.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.lblSintomasIngresadosConsulta.Location = New System.Drawing.Point(454, 3)
         Me.lblSintomasIngresadosConsulta.Name = "lblSintomasIngresadosConsulta"
-        Me.lblSintomasIngresadosConsulta.Size = New System.Drawing.Size(240, 18)
+        Me.lblSintomasIngresadosConsulta.Size = New System.Drawing.Size(303, 24)
         Me.lblSintomasIngresadosConsulta.TabIndex = 4
         Me.lblSintomasIngresadosConsulta.Text = "Sintomas Ingresador en la consulta"
         '
@@ -297,7 +298,7 @@ Partial Class frmPrincipal
         Me.lblEmailPaciente.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.lblEmailPaciente.Location = New System.Drawing.Point(92, 47)
         Me.lblEmailPaciente.Name = "lblEmailPaciente"
-        Me.lblEmailPaciente.Size = New System.Drawing.Size(147, 18)
+        Me.lblEmailPaciente.Size = New System.Drawing.Size(188, 24)
         Me.lblEmailPaciente.TabIndex = 2
         Me.lblEmailPaciente.Text = "email@paciente.com"
         '
@@ -307,7 +308,7 @@ Partial Class frmPrincipal
         Me.lblNombrePaciente.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.lblNombrePaciente.Location = New System.Drawing.Point(93, 22)
         Me.lblNombrePaciente.Name = "lblNombrePaciente"
-        Me.lblNombrePaciente.Size = New System.Drawing.Size(116, 18)
+        Me.lblNombrePaciente.Size = New System.Drawing.Size(149, 24)
         Me.lblNombrePaciente.TabIndex = 1
         Me.lblNombrePaciente.Text = "nombrePaciente"
         '
@@ -368,7 +369,7 @@ Partial Class frmPrincipal
         Me.txtMensaje.Location = New System.Drawing.Point(9, 532)
         Me.txtMensaje.MaxLength = 80
         Me.txtMensaje.Name = "txtMensaje"
-        Me.txtMensaje.Size = New System.Drawing.Size(610, 24)
+        Me.txtMensaje.Size = New System.Drawing.Size(610, 28)
         Me.txtMensaje.TabIndex = 1
         '
         'mnuChat
@@ -389,28 +390,28 @@ Partial Class frmPrincipal
         Me.tsmBtnVerChat.Enabled = False
         Me.tsmBtnVerChat.Image = Global.appMedico.My.Resources.Resources.chat
         Me.tsmBtnVerChat.Name = "tsmBtnVerChat"
-        Me.tsmBtnVerChat.Size = New System.Drawing.Size(103, 24)
+        Me.tsmBtnVerChat.Size = New System.Drawing.Size(120, 27)
         Me.tsmBtnVerChat.Text = "Ver chat   "
         '
         'tsmBtnVerPaciente
         '
         Me.tsmBtnVerPaciente.Image = Global.appMedico.My.Resources.Resources.datosusuariochat
         Me.tsmBtnVerPaciente.Name = "tsmBtnVerPaciente"
-        Me.tsmBtnVerPaciente.Size = New System.Drawing.Size(154, 24)
+        Me.tsmBtnVerPaciente.Size = New System.Drawing.Size(184, 27)
         Me.tsmBtnVerPaciente.Text = "Ver datos paciente"
         '
         'tsmBtnPonerEspera
         '
         Me.tsmBtnPonerEspera.Image = Global.appMedico.My.Resources.Resources.esperachat
         Me.tsmBtnPonerEspera.Name = "tsmBtnPonerEspera"
-        Me.tsmBtnPonerEspera.Size = New System.Drawing.Size(143, 24)
+        Me.tsmBtnPonerEspera.Size = New System.Drawing.Size(170, 27)
         Me.tsmBtnPonerEspera.Text = "Poner en espera "
         '
         'tsmBtnFinalizarChat
         '
         Me.tsmBtnFinalizarChat.Image = Global.appMedico.My.Resources.Resources.salidaChat
         Me.tsmBtnFinalizarChat.Name = "tsmBtnFinalizarChat"
-        Me.tsmBtnFinalizarChat.Size = New System.Drawing.Size(123, 24)
+        Me.tsmBtnFinalizarChat.Size = New System.Drawing.Size(145, 27)
         Me.tsmBtnFinalizarChat.Text = "Finalizar Chat"
         '
         'panelChatActivo
@@ -474,7 +475,7 @@ Partial Class frmPrincipal
         Me.lblPreExistentes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
         Me.lblPreExistentes.Location = New System.Drawing.Point(54, 225)
         Me.lblPreExistentes.Name = "lblPreExistentes"
-        Me.lblPreExistentes.Size = New System.Drawing.Size(203, 18)
+        Me.lblPreExistentes.Size = New System.Drawing.Size(259, 24)
         Me.lblPreExistentes.TabIndex = 22
         Me.lblPreExistentes.Text = "Enfermedades Pre Existentes"
         '
@@ -484,7 +485,7 @@ Partial Class frmPrincipal
         Me.txtFechaRegistro.Location = New System.Drawing.Point(500, 187)
         Me.txtFechaRegistro.Name = "txtFechaRegistro"
         Me.txtFechaRegistro.ReadOnly = True
-        Me.txtFechaRegistro.Size = New System.Drawing.Size(207, 17)
+        Me.txtFechaRegistro.Size = New System.Drawing.Size(207, 21)
         Me.txtFechaRegistro.TabIndex = 20
         '
         'txtEsquinaPaciente
@@ -493,7 +494,7 @@ Partial Class frmPrincipal
         Me.txtEsquinaPaciente.Location = New System.Drawing.Point(500, 146)
         Me.txtEsquinaPaciente.Name = "txtEsquinaPaciente"
         Me.txtEsquinaPaciente.ReadOnly = True
-        Me.txtEsquinaPaciente.Size = New System.Drawing.Size(284, 17)
+        Me.txtEsquinaPaciente.Size = New System.Drawing.Size(284, 21)
         Me.txtEsquinaPaciente.TabIndex = 19
         '
         'txtBarrioPaciente
@@ -502,7 +503,7 @@ Partial Class frmPrincipal
         Me.txtBarrioPaciente.Location = New System.Drawing.Point(132, 146)
         Me.txtBarrioPaciente.Name = "txtBarrioPaciente"
         Me.txtBarrioPaciente.ReadOnly = True
-        Me.txtBarrioPaciente.Size = New System.Drawing.Size(284, 17)
+        Me.txtBarrioPaciente.Size = New System.Drawing.Size(284, 21)
         Me.txtBarrioPaciente.TabIndex = 18
         '
         'txtCalleApto
@@ -511,7 +512,7 @@ Partial Class frmPrincipal
         Me.txtCalleApto.Location = New System.Drawing.Point(676, 108)
         Me.txtCalleApto.Name = "txtCalleApto"
         Me.txtCalleApto.ReadOnly = True
-        Me.txtCalleApto.Size = New System.Drawing.Size(108, 17)
+        Me.txtCalleApto.Size = New System.Drawing.Size(108, 21)
         Me.txtCalleApto.TabIndex = 17
         '
         'txtCalleNumeroPaciente
@@ -520,7 +521,7 @@ Partial Class frmPrincipal
         Me.txtCalleNumeroPaciente.Location = New System.Drawing.Point(500, 108)
         Me.txtCalleNumeroPaciente.Name = "txtCalleNumeroPaciente"
         Me.txtCalleNumeroPaciente.ReadOnly = True
-        Me.txtCalleNumeroPaciente.Size = New System.Drawing.Size(119, 17)
+        Me.txtCalleNumeroPaciente.Size = New System.Drawing.Size(119, 21)
         Me.txtCalleNumeroPaciente.TabIndex = 16
         '
         'txtCallePaciente
@@ -529,7 +530,7 @@ Partial Class frmPrincipal
         Me.txtCallePaciente.Location = New System.Drawing.Point(132, 108)
         Me.txtCallePaciente.Name = "txtCallePaciente"
         Me.txtCallePaciente.ReadOnly = True
-        Me.txtCallePaciente.Size = New System.Drawing.Size(284, 17)
+        Me.txtCallePaciente.Size = New System.Drawing.Size(284, 21)
         Me.txtCallePaciente.TabIndex = 15
         '
         'txtFechaNacPaciente
@@ -538,7 +539,7 @@ Partial Class frmPrincipal
         Me.txtFechaNacPaciente.Location = New System.Drawing.Point(500, 70)
         Me.txtFechaNacPaciente.Name = "txtFechaNacPaciente"
         Me.txtFechaNacPaciente.ReadOnly = True
-        Me.txtFechaNacPaciente.Size = New System.Drawing.Size(207, 17)
+        Me.txtFechaNacPaciente.Size = New System.Drawing.Size(207, 21)
         Me.txtFechaNacPaciente.TabIndex = 14
         '
         'txtDocIdentidadPaciente
@@ -547,7 +548,7 @@ Partial Class frmPrincipal
         Me.txtDocIdentidadPaciente.Location = New System.Drawing.Point(132, 70)
         Me.txtDocIdentidadPaciente.Name = "txtDocIdentidadPaciente"
         Me.txtDocIdentidadPaciente.ReadOnly = True
-        Me.txtDocIdentidadPaciente.Size = New System.Drawing.Size(207, 17)
+        Me.txtDocIdentidadPaciente.Size = New System.Drawing.Size(207, 21)
         Me.txtDocIdentidadPaciente.TabIndex = 13
         '
         'txtApellidosPaciente
@@ -556,7 +557,7 @@ Partial Class frmPrincipal
         Me.txtApellidosPaciente.Location = New System.Drawing.Point(500, 32)
         Me.txtApellidosPaciente.Name = "txtApellidosPaciente"
         Me.txtApellidosPaciente.ReadOnly = True
-        Me.txtApellidosPaciente.Size = New System.Drawing.Size(284, 17)
+        Me.txtApellidosPaciente.Size = New System.Drawing.Size(284, 21)
         Me.txtApellidosPaciente.TabIndex = 12
         '
         'txtNombrePaciente
@@ -565,7 +566,7 @@ Partial Class frmPrincipal
         Me.txtNombrePaciente.Location = New System.Drawing.Point(132, 32)
         Me.txtNombrePaciente.Name = "txtNombrePaciente"
         Me.txtNombrePaciente.ReadOnly = True
-        Me.txtNombrePaciente.Size = New System.Drawing.Size(284, 17)
+        Me.txtNombrePaciente.Size = New System.Drawing.Size(284, 21)
         Me.txtNombrePaciente.TabIndex = 11
         '
         'lblfechaRegistro
@@ -672,10 +673,16 @@ Partial Class frmPrincipal
         '
         Me.timeEstadoDeSesion.Interval = 5000
         '
+        'ToolStripMenuItem1
+        '
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
+        Me.ToolStripMenuItem1.Text = "Ayuda"
+        '
         'frmPrincipal
         '
         Me.AcceptButton = Me.btnEnviarMensaje
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1187, 721)
@@ -778,4 +785,5 @@ Partial Class frmPrincipal
     Friend WithEvents tmiEspanol As ToolStripMenuItem
     Friend WithEvents tmiIngles As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
 End Class
