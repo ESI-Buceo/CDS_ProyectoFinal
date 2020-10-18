@@ -2,7 +2,7 @@
 Public MustInherit Class ModeloConexion
     Public Shared Driver As String = "MySQL ODBC 8.0 ANSI Driver"
     Public Shared ipServer As String = "localhost"
-    Public Shared Database As String = "dbPrueba"
+    Public Shared Database As String = "dbTriage"
     Public Port As String = "3306"
     Public conexion As New OdbcConnection
 
