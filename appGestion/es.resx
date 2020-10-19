@@ -744,4 +744,25 @@
   <data name="errorcambiarpassword" xml:space="preserve">
     <value>Hubo un error al pretender cambiar la contraseña</value>
   </data>
+  <data name="apellidosinvalidos" xml:space="preserve">
+    <value>Apellido ingresado invalido, solo se permite texto</value>
+  </data>
+  <data name="documentoinvalido" xml:space="preserve">
+    <value>El número de documento no es valido, acepta solo números y entre 7 y 8 cifras.</value>
+  </data>
+  <data name="emailinvalido" xml:space="preserve">
+    <value>El formato del email no es valido.</value>
+  </data>
+  <data name="fechanacinvalida" xml:space="preserve">
+    <value>La fecha de nacimiento es invalida, tiene que ser mayor a 18 años</value>
+  </data>
+  <data name="nmedicoinvalido" xml:space="preserve">
+    <value>El número de medico es invalido, solo adminte números.</value>
+  </data>
+  <data name="nombresInvalidos" xml:space="preserve">
+    <value>Nombre ingresado invalido, solo se permite texto</value>
+  </data>
+  <data name="numepleadoinvalido" xml:space="preserve">
+    <value>El número de empleado es invalido,  solo admite números</value>
+  </data>
 </root>

@@ -63,12 +63,66 @@ Public Class frmMedico
 
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
         'valida antes de ingresar la informacion del medico
-        If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) And ControladorValidaciones.ValidarNombres(txtNombres.Text) _
-            And ControladorValidaciones.ValidarApellidos(txtApellidos.Text) And ControladorValidaciones.ValidarEmail(txtEmail.Text) _
-            And ControladorValidaciones.ValidarFechaNacimiento(dtpFechaNac.Value) And ControladorValidaciones.ValidarNumeroMedico(txtNumMedico.Text) Then
+        validarDocumento()
+    End Sub
+
+    Private Sub validarDocumento()
+        'Alerta si existe un error en el formato del documento
+        If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) Then
+            ValidarNumeroMedico()
+        Else
+            MsgBox(VDocumentoInvalido, vbInformation, VAviso)
+            txtDocIdentidad.Select()
+        End If
+    End Sub
+
+    Private Sub ValidarNumeroMedico()
+        'Aerta si existe un error en el numero de documento
+        If ControladorValidaciones.ValidarNumeroEmpleado(txtNumMedico.Text) Then
+            validarFechaNacimiento()
+        Else
+            MsgBox(VNumeroMedicoInvalido, vbInformation, VAviso)
+            txtNumMedico.Select()
+        End If
+    End Sub
+
+    Private Sub validarFechaNacimiento()
+        'Alerta si existe un error en la fecha de nacimiento
+        If ControladorValidaciones.ValidarFechaNacimiento(dtpFechaNac.Value) Then
+            validarNombres()
+        Else
+            MsgBox(VFechaNacInvalida, vbInformation, VAviso)
+            dtpFechaNac.Select()
+        End If
+    End Sub
+
+    Private Sub validarNombres()
+        'Alerta si existe un error en el nombre
+        If ControladorValidaciones.ValidarNombres(txtNombres.Text) Then
+            validarApellidos()
+        Else
+            MsgBox(VNombresInvalidos, vbInformation, VAviso)
+            txtNombres.Select()
+        End If
+    End Sub
+
+    Private Sub validarApellidos()
+        'Alerta si existe un error en el apellido
+        If ControladorValidaciones.ValidarApellidos(txtApellidos.Text) Then
+            validarEmail()
+        Else
+            MsgBox(VApellidosInvalidos, vbInformation, VAviso)
+            txtApellidos.Select()
+        End If
+    End Sub
+
+    Private Sub validarEmail()
+        'Alerta si existe un error en el email
+        If ControladorValidaciones.ValidarEmail(txtEmail.Text) Then
             validarSiEsNuevo()
         Else
-            MsgBox(VFaltanDatosRequeridos, vbInformation, VAviso)
+            MsgBox(VEmailInvalido, vbInformation, VAviso)
+            txtEmail.Select()
         End If
     End Sub
 

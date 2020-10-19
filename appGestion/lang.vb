@@ -199,6 +199,13 @@
     Public VMensajeRestablecerPassword As String
     Public VRestablecerPassword As String
     Public VErrorCambiarPassword As String
+    Public VDocumentoInvalido As String
+    Public VNombresInvalidos As String
+    Public VApellidosInvalidos As String
+    Public VEmailInvalido As String
+    Public VFechaNacInvalida As String
+    Public VNumeroEmpleadoInvalido As String
+    Public VNumeroMedicoInvalido As String
 
     Public Sub CargarIdioma()
         VIdiomaActivo = My.Settings.lenguaje
@@ -409,6 +416,13 @@
         VMensajeRestablecerPassword = My.Resources.es.mensajerestablecerpassword
         VRestablecerPassword = My.Resources.es.restablecerpassword
         VErrorCambiarPassword = My.Resources.es.errorcambiarpassword
+        VDocumentoInvalido = My.Resources.es.documentoinvalido
+        VNombresInvalidos = My.Resources.es.nombresInvalidos
+        VApellidosInvalidos = My.Resources.es.apellidosinvalidos
+        VEmailInvalido = My.Resources.es.emailinvalido
+        VFechaNacInvalida = My.Resources.es.fechanacinvalida
+        VNumeroEmpleadoInvalido = My.Resources.es.numepleadoinvalido
+        VNumeroMedicoInvalido = My.Resources.es.nmedicoinvalido
     End Sub
 
     Public Sub idioma_en()
@@ -610,6 +624,13 @@
         VMensajeRestablecerPassword = My.Resources.en.mensajerestablecerpassword
         VRestablecerPassword = My.Resources.en.restablecerpassword
         VErrorCambiarPassword = My.Resources.en.errorcambiarpassword
+        VDocumentoInvalido = My.Resources.en.documentoinvalido
+        VNombresInvalidos = My.Resources.en.nombresInvalidos
+        VApellidosInvalidos = My.Resources.en.apellidosinvalidos
+        VEmailInvalido = My.Resources.en.emailinvalido
+        VFechaNacInvalida = My.Resources.en.fechanacinvalida
+        VNumeroEmpleadoInvalido = My.Resources.en.numepleadoinvalido
+        VNumeroMedicoInvalido = My.Resources.en.nmedicoinvalido
     End Sub
 
     Public Sub GuardarIdioma(ByVal idioma As String)

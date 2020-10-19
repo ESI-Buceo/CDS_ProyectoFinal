@@ -200,6 +200,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Last name entered invalid, only text allowed.
+        '''</summary>
+        Friend Shared ReadOnly Property apellidosinvalidos() As String
+            Get
+                Return ResourceManager.GetString("apellidosinvalidos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Apply.
         '''</summary>
         Friend Shared ReadOnly Property aplicar() As String
@@ -623,6 +632,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a The document number is not valid, it accepts only numbers and between 7 and 8 digits..
+        '''</summary>
+        Friend Shared ReadOnly Property documentoinvalido() As String
+            Get
+                Return ResourceManager.GetString("documentoinvalido", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Email sending is disabled.
         '''</summary>
         Friend Shared ReadOnly Property elenviodeemaildeshabilitado() As String
@@ -673,6 +691,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property emailenviadocorrectamente() As String
             Get
                 Return ResourceManager.GetString("emailenviadocorrectamente", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a The email format is not valid..
+        '''</summary>
+        Friend Shared ReadOnly Property emailinvalido() As String
+            Get
+                Return ResourceManager.GetString("emailinvalido", resourceCulture)
             End Get
         End Property
         
@@ -898,6 +925,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property fechanacimiento() As String
             Get
                 Return ResourceManager.GetString("fechanacimiento", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a The date of birth is invalid, it must be over 18 years old.
+        '''</summary>
+        Friend Shared ReadOnly Property fechanacinvalida() As String
+            Get
+                Return ResourceManager.GetString("fechanacinvalida", resourceCulture)
             End Get
         End Property
         
@@ -1253,6 +1289,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a The doctor&apos;s number is valid, it only admits numbers..
+        '''</summary>
+        Friend Shared ReadOnly Property nmedicoinvalido() As String
+            Get
+                Return ResourceManager.GetString("nmedicoinvalido", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a No.
         '''</summary>
         Friend Shared ReadOnly Property no() As String
@@ -1280,6 +1325,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Name entered not valid, only text is allowed.
+        '''</summary>
+        Friend Shared ReadOnly Property nombresInvalidos() As String
+            Get
+                Return ResourceManager.GetString("nombresInvalidos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a November.
         '''</summary>
         Friend Shared ReadOnly Property noviembre() As String
@@ -1303,6 +1357,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property nuevopassword() As String
             Get
                 Return ResourceManager.GetString("nuevopassword", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a The employee number is invalid, it only supports numbers.
+        '''</summary>
+        Friend Shared ReadOnly Property numepleadoinvalido() As String
+            Get
+                Return ResourceManager.GetString("numepleadoinvalido", resourceCulture)
             End Get
         End Property
         
