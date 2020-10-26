@@ -595,7 +595,7 @@
     <value>Activate</value>
   </data>
   <data name="toolbotonreactivar" xml:space="preserve">
-    <value>Reactivate account on screen</value>
+    <value>Activate account on screen</value>
   </data>
   <data name="usuario" xml:space="preserve">
     <value>User</value>

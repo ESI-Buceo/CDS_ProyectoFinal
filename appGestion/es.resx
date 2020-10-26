@@ -478,7 +478,7 @@
     <value>Borrar el registro en pantalla</value>
   </data>
   <data name="toolbotonbuscar" xml:space="preserve">
-    <value>Buscar por el nombre ingresado</value>
+    <value>Buscar por los datos ingresados </value>
   </data>
   <data name="toolbotoncancelar" xml:space="preserve">
     <value>Cancela los cambios</value>
@@ -487,7 +487,7 @@
     <value>Guarda los cambios</value>
   </data>
   <data name="toolbotonmodificar" xml:space="preserve">
-    <value>Habilita la modificación de una patología</value>
+    <value>Habilita la modificación del registro en pantalla</value>
   </data>
   <data name="toolbotonnueva" xml:space="preserve">
     <value>Inicia una nueva búsqueda</value>
@@ -595,7 +595,7 @@
     <value>Activar</value>
   </data>
   <data name="toolbotonreactivar" xml:space="preserve">
-    <value>Reactiva la cuenta en pantalla</value>
+    <value>Activa la cuenta en pantalla</value>
   </data>
   <data name="usuario" xml:space="preserve">
     <value>Usuario</value>

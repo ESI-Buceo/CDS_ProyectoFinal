@@ -1919,7 +1919,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Busca una cadena traducida similar a Reactivate account on screen.
+        '''  Busca una cadena traducida similar a Activate account on screen.
         '''</summary>
         Friend Shared ReadOnly Property toolbotonreactivar() As String
             Get

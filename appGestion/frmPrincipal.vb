@@ -134,6 +134,7 @@ Public Class frmPrincipal
         tsmListaSintomas.Text = VListaSintomas
         tsmImportarDatosCSV.Text = VImportarArchivo
         tsmInformes.Text = VInformes
+        tsmSintomasNSeleccionados.Text = VSintomasNuncaSeleccionados
         tsmRankingPat.Text = VRankingPatologias
         tsmInformeDiagnosticos.Text = VDiagnosticosOtorgados
         tsmInformeDeChat.Text = VTituloInformeChat

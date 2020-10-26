@@ -1874,7 +1874,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Busca una cadena traducida similar a Buscar por el nombre ingresado.
+        '''  Busca una cadena traducida similar a Buscar por los datos ingresados .
         '''</summary>
         Friend Shared ReadOnly Property toolbotonbuscar() As String
             Get
@@ -1901,7 +1901,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Busca una cadena traducida similar a Habilita la modificación de una patología.
+        '''  Busca una cadena traducida similar a Habilita la modificación del registro en pantalla.
         '''</summary>
         Friend Shared ReadOnly Property toolbotonmodificar() As String
             Get
@@ -1919,7 +1919,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Busca una cadena traducida similar a Reactiva la cuenta en pantalla.
+        '''  Busca una cadena traducida similar a Activa la cuenta en pantalla.
         '''</summary>
         Friend Shared ReadOnly Property toolbotonreactivar() As String
             Get
