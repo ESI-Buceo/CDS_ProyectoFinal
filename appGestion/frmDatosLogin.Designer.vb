@@ -46,7 +46,6 @@ Partial Class frmDatosLogin
         Me.txtDocIdentidad.Name = "txtDocIdentidad"
         Me.txtDocIdentidad.Size = New System.Drawing.Size(177, 30)
         Me.txtDocIdentidad.TabIndex = 1
-        Me.txtDocIdentidad.Text = "11111111"
         '
         'lblPassword
         '
@@ -65,7 +64,6 @@ Partial Class frmDatosLogin
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(177, 30)
         Me.txtPassword.TabIndex = 3
-        Me.txtPassword.Text = "11111111"
         '
         'btnGestionIngresar
         '

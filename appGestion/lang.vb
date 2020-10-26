@@ -398,7 +398,7 @@
         VBaseDeDatos = My.Resources.es.basededatos
         VErrorAccesoArchivo = My.Resources.es.erroraccesoarchivo
         VSintomasNuncaSeleccionados = My.Resources.es.sintomasnuncaseleccionados
-        VSubTituloSintomas = My.Resources.es.subtitulolistasintomasnoseleccionados
+        VSubTituloSintomas = My.Resources.es.subsitulosintomas
         VActividad = My.Resources.es.actividad
         VSesiones = My.Resources.es.sesiones
         VActividad12Meses = My.Resources.es.actividaddoceMeses

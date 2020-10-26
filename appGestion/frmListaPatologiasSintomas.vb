@@ -17,6 +17,7 @@ Public Class frmListaPatologiasSintomas
     End Sub
 
     Private Sub mostrarPatologias(ByVal tablaPatologias As DataTable)
+        flpPatologiasPorSintoma.Controls.Clear()
         For Each patologia As DataRow In tablaPatologias.Rows
             flpPatologiasPorSintoma.Controls.Add(crearPanelPatologia(patologia("nombre")))
         Next
