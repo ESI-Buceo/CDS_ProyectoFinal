@@ -4,6 +4,8 @@ Public Class frmCambiarPass
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
         If ControladorValidaciones.ValidarPassYRePass(txtPass.Text, txtRePass.Text) Then
             cambiarPassword(txtPass.Text)
+        Else
+            MsgBox(VLosPassNoCoinciden, vbInformation, VAviso)
         End If
     End Sub
 

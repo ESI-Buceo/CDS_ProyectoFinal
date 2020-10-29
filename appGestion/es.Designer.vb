@@ -353,6 +353,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a El campo no puede estar vacío.
+        '''</summary>
+        Friend Shared ReadOnly Property camponovacio() As String
+            Get
+                Return ResourceManager.GetString("camponovacio", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Cancelar.
         '''</summary>
         Friend Shared ReadOnly Property cancelar() As String
@@ -1190,6 +1199,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Debes establecer los sítomas de la patología.
+        '''</summary>
+        Friend Shared ReadOnly Property listasintomasvacias() As String
+            Get
+                Return ResourceManager.GetString("listasintomasvacias", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Documento de identidad o contraseña incorrectos, verifica.
         '''</summary>
         Friend Shared ReadOnly Property loginincorrecto() As String
@@ -1478,6 +1496,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Las contraseñas no coinciden.
+        '''</summary>
+        Friend Shared ReadOnly Property passnocoinciden() As String
+            Get
+                Return ResourceManager.GetString("passnocoinciden", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Contraseña.
         '''</summary>
         Friend Shared ReadOnly Property password() As String
@@ -1528,6 +1555,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property ponderacion() As String
             Get
                 Return ResourceManager.GetString("ponderacion", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Debes indicar una urgencia para la patología.
+        '''</summary>
+        Friend Shared ReadOnly Property ponderacionNoVacio() As String
+            Get
+                Return ResourceManager.GetString("ponderacionNoVacio", resourceCulture)
             End Get
         End Property
         

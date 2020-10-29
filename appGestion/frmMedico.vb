@@ -562,6 +562,7 @@ Public Class frmMedico
                                                USUARIO, PASSWORD)
             enviarEmailNuevoPassword(newPass)
         Catch ex As Exception
+            MsgBox(ex.Message)
             MsgBox(VErrorCambiarPassword, vbCritical, VAvisoError)
         End Try
     End Sub

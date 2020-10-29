@@ -765,4 +765,16 @@
   <data name="numepleadoinvalido" xml:space="preserve">
     <value>The employee number is invalid, it only supports numbers</value>
   </data>
+  <data name="passnocoinciden" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
+  <data name="ponderacionNoVacio" xml:space="preserve">
+    <value>Select an emergency for the pathology</value>
+  </data>
+  <data name="camponovacio" xml:space="preserve">
+    <value>The field cannot be empty</value>
+  </data>
+  <data name="listasintomasvacias" xml:space="preserve">
+    <value>You must enter the symptoms of the pathology</value>
+  </data>
 </root>

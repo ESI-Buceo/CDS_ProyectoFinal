@@ -206,6 +206,10 @@
     Public VFechaNacInvalida As String
     Public VNumeroEmpleadoInvalido As String
     Public VNumeroMedicoInvalido As String
+    Public VLosPassNoCoinciden As String
+    Public VPonderacionNoVacio As String
+    Public VCampoNoVacio As String
+    Public VListaSintomasVacia As String
 
     Public Sub CargarIdioma()
         VIdiomaActivo = My.Settings.lenguaje
@@ -423,6 +427,10 @@
         VFechaNacInvalida = My.Resources.es.fechanacinvalida
         VNumeroEmpleadoInvalido = My.Resources.es.numepleadoinvalido
         VNumeroMedicoInvalido = My.Resources.es.nmedicoinvalido
+        VLosPassNoCoinciden = My.Resources.es.passnocoinciden
+        VPonderacionNoVacio = My.Resources.es.ponderacionNoVacio
+        VCampoNoVacio = My.Resources.es.camponovacio
+        VListaSintomasVacia = My.Resources.es.listasintomasvacias
     End Sub
 
     Public Sub idioma_en()
@@ -631,6 +639,10 @@
         VFechaNacInvalida = My.Resources.en.fechanacinvalida
         VNumeroEmpleadoInvalido = My.Resources.en.numepleadoinvalido
         VNumeroMedicoInvalido = My.Resources.en.nmedicoinvalido
+        VLosPassNoCoinciden = My.Resources.en.passnocoinciden
+        VPonderacionNoVacio = My.Resources.en.ponderacionNoVacio
+        VCampoNoVacio = My.Resources.en.camponovacio
+        VListaSintomasVacia = My.Resources.en.listasintomasvacias
     End Sub
 
     Public Sub GuardarIdioma(ByVal idioma As String)

@@ -12,6 +12,8 @@ Public Class frmDatosLogin
         'Accion que valida los datos ingresados
         If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) And txtDocIdentidad.Text.Length > 0 Then
             validarConexion()
+        Else
+            MsgBox(VLoginIncorrecto, vbInformation, VErrorAcceso)
         End If
     End Sub
 

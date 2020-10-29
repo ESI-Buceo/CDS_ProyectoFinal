@@ -765,4 +765,16 @@
   <data name="numepleadoinvalido" xml:space="preserve">
     <value>El número de empleado es invalido,  solo admite números</value>
   </data>
+  <data name="passnocoinciden" xml:space="preserve">
+    <value>Las contraseñas no coinciden</value>
+  </data>
+  <data name="ponderacionNoVacio" xml:space="preserve">
+    <value>Debes indicar una urgencia para la patología</value>
+  </data>
+  <data name="camponovacio" xml:space="preserve">
+    <value>El campo no puede estar vacío</value>
+  </data>
+  <data name="listasintomasvacias" xml:space="preserve">
+    <value>Debes establecer los sítomas de la patología</value>
+  </data>
 </root>
