@@ -138,12 +138,16 @@ Public Class frmMedico
     Private Sub guardarDatosDelMedico()
         'Guarda la informacion del medico
         Try
-            ControladorMedico.GuardarDatosMedico(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
+            If ControladorMedico.GuardarDatosMedico(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
                                txtCalle.Text, txtNumeroCalle.Text, txtBarrio.Text, txtEsquina.Text, txtApto.Text,
-                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), listaDeTelefonos, txtNumMedico.Text, USUARIO, PASSWORD)
-            opcionesMenu.ClickEnBotonGuardar(toolsMenuMedico)
-            guardadoConExito()
-            deshabilitarControlesDeEdicion()
+                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), listaDeTelefonos, txtNumMedico.Text, USUARIO, PASSWORD) Then
+                opcionesMenu.ClickEnBotonGuardar(toolsMenuMedico)
+                guardadoConExito()
+                deshabilitarControlesDeEdicion()
+            Else
+                MsgBox(VErrorAlGuardar, vbInformation, VAviso)
+            End If
+
         Catch ex As Exception
             MsgBox(ex.Message)
             MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)

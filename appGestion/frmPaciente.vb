@@ -139,12 +139,16 @@ Public Class frmPaciente
     Private Sub guardarDatosDelPaciente()
         'Guarda los  datos del paciente
         Try
-            controladorPacientes.GuardarDatosPaciente(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
+            If controladorPacientes.GuardarDatosPaciente(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
                                txtCalle.Text, txtNumeroCalle.Text, txtBarrio.Text, txtEsquina.Text, txtApto.Text,
-                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), chkActivo.CheckState, listaDeTelefonos, listaDePreExistentes, USUARIO, PASSWORD)
-            opcionesMenu.ClickEnBotonGuardar(toolsMenuPaciente)
-            guardadoConExito()
-            deshabilitarControlesDeEdicion()
+                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), chkActivo.CheckState, listaDeTelefonos, listaDePreExistentes, USUARIO, PASSWORD) Then
+                opcionesMenu.ClickEnBotonGuardar(toolsMenuPaciente)
+                guardadoConExito()
+                deshabilitarControlesDeEdicion()
+            Else
+                MsgBox(VErrorAlGuardar, vbCritical, VAviso)
+            End If
+
         Catch ex As Exception
             MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try

@@ -15,7 +15,7 @@ Public Module controladorPacientes
         Return a.VerificarDocumentoDeIdentidad(docidentidad)
     End Function
 
-    Public Sub GuardarDatosPaciente(ByVal docidentidad As String, email As String, nombres As String, apellidos As String,
+    Public Function GuardarDatosPaciente(ByVal docidentidad As String, email As String, nombres As String, apellidos As String,
                                calle As String, numero As String, barrio As String, esquina As String, apartamento As String,
                                fechaNac As String, activo As String, telefonos As List(Of String), preExistentes As List(Of String),
                                     uid As String, pwd As String)
@@ -34,8 +34,8 @@ Public Module controladorPacientes
         p.Activo = activo
         p.Telefonos = telefonos
         p.ListaPreExistentes = preExistentes
-        p.GuardarDatosPaciente()
-    End Sub
+        Return p.GuardarDatosPaciente()
+    End Function
 
     Public Function CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         'Crea el usuario en la base de datos

@@ -14,7 +14,7 @@ Public Module ControladorMedico
         Return a.VerificarDocumentoDeIdentidad(docidentidad)
     End Function
 
-    Public Sub GuardarDatosMedico(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
+    Public Function GuardarDatosMedico(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                   numero As String, barrio As String, esquina As String, apto As String, fechaNac As String,
                                   telefonos As List(Of String), numeroMedico As String, uid As String, pwd As String)
         'Guarda los datos del medico
@@ -31,8 +31,8 @@ Public Module ControladorMedico
         m.FechaNacimiento = fechaNac
         m.NumeroMedico = numeroMedico
         m.Telefonos = telefonos
-        m.GuardarDatosMedico()
-    End Sub
+        Return m.GuardarDatosMedico()
+    End Function
 
     Public Function crearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         'Crea el usuario en la base de datos y devuelve pass para enviar por email

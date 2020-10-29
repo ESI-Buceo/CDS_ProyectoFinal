@@ -10,10 +10,9 @@ Public Class frmDatosLogin
 
     Private Sub btnGestionIngresar_Click(sender As Object, e As EventArgs) Handles btnGestionIngresar.Click
         'Accion que valida los datos ingresados
-        validarConexion()
-        'If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) And txtDocIdentidad.Text.Length > 0 Then
-        'validarConexion()
-        'End If
+        If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) And txtDocIdentidad.Text.Length > 0 Then
+            validarConexion()
+        End If
     End Sub
 
     Private Sub validarConexion()
@@ -32,7 +31,6 @@ Public Class frmDatosLogin
             cargarAdminitrativo(controladorAdministrativo.ValidarAdministrativo(txtDocIdentidad.Text, txtPassword.Text))
             setearUsuario()
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VLoginIncorrecto, vbInformation, VErrorAcceso)
         End Try
     End Sub
