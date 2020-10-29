@@ -10,14 +10,19 @@ Public MustInherit Class ModeloConexion
     Public Reader As OdbcDataReader
 
     Public Sub New(ByVal usuario As String, pass As String)
-        conexion.ConnectionString = "DRIVER=" + Driver +
-                                    ";UID=" + usuario +
-                                    ";PWD=" + pass +
-                                    ";PORT=" + Me.Port +
-                                    ";DATABASE=" + Database +
-                                    ";SERVER=" + ipServer
-        conexion.Open()
-        Me.Comando.Connection = conexion
+        Try
+            conexion.ConnectionString = "DRIVER=" + Driver +
+                                        ";UID=" + usuario +
+                                        ";PWD=" + pass +
+                                        ";PORT=" + Me.Port +
+                                        ";DATABASE=" + Database +
+                                        ";SERVER=" + ipServer
+            conexion.Open()
+            Me.Comando.Connection = conexion
+        Catch ex As Exception
+            MsgBox("Error de conexion a la base de datos", vbCritical)
+        End Try
+
     End Sub
 
     Public Sub CerrarConexion()
