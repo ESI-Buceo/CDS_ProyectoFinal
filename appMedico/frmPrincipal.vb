@@ -581,6 +581,6 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
-        Process.Start(Application.StartupPath & "\Triage - médico.chm")
+        Process.Start(Application.StartupPath & "\Triage - medico.chm")
     End Sub
 End Class
