@@ -522,7 +522,6 @@ Public Class frmPrincipal
         Try
             recorrerEnfermadades(controladorPacientes.CargarEnfermedadesPreExistentes(USUARIO, USUARIO, PASSWD))
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoErrorAccesoDatos)
         End Try
     End Sub

@@ -418,7 +418,6 @@ Public Class frmPrincipal
         Catch ex As Exception
             timeEstadoDeSesion.Enabled = False
             timeEstadoDeSesion.Stop()
-            MsgBox(ex.Message)
             MsgBox(VErrorVerificarEstadoSesion, vbCritical, VError)
         End Try
 
@@ -487,7 +486,6 @@ Public Class frmPrincipal
                 smtp.Send(email)
                 MsgBox(VEmailEnviadoCorrectamente, vbInformation, VAviso)
             Catch ex As Exception
-                MsgBox(ex.Message)
                 MsgBox(VErrorEnvioDeEmail, vbCritical, VError)
             End Try
         Else

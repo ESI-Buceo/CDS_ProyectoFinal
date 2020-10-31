@@ -149,7 +149,6 @@ Public Class frmMedico
             End If
 
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
     End Sub
@@ -381,7 +380,6 @@ Public Class frmMedico
             colorearEliminados(dgvListaMedicos)
             crearTablaTelefonoParaDataGrid()
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
     End Sub
@@ -539,7 +537,6 @@ Public Class frmMedico
             validarBotonBorrar(dgvListaMedicos.Item(6, e.RowIndex).Value)
             txtNombres.Select()
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorRecuperarDatos, vbExclamation, VAvisoError)
         End Try
     End Sub

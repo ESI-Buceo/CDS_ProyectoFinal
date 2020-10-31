@@ -10,7 +10,6 @@ Public Class frmListaPatologiasSintomas
         Try
             mostrarPatologias(ControladorPatologias.ListaDePatologias(idSintoma, USUARIO, PASSWORD))
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
             Me.Dispose()
         End Try

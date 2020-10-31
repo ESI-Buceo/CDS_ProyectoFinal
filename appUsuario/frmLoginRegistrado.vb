@@ -22,7 +22,6 @@ Public Class frmLoginRegistrado
             identificarPaciente(controladorPacientes.identificarPaciente(txtDocumento.Text, txtPassword.Text))
             setearUsuario()
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorDatosAcceso, vbExclamation, VErrorAcceso)
             txtDocumento.Select()
         End Try
