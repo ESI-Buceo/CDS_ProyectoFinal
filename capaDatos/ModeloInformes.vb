@@ -20,7 +20,7 @@
                                 LIMIT 10"
         Reader = Comando.ExecuteReader()
         tablaInformes.Load(Reader)
-        conexion.Close()
+        CerrarConexion()
         Return tablaInformes
     End Function
 
@@ -32,7 +32,7 @@
                                 GROUP BY MONTH(r.fechaHora )"
         Reader = Comando.ExecuteReader
         tablaInformes.Load(Reader)
-        conexion.Close()
+        CerrarConexion()
         Return tablaInformes
     End Function
 
@@ -45,7 +45,7 @@
                                 GROUP BY MONTH(s.fechaHoraInicioSesion ) "
         Reader = Comando.ExecuteReader
         tablaInformes.Load(Reader)
-        conexion.Close()
+        CerrarConexion()
         Return tablaInformes
     End Function
 
@@ -59,7 +59,7 @@
                                 GROUP BY DAY (s.fechaHoraInicioSesion ) "
         Reader = Comando.ExecuteReader
         tablaInformes.Load(Reader)
-        conexion.Close()
+        CerrarConexion()
         Return tablaInformes
     End Function
 
@@ -71,7 +71,7 @@
                                 WHERE t.idSintoma = s.id ) And s.activo"
         Reader = Comando.ExecuteReader
         tablaInformes.Load(Reader)
-        conexion.Close()
+        CerrarConexion()
         Return tablaInformes
     End Function
 

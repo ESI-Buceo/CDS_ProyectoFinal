@@ -104,7 +104,7 @@ Public Class ModeloPatologia
                                 WHERE a.IdSintoma = " & idSintomas
         Reader = Comando.ExecuteReader()
         TablaPatologia.Load(Reader)
-        conexion.Close()
+        CerrarConexion()
         Return TablaPatologia
     End Function
 

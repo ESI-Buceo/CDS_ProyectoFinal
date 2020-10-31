@@ -92,6 +92,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a The password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character and more than 6 characters..
+        '''</summary>
+        Friend Shared ReadOnly Property aclaracionpassword() As String
+            Get
+                Return ResourceManager.GetString("aclaracionpassword", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Activate.
         '''</summary>
         Friend Shared ReadOnly Property activar() As String
@@ -1348,6 +1357,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property nombresInvalidos() As String
             Get
                 Return ResourceManager.GetString("nombresInvalidos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Note.
+        '''</summary>
+        Friend Shared ReadOnly Property nota() As String
+            Get
+                Return ResourceManager.GetString("nota", resourceCulture)
             End Get
         End Property
         

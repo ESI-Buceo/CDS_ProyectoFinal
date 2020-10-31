@@ -63,7 +63,7 @@ Public Class ModeloChat
                                 WHERE c.docidentidadPaciente =" & idPaciente & " ORDER BY FechaHora DESC"
         Reader = Comando.ExecuteReader()
         TablaChat.Load(Reader)
-        conexion.Close()
+        CerrarConexion()
         Return TablaChat
     End Function
 

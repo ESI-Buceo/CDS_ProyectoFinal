@@ -15,12 +15,14 @@ Public Class ModeloSintoma
         'Guarda los datos del sintoma
         Comando.CommandText = "INSERT INTO sintoma (id,nombre, activo) VALUES ( " & Me.ID & " ,'" & Me.Nombre & "', " & Me.Estado & " ) ON DUPLICATE KEY UPDATE nombre ='" & Me.Nombre & "', activo= " & Me.Estado
         Comando.ExecuteNonQuery()
+        CerrarConexion()
     End Sub
 
     Public Sub BorrarSintoma()
         ' eliminiacion logica de sintoma
         Comando.CommandText = "UPDATE sintoma  SET  activo = 0 WHERE Id = " & Me.ID & " "
         Comando.ExecuteNonQuery()
+        CerrarConexion()
     End Sub
 
     Public Function TraeDatosSintomasDeBD()
@@ -69,7 +71,7 @@ Public Class ModeloSintoma
         Comando.CommandText = "SELECT id, nombre, activo FROM sintoma WHERE activo =" & estado
         Reader = Comando.ExecuteReader
         TablaSintomas.Load(Reader)
-        conexion.Close()
+        CerrarConexion()
         Return TablaSintomas
     End Function
 
@@ -78,6 +80,7 @@ Public Class ModeloSintoma
         Comando.CommandText = "SELECT id, nombre, activo FROM sintoma"
         Reader = Comando.ExecuteReader
         TablaSintomas.Load(Reader)
+        CerrarConexion()
         Return TablaSintomas
     End Function
 

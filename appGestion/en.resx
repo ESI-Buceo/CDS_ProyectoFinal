@@ -777,4 +777,10 @@
   <data name="listasintomasvacias" xml:space="preserve">
     <value>You must enter the symptoms of the pathology</value>
   </data>
+  <data name="aclaracionpassword" xml:space="preserve">
+    <value>The password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character and more than 6 characters.</value>
+  </data>
+  <data name="nota" xml:space="preserve">
+    <value>Note</value>
+  </data>
 </root>

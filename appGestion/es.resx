@@ -777,4 +777,10 @@
   <data name="listasintomasvacias" xml:space="preserve">
     <value>Debes establecer los sítomas de la patología</value>
   </data>
+  <data name="aclaracionpassword" xml:space="preserve">
+    <value>La contraseña debe contener al menos 1 letra mayúscula, 1 letra minuscula, 1 numero, 1 caracter especial y mas de 6 caracteres.</value>
+  </data>
+  <data name="nota" xml:space="preserve">
+    <value>Nota</value>
+  </data>
 </root>

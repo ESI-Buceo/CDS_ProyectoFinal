@@ -210,6 +210,9 @@
     Public VPonderacionNoVacio As String
     Public VCampoNoVacio As String
     Public VListaSintomasVacia As String
+    Public VNota As String
+    Public VAclaracionPassword As String
+
 
     Public Sub CargarIdioma()
         VIdiomaActivo = My.Settings.lenguaje
@@ -431,6 +434,8 @@
         VPonderacionNoVacio = My.Resources.es.ponderacionNoVacio
         VCampoNoVacio = My.Resources.es.camponovacio
         VListaSintomasVacia = My.Resources.es.listasintomasvacias
+        VNota = My.Resources.es.nota
+        VAclaracionPassword = My.Resources.es.aclaracionpassword
     End Sub
 
     Public Sub idioma_en()
@@ -643,6 +648,8 @@
         VPonderacionNoVacio = My.Resources.en.ponderacionNoVacio
         VCampoNoVacio = My.Resources.en.camponovacio
         VListaSintomasVacia = My.Resources.en.listasintomasvacias
+        VNota = My.Resources.es.nota
+        VAclaracionPassword = My.Resources.es.aclaracionpassword
     End Sub
 
     Public Sub GuardarIdioma(ByVal idioma As String)

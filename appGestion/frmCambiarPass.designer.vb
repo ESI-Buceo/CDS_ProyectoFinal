@@ -29,6 +29,8 @@ Partial Class frmCambiarPass
         Me.txtPass = New System.Windows.Forms.TextBox()
         Me.txtRePass = New System.Windows.Forms.TextBox()
         Me.btnConfirmar = New System.Windows.Forms.Button()
+        Me.lblNota = New System.Windows.Forms.Label()
+        Me.lblAclaracionPass = New System.Windows.Forms.Label()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -88,11 +90,35 @@ Partial Class frmCambiarPass
         Me.btnConfirmar.Text = "Confirmar"
         Me.btnConfirmar.UseVisualStyleBackColor = True
         '
+        'lblNota
+        '
+        Me.lblNota.AutoSize = True
+        Me.lblNota.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNota.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.lblNota.Location = New System.Drawing.Point(17, 229)
+        Me.lblNota.Name = "lblNota"
+        Me.lblNota.Size = New System.Drawing.Size(49, 18)
+        Me.lblNota.TabIndex = 11
+        Me.lblNota.Text = "Nota:"
+        '
+        'lblAclaracionPass
+        '
+        Me.lblAclaracionPass.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAclaracionPass.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.lblAclaracionPass.Location = New System.Drawing.Point(61, 229)
+        Me.lblAclaracionPass.Name = "lblAclaracionPass"
+        Me.lblAclaracionPass.Size = New System.Drawing.Size(509, 53)
+        Me.lblAclaracionPass.TabIndex = 12
+        Me.lblAclaracionPass.Text = "La contraseña debe contener al menos 1 mayuscula, 1 minuscula, 1 numero, 1 caract" &
+    "er raro y más de 6 caracteres"
+        '
         'frmCambiarPass
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(581, 235)
+        Me.ClientSize = New System.Drawing.Size(581, 289)
+        Me.Controls.Add(Me.lblAclaracionPass)
+        Me.Controls.Add(Me.lblNota)
         Me.Controls.Add(Me.btnConfirmar)
         Me.Controls.Add(Me.txtRePass)
         Me.Controls.Add(Me.txtPass)
@@ -118,4 +144,6 @@ Partial Class frmCambiarPass
     Friend WithEvents txtPass As TextBox
     Friend WithEvents txtRePass As TextBox
     Friend WithEvents btnConfirmar As Button
+    Friend WithEvents lblNota As Label
+    Friend WithEvents lblAclaracionPass As Label
 End Class

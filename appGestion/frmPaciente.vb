@@ -245,7 +245,6 @@ Public Class frmPaciente
             controladorPacientes.eliminiarPacienteBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
             validarBotonBorrar(0)
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorBorrarUsuario, vbCritical, VAvisoError)
         End Try
     End Sub
@@ -571,7 +570,6 @@ Public Class frmPaciente
                 MsgBox(VReactivacionCuentaExitosa, vbInformation, VAviso)
             End If
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
     End Sub

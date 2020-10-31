@@ -54,7 +54,7 @@ Public Module controladorPacientes
     End Sub
 
     Public Function CambiarEstadoPaciente(ByVal docIdentidad As String, estado As String, uid As String, pwd As String)
-        'Elimina logicamente a un medico
+        'Elimina logicamente a un paciente
         Dim p As New ModeloPaciente(uid, pwd)
         Return p.CambiarEstadoPaciente(docIdentidad, estado)
     End Function

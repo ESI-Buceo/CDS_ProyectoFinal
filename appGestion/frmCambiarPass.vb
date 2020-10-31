@@ -16,7 +16,6 @@ Public Class frmCambiarPass
             PASSWORD = txtPass.Text
             Me.Dispose()
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VCambioPassFailed, vbCritical, VCambiarPassword)
         End Try
     End Sub
@@ -30,5 +29,7 @@ Public Class frmCambiarPass
         lblNuevoPass.Text = VNuevoPassword
         lblRePass.Text = VReEscribeNuevoPassword
         btnConfirmar.Text = VConfirmar
+        lblNota.Text = VNota
+        lblAclaracionPass.Text = VAclaracionPassword
     End Sub
 End Class
