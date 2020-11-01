@@ -57,6 +57,7 @@ Public Class frmDatosLogin
         lblDocIdentidad.Text = VDocDeIdentidad
         lblPassword.Text = VPassword
         btnGestionIngresar.Text = VIngesar
+        lblAyuda.Text = VAyuda
     End Sub
 
     Private Sub cargarConfiguracion()
@@ -72,5 +73,9 @@ Public Class frmDatosLogin
             MsgBox(VErrorArchivo, vbCritical, VAvisoError)
             End
         End If
+    End Sub
+
+    Private Sub lblAyuda_Click(sender As Object, e As EventArgs) Handles lblAyuda.Click
+        Process.Start(Application.StartupPath & "\Triage - Gestión.chm")
     End Sub
 End Class

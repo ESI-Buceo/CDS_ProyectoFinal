@@ -165,7 +165,6 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub tsmVerAyuda_Click(sender As Object, e As EventArgs) Handles tsmVerAyuda.Click
-        'Process.Start("D:\ESI 2020\Doc Proyecto\Segunda Entrega\Triage - Gestion.chm")
         Process.Start(Application.StartupPath & "\Triage - Gestión.chm")
     End Sub
 
