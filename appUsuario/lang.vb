@@ -247,4 +247,8 @@
         VAyuda = My.Resources.en.ayuda
     End Sub
 
+    Public Sub EstablecerIdioma(ByVal idioma As String)
+        My.Settings.lenguaje = idioma
+        My.Settings.Save()
+    End Sub
 End Module

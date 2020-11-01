@@ -556,8 +556,7 @@ Public Class frmPrincipal
         Dim respuesta As Integer
         respuesta = MsgBox(VCambioRequiereReiniciar, vbQuestion + vbYesNo, VCambioDeIdioma)
         If respuesta = 6 Then
-            My.Settings.lenguaje = idioma
-            My.Settings.Save()
+            EstablecerIdioma(idioma)
             End
         Else
             marcarIdioma()
@@ -699,4 +698,15 @@ Public Class frmPrincipal
         boton.ForeColor = Color.FromArgb(130, 129, 129)
     End Sub
 
+    Private Sub picEs_Click(sender As Object, e As EventArgs) Handles picEs.Click
+        EstablecerIdioma("es")
+        CargarIdioma()
+        cargarTextos()
+    End Sub
+
+    Private Sub picEn_Click(sender As Object, e As EventArgs) Handles picEn.Click
+        EstablecerIdioma("en")
+        CargarIdioma()
+        cargarTextos()
+    End Sub
 End Class

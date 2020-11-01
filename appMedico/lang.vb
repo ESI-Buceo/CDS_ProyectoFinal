@@ -67,6 +67,7 @@ Public Module lang
     Public VIngles As String
     Public VSalir As String
     Public VEnEspera As String
+    Public VAyuda As String
 
     'Metodo que seleccione el idioma
     Public Sub cargarIdioma()
@@ -148,6 +149,7 @@ Public Module lang
         VIngles = My.Resources.es.ingles
         VSalir = My.Resources.es.salir
         VEnEspera = My.Resources.es.enespera
+        VAyuda = My.Resources.es.ayuda
     End Sub
 
     Private Sub cargarIngles()
@@ -217,6 +219,12 @@ Public Module lang
         VIngles = My.Resources.en.ingles
         VSalir = My.Resources.en.salir
         VEnEspera = My.Resources.en.enespera
+        VAyuda = My.Resources.en.ayuda
+    End Sub
+
+    Public Sub EstablecerIdioma(ByVal idioma As String)
+        My.Settings.lenguaje = idioma
+        My.Settings.Save()
     End Sub
 
 End Module

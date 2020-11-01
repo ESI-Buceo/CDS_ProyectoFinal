@@ -34,6 +34,7 @@ Partial Class frmPrincipal
         Me.tsmCambiarIdioma = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmiEspanol = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmiIngles = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmAyuda = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmCerrarSesion = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsmSalir = New System.Windows.Forms.ToolStripMenuItem()
@@ -85,7 +86,6 @@ Partial Class frmPrincipal
         Me.lblNombres = New System.Windows.Forms.Label()
         Me.timeEstadoDeSesion = New System.Windows.Forms.Timer(Me.components)
         Me.ttMensajePonderacion = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.PanelMedico.SuspendLayout()
         CType(Me.picEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picFotoMedico, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -169,7 +169,7 @@ Partial Class frmPrincipal
         'mtsMenuPrincipal
         '
         Me.mtsMenuPrincipal.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.mtsMenuPrincipal.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCambiarIdioma, Me.ToolStripMenuItem1, Me.tsmCerrarSesion, Me.ToolStripSeparator2, Me.tsmSalir})
+        Me.mtsMenuPrincipal.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCambiarIdioma, Me.tsmAyuda, Me.tsmCerrarSesion, Me.ToolStripSeparator2, Me.tsmSalir})
         Me.mtsMenuPrincipal.Image = Global.appMedico.My.Resources.Resources.menu
         Me.mtsMenuPrincipal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.mtsMenuPrincipal.Name = "mtsMenuPrincipal"
@@ -193,6 +193,12 @@ Partial Class frmPrincipal
         Me.tmiIngles.Name = "tmiIngles"
         Me.tmiIngles.Size = New System.Drawing.Size(136, 26)
         Me.tmiIngles.Text = "Ingles"
+        '
+        'tsmAyuda
+        '
+        Me.tsmAyuda.Name = "tsmAyuda"
+        Me.tsmAyuda.Size = New System.Drawing.Size(216, 26)
+        Me.tsmAyuda.Text = "Ayuda"
         '
         'tsmCerrarSesion
         '
@@ -673,12 +679,6 @@ Partial Class frmPrincipal
         '
         Me.timeEstadoDeSesion.Interval = 5000
         '
-        'ToolStripMenuItem1
-        '
-        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(216, 26)
-        Me.ToolStripMenuItem1.Text = "Ayuda"
-        '
         'frmPrincipal
         '
         Me.AcceptButton = Me.btnEnviarMensaje
@@ -785,5 +785,5 @@ Partial Class frmPrincipal
     Friend WithEvents tmiEspanol As ToolStripMenuItem
     Friend WithEvents tmiIngles As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
-    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents tsmAyuda As ToolStripMenuItem
 End Class

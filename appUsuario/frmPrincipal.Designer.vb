@@ -28,7 +28,6 @@ Partial Class frmPrincipal
         Me.PanelDeConsulta = New System.Windows.Forms.Panel()
         Me.flPanelDiagnostico = New System.Windows.Forms.FlowLayoutPanel()
         Me.lblNoResultado = New System.Windows.Forms.Label()
-        Me.picLogoCliente = New System.Windows.Forms.PictureBox()
         Me.panelDeSintomas = New System.Windows.Forms.Panel()
         Me.btnIniciarChat = New System.Windows.Forms.Button()
         Me.btnVerInforme = New System.Windows.Forms.Button()
@@ -43,28 +42,18 @@ Partial Class frmPrincipal
         Me.linkSaberMas = New System.Windows.Forms.LinkLabel()
         Me.btnComenzar = New System.Windows.Forms.Button()
         Me.lblMensaje = New System.Windows.Forms.Label()
-        Me.picMsVidaSana = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblLeyenda = New System.Windows.Forms.Label()
         Me.btnIniciarAutenticado = New System.Windows.Forms.Button()
-        Me.picLogo = New System.Windows.Forms.PictureBox()
         Me.panelCabecera = New System.Windows.Forms.Panel()
-        Me.btnAyuda = New System.Windows.Forms.Button()
-        Me.btnChat = New System.Windows.Forms.Button()
-        Me.btnHistoria = New System.Windows.Forms.Button()
-        Me.btnConsulta = New System.Windows.Forms.Button()
         Me.lblPacienteNombre = New System.Windows.Forms.Label()
-        Me.picFotoUsuario = New System.Windows.Forms.PictureBox()
         Me.tiempoMensaje = New System.Windows.Forms.Timer(Me.components)
         Me.panelChat = New System.Windows.Forms.Panel()
         Me.txtMensajes = New System.Windows.Forms.RichTextBox()
-        Me.btnFinalizarChat = New System.Windows.Forms.Button()
         Me.btnEnviarMensaje = New System.Windows.Forms.Button()
         Me.txtMensaje = New System.Windows.Forms.TextBox()
         Me.panelChatOpciones = New System.Windows.Forms.Panel()
         Me.panelInfoMedico = New System.Windows.Forms.Panel()
         Me.lblNombreMedico = New System.Windows.Forms.Label()
-        Me.picMedico = New System.Windows.Forms.PictureBox()
         Me.lblEstado = New System.Windows.Forms.Label()
         Me.lblEstadoChat = New System.Windows.Forms.Label()
         Me.TimerChequearEstado = New System.Windows.Forms.Timer(Me.components)
@@ -104,21 +93,28 @@ Partial Class frmPrincipal
         Me.flpDiagnosticos = New System.Windows.Forms.FlowLayoutPanel()
         Me.tabChats = New System.Windows.Forms.TabPage()
         Me.flpChats = New System.Windows.Forms.FlowLayoutPanel()
+        Me.btnFinalizarChat = New System.Windows.Forms.Button()
+        Me.picMedico = New System.Windows.Forms.PictureBox()
+        Me.btnAyuda = New System.Windows.Forms.Button()
+        Me.btnChat = New System.Windows.Forms.Button()
+        Me.btnHistoria = New System.Windows.Forms.Button()
+        Me.btnConsulta = New System.Windows.Forms.Button()
+        Me.picFotoUsuario = New System.Windows.Forms.PictureBox()
+        Me.picLogoCliente = New System.Windows.Forms.PictureBox()
+        Me.picMsVidaSana = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.picLogo = New System.Windows.Forms.PictureBox()
+        Me.picEn = New System.Windows.Forms.PictureBox()
+        Me.picEs = New System.Windows.Forms.PictureBox()
         Me.PanelInicio.SuspendLayout()
         Me.PanelDeConsulta.SuspendLayout()
         Me.flPanelDiagnostico.SuspendLayout()
-        CType(Me.picLogoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelDeSintomas.SuspendLayout()
         Me.panelBotonSiNo.SuspendLayout()
-        CType(Me.picMsVidaSana, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelCabecera.SuspendLayout()
-        CType(Me.picFotoUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelChat.SuspendLayout()
         Me.panelChatOpciones.SuspendLayout()
         Me.panelInfoMedico.SuspendLayout()
-        CType(Me.picMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panelHistoria.SuspendLayout()
         Me.gbDatosPaciente.SuspendLayout()
         Me.gbIdioma.SuspendLayout()
@@ -127,15 +123,26 @@ Partial Class frmPrincipal
         Me.tabHistoria.SuspendLayout()
         Me.tabDiagnosticos.SuspendLayout()
         Me.tabChats.SuspendLayout()
+        CType(Me.picMedico, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picFotoUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picLogoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picMsVidaSana, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picEn, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picEs, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelInicio
         '
-        Me.PanelInicio.Controls.Add(Me.PanelDeConsulta)
+        Me.PanelInicio.Controls.Add(Me.panelChat)
+        Me.PanelInicio.Controls.Add(Me.panelHistoria)
+        Me.PanelInicio.Controls.Add(Me.picEs)
         Me.PanelInicio.Controls.Add(Me.PictureBox1)
         Me.PanelInicio.Controls.Add(Me.lblLeyenda)
         Me.PanelInicio.Controls.Add(Me.btnIniciarAutenticado)
         Me.PanelInicio.Controls.Add(Me.picLogo)
+        Me.PanelInicio.Controls.Add(Me.picEn)
         Me.PanelInicio.Location = New System.Drawing.Point(1, 42)
         Me.PanelInicio.Name = "PanelInicio"
         Me.PanelInicio.Size = New System.Drawing.Size(1145, 614)
@@ -150,7 +157,7 @@ Partial Class frmPrincipal
         Me.PanelDeConsulta.Controls.Add(Me.btnComenzar)
         Me.PanelDeConsulta.Controls.Add(Me.lblMensaje)
         Me.PanelDeConsulta.Controls.Add(Me.picMsVidaSana)
-        Me.PanelDeConsulta.Location = New System.Drawing.Point(2, 30)
+        Me.PanelDeConsulta.Location = New System.Drawing.Point(0, 59)
         Me.PanelDeConsulta.Name = "PanelDeConsulta"
         Me.PanelDeConsulta.Size = New System.Drawing.Size(1143, 594)
         Me.PanelDeConsulta.TabIndex = 1
@@ -180,15 +187,6 @@ Partial Class frmPrincipal
         Me.lblNoResultado.Size = New System.Drawing.Size(161, 44)
         Me.lblNoResultado.TabIndex = 0
         Me.lblNoResultado.Text = "No hay resultados"
-        '
-        'picLogoCliente
-        '
-        Me.picLogoCliente.Image = Global.appUsuario.My.Resources.Resources.vidasana
-        Me.picLogoCliente.Location = New System.Drawing.Point(67, 468)
-        Me.picLogoCliente.Name = "picLogoCliente"
-        Me.picLogoCliente.Size = New System.Drawing.Size(150, 48)
-        Me.picLogoCliente.TabIndex = 5
-        Me.picLogoCliente.TabStop = False
         '
         'panelDeSintomas
         '
@@ -353,26 +351,6 @@ Partial Class frmPrincipal
         Me.lblMensaje.Text = "Hola, gracias por utilizar Triage. Trataremos de orientarte para que luego consul" &
     "tes a tu medico. Comencemos a hacer una evaluacion"
         '
-        'picMsVidaSana
-        '
-        Me.picMsVidaSana.Image = Global.appUsuario.My.Resources.Resources.doc
-        Me.picMsVidaSana.Location = New System.Drawing.Point(67, 47)
-        Me.picMsVidaSana.Name = "picMsVidaSana"
-        Me.picMsVidaSana.Size = New System.Drawing.Size(290, 276)
-        Me.picMsVidaSana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picMsVidaSana.TabIndex = 0
-        Me.picMsVidaSana.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.appUsuario.My.Resources.Resources.vidasana
-        Me.PictureBox1.Location = New System.Drawing.Point(277, 374)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(86, 34)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
-        '
         'lblLeyenda
         '
         Me.lblLeyenda.Font = New System.Drawing.Font("Lucida Calligraphy", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -395,16 +373,6 @@ Partial Class frmPrincipal
         Me.btnIniciarAutenticado.Text = "Usuario registrado"
         Me.btnIniciarAutenticado.UseVisualStyleBackColor = True
         '
-        'picLogo
-        '
-        Me.picLogo.Image = Global.appUsuario.My.Resources.Resources.logo_App
-        Me.picLogo.Location = New System.Drawing.Point(300, 32)
-        Me.picLogo.Name = "picLogo"
-        Me.picLogo.Size = New System.Drawing.Size(530, 147)
-        Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picLogo.TabIndex = 1
-        Me.picLogo.TabStop = False
-        '
         'panelCabecera
         '
         Me.panelCabecera.BackColor = System.Drawing.Color.Gainsboro
@@ -420,70 +388,6 @@ Partial Class frmPrincipal
         Me.panelCabecera.TabIndex = 2
         Me.panelCabecera.Visible = False
         '
-        'btnAyuda
-        '
-        Me.btnAyuda.FlatAppearance.BorderSize = 0
-        Me.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAyuda.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAyuda.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.btnAyuda.Image = Global.appUsuario.My.Resources.Resources.btnHelp
-        Me.btnAyuda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAyuda.Location = New System.Drawing.Point(1028, 2)
-        Me.btnAyuda.Name = "btnAyuda"
-        Me.btnAyuda.Size = New System.Drawing.Size(104, 62)
-        Me.btnAyuda.TabIndex = 6
-        Me.btnAyuda.Text = "Ayuda"
-        Me.btnAyuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnAyuda.UseVisualStyleBackColor = True
-        '
-        'btnChat
-        '
-        Me.btnChat.Enabled = False
-        Me.btnChat.FlatAppearance.BorderSize = 0
-        Me.btnChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnChat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.btnChat.Image = Global.appUsuario.My.Resources.Resources.btnChat
-        Me.btnChat.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnChat.Location = New System.Drawing.Point(810, 2)
-        Me.btnChat.Name = "btnChat"
-        Me.btnChat.Size = New System.Drawing.Size(104, 62)
-        Me.btnChat.TabIndex = 5
-        Me.btnChat.Text = "Chat"
-        Me.btnChat.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnChat.UseVisualStyleBackColor = True
-        '
-        'btnHistoria
-        '
-        Me.btnHistoria.FlatAppearance.BorderSize = 0
-        Me.btnHistoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnHistoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHistoria.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.btnHistoria.Image = Global.appUsuario.My.Resources.Resources.btnReloj
-        Me.btnHistoria.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnHistoria.Location = New System.Drawing.Point(919, 2)
-        Me.btnHistoria.Name = "btnHistoria"
-        Me.btnHistoria.Size = New System.Drawing.Size(104, 62)
-        Me.btnHistoria.TabIndex = 4
-        Me.btnHistoria.Text = "Historia"
-        Me.btnHistoria.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnHistoria.UseVisualStyleBackColor = True
-        '
-        'btnConsulta
-        '
-        Me.btnConsulta.FlatAppearance.BorderSize = 0
-        Me.btnConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnConsulta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(137, Byte), Integer))
-        Me.btnConsulta.Image = Global.appUsuario.My.Resources.Resources.btnConsultaSelect
-        Me.btnConsulta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnConsulta.Location = New System.Drawing.Point(701, 2)
-        Me.btnConsulta.Name = "btnConsulta"
-        Me.btnConsulta.Size = New System.Drawing.Size(104, 62)
-        Me.btnConsulta.TabIndex = 2
-        Me.btnConsulta.Text = "Consulta"
-        Me.btnConsulta.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnConsulta.UseVisualStyleBackColor = True
-        '
         'lblPacienteNombre
         '
         Me.lblPacienteNombre.AutoSize = True
@@ -493,16 +397,6 @@ Partial Class frmPrincipal
         Me.lblPacienteNombre.Size = New System.Drawing.Size(184, 24)
         Me.lblPacienteNombre.TabIndex = 1
         Me.lblPacienteNombre.Text = "nombre del paciente"
-        '
-        'picFotoUsuario
-        '
-        Me.picFotoUsuario.Image = Global.appUsuario.My.Resources.Resources.ava1
-        Me.picFotoUsuario.Location = New System.Drawing.Point(23, 11)
-        Me.picFotoUsuario.Name = "picFotoUsuario"
-        Me.picFotoUsuario.Size = New System.Drawing.Size(47, 43)
-        Me.picFotoUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picFotoUsuario.TabIndex = 0
-        Me.picFotoUsuario.TabStop = False
         '
         'tiempoMensaje
         '
@@ -515,7 +409,7 @@ Partial Class frmPrincipal
         Me.panelChat.Controls.Add(Me.btnEnviarMensaje)
         Me.panelChat.Controls.Add(Me.txtMensaje)
         Me.panelChat.Controls.Add(Me.panelChatOpciones)
-        Me.panelChat.Location = New System.Drawing.Point(1, 72)
+        Me.panelChat.Location = New System.Drawing.Point(1, 22)
         Me.panelChat.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.panelChat.Name = "panelChat"
         Me.panelChat.Size = New System.Drawing.Size(1142, 581)
@@ -531,19 +425,6 @@ Partial Class frmPrincipal
         Me.txtMensajes.Size = New System.Drawing.Size(886, 463)
         Me.txtMensajes.TabIndex = 8
         Me.txtMensajes.Text = ""
-        '
-        'btnFinalizarChat
-        '
-        Me.btnFinalizarChat.AutoSize = True
-        Me.btnFinalizarChat.Cursor = System.Windows.Forms.Cursors.Default
-        Me.btnFinalizarChat.FlatAppearance.BorderSize = 0
-        Me.btnFinalizarChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnFinalizarChat.Image = Global.appUsuario.My.Resources.Resources.salidaChat
-        Me.btnFinalizarChat.Location = New System.Drawing.Point(1030, 15)
-        Me.btnFinalizarChat.Name = "btnFinalizarChat"
-        Me.btnFinalizarChat.Size = New System.Drawing.Size(100, 43)
-        Me.btnFinalizarChat.TabIndex = 9
-        Me.btnFinalizarChat.UseVisualStyleBackColor = True
         '
         'btnEnviarMensaje
         '
@@ -599,16 +480,6 @@ Partial Class frmPrincipal
         Me.lblNombreMedico.Text = "nombreMedico"
         Me.lblNombreMedico.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'picMedico
-        '
-        Me.picMedico.Image = Global.appUsuario.My.Resources.Resources.docMas
-        Me.picMedico.Location = New System.Drawing.Point(30, 13)
-        Me.picMedico.Name = "picMedico"
-        Me.picMedico.Size = New System.Drawing.Size(121, 120)
-        Me.picMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.picMedico.TabIndex = 0
-        Me.picMedico.TabStop = False
-        '
         'lblEstado
         '
         Me.lblEstado.AutoSize = True
@@ -642,7 +513,7 @@ Partial Class frmPrincipal
         '
         Me.panelHistoria.Controls.Add(Me.gbDatosPaciente)
         Me.panelHistoria.Controls.Add(Me.tabHistoria)
-        Me.panelHistoria.Location = New System.Drawing.Point(0, 70)
+        Me.panelHistoria.Location = New System.Drawing.Point(2, 26)
         Me.panelHistoria.Name = "panelHistoria"
         Me.panelHistoria.Size = New System.Drawing.Size(1146, 584)
         Me.panelHistoria.TabIndex = 6
@@ -1040,6 +911,164 @@ Partial Class frmPrincipal
         Me.flpChats.Size = New System.Drawing.Size(391, 488)
         Me.flpChats.TabIndex = 0
         '
+        'btnFinalizarChat
+        '
+        Me.btnFinalizarChat.AutoSize = True
+        Me.btnFinalizarChat.Cursor = System.Windows.Forms.Cursors.Default
+        Me.btnFinalizarChat.FlatAppearance.BorderSize = 0
+        Me.btnFinalizarChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnFinalizarChat.Image = Global.appUsuario.My.Resources.Resources.salidaChat
+        Me.btnFinalizarChat.Location = New System.Drawing.Point(1030, 15)
+        Me.btnFinalizarChat.Name = "btnFinalizarChat"
+        Me.btnFinalizarChat.Size = New System.Drawing.Size(100, 43)
+        Me.btnFinalizarChat.TabIndex = 9
+        Me.btnFinalizarChat.UseVisualStyleBackColor = True
+        '
+        'picMedico
+        '
+        Me.picMedico.Image = Global.appUsuario.My.Resources.Resources.docMas
+        Me.picMedico.Location = New System.Drawing.Point(30, 13)
+        Me.picMedico.Name = "picMedico"
+        Me.picMedico.Size = New System.Drawing.Size(121, 120)
+        Me.picMedico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picMedico.TabIndex = 0
+        Me.picMedico.TabStop = False
+        '
+        'btnAyuda
+        '
+        Me.btnAyuda.FlatAppearance.BorderSize = 0
+        Me.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAyuda.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAyuda.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.btnAyuda.Image = Global.appUsuario.My.Resources.Resources.btnHelp
+        Me.btnAyuda.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAyuda.Location = New System.Drawing.Point(1028, 2)
+        Me.btnAyuda.Name = "btnAyuda"
+        Me.btnAyuda.Size = New System.Drawing.Size(104, 62)
+        Me.btnAyuda.TabIndex = 6
+        Me.btnAyuda.Text = "Ayuda"
+        Me.btnAyuda.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAyuda.UseVisualStyleBackColor = True
+        '
+        'btnChat
+        '
+        Me.btnChat.Enabled = False
+        Me.btnChat.FlatAppearance.BorderSize = 0
+        Me.btnChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnChat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.btnChat.Image = Global.appUsuario.My.Resources.Resources.btnChat
+        Me.btnChat.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnChat.Location = New System.Drawing.Point(810, 2)
+        Me.btnChat.Name = "btnChat"
+        Me.btnChat.Size = New System.Drawing.Size(104, 62)
+        Me.btnChat.TabIndex = 5
+        Me.btnChat.Text = "Chat"
+        Me.btnChat.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnChat.UseVisualStyleBackColor = True
+        '
+        'btnHistoria
+        '
+        Me.btnHistoria.FlatAppearance.BorderSize = 0
+        Me.btnHistoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnHistoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHistoria.ForeColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.btnHistoria.Image = Global.appUsuario.My.Resources.Resources.btnReloj
+        Me.btnHistoria.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnHistoria.Location = New System.Drawing.Point(919, 2)
+        Me.btnHistoria.Name = "btnHistoria"
+        Me.btnHistoria.Size = New System.Drawing.Size(104, 62)
+        Me.btnHistoria.TabIndex = 4
+        Me.btnHistoria.Text = "Historia"
+        Me.btnHistoria.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnHistoria.UseVisualStyleBackColor = True
+        '
+        'btnConsulta
+        '
+        Me.btnConsulta.FlatAppearance.BorderSize = 0
+        Me.btnConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnConsulta.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConsulta.ForeColor = System.Drawing.Color.FromArgb(CType(CType(44, Byte), Integer), CType(CType(55, Byte), Integer), CType(CType(137, Byte), Integer))
+        Me.btnConsulta.Image = Global.appUsuario.My.Resources.Resources.btnConsultaSelect
+        Me.btnConsulta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnConsulta.Location = New System.Drawing.Point(701, 2)
+        Me.btnConsulta.Name = "btnConsulta"
+        Me.btnConsulta.Size = New System.Drawing.Size(104, 62)
+        Me.btnConsulta.TabIndex = 2
+        Me.btnConsulta.Text = "Consulta"
+        Me.btnConsulta.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnConsulta.UseVisualStyleBackColor = True
+        '
+        'picFotoUsuario
+        '
+        Me.picFotoUsuario.Image = Global.appUsuario.My.Resources.Resources.ava1
+        Me.picFotoUsuario.Location = New System.Drawing.Point(23, 11)
+        Me.picFotoUsuario.Name = "picFotoUsuario"
+        Me.picFotoUsuario.Size = New System.Drawing.Size(47, 43)
+        Me.picFotoUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picFotoUsuario.TabIndex = 0
+        Me.picFotoUsuario.TabStop = False
+        '
+        'picLogoCliente
+        '
+        Me.picLogoCliente.Image = Global.appUsuario.My.Resources.Resources.vidasana
+        Me.picLogoCliente.Location = New System.Drawing.Point(67, 468)
+        Me.picLogoCliente.Name = "picLogoCliente"
+        Me.picLogoCliente.Size = New System.Drawing.Size(150, 48)
+        Me.picLogoCliente.TabIndex = 5
+        Me.picLogoCliente.TabStop = False
+        '
+        'picMsVidaSana
+        '
+        Me.picMsVidaSana.Image = Global.appUsuario.My.Resources.Resources.doc
+        Me.picMsVidaSana.Location = New System.Drawing.Point(67, 47)
+        Me.picMsVidaSana.Name = "picMsVidaSana"
+        Me.picMsVidaSana.Size = New System.Drawing.Size(290, 276)
+        Me.picMsVidaSana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picMsVidaSana.TabIndex = 0
+        Me.picMsVidaSana.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.appUsuario.My.Resources.Resources.vidasana
+        Me.PictureBox1.Location = New System.Drawing.Point(277, 374)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(86, 34)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 5
+        Me.PictureBox1.TabStop = False
+        '
+        'picLogo
+        '
+        Me.picLogo.Image = Global.appUsuario.My.Resources.Resources.logo_App
+        Me.picLogo.Location = New System.Drawing.Point(300, 32)
+        Me.picLogo.Name = "picLogo"
+        Me.picLogo.Size = New System.Drawing.Size(530, 147)
+        Me.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.picLogo.TabIndex = 1
+        Me.picLogo.TabStop = False
+        '
+        'picEn
+        '
+        Me.picEn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picEn.Image = Global.appUsuario.My.Resources.Resources.ingles_ICONO
+        Me.picEn.Location = New System.Drawing.Point(572, 566)
+        Me.picEn.Name = "picEn"
+        Me.picEn.Size = New System.Drawing.Size(30, 30)
+        Me.picEn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picEn.TabIndex = 28
+        Me.picEn.TabStop = False
+        '
+        'picEs
+        '
+        Me.picEs.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.picEs.Image = Global.appUsuario.My.Resources.Resources.icono_espaniol
+        Me.picEs.Location = New System.Drawing.Point(535, 566)
+        Me.picEs.Name = "picEs"
+        Me.picEs.Size = New System.Drawing.Size(30, 30)
+        Me.picEs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picEs.TabIndex = 27
+        Me.picEs.TabStop = False
+        '
         'frmPrincipal
         '
         Me.AcceptButton = Me.btnEnviarMensaje
@@ -1047,8 +1076,7 @@ Partial Class frmPrincipal
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1146, 658)
-        Me.Controls.Add(Me.panelHistoria)
-        Me.Controls.Add(Me.panelChat)
+        Me.Controls.Add(Me.PanelDeConsulta)
         Me.Controls.Add(Me.panelCabecera)
         Me.Controls.Add(Me.PanelInicio)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1065,22 +1093,16 @@ Partial Class frmPrincipal
         Me.PanelDeConsulta.PerformLayout()
         Me.flPanelDiagnostico.ResumeLayout(False)
         Me.flPanelDiagnostico.PerformLayout()
-        CType(Me.picLogoCliente, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelDeSintomas.ResumeLayout(False)
         Me.panelDeSintomas.PerformLayout()
         Me.panelBotonSiNo.ResumeLayout(False)
-        CType(Me.picMsVidaSana, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelCabecera.ResumeLayout(False)
         Me.panelCabecera.PerformLayout()
-        CType(Me.picFotoUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelChat.ResumeLayout(False)
         Me.panelChat.PerformLayout()
         Me.panelChatOpciones.ResumeLayout(False)
         Me.panelChatOpciones.PerformLayout()
         Me.panelInfoMedico.ResumeLayout(False)
-        CType(Me.picMedico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panelHistoria.ResumeLayout(False)
         Me.gbDatosPaciente.ResumeLayout(False)
         Me.gbDatosPaciente.PerformLayout()
@@ -1091,6 +1113,14 @@ Partial Class frmPrincipal
         Me.tabHistoria.ResumeLayout(False)
         Me.tabDiagnosticos.ResumeLayout(False)
         Me.tabChats.ResumeLayout(False)
+        CType(Me.picMedico, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picFotoUsuario, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picLogoCliente, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picMsVidaSana, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picEn, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picEs, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1175,4 +1205,6 @@ Partial Class frmPrincipal
     Friend WithEvents tabChats As TabPage
     Friend WithEvents flpChats As FlowLayoutPanel
     Friend WithEvents btnAyuda As Button
+    Friend WithEvents picEn As PictureBox
+    Friend WithEvents picEs As PictureBox
 End Class

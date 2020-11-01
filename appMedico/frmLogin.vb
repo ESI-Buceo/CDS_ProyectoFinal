@@ -89,4 +89,19 @@ Public Class frmLogin
             End
         End If
     End Sub
+
+    Private Sub picEs_Click(sender As Object, e As EventArgs) Handles picEs.Click
+        seleccionDeIdioma("es")
+    End Sub
+
+    Private Sub seleccionDeIdioma(ByVal idioma As String)
+        'Establece el idioma para la aplicacion
+        EstablecerIdioma(idioma)
+        cargarIdioma()
+        cargarTextos()
+    End Sub
+
+    Private Sub picEn_Click(sender As Object, e As EventArgs) Handles picEn.Click
+        seleccionDeIdioma("en")
+    End Sub
 End Class

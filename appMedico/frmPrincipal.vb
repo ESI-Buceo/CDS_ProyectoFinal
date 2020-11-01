@@ -527,8 +527,7 @@ Public Class frmPrincipal
         Dim respuesta As Integer
         respuesta = MsgBox(VEstaCambioRequiereReinicar, vbQuestion + vbYesNo, VCambioDeIdioma)
         If respuesta = 6 Then
-            My.Settings.lenguaje = idioma
-            My.Settings.Save()
+            EstablecerIdioma(idioma)
             End
         Else
             mostarIdioma()
@@ -565,6 +564,7 @@ Public Class frmPrincipal
         tsmBtnVerPaciente.Text = VVerDatosPaciente
         tsmBtnPonerEspera.Text = VPonerEspera
         tsmBtnFinalizarChat.Text = VFinalizarChat
+        tsmAyuda.Text = VAyuda
         lblNombres.Text = VNombres
         lblApellidos.Text = VApellidos
         lblDocIdentidad.Text = VDocIdentidad
@@ -578,7 +578,7 @@ Public Class frmPrincipal
         lblPreExistentes.Text = VEnfermedadesPreExistentes
     End Sub
 
-    Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
+    Private Sub tsmAyuda_Click(sender As Object, e As EventArgs) Handles tsmAyuda.Click
         Process.Start(Application.StartupPath & "\Triage - medico.chm")
     End Sub
 End Class

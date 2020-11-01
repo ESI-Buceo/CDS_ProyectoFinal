@@ -238,6 +238,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\icono_espaniol.png" />
+    <None Include="Resources\ingles-ICONO.png" />
+    <None Include="Resources\icono_EN.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

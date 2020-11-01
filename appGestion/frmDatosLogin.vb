@@ -53,7 +53,7 @@ Public Class frmDatosLogin
         Me.Hide()
     End Sub
 
-    Private Sub cargarTextos()
+    Public Sub cargarTextos()
         lblDocIdentidad.Text = VDocDeIdentidad
         lblPassword.Text = VPassword
         btnGestionIngresar.Text = VIngesar
