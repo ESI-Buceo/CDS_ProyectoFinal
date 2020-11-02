@@ -104,4 +104,8 @@ Public Class frmLogin
     Private Sub picEn_Click(sender As Object, e As EventArgs) Handles picEn.Click
         seleccionDeIdioma("en")
     End Sub
+
+    Private Sub lblAyuda_Click(sender As Object, e As EventArgs) Handles lblAyuda.Click
+        Process.Start(Application.StartupPath & "\Triage - medico.chm")
+    End Sub
 End Class

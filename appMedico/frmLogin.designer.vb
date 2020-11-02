@@ -33,6 +33,7 @@ Partial Class frmLogin
         Me.picEs = New System.Windows.Forms.PictureBox()
         Me.picEn = New System.Windows.Forms.PictureBox()
         Me.picLogo = New System.Windows.Forms.PictureBox()
+        Me.lblAyuda = New System.Windows.Forms.Label()
         CType(Me.picEs, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picEn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -144,12 +145,24 @@ Partial Class frmLogin
         Me.picLogo.TabIndex = 0
         Me.picLogo.TabStop = False
         '
+        'lblAyuda
+        '
+        Me.lblAyuda.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblAyuda.ForeColor = System.Drawing.SystemColors.Highlight
+        Me.lblAyuda.Location = New System.Drawing.Point(136, 536)
+        Me.lblAyuda.Name = "lblAyuda"
+        Me.lblAyuda.Size = New System.Drawing.Size(183, 21)
+        Me.lblAyuda.TabIndex = 12
+        Me.lblAyuda.Text = "Ayuda"
+        Me.lblAyuda.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmLogin
         '
         Me.AcceptButton = Me.btnIngresar
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(458, 575)
+        Me.Controls.Add(Me.lblAyuda)
         Me.Controls.Add(Me.picEs)
         Me.Controls.Add(Me.picEn)
         Me.Controls.Add(Me.chkRecordar)
@@ -187,4 +200,5 @@ Partial Class frmLogin
     Friend WithEvents chkRecordar As CheckBox
     Friend WithEvents picEn As PictureBox
     Friend WithEvents picEs As PictureBox
+    Friend WithEvents lblAyuda As Label
 End Class
