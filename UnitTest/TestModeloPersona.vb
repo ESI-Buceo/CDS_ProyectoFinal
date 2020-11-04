@@ -19,10 +19,10 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestCambiarPassword()
         Dim Resultado As Boolean
-        p.Documento = "11111111"
+        p.Documento = "19266171"
         p.RangoIP = "%"
         Try
-            p.CambiarPassword("Ge.11111111")
+            p.CambiarPassword("Me.19266171")
             Resultado = True
         Catch ex As Exception
             Resultado = False
