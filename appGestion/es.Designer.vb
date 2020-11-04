@@ -92,6 +92,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a La contraseña debe contener al menos 1 letra mayúscula, 1 letra minuscula, 1 numero, 1 caracter especial y mas de 6 caracteres..
+        '''</summary>
+        Friend Shared ReadOnly Property aclaracionpassword() As String
+            Get
+                Return ResourceManager.GetString("aclaracionpassword", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Activar.
         '''</summary>
         Friend Shared ReadOnly Property Activar() As String
@@ -196,6 +205,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property apellidos() As String
             Get
                 Return ResourceManager.GetString("apellidos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Apellido ingresado invalido, solo se permite texto.
+        '''</summary>
+        Friend Shared ReadOnly Property apellidosinvalidos() As String
+            Get
+                Return ResourceManager.GetString("apellidosinvalidos", resourceCulture)
             End Get
         End Property
         
@@ -340,6 +358,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property cambiopasswordsuccess() As String
             Get
                 Return ResourceManager.GetString("cambiopasswordsuccess", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a El campo no puede estar vacío.
+        '''</summary>
+        Friend Shared ReadOnly Property camponovacio() As String
+            Get
+                Return ResourceManager.GetString("camponovacio", resourceCulture)
             End Get
         End Property
         
@@ -542,7 +569,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Busca una cadena traducida similar a Hemos restablecido tu contraseña. Estos son los nuevos datos de conexión:.
+        '''  Busca una cadena traducida similar a Hemos restablecido tu contraseña. Estos son los nuevos datos de inicio de sesión:.
         '''</summary>
         Friend Shared ReadOnly Property descripcionrecuperacion() As String
             Get
@@ -623,6 +650,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a El número de documento no es valido, acepta solo números y entre 7 y 8 cifras..
+        '''</summary>
+        Friend Shared ReadOnly Property documentoinvalido() As String
+            Get
+                Return ResourceManager.GetString("documentoinvalido", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a El envio de email esta deshabilitado.
         '''</summary>
         Friend Shared ReadOnly Property elenviodeemaildeshabilitado() As String
@@ -673,6 +709,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property emailenviadocorrectamente() As String
             Get
                 Return ResourceManager.GetString("emailenviadocorrectamente", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a El formato del email no es valido..
+        '''</summary>
+        Friend Shared ReadOnly Property emailinvalido() As String
+            Get
+                Return ResourceManager.GetString("emailinvalido", resourceCulture)
             End Get
         End Property
         
@@ -898,6 +943,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property fechanacimiento() As String
             Get
                 Return ResourceManager.GetString("fechanacimiento", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a La fecha de nacimiento es invalida, tiene que ser mayor a 18 años.
+        '''</summary>
+        Friend Shared ReadOnly Property fechanacinvalida() As String
+            Get
+                Return ResourceManager.GetString("fechanacinvalida", resourceCulture)
             End Get
         End Property
         
@@ -1154,6 +1208,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Debes establecer los sítomas de la patología.
+        '''</summary>
+        Friend Shared ReadOnly Property listasintomasvacias() As String
+            Get
+                Return ResourceManager.GetString("listasintomasvacias", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Documento de identidad o contraseña incorrectos, verifica.
         '''</summary>
         Friend Shared ReadOnly Property loginincorrecto() As String
@@ -1253,6 +1316,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a El número de medico es invalido, solo adminte números..
+        '''</summary>
+        Friend Shared ReadOnly Property nmedicoinvalido() As String
+            Get
+                Return ResourceManager.GetString("nmedicoinvalido", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a No.
         '''</summary>
         Friend Shared ReadOnly Property no() As String
@@ -1280,6 +1352,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Nombre ingresado invalido, solo se permite texto.
+        '''</summary>
+        Friend Shared ReadOnly Property nombresInvalidos() As String
+            Get
+                Return ResourceManager.GetString("nombresInvalidos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Nota.
+        '''</summary>
+        Friend Shared ReadOnly Property nota() As String
+            Get
+                Return ResourceManager.GetString("nota", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Noviembre.
         '''</summary>
         Friend Shared ReadOnly Property noviembre() As String
@@ -1303,6 +1393,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property nuevopassword() As String
             Get
                 Return ResourceManager.GetString("nuevopassword", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a El número de empleado es invalido,  solo admite números.
+        '''</summary>
+        Friend Shared ReadOnly Property numepleadoinvalido() As String
+            Get
+                Return ResourceManager.GetString("numepleadoinvalido", resourceCulture)
             End Get
         End Property
         
@@ -1415,6 +1514,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Las contraseñas no coinciden.
+        '''</summary>
+        Friend Shared ReadOnly Property passnocoinciden() As String
+            Get
+                Return ResourceManager.GetString("passnocoinciden", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Contraseña.
         '''</summary>
         Friend Shared ReadOnly Property password() As String
@@ -1465,6 +1573,15 @@ Namespace My.Resources
         Friend Shared ReadOnly Property ponderacion() As String
             Get
                 Return ResourceManager.GetString("ponderacion", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca una cadena traducida similar a Debes indicar una urgencia para la patología.
+        '''</summary>
+        Friend Shared ReadOnly Property ponderacionNoVacio() As String
+            Get
+                Return ResourceManager.GetString("ponderacionNoVacio", resourceCulture)
             End Get
         End Property
         
@@ -1811,7 +1928,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Busca una cadena traducida similar a Buscar por el nombre ingresado.
+        '''  Busca una cadena traducida similar a Buscar por los datos ingresados .
         '''</summary>
         Friend Shared ReadOnly Property toolbotonbuscar() As String
             Get
@@ -1838,7 +1955,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Busca una cadena traducida similar a Habilita la modificación de una patología.
+        '''  Busca una cadena traducida similar a Habilita la modificación del registro en pantalla.
         '''</summary>
         Friend Shared ReadOnly Property toolbotonmodificar() As String
             Get
@@ -1856,7 +1973,7 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Busca una cadena traducida similar a Reactiva la cuenta en pantalla.
+        '''  Busca una cadena traducida similar a Activa la cuenta en pantalla.
         '''</summary>
         Friend Shared ReadOnly Property toolbotonreactivar() As String
             Get

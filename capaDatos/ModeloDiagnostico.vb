@@ -28,7 +28,7 @@ Public Class ModeloDiagnostico
                                 WHERE r.idPaciente =" & documento & " ORDER BY r.fechaHora DESC"
         Reader = Comando.ExecuteReader()
         TablaDatos.Load(Reader)
-        conexion.Close()
+        CerrarConexion()
         Return TablaDatos
     End Function
 

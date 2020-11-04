@@ -10,13 +10,13 @@ Public Class frmListaPatologiasSintomas
         Try
             mostrarPatologias(ControladorPatologias.ListaDePatologias(idSintoma, USUARIO, PASSWORD))
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
             Me.Dispose()
         End Try
     End Sub
 
     Private Sub mostrarPatologias(ByVal tablaPatologias As DataTable)
+        flpPatologiasPorSintoma.Controls.Clear()
         For Each patologia As DataRow In tablaPatologias.Rows
             flpPatologiasPorSintoma.Controls.Add(crearPanelPatologia(patologia("nombre")))
         Next

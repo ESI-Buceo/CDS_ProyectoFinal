@@ -522,7 +522,6 @@ Public Class frmPrincipal
         Try
             recorrerEnfermadades(controladorPacientes.CargarEnfermedadesPreExistentes(USUARIO, USUARIO, PASSWD))
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoErrorAccesoDatos)
         End Try
     End Sub
@@ -557,8 +556,7 @@ Public Class frmPrincipal
         Dim respuesta As Integer
         respuesta = MsgBox(VCambioRequiereReiniciar, vbQuestion + vbYesNo, VCambioDeIdioma)
         If respuesta = 6 Then
-            My.Settings.lenguaje = idioma
-            My.Settings.Save()
+            EstablecerIdioma(idioma)
             End
         Else
             marcarIdioma()
@@ -648,7 +646,7 @@ Public Class frmPrincipal
         lblInfoContacto.Text = VComunicateConNosotros
         tabDiagnosticos.Text = VDiagnosticosRecibidos
         tabChats.Text = VHistoricoChat
-
+        btnAyuda.Text = VAyuda
     End Sub
 
     Private Sub confirmarCierre()
@@ -676,5 +674,39 @@ Public Class frmPrincipal
 
     Private Sub panelCabecera_Paint(sender As Object, e As PaintEventArgs) Handles panelCabecera.Paint
 
+    End Sub
+
+    Private Sub btnAyuda_Click(sender As Object, e As EventArgs) Handles btnAyuda.Click
+        Process.Start(Application.StartupPath & "\Triage - Paciente.chm")
+    End Sub
+
+    Private Sub btnAyuda_MouseMove(sender As Object, e As MouseEventArgs) Handles btnAyuda.MouseMove
+        btnAyuda.Image = My.Resources.btnHelpFocus
+        btnRecibeFoco(btnAyuda)
+    End Sub
+
+    Private Sub btnAyuda_MouseLeave(sender As Object, e As EventArgs) Handles btnAyuda.MouseLeave
+        btnAyuda.Image = My.Resources.btnHelp
+        btnPierdeFoco(btnAyuda)
+    End Sub
+
+    Private Sub btnRecibeFoco(ByVal boton As Button)
+        boton.ForeColor = Color.FromArgb(6, 5, 6)
+    End Sub
+
+    Private Sub btnPierdeFoco(ByVal boton As Button)
+        boton.ForeColor = Color.FromArgb(130, 129, 129)
+    End Sub
+
+    Private Sub picEs_Click(sender As Object, e As EventArgs) Handles picEs.Click
+        EstablecerIdioma("es")
+        CargarIdioma()
+        cargarTextos()
+    End Sub
+
+    Private Sub picEn_Click(sender As Object, e As EventArgs) Handles picEn.Click
+        EstablecerIdioma("en")
+        CargarIdioma()
+        cargarTextos()
     End Sub
 End Class

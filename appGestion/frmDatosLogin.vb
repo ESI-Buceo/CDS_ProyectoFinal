@@ -12,6 +12,8 @@ Public Class frmDatosLogin
         'Accion que valida los datos ingresados
         If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) And txtDocIdentidad.Text.Length > 0 Then
             validarConexion()
+        Else
+            MsgBox(VLoginIncorrecto, vbInformation, VErrorAcceso)
         End If
     End Sub
 
@@ -51,10 +53,11 @@ Public Class frmDatosLogin
         Me.Hide()
     End Sub
 
-    Private Sub cargarTextos()
+    Public Sub cargarTextos()
         lblDocIdentidad.Text = VDocDeIdentidad
         lblPassword.Text = VPassword
         btnGestionIngresar.Text = VIngesar
+        lblAyuda.Text = VAyuda
     End Sub
 
     Private Sub cargarConfiguracion()
@@ -70,5 +73,9 @@ Public Class frmDatosLogin
             MsgBox(VErrorArchivo, vbCritical, VAvisoError)
             End
         End If
+    End Sub
+
+    Private Sub lblAyuda_Click(sender As Object, e As EventArgs) Handles lblAyuda.Click
+        Process.Start(Application.StartupPath & "\Triage - Gestión.chm")
     End Sub
 End Class

@@ -23,18 +23,22 @@ Public Module ControladorValidaciones
         For Each letras In nombres.Replace(" ", "")
             If Not Char.IsLetter(letras) Or nombres.Length = 0 Then
                 Return False
+            Else
+                Return True
             End If
         Next
-        Return True
+        Return False
     End Function
 
     Public Function ValidarApellidos(ByVal apellidos As String)
         For Each letras In apellidos.Replace(" ", "")
             If Not Char.IsLetter(letras) Or apellidos.Length = 0 Then
                 Return False
+            Else
+                Return True
             End If
         Next
-        Return True
+        Return False
     End Function
 
     Public Function ValidarEmail(ByVal mail As String)
@@ -63,8 +67,9 @@ Public Module ControladorValidaciones
                     Return False
                 End If
             Next
+            Return True
         End If
-        Return True
+        Return False
     End Function
 
     Public Function ValidarFechaNacimiento(ByVal fechaNacimiento As String)

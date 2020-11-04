@@ -23,11 +23,11 @@ Partial Class frmPaciente
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPaciente))
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.tabOpcionesPaciente = New System.Windows.Forms.TabControl()
         Me.tabDatos = New System.Windows.Forms.TabPage()
         Me.btnRestPass = New System.Windows.Forms.Button()
@@ -102,7 +102,7 @@ Partial Class frmPaciente
         Me.tabSeparador3 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnuBtnBorrar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuReactivar = New System.Windows.Forms.ToolStripButton()
+        Me.mnuBtnReactivar = New System.Windows.Forms.ToolStripButton()
         Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
         Me.picEncabezado = New System.Windows.Forms.PictureBox()
         Me.tabOpcionesPaciente.SuspendLayout()
@@ -126,11 +126,11 @@ Partial Class frmPaciente
         Me.tabOpcionesPaciente.Controls.Add(Me.tabBusqueda)
         Me.tabOpcionesPaciente.Controls.Add(Me.tabHistoria)
         Me.tabOpcionesPaciente.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tabOpcionesPaciente.Location = New System.Drawing.Point(20, 103)
-        Me.tabOpcionesPaciente.Margin = New System.Windows.Forms.Padding(2)
+        Me.tabOpcionesPaciente.Location = New System.Drawing.Point(27, 127)
+        Me.tabOpcionesPaciente.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabOpcionesPaciente.Name = "tabOpcionesPaciente"
         Me.tabOpcionesPaciente.SelectedIndex = 0
-        Me.tabOpcionesPaciente.Size = New System.Drawing.Size(717, 436)
+        Me.tabOpcionesPaciente.Size = New System.Drawing.Size(956, 537)
         Me.tabOpcionesPaciente.TabIndex = 7
         '
         'tabDatos
@@ -169,11 +169,11 @@ Partial Class frmPaciente
         Me.tabDatos.Controls.Add(Me.lblNombres)
         Me.tabDatos.Controls.Add(Me.lblFechaReg)
         Me.tabDatos.Controls.Add(Me.lblDocIdentidad)
-        Me.tabDatos.Location = New System.Drawing.Point(4, 25)
-        Me.tabDatos.Margin = New System.Windows.Forms.Padding(2)
+        Me.tabDatos.Location = New System.Drawing.Point(4, 28)
+        Me.tabDatos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabDatos.Name = "tabDatos"
-        Me.tabDatos.Padding = New System.Windows.Forms.Padding(2)
-        Me.tabDatos.Size = New System.Drawing.Size(709, 407)
+        Me.tabDatos.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.tabDatos.Size = New System.Drawing.Size(948, 505)
         Me.tabDatos.TabIndex = 0
         Me.tabDatos.Text = "Datos"
         '
@@ -182,10 +182,10 @@ Partial Class frmPaciente
         Me.btnRestPass.Enabled = False
         Me.btnRestPass.Image = CType(resources.GetObject("btnRestPass.Image"), System.Drawing.Image)
         Me.btnRestPass.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnRestPass.Location = New System.Drawing.Point(4, 275)
-        Me.btnRestPass.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnRestPass.Location = New System.Drawing.Point(5, 338)
+        Me.btnRestPass.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnRestPass.Name = "btnRestPass"
-        Me.btnRestPass.Size = New System.Drawing.Size(118, 72)
+        Me.btnRestPass.Size = New System.Drawing.Size(157, 89)
         Me.btnRestPass.TabIndex = 85
         Me.btnRestPass.Text = "Restablecer contraseña"
         Me.btnRestPass.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -197,11 +197,11 @@ Partial Class frmPaciente
         Me.btnEliminarEnfermedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarEnfermedad.ForeColor = System.Drawing.Color.Transparent
         Me.btnEliminarEnfermedad.Image = Global.appGestion.My.Resources.Resources.delTel1
-        Me.btnEliminarEnfermedad.Location = New System.Drawing.Point(455, 371)
-        Me.btnEliminarEnfermedad.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnEliminarEnfermedad.Location = New System.Drawing.Point(607, 457)
+        Me.btnEliminarEnfermedad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnEliminarEnfermedad.Name = "btnEliminarEnfermedad"
-        Me.btnEliminarEnfermedad.Padding = New System.Windows.Forms.Padding(4)
-        Me.btnEliminarEnfermedad.Size = New System.Drawing.Size(33, 30)
+        Me.btnEliminarEnfermedad.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnEliminarEnfermedad.Size = New System.Drawing.Size(44, 37)
         Me.btnEliminarEnfermedad.TabIndex = 27
         Me.btnEliminarEnfermedad.UseVisualStyleBackColor = True
         '
@@ -211,11 +211,11 @@ Partial Class frmPaciente
         Me.btnAgregarEnfermedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarEnfermedad.ForeColor = System.Drawing.Color.Transparent
         Me.btnAgregarEnfermedad.Image = Global.appGestion.My.Resources.Resources.addTel1
-        Me.btnAgregarEnfermedad.Location = New System.Drawing.Point(418, 371)
-        Me.btnAgregarEnfermedad.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnAgregarEnfermedad.Location = New System.Drawing.Point(557, 457)
+        Me.btnAgregarEnfermedad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAgregarEnfermedad.Name = "btnAgregarEnfermedad"
-        Me.btnAgregarEnfermedad.Padding = New System.Windows.Forms.Padding(4)
-        Me.btnAgregarEnfermedad.Size = New System.Drawing.Size(33, 30)
+        Me.btnAgregarEnfermedad.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnAgregarEnfermedad.Size = New System.Drawing.Size(44, 37)
         Me.btnAgregarEnfermedad.TabIndex = 26
         Me.btnAgregarEnfermedad.UseVisualStyleBackColor = True
         '
@@ -226,17 +226,18 @@ Partial Class frmPaciente
         Me.dgvListaPreExistentes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.dgvListaPreExistentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvListaPreExistentes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1})
-        Me.dgvListaPreExistentes.Location = New System.Drawing.Point(416, 275)
+        Me.dgvListaPreExistentes.Location = New System.Drawing.Point(555, 338)
+        Me.dgvListaPreExistentes.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvListaPreExistentes.Name = "dgvListaPreExistentes"
         Me.dgvListaPreExistentes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.dgvListaPreExistentes.Size = New System.Drawing.Size(265, 91)
+        Me.dgvListaPreExistentes.Size = New System.Drawing.Size(353, 112)
         Me.dgvListaPreExistentes.TabIndex = 25
         '
         'DataGridViewTextBoxColumn1
         '
         Me.DataGridViewTextBoxColumn1.DataPropertyName = "preExistentes"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        Me.DataGridViewTextBoxColumn1.DefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewTextBoxColumn1.HeaderText = "PRE-EXISTENTES"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.Width = 200
@@ -245,10 +246,9 @@ Partial Class frmPaciente
         '
         Me.lblEnfermedades.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEnfermedades.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblEnfermedades.Location = New System.Drawing.Point(415, 249)
-        Me.lblEnfermedades.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblEnfermedades.Location = New System.Drawing.Point(553, 306)
         Me.lblEnfermedades.Name = "lblEnfermedades"
-        Me.lblEnfermedades.Size = New System.Drawing.Size(266, 17)
+        Me.lblEnfermedades.Size = New System.Drawing.Size(355, 21)
         Me.lblEnfermedades.TabIndex = 24
         Me.lblEnfermedades.Text = "ENFERMEDADES"
         Me.lblEnfermedades.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -259,11 +259,11 @@ Partial Class frmPaciente
         Me.btnEliminarTelefono.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEliminarTelefono.ForeColor = System.Drawing.Color.Transparent
         Me.btnEliminarTelefono.Image = Global.appGestion.My.Resources.Resources.delTel1
-        Me.btnEliminarTelefono.Location = New System.Drawing.Point(166, 371)
-        Me.btnEliminarTelefono.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnEliminarTelefono.Location = New System.Drawing.Point(221, 457)
+        Me.btnEliminarTelefono.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnEliminarTelefono.Name = "btnEliminarTelefono"
-        Me.btnEliminarTelefono.Padding = New System.Windows.Forms.Padding(4)
-        Me.btnEliminarTelefono.Size = New System.Drawing.Size(33, 30)
+        Me.btnEliminarTelefono.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnEliminarTelefono.Size = New System.Drawing.Size(44, 37)
         Me.btnEliminarTelefono.TabIndex = 23
         Me.btnEliminarTelefono.UseVisualStyleBackColor = True
         '
@@ -273,11 +273,11 @@ Partial Class frmPaciente
         Me.btnAgregarTelefono.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAgregarTelefono.ForeColor = System.Drawing.Color.Transparent
         Me.btnAgregarTelefono.Image = Global.appGestion.My.Resources.Resources.addTel1
-        Me.btnAgregarTelefono.Location = New System.Drawing.Point(128, 371)
-        Me.btnAgregarTelefono.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnAgregarTelefono.Location = New System.Drawing.Point(171, 457)
+        Me.btnAgregarTelefono.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAgregarTelefono.Name = "btnAgregarTelefono"
-        Me.btnAgregarTelefono.Padding = New System.Windows.Forms.Padding(4)
-        Me.btnAgregarTelefono.Size = New System.Drawing.Size(33, 30)
+        Me.btnAgregarTelefono.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnAgregarTelefono.Size = New System.Drawing.Size(44, 37)
         Me.btnAgregarTelefono.TabIndex = 22
         Me.btnAgregarTelefono.UseVisualStyleBackColor = True
         '
@@ -287,10 +287,10 @@ Partial Class frmPaciente
         Me.chkActivo.Checked = True
         Me.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkActivo.Enabled = False
-        Me.chkActivo.Location = New System.Drawing.Point(17, 371)
-        Me.chkActivo.Margin = New System.Windows.Forms.Padding(2)
+        Me.chkActivo.Location = New System.Drawing.Point(23, 457)
+        Me.chkActivo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.chkActivo.Name = "chkActivo"
-        Me.chkActivo.Size = New System.Drawing.Size(65, 20)
+        Me.chkActivo.Size = New System.Drawing.Size(75, 23)
         Me.chkActivo.TabIndex = 21
         Me.chkActivo.Text = "Activo"
         Me.chkActivo.UseVisualStyleBackColor = True
@@ -303,9 +303,10 @@ Partial Class frmPaciente
         Me.dtpFechaNac.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.dtpFechaNac.CalendarTrailingForeColor = System.Drawing.Color.Gray
         Me.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpFechaNac.Location = New System.Drawing.Point(585, 12)
+        Me.dtpFechaNac.Location = New System.Drawing.Point(780, 15)
+        Me.dtpFechaNac.Margin = New System.Windows.Forms.Padding(4)
         Me.dtpFechaNac.Name = "dtpFechaNac"
-        Me.dtpFechaNac.Size = New System.Drawing.Size(104, 23)
+        Me.dtpFechaNac.Size = New System.Drawing.Size(137, 27)
         Me.dtpFechaNac.TabIndex = 3
         '
         'dgvListaTelefonos
@@ -315,17 +316,18 @@ Partial Class frmPaciente
         Me.dgvListaTelefonos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.dgvListaTelefonos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvListaTelefonos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colTelefono})
-        Me.dgvListaTelefonos.Location = New System.Drawing.Point(128, 275)
+        Me.dgvListaTelefonos.Location = New System.Drawing.Point(171, 338)
+        Me.dgvListaTelefonos.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvListaTelefonos.Name = "dgvListaTelefonos"
         Me.dgvListaTelefonos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.dgvListaTelefonos.Size = New System.Drawing.Size(265, 91)
+        Me.dgvListaTelefonos.Size = New System.Drawing.Size(353, 112)
         Me.dgvListaTelefonos.TabIndex = 12
         '
         'colTelefono
         '
         Me.colTelefono.DataPropertyName = "Telefono"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle2
         Me.colTelefono.HeaderText = "TELEFONOS"
         Me.colTelefono.Name = "colTelefono"
         Me.colTelefono.Width = 200
@@ -333,53 +335,53 @@ Partial Class frmPaciente
         'txtBarrio
         '
         Me.txtBarrio.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtBarrio.Location = New System.Drawing.Point(128, 213)
-        Me.txtBarrio.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtBarrio.Location = New System.Drawing.Point(171, 262)
+        Me.txtBarrio.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtBarrio.MaxLength = 30
         Me.txtBarrio.Name = "txtBarrio"
-        Me.txtBarrio.Size = New System.Drawing.Size(317, 23)
+        Me.txtBarrio.Size = New System.Drawing.Size(421, 27)
         Me.txtBarrio.TabIndex = 11
         '
         'txtEsquina
         '
         Me.txtEsquina.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtEsquina.Location = New System.Drawing.Point(340, 182)
-        Me.txtEsquina.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtEsquina.Location = New System.Drawing.Point(453, 224)
+        Me.txtEsquina.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtEsquina.MaxLength = 40
         Me.txtEsquina.Name = "txtEsquina"
-        Me.txtEsquina.Size = New System.Drawing.Size(342, 23)
+        Me.txtEsquina.Size = New System.Drawing.Size(455, 27)
         Me.txtEsquina.TabIndex = 10
         '
         'txtApto
         '
         Me.txtApto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtApto.Location = New System.Drawing.Point(128, 182)
-        Me.txtApto.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtApto.Location = New System.Drawing.Point(171, 224)
+        Me.txtApto.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtApto.MaxLength = 11
         Me.txtApto.Name = "txtApto"
-        Me.txtApto.Size = New System.Drawing.Size(98, 23)
+        Me.txtApto.Size = New System.Drawing.Size(129, 27)
         Me.txtApto.TabIndex = 9
         Me.txtApto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtNumeroCalle
         '
         Me.txtNumeroCalle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtNumeroCalle.Location = New System.Drawing.Point(585, 149)
-        Me.txtNumeroCalle.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtNumeroCalle.Location = New System.Drawing.Point(780, 183)
+        Me.txtNumeroCalle.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtNumeroCalle.MaxLength = 11
         Me.txtNumeroCalle.Name = "txtNumeroCalle"
-        Me.txtNumeroCalle.Size = New System.Drawing.Size(98, 23)
+        Me.txtNumeroCalle.Size = New System.Drawing.Size(129, 27)
         Me.txtNumeroCalle.TabIndex = 8
         Me.txtNumeroCalle.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'txtCalle
         '
         Me.txtCalle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtCalle.Location = New System.Drawing.Point(128, 149)
-        Me.txtCalle.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtCalle.Location = New System.Drawing.Point(171, 183)
+        Me.txtCalle.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtCalle.MaxLength = 40
         Me.txtCalle.Name = "txtCalle"
-        Me.txtCalle.Size = New System.Drawing.Size(380, 23)
+        Me.txtCalle.Size = New System.Drawing.Size(505, 27)
         Me.txtCalle.TabIndex = 7
         '
         'lblOtrosDatos
@@ -387,51 +389,52 @@ Partial Class frmPaciente
         Me.lblOtrosDatos.AutoSize = True
         Me.lblOtrosDatos.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblOtrosDatos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(110, Byte), Integer), CType(CType(196, Byte), Integer), CType(CType(167, Byte), Integer))
-        Me.lblOtrosDatos.Location = New System.Drawing.Point(35, 121)
+        Me.lblOtrosDatos.Location = New System.Drawing.Point(47, 149)
+        Me.lblOtrosDatos.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblOtrosDatos.Name = "lblOtrosDatos"
-        Me.lblOtrosDatos.Size = New System.Drawing.Size(118, 18)
+        Me.lblOtrosDatos.Size = New System.Drawing.Size(151, 22)
         Me.lblOtrosDatos.TabIndex = 20
         Me.lblOtrosDatos.Text = "OTROS DATOS"
         '
         'txtEmail
         '
         Me.txtEmail.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtEmail.Location = New System.Drawing.Point(128, 77)
-        Me.txtEmail.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtEmail.Location = New System.Drawing.Point(171, 95)
+        Me.txtEmail.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtEmail.MaxLength = 50
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(377, 23)
+        Me.txtEmail.Size = New System.Drawing.Size(501, 27)
         Me.txtEmail.TabIndex = 6
         '
         'txtApellidos
         '
         Me.txtApellidos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtApellidos.Location = New System.Drawing.Point(458, 46)
-        Me.txtApellidos.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtApellidos.Location = New System.Drawing.Point(611, 57)
+        Me.txtApellidos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtApellidos.MaxLength = 25
         Me.txtApellidos.Name = "txtApellidos"
-        Me.txtApellidos.Size = New System.Drawing.Size(225, 23)
+        Me.txtApellidos.Size = New System.Drawing.Size(299, 27)
         Me.txtApellidos.TabIndex = 5
         '
         'txtNombres
         '
         Me.txtNombres.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtNombres.Location = New System.Drawing.Point(128, 46)
-        Me.txtNombres.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtNombres.Location = New System.Drawing.Point(171, 57)
+        Me.txtNombres.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtNombres.MaxLength = 25
         Me.txtNombres.Name = "txtNombres"
-        Me.txtNombres.Size = New System.Drawing.Size(225, 23)
+        Me.txtNombres.Size = New System.Drawing.Size(299, 27)
         Me.txtNombres.TabIndex = 4
         '
         'txtFechaRegistro
         '
         Me.txtFechaRegistro.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtFechaRegistro.Location = New System.Drawing.Point(359, 12)
-        Me.txtFechaRegistro.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtFechaRegistro.Location = New System.Drawing.Point(479, 15)
+        Me.txtFechaRegistro.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtFechaRegistro.MaxLength = 65535
         Me.txtFechaRegistro.Name = "txtFechaRegistro"
         Me.txtFechaRegistro.ReadOnly = True
-        Me.txtFechaRegistro.Size = New System.Drawing.Size(105, 23)
+        Me.txtFechaRegistro.Size = New System.Drawing.Size(139, 27)
         Me.txtFechaRegistro.TabIndex = 1
         Me.txtFechaRegistro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -441,11 +444,11 @@ Partial Class frmPaciente
         Me.txtDocIdentidad.Enabled = False
         Me.txtDocIdentidad.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtDocIdentidad.ForeColor = System.Drawing.SystemColors.MenuHighlight
-        Me.txtDocIdentidad.Location = New System.Drawing.Point(128, 12)
-        Me.txtDocIdentidad.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtDocIdentidad.MaxLength = 11
+        Me.txtDocIdentidad.Location = New System.Drawing.Point(171, 15)
+        Me.txtDocIdentidad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtDocIdentidad.MaxLength = 8
         Me.txtDocIdentidad.Name = "txtDocIdentidad"
-        Me.txtDocIdentidad.Size = New System.Drawing.Size(120, 23)
+        Me.txtDocIdentidad.Size = New System.Drawing.Size(159, 27)
         Me.txtDocIdentidad.TabIndex = 0
         Me.txtDocIdentidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -453,10 +456,9 @@ Partial Class frmPaciente
         '
         Me.lblTelefonos.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTelefonos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblTelefonos.Location = New System.Drawing.Point(125, 249)
-        Me.lblTelefonos.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblTelefonos.Location = New System.Drawing.Point(167, 306)
         Me.lblTelefonos.Name = "lblTelefonos"
-        Me.lblTelefonos.Size = New System.Drawing.Size(268, 17)
+        Me.lblTelefonos.Size = New System.Drawing.Size(357, 21)
         Me.lblTelefonos.TabIndex = 12
         Me.lblTelefonos.Text = "TELEFONOS"
         Me.lblTelefonos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -465,10 +467,9 @@ Partial Class frmPaciente
         '
         Me.lblEmailM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEmailM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblEmailM.Location = New System.Drawing.Point(14, 78)
-        Me.lblEmailM.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblEmailM.Location = New System.Drawing.Point(19, 96)
         Me.lblEmailM.Name = "lblEmailM"
-        Me.lblEmailM.Size = New System.Drawing.Size(109, 20)
+        Me.lblEmailM.Size = New System.Drawing.Size(145, 25)
         Me.lblEmailM.TabIndex = 10
         Me.lblEmailM.Text = "EMAIL:"
         Me.lblEmailM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -477,10 +478,9 @@ Partial Class frmPaciente
         '
         Me.lblFechaNacM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFechaNacM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblFechaNacM.Location = New System.Drawing.Point(472, 13)
-        Me.lblFechaNacM.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblFechaNacM.Location = New System.Drawing.Point(629, 16)
         Me.lblFechaNacM.Name = "lblFechaNacM"
-        Me.lblFechaNacM.Size = New System.Drawing.Size(109, 20)
+        Me.lblFechaNacM.Size = New System.Drawing.Size(145, 25)
         Me.lblFechaNacM.TabIndex = 9
         Me.lblFechaNacM.Text = "FECHA NAC.:"
         Me.lblFechaNacM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -489,10 +489,9 @@ Partial Class frmPaciente
         '
         Me.lblBarrioM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBarrioM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblBarrioM.Location = New System.Drawing.Point(14, 214)
-        Me.lblBarrioM.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblBarrioM.Location = New System.Drawing.Point(19, 263)
         Me.lblBarrioM.Name = "lblBarrioM"
-        Me.lblBarrioM.Size = New System.Drawing.Size(109, 20)
+        Me.lblBarrioM.Size = New System.Drawing.Size(145, 25)
         Me.lblBarrioM.TabIndex = 8
         Me.lblBarrioM.Text = "BARRIO:"
         Me.lblBarrioM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -501,10 +500,9 @@ Partial Class frmPaciente
         '
         Me.lblEsquinaM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEsquinaM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblEsquinaM.Location = New System.Drawing.Point(227, 183)
-        Me.lblEsquinaM.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblEsquinaM.Location = New System.Drawing.Point(303, 225)
         Me.lblEsquinaM.Name = "lblEsquinaM"
-        Me.lblEsquinaM.Size = New System.Drawing.Size(109, 20)
+        Me.lblEsquinaM.Size = New System.Drawing.Size(145, 25)
         Me.lblEsquinaM.TabIndex = 7
         Me.lblEsquinaM.Text = "ESQUINA:"
         Me.lblEsquinaM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -513,10 +511,9 @@ Partial Class frmPaciente
         '
         Me.lblAptoM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAptoM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblAptoM.Location = New System.Drawing.Point(14, 183)
-        Me.lblAptoM.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblAptoM.Location = New System.Drawing.Point(19, 225)
         Me.lblAptoM.Name = "lblAptoM"
-        Me.lblAptoM.Size = New System.Drawing.Size(109, 20)
+        Me.lblAptoM.Size = New System.Drawing.Size(145, 25)
         Me.lblAptoM.TabIndex = 6
         Me.lblAptoM.Text = "APTO:"
         Me.lblAptoM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -525,10 +522,9 @@ Partial Class frmPaciente
         '
         Me.lblNumeroCalleM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNumeroCalleM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblNumeroCalleM.Location = New System.Drawing.Point(519, 150)
-        Me.lblNumeroCalleM.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblNumeroCalleM.Location = New System.Drawing.Point(692, 185)
         Me.lblNumeroCalleM.Name = "lblNumeroCalleM"
-        Me.lblNumeroCalleM.Size = New System.Drawing.Size(62, 18)
+        Me.lblNumeroCalleM.Size = New System.Drawing.Size(83, 22)
         Me.lblNumeroCalleM.TabIndex = 5
         Me.lblNumeroCalleM.Text = "Nº:"
         Me.lblNumeroCalleM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -537,10 +533,9 @@ Partial Class frmPaciente
         '
         Me.lblDireccionM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDireccionM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblDireccionM.Location = New System.Drawing.Point(14, 150)
-        Me.lblDireccionM.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblDireccionM.Location = New System.Drawing.Point(19, 185)
         Me.lblDireccionM.Name = "lblDireccionM"
-        Me.lblDireccionM.Size = New System.Drawing.Size(109, 20)
+        Me.lblDireccionM.Size = New System.Drawing.Size(145, 25)
         Me.lblDireccionM.TabIndex = 4
         Me.lblDireccionM.Text = "DIRECCION:"
         Me.lblDireccionM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -549,10 +544,9 @@ Partial Class frmPaciente
         '
         Me.lblApellidosM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblApellidosM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblApellidosM.Location = New System.Drawing.Point(353, 47)
-        Me.lblApellidosM.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblApellidosM.Location = New System.Drawing.Point(471, 58)
         Me.lblApellidosM.Name = "lblApellidosM"
-        Me.lblApellidosM.Size = New System.Drawing.Size(105, 20)
+        Me.lblApellidosM.Size = New System.Drawing.Size(140, 25)
         Me.lblApellidosM.TabIndex = 3
         Me.lblApellidosM.Text = "APELLIDOS:"
         Me.lblApellidosM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -561,10 +555,9 @@ Partial Class frmPaciente
         '
         Me.lblNombres.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNombres.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblNombres.Location = New System.Drawing.Point(14, 47)
-        Me.lblNombres.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblNombres.Location = New System.Drawing.Point(19, 58)
         Me.lblNombres.Name = "lblNombres"
-        Me.lblNombres.Size = New System.Drawing.Size(109, 20)
+        Me.lblNombres.Size = New System.Drawing.Size(145, 25)
         Me.lblNombres.TabIndex = 2
         Me.lblNombres.Text = "NOMBRES:"
         Me.lblNombres.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -573,10 +566,9 @@ Partial Class frmPaciente
         '
         Me.lblFechaReg.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFechaReg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblFechaReg.Location = New System.Drawing.Point(250, 13)
-        Me.lblFechaReg.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblFechaReg.Location = New System.Drawing.Point(333, 16)
         Me.lblFechaReg.Name = "lblFechaReg"
-        Me.lblFechaReg.Size = New System.Drawing.Size(109, 20)
+        Me.lblFechaReg.Size = New System.Drawing.Size(145, 25)
         Me.lblFechaReg.TabIndex = 1
         Me.lblFechaReg.Text = "FECHA:"
         Me.lblFechaReg.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -585,10 +577,9 @@ Partial Class frmPaciente
         '
         Me.lblDocIdentidad.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDocIdentidad.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblDocIdentidad.Location = New System.Drawing.Point(14, 13)
-        Me.lblDocIdentidad.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblDocIdentidad.Location = New System.Drawing.Point(19, 16)
         Me.lblDocIdentidad.Name = "lblDocIdentidad"
-        Me.lblDocIdentidad.Size = New System.Drawing.Size(109, 20)
+        Me.lblDocIdentidad.Size = New System.Drawing.Size(145, 25)
         Me.lblDocIdentidad.TabIndex = 0
         Me.lblDocIdentidad.Text = "DOCUMENTO:"
         Me.lblDocIdentidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -597,11 +588,11 @@ Partial Class frmPaciente
         '
         Me.tabBusqueda.BackColor = System.Drawing.Color.Gainsboro
         Me.tabBusqueda.Controls.Add(Me.dgvListaPacientes)
-        Me.tabBusqueda.Location = New System.Drawing.Point(4, 25)
-        Me.tabBusqueda.Margin = New System.Windows.Forms.Padding(2)
+        Me.tabBusqueda.Location = New System.Drawing.Point(4, 28)
+        Me.tabBusqueda.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabBusqueda.Name = "tabBusqueda"
-        Me.tabBusqueda.Padding = New System.Windows.Forms.Padding(2)
-        Me.tabBusqueda.Size = New System.Drawing.Size(709, 407)
+        Me.tabBusqueda.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.tabBusqueda.Size = New System.Drawing.Size(948, 505)
         Me.tabBusqueda.TabIndex = 1
         Me.tabBusqueda.Text = "Busqueda"
         '
@@ -612,19 +603,20 @@ Partial Class frmPaciente
         Me.dgvListaPacientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvListaPacientes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colDocIdentidad, Me.colNombres, Me.colApellidos, Me.colEmail, Me.colFechRegistro, Me.colActivo})
         Me.dgvListaPacientes.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvListaPacientes.Location = New System.Drawing.Point(2, 2)
+        Me.dgvListaPacientes.Location = New System.Drawing.Point(3, 2)
+        Me.dgvListaPacientes.Margin = New System.Windows.Forms.Padding(4)
         Me.dgvListaPacientes.MultiSelect = False
         Me.dgvListaPacientes.Name = "dgvListaPacientes"
         Me.dgvListaPacientes.ReadOnly = True
         Me.dgvListaPacientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvListaPacientes.Size = New System.Drawing.Size(705, 403)
+        Me.dgvListaPacientes.Size = New System.Drawing.Size(942, 501)
         Me.dgvListaPacientes.TabIndex = 0
         '
         'colDocIdentidad
         '
         Me.colDocIdentidad.DataPropertyName = "DOCUMENTO"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle3
         Me.colDocIdentidad.HeaderText = "DOCUMENTO"
         Me.colDocIdentidad.Name = "colDocIdentidad"
         Me.colDocIdentidad.ReadOnly = True
@@ -648,8 +640,8 @@ Partial Class frmPaciente
         'colEmail
         '
         Me.colEmail.DataPropertyName = "EMAIL"
-        DataGridViewCellStyle10.NullValue = "yes"
-        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle4.NullValue = "yes"
+        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle4
         Me.colEmail.HeaderText = "EMAIL"
         Me.colEmail.Name = "colEmail"
         Me.colEmail.ReadOnly = True
@@ -676,11 +668,11 @@ Partial Class frmPaciente
         Me.tabHistoria.Controls.Add(Me.gbVerChat)
         Me.tabHistoria.Controls.Add(Me.gbHistoricoChats)
         Me.tabHistoria.Controls.Add(Me.gbEstadisticas)
-        Me.tabHistoria.Location = New System.Drawing.Point(4, 25)
-        Me.tabHistoria.Margin = New System.Windows.Forms.Padding(2)
+        Me.tabHistoria.Location = New System.Drawing.Point(4, 28)
+        Me.tabHistoria.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabHistoria.Name = "tabHistoria"
-        Me.tabHistoria.Padding = New System.Windows.Forms.Padding(2)
-        Me.tabHistoria.Size = New System.Drawing.Size(709, 407)
+        Me.tabHistoria.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.tabHistoria.Size = New System.Drawing.Size(948, 505)
         Me.tabHistoria.TabIndex = 2
         Me.tabHistoria.Text = "Registros Historicos"
         Me.tabHistoria.UseVisualStyleBackColor = True
@@ -688,11 +680,11 @@ Partial Class frmPaciente
         'gbVerChat
         '
         Me.gbVerChat.Controls.Add(Me.rtbMensajes)
-        Me.gbVerChat.Location = New System.Drawing.Point(309, 27)
-        Me.gbVerChat.Margin = New System.Windows.Forms.Padding(2)
+        Me.gbVerChat.Location = New System.Drawing.Point(412, 33)
+        Me.gbVerChat.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.gbVerChat.Name = "gbVerChat"
-        Me.gbVerChat.Padding = New System.Windows.Forms.Padding(2)
-        Me.gbVerChat.Size = New System.Drawing.Size(380, 376)
+        Me.gbVerChat.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.gbVerChat.Size = New System.Drawing.Size(507, 463)
         Me.gbVerChat.TabIndex = 7
         Me.gbVerChat.TabStop = False
         Me.gbVerChat.Text = "Ver chat"
@@ -701,21 +693,21 @@ Partial Class frmPaciente
         '
         Me.rtbMensajes.BackColor = System.Drawing.Color.White
         Me.rtbMensajes.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.rtbMensajes.Location = New System.Drawing.Point(8, 20)
-        Me.rtbMensajes.Margin = New System.Windows.Forms.Padding(2)
+        Me.rtbMensajes.Location = New System.Drawing.Point(11, 25)
+        Me.rtbMensajes.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.rtbMensajes.Name = "rtbMensajes"
-        Me.rtbMensajes.Size = New System.Drawing.Size(360, 350)
+        Me.rtbMensajes.Size = New System.Drawing.Size(480, 431)
         Me.rtbMensajes.TabIndex = 0
         Me.rtbMensajes.Text = ""
         '
         'gbHistoricoChats
         '
         Me.gbHistoricoChats.Controls.Add(Me.dgvHistoriaChat)
-        Me.gbHistoricoChats.Location = New System.Drawing.Point(13, 172)
-        Me.gbHistoricoChats.Margin = New System.Windows.Forms.Padding(2)
+        Me.gbHistoricoChats.Location = New System.Drawing.Point(17, 212)
+        Me.gbHistoricoChats.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.gbHistoricoChats.Name = "gbHistoricoChats"
-        Me.gbHistoricoChats.Padding = New System.Windows.Forms.Padding(2)
-        Me.gbHistoricoChats.Size = New System.Drawing.Size(292, 226)
+        Me.gbHistoricoChats.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.gbHistoricoChats.Size = New System.Drawing.Size(389, 278)
         Me.gbHistoricoChats.TabIndex = 5
         Me.gbHistoricoChats.TabStop = False
         Me.gbHistoricoChats.Text = "Historico de Chats"
@@ -726,14 +718,14 @@ Partial Class frmPaciente
         Me.dgvHistoriaChat.AllowUserToDeleteRows = False
         Me.dgvHistoriaChat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvHistoriaChat.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colFecha, Me.colIDSesion, Me.colMedico, Me.colNombre})
-        Me.dgvHistoriaChat.Location = New System.Drawing.Point(9, 23)
-        Me.dgvHistoriaChat.Margin = New System.Windows.Forms.Padding(2)
+        Me.dgvHistoriaChat.Location = New System.Drawing.Point(12, 28)
+        Me.dgvHistoriaChat.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dgvHistoriaChat.MultiSelect = False
         Me.dgvHistoriaChat.Name = "dgvHistoriaChat"
         Me.dgvHistoriaChat.ReadOnly = True
         Me.dgvHistoriaChat.RowTemplate.Height = 24
         Me.dgvHistoriaChat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvHistoriaChat.Size = New System.Drawing.Size(274, 197)
+        Me.dgvHistoriaChat.Size = New System.Drawing.Size(365, 242)
         Me.dgvHistoriaChat.TabIndex = 0
         '
         'colFecha
@@ -747,8 +739,8 @@ Partial Class frmPaciente
         'colIDSesion
         '
         Me.colIDSesion.DataPropertyName = "Sesion"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colIDSesion.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colIDSesion.DefaultCellStyle = DataGridViewCellStyle5
         Me.colIDSesion.HeaderText = "Sesion"
         Me.colIDSesion.Name = "colIDSesion"
         Me.colIDSesion.ReadOnly = True
@@ -777,11 +769,11 @@ Partial Class frmPaciente
         Me.gbEstadisticas.Controls.Add(Me.txtCantDiag)
         Me.gbEstadisticas.Controls.Add(Me.lblDescCantDiag)
         Me.gbEstadisticas.Controls.Add(Me.lblDiagnosticos)
-        Me.gbEstadisticas.Location = New System.Drawing.Point(13, 17)
-        Me.gbEstadisticas.Margin = New System.Windows.Forms.Padding(2)
+        Me.gbEstadisticas.Location = New System.Drawing.Point(17, 21)
+        Me.gbEstadisticas.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.gbEstadisticas.Name = "gbEstadisticas"
-        Me.gbEstadisticas.Padding = New System.Windows.Forms.Padding(2)
-        Me.gbEstadisticas.Size = New System.Drawing.Size(292, 144)
+        Me.gbEstadisticas.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.gbEstadisticas.Size = New System.Drawing.Size(389, 177)
         Me.gbEstadisticas.TabIndex = 4
         Me.gbEstadisticas.TabStop = False
         Me.gbEstadisticas.Text = "Datos estadisticos"
@@ -789,10 +781,10 @@ Partial Class frmPaciente
         'txtCantChat
         '
         Me.txtCantChat.Enabled = False
-        Me.txtCantChat.Location = New System.Drawing.Point(228, 84)
-        Me.txtCantChat.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtCantChat.Location = New System.Drawing.Point(304, 103)
+        Me.txtCantChat.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtCantChat.Name = "txtCantChat"
-        Me.txtCantChat.Size = New System.Drawing.Size(55, 23)
+        Me.txtCantChat.Size = New System.Drawing.Size(72, 27)
         Me.txtCantChat.TabIndex = 5
         Me.txtCantChat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -800,10 +792,9 @@ Partial Class frmPaciente
         '
         Me.lblDetChatRealizados.AutoSize = True
         Me.lblDetChatRealizados.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDetChatRealizados.Location = New System.Drawing.Point(14, 92)
-        Me.lblDetChatRealizados.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblDetChatRealizados.Location = New System.Drawing.Point(19, 113)
         Me.lblDetChatRealizados.Name = "lblDetChatRealizados"
-        Me.lblDetChatRealizados.Size = New System.Drawing.Size(160, 15)
+        Me.lblDetChatRealizados.Size = New System.Drawing.Size(189, 17)
         Me.lblDetChatRealizados.TabIndex = 4
         Me.lblDetChatRealizados.Text = "Cantidad de chat realizados"
         '
@@ -811,20 +802,19 @@ Partial Class frmPaciente
         '
         Me.lblChats.AutoSize = True
         Me.lblChats.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblChats.Location = New System.Drawing.Point(14, 73)
-        Me.lblChats.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblChats.Location = New System.Drawing.Point(19, 90)
         Me.lblChats.Name = "lblChats"
-        Me.lblChats.Size = New System.Drawing.Size(48, 16)
+        Me.lblChats.Size = New System.Drawing.Size(55, 19)
         Me.lblChats.TabIndex = 3
         Me.lblChats.Text = "Chats"
         '
         'txtCantDiag
         '
         Me.txtCantDiag.Enabled = False
-        Me.txtCantDiag.Location = New System.Drawing.Point(228, 36)
-        Me.txtCantDiag.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtCantDiag.Location = New System.Drawing.Point(304, 44)
+        Me.txtCantDiag.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtCantDiag.Name = "txtCantDiag"
-        Me.txtCantDiag.Size = New System.Drawing.Size(55, 23)
+        Me.txtCantDiag.Size = New System.Drawing.Size(72, 27)
         Me.txtCantDiag.TabIndex = 2
         Me.txtCantDiag.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -832,10 +822,9 @@ Partial Class frmPaciente
         '
         Me.lblDescCantDiag.AutoSize = True
         Me.lblDescCantDiag.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDescCantDiag.Location = New System.Drawing.Point(14, 44)
-        Me.lblDescCantDiag.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblDescCantDiag.Location = New System.Drawing.Point(19, 54)
         Me.lblDescCantDiag.Name = "lblDescCantDiag"
-        Me.lblDescCantDiag.Size = New System.Drawing.Size(202, 15)
+        Me.lblDescCantDiag.Size = New System.Drawing.Size(235, 17)
         Me.lblDescCantDiag.TabIndex = 1
         Me.lblDescCantDiag.Text = "Cantidad de diagnosticos recibidos"
         '
@@ -843,10 +832,9 @@ Partial Class frmPaciente
         '
         Me.lblDiagnosticos.AutoSize = True
         Me.lblDiagnosticos.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDiagnosticos.Location = New System.Drawing.Point(14, 26)
-        Me.lblDiagnosticos.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.lblDiagnosticos.Location = New System.Drawing.Point(19, 32)
         Me.lblDiagnosticos.Name = "lblDiagnosticos"
-        Me.lblDiagnosticos.Size = New System.Drawing.Size(99, 16)
+        Me.lblDiagnosticos.Size = New System.Drawing.Size(111, 19)
         Me.lblDiagnosticos.TabIndex = 0
         Me.lblDiagnosticos.Text = "Diagnosticos"
         '
@@ -857,11 +845,11 @@ Partial Class frmPaciente
         Me.toolsMenuPaciente.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.toolsMenuPaciente.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.toolsMenuPaciente.ImeMode = System.Windows.Forms.ImeMode.[On]
-        Me.toolsMenuPaciente.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuReactivar, Me.mnuBtnModificar})
+        Me.toolsMenuPaciente.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuBtnReactivar, Me.mnuBtnModificar})
         Me.toolsMenuPaciente.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
-        Me.toolsMenuPaciente.Location = New System.Drawing.Point(4, 66)
+        Me.toolsMenuPaciente.Location = New System.Drawing.Point(5, 81)
         Me.toolsMenuPaciente.Name = "toolsMenuPaciente"
-        Me.toolsMenuPaciente.Size = New System.Drawing.Size(799, 36)
+        Me.toolsMenuPaciente.Size = New System.Drawing.Size(1065, 44)
         Me.toolsMenuPaciente.TabIndex = 8
         '
         'mnuBtnAgregar
@@ -870,7 +858,7 @@ Partial Class frmPaciente
         Me.mnuBtnAgregar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnAgregar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnAgregar.Name = "mnuBtnAgregar"
-        Me.mnuBtnAgregar.Size = New System.Drawing.Size(88, 29)
+        Me.mnuBtnAgregar.Size = New System.Drawing.Size(97, 29)
         Me.mnuBtnAgregar.Text = "Agregar"
         Me.mnuBtnAgregar.ToolTipText = "Habilita el ingreso de una nueva patologia"
         '
@@ -886,7 +874,7 @@ Partial Class frmPaciente
         Me.mnuBtnGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnGuardar.Name = "mnuBtnGuardar"
-        Me.mnuBtnGuardar.Size = New System.Drawing.Size(90, 29)
+        Me.mnuBtnGuardar.Size = New System.Drawing.Size(98, 29)
         Me.mnuBtnGuardar.Text = "Guardar"
         Me.mnuBtnGuardar.ToolTipText = "Guarda los cambios"
         '
@@ -902,7 +890,7 @@ Partial Class frmPaciente
         Me.mnuBtnCancelar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnCancelar.Name = "mnuBtnCancelar"
-        Me.mnuBtnCancelar.Size = New System.Drawing.Size(94, 29)
+        Me.mnuBtnCancelar.Size = New System.Drawing.Size(104, 29)
         Me.mnuBtnCancelar.Text = "Cancelar"
         Me.mnuBtnCancelar.ToolTipText = "Cancela los cambios"
         '
@@ -917,7 +905,7 @@ Partial Class frmPaciente
         Me.mnuBtnNueva.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnNueva.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnNueva.Name = "mnuBtnNueva"
-        Me.mnuBtnNueva.Size = New System.Drawing.Size(77, 29)
+        Me.mnuBtnNueva.Size = New System.Drawing.Size(83, 29)
         Me.mnuBtnNueva.Text = "Nueva"
         Me.mnuBtnNueva.ToolTipText = "Inicia una nueva busqueda"
         '
@@ -933,7 +921,7 @@ Partial Class frmPaciente
         Me.mnuBtnBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnBuscar.Name = "mnuBtnBuscar"
-        Me.mnuBtnBuscar.Size = New System.Drawing.Size(81, 29)
+        Me.mnuBtnBuscar.Size = New System.Drawing.Size(90, 29)
         Me.mnuBtnBuscar.Text = "Buscar"
         Me.mnuBtnBuscar.ToolTipText = "Buscar por el nombre ingresado"
         '
@@ -949,7 +937,7 @@ Partial Class frmPaciente
         Me.mnuBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnBorrar.Name = "mnuBtnBorrar"
-        Me.mnuBtnBorrar.Size = New System.Drawing.Size(77, 29)
+        Me.mnuBtnBorrar.Size = New System.Drawing.Size(85, 29)
         Me.mnuBtnBorrar.Text = "Borrar"
         Me.mnuBtnBorrar.ToolTipText = "Borrar el registro en pantalla"
         '
@@ -958,16 +946,16 @@ Partial Class frmPaciente
         Me.tabSeparador4.Name = "tabSeparador4"
         Me.tabSeparador4.Size = New System.Drawing.Size(6, 23)
         '
-        'mnuReactivar
+        'mnuBtnReactivar
         '
-        Me.mnuReactivar.AutoSize = False
-        Me.mnuReactivar.Enabled = False
-        Me.mnuReactivar.Image = CType(resources.GetObject("mnuReactivar.Image"), System.Drawing.Image)
-        Me.mnuReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuReactivar.Name = "mnuReactivar"
-        Me.mnuReactivar.Size = New System.Drawing.Size(106, 29)
-        Me.mnuReactivar.Text = "Reactivar"
-        Me.mnuReactivar.ToolTipText = "Reactiva el registro a la vista"
+        Me.mnuBtnReactivar.AutoSize = False
+        Me.mnuBtnReactivar.Enabled = False
+        Me.mnuBtnReactivar.Image = CType(resources.GetObject("mnuBtnReactivar.Image"), System.Drawing.Image)
+        Me.mnuBtnReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnReactivar.Name = "mnuBtnReactivar"
+        Me.mnuBtnReactivar.Size = New System.Drawing.Size(106, 29)
+        Me.mnuBtnReactivar.Text = "Reactivar"
+        Me.mnuBtnReactivar.ToolTipText = "Reactiva el registro a la vista"
         '
         'mnuBtnModificar
         '
@@ -977,30 +965,30 @@ Partial Class frmPaciente
         Me.mnuBtnModificar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.mnuBtnModificar.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.mnuBtnModificar.Name = "mnuBtnModificar"
-        Me.mnuBtnModificar.Size = New System.Drawing.Size(94, 29)
+        Me.mnuBtnModificar.Size = New System.Drawing.Size(106, 29)
         Me.mnuBtnModificar.Text = "Modificar"
         Me.mnuBtnModificar.ToolTipText = "Habilita la modificacion de una patologia"
         '
         'picEncabezado
         '
         Me.picEncabezado.Image = CType(resources.GetObject("picEncabezado.Image"), System.Drawing.Image)
-        Me.picEncabezado.Location = New System.Drawing.Point(4, 0)
-        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(2)
+        Me.picEncabezado.Location = New System.Drawing.Point(5, 0)
+        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.picEncabezado.Name = "picEncabezado"
-        Me.picEncabezado.Size = New System.Drawing.Size(799, 64)
+        Me.picEncabezado.Size = New System.Drawing.Size(1065, 79)
         Me.picEncabezado.TabIndex = 5
         Me.picEncabezado.TabStop = False
         '
         'frmPaciente
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(754, 548)
+        Me.ClientSize = New System.Drawing.Size(1005, 674)
         Me.Controls.Add(Me.toolsMenuPaciente)
         Me.Controls.Add(Me.tabOpcionesPaciente)
         Me.Controls.Add(Me.picEncabezado)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "frmPaciente"
         Me.Text = "PACIENTE"
         Me.tabOpcionesPaciente.ResumeLayout(False)
@@ -1096,7 +1084,7 @@ Partial Class frmPaciente
     Friend WithEvents tabSeparador3 As ToolStripSeparator
     Friend WithEvents mnuBtnBorrar As ToolStripButton
     Friend WithEvents tabSeparador4 As ToolStripSeparator
-    Friend WithEvents mnuReactivar As ToolStripButton
+    Friend WithEvents mnuBtnReactivar As ToolStripButton
     Friend WithEvents mnuBtnModificar As ToolStripButton
     Friend WithEvents btnRestPass As Button
 End Class

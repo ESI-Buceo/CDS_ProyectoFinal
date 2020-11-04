@@ -110,6 +110,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Busca una cadena traducida similar a Ayuda.
+        '''</summary>
+        Friend Shared ReadOnly Property ayuda() As String
+            Get
+                Return ResourceManager.GetString("ayuda", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Busca una cadena traducida similar a Barrio.
         '''</summary>
         Friend Shared ReadOnly Property barrio() As String

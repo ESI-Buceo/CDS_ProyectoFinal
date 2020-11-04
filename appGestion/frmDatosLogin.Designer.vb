@@ -27,6 +27,7 @@ Partial Class frmDatosLogin
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.btnGestionIngresar = New System.Windows.Forms.Button()
+        Me.lblAyuda = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lblDocIdentidad
@@ -46,7 +47,6 @@ Partial Class frmDatosLogin
         Me.txtDocIdentidad.Name = "txtDocIdentidad"
         Me.txtDocIdentidad.Size = New System.Drawing.Size(177, 30)
         Me.txtDocIdentidad.TabIndex = 1
-        Me.txtDocIdentidad.Text = "11111111"
         '
         'lblPassword
         '
@@ -65,7 +65,6 @@ Partial Class frmDatosLogin
         Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(177, 30)
         Me.txtPassword.TabIndex = 3
-        Me.txtPassword.Text = "11111111"
         '
         'btnGestionIngresar
         '
@@ -81,6 +80,18 @@ Partial Class frmDatosLogin
         Me.btnGestionIngresar.Text = "Ingresar"
         Me.btnGestionIngresar.UseVisualStyleBackColor = False
         '
+        'lblAyuda
+        '
+        Me.lblAyuda.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblAyuda.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAyuda.ForeColor = System.Drawing.Color.White
+        Me.lblAyuda.Location = New System.Drawing.Point(62, 333)
+        Me.lblAyuda.Name = "lblAyuda"
+        Me.lblAyuda.Size = New System.Drawing.Size(173, 31)
+        Me.lblAyuda.TabIndex = 5
+        Me.lblAyuda.Text = "Ayuda"
+        Me.lblAyuda.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'frmDatosLogin
         '
         Me.AcceptButton = Me.btnGestionIngresar
@@ -89,6 +100,7 @@ Partial Class frmDatosLogin
         Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(317, 390)
         Me.ControlBox = False
+        Me.Controls.Add(Me.lblAyuda)
         Me.Controls.Add(Me.btnGestionIngresar)
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.lblPassword)
@@ -112,4 +124,5 @@ Partial Class frmDatosLogin
     Friend WithEvents lblPassword As Label
     Friend WithEvents txtPassword As TextBox
     Friend WithEvents btnGestionIngresar As Button
+    Friend WithEvents lblAyuda As Label
 End Class

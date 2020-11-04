@@ -61,6 +61,7 @@ Public Class frmLoginRegistrado
         lblPassword.Text = VPassword
         btnIngresar.Text = VIngresar
         chkRecordar.Text = VRecordarMisDatos
+        lblLinkAyuda.Text = VAyuda
     End Sub
 
     Private Sub frmLoginRegistrado_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -110,5 +111,9 @@ Public Class frmLoginRegistrado
             MsgBox(VErrorArchivo, vbCritical, VError)
             End
         End If
+    End Sub
+
+    Private Sub lblLinkAyuda_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lblLinkAyuda.LinkClicked
+        Process.Start(Application.StartupPath & "\Triage - Paciente.chm")
     End Sub
 End Class

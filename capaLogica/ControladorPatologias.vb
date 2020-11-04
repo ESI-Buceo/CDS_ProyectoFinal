@@ -76,6 +76,11 @@ Public Module ControladorPatologias
         Return p.listarPatologias(activo)
     End Function
 
+    Public Function ListaDePatologias(ByVal idSintoma As Integer, uid As String, pwd As String)
+        Dim p As New ModeloPatologia(uid, pwd)
+        Return p.ListarPatologias(idSintoma)
+    End Function
+
     Public Sub ExportarDatosADB(ByVal uid As String, pwd As String, datos As DataTable)
         'Guarda informacion en la base de datos
         Dim p As New ModeloPatologia(uid, pwd)

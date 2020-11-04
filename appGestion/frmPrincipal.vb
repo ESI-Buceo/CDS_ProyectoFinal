@@ -134,6 +134,7 @@ Public Class frmPrincipal
         tsmListaSintomas.Text = VListaSintomas
         tsmImportarDatosCSV.Text = VImportarArchivo
         tsmInformes.Text = VInformes
+        tsmSintomasNSeleccionados.Text = VSintomasNuncaSeleccionados
         tsmRankingPat.Text = VRankingPatologias
         tsmInformeDiagnosticos.Text = VDiagnosticosOtorgados
         tsmInformeDeChat.Text = VTituloInformeChat
@@ -164,7 +165,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub tsmVerAyuda_Click(sender As Object, e As EventArgs) Handles tsmVerAyuda.Click
-        Process.Start("D:\ESI 2020\Doc Proyecto\Segunda Entrega\Triage - Gestion.chm")
+        Process.Start(Application.StartupPath & "\Triage - Gestión.chm")
     End Sub
 
     Private Sub tsmListaAdministrativos_Click(sender As Object, e As EventArgs) Handles tsmListaAdministrativos.Click

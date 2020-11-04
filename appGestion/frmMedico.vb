@@ -63,12 +63,66 @@ Public Class frmMedico
 
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
         'valida antes de ingresar la informacion del medico
-        If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) And ControladorValidaciones.ValidarNombres(txtNombres.Text) _
-            And ControladorValidaciones.ValidarApellidos(txtApellidos.Text) And ControladorValidaciones.ValidarEmail(txtEmail.Text) _
-            And ControladorValidaciones.ValidarFechaNacimiento(dtpFechaNac.Value) And ControladorValidaciones.ValidarNumeroMedico(txtNumMedico.Text) Then
+        validarDocumento()
+    End Sub
+
+    Private Sub validarDocumento()
+        'Alerta si existe un error en el formato del documento
+        If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) Then
+            ValidarNumeroMedico()
+        Else
+            MsgBox(VDocumentoInvalido, vbInformation, VAviso)
+            txtDocIdentidad.Select()
+        End If
+    End Sub
+
+    Private Sub ValidarNumeroMedico()
+        'Aerta si existe un error en el numero de documento
+        If ControladorValidaciones.ValidarNumeroEmpleado(txtNumMedico.Text) Then
+            validarFechaNacimiento()
+        Else
+            MsgBox(VNumeroMedicoInvalido, vbInformation, VAviso)
+            txtNumMedico.Select()
+        End If
+    End Sub
+
+    Private Sub validarFechaNacimiento()
+        'Alerta si existe un error en la fecha de nacimiento
+        If ControladorValidaciones.ValidarFechaNacimiento(dtpFechaNac.Value) Then
+            validarNombres()
+        Else
+            MsgBox(VFechaNacInvalida, vbInformation, VAviso)
+            dtpFechaNac.Select()
+        End If
+    End Sub
+
+    Private Sub validarNombres()
+        'Alerta si existe un error en el nombre
+        If ControladorValidaciones.ValidarNombres(txtNombres.Text) Then
+            validarApellidos()
+        Else
+            MsgBox(VNombresInvalidos, vbInformation, VAviso)
+            txtNombres.Select()
+        End If
+    End Sub
+
+    Private Sub validarApellidos()
+        'Alerta si existe un error en el apellido
+        If ControladorValidaciones.ValidarApellidos(txtApellidos.Text) Then
+            validarEmail()
+        Else
+            MsgBox(VApellidosInvalidos, vbInformation, VAviso)
+            txtApellidos.Select()
+        End If
+    End Sub
+
+    Private Sub validarEmail()
+        'Alerta si existe un error en el email
+        If ControladorValidaciones.ValidarEmail(txtEmail.Text) Then
             validarSiEsNuevo()
         Else
-            MsgBox(VFaltanDatosRequeridos, vbInformation, VAviso)
+            MsgBox(VEmailInvalido, vbInformation, VAviso)
+            txtEmail.Select()
         End If
     End Sub
 
@@ -84,14 +138,17 @@ Public Class frmMedico
     Private Sub guardarDatosDelMedico()
         'Guarda la informacion del medico
         Try
-            ControladorMedico.GuardarDatosMedico(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
+            If ControladorMedico.GuardarDatosMedico(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
                                txtCalle.Text, txtNumeroCalle.Text, txtBarrio.Text, txtEsquina.Text, txtApto.Text,
-                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), listaDeTelefonos, txtNumMedico.Text, USUARIO, PASSWORD)
-            opcionesMenu.ClickEnBotonGuardar(toolsMenuMedico)
-            guardadoConExito()
-            deshabilitarControlesDeEdicion()
+                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), listaDeTelefonos, txtNumMedico.Text, USUARIO, PASSWORD) Then
+                opcionesMenu.ClickEnBotonGuardar(toolsMenuMedico)
+                guardadoConExito()
+                deshabilitarControlesDeEdicion()
+            Else
+                MsgBox(VErrorAlGuardar, vbInformation, VAviso)
+            End If
+
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
     End Sub
@@ -323,7 +380,6 @@ Public Class frmMedico
             colorearEliminados(dgvListaMedicos)
             crearTablaTelefonoParaDataGrid()
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
     End Sub
@@ -481,7 +537,6 @@ Public Class frmMedico
             validarBotonBorrar(dgvListaMedicos.Item(6, e.RowIndex).Value)
             txtNombres.Select()
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorRecuperarDatos, vbExclamation, VAvisoError)
         End Try
     End Sub

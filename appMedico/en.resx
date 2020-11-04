@@ -132,6 +132,9 @@
   <data name="avisoantesdecierre" xml:space="preserve">
     <value>Notice Before Closing</value>
   </data>
+  <data name="ayuda" xml:space="preserve">
+    <value>Help</value>
+  </data>
   <data name="barrio" xml:space="preserve">
     <value>Location</value>
   </data>

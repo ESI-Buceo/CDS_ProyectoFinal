@@ -5,14 +5,14 @@ Public Module ControladorPersona
 
     Public Function generarPassword()
         'Genera una nueva contraseña
-        Dim caracteres As String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+        Dim caracteres As String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.%&/-$()+"
         Dim res As New StringBuilder()
         Dim rnd As New Random()
         For i = 0 To 5
             res.Append(caracteres(rnd.[Next](caracteres.Length)))
         Next
 
-        Return "Vs." + res.ToString()
+        Return "Vs%" + res.ToString()
 
     End Function
 

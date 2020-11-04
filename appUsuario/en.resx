@@ -345,4 +345,7 @@
   <data name="segurocerraraplicacion" xml:space="preserve">
     <value>Are you sure to close the application?</value>
   </data>
+  <data name="ayuda" xml:space="preserve">
+    <value>Help</value>
+  </data>
 </root>

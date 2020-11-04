@@ -4,6 +4,8 @@ Public Class frmCambiarPass
     Private Sub btnConfirmar_Click(sender As Object, e As EventArgs) Handles btnConfirmar.Click
         If ControladorValidaciones.ValidarPassYRePass(txtPass.Text, txtRePass.Text) Then
             cambiarPassword(txtPass.Text)
+        Else
+            MsgBox(VLosPassNoCoinciden, vbInformation, VAviso)
         End If
     End Sub
 
@@ -14,7 +16,6 @@ Public Class frmCambiarPass
             PASSWORD = txtPass.Text
             Me.Dispose()
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VCambioPassFailed, vbCritical, VCambiarPassword)
         End Try
     End Sub
@@ -28,5 +29,7 @@ Public Class frmCambiarPass
         lblNuevoPass.Text = VNuevoPassword
         lblRePass.Text = VReEscribeNuevoPassword
         btnConfirmar.Text = VConfirmar
+        lblNota.Text = VNota
+        lblAclaracionPass.Text = VAclaracionPassword
     End Sub
 End Class

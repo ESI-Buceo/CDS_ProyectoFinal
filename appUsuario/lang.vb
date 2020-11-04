@@ -76,7 +76,7 @@
     Public VSeguroCerrarAplicacion As String
     Public VAvisoConfirmacion As String
     Public VElPacienteSalioDelChat As String
-
+    Public VAyuda As String
 
     Public Sub CargarIdioma()
         VIdiomaActivo = My.Settings.lenguaje
@@ -164,6 +164,7 @@
         VSeguroCerrarAplicacion = My.Resources.es.segurocerraraplicacion
         VAvisoConfirmacion = My.Resources.es.avisoconfirmacion
         VElPacienteSalioDelChat = My.Resources.es.elpacientehasalidodelchat
+        VAyuda = My.Resources.es.ayuda
     End Sub
 
     Private Sub idioma_en()
@@ -243,6 +244,11 @@
         VSeguroCerrarAplicacion = My.Resources.en.segurocerraraplicacion
         VAvisoConfirmacion = My.Resources.en.avisoconfirmacion
         VElPacienteSalioDelChat = My.Resources.en.elpacientehasalidodelchat
+        VAyuda = My.Resources.en.ayuda
     End Sub
 
+    Public Sub EstablecerIdioma(ByVal idioma As String)
+        My.Settings.lenguaje = idioma
+        My.Settings.Save()
+    End Sub
 End Module

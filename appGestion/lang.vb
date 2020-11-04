@@ -199,6 +199,20 @@
     Public VMensajeRestablecerPassword As String
     Public VRestablecerPassword As String
     Public VErrorCambiarPassword As String
+    Public VDocumentoInvalido As String
+    Public VNombresInvalidos As String
+    Public VApellidosInvalidos As String
+    Public VEmailInvalido As String
+    Public VFechaNacInvalida As String
+    Public VNumeroEmpleadoInvalido As String
+    Public VNumeroMedicoInvalido As String
+    Public VLosPassNoCoinciden As String
+    Public VPonderacionNoVacio As String
+    Public VCampoNoVacio As String
+    Public VListaSintomasVacia As String
+    Public VNota As String
+    Public VAclaracionPassword As String
+
 
     Public Sub CargarIdioma()
         VIdiomaActivo = My.Settings.lenguaje
@@ -391,7 +405,7 @@
         VBaseDeDatos = My.Resources.es.basededatos
         VErrorAccesoArchivo = My.Resources.es.erroraccesoarchivo
         VSintomasNuncaSeleccionados = My.Resources.es.sintomasnuncaseleccionados
-        VSubTituloSintomas = My.Resources.es.subtitulolistasintomasnoseleccionados
+        VSubTituloSintomas = My.Resources.es.subsitulosintomas
         VActividad = My.Resources.es.actividad
         VSesiones = My.Resources.es.sesiones
         VActividad12Meses = My.Resources.es.actividaddoceMeses
@@ -409,6 +423,19 @@
         VMensajeRestablecerPassword = My.Resources.es.mensajerestablecerpassword
         VRestablecerPassword = My.Resources.es.restablecerpassword
         VErrorCambiarPassword = My.Resources.es.errorcambiarpassword
+        VDocumentoInvalido = My.Resources.es.documentoinvalido
+        VNombresInvalidos = My.Resources.es.nombresInvalidos
+        VApellidosInvalidos = My.Resources.es.apellidosinvalidos
+        VEmailInvalido = My.Resources.es.emailinvalido
+        VFechaNacInvalida = My.Resources.es.fechanacinvalida
+        VNumeroEmpleadoInvalido = My.Resources.es.numepleadoinvalido
+        VNumeroMedicoInvalido = My.Resources.es.nmedicoinvalido
+        VLosPassNoCoinciden = My.Resources.es.passnocoinciden
+        VPonderacionNoVacio = My.Resources.es.ponderacionNoVacio
+        VCampoNoVacio = My.Resources.es.camponovacio
+        VListaSintomasVacia = My.Resources.es.listasintomasvacias
+        VNota = My.Resources.es.nota
+        VAclaracionPassword = My.Resources.es.aclaracionpassword
     End Sub
 
     Public Sub idioma_en()
@@ -610,6 +637,19 @@
         VMensajeRestablecerPassword = My.Resources.en.mensajerestablecerpassword
         VRestablecerPassword = My.Resources.en.restablecerpassword
         VErrorCambiarPassword = My.Resources.en.errorcambiarpassword
+        VDocumentoInvalido = My.Resources.en.documentoinvalido
+        VNombresInvalidos = My.Resources.en.nombresInvalidos
+        VApellidosInvalidos = My.Resources.en.apellidosinvalidos
+        VEmailInvalido = My.Resources.en.emailinvalido
+        VFechaNacInvalida = My.Resources.en.fechanacinvalida
+        VNumeroEmpleadoInvalido = My.Resources.en.numepleadoinvalido
+        VNumeroMedicoInvalido = My.Resources.en.nmedicoinvalido
+        VLosPassNoCoinciden = My.Resources.en.passnocoinciden
+        VPonderacionNoVacio = My.Resources.en.ponderacionNoVacio
+        VCampoNoVacio = My.Resources.en.camponovacio
+        VListaSintomasVacia = My.Resources.en.listasintomasvacias
+        VNota = My.Resources.es.nota
+        VAclaracionPassword = My.Resources.es.aclaracionpassword
     End Sub
 
     Public Sub GuardarIdioma(ByVal idioma As String)

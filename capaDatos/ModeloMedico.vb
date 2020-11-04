@@ -8,7 +8,7 @@
         MyBase.New(uid, pwd)
     End Sub
 
-    Public Sub GuardarDatosMedico()
+    Public Function GuardarDatosMedico()
         'Guarda la informacion del medico nueva o actualiza
         Try
             Comando.CommandText = "SET AUTOCOMMIT = OFF;"
@@ -48,11 +48,15 @@
             Comando.CommandText = "COMMIT;"
             Comando.ExecuteNonQuery()
 
+            CerrarConexion()
+            Return True
         Catch ex As Exception
             Comando.CommandText = "ROLLBACK;"
             Comando.ExecuteNonQuery()
+            CerrarConexion()
+            Return False
         End Try
-    End Sub
+    End Function
 
     Public Function CrearUsuarioBD()
         'Crea el usuario para la base de datos

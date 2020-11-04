@@ -14,7 +14,6 @@ Public Class frmParametros
         Try
             mostrarConfiguracion(ControladorConfiguracion.LeerConfiguracion(USUARIO, PASSWORD))
         Catch ex As Exception
-            MsgBox(ex.Message)
             MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
     End Sub

@@ -18,7 +18,7 @@ Public Class frmListaDePatologias
     Private Sub listarSoloActivos()
         'Muestra solo los casos activos
         Try
-            cargarGridPatologias(ControladorPatologias.ListaDePatologias(1, USUARIO, PASSWORD))
+            cargarGridPatologias(ControladorPatologias.ListaDePatologias("1", USUARIO, PASSWORD))
             lblTipo.Text = VSoloActivos
         Catch ex As Exception
             MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
@@ -32,7 +32,7 @@ Public Class frmListaDePatologias
     Private Sub listarSoloInactivos()
         'Muestra patologias inactivas
         Try
-            cargarGridPatologias(ControladorPatologias.ListaDePatologias(0, USUARIO, PASSWORD))
+            cargarGridPatologias(ControladorPatologias.ListaDePatologias("0", USUARIO, PASSWORD))
             lblTipo.Text = VSoloInactivos
         Catch ex As Exception
             MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)

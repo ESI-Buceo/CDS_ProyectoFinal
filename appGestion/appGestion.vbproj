@@ -69,6 +69,7 @@
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
     <Import Include="System.Data" />
+    <Import Include="System.Data.Odbc" />
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
     <Import Include="System.Windows.Forms" />
@@ -505,6 +506,8 @@
     <Content Include="icon.ico" />
     <Content Include="logo-appgestino.ico" />
     <Content Include="logo-appmedico %285%29.ico" />
+    <None Include="Resources\icono_EN.jpg" />
+    <None Include="Resources\icono_ES.jpg" />
     <None Include="Resources\pass3.png" />
     <None Include="Resources\pass2.png" />
     <None Include="Resources\pass1.png" />

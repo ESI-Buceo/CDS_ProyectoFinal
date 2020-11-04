@@ -36,6 +36,7 @@ Public Class frmListaSintomas
         Try
             dgvListaSintomas.DataSource = ControladorSintomas.ListarSintomas(txtNombreSintoma.Text, USUARIO, PASSWORD)
             dgvListaSintomas.Columns.Item(1).Width = 330
+            dgvListaSintomas.Columns.Item(2).Visible = False
         Catch ex As Exception
             MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try

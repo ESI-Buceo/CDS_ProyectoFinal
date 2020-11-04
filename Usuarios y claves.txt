@@ -1,0 +1,11 @@
+medico urs: 19266172
+medico pwd: 19266172
+
+paciente usr: 19248378
+paciente pwd: 19248378
+
+gestor usr: 40713841
+gestor pwd: 40713841
+
+gestor urs: capill 
+gestor pwd: 45476339

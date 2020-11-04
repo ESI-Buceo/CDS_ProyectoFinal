@@ -20,13 +20,42 @@ Public Class frmPatologia
 
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
         'Guarda los datos de la patologia
-        If ControladorValidaciones.ValidarCampoVacio(txtPatologiaNombre.Text) _
-            And ControladorValidaciones.ValidarPonderacion(cbPatologiaPonderacion.Text) _
-            And ControladorValidaciones.ValidarCampoVacio(txtPatologiaDescipcion.Text) _
-            And ControladorValidaciones.ValidarListaCargada(dgvSintomasPatologia) Then
+        validarNombre()
+    End Sub
+
+    Private Sub validarNombre()
+        If ControladorValidaciones.ValidarCampoVacio(txtPatologiaNombre.Text) Then
+            validarPonderacion()
+        Else
+            MsgBox(VNombresInvalidos, vbInformation, VAviso)
+            txtPatologiaNombre.Select()
+        End If
+    End Sub
+
+    Private Sub validarPonderacion()
+        If ControladorValidaciones.ValidarPonderacion(cbPatologiaPonderacion.Text) Then
+            validarDescripcion()
+        Else
+            MsgBox(VPonderacionNoVacio, vbInformation, VAviso)
+            cbPatologiaPonderacion.Select()
+        End If
+    End Sub
+
+    Private Sub validarDescripcion()
+        If ControladorValidaciones.ValidarCampoVacio(txtPatologiaDescipcion.Text) Then
+            validarListaSintomas()
+        Else
+            MsgBox(VCampoNoVacio, vbInformation, VAviso)
+            txtPatologiaDescipcion.Select()
+        End If
+    End Sub
+
+    Private Sub validarListaSintomas()
+        If ControladorValidaciones.ValidarListaCargada(dgvSintomasPatologia) Then
             guardarInformacionPatologia()
         Else
-            MsgBox(VFaltanDatosRequeridos, vbInformation, VAviso)
+            MsgBox(VListaSintomasVacia, vbInformation, VAviso)
+            btnAgregarSintoma.Select()
         End If
     End Sub
 
