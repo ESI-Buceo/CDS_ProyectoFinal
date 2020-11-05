@@ -4,7 +4,11 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModeloPatologia
-    Dim p As New ModeloPatologia("11111111", "Ge.11111111")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim p As New ModeloPatologia(usrGestor, usrGestor)
     Dim Resultado As Boolean
     <TestMethod()> Public Sub TestGuaradrPatologia()
         Dim ListaDeSintomas As New List(Of Integer)
@@ -85,7 +89,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestListarPatologiasDeDiagnostico()
         Try
-            p.ListarPatologiasDeDiagnostico("109354173")
+            p.ListarPatologiasDeDiagnostico("282917714")
             Resultado = True
         Catch ex As Exception
             Resultado = False

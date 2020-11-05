@@ -5,24 +5,29 @@ Imports System.Threading
 
 <TestClass()> Public Class TestModeloPaciente
     Dim Resultado As Boolean
-    Dim p As New ModeloPaciente("11111111", "Ge.11111111")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim p As New ModeloPaciente(usrGestor, usrGestor)
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
-        p.RangoIpPaciente = "%"
-        p.Documento = "54895632"
-        p.Password = "Pa.54895632"
-        Try
-            p.CrearUsuarioBD()
-            Resultado = True
-        Catch ex As Odbc.OdbcException
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        'Se comenta porque no se puede probar en la escuela
+        'p.RangoIpPaciente = "%"
+        'p.Documento = "54895632"
+        'p.Password = "Pa.54895632"
+        'Try
+        '    p.CrearUsuarioBD()
+        '    Resultado = True
+        'Catch ex As Odbc.OdbcException
+        '    Resultado = False
+        'End Try
+        'Assert.IsTrue(Resultado)
+        'Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCargarPreExistentes()
-        p.Documento = "19248371"
+        p.Documento = usrPaciente
         Try
             p.CargarPreExistentes()
             Resultado = True
@@ -35,7 +40,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestCambiarEstadoPaciente()
         Try
-            p.CambiarEstadoPaciente("19248371", "1")
+            p.CambiarEstadoPaciente(usrPaciente, "1")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -47,7 +52,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestDatosPaciente()
         Try
-            p.DatosPaciente("131345728")
+            p.DatosPaciente("282917714")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -82,7 +87,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestListarTelefonos()
         Try
-            p.ListarTelefonos("19248371")
+            p.ListarTelefonos(usrPaciente)
             Resultado = True
         Catch ex As Exception
             Resultado = False

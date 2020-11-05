@@ -4,11 +4,16 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModeloRecibe
-    Dim r As New ModeloRecibe("19248371", "Pa.19248371")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim r As New ModeloRecibe(usrPaciente, usrPaciente)
+
     <TestMethod()> Public Sub TestGuardarRelacionPacienteDiagnostico()
         Dim Resultado As Boolean
-        r.DocIdentidad = "19248371"
-        ModeloDiagnostico.CodigoDiagnostico = "131345728"
+        r.DocIdentidad = usrPaciente
+        ModeloDiagnostico.CodigoDiagnostico = "282917714"
         Try
             r.GuardarRelacionPacienteDiagnostico()
             Resultado = True

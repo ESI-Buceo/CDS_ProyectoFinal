@@ -4,8 +4,13 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModeloSesion
-    Dim s As New ModeloSesion("11111111", "Ge.11111111")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim s As New ModeloSesion(usrGestor, usrGestor)
     Dim Resultado As New Boolean
+
     <TestMethod()> Public Sub TestGuardarSesion()
         Dim numAleatorio As New Random()
         Dim valorAleatorio As Integer = numAleatorio.Next(500000000, 999999999)
@@ -46,7 +51,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestMostrarSesionesEnEspera()
         Try
-            s.MostrarSesionesEnEspera("1234")
+            s.MostrarSesionesEnEspera(usrMedico)
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -78,7 +83,7 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestVerificarEstadoSesion()
-        ModeloDiagnostico.CodigoDiagnostico = "131345728"
+        ModeloDiagnostico.CodigoDiagnostico = "282917714"
         Try
             s.VerificarEstadoSesion()
             Resultado = True
@@ -90,7 +95,7 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestDevolverNombreApellidoMedico()
-        ModeloDiagnostico.CodigoDiagnostico = "131345728"
+        ModeloDiagnostico.CodigoDiagnostico = "282917714"
         Try
             s.DevolverNombreApellidoMedico()
             Resultado = True
@@ -103,7 +108,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestGuardarEstadoPorId()
         Try
-            s.GuardarEstado("131345728", "3")
+            s.GuardarEstado("282917714", "3")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -113,7 +118,7 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestGuardarEstado()
-        s.IdSesion = "131345728"
+        s.IdSesion = "282917714"
         Try
             s.GuardarEstado("3")
             Resultado = True
@@ -126,7 +131,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestVerificarEstadoSesionPorparametro()
         Try
-            s.VerificarEstadoSesion("131345728")
+            s.VerificarEstadoSesion("282917714")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -137,7 +142,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestSesionesPorMedico()
         Try
-            s.SesionesPorMedico("09", "19266173")
+            s.SesionesPorMedico("09", usrMedico)
             Resultado = True
         Catch ex As Exception
             Resultado = False

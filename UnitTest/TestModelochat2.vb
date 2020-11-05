@@ -4,12 +4,16 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModelochat2
-    Dim c As New ModeloChat("19266171", "Me.19266171")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim c As New ModeloChat(usrMedico, usrMedico)
 
     <TestMethod()> Public Sub TestRecibirTodosMensajes()
         Dim Resultado As Boolean
         Try
-            c.RecibirTodosMensajes("161348021")
+            c.RecibirTodosMensajes("282917714")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -22,7 +26,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestRecibirMensajesAppPaciente()
         Dim Resultado As Boolean
         Try
-            c.RecibirMensajes("'161348021'", emisor:="M")
+            c.RecibirMensajes("'282917714'", emisor:="M")
             Resultado = True
         Catch ex As Exception
             Resultado = False

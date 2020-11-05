@@ -4,11 +4,16 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModeloPersona
-    Dim p As New ModeloPersona("11111111", "Ge.11111111")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim p As New ModeloPersona(usrGestor, usrGestor)
+
     <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
         Dim Resultado As Boolean
         Try
-            p.VerificarDocumentoDeIdentidad("19266173")
+            p.VerificarDocumentoDeIdentidad(usrMedico)
             Resultado = True
         Catch ex As Exception
             Resultado = False

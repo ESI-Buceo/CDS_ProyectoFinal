@@ -4,7 +4,11 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModeloAsociados
-    Dim a As New ModeloAsociados("11111111", "Ge.11111111")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim a As New ModeloAsociados(usrGestor, usrGestor)
     <TestMethod()> Public Sub TestFiltrarPatologiasPorSintomas()
         Dim Resultado As Boolean
         Try

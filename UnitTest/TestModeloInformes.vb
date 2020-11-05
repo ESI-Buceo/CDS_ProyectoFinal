@@ -4,7 +4,11 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModeloInformes
-    Dim i As New ModeloInformes("11111111", "Ge.11111111")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim i As New ModeloInformes(usrGestor, usrGestor)
 
     <TestMethod()> Public Sub TestRankigPatologias()
         Dim Resultado As Boolean

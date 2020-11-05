@@ -5,7 +5,12 @@ Imports System.Threading
 
 
 <TestClass()> Public Class TestModeloSintoma
-    Dim s As New ModeloSintoma("11111111", "Ge.11111111")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim s As New ModeloSintoma(usrGestor, usrGestor)
+
     Dim Resultado As New Boolean
     <TestMethod()> Public Sub TestGuardarSintoma()
         s.ID = "201"
@@ -69,7 +74,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestSintomasIngresadosPorPaciente()
         Try
-            s.SintomasIngresadosPorPaciente("131345728")
+            s.SintomasIngresadosPorPaciente("282917714")
             Resultado = True
         Catch ex As Exception
             Resultado = False
