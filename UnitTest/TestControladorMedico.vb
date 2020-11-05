@@ -7,7 +7,7 @@ Imports System.Threading
     Dim Resultado As Boolean
     <TestMethod()> Public Sub TestidentificarMedico()
         Try
-            ControladorMedico.identificarMedico("19266171", "Me.19266171")
+            ControladorMedico.identificarMedico("19266172", "19266172")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -17,8 +17,8 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestVerificarDocumentoDeIdentidad()
-        Dim Documento As Integer = "19266173"
-        Assert.AreEqual(ControladorMedico.VarificarDocumentoDeIdentidad("19266173", "11111111", "Ge.11111111"), Documento)
+        Dim Documento As Integer = "19266172"
+        Assert.AreEqual(ControladorMedico.VarificarDocumentoDeIdentidad("19266172", "40713841", "40713841"), Documento)
         Thread.Sleep(20)
     End Sub
 
@@ -36,16 +36,16 @@ Imports System.Threading
         Assert.IsTrue(Resultado)
     End Sub
 
-    <TestMethod()> Public Sub TestCrearUsuarioBD()
-        Try
-            ControladorMedico.crearUsuarioBD("41752836", "11111111", "Ge.11111111")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
+    '<TestMethod()> Public Sub TestCrearUsuarioBD()
+    '    Try
+    '        ControladorMedico.crearUsuarioBD("41752836", "40713841", "40713841")
+    '        Resultado = True
+    '    Catch ex As Exception
+    '        Resultado = False
+    '    End Try
+    '    Assert.IsTrue(Resultado)
+    '    Thread.Sleep(20)
+    'End Sub
 
     <TestMethod()> Public Sub TestcrearCadenaDeBusqueda()
         'Con los parametros que se envian a la función, la misma debería devolver 
@@ -59,7 +59,7 @@ Imports System.Threading
         Try
             ControladorMedico.buscarMedico("p.apellidos LIKE '%Curita%' AND p.nombres 
                                             LIKE '%Alberto%' AND p.docidentidad=78345678 
-                                            AND", "11111111", "Ge.11111111")
+                                            AND", "40713841", "40713841")
 
             Resultado = True
         Catch ex As Exception
@@ -71,7 +71,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestbuscarMedicoPorDocumento()
         Try
-            ControladorMedico.buscarMedicoPorDocumento("19266173", "11111111", "Ge.11111111")
+            ControladorMedico.buscarMedicoPorDocumento("19266172", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -93,7 +93,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestcambiarEstadoMedico()
         Try
-            ControladorMedico.CambiarEstadoMedico("78345678", "1", "11111111", "Ge.11111111")
+            ControladorMedico.CambiarEstadoMedico("78345678", "1", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -104,7 +104,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TesteliminiarUsuarioBD()
         Try
-            ControladorMedico.eliminiarUsuarioBD("41752836", "11111111", "Ge.11111111")
+            ControladorMedico.eliminiarUsuarioBD("41752836", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -115,7 +115,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestListarMedicosPorEstado()
         Try
-            ControladorMedico.ListarMedicos("1", "11111111", "Ge.11111111")
+            ControladorMedico.ListarMedicos("1", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -126,7 +126,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestListarMedicos()
         Try
-            ControladorMedico.ListarMedicos("11111111", "Ge.11111111")
+            ControladorMedico.ListarMedicos("40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -137,7 +137,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestListarTelefonos()
         Try
-            ControladorMedico.ListarTelefonos("19266173", "11111111", "Ge.11111111")
+            ControladorMedico.ListarTelefonos("19266172", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -148,7 +148,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestListarSesionesDeChat()
         Try
-            ControladorMedico.ListarSesionesDeChat("11111111", "Ge.11111111", "19266173")
+            ControladorMedico.ListarSesionesDeChat("40713841", "40713841", "19266172")
             Resultado = True
         Catch ex As Exception
             Resultado = False

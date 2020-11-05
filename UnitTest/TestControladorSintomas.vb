@@ -26,7 +26,7 @@ Imports capaLogica
 
     <TestMethod()> Public Sub TestGuardarSintomas()
         Try
-            GuardarSintomas("99", "Dolor de cosito", "1", "11111111", "Ge.11111111")
+            GuardarSintomas("99", "Dolor de cosito", "1", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -36,7 +36,7 @@ Imports capaLogica
 
     <TestMethod()> Public Sub TestBorrarSintomas()
         Try
-            BorrarSintomas("99", "11111111", "Ge.11111111")
+            BorrarSintomas("99", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -46,7 +46,7 @@ Imports capaLogica
 
     <TestMethod()> Public Sub TestListarSintomasDePatologia()
         Try
-            ListarSintomasDePatologia("2", "11111111", "Ge.11111111")
+            ListarSintomasDePatologia("2", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -57,7 +57,7 @@ Imports capaLogica
     <TestMethod()> Public Sub TestListarSintomasPorEstado()
         Dim Estado As Integer = 0
         Try
-            ListarSintomas(Estado, "11111111", "Ge.11111111")
+            ListarSintomas(Estado, "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -67,7 +67,7 @@ Imports capaLogica
 
     <TestMethod()> Public Sub TestListarTodosLosSintomas()
         Try
-            ListarTodosLosSintomas("11111111", "Ge.11111111")
+            ListarTodosLosSintomas("40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -78,7 +78,7 @@ Imports capaLogica
     <TestMethod()> Public Sub TestExportarDatosADB()
         Dim Datos As New DataTable
         Try
-            ControladorSintomas.ExportarDatosADB("11111111", "Ge.11111111", Datos)
+            ControladorSintomas.ExportarDatosADB("40713841", "40713841", Datos)
             Resultado = True
         Catch ex As Exception
             Resultado = False

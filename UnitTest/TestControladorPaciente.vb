@@ -8,7 +8,7 @@ Imports capaDatos
     Dim Resultado As Boolean
     <TestMethod()> Public Sub TestidentificarPaciente()
         Try
-            controladorPacientes.identificarPaciente("19248371", "Pa.19248371")
+            controladorPacientes.identificarPaciente("19248378", "19248378")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -20,8 +20,8 @@ Imports capaDatos
     <TestMethod()> Public Sub TestVarificarDocumentoDeIdentidad()
         'La función devuelve un documento que se pasa por parámetro. 
         'Se comparan los resultados.
-        Dim Documento As Integer = "19248371"
-        Assert.AreEqual(controladorPacientes.VarificarDocumentoDeIdentidad("19248371", "19248371", "Pa.19248371"), Documento)
+        Dim Documento As Integer = "19248378"
+        Assert.AreEqual(controladorPacientes.VarificarDocumentoDeIdentidad("19248378", "19248378", "19248378"), Documento)
         Thread.Sleep(20)
     End Sub
 
@@ -31,7 +31,7 @@ Imports capaDatos
         Try
             controladorPacientes.GuardarDatosPaciente("96325874", "algo@nuevopaciente.com", "Coso", "Perez", "Se",
                                                                 "3216", "Los nierys", "brava", "37", "1998-06-06", "1",
-                                                                telefonos, preExistentes, "11111111", "Ge.11111111")
+                                                                telefonos, preExistentes, "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -40,31 +40,31 @@ Imports capaDatos
         Thread.Sleep(20)
     End Sub
 
-    <TestMethod()> Public Sub TestCrearUsuarioBD()
-        Try
-            controladorPacientes.CrearUsuarioBD("26325874", "11111111", "Ge.11111111")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
+    '<TestMethod()> Public Sub TestCrearUsuarioBD()
+    '    Try
+    '        controladorPacientes.CrearUsuarioBD("26325874", "40713841", "40713841")
+    '        Resultado = True
+    '    Catch ex As Exception
+    '        Resultado = False
+    '    End Try
+    '    Assert.IsTrue(Resultado)
+    '    Thread.Sleep(20)
+    'End Sub
 
-    <TestMethod()> Public Sub TesteliminiarPacienteBD()
-        Try
-            controladorPacientes.eliminiarPacienteBD("26325874", "11111111", "Ge.11111111")
-            Resultado = True
-        Catch ex As Exception
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
-    End Sub
+    '<TestMethod()> Public Sub TesteliminiarPacienteBD()
+    '    Try
+    '        controladorPacientes.eliminiarPacienteBD("26325874", "40713841", "40713841")
+    '        Resultado = True
+    '    Catch ex As Exception
+    '        Resultado = False
+    '    End Try
+    '    Assert.IsTrue(Resultado)
+    '    Thread.Sleep(20)
+    'End Sub
 
     <TestMethod()> Public Sub TestCambiarEstadoPaciente()
         Try
-            controladorPacientes.CambiarEstadoPaciente("96325874", "1", "11111111", "Ge.11111111")
+            controladorPacientes.CambiarEstadoPaciente("96325874", "1", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -75,7 +75,7 @@ Imports capaDatos
 
     <TestMethod()> Public Sub TestbuscarPacientePorDocumento()
         Try
-            controladorPacientes.buscarPacientePorDocumento("96325874", "11111111", "Ge.11111111")
+            controladorPacientes.buscarPacientePorDocumento("96325874", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -88,7 +88,7 @@ Imports capaDatos
         Try
             controladorPacientes.buscarPaciente("p.apellidos LIKE '%Perez%' AND p.nombres 
                                                  LIKE '%Coso%' AND p.docidentidad=96325874
-                                                 AND", "11111111", "Ge.11111111")
+                                                 AND", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -130,7 +130,7 @@ Imports capaDatos
 
     <TestMethod()> Public Sub TestCargarEnfermedadesPreExistentes()
         Try
-            controladorPacientes.CargarEnfermedadesPreExistentes("96325874", "11111111", "Ge.11111111")
+            controladorPacientes.CargarEnfermedadesPreExistentes("96325874", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -141,7 +141,7 @@ Imports capaDatos
 
     <TestMethod()> Public Sub TestListarPacientes()
         Try
-            controladorPacientes.ListarPacientes("11111111", "Ge.11111111")
+            controladorPacientes.ListarPacientes("40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -152,7 +152,7 @@ Imports capaDatos
 
     <TestMethod()> Public Sub TestListarPacientesPorEstado()
         Try
-            controladorPacientes.ListarPacientes("1", "11111111", "Ge.11111111")
+            controladorPacientes.ListarPacientes("1", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -163,7 +163,7 @@ Imports capaDatos
 
     <TestMethod()> Public Sub TestListarTelefonos()
         Try
-            controladorPacientes.ListarTelefonos("96325874", "11111111", "Ge.11111111")
+            controladorPacientes.ListarTelefonos("96325874", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False

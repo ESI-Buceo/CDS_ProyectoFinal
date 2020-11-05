@@ -12,7 +12,7 @@ Imports System.Threading
         ListaDeSintomas.Add("8")
         ListaDeSintomas.Add("17")
         Try
-            CrearInformeDiagnostico(ListaDeSintomas, "19248371", "Pa.19248371")
+            CrearInformeDiagnostico(ListaDeSintomas, "19248378", "Pa.19248378")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -43,7 +43,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestTraerDiagnosticos()
         Try
-            TraerDiagnosticos("19248371", "Pa.19248371", "19248371")
+            TraerDiagnosticos("19248378", "19248378", "19248378")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -53,7 +53,7 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestCantidadDeDiagnosticos()
-        Assert.AreNotEqual(CantidadDeDiagnosticos("19248371", "Pa.19248371", "19248371"), "0")
+        Assert.AreNotEqual(CantidadDeDiagnosticos("19248378", "19248378", "19248378"), "0")
         Thread.Sleep(20)
     End Sub
 

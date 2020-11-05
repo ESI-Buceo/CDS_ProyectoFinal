@@ -14,7 +14,7 @@ Imports System.Text.RegularExpressions
     <TestMethod()> Public Sub TestCambiarPassword()
         Dim Resultado As Boolean
         Try
-            CambiarPassword("19266171", "Me.19266171", "%", "11111111", "Ge.11111111")
+            CambiarPassword("19266172", "19266172", "%", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False

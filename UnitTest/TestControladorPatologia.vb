@@ -9,7 +9,7 @@ Imports System.Threading
         Dim ListaDeSintomas As New List(Of Integer)
         Try
             AltaPatologia("100", "Dolor de cosito", "40", "Cuando te duele algo que no sabes que es", "1",
-                                       ListaDeSintomas, "11111111", "Ge.11111111")
+                                       ListaDeSintomas, "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -20,7 +20,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestcambiarEstadoPatologia()
         Try
-            cambiarEstadoPatologia("2", "1", "11111111", "Ge.11111111")
+            cambiarEstadoPatologia("2", "1", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = True
@@ -31,14 +31,14 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestListarPatologias()
         Dim Lista As New DataTable
-        Assert.AreSame(ListarPatologias("Dolor de cosito", "11111111", "Ge.11111111").GetType(), Lista.GetType())
+        Assert.AreSame(ListarPatologias("Dolor de cosito", "40713841", "40713841").GetType(), Lista.GetType())
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestCargarSintomaPorPatologia()
         Try
             Dim sintomasDePatologia As New DataTable
-            Assert.IsNotNull(CargarSintomaPorPatologia("2", sintomasDePatologia, "11111111", "Ge.11111111"))
+            Assert.IsNotNull(CargarSintomaPorPatologia("2", sintomasDePatologia, "40713841", "40713841"))
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -78,7 +78,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestListaDePatologias()
         Try
-            ListaDePatologias("11111111", "Ge.11111111")
+            ListaDePatologias("40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -89,7 +89,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestListaDePatologiasSegunEstado()
         Try
-            ListaDePatologias("1", "11111111", "Ge.11111111")
+            ListaDePatologias("1", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -101,7 +101,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestExportarDatosADB()
         Dim datos As New DataTable
         Try
-            ControladorPatologias.ExportarDatosADB("11111111", "Ge.11111111", datos)
+            ControladorPatologias.ExportarDatosADB("40713841", "40713841", datos)
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -113,7 +113,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestListarPatologiasPorDiagnostico()
         Dim datos As New DataTable
         Try
-            ListarPatologiasPorDiagnostico("11111111", "Ge.11111111", "109354173")
+            ListarPatologiasPorDiagnostico("40713841", "40713841", "109354173")
             Resultado = True
         Catch ex As Exception
             Resultado = False
