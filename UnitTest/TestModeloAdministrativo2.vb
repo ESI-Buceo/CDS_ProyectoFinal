@@ -4,7 +4,12 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 Imports capaDatos
 
 <TestClass()> Public Class TestModeloAdministrativo2
-    Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim a As New ModeloAdministrativo(usrGestor, usrGestor)
+
     <TestMethod()> Public Sub TestGuardarAdministrativo()
         Dim Resultado As Boolean
         Dim Telefono As New List(Of String)

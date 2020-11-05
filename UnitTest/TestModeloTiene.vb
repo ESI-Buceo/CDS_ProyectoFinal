@@ -4,7 +4,12 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModeloTiene
-    Dim t As New ModeloTiene("11111111", "Ge.11111111")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim t As New ModeloTiene(usrGestor, usrGestor)
+
     Dim numAleatorio1 As New Random()
     Dim valorAleatorio1 As String = numAleatorio1.Next(1, 7)
     Dim numAleatorio2 As New Random()
@@ -12,7 +17,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestGuardarRelacionDiagnosticoPatologia()
         Dim Resultado As Boolean
-        Dim Parametro As String = "('713780720','" + valorAleatorio1 + "','" + valorAleatorio2 + "')"
+        Dim Parametro As String = "('282917714','" + valorAleatorio1 + "','" + valorAleatorio2 + "')"
         Try
             t.GuardarRelacionDiagnosticoPatologia(Parametro)
             Resultado = True

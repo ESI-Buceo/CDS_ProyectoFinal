@@ -4,12 +4,17 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModeloAdministrativo
-    Dim a As New ModeloAdministrativo("11111111", "Ge.11111111")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim a As New ModeloAdministrativo(usrGestor, usrGestor)
+
     <TestMethod()> Public Sub TestBuscarAdministativo()
         Dim Resultado As Boolean
         Try
-            a.BuscarAdministativo("p.apellidos LIKE '%fernandez%' AND p.nombres 
-                                   LIKE '%mario juan%' AND p.docidentidad=11111111")
+            a.BuscarAdministativo("p.apellidos LIKE '%bueno%' AND p.nombres 
+                                   LIKE '%marcos%' AND p.docidentidad=" & usrGestor)
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -21,7 +26,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestBuscarAdministrativoPorDocumento()
         Dim Resultado As Boolean
         Try
-            a.BuscarAdministrativoPorDocumento("77777777")
+            a.BuscarAdministrativoPorDocumento(usrGestor)
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -48,7 +53,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestValidarAdministrativo()
         Dim Resultado As Boolean
         Try
-            a.ValidarAdministrativo("11111111")
+            a.ValidarAdministrativo(usrGestor)
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -71,32 +76,34 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestCrearUsuarioBD()
-        a.Documento = "40717849"
-        a.RangoIpAdministrativo = "%"
-        a.Password = "Ge.40717849"
-        Dim Resultado As Boolean
-        Try
-            a.CrearUsuarioBD()
-            Resultado = True
-        Catch ex As Odbc.OdbcException
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        'Se comenta porque no se puede ejectuar en la escuela
+        'a.Documento = "40717849"
+        'a.RangoIpAdministrativo = "%"
+        'a.Password = "Ge.40717849"
+        'Dim Resultado As Boolean
+        'Try
+        '    a.CrearUsuarioBD()
+        '    Resultado = True
+        'Catch ex As Odbc.OdbcException
+        '    Resultado = False
+        'End Try
+        'Assert.IsTrue(Resultado)
+        'Thread.Sleep(20)
     End Sub
 
 
     <TestMethod()> Public Sub TestEliminarUsuarioBD()
-        Dim Resultado As Boolean
-        a.RangoIpAdministrativo = "%"
-        Try
-            a.EliminarUsuarioBD("40717849")
-            Resultado = True
-        Catch ex As Odbc.OdbcException
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        'Se comenta porque no se puede ejectuar en la escuela
+        'Dim Resultado As Boolean
+        'a.RangoIpAdministrativo = "%"
+        'Try
+        '    a.EliminarUsuarioBD("40717849")
+        '    Resultado = True
+        'Catch ex As Odbc.OdbcException
+        '    Resultado = False
+        'End Try
+        'Assert.IsTrue(Resultado)
+        'Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarAdministrativos()
@@ -114,7 +121,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestListarTelefonos()
         Dim Resultado As Boolean
         Try
-            a.ListarTelefonos("40717849")
+            a.ListarTelefonos(usrGestor)
             Resultado = True
         Catch ex As Exception
             Resultado = False

@@ -4,25 +4,30 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModeloMedico
-    Dim m As New ModeloMedico("11111111", "Ge.11111111")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim m As New ModeloMedico(usrGestor, usrGestor)
     Dim Resultado As Boolean
     <TestMethod()> Public Sub TestCrearUsuarioBD()
-        m.Documento = "36512327"
-        m.RangoIpMedico = "%"
-        m.Password = "Me.36512327"
-        Try
-            m.CrearUsuarioBD()
-            Resultado = True
-        Catch ex As Odbc.OdbcException
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        'Se comenta porque no ese puede probar en la escuela
+        'm.Documento = "36512327"
+        'm.RangoIpMedico = "%"
+        'm.Password = "Me.36512327"
+        'Try
+        '    m.CrearUsuarioBD()
+        '    Resultado = True
+        'Catch ex As Odbc.OdbcException
+        '    Resultado = False
+        'End Try
+        'Assert.IsTrue(Resultado)
+        'Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestBuscarMedico()
         Try
-            m.BuscarMedico("p.apellidos Like '%Chacon%' AND p.nombres LIKE '%Carlos%' AND p.docidentidad = 40717849")
+            m.BuscarMedico("p.apellidos Like '%gainza%' AND p.nombres LIKE '%ruben%' AND p.docidentidad =" & usrMedico)
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -33,7 +38,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestBuscarMedicoPorDocumento()
         Try
-            m.buscarMedicoPorDocumento("40717849")
+            m.buscarMedicoPorDocumento(usrMedico)
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -55,15 +60,16 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestEliminarUsuarioBD()
-        m.RangoIpMedico = "%"
-        Try
-            m.EliminarUsuarioBD("36512327")
-            Resultado = True
-        Catch ex As Odbc.OdbcException
-            Resultado = False
-        End Try
-        Assert.IsTrue(Resultado)
-        Thread.Sleep(20)
+        'Se comenta porque no se puede probar en la escuela
+        'm.RangoIpMedico = "%"
+        'Try
+        '    m.EliminarUsuarioBD("36512327")
+        '    Resultado = True
+        'Catch ex As Odbc.OdbcException
+        '    Resultado = False
+        'End Try
+        'Assert.IsTrue(Resultado)
+        'Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestListarMedicos()
@@ -91,7 +97,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestListarTelefonos()
         Try
-            m.ListarTelefonos("19266173")
+            m.ListarTelefonos(usrMedico)
             Resultado = True
         Catch ex As Exception
             Resultado = False

@@ -4,11 +4,15 @@ Imports capaDatos
 Imports System.Threading
 
 <TestClass()> Public Class TestModeloChat
-    Dim c As New ModeloChat("19266171", "Me.19266171")
+    Dim usrGestor As String = "40713841"
+    Dim usrMedico As String = "19266172"
+    Dim usrPaciente As String = "19248378"
+
+    Dim c As New ModeloChat(usrMedico, usrMedico)
     <TestMethod()> Public Sub TestEnviarMensaje()
-        c.docidentidadPaciente = "19248371"
-        c.docidentidadMedico = "19266171"
-        c.idSesion = "161348021"
+        c.docidentidadPaciente = usrPaciente
+        c.docidentidadMedico = usrMedico
+        c.idSesion = "282917714"
         c.emisor = "M"
         c.mensaje = "Hola Carola"
 
@@ -24,7 +28,7 @@ Imports System.Threading
     End Sub
 
     <TestMethod()> Public Sub TestRecibirMensajesPorDiagnostico()
-        ModeloDiagnostico.CodigoDiagnostico = "161348021"
+        ModeloDiagnostico.CodigoDiagnostico = "282917714"
 
         Dim Resultado As Boolean
         Try
@@ -55,7 +59,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestCantidadDeChats()
         Dim Resultado As Boolean
         Try
-            c.CantidadDeChats("19248371")
+            c.CantidadDeChats(usrMedico)
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -68,7 +72,7 @@ Imports System.Threading
     <TestMethod()> Public Sub TestListaHistoricaChatPaciente()
         Dim Resultado As Boolean
         Try
-            c.ListaHistoricaChatPaciente("19248371")
+            c.ListaHistoricaChatPaciente(usrMedico)
             Resultado = True
         Catch ex As Exception
             Resultado = False
