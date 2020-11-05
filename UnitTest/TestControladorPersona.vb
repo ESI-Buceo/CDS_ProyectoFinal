@@ -8,7 +8,7 @@ Imports System.Text.RegularExpressions
     <TestMethod()> Public Sub TestgenerarPassword()
         Dim Contrasena As String
         Contrasena = ControladorPersona.generarPassword()
-        Assert.IsTrue(Regex.IsMatch(Contrasena, "[A-Z]+[a-z]+[.]+"))
+        Assert.IsTrue(Regex.IsMatch(Contrasena, "[A-Z]+[a-z][%./]"))
     End Sub
 
     <TestMethod()> Public Sub TestCambiarPassword()

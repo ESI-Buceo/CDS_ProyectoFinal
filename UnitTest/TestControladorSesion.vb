@@ -45,12 +45,12 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestVerificarEstadoDeSesionPorID()
         Dim Estado As Integer = "3"
-        Assert.AreEqual(VerificarEstadoDeSesion("131345728", "19248378", "19248378"), Estado)
+        Assert.AreEqual(VerificarEstadoDeSesion("282917714", "19248378", "19248378"), Estado)
         Thread.Sleep(20)
     End Sub
 
     <TestMethod()> Public Sub TestVerificarEstadoDeSesion()
-        ModeloDiagnostico.CodigoDiagnostico = "131345728"
+        ModeloDiagnostico.CodigoDiagnostico = "282917714"
         Assert.AreEqual(VerificarEstadoDeSesion("19266172", "19266172"), "3")
         Thread.Sleep(20)
     End Sub

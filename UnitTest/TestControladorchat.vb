@@ -27,7 +27,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestEnviarMensajePaciente()
         Try
-            ControladorChat.EnviarMensajePaciente("Hola Gato", "161348021", "19266172", "19266172", "19266172")
+            ControladorChat.EnviarMensajePaciente("Hola Gato", "161348021", "19248378", "19248378", "19266172")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -38,7 +38,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestEnviarMensajeMedico()
         Try
-            ControladorChat.EnviarMensajeMedico("Que pasó?", "161348021", "19266172", "19266172", "19266172")
+            ControladorChat.EnviarMensajeMedico("Que pasó?", "161348021", "19266172", "19266172", "19248378")
             Resultado = True
         Catch ex As Exception
             Resultado = False

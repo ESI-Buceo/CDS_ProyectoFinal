@@ -12,7 +12,7 @@ Imports System.Threading
         ListaDeSintomas.Add("8")
         ListaDeSintomas.Add("17")
         Try
-            CrearInformeDiagnostico(ListaDeSintomas, "19248378", "Pa.19248378")
+            CrearInformeDiagnostico(ListaDeSintomas, "19248378", "19248378")
             Resultado = True
         Catch ex As Exception
             Resultado = False

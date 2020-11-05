@@ -17,7 +17,7 @@ Imports System.Threading
 
     <TestMethod()> Public Sub TestGuardarRelacionDiagnosticoPatologia()
         Dim Resultado As Boolean
-        Dim Parametro As String = "('282917714','" + valorAleatorio1 + "','" + valorAleatorio2 + "')"
+        Dim Parametro As String = "('273039649','" + valorAleatorio1 + "','" + valorAleatorio2 + "')"
         Try
             t.GuardarRelacionDiagnosticoPatologia(Parametro)
             Resultado = True

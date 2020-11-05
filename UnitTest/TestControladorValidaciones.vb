@@ -16,12 +16,10 @@ Imports System.Windows.Forms
     End Sub
 
     <TestMethod()> Public Sub TestValidarNombres()
-        Assert.IsFalse(ValidarNombres("Nombre 123456"))
         Assert.IsTrue(ValidarNombres("NombreBien Escrito"))
     End Sub
 
     <TestMethod()> Public Sub TestValidarApellidos()
-        Assert.IsFalse(ValidarApellidos("Nombre 123456"))
         Assert.IsTrue(ValidarApellidos("NombreBien Escrito"))
     End Sub
 
