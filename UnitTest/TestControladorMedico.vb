@@ -28,7 +28,7 @@ Imports System.Threading
             ControladorMedico.GuardarDatosMedico("78345678", "nuevo@medicocontrolador.com",
                                                                      "Alberto", "Curita", "Algo", "1234",
                                                                      "La Boca", "Tanguito", "", "1950-10-10", Tel,
-                                                                     "3288", "11111111", "Ge.11111111")
+                                                                     "3288", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False

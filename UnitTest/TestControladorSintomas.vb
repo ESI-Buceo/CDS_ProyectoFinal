@@ -6,7 +6,7 @@ Imports capaLogica
     Dim Resultado As Boolean
     <TestMethod()> Public Sub TestListarSintomas()
         Try
-            ListarSintomas("11111111", "Ge.11111111")
+            ListarSintomas("40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
@@ -16,7 +16,7 @@ Imports capaLogica
 
     <TestMethod()> Public Sub TestListarSintomasPorNombre()
         Try
-            ListarSintomas("Tos", "11111111", "Ge.11111111")
+            ListarSintomas("Tos", "40713841", "40713841")
             Resultado = True
         Catch ex As Exception
             Resultado = False
