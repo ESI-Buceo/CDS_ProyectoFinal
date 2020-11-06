@@ -47,6 +47,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -73,7 +76,31 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classFichaChat.vb" />
+    <Compile Include="classFichaDiagnostico.vb" />
     <Compile Include="datosGlobales.vb" />
+    <Compile Include="en.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="es.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="frmHistoriaChat.designer.vb">
+      <DependentUpon>frmHistoriaChat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHistoriaChat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfoPatologia.Designer.vb">
+      <DependentUpon>frmInfoPatologia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInfoPatologia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmListaSintomas.Designer.vb">
       <DependentUpon>frmListaSintomas.vb</DependentUpon>
     </Compile>
@@ -110,6 +137,7 @@
     <Compile Include="frmSobreElCliente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="lang.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -128,6 +156,22 @@
     <Compile Include="PanelPatologia.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="en.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>en.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="es.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>es.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHistoriaChat.resx">
+      <DependentUpon>frmHistoriaChat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfoPatologia.resx">
+      <DependentUpon>frmInfoPatologia.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListaSintomas.resx">
       <DependentUpon>frmListaSintomas.vb</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +265,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\salidaChat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ava1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnHelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnHelpFocus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnHelpSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <None Include="Resources\ingles-ICONO.png" />
+    <None Include="Resources\icono_espaniol.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

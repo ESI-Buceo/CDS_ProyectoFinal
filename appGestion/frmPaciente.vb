@@ -6,6 +6,7 @@ Public Class frmPaciente
     Private Sub mnuBtnAgregar_Click(sender As Object, e As EventArgs) Handles mnuBtnAgregar.Click
         'Habilita el ingreso de un nuevo paciente
         opcionesMenu.ClickEnBotonAgregar(toolsMenuPaciente)
+        tabOpcionesPaciente.SelectTab(tabDatos)
         agregar = True
         habilitarDocumento()
         colorearDocumento()
@@ -68,50 +69,114 @@ Public Class frmPaciente
         agregar = False
         btnEliminarEnfermedad.Enabled = False
         restaurarColorCampos()
+        desactivarPassword()
     End Sub
 
     Private Sub mnuBtnGuardar_Click(sender As Object, e As EventArgs) Handles mnuBtnGuardar.Click
-        'valida antes de ingresar la informacion del paciente
-        If ControladorValidaciones.validarFormatoDocumento(txtDocIdentidad.Text) And ControladorValidaciones.validarNombres(txtNombres.Text) _
-            And ControladorValidaciones.validarApellidos(txtApellidos.Text) And ControladorValidaciones.ValidarEmail(txtEmail.Text) _
-            And ControladorValidaciones.ValidarFechaNacimiento(dtpFechaNac.Value) Then
-            guardarDatosDelPaciente()
+        'dispara proceso de validacion
+        validarDocumento()
+    End Sub
+
+    Private Sub validarDocumento()
+        'Alerta si existe un error en el formato del documento
+        If ControladorValidaciones.ValidarFormatoDocumento(txtDocIdentidad.Text) Then
+            validarFechaNacimiento()
         Else
-            MsgBox("Faltan datos requeridos o hay datos incorrectos, verifica.", vbInformation, "Aviso")
+            MsgBox(VDocumentoInvalido, vbInformation, VAviso)
+            txtDocIdentidad.Select()
+        End If
+    End Sub
+
+    Private Sub validarFechaNacimiento()
+        'Alerta si existe un error en la fecha de nacimiento
+        If ControladorValidaciones.ValidarFechaNacimiento(dtpFechaNac.Value) Then
+            validarNombres()
+        Else
+            MsgBox(VFechaNacInvalida, vbInformation, VAviso)
+            dtpFechaNac.Select()
+        End If
+    End Sub
+
+    Private Sub validarNombres()
+        'Alerta si existe un error en el nombre
+        If ControladorValidaciones.ValidarNombres(txtNombres.Text) Then
+            validarApellidos()
+        Else
+            MsgBox(VNombresInvalidos, vbInformation, VAviso)
+            txtNombres.Select()
+        End If
+    End Sub
+
+    Private Sub validarApellidos()
+        'Alerta si existe un error en el apellido
+        If ControladorValidaciones.ValidarApellidos(txtApellidos.Text) Then
+            validarEmail()
+        Else
+            MsgBox(VApellidosInvalidos, vbInformation, VAviso)
+            txtApellidos.Select()
+        End If
+    End Sub
+
+    Private Sub validarEmail()
+        'Alerta si existe un error en el email
+        If ControladorValidaciones.ValidarEmail(txtEmail.Text) Then
+            validarSiEsNuevo()
+        Else
+            MsgBox(VEmailInvalido, vbInformation, VAviso)
+            txtEmail.Select()
+        End If
+    End Sub
+
+    Private Sub validarSiEsNuevo()
+        'Verifica si el documento ingresado ya existe
+        If agregar Then
+            validarDocumentoDeIdentidad()
+        Else
+            guardarDatosDelPaciente()
         End If
     End Sub
 
     Private Sub guardarDatosDelPaciente()
         'Guarda los  datos del paciente
         Try
-            controladorPacientes.GuardarDatosPaciente(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
+            If controladorPacientes.GuardarDatosPaciente(txtDocIdentidad.Text, txtEmail.Text, txtNombres.Text, txtApellidos.Text,
                                txtCalle.Text, txtNumeroCalle.Text, txtBarrio.Text, txtEsquina.Text, txtApto.Text,
-                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), chkActivo.CheckState, dgvListaTelefonos, dgvListaPreExistentes, USUARIO, PASSWORD)
-            opcionesMenu.ClickEnBotonGuardar(toolsMenuPaciente)
-            guardadoConExito()
-            deshabilitarControlesDeEdicion()
+                               Format(dtpFechaNac.Value, "yyyy-MM-dd"), chkActivo.CheckState, listaDeTelefonos, listaDePreExistentes, USUARIO, PASSWORD) Then
+                opcionesMenu.ClickEnBotonGuardar(toolsMenuPaciente)
+                guardadoConExito()
+                deshabilitarControlesDeEdicion()
+            Else
+                MsgBox(VErrorAlGuardar, vbCritical, VAviso)
+            End If
+
         Catch ex As Exception
-            MsgBox("Error al guardar los datos del paciente")
+            MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
         End Try
     End Sub
 
+    Private Function listaDeTelefonos()
+        'Recorre el array para entregar una lista de telefonos
+        Dim telefonos As New List(Of String)
+        For t = 0 To dgvListaTelefonos.Rows.Count - 1
+            telefonos.Add(dgvListaTelefonos.Item(0, t).Value)
+        Next
+        Return telefonos
+    End Function
+
+    Private Function listaDePreExistentes()
+        'Crea una lista con las enfermedades del datagridview
+        Dim listaEnfermedades As New List(Of String)
+        For e = 0 To dgvListaPreExistentes.Rows.Count - 1
+            listaEnfermedades.Add(dgvListaPreExistentes.Item(0, e).Value)
+        Next
+        Return listaEnfermedades
+    End Function
+
     Private Sub guardadoConExito()
         'Mensaje de guardo con exito
-        MsgBox("Datos guardado con exito", vbInformation, "Aviso")
+        MsgBox(VDatosGuardadosConExito, vbInformation, VAviso)
         deshablitaDocumento()
         restaurarColorCampos()
-        agregarUsuarioABD()
-    End Sub
-
-    Private Sub agregarUsuarioABD()
-        'Agrega el usuario a la base de datos
-        If agregar Then
-            Try
-                controladorPacientes.crearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
-            Catch ex As Exception
-                MsgBox("Error al crear el usuario en la base de datos", vbCritical, "ERROR")
-            End Try
-        End If
     End Sub
 
     Private Sub deshabilitarListaTelefonos()
@@ -156,7 +221,7 @@ Public Class frmPaciente
     Private Sub mnuBtnBorrar_Click(sender As Object, e As EventArgs) Handles mnuBtnBorrar.Click
         'Borra el registro del paciente en pantalla
         Dim respuesta As Integer
-        respuesta = MsgBox("Seguro de eliminar el Paciente?", vbQuestion & vbYesNo, "Confirmar eliminacion")
+        respuesta = MsgBox(VseguroEliminiarRegistro, vbQuestion & vbYesNo, VseguroEliminiarRegistro)
         If respuesta = 6 Then
             borrarPaciente()
         End If
@@ -165,12 +230,12 @@ Public Class frmPaciente
     Private Sub borrarPaciente()
         'Procesa baja de paciente
         Try
-            controladorPacientes.EliminiarPaciente(txtDocIdentidad.Text, USUARIO, PASSWORD)
+            controladorPacientes.CambiarEstadoPaciente(txtDocIdentidad.Text, 0, USUARIO, PASSWORD)
             ClickEnBotonBorrar(toolsMenuPaciente)
-            MsgBox("Paciente eliminado con exito !", vbInformation, "Aviso")
+            MsgBox(VRegistroEliminado, vbInformation, VAviso)
             eliminarPacienteDeBD()
         Catch ex As Exception
-            MsgBox("Error al eliminar el paciente", vbCritical, "Aviso")
+            MsgBox(VErrorBorrarRegistro, vbCritical, VAviso)
         End Try
     End Sub
 
@@ -178,8 +243,9 @@ Public Class frmPaciente
         'Elimina el usuario de la base de datos
         Try
             controladorPacientes.eliminiarPacienteBD(txtDocIdentidad.Text, USUARIO, PASSWORD)
+            validarBotonBorrar(0)
         Catch ex As Exception
-            MsgBox("No se puedo eliminiar el usuario de la base de datos", vbCritical, "ERROR")
+            MsgBox(VErrorBorrarUsuario, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -215,6 +281,7 @@ Public Class frmPaciente
                 controles.BackColor = Color.White
             End If
         Next
+        rtbMensajes.Clear()
     End Sub
 
     Private Sub cargarFechaDeHoy()
@@ -246,17 +313,33 @@ Public Class frmPaciente
             habilitarListaSoloVisualizar(dgvListaPreExistentes)
             txtNombres.Select()
         Catch ex As Exception
-            MsgBox("Error al cargar los datos del usuario", vbExclamation, "Aviso")
+            MsgBox(VErrorRecuperarDatos, vbExclamation, VAviso)
         End Try
     End Sub
 
+    Private Sub activarBotonPassword()
+        btnRestPass.Enabled = True
+    End Sub
+
+    Private Sub desactivarPassword()
+        btnRestPass.Enabled = False
+    End Sub
+
     Private Sub validarBotonBorrar(ByVal activo As String)
-        'Si ya esta eliminado el boton queda deshabilitado
+        'Activar y desactivar botones si ya esta eliminado
         If activo = 0 Then
             mnuBtnBorrar.Enabled = False
-            chkActivo.Visible = True
+            mnuBtnModificar.Enabled = False
+            mnuBtnReactivar.Enabled = True
+            mnuBtnCancelar.Enabled = False
+            mnuBtnNueva.Enabled = True
+            mnuBtnAgregar.Enabled = True
+            desactivarPassword()
         Else
-            chkActivo.Visible = False
+            mnuBtnCancelar.Enabled = True
+            mnuBtnModificar.Enabled = True
+            mnuBtnReactivar.Enabled = False
+            activarBotonPassword()
         End If
     End Sub
 
@@ -276,6 +359,14 @@ Public Class frmPaciente
         chkActivo.CheckState = datosDelPaciente.Rows(0).Item("activo").ToString
         crearTablaTelefonos(datosDelPaciente)
         crearTablaPreExistentes(txtDocIdentidad.Text)
+        cargarOtrosDatosDelPaciente(datosDelPaciente.Rows(0).Item("documento").ToString)
+    End Sub
+
+    Private Sub cargarOtrosDatosDelPaciente(ByVal documento As String)
+        'Carga mas informacion del paciente
+        cantidadDeDiagnosticosRecibidos(documento)
+        cantidadDeChatsRealizados(documento)
+        mostrarHistoriaDeChat(documento)
     End Sub
 
     Private Sub crearTablaTelefonos(ByVal telefonos As DataTable)
@@ -303,7 +394,7 @@ Public Class frmPaciente
         Try
             cargarGridPreExistentes(controladorPacientes.crearTablaPreExistentes(), controladorPacientes.CargarEnfermedadesPreExistentes(docidentidad, USUARIO, PASSWORD))
         Catch ex As Exception
-            MsgBox("Error al cargar enfermedades pre existentes", vbCritical, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -361,7 +452,7 @@ Public Class frmPaciente
             colorearEliminados(dgvListaPacientes)
             crearTablaTelefonoParaDataGrid()
         Catch ex As Exception
-            MsgBox("Error al buscar un paciente", vbCritical, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -378,10 +469,13 @@ Public Class frmPaciente
         'Valida que el documento ingresado no exista
         Try
             If controladorPacientes.VarificarDocumentoDeIdentidad(txtDocIdentidad.Text, USUARIO, PASSWORD) IsNot Nothing Then
-                MsgBox("El documento ingresado ya existe. No se puede continuar", vbInformation, "AVISO")
-                cancelarProcesoDeIngreso()
+                MsgBox(VDocumentoExiste, vbInformation, VAviso)
+                txtDocIdentidad.Select()
+            Else
+                guardarDatosDelPaciente()
             End If
         Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -390,10 +484,6 @@ Public Class frmPaciente
         deshablitaDocumento()
         deshabilitarControlesDeEdicion()
         vaciarControles()
-    End Sub
-
-    Private Sub txtDocIdentidad_LostFocus(sender As Object, e As EventArgs) Handles txtDocIdentidad.LostFocus
-        If agregar Then validarDocumentoDeIdentidad()
     End Sub
 
     Private Sub btnEliminarEnfermedad_Click(sender As Object, e As EventArgs) Handles btnEliminarEnfermedad.Click
@@ -407,5 +497,188 @@ Public Class frmPaciente
     Private Sub dgvListaPreExistentes_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgvListaPreExistentes.CellValueChanged
         'Actualza el grid una vez ingresado un nuevo telefono
         dgvListaPreExistentes.AllowUserToAddRows = False
+    End Sub
+
+    Private Sub frmPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargarTextos()
+    End Sub
+
+    Private Sub cantidadDeDiagnosticosRecibidos(ByVal documento As String)
+        'Muestra el numero de diagnosticos recidos por el paciente
+        Try
+            txtCantDiag.Text = ControladorDiagnostico.CantidadDeDiagnosticos(USUARIO, PASSWORD, documento)
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub cantidadDeChatsRealizados(ByVal documento As String)
+        'Muestra el numero de chat que ha realizado el paciente
+        Try
+            txtCantChat.Text = ControladorChat.CantidadDeChats(USUARIO, PASSWORD, documento)
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub mostrarHistoriaDeChat(ByVal documento As String)
+        'Muestra la lisa de chat 
+        Try
+            dgvHistoriaChat.DataSource = ControladorChat.ListaHistoricaChatPaciente(USUARIO, PASSWORD, documento)
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub recorreMensajesRecibidos(ByVal tablaMensajes As DataTable, doctor As String)
+        'recorre los mensajes recividos
+        rtbMensajes.ResetText()
+        For i = 0 To tablaMensajes.Rows.Count - 1
+            identifiarColorearMensaje(tablaMensajes(i)("emisor"), tablaMensajes(i)("mensaje"), doctor)
+        Next
+    End Sub
+
+    Private Sub identifiarColorearMensaje(ByVal emisor As String, mensaje As String, doctor As String)
+        'Muestra y colorea los mensajes dependiente de origen y destino
+        If emisor.Equals("P") Then
+            rtbMensajes.SelectionColor = Color.FromArgb(110, 196, 167)
+            rtbMensajes.AppendText(txtApellidos.Text & " ->  " & mensaje & vbNewLine)
+        ElseIf emisor.Equals("M") Then
+            rtbMensajes.SelectionColor = Color.FromArgb(69, 75, 84)
+            rtbMensajes.AppendText("Dr. " & doctor & " -> " & mensaje & vbNewLine)
+        End If
+    End Sub
+
+    Private Sub mnuReactivar_Click(sender As Object, e As EventArgs) Handles mnuBtnReactivar.Click
+        confirmarReActivarCuenta()
+    End Sub
+
+    Private Sub confirmarReActivarCuenta()
+        'Solicita confirmacion para reactivar
+        Dim respuesta As Integer
+        respuesta = MsgBox(VSeguroReactivarCuenta, vbQuestion & vbYesNo, VAvisoAlerta)
+        If respuesta = 6 Then
+            reactivarCuentaPaciente()
+        End If
+    End Sub
+
+    Private Sub reactivarCuentaPaciente()
+        'Ejecuta el proceso de reactivacio
+        Try
+            If controladorPacientes.CambiarEstadoPaciente(txtDocIdentidad.Text, 1, USUARIO, PASSWORD) Then
+                crearUsuarioBD()
+                MsgBox(VReactivacionCuentaExitosa, vbInformation, VAviso)
+            End If
+        Catch ex As Exception
+            MsgBox(VErrorAlGuardar, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub crearUsuarioBD()
+        'Crea el usuario en la base de datos
+        Try
+            EnviarEmail(txtDocIdentidad.Text, controladorPacientes.CrearUsuarioBD(txtDocIdentidad.Text, USUARIO, PASSWORD), txtEmail.Text, VAsuntoAltaCuenta, VGraciasPorPreferinos, VTuCuentaActivada)
+            ClickEnBotonCancelar(toolsMenuPaciente)
+        Catch ex As Exception
+            MsgBox(VErrorCrearUsuario, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub dgvHistoriaChat_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvHistoriaChat.CellContentClick
+        'Muestra la conversacion de chat
+        Try
+            recorreMensajesRecibidos(ControladorChat.RecibirTodosMensajes(dgvHistoriaChat.Item(0, e.RowIndex).Value,
+                                                                          USUARIO, PASSWORD), dgvHistoriaChat.Item(2, e.RowIndex).Value)
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub dgvHistoriaChat_MouseMove(sender As Object, e As MouseEventArgs) Handles dgvHistoriaChat.MouseMove
+        dgvHistoriaChat.Cursor = Cursors.Hand
+    End Sub
+
+    Private Sub btnRestPass_Click(sender As Object, e As EventArgs) Handles btnRestPass.Click
+        'Confirma la generacion de un nuevo password para el usuario en pantalla
+        Dim respuesta As Integer
+        respuesta = MsgBox(VMensajeRestablecerPassword, vbQuestion + vbYesNo, VAvisoAlerta)
+        If respuesta = 6 Then
+            generarNuevaPassword()
+        End If
+    End Sub
+
+    Private Sub generarNuevaPassword()
+        'Cambia la contraseña del usuario en la bd
+        Try
+            Dim newPass As String = ControladorPersona.generarPassword()
+            ControladorPersona.CambiarPassword(txtDocIdentidad.Text, newPass,
+                                               ControladorConfiguracion.LeerRangoIpPacientes(USUARIO, PASSWORD),
+                                               USUARIO, PASSWORD)
+            enviarEmailNuevoPassword(newPass)
+        Catch ex As Exception
+            MsgBox(VErrorCambiarPassword, vbCritical, VAvisoError)
+        End Try
+    End Sub
+
+    Private Sub enviarEmailNuevoPassword(ByVal nuevoPass As String)
+        'Notifica al usuario por email del nuevo password
+        EnviarEmail(txtDocIdentidad.Text, nuevoPass, txtEmail.Text,
+        VRecuperacionAsunto, VRecuperacionTitulo, VRecuperacionDescipcion)
+    End Sub
+
+    Private Sub cargarTextos()
+        Me.Text = VPacientes.ToUpper
+        mnuBtnAgregar.Text = VAgregar
+        mnuBtnAgregar.ToolTipText = VToolBotonAgregar
+        mnuBtnGuardar.Text = VGuardar
+        mnuBtnGuardar.ToolTipText = VToolBotonGuardar
+        mnuBtnCancelar.Text = VCancelar
+        mnuBtnCancelar.ToolTipText = VToolBotonCancelar
+        mnuBtnNueva.Text = VNueva
+        mnuBtnNueva.ToolTipText = VToolBotonNueva
+        mnuBtnBuscar.Text = VBuscar
+        mnuBtnBuscar.ToolTipText = VToolBotonBuscar
+        mnuBtnBorrar.Text = VBorrar
+        mnuBtnBorrar.ToolTipText = VToolBotonBorrar
+        mnuBtnModificar.Text = VModificar
+        mnuBtnModificar.ToolTipText = VToolBotonModificar
+        mnuBtnReactivar.Text = VActivar
+        tabDatos.Text = VDato
+        tabBusqueda.Text = VBusqueda
+        tabHistoria.Text = VRegistrosHistoricos
+        lblDocIdentidad.Text = VDocumento
+        lblFechaReg.Text = VFecha
+        lblFechaNacM.Text = VFechaNac
+        lblNombres.Text = VNombres
+        lblApellidosM.Text = VApellidos
+        lblEmailM.Text = VEmail
+        lblOtrosDatos.Text = VOtrosDatos.ToUpper
+        lblDireccionM.Text = VDireccion
+        lblNumeroCalleM.Text = VNum
+        lblAptoM.Text = VApto
+        lblEsquinaM.Text = VEsquina
+        lblBarrioM.Text = VBarrio
+        lblTelefonos.Text = VTelefonos
+        dgvListaTelefonos.Columns(0).HeaderText = VTelefonos
+        dgvListaPreExistentes.Columns(0).HeaderText = VPreExistentes
+        chkActivo.Text = Vactivo
+        lblTelefonos.Text = VTelefonos.ToUpper
+        lblEnfermedades.Text = VEnfermedades.ToUpper
+        dgvListaPacientes.Columns(0).HeaderText = VDocumento.ToUpper
+        dgvListaPacientes.Columns(1).HeaderText = VNombres
+        dgvListaPacientes.Columns(2).HeaderText = VApellidos
+        dgvListaPacientes.Columns(3).HeaderText = VEmail
+        dgvListaPacientes.Columns(4).HeaderText = VFecha
+        gbEstadisticas.Text = VDatosEstadisticos
+        lblDiagnosticos.Text = VDiagnosticos
+        lblChats.Text = VChats
+        lblDescCantDiag.Text = VCantidadDeDiagnosticosRecibos
+        lblDetChatRealizados.Text = VCantidaChatRealizados
+        gbHistoricoChats.Text = VHistoricoDeChats
+        dgvHistoriaChat.Columns(0).HeaderText = VFecha
+        dgvHistoriaChat.Columns(1).HeaderText = VSesion.ToUpper
+        dgvHistoriaChat.Columns(2).HeaderText = VMedico.ToUpper
+        gbVerChat.Text = VVerChat
+        btnRestPass.Text = VRestablecerPassword
     End Sub
 End Class

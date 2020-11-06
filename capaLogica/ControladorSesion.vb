@@ -1,11 +1,11 @@
 ﻿Imports capaDatos
 
 Public Module ControladorSesion
-    Public Sub GuardarSesionDeChat(ByVal uid As String, pwd As String)
+    Public Function GuardarSesionDeChat(ByVal uid As String, pwd As String)
         'Guarda el id de la sesion cuando el paciente desea iniciar un chat
         Dim Sesion As New ModeloSesion(uid, pwd)
-        Sesion.GuardarSesion()
-    End Sub
+        Return Sesion.GuardarSesion()
+    End Function
 
     Public Function ChequearSesionesPendientes(ByVal uid As String, pwd As String)
         'Verifica sesiones pendientes

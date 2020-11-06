@@ -26,33 +26,38 @@ Partial Class frmPrincipal
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPrincipal))
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
-        Me.SistemaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EmpleadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MisDatosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ParametrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CambioDeContraseñaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmAdministrativos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmAdministrativo = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmListaAdministrativos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmParametros = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCambioPass = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SalirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MedicoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.MedicoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListarMedicosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UsuariosToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListarUsuariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PatologiasSintomasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PatologiasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListarPatologiasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmSalir = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmMedicos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmMedico = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmListaMedicos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmPacientes = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmPaciente = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmListaPacientes = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmDiagnosticos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmPatologias = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmListaPatologias = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.SintomasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ListarSintomasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmSintomas = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmListaSintomas = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ImportarArchivoCVSToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmImportarDatosCSV = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.InformesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RanquinDePatologiasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LogDelSistemaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AcercaDeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmInformes = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmSintomasNSeleccionados = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmRankingPat = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmInformeDiagnosticos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmInformeDeChat = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmInformeChatMeses = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmInformechatMes = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmAyuda = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmVerAyuda = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmAcercade = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip = New System.Windows.Forms.ToolStrip()
         Me.btnVerMedico = New System.Windows.Forms.ToolStripButton()
         Me.BtnVerUsuario = New System.Windows.Forms.ToolStripButton()
@@ -60,8 +65,12 @@ Partial Class frmPrincipal
         Me.btnVerInforme = New System.Windows.Forms.ToolStripButton()
         Me.barraEstado = New System.Windows.Forms.StatusStrip()
         Me.tssLabelEstado = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.tssLabelGestor = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tssLabelServidor = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tssServidorIp = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tssDBaseLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tssBaseDeDatos = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip.SuspendLayout()
         Me.ToolStrip.SuspendLayout()
         Me.barraEstado.SuspendLayout()
@@ -71,7 +80,7 @@ Partial Class frmPrincipal
         '
         Me.MenuStrip.Font = New System.Drawing.Font("Calibri", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SistemaToolStripMenuItem, Me.MedicoToolStripMenuItem, Me.UsuariosToolStripMenuItem, Me.PatologiasSintomasToolStripMenuItem, Me.InformesToolStripMenuItem, Me.AyudaToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmAdministrativos, Me.tsmMedicos, Me.tsmPacientes, Me.tsmDiagnosticos, Me.tsmInformes, Me.tsmAyuda})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Padding = New System.Windows.Forms.Padding(8, 2, 0, 2)
@@ -79,184 +88,219 @@ Partial Class frmPrincipal
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
-        'SistemaToolStripMenuItem
+        'tsmAdministrativos
         '
-        Me.SistemaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EmpleadoToolStripMenuItem, Me.MisDatosToolStripMenuItem, Me.ParametrosToolStripMenuItem, Me.CambioDeContraseñaToolStripMenuItem, Me.ToolStripSeparator1, Me.SalirToolStripMenuItem})
-        Me.SistemaToolStripMenuItem.Name = "SistemaToolStripMenuItem"
-        Me.SistemaToolStripMenuItem.Size = New System.Drawing.Size(136, 27)
-        Me.SistemaToolStripMenuItem.Text = "&Administrativo"
+        Me.tsmAdministrativos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmAdministrativo, Me.tsmListaAdministrativos, Me.tsmParametros, Me.tsmCambioPass, Me.ToolStripSeparator1, Me.tsmSalir})
+        Me.tsmAdministrativos.Name = "tsmAdministrativos"
+        Me.tsmAdministrativos.Size = New System.Drawing.Size(136, 27)
+        Me.tsmAdministrativos.Text = "&Administrativo"
         '
-        'EmpleadoToolStripMenuItem
+        'tsmAdministrativo
         '
-        Me.EmpleadoToolStripMenuItem.Image = CType(resources.GetObject("EmpleadoToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.EmpleadoToolStripMenuItem.Name = "EmpleadoToolStripMenuItem"
-        Me.EmpleadoToolStripMenuItem.Size = New System.Drawing.Size(266, 28)
-        Me.EmpleadoToolStripMenuItem.Text = "Administrativo"
+        Me.tsmAdministrativo.Image = CType(resources.GetObject("tsmAdministrativo.Image"), System.Drawing.Image)
+        Me.tsmAdministrativo.Name = "tsmAdministrativo"
+        Me.tsmAdministrativo.Size = New System.Drawing.Size(266, 28)
+        Me.tsmAdministrativo.Text = "Administrativo"
         '
-        'MisDatosToolStripMenuItem
+        'tsmListaAdministrativos
         '
-        Me.MisDatosToolStripMenuItem.Image = CType(resources.GetObject("MisDatosToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.MisDatosToolStripMenuItem.Name = "MisDatosToolStripMenuItem"
-        Me.MisDatosToolStripMenuItem.Size = New System.Drawing.Size(266, 28)
-        Me.MisDatosToolStripMenuItem.Text = "Mis datos"
+        Me.tsmListaAdministrativos.Image = Global.appGestion.My.Resources.Resources.listarTodos
+        Me.tsmListaAdministrativos.Name = "tsmListaAdministrativos"
+        Me.tsmListaAdministrativos.Size = New System.Drawing.Size(266, 28)
+        Me.tsmListaAdministrativos.Text = "Listar Administrativos"
         '
-        'ParametrosToolStripMenuItem
+        'tsmParametros
         '
-        Me.ParametrosToolStripMenuItem.Image = CType(resources.GetObject("ParametrosToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ParametrosToolStripMenuItem.Name = "ParametrosToolStripMenuItem"
-        Me.ParametrosToolStripMenuItem.Size = New System.Drawing.Size(266, 28)
-        Me.ParametrosToolStripMenuItem.Text = "Parametros del sistema"
+        Me.tsmParametros.Image = CType(resources.GetObject("tsmParametros.Image"), System.Drawing.Image)
+        Me.tsmParametros.Name = "tsmParametros"
+        Me.tsmParametros.Size = New System.Drawing.Size(266, 28)
+        Me.tsmParametros.Text = "Parametros del sistema"
         '
-        'CambioDeContraseñaToolStripMenuItem
+        'tsmCambioPass
         '
-        Me.CambioDeContraseñaToolStripMenuItem.Image = CType(resources.GetObject("CambioDeContraseñaToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.CambioDeContraseñaToolStripMenuItem.Name = "CambioDeContraseñaToolStripMenuItem"
-        Me.CambioDeContraseñaToolStripMenuItem.Size = New System.Drawing.Size(266, 28)
-        Me.CambioDeContraseñaToolStripMenuItem.Text = "Cambio de contraseña"
+        Me.tsmCambioPass.Image = CType(resources.GetObject("tsmCambioPass.Image"), System.Drawing.Image)
+        Me.tsmCambioPass.Name = "tsmCambioPass"
+        Me.tsmCambioPass.Size = New System.Drawing.Size(266, 28)
+        Me.tsmCambioPass.Text = "Cambio de contraseña"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(263, 6)
         '
-        'SalirToolStripMenuItem
+        'tsmSalir
         '
-        Me.SalirToolStripMenuItem.Image = CType(resources.GetObject("SalirToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
-        Me.SalirToolStripMenuItem.Size = New System.Drawing.Size(266, 28)
-        Me.SalirToolStripMenuItem.Text = "Salir"
+        Me.tsmSalir.Image = CType(resources.GetObject("tsmSalir.Image"), System.Drawing.Image)
+        Me.tsmSalir.Name = "tsmSalir"
+        Me.tsmSalir.Size = New System.Drawing.Size(266, 28)
+        Me.tsmSalir.Text = "Salir"
         '
-        'MedicoToolStripMenuItem
+        'tsmMedicos
         '
-        Me.MedicoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MedicoToolStripMenuItem1, Me.ListarMedicosToolStripMenuItem})
-        Me.MedicoToolStripMenuItem.Name = "MedicoToolStripMenuItem"
-        Me.MedicoToolStripMenuItem.Size = New System.Drawing.Size(87, 27)
-        Me.MedicoToolStripMenuItem.Text = "&Medicos"
+        Me.tsmMedicos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmMedico, Me.tsmListaMedicos})
+        Me.tsmMedicos.Name = "tsmMedicos"
+        Me.tsmMedicos.Size = New System.Drawing.Size(87, 27)
+        Me.tsmMedicos.Text = "&Medicos"
         '
-        'MedicoToolStripMenuItem1
+        'tsmMedico
         '
-        Me.MedicoToolStripMenuItem1.Image = CType(resources.GetObject("MedicoToolStripMenuItem1.Image"), System.Drawing.Image)
-        Me.MedicoToolStripMenuItem1.Name = "MedicoToolStripMenuItem1"
-        Me.MedicoToolStripMenuItem1.Size = New System.Drawing.Size(196, 28)
-        Me.MedicoToolStripMenuItem1.Text = "Medico"
+        Me.tsmMedico.Image = CType(resources.GetObject("tsmMedico.Image"), System.Drawing.Image)
+        Me.tsmMedico.Name = "tsmMedico"
+        Me.tsmMedico.Size = New System.Drawing.Size(196, 28)
+        Me.tsmMedico.Text = "Medico"
         '
-        'ListarMedicosToolStripMenuItem
+        'tsmListaMedicos
         '
-        Me.ListarMedicosToolStripMenuItem.Image = CType(resources.GetObject("ListarMedicosToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ListarMedicosToolStripMenuItem.Name = "ListarMedicosToolStripMenuItem"
-        Me.ListarMedicosToolStripMenuItem.Size = New System.Drawing.Size(196, 28)
-        Me.ListarMedicosToolStripMenuItem.Text = "Listar medicos"
+        Me.tsmListaMedicos.Image = CType(resources.GetObject("tsmListaMedicos.Image"), System.Drawing.Image)
+        Me.tsmListaMedicos.Name = "tsmListaMedicos"
+        Me.tsmListaMedicos.Size = New System.Drawing.Size(196, 28)
+        Me.tsmListaMedicos.Text = "Listar medicos"
         '
-        'UsuariosToolStripMenuItem
+        'tsmPacientes
         '
-        Me.UsuariosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuariosToolStripMenuItem1, Me.ListarUsuariosToolStripMenuItem})
-        Me.UsuariosToolStripMenuItem.Name = "UsuariosToolStripMenuItem"
-        Me.UsuariosToolStripMenuItem.Size = New System.Drawing.Size(95, 27)
-        Me.UsuariosToolStripMenuItem.Text = "&Pacientes"
+        Me.tsmPacientes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmPaciente, Me.tsmListaPacientes})
+        Me.tsmPacientes.Name = "tsmPacientes"
+        Me.tsmPacientes.Size = New System.Drawing.Size(95, 27)
+        Me.tsmPacientes.Text = "&Pacientes"
         '
-        'UsuariosToolStripMenuItem1
+        'tsmPaciente
         '
-        Me.UsuariosToolStripMenuItem1.Image = CType(resources.GetObject("UsuariosToolStripMenuItem1.Image"), System.Drawing.Image)
-        Me.UsuariosToolStripMenuItem1.Name = "UsuariosToolStripMenuItem1"
-        Me.UsuariosToolStripMenuItem1.Size = New System.Drawing.Size(205, 28)
-        Me.UsuariosToolStripMenuItem1.Text = "Paciente"
+        Me.tsmPaciente.Image = CType(resources.GetObject("tsmPaciente.Image"), System.Drawing.Image)
+        Me.tsmPaciente.Name = "tsmPaciente"
+        Me.tsmPaciente.Size = New System.Drawing.Size(205, 28)
+        Me.tsmPaciente.Text = "Paciente"
         '
-        'ListarUsuariosToolStripMenuItem
+        'tsmListaPacientes
         '
-        Me.ListarUsuariosToolStripMenuItem.Image = CType(resources.GetObject("ListarUsuariosToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ListarUsuariosToolStripMenuItem.Name = "ListarUsuariosToolStripMenuItem"
-        Me.ListarUsuariosToolStripMenuItem.Size = New System.Drawing.Size(205, 28)
-        Me.ListarUsuariosToolStripMenuItem.Text = "Listar pacientes"
+        Me.tsmListaPacientes.Image = CType(resources.GetObject("tsmListaPacientes.Image"), System.Drawing.Image)
+        Me.tsmListaPacientes.Name = "tsmListaPacientes"
+        Me.tsmListaPacientes.Size = New System.Drawing.Size(205, 28)
+        Me.tsmListaPacientes.Text = "Listar pacientes"
         '
-        'PatologiasSintomasToolStripMenuItem
+        'tsmDiagnosticos
         '
-        Me.PatologiasSintomasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PatologiasToolStripMenuItem, Me.ListarPatologiasToolStripMenuItem, Me.ToolStripSeparator2, Me.SintomasToolStripMenuItem, Me.ListarSintomasToolStripMenuItem, Me.ToolStripSeparator3, Me.ImportarArchivoCVSToolStripMenuItem, Me.ToolStripSeparator4})
-        Me.PatologiasSintomasToolStripMenuItem.Name = "PatologiasSintomasToolStripMenuItem"
-        Me.PatologiasSintomasToolStripMenuItem.Size = New System.Drawing.Size(121, 27)
-        Me.PatologiasSintomasToolStripMenuItem.Text = "&Diagnosticos"
+        Me.tsmDiagnosticos.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmPatologias, Me.tsmListaPatologias, Me.ToolStripSeparator2, Me.tsmSintomas, Me.tsmListaSintomas, Me.ToolStripSeparator3, Me.tsmImportarDatosCSV, Me.ToolStripSeparator4})
+        Me.tsmDiagnosticos.Name = "tsmDiagnosticos"
+        Me.tsmDiagnosticos.Size = New System.Drawing.Size(121, 27)
+        Me.tsmDiagnosticos.Text = "&Diagnosticos"
         '
-        'PatologiasToolStripMenuItem
+        'tsmPatologias
         '
-        Me.PatologiasToolStripMenuItem.Image = CType(resources.GetObject("PatologiasToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.PatologiasToolStripMenuItem.Name = "PatologiasToolStripMenuItem"
-        Me.PatologiasToolStripMenuItem.Size = New System.Drawing.Size(251, 28)
-        Me.PatologiasToolStripMenuItem.Text = "Patologias"
+        Me.tsmPatologias.Image = CType(resources.GetObject("tsmPatologias.Image"), System.Drawing.Image)
+        Me.tsmPatologias.Name = "tsmPatologias"
+        Me.tsmPatologias.Size = New System.Drawing.Size(251, 28)
+        Me.tsmPatologias.Text = "Patologias"
         '
-        'ListarPatologiasToolStripMenuItem
+        'tsmListaPatologias
         '
-        Me.ListarPatologiasToolStripMenuItem.Image = CType(resources.GetObject("ListarPatologiasToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ListarPatologiasToolStripMenuItem.Name = "ListarPatologiasToolStripMenuItem"
-        Me.ListarPatologiasToolStripMenuItem.Size = New System.Drawing.Size(251, 28)
-        Me.ListarPatologiasToolStripMenuItem.Text = "Listar patologias"
+        Me.tsmListaPatologias.Image = CType(resources.GetObject("tsmListaPatologias.Image"), System.Drawing.Image)
+        Me.tsmListaPatologias.Name = "tsmListaPatologias"
+        Me.tsmListaPatologias.Size = New System.Drawing.Size(251, 28)
+        Me.tsmListaPatologias.Text = "Listar patologias"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(248, 6)
         '
-        'SintomasToolStripMenuItem
+        'tsmSintomas
         '
-        Me.SintomasToolStripMenuItem.Image = CType(resources.GetObject("SintomasToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SintomasToolStripMenuItem.Name = "SintomasToolStripMenuItem"
-        Me.SintomasToolStripMenuItem.Size = New System.Drawing.Size(251, 28)
-        Me.SintomasToolStripMenuItem.Text = "Sintomas"
+        Me.tsmSintomas.Image = CType(resources.GetObject("tsmSintomas.Image"), System.Drawing.Image)
+        Me.tsmSintomas.Name = "tsmSintomas"
+        Me.tsmSintomas.Size = New System.Drawing.Size(251, 28)
+        Me.tsmSintomas.Text = "Sintomas"
         '
-        'ListarSintomasToolStripMenuItem
+        'tsmListaSintomas
         '
-        Me.ListarSintomasToolStripMenuItem.Image = CType(resources.GetObject("ListarSintomasToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.ListarSintomasToolStripMenuItem.Name = "ListarSintomasToolStripMenuItem"
-        Me.ListarSintomasToolStripMenuItem.Size = New System.Drawing.Size(251, 28)
-        Me.ListarSintomasToolStripMenuItem.Text = "Listar sintomas"
+        Me.tsmListaSintomas.Image = CType(resources.GetObject("tsmListaSintomas.Image"), System.Drawing.Image)
+        Me.tsmListaSintomas.Name = "tsmListaSintomas"
+        Me.tsmListaSintomas.Size = New System.Drawing.Size(251, 28)
+        Me.tsmListaSintomas.Text = "Listar sintomas"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(248, 6)
         '
-        'ImportarArchivoCVSToolStripMenuItem
+        'tsmImportarDatosCSV
         '
-        Me.ImportarArchivoCVSToolStripMenuItem.Name = "ImportarArchivoCVSToolStripMenuItem"
-        Me.ImportarArchivoCVSToolStripMenuItem.Size = New System.Drawing.Size(251, 28)
-        Me.ImportarArchivoCVSToolStripMenuItem.Text = "Importar archivo CVS"
+        Me.tsmImportarDatosCSV.Name = "tsmImportarDatosCSV"
+        Me.tsmImportarDatosCSV.Size = New System.Drawing.Size(251, 28)
+        Me.tsmImportarDatosCSV.Text = "Importar archivo CVS"
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
         Me.ToolStripSeparator4.Size = New System.Drawing.Size(248, 6)
         '
-        'InformesToolStripMenuItem
+        'tsmInformes
         '
-        Me.InformesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RanquinDePatologiasToolStripMenuItem, Me.LogDelSistemaToolStripMenuItem})
-        Me.InformesToolStripMenuItem.Name = "InformesToolStripMenuItem"
-        Me.InformesToolStripMenuItem.Size = New System.Drawing.Size(93, 27)
-        Me.InformesToolStripMenuItem.Text = "&Informes"
+        Me.tsmInformes.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmSintomasNSeleccionados, Me.tsmRankingPat, Me.tsmInformeDiagnosticos, Me.tsmInformeDeChat})
+        Me.tsmInformes.Name = "tsmInformes"
+        Me.tsmInformes.Size = New System.Drawing.Size(93, 27)
+        Me.tsmInformes.Text = "&Informes"
         '
-        'RanquinDePatologiasToolStripMenuItem
+        'tsmSintomasNSeleccionados
         '
-        Me.RanquinDePatologiasToolStripMenuItem.Image = CType(resources.GetObject("RanquinDePatologiasToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.RanquinDePatologiasToolStripMenuItem.Name = "RanquinDePatologiasToolStripMenuItem"
-        Me.RanquinDePatologiasToolStripMenuItem.Size = New System.Drawing.Size(257, 28)
-        Me.RanquinDePatologiasToolStripMenuItem.Text = "Ranking de patologias "
+        Me.tsmSintomasNSeleccionados.Image = Global.appGestion.My.Resources.Resources.list
+        Me.tsmSintomasNSeleccionados.Name = "tsmSintomasNSeleccionados"
+        Me.tsmSintomasNSeleccionados.Size = New System.Drawing.Size(319, 28)
+        Me.tsmSintomasNSeleccionados.Text = "Sintomas nunca seleccionados"
         '
-        'LogDelSistemaToolStripMenuItem
+        'tsmRankingPat
         '
-        Me.LogDelSistemaToolStripMenuItem.Image = CType(resources.GetObject("LogDelSistemaToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.LogDelSistemaToolStripMenuItem.Name = "LogDelSistemaToolStripMenuItem"
-        Me.LogDelSistemaToolStripMenuItem.Size = New System.Drawing.Size(257, 28)
-        Me.LogDelSistemaToolStripMenuItem.Text = "Log del sistema"
+        Me.tsmRankingPat.Image = CType(resources.GetObject("tsmRankingPat.Image"), System.Drawing.Image)
+        Me.tsmRankingPat.Name = "tsmRankingPat"
+        Me.tsmRankingPat.Size = New System.Drawing.Size(319, 28)
+        Me.tsmRankingPat.Text = "Ranking de patologias "
         '
-        'AyudaToolStripMenuItem
+        'tsmInformeDiagnosticos
         '
-        Me.AyudaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeToolStripMenuItem})
-        Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
-        Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(71, 27)
-        Me.AyudaToolStripMenuItem.Text = "&Ayuda"
+        Me.tsmInformeDiagnosticos.Image = Global.appGestion.My.Resources.Resources.grafico
+        Me.tsmInformeDiagnosticos.Name = "tsmInformeDiagnosticos"
+        Me.tsmInformeDiagnosticos.Size = New System.Drawing.Size(319, 28)
+        Me.tsmInformeDiagnosticos.Text = "Diagnosticos otorgados"
         '
-        'AcercaDeToolStripMenuItem
+        'tsmInformeDeChat
         '
-        Me.AcercaDeToolStripMenuItem.Name = "AcercaDeToolStripMenuItem"
-        Me.AcercaDeToolStripMenuItem.Size = New System.Drawing.Size(176, 28)
-        Me.AcercaDeToolStripMenuItem.Text = "Acerca de..."
+        Me.tsmInformeDeChat.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmInformeChatMeses, Me.tsmInformechatMes})
+        Me.tsmInformeDeChat.Image = Global.appGestion.My.Resources.Resources.grafico
+        Me.tsmInformeDeChat.Name = "tsmInformeDeChat"
+        Me.tsmInformeDeChat.Size = New System.Drawing.Size(319, 28)
+        Me.tsmInformeDeChat.Text = "Cantidad de chat"
+        '
+        'tsmInformeChatMeses
+        '
+        Me.tsmInformeChatMeses.Image = Global.appGestion.My.Resources.Resources.grafico
+        Me.tsmInformeChatMeses.Name = "tsmInformeChatMeses"
+        Me.tsmInformeChatMeses.Size = New System.Drawing.Size(286, 28)
+        Me.tsmInformeChatMeses.Text = "Ultimos 12 meses moviles"
+        '
+        'tsmInformechatMes
+        '
+        Me.tsmInformechatMes.Image = Global.appGestion.My.Resources.Resources.grafico
+        Me.tsmInformechatMes.Name = "tsmInformechatMes"
+        Me.tsmInformechatMes.Size = New System.Drawing.Size(286, 28)
+        Me.tsmInformechatMes.Text = "Por Mes"
+        '
+        'tsmAyuda
+        '
+        Me.tsmAyuda.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmVerAyuda, Me.tsmAcercade})
+        Me.tsmAyuda.Name = "tsmAyuda"
+        Me.tsmAyuda.Size = New System.Drawing.Size(71, 27)
+        Me.tsmAyuda.Text = "&Ayuda"
+        '
+        'tsmVerAyuda
+        '
+        Me.tsmVerAyuda.Name = "tsmVerAyuda"
+        Me.tsmVerAyuda.Size = New System.Drawing.Size(176, 28)
+        Me.tsmVerAyuda.Text = "Ayuda"
+        '
+        'tsmAcercade
+        '
+        Me.tsmAcercade.Name = "tsmAcercade"
+        Me.tsmAcercade.Size = New System.Drawing.Size(176, 28)
+        Me.tsmAcercade.Text = "Acerca de..."
         '
         'ToolStrip
         '
@@ -314,7 +358,7 @@ Partial Class frmPrincipal
         'barraEstado
         '
         Me.barraEstado.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.barraEstado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tssLabelEstado, Me.tssLabelGestor})
+        Me.barraEstado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tssLabelEstado, Me.tssLabelGestor, Me.tssLabelServidor, Me.tssServidorIp, Me.tssDBaseLabel, Me.tssBaseDeDatos})
         Me.barraEstado.Location = New System.Drawing.Point(0, 637)
         Me.barraEstado.Name = "barraEstado"
         Me.barraEstado.Padding = New System.Windows.Forms.Padding(1, 0, 19, 0)
@@ -332,6 +376,32 @@ Partial Class frmPrincipal
         '
         Me.tssLabelGestor.Name = "tssLabelGestor"
         Me.tssLabelGestor.Size = New System.Drawing.Size(0, 20)
+        '
+        'tssLabelServidor
+        '
+        Me.tssLabelServidor.AutoSize = False
+        Me.tssLabelServidor.Name = "tssLabelServidor"
+        Me.tssLabelServidor.Size = New System.Drawing.Size(150, 20)
+        Me.tssLabelServidor.Text = "Servidor"
+        Me.tssLabelServidor.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'tssServidorIp
+        '
+        Me.tssServidorIp.Name = "tssServidorIp"
+        Me.tssServidorIp.Size = New System.Drawing.Size(0, 20)
+        '
+        'tssDBaseLabel
+        '
+        Me.tssDBaseLabel.AutoSize = False
+        Me.tssDBaseLabel.Name = "tssDBaseLabel"
+        Me.tssDBaseLabel.Size = New System.Drawing.Size(150, 20)
+        Me.tssDBaseLabel.Text = "Base de datos"
+        Me.tssDBaseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'tssBaseDeDatos
+        '
+        Me.tssBaseDeDatos.Name = "tssBaseDeDatos"
+        Me.tssBaseDeDatos.Size = New System.Drawing.Size(0, 20)
         '
         'frmPrincipal
         '
@@ -362,40 +432,49 @@ Partial Class frmPrincipal
 
     End Sub
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
-    Friend WithEvents tssLabelEstado As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents barraEstado As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStrip As System.Windows.Forms.ToolStrip
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
-    Friend WithEvents SistemaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents EmpleadoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MisDatosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ParametrosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents CambioDeContraseñaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsmAdministrativos As ToolStripMenuItem
+    Friend WithEvents tsmAdministrativo As ToolStripMenuItem
+    Friend WithEvents tsmParametros As ToolStripMenuItem
+    Friend WithEvents tsmCambioPass As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MedicoToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents UsuariosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PatologiasSintomasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents InformesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AyudaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents MedicoToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ListarMedicosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents UsuariosToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents ListarUsuariosToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PatologiasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ListarPatologiasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsmSalir As ToolStripMenuItem
+    Friend WithEvents tsmMedicos As ToolStripMenuItem
+    Friend WithEvents tsmPacientes As ToolStripMenuItem
+    Friend WithEvents tsmDiagnosticos As ToolStripMenuItem
+    Friend WithEvents tsmInformes As ToolStripMenuItem
+    Friend WithEvents tsmAyuda As ToolStripMenuItem
+    Friend WithEvents tsmMedico As ToolStripMenuItem
+    Friend WithEvents tsmListaMedicos As ToolStripMenuItem
+    Friend WithEvents tsmPaciente As ToolStripMenuItem
+    Friend WithEvents tsmListaPacientes As ToolStripMenuItem
+    Friend WithEvents tsmPatologias As ToolStripMenuItem
+    Friend WithEvents tsmListaPatologias As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
-    Friend WithEvents SintomasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ListarSintomasToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsmSintomas As ToolStripMenuItem
+    Friend WithEvents tsmListaSintomas As ToolStripMenuItem
     Friend WithEvents btnVerMedico As ToolStripButton
     Friend WithEvents BtnVerUsuario As ToolStripButton
     Friend WithEvents btnVerPatologia As ToolStripButton
     Friend WithEvents btnVerInforme As ToolStripButton
-    Friend WithEvents RanquinDePatologiasToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents LogDelSistemaToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents AcercaDeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsmRankingPat As ToolStripMenuItem
+    Friend WithEvents tsmInformeDiagnosticos As ToolStripMenuItem
+    Friend WithEvents tsmAcercade As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
-    Friend WithEvents ImportarArchivoCVSToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents tsmImportarDatosCSV As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
     Friend WithEvents tssLabelGestor As ToolStripStatusLabel
+    Friend WithEvents tsmInformeDeChat As ToolStripMenuItem
+    Friend WithEvents tsmInformeChatMeses As ToolStripMenuItem
+    Friend WithEvents tsmInformechatMes As ToolStripMenuItem
+    Friend WithEvents tsmVerAyuda As ToolStripMenuItem
+    Friend WithEvents tsmListaAdministrativos As ToolStripMenuItem
+    Friend WithEvents tssLabelServidor As ToolStripStatusLabel
+    Friend WithEvents tssServidorIp As ToolStripStatusLabel
+    Friend WithEvents tssDBaseLabel As ToolStripStatusLabel
+    Friend WithEvents tssBaseDeDatos As ToolStripStatusLabel
+    Friend WithEvents tssLabelEstado As ToolStripStatusLabel
+    Friend WithEvents tsmSintomasNSeleccionados As ToolStripMenuItem
 End Class

@@ -23,20 +23,36 @@ Partial Class frmMedico
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMedico))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.toolsMenuMedico = New System.Windows.Forms.ToolStrip()
+        Me.mnuBtnAgregar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnGuardar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnCancelar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeperador2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnNueva = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnBuscar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador3 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnBorrar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuReactivar = New System.Windows.Forms.ToolStripButton()
+        Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
         Me.tabOpcionesMedico = New System.Windows.Forms.TabControl()
         Me.tabDatos = New System.Windows.Forms.TabPage()
+        Me.btnRestPass = New System.Windows.Forms.Button()
+        Me.btnEliminarTelefono = New System.Windows.Forms.Button()
+        Me.btnAgregarTelefono = New System.Windows.Forms.Button()
         Me.chkActivo = New System.Windows.Forms.CheckBox()
         Me.dtpFechaNac = New System.Windows.Forms.DateTimePicker()
         Me.dgvListaTelefonos = New System.Windows.Forms.DataGridView()
@@ -54,7 +70,7 @@ Partial Class frmMedico
         Me.txtNumMedico = New System.Windows.Forms.TextBox()
         Me.txtDocIdentidad = New System.Windows.Forms.TextBox()
         Me.lblTelefonos = New System.Windows.Forms.Label()
-        Me.lnlNumeroMedico = New System.Windows.Forms.Label()
+        Me.lblNumeroMedico = New System.Windows.Forms.Label()
         Me.lblEmailM = New System.Windows.Forms.Label()
         Me.lblFechaNacM = New System.Windows.Forms.Label()
         Me.lblBarrioM = New System.Windows.Forms.Label()
@@ -63,22 +79,11 @@ Partial Class frmMedico
         Me.lblNumeroCalleM = New System.Windows.Forms.Label()
         Me.lblDireccionM = New System.Windows.Forms.Label()
         Me.lblApellidosM = New System.Windows.Forms.Label()
-        Me.lnlNombreM = New System.Windows.Forms.Label()
+        Me.lblNombreM = New System.Windows.Forms.Label()
         Me.lblFechaReg = New System.Windows.Forms.Label()
         Me.lblDocIdentidad = New System.Windows.Forms.Label()
         Me.tabMedicoBusqueda = New System.Windows.Forms.TabPage()
         Me.dgvListaMedicos = New System.Windows.Forms.DataGridView()
-        Me.btnEliminarTelefono = New System.Windows.Forms.Button()
-        Me.btnAgregarTelefono = New System.Windows.Forms.Button()
-        Me.mnuBtnAgregar = New System.Windows.Forms.ToolStripButton()
-        Me.mnuBtnGuardar = New System.Windows.Forms.ToolStripButton()
-        Me.mnuBtnCancelar = New System.Windows.Forms.ToolStripButton()
-        Me.mnuBtnNueva = New System.Windows.Forms.ToolStripButton()
-        Me.mnuBtnBuscar = New System.Windows.Forms.ToolStripButton()
-        Me.mnuBtnBorrar = New System.Windows.Forms.ToolStripButton()
-        Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
-        Me.picEncabezado = New System.Windows.Forms.PictureBox()
-        Me.tttTelefono = New System.Windows.Forms.ToolTip(Me.components)
         Me.colDocIdentidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNMedico = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombres = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -86,12 +91,28 @@ Partial Class frmMedico
         Me.colEmail = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colFechRegistro = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tabActividad = New System.Windows.Forms.TabPage()
+        Me.gbActividad = New System.Windows.Forms.GroupBox()
+        Me.chartActMedico = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.gbSesiones = New System.Windows.Forms.GroupBox()
+        Me.dgvSesionesMedico = New System.Windows.Forms.DataGridView()
+        Me.colSesion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colFecha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colPonderacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colDoc = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tttTelefono = New System.Windows.Forms.ToolTip(Me.components)
+        Me.picEncabezado = New System.Windows.Forms.PictureBox()
         Me.toolsMenuMedico.SuspendLayout()
         Me.tabOpcionesMedico.SuspendLayout()
         Me.tabDatos.SuspendLayout()
         CType(Me.dgvListaTelefonos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tabMedicoBusqueda.SuspendLayout()
         CType(Me.dgvListaMedicos, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.tabActividad.SuspendLayout()
+        Me.gbActividad.SuspendLayout()
+        CType(Me.chartActMedico, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbSesiones.SuspendLayout()
+        CType(Me.dgvSesionesMedico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -102,58 +123,147 @@ Partial Class frmMedico
         Me.toolsMenuMedico.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.toolsMenuMedico.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.toolsMenuMedico.ImeMode = System.Windows.Forms.ImeMode.[On]
-        Me.toolsMenuMedico.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuBtnModificar})
+        Me.toolsMenuMedico.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuReactivar, Me.mnuBtnModificar})
         Me.toolsMenuMedico.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.toolsMenuMedico.Location = New System.Drawing.Point(15, 80)
         Me.toolsMenuMedico.Name = "toolsMenuMedico"
-        Me.toolsMenuMedico.Size = New System.Drawing.Size(981, 44)
+        Me.toolsMenuMedico.Size = New System.Drawing.Size(1005, 44)
         Me.toolsMenuMedico.TabIndex = 4
+        '
+        'mnuBtnAgregar
+        '
+        Me.mnuBtnAgregar.Image = CType(resources.GetObject("mnuBtnAgregar.Image"), System.Drawing.Image)
+        Me.mnuBtnAgregar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnAgregar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnAgregar.Name = "mnuBtnAgregar"
+        Me.mnuBtnAgregar.Size = New System.Drawing.Size(97, 29)
+        Me.mnuBtnAgregar.Text = "Agregar"
+        Me.mnuBtnAgregar.ToolTipText = "Habilita el ingreso de una nueva patologia"
         '
         'tabSeparador
         '
         Me.tabSeparador.Name = "tabSeparador"
         Me.tabSeparador.Size = New System.Drawing.Size(6, 23)
         '
+        'mnuBtnGuardar
+        '
+        Me.mnuBtnGuardar.Enabled = False
+        Me.mnuBtnGuardar.Image = CType(resources.GetObject("mnuBtnGuardar.Image"), System.Drawing.Image)
+        Me.mnuBtnGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnGuardar.Name = "mnuBtnGuardar"
+        Me.mnuBtnGuardar.Size = New System.Drawing.Size(98, 29)
+        Me.mnuBtnGuardar.Text = "Guardar"
+        Me.mnuBtnGuardar.ToolTipText = "Guarda los cambios"
+        '
         'tabSeparador1
         '
         Me.tabSeparador1.Name = "tabSeparador1"
         Me.tabSeparador1.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnuBtnCancelar
+        '
+        Me.mnuBtnCancelar.Enabled = False
+        Me.mnuBtnCancelar.Image = CType(resources.GetObject("mnuBtnCancelar.Image"), System.Drawing.Image)
+        Me.mnuBtnCancelar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnCancelar.Name = "mnuBtnCancelar"
+        Me.mnuBtnCancelar.Size = New System.Drawing.Size(104, 29)
+        Me.mnuBtnCancelar.Text = "Cancelar"
+        Me.mnuBtnCancelar.ToolTipText = "Cancela los cambios"
         '
         'tabSeperador2
         '
         Me.tabSeperador2.Name = "tabSeperador2"
         Me.tabSeperador2.Size = New System.Drawing.Size(6, 23)
         '
+        'mnuBtnNueva
+        '
+        Me.mnuBtnNueva.Image = CType(resources.GetObject("mnuBtnNueva.Image"), System.Drawing.Image)
+        Me.mnuBtnNueva.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnNueva.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnNueva.Name = "mnuBtnNueva"
+        Me.mnuBtnNueva.Size = New System.Drawing.Size(83, 29)
+        Me.mnuBtnNueva.Text = "Nueva"
+        Me.mnuBtnNueva.ToolTipText = "Inicia una nueva busqueda"
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnuBtnBuscar
+        '
+        Me.mnuBtnBuscar.Enabled = False
+        Me.mnuBtnBuscar.Image = CType(resources.GetObject("mnuBtnBuscar.Image"), System.Drawing.Image)
+        Me.mnuBtnBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnBuscar.Name = "mnuBtnBuscar"
+        Me.mnuBtnBuscar.Size = New System.Drawing.Size(90, 29)
+        Me.mnuBtnBuscar.Text = "Buscar"
+        Me.mnuBtnBuscar.ToolTipText = "Buscar por el nombre ingresado"
         '
         'tabSeparador3
         '
         Me.tabSeparador3.Name = "tabSeparador3"
         Me.tabSeparador3.Size = New System.Drawing.Size(6, 23)
         '
+        'mnuBtnBorrar
+        '
+        Me.mnuBtnBorrar.Enabled = False
+        Me.mnuBtnBorrar.Image = CType(resources.GetObject("mnuBtnBorrar.Image"), System.Drawing.Image)
+        Me.mnuBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnBorrar.Name = "mnuBtnBorrar"
+        Me.mnuBtnBorrar.Size = New System.Drawing.Size(85, 29)
+        Me.mnuBtnBorrar.Text = "Borrar"
+        Me.mnuBtnBorrar.ToolTipText = "Borrar el registro en pantalla"
+        '
         'tabSeparador4
         '
         Me.tabSeparador4.Name = "tabSeparador4"
         Me.tabSeparador4.Size = New System.Drawing.Size(6, 23)
         '
+        'mnuReactivar
+        '
+        Me.mnuReactivar.AutoSize = False
+        Me.mnuReactivar.Enabled = False
+        Me.mnuReactivar.Image = CType(resources.GetObject("mnuReactivar.Image"), System.Drawing.Image)
+        Me.mnuReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuReactivar.Name = "mnuReactivar"
+        Me.mnuReactivar.Size = New System.Drawing.Size(106, 29)
+        Me.mnuReactivar.Text = "Reactivar"
+        Me.mnuReactivar.ToolTipText = "Reactiva el registro a la vista"
+        '
+        'mnuBtnModificar
+        '
+        Me.mnuBtnModificar.Enabled = False
+        Me.mnuBtnModificar.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mnuBtnModificar.Image = CType(resources.GetObject("mnuBtnModificar.Image"), System.Drawing.Image)
+        Me.mnuBtnModificar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnModificar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnModificar.Name = "mnuBtnModificar"
+        Me.mnuBtnModificar.Size = New System.Drawing.Size(106, 29)
+        Me.mnuBtnModificar.Text = "Modificar"
+        Me.mnuBtnModificar.ToolTipText = "Habilita la modificacion de una patologia"
+        '
         'tabOpcionesMedico
         '
         Me.tabOpcionesMedico.Controls.Add(Me.tabDatos)
         Me.tabOpcionesMedico.Controls.Add(Me.tabMedicoBusqueda)
+        Me.tabOpcionesMedico.Controls.Add(Me.tabActividad)
         Me.tabOpcionesMedico.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tabOpcionesMedico.Location = New System.Drawing.Point(11, 127)
+        Me.tabOpcionesMedico.Location = New System.Drawing.Point(33, 127)
         Me.tabOpcionesMedico.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabOpcionesMedico.Name = "tabOpcionesMedico"
         Me.tabOpcionesMedico.SelectedIndex = 0
-        Me.tabOpcionesMedico.Size = New System.Drawing.Size(956, 536)
+        Me.tabOpcionesMedico.Size = New System.Drawing.Size(956, 510)
         Me.tabOpcionesMedico.TabIndex = 5
         '
         'tabDatos
         '
-        Me.tabDatos.BackColor = System.Drawing.Color.Gainsboro
+        Me.tabDatos.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.tabDatos.Controls.Add(Me.btnRestPass)
         Me.tabDatos.Controls.Add(Me.btnEliminarTelefono)
         Me.tabDatos.Controls.Add(Me.btnAgregarTelefono)
         Me.tabDatos.Controls.Add(Me.chkActivo)
@@ -172,7 +282,7 @@ Partial Class frmMedico
         Me.tabDatos.Controls.Add(Me.txtNumMedico)
         Me.tabDatos.Controls.Add(Me.txtDocIdentidad)
         Me.tabDatos.Controls.Add(Me.lblTelefonos)
-        Me.tabDatos.Controls.Add(Me.lnlNumeroMedico)
+        Me.tabDatos.Controls.Add(Me.lblNumeroMedico)
         Me.tabDatos.Controls.Add(Me.lblEmailM)
         Me.tabDatos.Controls.Add(Me.lblFechaNacM)
         Me.tabDatos.Controls.Add(Me.lblBarrioM)
@@ -181,16 +291,61 @@ Partial Class frmMedico
         Me.tabDatos.Controls.Add(Me.lblNumeroCalleM)
         Me.tabDatos.Controls.Add(Me.lblDireccionM)
         Me.tabDatos.Controls.Add(Me.lblApellidosM)
-        Me.tabDatos.Controls.Add(Me.lnlNombreM)
+        Me.tabDatos.Controls.Add(Me.lblNombreM)
         Me.tabDatos.Controls.Add(Me.lblFechaReg)
         Me.tabDatos.Controls.Add(Me.lblDocIdentidad)
         Me.tabDatos.Location = New System.Drawing.Point(4, 28)
         Me.tabDatos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabDatos.Name = "tabDatos"
         Me.tabDatos.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.tabDatos.Size = New System.Drawing.Size(948, 504)
+        Me.tabDatos.Size = New System.Drawing.Size(948, 478)
         Me.tabDatos.TabIndex = 0
         Me.tabDatos.Text = "Datos"
+        '
+        'btnRestPass
+        '
+        Me.btnRestPass.Enabled = False
+        Me.btnRestPass.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRestPass.Image = CType(resources.GetObject("btnRestPass.Image"), System.Drawing.Image)
+        Me.btnRestPass.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnRestPass.Location = New System.Drawing.Point(752, 338)
+        Me.btnRestPass.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnRestPass.Name = "btnRestPass"
+        Me.btnRestPass.Size = New System.Drawing.Size(157, 89)
+        Me.btnRestPass.TabIndex = 85
+        Me.btnRestPass.Text = "Restablecer contraseña"
+        Me.btnRestPass.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnRestPass.UseVisualStyleBackColor = True
+        '
+        'btnEliminarTelefono
+        '
+        Me.btnEliminarTelefono.Enabled = False
+        Me.btnEliminarTelefono.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEliminarTelefono.ForeColor = System.Drawing.Color.Transparent
+        Me.btnEliminarTelefono.Image = Global.appGestion.My.Resources.Resources.delTel1
+        Me.btnEliminarTelefono.Location = New System.Drawing.Point(531, 379)
+        Me.btnEliminarTelefono.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnEliminarTelefono.Name = "btnEliminarTelefono"
+        Me.btnEliminarTelefono.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.btnEliminarTelefono.Size = New System.Drawing.Size(44, 37)
+        Me.btnEliminarTelefono.TabIndex = 23
+        Me.tttTelefono.SetToolTip(Me.btnEliminarTelefono, "Elimina el telefono seleccionado en la lista")
+        Me.btnEliminarTelefono.UseVisualStyleBackColor = True
+        '
+        'btnAgregarTelefono
+        '
+        Me.btnAgregarTelefono.Enabled = False
+        Me.btnAgregarTelefono.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAgregarTelefono.ForeColor = System.Drawing.Color.Transparent
+        Me.btnAgregarTelefono.Image = Global.appGestion.My.Resources.Resources.addTel1
+        Me.btnAgregarTelefono.Location = New System.Drawing.Point(531, 338)
+        Me.btnAgregarTelefono.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnAgregarTelefono.Name = "btnAgregarTelefono"
+        Me.btnAgregarTelefono.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.btnAgregarTelefono.Size = New System.Drawing.Size(44, 37)
+        Me.btnAgregarTelefono.TabIndex = 22
+        Me.tttTelefono.SetToolTip(Me.btnAgregarTelefono, "Permite el ingreso de un nuevo telefono")
+        Me.btnAgregarTelefono.UseVisualStyleBackColor = True
         '
         'chkActivo
         '
@@ -198,7 +353,8 @@ Partial Class frmMedico
         Me.chkActivo.Checked = True
         Me.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkActivo.Enabled = False
-        Me.chkActivo.Location = New System.Drawing.Point(834, 427)
+        Me.chkActivo.Location = New System.Drawing.Point(835, 427)
+        Me.chkActivo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.chkActivo.Name = "chkActivo"
         Me.chkActivo.Size = New System.Drawing.Size(75, 23)
         Me.chkActivo.TabIndex = 21
@@ -214,7 +370,7 @@ Partial Class frmMedico
         Me.dtpFechaNac.CalendarTrailingForeColor = System.Drawing.Color.Gray
         Me.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaNac.Location = New System.Drawing.Point(772, 53)
-        Me.dtpFechaNac.Margin = New System.Windows.Forms.Padding(4)
+        Me.dtpFechaNac.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dtpFechaNac.Name = "dtpFechaNac"
         Me.dtpFechaNac.Size = New System.Drawing.Size(137, 27)
         Me.dtpFechaNac.TabIndex = 3
@@ -228,7 +384,7 @@ Partial Class frmMedico
         Me.dgvListaTelefonos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colTelefono})
         Me.dgvListaTelefonos.Enabled = False
         Me.dgvListaTelefonos.Location = New System.Drawing.Point(171, 338)
-        Me.dgvListaTelefonos.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgvListaTelefonos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvListaTelefonos.Name = "dgvListaTelefonos"
         Me.dgvListaTelefonos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvListaTelefonos.Size = New System.Drawing.Size(353, 112)
@@ -237,8 +393,8 @@ Partial Class frmMedico
         'colTelefono
         '
         Me.colTelefono.DataPropertyName = "Telefono"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle1
         Me.colTelefono.HeaderText = "TELEFONOS"
         Me.colTelefono.Name = "colTelefono"
         Me.colTelefono.Width = 200
@@ -356,155 +512,154 @@ Partial Class frmMedico
         Me.txtDocIdentidad.ForeColor = System.Drawing.SystemColors.MenuHighlight
         Me.txtDocIdentidad.Location = New System.Drawing.Point(171, 15)
         Me.txtDocIdentidad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtDocIdentidad.MaxLength = 11
+        Me.txtDocIdentidad.MaxLength = 8
         Me.txtDocIdentidad.Name = "txtDocIdentidad"
-        Me.txtDocIdentidad.ReadOnly = True
         Me.txtDocIdentidad.Size = New System.Drawing.Size(159, 27)
         Me.txtDocIdentidad.TabIndex = 0
         Me.txtDocIdentidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblTelefonos
         '
-        Me.lblTelefonos.AutoSize = True
         Me.lblTelefonos.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTelefonos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblTelefonos.Location = New System.Drawing.Point(41, 343)
+        Me.lblTelefonos.Location = New System.Drawing.Point(15, 343)
         Me.lblTelefonos.Name = "lblTelefonos"
-        Me.lblTelefonos.Size = New System.Drawing.Size(110, 19)
+        Me.lblTelefonos.Size = New System.Drawing.Size(143, 18)
         Me.lblTelefonos.TabIndex = 12
         Me.lblTelefonos.Text = "TELEFONOS:"
+        Me.lblTelefonos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'lnlNumeroMedico
+        'lblNumeroMedico
         '
-        Me.lnlNumeroMedico.AutoSize = True
-        Me.lnlNumeroMedico.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnlNumeroMedico.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lnlNumeroMedico.Location = New System.Drawing.Point(57, 55)
-        Me.lnlNumeroMedico.Name = "lnlNumeroMedico"
-        Me.lnlNumeroMedico.Size = New System.Drawing.Size(100, 19)
-        Me.lnlNumeroMedico.TabIndex = 11
-        Me.lnlNumeroMedico.Text = "Nº MEDICO:"
+        Me.lblNumeroMedico.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumeroMedico.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
+        Me.lblNumeroMedico.Location = New System.Drawing.Point(11, 55)
+        Me.lblNumeroMedico.Name = "lblNumeroMedico"
+        Me.lblNumeroMedico.Size = New System.Drawing.Size(147, 18)
+        Me.lblNumeroMedico.TabIndex = 11
+        Me.lblNumeroMedico.Text = "Nº MEDICO:"
+        Me.lblNumeroMedico.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblEmailM
         '
-        Me.lblEmailM.AutoSize = True
         Me.lblEmailM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEmailM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblEmailM.Location = New System.Drawing.Point(100, 130)
+        Me.lblEmailM.Location = New System.Drawing.Point(19, 129)
         Me.lblEmailM.Name = "lblEmailM"
-        Me.lblEmailM.Size = New System.Drawing.Size(63, 19)
+        Me.lblEmailM.Size = New System.Drawing.Size(139, 18)
         Me.lblEmailM.TabIndex = 10
         Me.lblEmailM.Text = "EMAIL:"
+        Me.lblEmailM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblFechaNacM
         '
-        Me.lblFechaNacM.AutoSize = True
         Me.lblFechaNacM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFechaNacM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblFechaNacM.Location = New System.Drawing.Point(643, 55)
+        Me.lblFechaNacM.Location = New System.Drawing.Point(619, 55)
         Me.lblFechaNacM.Name = "lblFechaNacM"
-        Me.lblFechaNacM.Size = New System.Drawing.Size(112, 19)
+        Me.lblFechaNacM.Size = New System.Drawing.Size(136, 18)
         Me.lblFechaNacM.TabIndex = 9
         Me.lblFechaNacM.Text = "FECHA NAC.:"
+        Me.lblFechaNacM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblBarrioM
         '
-        Me.lblBarrioM.AutoSize = True
         Me.lblBarrioM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblBarrioM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblBarrioM.Location = New System.Drawing.Point(84, 298)
+        Me.lblBarrioM.Location = New System.Drawing.Point(15, 298)
         Me.lblBarrioM.Name = "lblBarrioM"
-        Me.lblBarrioM.Size = New System.Drawing.Size(75, 19)
+        Me.lblBarrioM.Size = New System.Drawing.Size(143, 18)
         Me.lblBarrioM.TabIndex = 8
         Me.lblBarrioM.Text = "BARRIO:"
+        Me.lblBarrioM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblEsquinaM
         '
-        Me.lblEsquinaM.AutoSize = True
         Me.lblEsquinaM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEsquinaM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblEsquinaM.Location = New System.Drawing.Point(308, 260)
+        Me.lblEsquinaM.Location = New System.Drawing.Point(307, 260)
         Me.lblEsquinaM.Name = "lblEsquinaM"
-        Me.lblEsquinaM.Size = New System.Drawing.Size(86, 19)
+        Me.lblEsquinaM.Size = New System.Drawing.Size(96, 18)
         Me.lblEsquinaM.TabIndex = 7
         Me.lblEsquinaM.Text = "ESQUINA:"
+        Me.lblEsquinaM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblAptoM
         '
-        Me.lblAptoM.AutoSize = True
         Me.lblAptoM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAptoM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblAptoM.Location = New System.Drawing.Point(99, 260)
+        Me.lblAptoM.Location = New System.Drawing.Point(19, 260)
         Me.lblAptoM.Name = "lblAptoM"
-        Me.lblAptoM.Size = New System.Drawing.Size(57, 19)
+        Me.lblAptoM.Size = New System.Drawing.Size(139, 18)
         Me.lblAptoM.TabIndex = 6
         Me.lblAptoM.Text = "APTO:"
+        Me.lblAptoM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblNumeroCalleM
         '
-        Me.lblNumeroCalleM.AutoSize = True
         Me.lblNumeroCalleM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNumeroCalleM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblNumeroCalleM.Location = New System.Drawing.Point(744, 219)
+        Me.lblNumeroCalleM.Location = New System.Drawing.Point(713, 219)
         Me.lblNumeroCalleM.Name = "lblNumeroCalleM"
-        Me.lblNumeroCalleM.Size = New System.Drawing.Size(30, 19)
+        Me.lblNumeroCalleM.Size = New System.Drawing.Size(61, 18)
         Me.lblNumeroCalleM.TabIndex = 5
         Me.lblNumeroCalleM.Text = "Nº:"
+        Me.lblNumeroCalleM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblDireccionM
         '
-        Me.lblDireccionM.AutoSize = True
         Me.lblDireccionM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDireccionM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblDireccionM.Location = New System.Drawing.Point(53, 219)
+        Me.lblDireccionM.Location = New System.Drawing.Point(15, 219)
         Me.lblDireccionM.Name = "lblDireccionM"
-        Me.lblDireccionM.Size = New System.Drawing.Size(105, 19)
+        Me.lblDireccionM.Size = New System.Drawing.Size(143, 18)
         Me.lblDireccionM.TabIndex = 4
         Me.lblDireccionM.Text = "DIRECCION:"
+        Me.lblDireccionM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblApellidosM
         '
-        Me.lblApellidosM.AutoSize = True
         Me.lblApellidosM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblApellidosM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblApellidosM.Location = New System.Drawing.Point(492, 92)
+        Me.lblApellidosM.Location = New System.Drawing.Point(476, 92)
         Me.lblApellidosM.Name = "lblApellidosM"
-        Me.lblApellidosM.Size = New System.Drawing.Size(105, 19)
+        Me.lblApellidosM.Size = New System.Drawing.Size(125, 18)
         Me.lblApellidosM.TabIndex = 3
         Me.lblApellidosM.Text = "APELLIDOS:"
+        Me.lblApellidosM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'lnlNombreM
+        'lblNombreM
         '
-        Me.lnlNombreM.AutoSize = True
-        Me.lnlNombreM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnlNombreM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lnlNombreM.Location = New System.Drawing.Point(63, 92)
-        Me.lnlNombreM.Name = "lnlNombreM"
-        Me.lnlNombreM.Size = New System.Drawing.Size(94, 19)
-        Me.lnlNombreM.TabIndex = 2
-        Me.lnlNombreM.Text = "NOMBRES:"
+        Me.lblNombreM.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombreM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
+        Me.lblNombreM.Location = New System.Drawing.Point(15, 92)
+        Me.lblNombreM.Name = "lblNombreM"
+        Me.lblNombreM.Size = New System.Drawing.Size(143, 18)
+        Me.lblNombreM.TabIndex = 2
+        Me.lblNombreM.Text = "NOMBRES:"
+        Me.lblNombreM.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblFechaReg
         '
-        Me.lblFechaReg.AutoSize = True
         Me.lblFechaReg.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblFechaReg.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblFechaReg.Location = New System.Drawing.Point(689, 18)
+        Me.lblFechaReg.Location = New System.Drawing.Point(623, 18)
         Me.lblFechaReg.Name = "lblFechaReg"
-        Me.lblFechaReg.Size = New System.Drawing.Size(69, 19)
+        Me.lblFechaReg.Size = New System.Drawing.Size(135, 18)
         Me.lblFechaReg.TabIndex = 1
         Me.lblFechaReg.Text = "FECHA:"
+        Me.lblFechaReg.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblDocIdentidad
         '
-        Me.lblDocIdentidad.AutoSize = True
         Me.lblDocIdentidad.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDocIdentidad.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblDocIdentidad.Location = New System.Drawing.Point(35, 18)
+        Me.lblDocIdentidad.Location = New System.Drawing.Point(7, 18)
         Me.lblDocIdentidad.Name = "lblDocIdentidad"
-        Me.lblDocIdentidad.Size = New System.Drawing.Size(117, 19)
+        Me.lblDocIdentidad.Size = New System.Drawing.Size(151, 18)
         Me.lblDocIdentidad.TabIndex = 0
         Me.lblDocIdentidad.Text = "DOCUMENTO:"
+        Me.lblDocIdentidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'tabMedicoBusqueda
         '
@@ -514,7 +669,7 @@ Partial Class frmMedico
         Me.tabMedicoBusqueda.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabMedicoBusqueda.Name = "tabMedicoBusqueda"
         Me.tabMedicoBusqueda.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.tabMedicoBusqueda.Size = New System.Drawing.Size(948, 504)
+        Me.tabMedicoBusqueda.Size = New System.Drawing.Size(948, 478)
         Me.tabMedicoBusqueda.TabIndex = 1
         Me.tabMedicoBusqueda.Text = "Busqueda"
         '
@@ -526,136 +681,19 @@ Partial Class frmMedico
         Me.dgvListaMedicos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colDocIdentidad, Me.colNMedico, Me.colNombres, Me.colApellidos, Me.colEmail, Me.colFechRegistro, Me.colActivo})
         Me.dgvListaMedicos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvListaMedicos.Location = New System.Drawing.Point(3, 2)
-        Me.dgvListaMedicos.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgvListaMedicos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvListaMedicos.MultiSelect = False
         Me.dgvListaMedicos.Name = "dgvListaMedicos"
         Me.dgvListaMedicos.ReadOnly = True
-        Me.dgvListaMedicos.Size = New System.Drawing.Size(942, 500)
+        Me.dgvListaMedicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvListaMedicos.Size = New System.Drawing.Size(942, 474)
         Me.dgvListaMedicos.TabIndex = 0
-        '
-        'btnEliminarTelefono
-        '
-        Me.btnEliminarTelefono.Enabled = False
-        Me.btnEliminarTelefono.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEliminarTelefono.ForeColor = System.Drawing.Color.Transparent
-        Me.btnEliminarTelefono.Image = Global.appGestion.My.Resources.Resources.delTel1
-        Me.btnEliminarTelefono.Location = New System.Drawing.Point(531, 379)
-        Me.btnEliminarTelefono.Name = "btnEliminarTelefono"
-        Me.btnEliminarTelefono.Padding = New System.Windows.Forms.Padding(5)
-        Me.btnEliminarTelefono.Size = New System.Drawing.Size(44, 37)
-        Me.btnEliminarTelefono.TabIndex = 23
-        Me.tttTelefono.SetToolTip(Me.btnEliminarTelefono, "Elimina el telefono seleccionado en la lista")
-        Me.btnEliminarTelefono.UseVisualStyleBackColor = True
-        '
-        'btnAgregarTelefono
-        '
-        Me.btnAgregarTelefono.Enabled = False
-        Me.btnAgregarTelefono.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAgregarTelefono.ForeColor = System.Drawing.Color.Transparent
-        Me.btnAgregarTelefono.Image = Global.appGestion.My.Resources.Resources.addTel1
-        Me.btnAgregarTelefono.Location = New System.Drawing.Point(531, 338)
-        Me.btnAgregarTelefono.Name = "btnAgregarTelefono"
-        Me.btnAgregarTelefono.Padding = New System.Windows.Forms.Padding(5)
-        Me.btnAgregarTelefono.Size = New System.Drawing.Size(44, 37)
-        Me.btnAgregarTelefono.TabIndex = 22
-        Me.tttTelefono.SetToolTip(Me.btnAgregarTelefono, "Permite el ingreso de un nuevo telefono")
-        Me.btnAgregarTelefono.UseVisualStyleBackColor = True
-        '
-        'mnuBtnAgregar
-        '
-        Me.mnuBtnAgregar.Image = CType(resources.GetObject("mnuBtnAgregar.Image"), System.Drawing.Image)
-        Me.mnuBtnAgregar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnAgregar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnAgregar.Name = "mnuBtnAgregar"
-        Me.mnuBtnAgregar.Size = New System.Drawing.Size(97, 29)
-        Me.mnuBtnAgregar.Text = "Agregar"
-        Me.mnuBtnAgregar.ToolTipText = "Habilita el ingreso de una nueva patologia"
-        '
-        'mnuBtnGuardar
-        '
-        Me.mnuBtnGuardar.Enabled = False
-        Me.mnuBtnGuardar.Image = CType(resources.GetObject("mnuBtnGuardar.Image"), System.Drawing.Image)
-        Me.mnuBtnGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnGuardar.Name = "mnuBtnGuardar"
-        Me.mnuBtnGuardar.Size = New System.Drawing.Size(98, 29)
-        Me.mnuBtnGuardar.Text = "Guardar"
-        Me.mnuBtnGuardar.ToolTipText = "Guarda los cambios"
-        '
-        'mnuBtnCancelar
-        '
-        Me.mnuBtnCancelar.Enabled = False
-        Me.mnuBtnCancelar.Image = CType(resources.GetObject("mnuBtnCancelar.Image"), System.Drawing.Image)
-        Me.mnuBtnCancelar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnCancelar.Name = "mnuBtnCancelar"
-        Me.mnuBtnCancelar.Size = New System.Drawing.Size(104, 29)
-        Me.mnuBtnCancelar.Text = "Cancelar"
-        Me.mnuBtnCancelar.ToolTipText = "Cancela los cambios"
-        '
-        'mnuBtnNueva
-        '
-        Me.mnuBtnNueva.Image = CType(resources.GetObject("mnuBtnNueva.Image"), System.Drawing.Image)
-        Me.mnuBtnNueva.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnNueva.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnNueva.Name = "mnuBtnNueva"
-        Me.mnuBtnNueva.Size = New System.Drawing.Size(83, 29)
-        Me.mnuBtnNueva.Text = "Nueva"
-        Me.mnuBtnNueva.ToolTipText = "Inicia una nueva busqueda"
-        '
-        'mnuBtnBuscar
-        '
-        Me.mnuBtnBuscar.Enabled = False
-        Me.mnuBtnBuscar.Image = CType(resources.GetObject("mnuBtnBuscar.Image"), System.Drawing.Image)
-        Me.mnuBtnBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnBuscar.Name = "mnuBtnBuscar"
-        Me.mnuBtnBuscar.Size = New System.Drawing.Size(90, 29)
-        Me.mnuBtnBuscar.Text = "Buscar"
-        Me.mnuBtnBuscar.ToolTipText = "Buscar por el nombre ingresado"
-        '
-        'mnuBtnBorrar
-        '
-        Me.mnuBtnBorrar.Enabled = False
-        Me.mnuBtnBorrar.Image = CType(resources.GetObject("mnuBtnBorrar.Image"), System.Drawing.Image)
-        Me.mnuBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnBorrar.Name = "mnuBtnBorrar"
-        Me.mnuBtnBorrar.Size = New System.Drawing.Size(85, 29)
-        Me.mnuBtnBorrar.Text = "Borrar"
-        Me.mnuBtnBorrar.ToolTipText = "Borrar el registro en pantalla"
-        '
-        'mnuBtnModificar
-        '
-        Me.mnuBtnModificar.Enabled = False
-        Me.mnuBtnModificar.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mnuBtnModificar.Image = CType(resources.GetObject("mnuBtnModificar.Image"), System.Drawing.Image)
-        Me.mnuBtnModificar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnModificar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnModificar.Name = "mnuBtnModificar"
-        Me.mnuBtnModificar.Size = New System.Drawing.Size(106, 29)
-        Me.mnuBtnModificar.Text = "Modificar"
-        Me.mnuBtnModificar.ToolTipText = "Habilita la modificacion de una patologia"
-        '
-        'picEncabezado
-        '
-        Me.picEncabezado.Image = CType(resources.GetObject("picEncabezado.Image"), System.Drawing.Image)
-        Me.picEncabezado.Location = New System.Drawing.Point(0, -1)
-        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.picEncabezado.Name = "picEncabezado"
-        Me.picEncabezado.Size = New System.Drawing.Size(985, 79)
-        Me.picEncabezado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
-        Me.picEncabezado.TabIndex = 3
-        Me.picEncabezado.TabStop = False
-        '
-        'tttTelefono
-        '
-        Me.tttTelefono.ToolTipTitle = "Opciones de Telefonos"
         '
         'colDocIdentidad
         '
         Me.colDocIdentidad.DataPropertyName = "DOCUMENTO"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle2
         Me.colDocIdentidad.HeaderText = "DOCUMENTO"
         Me.colDocIdentidad.Name = "colDocIdentidad"
         Me.colDocIdentidad.ReadOnly = True
@@ -663,12 +701,12 @@ Partial Class frmMedico
         'colNMedico
         '
         Me.colNMedico.DataPropertyName = "NMEDICO"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colNMedico.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colNMedico.DefaultCellStyle = DataGridViewCellStyle3
         Me.colNMedico.HeaderText = "Nº MEDICO"
         Me.colNMedico.Name = "colNMedico"
         Me.colNMedico.ReadOnly = True
-        Me.colNMedico.Width = 110
+        Me.colNMedico.Width = 130
         '
         'colNombres
         '
@@ -676,6 +714,7 @@ Partial Class frmMedico
         Me.colNombres.HeaderText = "NOMBRES"
         Me.colNombres.Name = "colNombres"
         Me.colNombres.ReadOnly = True
+        Me.colNombres.Width = 120
         '
         'colApellidos
         '
@@ -683,12 +722,13 @@ Partial Class frmMedico
         Me.colApellidos.HeaderText = "APELLIDOS"
         Me.colApellidos.Name = "colApellidos"
         Me.colApellidos.ReadOnly = True
+        Me.colApellidos.Width = 120
         '
         'colEmail
         '
         Me.colEmail.DataPropertyName = "EMAIL"
-        DataGridViewCellStyle8.NullValue = "yes"
-        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.NullValue = "yes"
+        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle4
         Me.colEmail.HeaderText = "EMAIL"
         Me.colEmail.Name = "colEmail"
         Me.colEmail.ReadOnly = True
@@ -710,11 +750,138 @@ Partial Class frmMedico
         Me.colActivo.ReadOnly = True
         Me.colActivo.Visible = False
         '
+        'tabActividad
+        '
+        Me.tabActividad.Controls.Add(Me.gbActividad)
+        Me.tabActividad.Controls.Add(Me.gbSesiones)
+        Me.tabActividad.Location = New System.Drawing.Point(4, 28)
+        Me.tabActividad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.tabActividad.Name = "tabActividad"
+        Me.tabActividad.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.tabActividad.Size = New System.Drawing.Size(948, 478)
+        Me.tabActividad.TabIndex = 2
+        Me.tabActividad.Text = "Actividad"
+        Me.tabActividad.UseVisualStyleBackColor = True
+        '
+        'gbActividad
+        '
+        Me.gbActividad.Controls.Add(Me.chartActMedico)
+        Me.gbActividad.Location = New System.Drawing.Point(341, 20)
+        Me.gbActividad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.gbActividad.Name = "gbActividad"
+        Me.gbActividad.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.gbActividad.Size = New System.Drawing.Size(584, 457)
+        Me.gbActividad.TabIndex = 1
+        Me.gbActividad.TabStop = False
+        Me.gbActividad.Text = "Actividad ultimos 12 meses moviles"
+        '
+        'chartActMedico
+        '
+        ChartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea1.AxisX.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea1.AxisY.LineColor = System.Drawing.Color.LightGray
+        ChartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea1.Name = "ChartArea1"
+        Me.chartActMedico.ChartAreas.Add(ChartArea1)
+        Legend1.Alignment = System.Drawing.StringAlignment.Far
+        Legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom
+        Legend1.Name = "Legend1"
+        Me.chartActMedico.Legends.Add(Legend1)
+        Me.chartActMedico.Location = New System.Drawing.Point(9, 32)
+        Me.chartActMedico.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.chartActMedico.Name = "chartActMedico"
+        Me.chartActMedico.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Sesiones"
+        Me.chartActMedico.Series.Add(Series1)
+        Me.chartActMedico.Size = New System.Drawing.Size(561, 409)
+        Me.chartActMedico.TabIndex = 0
+        Me.chartActMedico.Text = "Chart1"
+        '
+        'gbSesiones
+        '
+        Me.gbSesiones.Controls.Add(Me.dgvSesionesMedico)
+        Me.gbSesiones.Location = New System.Drawing.Point(20, 20)
+        Me.gbSesiones.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.gbSesiones.Name = "gbSesiones"
+        Me.gbSesiones.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.gbSesiones.Size = New System.Drawing.Size(309, 458)
+        Me.gbSesiones.TabIndex = 0
+        Me.gbSesiones.TabStop = False
+        Me.gbSesiones.Text = "Sesiones"
+        '
+        'dgvSesionesMedico
+        '
+        Me.dgvSesionesMedico.AllowUserToAddRows = False
+        Me.dgvSesionesMedico.AllowUserToDeleteRows = False
+        Me.dgvSesionesMedico.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
+        Me.dgvSesionesMedico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvSesionesMedico.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colSesion, Me.colFecha, Me.colPonderacion, Me.colDoc})
+        Me.dgvSesionesMedico.Location = New System.Drawing.Point(11, 25)
+        Me.dgvSesionesMedico.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.dgvSesionesMedico.Name = "dgvSesionesMedico"
+        Me.dgvSesionesMedico.ReadOnly = True
+        Me.dgvSesionesMedico.RowTemplate.Height = 24
+        Me.dgvSesionesMedico.ShowRowErrors = False
+        Me.dgvSesionesMedico.Size = New System.Drawing.Size(291, 417)
+        Me.dgvSesionesMedico.TabIndex = 0
+        '
+        'colSesion
+        '
+        Me.colSesion.DataPropertyName = "idSesion"
+        Me.colSesion.HeaderText = "Sesion"
+        Me.colSesion.Name = "colSesion"
+        Me.colSesion.ReadOnly = True
+        '
+        'colFecha
+        '
+        Me.colFecha.DataPropertyName = "fechaHoraInicioSesion"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.colFecha.DefaultCellStyle = DataGridViewCellStyle5
+        Me.colFecha.HeaderText = "Fecha y hora"
+        Me.colFecha.Name = "colFecha"
+        Me.colFecha.ReadOnly = True
+        Me.colFecha.Width = 120
+        '
+        'colPonderacion
+        '
+        Me.colPonderacion.DataPropertyName = "prioridad"
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colPonderacion.DefaultCellStyle = DataGridViewCellStyle6
+        Me.colPonderacion.HeaderText = "Ponderacion"
+        Me.colPonderacion.Name = "colPonderacion"
+        Me.colPonderacion.ReadOnly = True
+        Me.colPonderacion.Width = 80
+        '
+        'colDoc
+        '
+        Me.colDoc.DataPropertyName = "docidentidadMedico"
+        Me.colDoc.HeaderText = "documento"
+        Me.colDoc.Name = "colDoc"
+        Me.colDoc.ReadOnly = True
+        Me.colDoc.Visible = False
+        '
+        'tttTelefono
+        '
+        Me.tttTelefono.ToolTipTitle = "Opciones de Telefonos"
+        '
+        'picEncabezado
+        '
+        Me.picEncabezado.Image = CType(resources.GetObject("picEncabezado.Image"), System.Drawing.Image)
+        Me.picEncabezado.Location = New System.Drawing.Point(0, -1)
+        Me.picEncabezado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.picEncabezado.Name = "picEncabezado"
+        Me.picEncabezado.Size = New System.Drawing.Size(1020, 79)
+        Me.picEncabezado.TabIndex = 3
+        Me.picEncabezado.TabStop = False
+        '
         'frmMedico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(981, 674)
+        Me.ClientSize = New System.Drawing.Size(1020, 646)
         Me.Controls.Add(Me.tabOpcionesMedico)
         Me.Controls.Add(Me.toolsMenuMedico)
         Me.Controls.Add(Me.picEncabezado)
@@ -730,6 +897,11 @@ Partial Class frmMedico
         CType(Me.dgvListaTelefonos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tabMedicoBusqueda.ResumeLayout(False)
         CType(Me.dgvListaMedicos, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.tabActividad.ResumeLayout(False)
+        Me.gbActividad.ResumeLayout(False)
+        CType(Me.chartActMedico, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbSesiones.ResumeLayout(False)
+        CType(Me.dgvSesionesMedico, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -756,7 +928,7 @@ Partial Class frmMedico
     Friend WithEvents lblDocIdentidad As Label
     Friend WithEvents lblFechaReg As Label
     Friend WithEvents lblApellidosM As Label
-    Friend WithEvents lnlNombreM As Label
+    Friend WithEvents lblNombreM As Label
     Friend WithEvents lblDireccionM As Label
     Friend WithEvents lblNumeroCalleM As Label
     Friend WithEvents lblAptoM As Label
@@ -764,7 +936,7 @@ Partial Class frmMedico
     Friend WithEvents lblEsquinaM As Label
     Friend WithEvents lblEmailM As Label
     Friend WithEvents lblFechaNacM As Label
-    Friend WithEvents lnlNumeroMedico As Label
+    Friend WithEvents lblNumeroMedico As Label
     Friend WithEvents lblTelefonos As Label
     Friend WithEvents txtDocIdentidad As TextBox
     Friend WithEvents txtFechaRegistro As TextBox
@@ -786,6 +958,12 @@ Partial Class frmMedico
     Friend WithEvents btnAgregarTelefono As Button
     Friend WithEvents btnEliminarTelefono As Button
     Friend WithEvents tttTelefono As ToolTip
+    Friend WithEvents mnuReactivar As ToolStripButton
+    Friend WithEvents tabActividad As TabPage
+    Friend WithEvents gbActividad As GroupBox
+    Friend WithEvents gbSesiones As GroupBox
+    Friend WithEvents dgvSesionesMedico As DataGridView
+    Friend WithEvents chartActMedico As DataVisualization.Charting.Chart
     Friend WithEvents colDocIdentidad As DataGridViewTextBoxColumn
     Friend WithEvents colNMedico As DataGridViewTextBoxColumn
     Friend WithEvents colNombres As DataGridViewTextBoxColumn
@@ -793,4 +971,9 @@ Partial Class frmMedico
     Friend WithEvents colEmail As DataGridViewTextBoxColumn
     Friend WithEvents colFechRegistro As DataGridViewTextBoxColumn
     Friend WithEvents colActivo As DataGridViewTextBoxColumn
+    Friend WithEvents colSesion As DataGridViewTextBoxColumn
+    Friend WithEvents colFecha As DataGridViewTextBoxColumn
+    Friend WithEvents colPonderacion As DataGridViewTextBoxColumn
+    Friend WithEvents colDoc As DataGridViewTextBoxColumn
+    Friend WithEvents btnRestPass As Button
 End Class

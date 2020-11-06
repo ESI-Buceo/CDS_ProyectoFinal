@@ -14,9 +14,9 @@ Public Module ControladorMedico
         Return a.VerificarDocumentoDeIdentidad(docidentidad)
     End Function
 
-    Public Sub GuardarDatosMedico(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
+    Public Function GuardarDatosMedico(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                   numero As String, barrio As String, esquina As String, apto As String, fechaNac As String,
-                                  activo As String, telefonos As DataGridView, numeroMedico As String, uid As String, pwd As String)
+                                  telefonos As List(Of String), numeroMedico As String, uid As String, pwd As String)
         'Guarda los datos del medico
         Dim m As New ModeloMedico(uid, pwd)
         m.Documento = docId
@@ -30,33 +30,28 @@ Public Module ControladorMedico
         m.Apartamento = apto
         m.FechaNacimiento = fechaNac
         m.NumeroMedico = numeroMedico
-        m.Activo = activo
-        m.Telefonos = cargarGridTelefonosADataTable(telefonos)
-        m.GuardarDatosMedico()
-    End Sub
-
-    Public Sub crearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
-        'Crea el usuario en la base de datos
-        Dim m As New ModeloMedico(uid, pwd)
-        m.Documento = docidentidad
-        m.CrearUsuarioBD()
-    End Sub
-
-    Private Function cargarGridTelefonosADataTable(ByVal telefonos As DataGridView) As DataTable
-        'Carga la lista de telefonos
-        Dim listaTelefonos As New DataTable
-        listaTelefonos = TryCast(telefonos.DataSource, DataTable)
-        Return listaTelefonos
+        m.Telefonos = telefonos
+        Return m.GuardarDatosMedico()
     End Function
 
-    Public Function EliminiarMedico(ByVal docIdentidad As String, uid As String, pwd As String)
-        'Elimina logicamente a un medico
+    Public Function crearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+        'Crea el usuario en la base de datos y devuelve pass para enviar por email
         Dim m As New ModeloMedico(uid, pwd)
-        Return m.EliminarMedico(docIdentidad)
+        m.Documento = docidentidad
+        m.Password = generarPassword()
+        m.RangoIpMedico = ControladorConfiguracion.LeerRangoIpMedicos(uid, pwd)
+        Return m.CrearUsuarioBD()
+    End Function
+
+    Public Function CambiarEstadoMedico(ByVal docIdentidad As String, estado As String, uid As String, pwd As String)
+        'Cambia el estado del medico
+        Dim m As New ModeloMedico(uid, pwd)
+        Return m.CambiarEstadoMedico(docIdentidad, estado)
     End Function
 
     Public Sub eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         Dim m As New ModeloMedico(uid, pwd)
+        m.RangoIpMedico = ControladorConfiguracion.LeerRangoIpMedicos(uid, pwd)
         m.EliminarUsuarioBD(docidentidad)
     End Sub
 
@@ -116,5 +111,10 @@ Public Module ControladorMedico
         Return m.ListarTelefonos(docidentidad)
     End Function
 
+    Public Function ListarSesionesDeChat(ByVal uid As String, pwd As String, docidentidad As String)
+        'Lista las sesiones de chat del medico
+        Dim m As New ModeloMedico(uid, pwd)
+        Return m.ListarSesionesChatMedico(docidentidad)
+    End Function
 
 End Module

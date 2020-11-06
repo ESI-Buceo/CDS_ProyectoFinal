@@ -13,16 +13,21 @@ Public Class frmListaSintomas
             frmPatologia.dgvSintomasPatologia.Columns.Item(0).Visible = False
             Me.Dispose()
         Else
-            MsgBox("El sintoma ya existe", vbExclamation, "AVISO")
+            MsgBox(VElSintomaYaExiste, vbExclamation, VAviso)
         End If
     End Sub
 
     Private Sub frmListaSintomas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cargarTextos()
+        cargarListaSintomas()
+    End Sub
+
+    Private Sub cargarListaSintomas()
         Try
             dgvListaSintomas.DataSource = ControladorSintomas.ListarSintomas(USUARIO, PASSWORD)
             dgvListaSintomas.Columns.Item(1).Width = 330
         Catch ex As Exception
-            MsgBox("Error al cargar el listado de sintomas", vbCritical, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
     End Sub
 
@@ -31,8 +36,15 @@ Public Class frmListaSintomas
         Try
             dgvListaSintomas.DataSource = ControladorSintomas.ListarSintomas(txtNombreSintoma.Text, USUARIO, PASSWORD)
             dgvListaSintomas.Columns.Item(1).Width = 330
+            dgvListaSintomas.Columns.Item(2).Visible = False
         Catch ex As Exception
-            MsgBox("Error al listar sintomas", vbCritical, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoError)
         End Try
+    End Sub
+
+    Private Sub cargarTextos()
+        Me.Text = VListaSintomas
+        dgvListaSintomas.Columns(1).HeaderText = VSintomas
+        btnCerrar.Text = VCerrar
     End Sub
 End Class

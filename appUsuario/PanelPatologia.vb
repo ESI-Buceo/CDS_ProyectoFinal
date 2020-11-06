@@ -44,6 +44,8 @@
         lblNombre.Width = 280
         lblNombre.Height = 30
         lblNombre.AutoSize = False
+        lblNombre.Cursor = Cursors.Hand
+        AddHandler lblNombre.Click, AddressOf MostrarInfoPatologia
         Return lblNombre
     End Function
 
@@ -58,4 +60,11 @@
         lblDescripcion.Height = 80
         Return lblDescripcion
     End Function
+
+    Private Sub MostrarInfoPatologia()
+        frmInfoPatologia.lblPatologia.Text = Me.nombre
+        frmInfoPatologia.lblPatDesc.Text = Me.descipcion
+        frmInfoPatologia.ShowDialog()
+        frmInfoPatologia.Refresh()
+    End Sub
 End Class

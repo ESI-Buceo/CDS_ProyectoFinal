@@ -118,17 +118,32 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btnChatSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnChatSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vida sana" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vida sana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btnHelpFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnHelpFocus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btnRelojFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnRelojFocus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btnHelp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnHelp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icono_espaniol" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icono_espaniol.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btnConsulta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnConsulta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo-App" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo-App.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnConsultaFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnConsultaFocus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,11 +154,14 @@
   <data name="vidasana" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vidasana.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loading.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ava1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ava1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnConsultaSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnConsultaSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnChat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnChat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bg-foto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bg-foto.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,11 +169,14 @@
   <data name="btnReloj" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnReloj.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo-App" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo-App.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="salidaChat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salidaChat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnChat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnChat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="docMas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\docMas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btnHelpSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnHelpSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btnChatFocus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnChatFocus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,10 +184,7 @@
   <data name="btnRelojSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnRelojSelect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="docMas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\docMas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="salidaChat" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salidaChat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ingles-ICONO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ingles-ICONO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

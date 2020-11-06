@@ -5,7 +5,7 @@ Imports System.Windows.Forms
 Public Module ControladorPatologias
 
     Public Sub AltaPatologia(id As String, nombre As String, ponderacion As Integer, descripcion As String, activo As Integer,
-                             ListaDeSintomas As DataGridView, uid As String, pwd As String)
+                             ListaDeSintomas As List(Of Integer), uid As String, pwd As String)
         'Guarda los datos de la patologia
         Dim p As New ModeloPatologia(uid, pwd)
         p.Id = id
@@ -13,31 +13,20 @@ Public Module ControladorPatologias
         p.Ponderacion = ponderacion
         p.Descripcion = descripcion
         p.Activo = activo
-        p.ListaDeSintomasAsociados = formatearListaDeSintomas(ListaDeSintomas, uid, pwd)
+        p.ListaDeSintomasAsociados = ListaDeSintomas
         p.GuaradrPatologia()
     End Sub
 
-    Public Sub BorrarPatologia(id As Integer, uid As String, pwd As String)
+    Public Sub cambiarEstadoPatologia(id As Integer, estado As String, uid As String, pwd As String)
         'ELimina logicamene la patologia
         Dim p As New ModeloPatologia(uid, pwd)
-        p.Id = id
-        p.EliminarPatologia()
-
+        p.CambiarEstadoPatologia(id, estado)
     End Sub
 
     Public Function ListarPatologias(ByVal nombre As String, uid As String, pwd As String) As DataTable
         'Busca la patologia por nombre
         Dim p As New ModeloPatologia(uid, pwd)
         Return p.BuscarPatologiaPorNombre(nombre)
-    End Function
-
-    Private Function formatearListaDeSintomas(ByRef listaSintomas As DataGridView, uid As String, pwd As String)
-        'recorre la lista de sintomas y las formatea para enviar a guardar
-        Dim listaFormateadaDeSintomas As New List(Of Integer)
-        For s = 0 To listaSintomas.Rows.Count - 1
-            listaFormateadaDeSintomas.Add(listaSintomas.Item(0, s).Value)
-        Next
-        Return listaFormateadaDeSintomas
     End Function
 
     Public Function CargarSintomaPorPatologia(ByVal id As String, sintomasDePatologia As DataTable, uid As String, pwd As String) As DataTable
@@ -86,4 +75,28 @@ Public Module ControladorPatologias
         Dim p As New ModeloPatologia(uid, pwd)
         Return p.listarPatologias(activo)
     End Function
+
+    Public Function ListaDePatologias(ByVal idSintoma As Integer, uid As String, pwd As String)
+        Dim p As New ModeloPatologia(uid, pwd)
+        Return p.ListarPatologias(idSintoma)
+    End Function
+
+    Public Sub ExportarDatosADB(ByVal uid As String, pwd As String, datos As DataTable)
+        'Guarda informacion en la base de datos
+        Dim p As New ModeloPatologia(uid, pwd)
+        For Each patologia As DataRow In datos.Rows
+            p.Id = 0
+            p.Nombre = patologia("columna1").ToString
+            p.Ponderacion = patologia("columna2").ToString
+            p.Descripcion = patologia("columna3").ToString
+            p.GuaradrPatologia()
+        Next
+    End Sub
+
+    Public Function ListarPatologiasPorDiagnostico(ByVal uid As String, pwd As String, idDiagnostico As String)
+        'Recuepera las patologias quue conforman un diagnostico
+        Dim p As New ModeloPatologia(uid, pwd)
+        Return p.ListarPatologiasDeDiagnostico(idDiagnostico)
+    End Function
+
 End Module

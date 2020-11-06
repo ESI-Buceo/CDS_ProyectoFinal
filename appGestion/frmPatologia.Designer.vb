@@ -38,6 +38,7 @@ Partial Class frmPatologia
         Me.tabSeparador3 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnuBtnBorrar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnubtnReactivar = New System.Windows.Forms.ToolStripButton()
         Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
         Me.tabDatosPatologia = New System.Windows.Forms.TabControl()
         Me.tabDatos = New System.Windows.Forms.TabPage()
@@ -95,7 +96,7 @@ Partial Class frmPatologia
         Me.toolsMenuPatologia.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.toolsMenuPatologia.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.toolsMenuPatologia.ImeMode = System.Windows.Forms.ImeMode.[On]
-        Me.toolsMenuPatologia.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuBtnModificar})
+        Me.toolsMenuPatologia.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnubtnReactivar, Me.mnuBtnModificar})
         Me.toolsMenuPatologia.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.toolsMenuPatologia.Location = New System.Drawing.Point(9, 82)
         Me.toolsMenuPatologia.Name = "toolsMenuPatologia"
@@ -195,6 +196,16 @@ Partial Class frmPatologia
         '
         Me.tabSeparador4.Name = "tabSeparador4"
         Me.tabSeparador4.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnubtnReactivar
+        '
+        Me.mnubtnReactivar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.mnubtnReactivar.Image = CType(resources.GetObject("mnubtnReactivar.Image"), System.Drawing.Image)
+        Me.mnubtnReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnubtnReactivar.Name = "mnubtnReactivar"
+        Me.mnubtnReactivar.Size = New System.Drawing.Size(24, 24)
+        Me.mnubtnReactivar.Text = "ToolStripButton1"
+        Me.mnubtnReactivar.Visible = False
         '
         'mnuBtnModificar
         '
@@ -316,6 +327,7 @@ Partial Class frmPatologia
         Me.txtPatologiaDescipcion.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtPatologiaDescipcion.Location = New System.Drawing.Point(163, 69)
         Me.txtPatologiaDescipcion.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtPatologiaDescipcion.MaxLength = 500
         Me.txtPatologiaDescipcion.Multiline = True
         Me.txtPatologiaDescipcion.Name = "txtPatologiaDescipcion"
         Me.txtPatologiaDescipcion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
@@ -333,6 +345,7 @@ Partial Class frmPatologia
         '
         'cbPatologiaPonderacion
         '
+        Me.cbPatologiaPonderacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbPatologiaPonderacion.FormattingEnabled = True
         Me.cbPatologiaPonderacion.Items.AddRange(New Object() {"10", "20", "30", "40", " "})
         Me.cbPatologiaPonderacion.Location = New System.Drawing.Point(747, 22)
@@ -585,4 +598,5 @@ Partial Class frmPatologia
     Friend WithEvents colDescripcion As DataGridViewTextBoxColumn
     Friend WithEvents colPonderacion As DataGridViewTextBoxColumn
     Friend WithEvents colActivo As DataGridViewCheckBoxColumn
+    Friend WithEvents mnubtnReactivar As ToolStripButton
 End Class

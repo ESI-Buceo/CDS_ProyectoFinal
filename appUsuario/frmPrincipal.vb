@@ -12,11 +12,8 @@ Public Class frmPrincipal
         frmLoginInvitado.ShowDialog()
     End Sub
 
-    Private Sub frmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    End Sub
-
     Private Sub btnHistoria_Click(sender As Object, e As EventArgs) Handles btnHistoria.Click
-        cambiarPanel(PanelDeConsulta)
+        cambiarPanel(panelHistoria)
         clickBotonHistoria()
     End Sub
 
@@ -54,8 +51,8 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub opcionIngresarMasSintomas()
-        If ListaSintomasSeleccionados.Count > 1 Then
-            lblPregunta.Text = "Deseas ingresar un nuevo sintoma?"
+        If ListaSintomasSeleccionados.Count >= ControladorConfiguracion.LeerCantSintomas(USUARIO, PASSWD) Then
+            lblPregunta.Text = VDeseasIngresarUnNuevoSintomas
             preguntarPorNuevoSintoma()
         Else
             nuevaPregunta()
@@ -63,7 +60,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub nuevaPregunta()
-        lblPregunta.Text = ControladorDiagnostico.NuevoMensaje()
+        lblPregunta.Text = NuevoMensaje()
         txtSintoma.Select()
         sintomaSeleccionado = False
     End Sub
@@ -72,7 +69,7 @@ Public Class frmPrincipal
         lblPregunta.Width = 370
         lblPregunta.Height = 200
         lblPregunta.AutoSize = False
-        lblPregunta.Text = "Presiona Ver Informe para que podamos generarte un diagnostico de acuerdo a los sintomas que has ingresado. No dejes de consultara tu medico via chat, recuerda que este diagnostico no sustituye la consulta a un profesional."
+        lblPregunta.Text = VPresionaParaVerInforme
         panelBotonSiNo.Visible = False
         btnVerInforme.Visible = True
     End Sub
@@ -109,7 +106,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub mensajeDeEsperaProcesoDeDiagnostico()
-        lblPregunta.Text = "Aguarda mientras preparamos tu informe..."
+        lblPregunta.Text = VAguardaPreparamosInforme
         btnVerInforme.Visible = False
         Me.Refresh()
         crearInformeDiagnostico()
@@ -120,17 +117,18 @@ Public Class frmPrincipal
         Try
             evaluarExitenciaPatologias(ControladorDiagnostico.CrearInformeDiagnostico(ListaSintomasSeleccionados, USUARIO, PASSWD))
         Catch ex As Exception
-            MsgBox("Error al buscar las patologias", vbOK Or vbInformation, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoErrorAccesoDatos)
         End Try
 
     End Sub
 
     Private Sub evaluarExitenciaPatologias(ByVal patologiasParaDiagnostico As DataTable)
-        'Evalua si existen patologias
+        'Evalua si existen un diagnostico de acuerdo a los sintomas ingresados
         If patologiasParaDiagnostico.Rows.Count = 0 Then
-            lblPregunta.Text = "No existen patologias con los sintomas que has ingresado !"
+            lblPregunta.Text = VNoExistenPatologias
             btnVerInforme.Visible = False
             btnNuevaConsulta.Visible = True
+            btnIniciarChat.Visible = True
             Me.Refresh()
         Else
             mostrarInformeDiagnostico(patologiasParaDiagnostico)
@@ -139,7 +137,7 @@ Public Class frmPrincipal
 
     Private Sub mostrarInformeDiagnostico(ByRef patologiaParaDiagnostico As DataTable)
         'Muestra el informe de diagostico
-        lblPregunta.Text = "Hemos preparado el siguiente informe para ti de acuerdo a los sintomas que has ingresado. Por favor inicia una conversacion por chat con el medico."
+        lblPregunta.Text = VHemosPreparadoInforme
         flPanelDiagnostico.Visible = True
         For Each patologias As DataRow In patologiaParaDiagnostico.Rows
             Dim panel As New PanelPatologia With {.nombre = patologias("nombre"), .descipcion = patologias("descripcion")}
@@ -183,7 +181,7 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub iniciarConsulta()
-        lblPregunta.Text = "Cuentanos cual es tu princial sintoma...?"
+        lblPregunta.Text = VCualEsTuPrincipalSintoma
         panelDeSintomas.Visible = True
         flPanelDiagnostico.Visible = False
         lblMensaje.Visible = False
@@ -210,6 +208,7 @@ Public Class frmPrincipal
         mostrarPanelDeChat()
         estadoBotonesAlIniciarchat()
         activarControladorTiempoEstado()
+        ocultarInformacionDelMedico()
         guardarSesionDeChat()
         cargarformLoading()
     End Sub
@@ -227,9 +226,9 @@ Public Class frmPrincipal
     Private Sub guardarSesionDeChat()
         'Guada la sesion de chat
         Try
-            ControladorSesion.GuardarSesionDeChat(USUARIO, PASSWD)
+            IDSESION = ControladorSesion.GuardarSesionDeChat(USUARIO, PASSWD)
         Catch ex As Exception
-            MsgBox("Error al guardar la sesion de chat", vbInformation, "Error")
+            MsgBox(VErrorGuardarSesionChat, vbCritical, VError)
         End Try
     End Sub
 
@@ -270,10 +269,9 @@ Public Class frmPrincipal
         Try
             Return ControladorSesion.VerificarEstadoDeSesion(USUARIO, PASSWD)
         Catch ex As Exception
-            MsgBox("Error al conectarse al servidor de chat", vbOK Or vbInformation, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VErrorDatosAcceso)
         End Try
     End Function
-
 
     Private Sub medicoInicioSesion()
         establecerInicioDeChat()
@@ -282,14 +280,14 @@ Public Class frmPrincipal
     Private Sub medicoCanceloSesion()
         TimerChequearEstado.Enabled = False
         TimerChequearEstado.Stop()
-        MsgBox("El Medico finalizo la sesion de chat", vbExclamation, "Cierre de Sesion")
+        MsgBox(VElMedicoCerroSesin, vbExclamation, VAvisoCierreSesion)
         restablecerAPanelDeConsulta()
         frmLoading.Dispose()
     End Sub
 
     Private Sub establecerInicioDeChat()
         'Ajusta los controles para el inicio del chat
-        lblEstado.Text = "On Line"
+        lblEstado.Text = VOnline
         datosDelMedico()
         activarChat()
     End Sub
@@ -299,7 +297,7 @@ Public Class frmPrincipal
         Try
             mostrarDatosDelMedico(ControladorSesion.DatosDelMedicoSesion(USUARIO, PASSWD))
         Catch ex As Exception
-            MsgBox("Error al recuperar datos del medico", vbOK Or vbInformation, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoErrorAccesoDatos)
         End Try
     End Sub
 
@@ -313,11 +311,20 @@ Public Class frmPrincipal
 
     Private Sub limpiarVentanaDeMensajes()
         txtMensajes.Clear()
+        txtMensaje.Clear()
     End Sub
 
     Private Sub activarChat()
         tiempoMensaje.Enabled = True
         tiempoMensaje.Start()
+    End Sub
+
+    Private Sub btnEnviarMensaje_Click(sender As Object, e As EventArgs) Handles btnEnviarMensaje.Click
+        'Verifica si hay mensaje 
+        If txtMensaje.Text.Length > 0 Then
+            enviarMensaje()
+            limpiarCampoDeTexto()
+        End If
     End Sub
 
     Private Sub enviarMensaje()
@@ -327,7 +334,7 @@ Public Class frmPrincipal
             identifiarColorearMensaje("P", txtMensaje.Text)
             recibirMensajes()
         Catch ex As Exception
-            MsgBox("Hubo un error al enviar el mensaje, intenta nuevamente", vbOK Or vbInformation, "Error")
+            MsgBox(VErrorAlEnviarMensaje, vbCritical, VError)
         End Try
     End Sub
 
@@ -342,7 +349,7 @@ Public Class frmPrincipal
         Try
             recorreMensajesRecibidos(ControladorChat.RecibirMensajes("P", USUARIO, PASSWD))
         Catch ex As Exception
-            MsgBox("Error al leer los mensajes recibidos", vbOK Or vbInformation, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VErrorDatosAcceso)
         End Try
     End Sub
 
@@ -359,7 +366,7 @@ Public Class frmPrincipal
         Try
             ControladorChat.MarcarMensajeLeido(tablaMensajes.Rows(indice)("id"), USUARIO, PASSWD)
         Catch ex As Exception
-            MsgBox("Error al marcar el mensaje", vbInformation, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VErrorDatosAcceso)
         End Try
     End Sub
 
@@ -367,10 +374,10 @@ Public Class frmPrincipal
         'Muestra y colorea los mensajes dependiente de origen y destino
         If emisor.Equals("P") Then
             txtMensajes.SelectionColor = Color.FromArgb(110, 196, 167)
-            txtMensajes.AppendText("Tu ->  " & mensaje & vbNewLine)
+            txtMensajes.AppendText(Vtu & " ->  " & mensaje & vbNewLine)
         ElseIf emisor.Equals("M") Then
             txtMensajes.SelectionColor = Color.FromArgb(69, 75, 84)
-            txtMensajes.AppendText("Doctor -> " & mensaje & vbNewLine)
+            txtMensajes.AppendText(VDoctor & " -> " & mensaje & vbNewLine)
         End If
     End Sub
 
@@ -387,7 +394,7 @@ Public Class frmPrincipal
     Public Sub FinalizarSesionDechat()
         'Proceso de cierre de sesion de chat
         Dim finalizar As Integer
-        finalizar = MsgBox("Seguro de cerrar la sesion de chat? ", vbYesNo Or vbExclamation, "Cerrar Sesion")
+        finalizar = MsgBox(VSeguroDeCerrarSesion, vbQuestion & vbYesNo, VAvisoCierreSesion)
         If finalizar = 6 Then
             cancelarSesionDeChat()
         End If
@@ -399,7 +406,7 @@ Public Class frmPrincipal
             ControladorSesion.CancelarSesionDeChat(USUARIO, PASSWD)
             restablecerAPanelDeConsulta()
         Catch ex As Exception
-            MsgBox("Error al intentar cancelar cerrar la sesion de chat", vbOK Or vbInformation, "Cierre de Sesion")
+            MsgBox(VErrorCancelarChat, vbOK Or vbInformation, VAvisoCierreSesion)
         End Try
     End Sub
 
@@ -410,13 +417,296 @@ Public Class frmPrincipal
         iniciarConsulta()
         TimerChequearEstado.Enabled = False
         TimerChequearEstado.Stop()
+        tiempoMensaje.Enabled = False
+        tiempoMensaje.Stop()
     End Sub
 
-    Private Sub btnEnviarMensaje_Click(sender As Object, e As EventArgs) Handles btnEnviarMensaje.Click
-        'Verifica si hay mensaje 
-        If txtMensaje.Text.Length > 0 Then
-            enviarMensaje()
-            limpiarCampoDeTexto()
+    Public Sub TraerDiagnosticos()
+        'Recupera los diagnosticos recibidos por el paciente
+        Try
+            cargarFichaDiagnosticos(ControladorDiagnostico.TraerDiagnosticos(USUARIO, PASSWD, USUARIO))
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoErrorAccesoDatos)
+        End Try
+    End Sub
+
+    Private Sub cargarFichaDiagnosticos(ByVal datos As DataTable)
+        'Muestra los diagnosticos que ha recibido el paciente
+        flpDiagnosticos.Controls.Clear()
+        For Each diagnostico As DataRow In datos.Rows
+            Dim d As New classFichaDiagnostico
+            d.idDiagnostico = diagnostico("id").ToString
+            d.fechaDiagnostico = diagnostico("fechahora").ToString
+            d.Ponderacion = diagnostico("prioridad").ToString
+            d.ListarPatologiasDelDiagnostico(cargarPatologiasDeDiagnostico(diagnostico("id").ToString))
+            flpDiagnosticos.Controls.Add(d.crearFichaChat)
+        Next
+    End Sub
+
+    Private Function cargarPatologiasDeDiagnostico(ByVal id As String)
+        'Traer las patologias del diagnostico
+        Try
+            Return ControladorPatologias.ListarPatologiasPorDiagnostico(USUARIO, PASSWD, id)
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoErrorAccesoDatos)
+        End Try
+    End Function
+
+    Public Sub TraerRegistroDeChat()
+        'Trae la lista de chat historica del paciente
+        flpChats.Controls.Clear()
+        Try
+            mostrarHistoricoDeChat(ControladorChat.ListaHistoricaChatPaciente(USUARIO, PASSWD, USUARIO))
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoErrorAccesoDatos)
+        End Try
+    End Sub
+
+    Private Sub mostrarHistoricoDeChat(ByVal tablaChats As DataTable)
+        For Each chats As DataRow In tablaChats.Rows
+            Dim c As New classFichaChat
+            c.Id = chats("sesion")
+            c.Fecha = chats("FechaHora")
+            c.DocNombre = chats("apellidos") & ", " & chats("nombres")
+            flpChats.Controls.Add(c.crarFichaChat())
+        Next
+    End Sub
+
+    Public Sub CargarDatosDePaciente()
+        'Carga la informacion del paciente logeado
+        Try
+            cargarDatosPaciente(controladorPacientes.buscarPacientePorDocumento(USUARIO, USUARIO, PASSWD))
+            CargarEnfermedadesDelPaciente()
+            marcarIdioma()
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoErrorAccesoDatos)
+        End Try
+    End Sub
+
+    Private Sub cargarDatosPaciente(ByVal datos As DataTable)
+        txtDocumento.Text = datos.Rows(0)("documento")
+        txtFechaReg.Text = datos.Rows(0)("fechReg")
+        txtNombres.Text = datos.Rows(0)("nombres")
+        txtApellidos.Text = datos.Rows(0)("apellidos")
+        txtDireccion.Text = datos.Rows(0)("calle")
+        txtNumero.Text = datos.Rows(0)("numero")
+        txtApto.Text = datos.Rows(0)("apto")
+        txtEsquina.Text = datos.Rows(0)("esquina")
+        txtBarrio.Text = datos.Rows(0)("barrio")
+        txtEmail.Text = datos.Rows(0)("mail")
+        cargarTelefonos(datos)
+    End Sub
+
+    Private Sub cargarTelefonos(ByVal datos As DataTable)
+        'Recorre los telefonos del paciente
+        flpTelefonos.Controls.Clear()
+        For i = 0 To datos.Rows.Count - 1
+            If datos(i).Item("telefono").ToString <> "" Then
+                mostrarTelefono(datos(i).Item("telefono"))
+            End If
+        Next
+    End Sub
+
+    Private Sub mostrarTelefono(ByVal telefono As String)
+        Dim t As New Label
+        t.Text = telefono
+        t.Padding = New Padding(2)
+        t.BackColor = Color.FromArgb(69, 75, 84)
+        t.ForeColor = Color.White
+        t.TextAlign = ContentAlignment.MiddleCenter
+        flpTelefonos.Controls.Add(t)
+    End Sub
+
+    Private Sub CargarEnfermedadesDelPaciente()
+        'Carga las enfermedades del paciente
+        Try
+            recorrerEnfermadades(controladorPacientes.CargarEnfermedadesPreExistentes(USUARIO, USUARIO, PASSWD))
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VAvisoErrorAccesoDatos)
+        End Try
+    End Sub
+
+    Private Sub recorrerEnfermadades(ByVal datos As DataTable)
+        'Recorre las enfermedades
+        For Each enfermedad As DataRow In datos.Rows
+            mostrarEnfermedades(enfermedad("PREEXISTENTE"))
+        Next
+    End Sub
+
+    Private Sub mostrarEnfermedades(ByVal enfermedad As String)
+        'Muestra las enfermedades pre existentes
+        Dim e As New Label
+        e.Text = enfermedad
+        e.TextAlign = ContentAlignment.MiddleCenter
+        e.BackColor = Color.FromArgb(110, 196, 167)
+        e.ForeColor = Color.White
+        flpEnfermedades.Controls.Add(e)
+    End Sub
+
+    Private Sub marcarIdioma()
+        'Marca el radio button correspondiente al idioma registrado
+        If My.Settings.lenguaje.Equals("es") Then
+            rbLangEs.Checked = True
+        Else
+            rbLangEn.Checked = True
         End If
+    End Sub
+
+    Private Sub confirmarCambioIdioma(ByVal idioma As String)
+        Dim respuesta As Integer
+        respuesta = MsgBox(VCambioRequiereReiniciar, vbQuestion + vbYesNo, VCambioDeIdioma)
+        If respuesta = 6 Then
+            EstablecerIdioma(idioma)
+            End
+        Else
+            marcarIdioma()
+        End If
+    End Sub
+
+    Private Sub rbLangEs_Click(sender As Object, e As EventArgs) Handles rbLangEs.Click
+        If rbLangEs.Checked Then
+            confirmarCambioIdioma("es")
+        End If
+    End Sub
+
+    Private Sub rbLangEn_Click(sender As Object, e As EventArgs) Handles rbLangEn.Click
+        If rbLangEn.Checked Then
+            confirmarCambioIdioma("en")
+        End If
+    End Sub
+
+    Private Sub llblEmail_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llblEmail.LinkClicked
+        Dim para As String = EMAIL
+        Dim subject As String = VDatosPersonales
+        Process.Start(String.Format("mailto:{0}?subject={1}", para, subject))
+    End Sub
+
+    Private Sub frmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CargarIdioma()
+        cargarTextos()
+    End Sub
+
+    Public Function NuevoMensaje() As String
+        'Genera un numero aleatorio del 1 al 4 para luego mostrar mensajes diferentes.
+        Dim Random As New Random()
+        Dim numero As Integer = Random.Next(1, 4)
+        Return mensaje(numero)
+    End Function
+
+    Private Function mensaje(id As Integer) As String
+        Dim txtMensaje As String
+        Select Case id
+            Case 1
+                txtMensaje = VSitienesOtroSintoma
+            Case 2
+                txtMensaje = VTienesOtroSintoma
+            Case 3
+                txtMensaje = VQueOtroSintomaTienes
+            Case 4
+                txtMensaje = VSientesOtroSintoma
+            Case Else
+                txtMensaje = "default"
+        End Select
+        Return txtMensaje
+    End Function
+
+    Private Sub cargarTextos()
+        lblLeyenda.Text = VLeyendaInicial
+        btnIniciarAutenticado.Text = VUsuarioRegistrado
+        lblMensaje.Text = VMensajeInicial
+        btnConsulta.Text = VConsulta
+        btnChat.Text = VChat
+        btnHistoria.Text = VHistoria
+        btnComenzar.Text = VIniciarConsulta
+        btnSiguienteSintoma.Text = VSiguiente
+        linkSaberMas.Text = VsaberMas
+        btnSi.Text = VSi
+        btnNo.Text = VNo
+        btnVerInforme.Text = VVerInforme
+        btnNuevaConsulta.Text = VNuevaConsulta
+        btnIniciarChat.Text = VIniciarChat
+        lblEstadoChat.Text = VEstado.ToUpper
+        lblEstado.Text = VEnEspera
+        gbDatosPaciente.Text = VDatos
+        lblDocumento.Text = VDocumentoIdentidad
+        lblNombres.Text = VNombre
+        lblApellidos.Text = VApellidos
+        lblDireccion.Text = VDireccion
+        lblNumero.Text = VNro
+        lblApto.Text = VApto
+        lblBarrio.Text = VBarrio
+        lblEsquina.Text = VEsquina
+        lblEmail.Text = VEmail
+        lblFechaReg.Text = VFechaRegistro
+        gbTelefonos.Text = VTelefonos
+        gbPreexistentes.Text = VPatologiasPreExistentes
+        gbIdioma.Text = VLenguaje
+        rbLangEs.Text = VEspanol
+        rbLangEn.Text = VIngles
+        lblInfoContacto.Text = VComunicateConNosotros
+        tabDiagnosticos.Text = VDiagnosticosRecibidos
+        tabChats.Text = VHistoricoChat
+        btnAyuda.Text = VAyuda
+    End Sub
+
+    Private Sub confirmarCierre()
+        Dim respuesta As Integer
+        respuesta = MsgBox(VSeguroCerrarAplicacion, vbQuestion + vbYesNo, VAvisoConfirmacion)
+        If respuesta = 6 Then
+            mensajeDeCierre()
+            End
+        End If
+    End Sub
+
+    Private Sub mensajeDeCierre()
+        Try
+            ControladorChat.EnviarMensajePaciente(VElPacienteSalioDelChat, IDSESION, USUARIO, PASSWD, IDMEDICO)
+        Catch ex As Exception
+            MsgBox(VErrorAlEnviarMensaje, vbCritical, VError)
+        End Try
+    End Sub
+
+    Private Sub frmPrincipal_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        If panelChat.Visible Then
+            confirmarCierre()
+        End If
+    End Sub
+
+    Private Sub panelCabecera_Paint(sender As Object, e As PaintEventArgs) Handles panelCabecera.Paint
+
+    End Sub
+
+    Private Sub btnAyuda_Click(sender As Object, e As EventArgs) Handles btnAyuda.Click
+        Process.Start(Application.StartupPath & "\Triage - Paciente.chm")
+    End Sub
+
+    Private Sub btnAyuda_MouseMove(sender As Object, e As MouseEventArgs) Handles btnAyuda.MouseMove
+        btnAyuda.Image = My.Resources.btnHelpFocus
+        btnRecibeFoco(btnAyuda)
+    End Sub
+
+    Private Sub btnAyuda_MouseLeave(sender As Object, e As EventArgs) Handles btnAyuda.MouseLeave
+        btnAyuda.Image = My.Resources.btnHelp
+        btnPierdeFoco(btnAyuda)
+    End Sub
+
+    Private Sub btnRecibeFoco(ByVal boton As Button)
+        boton.ForeColor = Color.FromArgb(6, 5, 6)
+    End Sub
+
+    Private Sub btnPierdeFoco(ByVal boton As Button)
+        boton.ForeColor = Color.FromArgb(130, 129, 129)
+    End Sub
+
+    Private Sub picEs_Click(sender As Object, e As EventArgs) Handles picEs.Click
+        EstablecerIdioma("es")
+        CargarIdioma()
+        cargarTextos()
+    End Sub
+
+    Private Sub picEn_Click(sender As Object, e As EventArgs) Handles picEn.Click
+        EstablecerIdioma("en")
+        CargarIdioma()
+        cargarTextos()
     End Sub
 End Class

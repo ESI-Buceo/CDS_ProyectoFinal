@@ -27,21 +27,21 @@ Partial Class frmListaDePatologias
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmListaDePatologias))
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.toolsMenuLista = New System.Windows.Forms.ToolStrip()
+        Me.mnuBtnSoloActivos = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnSoloInactivos = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnTodos = New System.Windows.Forms.ToolStripButton()
         Me.tabSeperador2 = New System.Windows.Forms.ToolStripSeparator()
         Me.lblTipo = New System.Windows.Forms.ToolStripLabel()
         Me.dgvListaPatologias = New System.Windows.Forms.DataGridView()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.mnuBtnSoloActivos = New System.Windows.Forms.ToolStripButton()
-        Me.mnuBtnSoloInactivos = New System.Windows.Forms.ToolStripButton()
-        Me.mnuBtnTodos = New System.Windows.Forms.ToolStripButton()
         Me.picEncabezado = New System.Windows.Forms.PictureBox()
         Me.colID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colNombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colPonderacion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.colActivo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.colSintomas = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.colActivo = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.toolsMenuLista.SuspendLayout()
         CType(Me.dgvListaPatologias, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picEncabezado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,15 +61,45 @@ Partial Class frmListaDePatologias
         Me.toolsMenuLista.Size = New System.Drawing.Size(958, 44)
         Me.toolsMenuLista.TabIndex = 7
         '
+        'mnuBtnSoloActivos
+        '
+        Me.mnuBtnSoloActivos.Image = Global.appGestion.My.Resources.Resources.listaActivos
+        Me.mnuBtnSoloActivos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnSoloActivos.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnSoloActivos.Name = "mnuBtnSoloActivos"
+        Me.mnuBtnSoloActivos.Size = New System.Drawing.Size(126, 29)
+        Me.mnuBtnSoloActivos.Text = "Solo Activos"
+        Me.mnuBtnSoloActivos.ToolTipText = "Muestra solo los activos"
+        '
         'tabSeparador
         '
         Me.tabSeparador.Name = "tabSeparador"
         Me.tabSeparador.Size = New System.Drawing.Size(6, 23)
         '
+        'mnuBtnSoloInactivos
+        '
+        Me.mnuBtnSoloInactivos.Image = Global.appGestion.My.Resources.Resources.listaInactivos
+        Me.mnuBtnSoloInactivos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnSoloInactivos.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnSoloInactivos.Name = "mnuBtnSoloInactivos"
+        Me.mnuBtnSoloInactivos.Size = New System.Drawing.Size(139, 29)
+        Me.mnuBtnSoloInactivos.Text = "Solo Inactivos"
+        Me.mnuBtnSoloInactivos.ToolTipText = "Muestra solo los inactivos"
+        '
         'tabSeparador1
         '
         Me.tabSeparador1.Name = "tabSeparador1"
         Me.tabSeparador1.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnuBtnTodos
+        '
+        Me.mnuBtnTodos.Image = Global.appGestion.My.Resources.Resources.listarTodos
+        Me.mnuBtnTodos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.mnuBtnTodos.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnTodos.Name = "mnuBtnTodos"
+        Me.mnuBtnTodos.Size = New System.Drawing.Size(80, 29)
+        Me.mnuBtnTodos.Text = "Todos"
+        Me.mnuBtnTodos.ToolTipText = "Muestra todos los registros"
         '
         'tabSeperador2
         '
@@ -98,7 +128,7 @@ Partial Class frmListaDePatologias
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvListaPatologias.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvListaPatologias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvListaPatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colID, Me.colNombre, Me.colPonderacion, Me.colActivo, Me.colSintomas})
+        Me.dgvListaPatologias.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colID, Me.colNombre, Me.colPonderacion, Me.colSintomas, Me.colActivo})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -123,36 +153,6 @@ Partial Class frmListaDePatologias
         Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewImageColumn1.ToolTipText = "Muestra la lista de sintomas asociados"
         Me.DataGridViewImageColumn1.Width = 80
-        '
-        'mnuBtnSoloActivos
-        '
-        Me.mnuBtnSoloActivos.Image = Global.appGestion.My.Resources.Resources.listaActivos
-        Me.mnuBtnSoloActivos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnSoloActivos.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnSoloActivos.Name = "mnuBtnSoloActivos"
-        Me.mnuBtnSoloActivos.Size = New System.Drawing.Size(126, 29)
-        Me.mnuBtnSoloActivos.Text = "Solo Activos"
-        Me.mnuBtnSoloActivos.ToolTipText = "Muestra solo los activos"
-        '
-        'mnuBtnSoloInactivos
-        '
-        Me.mnuBtnSoloInactivos.Image = Global.appGestion.My.Resources.Resources.listaInactivos
-        Me.mnuBtnSoloInactivos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnSoloInactivos.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnSoloInactivos.Name = "mnuBtnSoloInactivos"
-        Me.mnuBtnSoloInactivos.Size = New System.Drawing.Size(139, 29)
-        Me.mnuBtnSoloInactivos.Text = "Solo Inactivos"
-        Me.mnuBtnSoloInactivos.ToolTipText = "Muestra solo los inactivos"
-        '
-        'mnuBtnTodos
-        '
-        Me.mnuBtnTodos.Image = Global.appGestion.My.Resources.Resources.listarTodos
-        Me.mnuBtnTodos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.mnuBtnTodos.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.mnuBtnTodos.Name = "mnuBtnTodos"
-        Me.mnuBtnTodos.Size = New System.Drawing.Size(80, 29)
-        Me.mnuBtnTodos.Text = "Todos"
-        Me.mnuBtnTodos.ToolTipText = "Muestra todos los registros"
         '
         'picEncabezado
         '
@@ -191,14 +191,6 @@ Partial Class frmListaDePatologias
         Me.colPonderacion.ReadOnly = True
         Me.colPonderacion.Width = 120
         '
-        'colActivo
-        '
-        Me.colActivo.DataPropertyName = "activo"
-        Me.colActivo.HeaderText = "Activo"
-        Me.colActivo.Name = "colActivo"
-        Me.colActivo.ReadOnly = True
-        Me.colActivo.Visible = False
-        '
         'colSintomas
         '
         Me.colSintomas.HeaderText = "Sintomas"
@@ -208,6 +200,16 @@ Partial Class frmListaDePatologias
         Me.colSintomas.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.colSintomas.ToolTipText = "Muestra la lista de sintomas asociados"
         Me.colSintomas.Width = 80
+        '
+        'colActivo
+        '
+        Me.colActivo.DataPropertyName = "activo"
+        Me.colActivo.HeaderText = "Activo"
+        Me.colActivo.Name = "colActivo"
+        Me.colActivo.ReadOnly = True
+        Me.colActivo.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.colActivo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.colActivo.Visible = False
         '
         'frmListaDePatologias
         '
@@ -242,6 +244,6 @@ Partial Class frmListaDePatologias
     Friend WithEvents colID As DataGridViewTextBoxColumn
     Friend WithEvents colNombre As DataGridViewTextBoxColumn
     Friend WithEvents colPonderacion As DataGridViewTextBoxColumn
-    Friend WithEvents colActivo As DataGridViewTextBoxColumn
     Friend WithEvents colSintomas As DataGridViewImageColumn
+    Friend WithEvents colActivo As DataGridViewCheckBoxColumn
 End Class

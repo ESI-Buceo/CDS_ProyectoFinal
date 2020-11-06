@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aguardapreparamosinforme" xml:space="preserve">
+    <value>Aguarda mientras preparamos tu informe...</value>
+  </data>
+  <data name="apellidos" xml:space="preserve">
+    <value>Apellidos</value>
+  </data>
+  <data name="apto" xml:space="preserve">
+    <value>Apto</value>
+  </data>
+  <data name="avisoconfirmacion" xml:space="preserve">
+    <value>Confirmar Accion</value>
+  </data>
+  <data name="ayuda" xml:space="preserve">
+    <value>Ayuda</value>
+  </data>
+  <data name="barrio" xml:space="preserve">
+    <value>Barrio</value>
+  </data>
+  <data name="cambioidoma" xml:space="preserve">
+    <value>Cambio de Idioma</value>
+  </data>
+  <data name="cambiorequierereiniciar" xml:space="preserve">
+    <value>Este cambio requiere que tengas que cerrar y abrir la aplicacion, estas seguro?</value>
+  </data>
+  <data name="cancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="chat" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="cierredesesion" xml:space="preserve">
+    <value>Cierre de Sesion</value>
+  </data>
+  <data name="comunicateconnosotros" xml:space="preserve">
+    <value>Comunicate con nosotros si existen diferencias con tus datos personales.</value>
+  </data>
+  <data name="consulta" xml:space="preserve">
+    <value>Consulta</value>
+  </data>
+  <data name="cualestuprincipalsintoma" xml:space="preserve">
+    <value>Cuentanos cual es tu princial sintoma...?</value>
+  </data>
+  <data name="datos" xml:space="preserve">
+    <value>Datos</value>
+  </data>
+  <data name="deseaingresarnuevosintoma" xml:space="preserve">
+    <value>Deseas ingresar un nuevo sintoma?</value>
+  </data>
+  <data name="diagnosticosrecibidos" xml:space="preserve">
+    <value>Diagnosticos recibidos</value>
+  </data>
+  <data name="direccion" xml:space="preserve">
+    <value>Direccion</value>
+  </data>
+  <data name="docidentidad" xml:space="preserve">
+    <value>Documento de identidad</value>
+  </data>
+  <data name="doctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="documento" xml:space="preserve">
+    <value>Documento</value>
+  </data>
+  <data name="elmedicocerrosesion" xml:space="preserve">
+    <value>El Medico finalizo la sesion de chat</value>
+  </data>
+  <data name="elpacientehasalidodelchat" xml:space="preserve">
+    <value>El paciente ha salido del chat</value>
+  </data>
+  <data name="elsistomayaestaingresado" xml:space="preserve">
+    <value>El sintoma ya esta ingresado</value>
+  </data>
+  <data name="email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="enespera" xml:space="preserve">
+    <value>En espera</value>
+  </data>
+  <data name="err" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="erroracceso" xml:space="preserve">
+    <value>Error de acceso</value>
+  </data>
+  <data name="erroraccesodatos" xml:space="preserve">
+    <value>Error de acceso a datos</value>
+  </data>
+  <data name="errorarchivo" xml:space="preserve">
+    <value>No se encuentra el archivo de configuracion. No puede continuar</value>
+  </data>
+  <data name="errorcancelarsesionchat" xml:space="preserve">
+    <value>Error al intentar registrar la cancelacion del chat.</value>
+  </data>
+  <data name="errordatosacceso" xml:space="preserve">
+    <value>Numero de documento o contraseña incorrecta</value>
+  </data>
+  <data name="errorenviarmensaje" xml:space="preserve">
+    <value>Error al enviar el mensaje, intente nuevamente...</value>
+  </data>
+  <data name="errorguardarsesionchat" xml:space="preserve">
+    <value>Error al guardar la sesion de chat</value>
+  </data>
+  <data name="errorrecuperardatos" xml:space="preserve">
+    <value>Error al recuperar los datos</value>
+  </data>
+  <data name="espanol" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="esperandomedico" xml:space="preserve">
+    <value>Esperando Medico...</value>
+  </data>
+  <data name="esquina" xml:space="preserve">
+    <value>Esquina</value>
+  </data>
+  <data name="estado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="fecharegistro" xml:space="preserve">
+    <value>Fecha de registro</value>
+  </data>
+  <data name="hemospreparadoinforme" xml:space="preserve">
+    <value>Hemos preparado el siguiente informe para ti de acuerdo a los sintomas que has ingresado. Por favor inicia una conversacion por chat con el medico.</value>
+  </data>
+  <data name="historia" xml:space="preserve">
+    <value>Historia</value>
+  </data>
+  <data name="historicochat" xml:space="preserve">
+    <value>Historico de chat</value>
+  </data>
+  <data name="ingles" xml:space="preserve">
+    <value>Ingles</value>
+  </data>
+  <data name="ingresar" xml:space="preserve">
+    <value>Ingresar</value>
+  </data>
+  <data name="ingresoalsistema" xml:space="preserve">
+    <value>Ingreso al Sistema</value>
+  </data>
+  <data name="iniciarchat" xml:space="preserve">
+    <value>Iniciar Chat</value>
+  </data>
+  <data name="iniciarconsulta" xml:space="preserve">
+    <value>Iniciar consulta</value>
+  </data>
+  <data name="lenguaje" xml:space="preserve">
+    <value>Lenguaje</value>
+  </data>
+  <data name="leyendainicial" xml:space="preserve">
+    <value>Mas de 80 años apostando a la saludar de nuestros afiliados. Una gran familia te protege.</value>
+  </data>
+  <data name="listadesintomas" xml:space="preserve">
+    <value>Lista de Sintomas</value>
+  </data>
+  <data name="mensajeinicial" xml:space="preserve">
+    <value>Hola, gracias por utilizar Triage. Trataremos de orientarte para que luego consultes a tu medico. Comencemos a hacer una evaluacion</value>
+  </data>
+  <data name="no" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="noexistenpatologias" xml:space="preserve">
+    <value>No existen patologias con los sintomas que has ingresado !, puedes iniciar sesion con un medico para consultar</value>
+  </data>
+  <data name="nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="nuevaconsulta" xml:space="preserve">
+    <value>Nueva Consulta</value>
+  </data>
+  <data name="numero" xml:space="preserve">
+    <value>N`</value>
+  </data>
+  <data name="online" xml:space="preserve">
+    <value>En Linea</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="patologiasdiagnosticadas" xml:space="preserve">
+    <value>Patologias diagnosticadas</value>
+  </data>
+  <data name="patologiaspreexistentes" xml:space="preserve">
+    <value>Patologias pre-existentes</value>
+  </data>
+  <data name="presionaparaverinforme" xml:space="preserve">
+    <value>Presiona Ver Informe para que podamos generarte un diagnostico de acuerdo a los sintomas que has ingresado. No dejes de consultara tu medico via chat, recuerda que este diagnostico no sustituye la consulta a un profesional.</value>
+  </data>
+  <data name="queotrosintomatienes" xml:space="preserve">
+    <value>Que otro sintoma tienes, ingresalo...</value>
+  </data>
+  <data name="recordarmisdatos" xml:space="preserve">
+    <value>Recordar mis datos</value>
+  </data>
+  <data name="sabermas" xml:space="preserve">
+    <value>Saber mas...</value>
+  </data>
+  <data name="segurocerraraplicacion" xml:space="preserve">
+    <value>Estas seguro de cerrar la aplicacion?</value>
+  </data>
+  <data name="segurocerrarsesion" xml:space="preserve">
+    <value>Seguro de cerrar la sesion de chat?</value>
+  </data>
+  <data name="si" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="sientesotrosintoma" xml:space="preserve">
+    <value>Sientes otro sintoma?, ingresalo...</value>
+  </data>
+  <data name="siguiente" xml:space="preserve">
+    <value>Siguientes</value>
+  </data>
+  <data name="sitienesotrosintoma" xml:space="preserve">
+    <value>Si tienes otro sintoma, ingresalo...</value>
+  </data>
+  <data name="telefonos" xml:space="preserve">
+    <value>Telefonos</value>
+  </data>
+  <data name="tienesotrosintoma" xml:space="preserve">
+    <value>Tienes otro sintoma, ingresalo...</value>
+  </data>
+  <data name="tu" xml:space="preserve">
+    <value>Tu</value>
+  </data>
+  <data name="usuarioregistrado" xml:space="preserve">
+    <value>Usuario Registrado</value>
+  </data>
+  <data name="verificarinformacionpersonal" xml:space="preserve">
+    <value>Datos personales</value>
+  </data>
+  <data name="verinforme" xml:space="preserve">
+    <value>Ver Informe</value>
+  </data>
+</root>

@@ -5,13 +5,14 @@ Imports capaDatos
 Public Module controladorAdministrativo
 
     Public Function VarificarDocumentoDeIdentidad(ByVal docidentidad As String, uid As String, pwd As String)
+        'Valida si el documento ya existe en la bd
         Dim a As New ModeloAdministrativo(uid, pwd)
         Return a.VerificarDocumentoDeIdentidad(docidentidad)
     End Function
 
-    Public Sub GuardarDatosAdmin(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
+    Public Function GuardarDatosAdmin(ByVal docId As String, email As String, nombres As String, apellidos As String, calle As String,
                                  numero As String, barrio As String, esquina As String, apartamento As String, fechaNac As String,
-                                 activo As String, telefonos As DataGridView, numeroAdmin As String, uid As String, pwd As String)
+                                 telefonos As List(Of String), numeroAdmin As String, uid As String, pwd As String)
         'Guarda los datos del administrativo
         Dim a As New ModeloAdministrativo(uid, pwd)
         a.Documento = docId
@@ -25,22 +26,17 @@ Public Module controladorAdministrativo
         a.Apartamento = apartamento
         a.FechaNacimiento = fechaNac
         a.NumeroEmpleado = numeroAdmin
-        a.Activo = activo
-        a.Telefonos = cargarGridTelefonosADataTable(telefonos)
-        a.GuardarAdministrativo()
-    End Sub
+        a.Telefonos = telefonos
+        Return a.GuardarAdministrativo()
+    End Function
 
-    Public Sub CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+    Public Function CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+        'Crea el nuevo usuario en mysql y devuelve el pass para pasarlo por email
         Dim a As New ModeloAdministrativo(uid, pwd)
         a.Documento = docidentidad
-        a.crearUsuarioBD()
-    End Sub
-
-    Private Function cargarGridTelefonosADataTable(ByVal telefonos As DataGridView) As DataTable
-        'Carga la lista de telefonos
-        Dim listaTelefonos As New DataTable
-        listaTelefonos = TryCast(telefonos.DataSource, DataTable)
-        Return listaTelefonos
+        a.Password = generarPassword()
+        a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
+        Return a.CrearUsuarioBD()
     End Function
 
     Public Function crearCadenaDeBusquedaAdministrativo(ByVal campoABuscar As String, datoABuscar As String)
@@ -71,6 +67,7 @@ Public Module controladorAdministrativo
         Dim tablaTel As New DataTable
         tablaTel.Columns.Add("Telefono")
         Return tablaTel
+
     End Function
 
     Private Function formatearSqlBuscquedaAdministrativo(ByVal datoString As String)
@@ -81,9 +78,9 @@ Public Module controladorAdministrativo
         Return "p.nombres like '%%'"
     End Function
 
-    Public Function EliminiarAdmin(ByVal docIdentidad As String, uid As String, pwd As String)
+    Public Function cambiarEstadoAdmin(ByVal docIdentidad As String, estado As String, uid As String, pwd As String)
         Dim a As New ModeloAdministrativo(uid, pwd)
-        Return a.EliminarAdministrativo(docIdentidad)
+        Return a.CambiarEstadoAdmin(docIdentidad, estado)
     End Function
 
     Public Function ValidarAdministrativo(ByVal uid As String, pwd As String) As DataTable
@@ -93,7 +90,25 @@ Public Module controladorAdministrativo
 
     Public Sub eliminiarUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         Dim a As New ModeloAdministrativo(uid, pwd)
+        a.RangoIpAdministrativo = ControladorConfiguracion.leerRangoIpGestion(uid, pwd)
         a.EliminarUsuarioBD(docidentidad)
     End Sub
+
+    Public Function ListarAdministrativos(ByVal estado As String, uid As String, pwd As String)
+        'Lista los administrativos por estado
+        Dim a As New ModeloAdministrativo(uid, pwd)
+        Return a.ListarAdministrativos(estado)
+    End Function
+
+    Public Function ListarAdministrativos(ByVal uid As String, pwd As String)
+        'Lista todos los administrativos
+        Dim a As New ModeloAdministrativo(uid, pwd)
+        Return a.ListarAdministrativos()
+    End Function
+
+    Public Function ListarTelefonos(ByVal docidentidad As String, uid As String, pwd As String)
+        Dim a As New ModeloAdministrativo(uid, pwd)
+        Return a.ListarTelefonos(docidentidad)
+    End Function
 
 End Module

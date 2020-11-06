@@ -13,14 +13,25 @@ Public Module ControladorDiagnostico
     End Function
 
     Private Function evaluarTablaPatologias(ByRef tablaDePatologias As DataTable, listaSintomasSeleccionados As List(Of Integer), uid As String, pwd As String)
-        'Evalua si existen patologias con los sintomas seleccionados por el paciente
-        Dim tablaDePatologiasPorSintomas As New DataTable
-        tablaDePatologiasPorSintomas = tablaDePatologias
-        If tablaDePatologiasPorSintomas.Rows.Count > 0 Then
-            ponderarDiagnostico(tablaDePatologiasPorSintomas, listaSintomasSeleccionados, uid, pwd)
+        'Evalua si existen patologias con los sintomas seleccionados por el paciente y hace los registros
+        If tablaDePatologias.Rows.Count > 0 Then
+            ponderarDiagnostico(tablaDePatologias)
+            guardarDiagnosticoEnBD(uid, pwd)
+            guardarRelacionPacienteDiagnostico(uid, pwd)
+            formatearStringSQL(ModeloDiagnostico.CodigoDiagnostico, tablaDePatologias, listaSintomasSeleccionados, uid, pwd)
+        Else
+            generarCodigoDeSesionSinDiagnostico(uid, pwd)
+            guardarDiagnosticoEnBD(uid, pwd)
+            guardarRelacionPacienteDiagnostico(uid, pwd)
         End If
-        Return tablaDePatologiasPorSintomas
+        Return tablaDePatologias
     End Function
+
+    Private Sub generarCodigoDeSesionSinDiagnostico(ByVal uid As String, pwd As String)
+        'Si el paciene no obtiene diagnostico, se genera instancia vacia de sesion para chat
+        ModeloDiagnostico.Ponderacion = 0
+        asignarCodigoDeDiagnostico()
+    End Sub
 
     Private Function formarCadenaDeConsulta(ByVal listaSintomasSeleccionados As List(Of Integer)) As String
         Dim texto As String = ""
@@ -30,17 +41,19 @@ Public Module ControladorDiagnostico
         Return texto.Remove(0, 1)
     End Function
 
-    Private Sub ponderarDiagnostico(ByRef ListaDePatologiasParaDiagnostico As DataTable, listaSintomasSeleccionados As List(Of Integer), uid As String, pwd As String)
+    Private Sub ponderarDiagnostico(ByRef ListaDePatologiasParaDiagnostico As DataTable)
         'calcula la ponderacion del diagnostico que despues se utlizara en el chat
+        Dim ponderacion As Integer = 0
+
         For Each patologias As DataRow In ListaDePatologiasParaDiagnostico.Rows
             If patologias("ponderacion").ToString = 40 Then
-                ModeloDiagnostico.Ponderacion = 40
+                ponderacion = 40
                 Exit For
             Else
-                ModeloDiagnostico.Ponderacion = calcularPonderacionDiagnostico(ListaDePatologiasParaDiagnostico)
+                ponderacion = calcularPonderacionDiagnostico(ListaDePatologiasParaDiagnostico)
             End If
         Next
-        guardarDiagnosticoEnBD(ModeloDiagnostico.Ponderacion, ListaDePatologiasParaDiagnostico, listaSintomasSeleccionados, uid, pwd)
+        ModeloDiagnostico.Ponderacion = ponderacion
     End Sub
 
     Private Function calcularPonderacionDiagnostico(ByRef ListaDePatologiasParaDiagnostico As DataTable)
@@ -53,25 +66,22 @@ Public Module ControladorDiagnostico
         Return totalPonderaciones / cantidad
     End Function
 
-    Private Sub guardarDiagnosticoEnBD(ByVal ponderacionDiagnostico As String, listaDePatologiasParaDiagnostico As DataTable, listaSintomasSeleccionados As List(Of Integer), uid As String, pwd As String)
+    Private Sub guardarDiagnosticoEnBD(ByVal uid As String, pwd As String)
         'Guarda el diagnostico en la bd
         asignarCodigoDeDiagnostico()
         Dim d As New ModeloDiagnostico(uid, pwd)
         d.GuardarDiagnostico()
-        guardarRelacionPacienteDiagnostico(ModeloDiagnostico.CodigoDiagnostico, listaDePatologiasParaDiagnostico, listaSintomasSeleccionados, uid, pwd)
     End Sub
 
     Private Sub asignarCodigoDeDiagnostico()
         ModeloDiagnostico.CodigoDiagnostico = generarCodigoDeDiagnostico()
     End Sub
 
-    Private Sub guardarRelacionPacienteDiagnostico(ByVal codigoDiagnostico As String, listaDePatologiasParaDiagnostico As DataTable, listaSintomasSeleccionados As List(Of Integer), uid As String, pwd As String)
+    Private Sub guardarRelacionPacienteDiagnostico(ByVal uid As String, pwd As String)
         'Guarda la relacion paciente recibe diagnostico en la bd
         Dim pd As New ModeloRecibe(uid, pwd)
         pd.DocIdentidad = uid
-        pd.IdDiagnostico = codigoDiagnostico
         pd.GuardarRelacionPacienteDiagnostico()
-        formatearStringSQL(codigoDiagnostico, listaDePatologiasParaDiagnostico, listaSintomasSeleccionados, uid, pwd)
     End Sub
 
     Private Sub formatearStringSQL(codigoDiagnostico As String, listaDePatologiasParaDiagnostico As DataTable, listaSintomasSeleccionados As List(Of Integer), uid As String, pwd As String)
@@ -100,7 +110,7 @@ Public Module ControladorDiagnostico
     End Function
 
     Public Function ValidarSintomaSeleccionado(ByVal idSintoma As Integer, ByVal listaSintomasSeleccionados As List(Of Integer)) As Boolean
-        'Completa la lista de sintomas seleccionados por el paciente si esta vacia y sino, llama al metodo verifiar para ver si ya no esta ingresado
+        'Completa la lista de sintomas seleccionados por el paciente si esta vacia y sino, llama al metodo verificar para ver si ya no esta ingresado
         If listaSintomasSeleccionados.Count = 0 Then
             Return True
         Else
@@ -122,28 +132,14 @@ Public Module ControladorDiagnostico
         Return ModeloDiagnostico.CodigoDiagnostico
     End Function
 
-    Public Function NuevoMensaje() As String
-        'Genera un numero aleatorio del 1 al 4 para luego mostrar mensajes diferentes.
-        Dim Random As New Random()
-        Dim numero As Integer = Random.Next(1, 4)
-        Return mensaje(numero)
+    Public Function TraerDiagnosticos(ByVal uid As String, pwd As String, documento As String)
+        Dim d As New ModeloDiagnostico(uid, pwd)
+        Return d.TraerDiagnosticos(documento)
     End Function
 
-    Private Function mensaje(id As Integer) As String
-        Dim txtMensaje As String
-        Select Case id
-            Case 1
-                txtMensaje = "Si tienes otro sintoma, ingresado  "
-            Case 2
-                txtMensaje = "Tienes otro sintoma ? ingresalo "
-            Case 3
-                txtMensaje = "Que otro sintoma tienes? ingresado"
-            Case 4
-                txtMensaje = "Sientes otro sintoma ? ingresalo"
-            Case Else
-                txtMensaje = "Mensaje por defecto"
-        End Select
-        Return txtMensaje
+    Public Function CantidadDeDiagnosticos(ByVal uid As String, pwd As String, documento As String)
+        Dim d As New ModeloDiagnostico(uid, pwd)
+        Return d.cantidadDeDiagnosticos(documento)
     End Function
 
 End Module

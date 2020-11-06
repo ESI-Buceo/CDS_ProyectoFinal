@@ -37,6 +37,7 @@ Partial Class frmSintomas
         Me.tabSeparador3 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnuBtnBorrar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnReactivar = New System.Windows.Forms.ToolStripButton()
         Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
         Me.tabDatosSintomas = New System.Windows.Forms.TabControl()
         Me.tabDatos = New System.Windows.Forms.TabPage()
@@ -78,7 +79,7 @@ Partial Class frmSintomas
         Me.toolsMenuSintoma.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.toolsMenuSintoma.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.toolsMenuSintoma.ImeMode = System.Windows.Forms.ImeMode.[On]
-        Me.toolsMenuSintoma.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuBtnModificar})
+        Me.toolsMenuSintoma.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuBtnReactivar, Me.mnuBtnModificar})
         Me.toolsMenuSintoma.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.toolsMenuSintoma.Location = New System.Drawing.Point(12, 84)
         Me.toolsMenuSintoma.Name = "toolsMenuSintoma"
@@ -178,6 +179,16 @@ Partial Class frmSintomas
         '
         Me.tabSeparador4.Name = "tabSeparador4"
         Me.tabSeparador4.Size = New System.Drawing.Size(6, 23)
+        '
+        'mnuBtnReactivar
+        '
+        Me.mnuBtnReactivar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.mnuBtnReactivar.Image = CType(resources.GetObject("mnuBtnReactivar.Image"), System.Drawing.Image)
+        Me.mnuBtnReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnReactivar.Name = "mnuBtnReactivar"
+        Me.mnuBtnReactivar.Size = New System.Drawing.Size(24, 24)
+        Me.mnuBtnReactivar.Text = "ToolStripButton1"
+        Me.mnuBtnReactivar.Visible = False
         '
         'mnuBtnModificar
         '
@@ -279,7 +290,7 @@ Partial Class frmSintomas
         Me.lblSintomaEstado.Size = New System.Drawing.Size(109, 19)
         Me.lblSintomaEstado.TabIndex = 2
         Me.lblSintomaEstado.Text = "HABILITADO:"
-        Me.lblSintomaEstado.UseWaitCursor = True
+        Me.lblSintomaEstado.UseWaitCursor = False
         '
         'lblSintomaNombre
         '
@@ -290,7 +301,7 @@ Partial Class frmSintomas
         Me.lblSintomaNombre.Size = New System.Drawing.Size(83, 19)
         Me.lblSintomaNombre.TabIndex = 1
         Me.lblSintomaNombre.Text = "NOMBRE:"
-        Me.lblSintomaNombre.UseWaitCursor = True
+        Me.lblSintomaNombre.UseWaitCursor = False
         '
         'tabBusqueda
         '
@@ -303,7 +314,7 @@ Partial Class frmSintomas
         Me.tabBusqueda.Size = New System.Drawing.Size(873, 207)
         Me.tabBusqueda.TabIndex = 1
         Me.tabBusqueda.Text = "Busqueda"
-        Me.tabBusqueda.UseWaitCursor = True
+        Me.tabBusqueda.UseWaitCursor = False
         '
         'dgSintomas
         '
@@ -318,7 +329,6 @@ Partial Class frmSintomas
         Me.dgSintomas.Margin = New System.Windows.Forms.Padding(4)
         Me.dgSintomas.Name = "dgSintomas"
         Me.dgSintomas.ReadOnly = True
-        Me.dgSintomas.UseWaitCursor = False
         Me.dgSintomas.Size = New System.Drawing.Size(867, 203)
         Me.dgSintomas.TabIndex = 0
         '
@@ -402,4 +412,5 @@ Partial Class frmSintomas
     Friend WithEvents colID As DataGridViewTextBoxColumn
     Friend WithEvents colNombre As DataGridViewTextBoxColumn
     Friend WithEvents colActivo As DataGridViewCheckBoxColumn
+    Friend WithEvents mnuBtnReactivar As ToolStripButton
 End Class

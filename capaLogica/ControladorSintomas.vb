@@ -1,4 +1,5 @@
 ﻿Imports System.Data
+Imports System.Windows.Forms
 Imports capaDatos
 Public Module ControladorSintomas
 
@@ -34,4 +35,24 @@ Public Module ControladorSintomas
         Dim s As New ModeloSintoma(uid, pwd)
         Return s.ListarSintomasXPatologia(idPatologia)
     End Function
+
+    Public Function ListarSintomas(ByVal estado As Integer, uid As String, pwd As String)
+        Dim s As New ModeloSintoma(uid, pwd)
+        Return s.ListarSintomas(estado)
+    End Function
+
+    Public Function ListarTodosLosSintomas(ByVal uid As String, pwd As String)
+        Dim s As New ModeloSintoma(uid, pwd)
+        Return s.ListarTodosLosSintomas
+    End Function
+
+    Public Sub ExportarDatosADB(ByVal uid As String, pwd As String, datos As DataTable)
+        'Guarda informacion en la base de datos
+        Dim s As New ModeloSintoma(uid, pwd)
+        For Each sintoma As DataRow In datos.Rows
+            s.ID = 0
+            s.Nombre = sintoma("columna1").ToString
+            s.GuardarSintoma()
+        Next
+    End Sub
 End Module

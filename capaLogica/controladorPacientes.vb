@@ -15,9 +15,9 @@ Public Module controladorPacientes
         Return a.VerificarDocumentoDeIdentidad(docidentidad)
     End Function
 
-    Public Sub GuardarDatosPaciente(ByVal docidentidad As String, email As String, nombres As String, apellidos As String,
+    Public Function GuardarDatosPaciente(ByVal docidentidad As String, email As String, nombres As String, apellidos As String,
                                calle As String, numero As String, barrio As String, esquina As String, apartamento As String,
-                               fechaNac As String, activo As String, Telefonos As DataGridView, PreExistentes As DataGridView,
+                               fechaNac As String, activo As String, telefonos As List(Of String), preExistentes As List(Of String),
                                     uid As String, pwd As String)
         'Guarda la informacion del paciente
         Dim p As New ModeloPaciente(uid, pwd)
@@ -32,43 +32,32 @@ Public Module controladorPacientes
         p.Apartamento = apartamento
         p.FechaNacimiento = fechaNac
         p.Activo = activo
-        p.Telefonos = cargarGridTelefonosADataTable(Telefonos)
-        p.TablaPreExistente = cargarGridPreExistentesADataTable(PreExistentes)
-        p.GuardarDatosPaciente()
-    End Sub
+        p.Telefonos = telefonos
+        p.ListaPreExistentes = preExistentes
+        Return p.GuardarDatosPaciente()
+    End Function
 
-    Public Sub CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
+    Public Function CrearUsuarioBD(ByVal docidentidad As String, uid As String, pwd As String)
         'Crea el usuario en la base de datos
         Dim p As New ModeloPaciente(uid, pwd)
         p.Documento = docidentidad
-        p.CrearUsuarioBD()
-    End Sub
-
-    Private Function cargarGridTelefonosADataTable(ByVal telefonos As DataGridView) As DataTable
-        'Carga la lista de telefonos
-        Dim TablaTelefonos As New DataTable
-        TablaTelefonos = TryCast(telefonos.DataSource, DataTable)
-        Return TablaTelefonos
+        p.Password = generarPassword()
+        p.RangoIpPaciente = ControladorConfiguracion.LeerRangoIpPacientes(uid, pwd)
+        Return p.CrearUsuarioBD()
     End Function
 
     Public Sub eliminiarPacienteBD(ByVal docidentidad As String, uid As String, pwd As String)
         'Eliminia el usuario de la base de datos
         Dim p As New ModeloPaciente(uid, pwd)
+        p.RangoIpPaciente = ControladorConfiguracion.LeerRangoIpPacientes(uid, pwd)
         p.EliminarUsuarioBD(docidentidad)
     End Sub
 
-    Private Function cargarGridPreExistentesADataTable(ByVal preexistentes As DataGridView) As DataTable
-        'Carga la lista de telefonos
-        Dim TablaPreExistentes As New DataTable
-        TablaPreExistentes = TryCast(preexistentes.DataSource, DataTable)
-        Return TablaPreExistentes
-    End Function
-
-    Public Sub EliminiarPaciente(ByVal docIdentidad As String, uid As String, pwd As String)
-        'Elimina logicamente a un medico
+    Public Function CambiarEstadoPaciente(ByVal docIdentidad As String, estado As String, uid As String, pwd As String)
+        'Elimina logicamente a un paciente
         Dim p As New ModeloPaciente(uid, pwd)
-        p.EliminarPaciente(docIdentidad)
-    End Sub
+        Return p.CambiarEstadoPaciente(docIdentidad, estado)
+    End Function
 
     Public Function buscarPacientePorDocumento(ByVal docIdentidad As String, uid As String, pwd As String)
         'Busca medico por documento
@@ -138,4 +127,5 @@ Public Module controladorPacientes
         Dim m As New ModeloMedico(uid, pwd)
         Return m.ListarTelefonos(docidentidad)
     End Function
+
 End Module

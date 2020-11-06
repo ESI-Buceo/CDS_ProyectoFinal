@@ -1,4 +1,5 @@
 ﻿Imports System.ComponentModel
+Imports System.Net.Mail
 Imports capaLogica
 
 Public Class frmPrincipal
@@ -6,6 +7,8 @@ Public Class frmPrincipal
     Private Sub frmPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         VerificarNuevasSolicitudesDeChat()
         activarControlDeSesiones()
+        cargarTextos()
+        mostarIdioma()
     End Sub
 
     Private Sub VerificarNuevasSolicitudesDeChat()
@@ -14,8 +17,7 @@ Public Class frmPrincipal
             cargarListaDeChatPendientes(ControladorSesion.ChequearSesionesPendientes(USUARIO, PASSWD))
             cargarListaChatEnEspera(ControladorSesion.chequearSesionesEnEspera(USUARIO, PASSWD))
         Catch ex As Exception
-            MsgBox(ex.Message)
-            MsgBox("Error al chequear mensajes")
+            MsgBox(VErrorChequearMensaje, vbCritical, VError)
         End Try
     End Sub
 
@@ -47,7 +49,7 @@ Public Class frmPrincipal
         ficha.IdChat = sesion("SESION").ToString
         ficha.Foto = "vacia"
         ficha.Nombre = sesion("NOMBRES").ToString & " " & sesion("APELLIDOS").ToString
-        ficha.Mensaje = "Chat activo"
+        ficha.Mensaje = VChatActivo
         ficha.Ponderacion = sesion("PRIORIDAD")
         ficha.Minutos = Format(CDate(sesion("HORA")), "HH:mm")
         ficha.IdPaciente = sesion("DOC").ToString
@@ -60,7 +62,7 @@ Public Class frmPrincipal
         Try
             mostrarDatosDelPaciente(ControladorChat.DatosPaciente(IDSESION, USUARIO, PASSWD))
         Catch ex As Exception
-            MsgBox("Error al traer los datos del paciente", vbCritical, "Error")
+            MsgBox(VErrorDatosPaciente, vbCritical, VError)
         End Try
 
     End Sub
@@ -115,7 +117,7 @@ Public Class frmPrincipal
         Try
             mostrarEnfermedadesPreExistentes(controladorPacientes.CargarEnfermedadesPreExistentes(docIdentidad, USUARIO, PASSWD))
         Catch ex As Exception
-            MsgBox("Error al cargar enfermedades pre Existentes!")
+            MsgBox(VErrorEnfermedadesPreExixtentes, vbCritical, VError)
         End Try
     End Sub
 
@@ -150,9 +152,9 @@ Public Class frmPrincipal
     Private Sub mostrarSintomasDelPaciente()
         'Verificar sintomas ingresados por el paciente
         Try
-            recorrerSintomasPaciente(MostrarSintomasPaciente(IDSESION, USUARIO, PASSWD))
+            recorrerSintomasPaciente(ControladorChat.MostrarSintomasPaciente(IDSESION, USUARIO, PASSWD))
         Catch ex As Exception
-            MsgBox("No se pudieron cargar los sintomas del paciente !")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VError)
         End Try
     End Sub
 
@@ -176,8 +178,7 @@ Public Class frmPrincipal
         Try
             recorreMensajesRecibidos(ControladorChat.RecibirMensajes(IDSESION, "M", USUARIO, PASSWD))
         Catch ex As Exception
-            MsgBox(ex.Message)
-            MsgBox("Error al cargar los mensajes recibidos")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VError)
         End Try
     End Sub
 
@@ -186,14 +187,14 @@ Public Class frmPrincipal
         Try
             recorreMensajesRecibidos(ControladorChat.RecibirTodosMensajes(IDSESION, USUARIO, PASSWD))
         Catch ex As Exception
-            MsgBox("Error al cargar los mensajes recibidos")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VError)
         End Try
     End Sub
 
     Private Sub recorreMensajesRecibidos(ByVal tablaMensajes As DataTable)
         'Identifica los destinatario
         For i = 0 To tablaMensajes.Rows.Count - 1
-            identifiarColorearMensaje(tablaMensajes(i)("emisor"), tablaMensajes(i)("mensaje"))
+            identifiarColorearMensaje(tablaMensajes(i)("emisor"), tablaMensajes(i)("mensaje"), tablaMensajes(i)("docidentidadMedico"))
             marcarMensajeLeido(tablaMensajes, i)
         Next
     End Sub
@@ -203,7 +204,7 @@ Public Class frmPrincipal
         Try
             ControladorChat.MarcarMensajeLeido(tablaMensajes.Rows(indice)("id"), USUARIO, PASSWD)
         Catch ex As Exception
-            MsgBox("Error al intentar marcar mensaje", vbInformation, "Error")
+            MsgBox(VErrorRecuperarDatos, vbCritical, VError)
         End Try
     End Sub
 
@@ -218,12 +219,12 @@ Public Class frmPrincipal
         'Envia el mensaje
         Try
             ControladorChat.EnviarMensajeMedico(txtMensaje.Text, IDSESION, USUARIO, PASSWD, IDPACIENTE)
-            identifiarColorearMensaje("M", txtMensaje.Text)
+            identifiarColorearMensaje("M", txtMensaje.Text, USUARIO)
             limpiarCampoDeTexto()
             recibirMensajes()
             ChequearMensajesRecibidos()
         Catch ex As Exception
-            MsgBox("Error al enviar el mensaje", vbCritical, "Error")
+            MsgBox(VErrorEnviarMensaje, vbCritical, VError)
         End Try
     End Sub
 
@@ -232,14 +233,14 @@ Public Class frmPrincipal
         txtMensaje.Text = ""
     End Sub
 
-    Private Sub identifiarColorearMensaje(ByVal emisor As String, mensaje As String)
+    Private Sub identifiarColorearMensaje(ByVal emisor As String, mensaje As String, idmedico As String)
         'colorea el mensaje segun el emisor
         If emisor.Equals("P") Then
             txtMensajes.SelectionColor = Color.FromArgb(92, 160, 136)
-            txtMensajes.AppendText("Paciente ->  " & mensaje & vbNewLine)
+            txtMensajes.AppendText(lblNombrePaciente.Text & " ->  " & mensaje & vbNewLine)
         ElseIf emisor.Equals("M") Then
             txtMensajes.SelectionColor = Color.FromArgb(69, 75, 84)
-            txtMensajes.AppendText("Tu -> " & mensaje & vbNewLine)
+            txtMensajes.AppendText(lblNombreMedico.Text & " -> " & mensaje & vbNewLine)
         End If
     End Sub
 
@@ -290,7 +291,7 @@ Public Class frmPrincipal
         Try
             ControladorChat.EnviarChatAEspera(IDSESION, USUARIO, PASSWD)
         Catch ex As Exception
-            MsgBox("Error al enviar el chat a espera", vbCritical, "Error")
+            MsgBox(VErrorEnviarChatEspera, vbCritical, VError)
         End Try
 
     End Sub
@@ -300,7 +301,7 @@ Public Class frmPrincipal
         Try
             ControladorSesion.chequearSesionesEnEspera(USUARIO, PASSWD)
         Catch ex As Exception
-            MsgBox("Error al verificar sesiones en espera", vbCritical, "Error")
+            MsgBox(VErrorVerficarSesionesEspera, vbCritical, VError)
         End Try
     End Sub
 
@@ -354,7 +355,7 @@ Public Class frmPrincipal
     Private Sub tsmBtnFinalizarChat_Click(sender As Object, e As EventArgs) Handles tsmBtnFinalizarChat.Click
         'Antes de finalizar el chat guarda en el estado de la sesion
         Dim respuesta As Integer
-        respuesta = MsgBox("Estas seguro de finalizar el chat?", vbQuestion & vbYesNo, "Fianlizar Chat")
+        respuesta = MsgBox(VSeguroFinalizarChat, vbQuestion & vbYesNo, VFinalizarChat)
         If respuesta = 6 Then
             finalizarSesionDeChat()
         End If
@@ -367,16 +368,16 @@ Public Class frmPrincipal
             confirmarEnvioDeEmailDeChat()
             restablecerVentanaChat()
         Catch ex As Exception
-            MsgBox("Error al registrar el cierre del chat")
+            MsgBox(VErrorRegistrarCierreChat, vbCritical, VError)
         End Try
     End Sub
 
     Private Sub confirmarEnvioDeEmailDeChat()
         'Consulta sobre el envio del email al usuario
         Dim respuesta As Integer
-        respuesta = MsgBox("Desea enviar ua copia del chat al email del paciente?", vbYesNo, "AVISO ANTES DE CIERRE")
+        respuesta = MsgBox(VCopiaEmailAPaciente, vbYesNo, VAvisoAntesDeCierre)
         If respuesta = 6 Then
-            MsgBox("Enviar Email")
+            enviarEmail()
         End If
     End Sub
 
@@ -417,8 +418,7 @@ Public Class frmPrincipal
         Catch ex As Exception
             timeEstadoDeSesion.Enabled = False
             timeEstadoDeSesion.Stop()
-            MsgBox(ex.Message)
-            MsgBox("Error al verificar el estado de la sesion", vbCritical, "Error")
+            MsgBox(VErrorVerificarEstadoSesion, vbCritical, VError)
         End Try
 
     End Sub
@@ -427,7 +427,7 @@ Public Class frmPrincipal
         'Si la sesion fue cerrada por el paciente, advierte al medico
         If estado = "4" Then
             DeshabilitarControlDeEstadoDeSesion()
-            MsgBox("El paciente ha cerrado la sesion de chat", vbInformation, "Aviso")
+            MsgBox(VPacienteCerroSesionChat, vbInformation, VAviso)
             txtMensaje.Enabled = False
         End If
     End Sub
@@ -449,10 +449,136 @@ Public Class frmPrincipal
 
     Private Function validarCierreDeLaAplicacion()
         'Verifica si no hay chat abiertos para poder cerrar la app
-        If panelCabeceraChatActivo.Visible Then
-            MsgBox("No puede cerrar la aplicacion si existe un chat en proceso !", vbInformation & vbOK, "ALERTA DE CIERRE")
+        If panelCabeceraChatActivo.Visible Or flpChatenEspera.Controls.Count > 0 Then
+            MsgBox(VNoCerrarChatEnProceso, vbInformation & vbOK, VAlertaCierre)
             Return False
         End If
         Return True
     End Function
+
+    Private Sub enviarEmail()
+        Dim email As New MailMessage
+        Dim smtp As New SmtpClient
+        Dim logo As Image = My.Resources.logo_App
+        Dim datosConexion As New DataTable
+        datosConexion = LeerConfiguracionEmail()
+        If datosConexion.Rows(0).Item("de").ToString <> Nothing Then
+
+            email.From = New MailAddress(datosConexion.Rows(0).Item("de").ToString)
+            email.To.Add(lblEmailPaciente.Text)
+            email.Subject = VConversacionDeChat + " - Sesion #" + IDSESION + " - FECHA: " + Date.Now
+            email.IsBodyHtml = True
+            email.Body = "<HTML><body>
+                            <h2>" & VMensajeDeChat & "</h2>
+                            <span>" & recorrerMensajesChat() & "</span>
+                            <h4> " + VMedicoTratante + " Dr.: " & lblNombreMedico.Text & "</h4>
+                            <span>" + VGraciasPorUtilizarElSistema + "</span>
+                            <h4>" + VElEquipoDe + " Vida Sana</h4>
+                        </body></HTML>"
+
+            smtp.Port = datosConexion.Rows(0).Item("puerto").ToString
+            smtp.Host = datosConexion.Rows(0).Item("servidorSalida").ToString
+            smtp.UseDefaultCredentials = False
+            smtp.EnableSsl = datosConexion.Rows(0).Item("emailssl").ToString
+            smtp.Credentials = New Net.NetworkCredential(datosConexion.Rows(0).Item("de").ToString, datosConexion.Rows(0).Item("credencial").ToString)
+
+            Try
+                smtp.Send(email)
+                MsgBox(VEmailEnviadoCorrectamente, vbInformation, VAviso)
+            Catch ex As Exception
+                MsgBox(VErrorEnvioDeEmail, vbCritical, VError)
+            End Try
+        Else
+            MsgBox(VElEnvioDeChatDeshabilitado, vbInformation, VAviso)
+        End If
+    End Sub
+
+    Private Function recorrerMensajesChat()
+        'formatea los mensajes para enviarlos por email
+        Dim mensajes As String = ""
+
+        For i = 0 To txtMensajes.Lines.Count - 1
+            mensajes += "<span>" & txtMensajes.Lines(i).ToString & "</span><br>"
+        Next
+        Return mensajes
+    End Function
+
+    Private Function LeerConfiguracionEmail()
+        Try
+            Return ControladorConfiguracion.LeerConfiguracionEmail(USUARIO, PASSWD)
+        Catch ex As Exception
+            MsgBox(VErrorRecuperarDatos, vbCritical, VError)
+        End Try
+        Return False
+    End Function
+
+
+    Private Sub mostarIdioma()
+        If My.Settings.lenguaje.Equals("es") Then
+            tmiEspanol.Checked = True
+            tmiIngles.Checked = False
+        Else
+            tmiIngles.Checked = True
+            tmiEspanol.Checked = False
+        End If
+    End Sub
+
+    Private Sub cambiarIdioma(ByVal idioma As String)
+        Dim respuesta As Integer
+        respuesta = MsgBox(VEstaCambioRequiereReinicar, vbQuestion + vbYesNo, VCambioDeIdioma)
+        If respuesta = 6 Then
+            EstablecerIdioma(idioma)
+            End
+        Else
+            mostarIdioma()
+        End If
+    End Sub
+
+    Private Sub tmiEspanol_Click(sender As Object, e As EventArgs) Handles tmiEspanol.Click
+        tmiEspanol.Checked = True
+        tmiIngles.Checked = False
+        validarCambioIdioma("es")
+    End Sub
+
+    Private Sub tmiIngles_Click(sender As Object, e As EventArgs) Handles tmiIngles.Click
+        tmiEspanol.Checked = False
+        tmiIngles.Checked = True
+        validarCambioIdioma("en")
+    End Sub
+
+    Private Sub validarCambioIdioma(ByVal idioma As String)
+        If idioma <> My.Settings.lenguaje Then
+            cambiarIdioma(idioma)
+        End If
+    End Sub
+
+    Private Sub cargarTextos()
+        tsmCambiarIdioma.Text = VCambioDeIdioma
+        tmiEspanol.Text = VEspanol
+        tmiIngles.Text = VIngles
+        tsmCerrarSesion.Text = VCerrarSesion
+        tsmSalir.Text = VSalir
+        lblEspera.Text = VEnEspera.ToUpper
+        lblSintomasIngresadosConsulta.Text = VSintomasIngresados
+        tsmBtnVerChat.Text = VVerChat
+        tsmBtnVerPaciente.Text = VVerDatosPaciente
+        tsmBtnPonerEspera.Text = VPonerEspera
+        tsmBtnFinalizarChat.Text = VFinalizarChat
+        tsmAyuda.Text = VAyuda
+        lblNombres.Text = VNombres
+        lblApellidos.Text = VApellidos
+        lblDocIdentidad.Text = VDocIdentidad
+        lblFechaNac.Text = VFechaNacimiento
+        lblCalle.Text = VCalle
+        lblNumero.Text = VNumero
+        lblApto.Text = VApto
+        lblBarrio.Text = VBarrio
+        lblEsquina.Text = VEsquina
+        lblfechaRegistro.Text = VFechaRegistro
+        lblPreExistentes.Text = VEnfermedadesPreExistentes
+    End Sub
+
+    Private Sub tsmAyuda_Click(sender As Object, e As EventArgs) Handles tsmAyuda.Click
+        Process.Start(Application.StartupPath & "\Triage - medico.chm")
+    End Sub
 End Class

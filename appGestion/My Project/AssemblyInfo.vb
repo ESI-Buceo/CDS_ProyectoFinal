@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("appGestion")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("appGestion")>
+<Assembly: AssemblyTitle("Triage Health Messenger - Gestion")>
+<Assembly: AssemblyDescription("Aplicación de Gestion para Triage Health Messenger")>
+<Assembly: AssemblyCompany("CDS IT Solutions")>
+<Assembly: AssemblyProduct("TriageHealthMessenger")>
 <Assembly: AssemblyCopyright("Copyright ©  2020")>
 <Assembly: AssemblyTrademark("")>
 

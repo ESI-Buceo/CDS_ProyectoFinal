@@ -31,9 +31,13 @@ Partial Class frmPrincipal
         Me.picFotoMedico = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.mtsMenuPrincipal = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmCambiarIdioma = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tmiEspanol = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tmiIngles = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsmAyuda = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmCerrarSesion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsmSalir = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.flpChatPendientes = New System.Windows.Forms.FlowLayoutPanel()
         Me.lblChatVacio = New System.Windows.Forms.Label()
         Me.flpChatenEspera = New System.Windows.Forms.FlowLayoutPanel()
@@ -111,11 +115,11 @@ Partial Class frmPrincipal
         'lblEstado
         '
         Me.lblEstado.AutoSize = True
-        Me.lblEstado.Font = New System.Drawing.Font("Product Sans", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEstado.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEstado.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.lblEstado.Location = New System.Drawing.Point(108, 50)
         Me.lblEstado.Name = "lblEstado"
-        Me.lblEstado.Size = New System.Drawing.Size(63, 21)
+        Me.lblEstado.Size = New System.Drawing.Size(63, 20)
         Me.lblEstado.TabIndex = 4
         Me.lblEstado.Text = "OnLine"
         '
@@ -135,7 +139,7 @@ Partial Class frmPrincipal
         Me.lblNombreMedico.ForeColor = System.Drawing.Color.White
         Me.lblNombreMedico.Location = New System.Drawing.Point(80, 23)
         Me.lblNombreMedico.Name = "lblNombreMedico"
-        Me.lblNombreMedico.Size = New System.Drawing.Size(172, 24)
+        Me.lblNombreMedico.Size = New System.Drawing.Size(178, 24)
         Me.lblNombreMedico.TabIndex = 1
         Me.lblNombreMedico.Text = "Nombre del medico"
         '
@@ -156,37 +160,62 @@ Partial Class frmPrincipal
         Me.MenuStrip1.Dock = System.Windows.Forms.DockStyle.None
         Me.MenuStrip1.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mtsMenuPrincipal})
-        Me.MenuStrip1.Location = New System.Drawing.Point(331, 2)
+        Me.MenuStrip1.Location = New System.Drawing.Point(181, 2)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(40, 28)
+        Me.MenuStrip1.Size = New System.Drawing.Size(190, 28)
         Me.MenuStrip1.TabIndex = 5
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'mtsMenuPrincipal
         '
         Me.mtsMenuPrincipal.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right
-        Me.mtsMenuPrincipal.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCerrarSesion, Me.tsmSalir, Me.ToolStripSeparator1})
+        Me.mtsMenuPrincipal.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmCambiarIdioma, Me.tsmAyuda, Me.tsmCerrarSesion, Me.ToolStripSeparator2, Me.tsmSalir})
         Me.mtsMenuPrincipal.Image = Global.appMedico.My.Resources.Resources.menu
         Me.mtsMenuPrincipal.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.mtsMenuPrincipal.Name = "mtsMenuPrincipal"
         Me.mtsMenuPrincipal.Size = New System.Drawing.Size(32, 24)
         '
+        'tsmCambiarIdioma
+        '
+        Me.tsmCambiarIdioma.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tmiEspanol, Me.tmiIngles})
+        Me.tsmCambiarIdioma.Name = "tsmCambiarIdioma"
+        Me.tsmCambiarIdioma.Size = New System.Drawing.Size(216, 26)
+        Me.tsmCambiarIdioma.Text = "Cambiar Idioma"
+        '
+        'tmiEspanol
+        '
+        Me.tmiEspanol.Name = "tmiEspanol"
+        Me.tmiEspanol.Size = New System.Drawing.Size(136, 26)
+        Me.tmiEspanol.Text = "Español"
+        '
+        'tmiIngles
+        '
+        Me.tmiIngles.Name = "tmiIngles"
+        Me.tmiIngles.Size = New System.Drawing.Size(136, 26)
+        Me.tmiIngles.Text = "Ingles"
+        '
+        'tsmAyuda
+        '
+        Me.tsmAyuda.Name = "tsmAyuda"
+        Me.tsmAyuda.Size = New System.Drawing.Size(216, 26)
+        Me.tsmAyuda.Text = "Ayuda"
+        '
         'tsmCerrarSesion
         '
         Me.tsmCerrarSesion.Name = "tsmCerrarSesion"
-        Me.tsmCerrarSesion.Size = New System.Drawing.Size(171, 26)
+        Me.tsmCerrarSesion.Size = New System.Drawing.Size(216, 26)
         Me.tsmCerrarSesion.Text = "Cerrar Sesion"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(213, 6)
         '
         'tsmSalir
         '
         Me.tsmSalir.Name = "tsmSalir"
-        Me.tsmSalir.Size = New System.Drawing.Size(171, 26)
+        Me.tsmSalir.Size = New System.Drawing.Size(216, 26)
         Me.tsmSalir.Text = "Salir"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(168, 6)
         '
         'flpChatPendientes
         '
@@ -258,7 +287,7 @@ Partial Class frmPrincipal
         Me.lblSintomasIngresadosConsulta.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.lblSintomasIngresadosConsulta.Location = New System.Drawing.Point(454, 3)
         Me.lblSintomasIngresadosConsulta.Name = "lblSintomasIngresadosConsulta"
-        Me.lblSintomasIngresadosConsulta.Size = New System.Drawing.Size(298, 24)
+        Me.lblSintomasIngresadosConsulta.Size = New System.Drawing.Size(303, 24)
         Me.lblSintomasIngresadosConsulta.TabIndex = 4
         Me.lblSintomasIngresadosConsulta.Text = "Sintomas Ingresador en la consulta"
         '
@@ -275,7 +304,7 @@ Partial Class frmPrincipal
         Me.lblEmailPaciente.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.lblEmailPaciente.Location = New System.Drawing.Point(92, 47)
         Me.lblEmailPaciente.Name = "lblEmailPaciente"
-        Me.lblEmailPaciente.Size = New System.Drawing.Size(183, 24)
+        Me.lblEmailPaciente.Size = New System.Drawing.Size(188, 24)
         Me.lblEmailPaciente.TabIndex = 2
         Me.lblEmailPaciente.Text = "email@paciente.com"
         '
@@ -285,13 +314,13 @@ Partial Class frmPrincipal
         Me.lblNombrePaciente.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.lblNombrePaciente.Location = New System.Drawing.Point(93, 22)
         Me.lblNombrePaciente.Name = "lblNombrePaciente"
-        Me.lblNombrePaciente.Size = New System.Drawing.Size(146, 24)
+        Me.lblNombrePaciente.Size = New System.Drawing.Size(149, 24)
         Me.lblNombrePaciente.TabIndex = 1
         Me.lblNombrePaciente.Text = "nombrePaciente"
         '
         'picAvatarPaciente
         '
-        Me.picAvatarPaciente.Image = Global.appMedico.My.Resources.Resources.ava2
+        Me.picAvatarPaciente.Image = Global.appMedico.My.Resources.Resources.usuario
         Me.picAvatarPaciente.Location = New System.Drawing.Point(14, 14)
         Me.picAvatarPaciente.Name = "picAvatarPaciente"
         Me.picAvatarPaciente.Size = New System.Drawing.Size(73, 68)
@@ -344,8 +373,9 @@ Partial Class frmPrincipal
         'txtMensaje
         '
         Me.txtMensaje.Location = New System.Drawing.Point(9, 532)
+        Me.txtMensaje.MaxLength = 80
         Me.txtMensaje.Name = "txtMensaje"
-        Me.txtMensaje.Size = New System.Drawing.Size(610, 29)
+        Me.txtMensaje.Size = New System.Drawing.Size(610, 28)
         Me.txtMensaje.TabIndex = 1
         '
         'mnuChat
@@ -451,7 +481,7 @@ Partial Class frmPrincipal
         Me.lblPreExistentes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
         Me.lblPreExistentes.Location = New System.Drawing.Point(54, 225)
         Me.lblPreExistentes.Name = "lblPreExistentes"
-        Me.lblPreExistentes.Size = New System.Drawing.Size(250, 24)
+        Me.lblPreExistentes.Size = New System.Drawing.Size(259, 24)
         Me.lblPreExistentes.TabIndex = 22
         Me.lblPreExistentes.Text = "Enfermedades Pre Existentes"
         '
@@ -461,7 +491,7 @@ Partial Class frmPrincipal
         Me.txtFechaRegistro.Location = New System.Drawing.Point(500, 187)
         Me.txtFechaRegistro.Name = "txtFechaRegistro"
         Me.txtFechaRegistro.ReadOnly = True
-        Me.txtFechaRegistro.Size = New System.Drawing.Size(207, 22)
+        Me.txtFechaRegistro.Size = New System.Drawing.Size(207, 21)
         Me.txtFechaRegistro.TabIndex = 20
         '
         'txtEsquinaPaciente
@@ -470,7 +500,7 @@ Partial Class frmPrincipal
         Me.txtEsquinaPaciente.Location = New System.Drawing.Point(500, 146)
         Me.txtEsquinaPaciente.Name = "txtEsquinaPaciente"
         Me.txtEsquinaPaciente.ReadOnly = True
-        Me.txtEsquinaPaciente.Size = New System.Drawing.Size(284, 22)
+        Me.txtEsquinaPaciente.Size = New System.Drawing.Size(284, 21)
         Me.txtEsquinaPaciente.TabIndex = 19
         '
         'txtBarrioPaciente
@@ -479,7 +509,7 @@ Partial Class frmPrincipal
         Me.txtBarrioPaciente.Location = New System.Drawing.Point(132, 146)
         Me.txtBarrioPaciente.Name = "txtBarrioPaciente"
         Me.txtBarrioPaciente.ReadOnly = True
-        Me.txtBarrioPaciente.Size = New System.Drawing.Size(284, 22)
+        Me.txtBarrioPaciente.Size = New System.Drawing.Size(284, 21)
         Me.txtBarrioPaciente.TabIndex = 18
         '
         'txtCalleApto
@@ -488,7 +518,7 @@ Partial Class frmPrincipal
         Me.txtCalleApto.Location = New System.Drawing.Point(676, 108)
         Me.txtCalleApto.Name = "txtCalleApto"
         Me.txtCalleApto.ReadOnly = True
-        Me.txtCalleApto.Size = New System.Drawing.Size(108, 22)
+        Me.txtCalleApto.Size = New System.Drawing.Size(108, 21)
         Me.txtCalleApto.TabIndex = 17
         '
         'txtCalleNumeroPaciente
@@ -497,7 +527,7 @@ Partial Class frmPrincipal
         Me.txtCalleNumeroPaciente.Location = New System.Drawing.Point(500, 108)
         Me.txtCalleNumeroPaciente.Name = "txtCalleNumeroPaciente"
         Me.txtCalleNumeroPaciente.ReadOnly = True
-        Me.txtCalleNumeroPaciente.Size = New System.Drawing.Size(119, 22)
+        Me.txtCalleNumeroPaciente.Size = New System.Drawing.Size(119, 21)
         Me.txtCalleNumeroPaciente.TabIndex = 16
         '
         'txtCallePaciente
@@ -506,7 +536,7 @@ Partial Class frmPrincipal
         Me.txtCallePaciente.Location = New System.Drawing.Point(132, 108)
         Me.txtCallePaciente.Name = "txtCallePaciente"
         Me.txtCallePaciente.ReadOnly = True
-        Me.txtCallePaciente.Size = New System.Drawing.Size(284, 22)
+        Me.txtCallePaciente.Size = New System.Drawing.Size(284, 21)
         Me.txtCallePaciente.TabIndex = 15
         '
         'txtFechaNacPaciente
@@ -515,7 +545,7 @@ Partial Class frmPrincipal
         Me.txtFechaNacPaciente.Location = New System.Drawing.Point(500, 70)
         Me.txtFechaNacPaciente.Name = "txtFechaNacPaciente"
         Me.txtFechaNacPaciente.ReadOnly = True
-        Me.txtFechaNacPaciente.Size = New System.Drawing.Size(207, 22)
+        Me.txtFechaNacPaciente.Size = New System.Drawing.Size(207, 21)
         Me.txtFechaNacPaciente.TabIndex = 14
         '
         'txtDocIdentidadPaciente
@@ -524,7 +554,7 @@ Partial Class frmPrincipal
         Me.txtDocIdentidadPaciente.Location = New System.Drawing.Point(132, 70)
         Me.txtDocIdentidadPaciente.Name = "txtDocIdentidadPaciente"
         Me.txtDocIdentidadPaciente.ReadOnly = True
-        Me.txtDocIdentidadPaciente.Size = New System.Drawing.Size(207, 22)
+        Me.txtDocIdentidadPaciente.Size = New System.Drawing.Size(207, 21)
         Me.txtDocIdentidadPaciente.TabIndex = 13
         '
         'txtApellidosPaciente
@@ -533,7 +563,7 @@ Partial Class frmPrincipal
         Me.txtApellidosPaciente.Location = New System.Drawing.Point(500, 32)
         Me.txtApellidosPaciente.Name = "txtApellidosPaciente"
         Me.txtApellidosPaciente.ReadOnly = True
-        Me.txtApellidosPaciente.Size = New System.Drawing.Size(284, 22)
+        Me.txtApellidosPaciente.Size = New System.Drawing.Size(284, 21)
         Me.txtApellidosPaciente.TabIndex = 12
         '
         'txtNombrePaciente
@@ -542,108 +572,108 @@ Partial Class frmPrincipal
         Me.txtNombrePaciente.Location = New System.Drawing.Point(132, 32)
         Me.txtNombrePaciente.Name = "txtNombrePaciente"
         Me.txtNombrePaciente.ReadOnly = True
-        Me.txtNombrePaciente.Size = New System.Drawing.Size(284, 22)
+        Me.txtNombrePaciente.Size = New System.Drawing.Size(284, 21)
         Me.txtNombrePaciente.TabIndex = 11
         '
         'lblfechaRegistro
         '
-        Me.lblfechaRegistro.AutoSize = True
         Me.lblfechaRegistro.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.lblfechaRegistro.Location = New System.Drawing.Point(365, 187)
+        Me.lblfechaRegistro.Location = New System.Drawing.Point(348, 187)
         Me.lblfechaRegistro.Name = "lblfechaRegistro"
-        Me.lblfechaRegistro.Size = New System.Drawing.Size(161, 24)
+        Me.lblfechaRegistro.Size = New System.Drawing.Size(150, 18)
         Me.lblfechaRegistro.TabIndex = 9
         Me.lblfechaRegistro.Text = "Fecha de Registro:"
+        Me.lblfechaRegistro.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblApto
         '
-        Me.lblApto.AutoSize = True
         Me.lblApto.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
         Me.lblApto.Location = New System.Drawing.Point(628, 108)
         Me.lblApto.Name = "lblApto"
-        Me.lblApto.Size = New System.Drawing.Size(56, 24)
+        Me.lblApto.Size = New System.Drawing.Size(42, 18)
         Me.lblApto.TabIndex = 8
         Me.lblApto.Text = "Apto:"
+        Me.lblApto.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblEsquina
         '
-        Me.lblEsquina.AutoSize = True
         Me.lblEsquina.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.lblEsquina.Location = New System.Drawing.Point(431, 146)
+        Me.lblEsquina.Location = New System.Drawing.Point(417, 146)
         Me.lblEsquina.Name = "lblEsquina"
-        Me.lblEsquina.Size = New System.Drawing.Size(78, 24)
+        Me.lblEsquina.Size = New System.Drawing.Size(79, 18)
         Me.lblEsquina.TabIndex = 7
         Me.lblEsquina.Text = "Esquina:"
+        Me.lblEsquina.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblBarrio
         '
-        Me.lblBarrio.AutoSize = True
         Me.lblBarrio.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.lblBarrio.Location = New System.Drawing.Point(76, 146)
+        Me.lblBarrio.Location = New System.Drawing.Point(18, 146)
         Me.lblBarrio.Name = "lblBarrio"
-        Me.lblBarrio.Size = New System.Drawing.Size(64, 24)
+        Me.lblBarrio.Size = New System.Drawing.Size(110, 18)
         Me.lblBarrio.TabIndex = 6
         Me.lblBarrio.Text = "Barrio:"
+        Me.lblBarrio.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblNumero
         '
-        Me.lblNumero.AutoSize = True
         Me.lblNumero.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.lblNumero.Location = New System.Drawing.Point(430, 108)
+        Me.lblNumero.Location = New System.Drawing.Point(422, 108)
         Me.lblNumero.Name = "lblNumero"
-        Me.lblNumero.Size = New System.Drawing.Size(80, 24)
+        Me.lblNumero.Size = New System.Drawing.Size(74, 18)
         Me.lblNumero.TabIndex = 5
         Me.lblNumero.Text = "Numero:"
+        Me.lblNumero.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblCalle
         '
-        Me.lblCalle.AutoSize = True
         Me.lblCalle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.lblCalle.Location = New System.Drawing.Point(81, 108)
+        Me.lblCalle.Location = New System.Drawing.Point(15, 108)
         Me.lblCalle.Name = "lblCalle"
-        Me.lblCalle.Size = New System.Drawing.Size(56, 24)
+        Me.lblCalle.Size = New System.Drawing.Size(111, 18)
         Me.lblCalle.TabIndex = 4
         Me.lblCalle.Text = "Calle:"
+        Me.lblCalle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblFechaNac
         '
-        Me.lblFechaNac.AutoSize = True
         Me.lblFechaNac.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
         Me.lblFechaNac.Location = New System.Drawing.Point(345, 70)
         Me.lblFechaNac.Name = "lblFechaNac"
-        Me.lblFechaNac.Size = New System.Drawing.Size(187, 24)
+        Me.lblFechaNac.Size = New System.Drawing.Size(152, 18)
         Me.lblFechaNac.TabIndex = 3
         Me.lblFechaNac.Text = "Fecha de Nacimiento:"
+        Me.lblFechaNac.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblDocIdentidad
         '
-        Me.lblDocIdentidad.AutoSize = True
         Me.lblDocIdentidad.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.lblDocIdentidad.Location = New System.Drawing.Point(19, 70)
+        Me.lblDocIdentidad.Location = New System.Drawing.Point(9, 70)
         Me.lblDocIdentidad.Name = "lblDocIdentidad"
-        Me.lblDocIdentidad.Size = New System.Drawing.Size(134, 24)
+        Me.lblDocIdentidad.Size = New System.Drawing.Size(116, 18)
         Me.lblDocIdentidad.TabIndex = 2
         Me.lblDocIdentidad.Text = "Doc. Identidad:"
+        Me.lblDocIdentidad.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblApellidos
         '
-        Me.lblApellidos.AutoSize = True
         Me.lblApellidos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.lblApellidos.Location = New System.Drawing.Point(422, 32)
+        Me.lblApellidos.Location = New System.Drawing.Point(414, 32)
         Me.lblApellidos.Name = "lblApellidos"
-        Me.lblApellidos.Size = New System.Drawing.Size(91, 24)
+        Me.lblApellidos.Size = New System.Drawing.Size(79, 18)
         Me.lblApellidos.TabIndex = 1
         Me.lblApellidos.Text = "Apellidos:"
+        Me.lblApellidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblNombres
         '
-        Me.lblNombres.AutoSize = True
         Me.lblNombres.ForeColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(85, Byte), Integer))
-        Me.lblNombres.Location = New System.Drawing.Point(54, 32)
+        Me.lblNombres.Location = New System.Drawing.Point(9, 32)
         Me.lblNombres.Name = "lblNombres"
-        Me.lblNombres.Size = New System.Drawing.Size(90, 24)
+        Me.lblNombres.Size = New System.Drawing.Size(119, 18)
         Me.lblNombres.TabIndex = 0
         Me.lblNombres.Text = "Nombres:"
+        Me.lblNombres.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'timeEstadoDeSesion
         '
@@ -652,7 +682,7 @@ Partial Class frmPrincipal
         'frmPrincipal
         '
         Me.AcceptButton = Me.btnEnviarMensaje
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 23.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 22.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1187, 721)
@@ -664,7 +694,7 @@ Partial Class frmPrincipal
         Me.Controls.Add(Me.flpChatenEspera)
         Me.Controls.Add(Me.flpChatPendientes)
         Me.Controls.Add(Me.PanelMedico)
-        Me.Font = New System.Drawing.Font("Product Sans", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
@@ -708,7 +738,6 @@ Partial Class frmPrincipal
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents mtsMenuPrincipal As ToolStripMenuItem
     Friend WithEvents tsmSalir As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents picAvatarPaciente As PictureBox
     Friend WithEvents lblEmailPaciente As Label
     Friend WithEvents lblNombrePaciente As Label
@@ -752,4 +781,9 @@ Partial Class frmPrincipal
     Friend WithEvents timeEstadoDeSesion As Timer
     Friend WithEvents tsmCerrarSesion As ToolStripMenuItem
     Friend WithEvents ttMensajePonderacion As ToolTip
+    Friend WithEvents tsmCambiarIdioma As ToolStripMenuItem
+    Friend WithEvents tmiEspanol As ToolStripMenuItem
+    Friend WithEvents tmiIngles As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents tsmAyuda As ToolStripMenuItem
 End Class

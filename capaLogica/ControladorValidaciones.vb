@@ -1,4 +1,6 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.Data
+Imports System.Net
+Imports System.Text.RegularExpressions
 Imports System.Windows.Forms
 
 Public Module ControladorValidaciones
@@ -21,18 +23,22 @@ Public Module ControladorValidaciones
         For Each letras In nombres.Replace(" ", "")
             If Not Char.IsLetter(letras) Or nombres.Length = 0 Then
                 Return False
+            Else
+                Return True
             End If
         Next
-        Return True
+        Return False
     End Function
 
     Public Function ValidarApellidos(ByVal apellidos As String)
         For Each letras In apellidos.Replace(" ", "")
             If Not Char.IsLetter(letras) Or apellidos.Length = 0 Then
                 Return False
+            Else
+                Return True
             End If
         Next
-        Return True
+        Return False
     End Function
 
     Public Function ValidarEmail(ByVal mail As String)
@@ -61,8 +67,9 @@ Public Module ControladorValidaciones
                     Return False
                 End If
             Next
+            Return True
         End If
-        Return True
+        Return False
     End Function
 
     Public Function ValidarFechaNacimiento(ByVal fechaNacimiento As String)
@@ -90,4 +97,47 @@ Public Module ControladorValidaciones
         End If
         Return True
     End Function
+
+    Public Function ValidarPassYRePass(ByVal pass As String, repass As String)
+        If pass.Equals(repass) Then
+            Return True
+        End If
+        Return False
+    End Function
+
+    Public Function ValidarDatosAExportar(ByVal grid As DataGridView)
+        'Verifica que todas las columnas contengan informacion
+        Dim filas As Integer = grid.Rows.Count
+
+        For f = 1 To filas - 1
+            For c = 0 To grid.ColumnCount - 1
+                If grid.Item(c, f).Value Is Nothing Then
+                    Return False
+                End If
+            Next
+        Next
+        Return True
+    End Function
+
+    Public Function ValidarCantidadCamposPatologias(ByVal datos As DataTable)
+        If datos.Columns.Count <> 3 Then
+            Return False
+        End If
+        Return True
+    End Function
+
+    Public Function ValidarCantidadCamposSintomas(ByVal datos As DataGridView)
+        If datos.Columns.Count <> 1 Then
+            Return False
+        End If
+        Return True
+    End Function
+
+    Public Function validarNumero(ByVal numero As String)
+        If Char.IsNumber(numero) And numero IsNot Nothing Then
+            Return True
+        End If
+        Return False
+    End Function
+
 End Module

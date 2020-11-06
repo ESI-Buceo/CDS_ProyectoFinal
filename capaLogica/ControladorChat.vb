@@ -8,7 +8,6 @@ Public Module ControladorChat
         Return c.RecibirMensajes(emisor)
     End Function
 
-
     Public Function RecibirMensajes(ByVal idSesion As String, emisor As String, uid As String, pwd As String)
         'Muestra los mensajes recibidos por id
         Dim c As New ModeloChat(uid, pwd)
@@ -94,4 +93,15 @@ Public Module ControladorChat
         }
         c.enviarMensaje()
     End Sub
+
+    Public Function ListaHistoricaChatPaciente(ByVal uid As String, pwd As String, docidentidad As String)
+        'Trae la lista de chat del paciente
+        Dim c As New ModeloChat(uid, pwd)
+        Return c.ListaHistoricaChatPaciente(docidentidad)
+    End Function
+
+    Public Function CantidadDeChats(ByVal uid As String, pwd As String, documento As String)
+        Dim c As New ModeloChat(uid, pwd)
+        Return c.CantidadDeChats(documento)
+    End Function
 End Module

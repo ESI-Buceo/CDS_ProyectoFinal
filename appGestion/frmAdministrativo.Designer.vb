@@ -22,13 +22,14 @@ Partial Class frmAdministrativo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAdministrativo))
         Me.tabOpcionAdmin = New System.Windows.Forms.TabControl()
         Me.tabDatos = New System.Windows.Forms.TabPage()
+        Me.btnRestPass = New System.Windows.Forms.Button()
         Me.btnEliminarTelefono = New System.Windows.Forms.Button()
         Me.btnAgregarTelefono = New System.Windows.Forms.Button()
         Me.chkActivo = New System.Windows.Forms.CheckBox()
@@ -48,7 +49,7 @@ Partial Class frmAdministrativo
         Me.txtNumAdmin = New System.Windows.Forms.TextBox()
         Me.txtDocIdentidad = New System.Windows.Forms.TextBox()
         Me.lblTelefonos = New System.Windows.Forms.Label()
-        Me.lnlNumeroEmpleado = New System.Windows.Forms.Label()
+        Me.lblNumeroEmpleado = New System.Windows.Forms.Label()
         Me.lblEmailM = New System.Windows.Forms.Label()
         Me.lblFechaNacM = New System.Windows.Forms.Label()
         Me.lblBarrioM = New System.Windows.Forms.Label()
@@ -57,7 +58,7 @@ Partial Class frmAdministrativo
         Me.lblNumeroCalleM = New System.Windows.Forms.Label()
         Me.lblDireccionM = New System.Windows.Forms.Label()
         Me.lblApellidosM = New System.Windows.Forms.Label()
-        Me.lnlNombreM = New System.Windows.Forms.Label()
+        Me.lblNombreM = New System.Windows.Forms.Label()
         Me.lblFechaReg = New System.Windows.Forms.Label()
         Me.lblDocIdentidad = New System.Windows.Forms.Label()
         Me.tabBusqueda = New System.Windows.Forms.TabPage()
@@ -83,6 +84,7 @@ Partial Class frmAdministrativo
         Me.tabSeparador3 = New System.Windows.Forms.ToolStripSeparator()
         Me.mnuBtnBorrar = New System.Windows.Forms.ToolStripButton()
         Me.tabSeparador4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.mnuBtnReactivar = New System.Windows.Forms.ToolStripButton()
         Me.mnuBtnModificar = New System.Windows.Forms.ToolStripButton()
         Me.tabOpcionAdmin.SuspendLayout()
         Me.tabDatos.SuspendLayout()
@@ -99,7 +101,8 @@ Partial Class frmAdministrativo
         Me.tabOpcionAdmin.Controls.Add(Me.tabBusqueda)
         Me.tabOpcionAdmin.Cursor = System.Windows.Forms.Cursors.Default
         Me.tabOpcionAdmin.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tabOpcionAdmin.Location = New System.Drawing.Point(8, 135)
+        Me.tabOpcionAdmin.Location = New System.Drawing.Point(40, 135)
+        Me.tabOpcionAdmin.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabOpcionAdmin.Name = "tabOpcionAdmin"
         Me.tabOpcionAdmin.SelectedIndex = 0
         Me.tabOpcionAdmin.Size = New System.Drawing.Size(944, 496)
@@ -108,6 +111,7 @@ Partial Class frmAdministrativo
         'tabDatos
         '
         Me.tabDatos.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.tabDatos.Controls.Add(Me.btnRestPass)
         Me.tabDatos.Controls.Add(Me.btnEliminarTelefono)
         Me.tabDatos.Controls.Add(Me.btnAgregarTelefono)
         Me.tabDatos.Controls.Add(Me.chkActivo)
@@ -126,7 +130,7 @@ Partial Class frmAdministrativo
         Me.tabDatos.Controls.Add(Me.txtNumAdmin)
         Me.tabDatos.Controls.Add(Me.txtDocIdentidad)
         Me.tabDatos.Controls.Add(Me.lblTelefonos)
-        Me.tabDatos.Controls.Add(Me.lnlNumeroEmpleado)
+        Me.tabDatos.Controls.Add(Me.lblNumeroEmpleado)
         Me.tabDatos.Controls.Add(Me.lblEmailM)
         Me.tabDatos.Controls.Add(Me.lblFechaNacM)
         Me.tabDatos.Controls.Add(Me.lblBarrioM)
@@ -135,15 +139,30 @@ Partial Class frmAdministrativo
         Me.tabDatos.Controls.Add(Me.lblNumeroCalleM)
         Me.tabDatos.Controls.Add(Me.lblDireccionM)
         Me.tabDatos.Controls.Add(Me.lblApellidosM)
-        Me.tabDatos.Controls.Add(Me.lnlNombreM)
+        Me.tabDatos.Controls.Add(Me.lblNombreM)
         Me.tabDatos.Controls.Add(Me.lblFechaReg)
         Me.tabDatos.Controls.Add(Me.lblDocIdentidad)
         Me.tabDatos.Location = New System.Drawing.Point(4, 28)
+        Me.tabDatos.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabDatos.Name = "tabDatos"
-        Me.tabDatos.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabDatos.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabDatos.Size = New System.Drawing.Size(936, 464)
         Me.tabDatos.TabIndex = 0
         Me.tabDatos.Text = "Datos"
+        '
+        'btnRestPass
+        '
+        Me.btnRestPass.Enabled = False
+        Me.btnRestPass.Image = Global.appGestion.My.Resources.Resources.pass
+        Me.btnRestPass.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnRestPass.Location = New System.Drawing.Point(748, 338)
+        Me.btnRestPass.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnRestPass.Name = "btnRestPass"
+        Me.btnRestPass.Size = New System.Drawing.Size(157, 89)
+        Me.btnRestPass.TabIndex = 84
+        Me.btnRestPass.Text = "Restablecer contraseña"
+        Me.btnRestPass.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnRestPass.UseVisualStyleBackColor = True
         '
         'btnEliminarTelefono
         '
@@ -152,8 +171,9 @@ Partial Class frmAdministrativo
         Me.btnEliminarTelefono.ForeColor = System.Drawing.Color.Transparent
         Me.btnEliminarTelefono.Image = Global.appGestion.My.Resources.Resources.delTel1
         Me.btnEliminarTelefono.Location = New System.Drawing.Point(527, 379)
+        Me.btnEliminarTelefono.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnEliminarTelefono.Name = "btnEliminarTelefono"
-        Me.btnEliminarTelefono.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnEliminarTelefono.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.btnEliminarTelefono.Size = New System.Drawing.Size(44, 37)
         Me.btnEliminarTelefono.TabIndex = 83
         Me.btnEliminarTelefono.UseVisualStyleBackColor = True
@@ -165,8 +185,9 @@ Partial Class frmAdministrativo
         Me.btnAgregarTelefono.ForeColor = System.Drawing.Color.Transparent
         Me.btnAgregarTelefono.Image = Global.appGestion.My.Resources.Resources.addTel1
         Me.btnAgregarTelefono.Location = New System.Drawing.Point(527, 338)
+        Me.btnAgregarTelefono.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnAgregarTelefono.Name = "btnAgregarTelefono"
-        Me.btnAgregarTelefono.Padding = New System.Windows.Forms.Padding(5)
+        Me.btnAgregarTelefono.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
         Me.btnAgregarTelefono.Size = New System.Drawing.Size(44, 37)
         Me.btnAgregarTelefono.TabIndex = 82
         Me.btnAgregarTelefono.UseVisualStyleBackColor = True
@@ -178,7 +199,8 @@ Partial Class frmAdministrativo
         Me.chkActivo.CheckState = System.Windows.Forms.CheckState.Checked
         Me.chkActivo.Enabled = False
         Me.chkActivo.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.chkActivo.Location = New System.Drawing.Point(830, 427)
+        Me.chkActivo.Location = New System.Drawing.Point(829, 427)
+        Me.chkActivo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.chkActivo.Name = "chkActivo"
         Me.chkActivo.Size = New System.Drawing.Size(75, 25)
         Me.chkActivo.TabIndex = 81
@@ -192,9 +214,11 @@ Partial Class frmAdministrativo
         Me.dtpFechaNac.CalendarMonthBackground = System.Drawing.SystemColors.Highlight
         Me.dtpFechaNac.CalendarTitleForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.dtpFechaNac.CalendarTrailingForeColor = System.Drawing.Color.Gray
+        Me.dtpFechaNac.CustomFormat = ""
         Me.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFechaNac.Location = New System.Drawing.Point(768, 53)
-        Me.dtpFechaNac.Margin = New System.Windows.Forms.Padding(4)
+        Me.dtpFechaNac.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtpFechaNac.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
         Me.dtpFechaNac.Name = "dtpFechaNac"
         Me.dtpFechaNac.Size = New System.Drawing.Size(137, 27)
         Me.dtpFechaNac.TabIndex = 60
@@ -208,7 +232,7 @@ Partial Class frmAdministrativo
         Me.dgvListaTelefonos.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colTelefono})
         Me.dgvListaTelefonos.Enabled = False
         Me.dgvListaTelefonos.Location = New System.Drawing.Point(167, 338)
-        Me.dgvListaTelefonos.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgvListaTelefonos.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dgvListaTelefonos.Name = "dgvListaTelefonos"
         Me.dgvListaTelefonos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.dgvListaTelefonos.Size = New System.Drawing.Size(353, 112)
@@ -217,8 +241,8 @@ Partial Class frmAdministrativo
         'colTelefono
         '
         Me.colTelefono.DataPropertyName = "Telefono"
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colTelefono.DefaultCellStyle = DataGridViewCellStyle1
         Me.colTelefono.HeaderText = "TELEFONOS"
         Me.colTelefono.Name = "colTelefono"
         Me.colTelefono.Width = 200
@@ -335,13 +359,13 @@ Partial Class frmAdministrativo
         '
         'txtFechaRegistro
         '
-        Me.txtFechaRegistro.Enabled = False
         Me.txtFechaRegistro.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFechaRegistro.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.txtFechaRegistro.Location = New System.Drawing.Point(767, 15)
         Me.txtFechaRegistro.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtFechaRegistro.MaxLength = 65535
         Me.txtFechaRegistro.Name = "txtFechaRegistro"
+        Me.txtFechaRegistro.ReadOnly = True
         Me.txtFechaRegistro.Size = New System.Drawing.Size(139, 27)
         Me.txtFechaRegistro.TabIndex = 57
         Me.txtFechaRegistro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -367,7 +391,7 @@ Partial Class frmAdministrativo
         Me.txtDocIdentidad.ForeColor = System.Drawing.SystemColors.Highlight
         Me.txtDocIdentidad.Location = New System.Drawing.Point(167, 15)
         Me.txtDocIdentidad.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.txtDocIdentidad.MaxLength = 11
+        Me.txtDocIdentidad.MaxLength = 8
         Me.txtDocIdentidad.Name = "txtDocIdentidad"
         Me.txtDocIdentidad.Size = New System.Drawing.Size(159, 27)
         Me.txtDocIdentidad.TabIndex = 55
@@ -378,22 +402,22 @@ Partial Class frmAdministrativo
         Me.lblTelefonos.AutoSize = True
         Me.lblTelefonos.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTelefonos.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lblTelefonos.Location = New System.Drawing.Point(38, 343)
+        Me.lblTelefonos.Location = New System.Drawing.Point(37, 343)
         Me.lblTelefonos.Name = "lblTelefonos"
         Me.lblTelefonos.Size = New System.Drawing.Size(95, 21)
         Me.lblTelefonos.TabIndex = 78
         Me.lblTelefonos.Text = "TELEFONOS:"
         '
-        'lnlNumeroEmpleado
+        'lblNumeroEmpleado
         '
-        Me.lnlNumeroEmpleado.AutoSize = True
-        Me.lnlNumeroEmpleado.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnlNumeroEmpleado.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lnlNumeroEmpleado.Location = New System.Drawing.Point(23, 55)
-        Me.lnlNumeroEmpleado.Name = "lnlNumeroEmpleado"
-        Me.lnlNumeroEmpleado.Size = New System.Drawing.Size(115, 21)
-        Me.lnlNumeroEmpleado.TabIndex = 76
-        Me.lnlNumeroEmpleado.Text = "Nº EMPLEADO:"
+        Me.lblNumeroEmpleado.AutoSize = True
+        Me.lblNumeroEmpleado.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumeroEmpleado.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
+        Me.lblNumeroEmpleado.Location = New System.Drawing.Point(23, 55)
+        Me.lblNumeroEmpleado.Name = "lblNumeroEmpleado"
+        Me.lblNumeroEmpleado.Size = New System.Drawing.Size(115, 21)
+        Me.lblNumeroEmpleado.TabIndex = 76
+        Me.lblNumeroEmpleado.Text = "Nº EMPLEADO:"
         '
         'lblEmailM
         '
@@ -483,16 +507,16 @@ Partial Class frmAdministrativo
         Me.lblApellidosM.TabIndex = 61
         Me.lblApellidosM.Text = "APELLIDOS:"
         '
-        'lnlNombreM
+        'lblNombreM
         '
-        Me.lnlNombreM.AutoSize = True
-        Me.lnlNombreM.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lnlNombreM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.lnlNombreM.Location = New System.Drawing.Point(54, 92)
-        Me.lnlNombreM.Name = "lnlNombreM"
-        Me.lnlNombreM.Size = New System.Drawing.Size(86, 21)
-        Me.lnlNombreM.TabIndex = 59
-        Me.lnlNombreM.Text = "NOMBRES:"
+        Me.lblNombreM.AutoSize = True
+        Me.lblNombreM.Font = New System.Drawing.Font("Calibri", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombreM.ForeColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(75, Byte), Integer), CType(CType(84, Byte), Integer))
+        Me.lblNombreM.Location = New System.Drawing.Point(53, 92)
+        Me.lblNombreM.Name = "lblNombreM"
+        Me.lblNombreM.Size = New System.Drawing.Size(86, 21)
+        Me.lblNombreM.TabIndex = 59
+        Me.lblNombreM.Text = "NOMBRES:"
         '
         'lblFechaReg
         '
@@ -521,8 +545,9 @@ Partial Class frmAdministrativo
         Me.tabBusqueda.BackColor = System.Drawing.Color.WhiteSmoke
         Me.tabBusqueda.Controls.Add(Me.dgvListaAdministrador)
         Me.tabBusqueda.Location = New System.Drawing.Point(4, 28)
+        Me.tabBusqueda.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabBusqueda.Name = "tabBusqueda"
-        Me.tabBusqueda.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabBusqueda.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.tabBusqueda.Size = New System.Drawing.Size(936, 464)
         Me.tabBusqueda.TabIndex = 1
         Me.tabBusqueda.Text = "Busqueda"
@@ -534,31 +559,34 @@ Partial Class frmAdministrativo
         Me.dgvListaAdministrador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvListaAdministrador.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.colDocIdentidad, Me.colNMedico, Me.colNombres, Me.colApellidos, Me.colEmail, Me.colFechRegistro, Me.colActivo})
         Me.dgvListaAdministrador.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvListaAdministrador.Location = New System.Drawing.Point(3, 3)
-        Me.dgvListaAdministrador.Margin = New System.Windows.Forms.Padding(4)
+        Me.dgvListaAdministrador.Location = New System.Drawing.Point(3, 2)
+        Me.dgvListaAdministrador.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dgvListaAdministrador.MultiSelect = False
         Me.dgvListaAdministrador.Name = "dgvListaAdministrador"
         Me.dgvListaAdministrador.ReadOnly = True
-        Me.dgvListaAdministrador.Size = New System.Drawing.Size(930, 458)
+        Me.dgvListaAdministrador.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvListaAdministrador.Size = New System.Drawing.Size(930, 460)
         Me.dgvListaAdministrador.TabIndex = 1
         '
         'colDocIdentidad
         '
         Me.colDocIdentidad.DataPropertyName = "DOCUMENTO"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colDocIdentidad.DefaultCellStyle = DataGridViewCellStyle2
         Me.colDocIdentidad.HeaderText = "DOCUMENTO"
         Me.colDocIdentidad.Name = "colDocIdentidad"
         Me.colDocIdentidad.ReadOnly = True
+        Me.colDocIdentidad.Width = 120
         '
         'colNMedico
         '
         Me.colNMedico.DataPropertyName = "NEMPLEADO"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.colNMedico.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.colNMedico.DefaultCellStyle = DataGridViewCellStyle3
         Me.colNMedico.HeaderText = "Nº EMPLEADO"
         Me.colNMedico.Name = "colNMedico"
         Me.colNMedico.ReadOnly = True
-        Me.colNMedico.Width = 130
+        Me.colNMedico.Width = 150
         '
         'colNombres
         '
@@ -566,6 +594,7 @@ Partial Class frmAdministrativo
         Me.colNombres.HeaderText = "NOMBRES"
         Me.colNombres.Name = "colNombres"
         Me.colNombres.ReadOnly = True
+        Me.colNombres.Width = 150
         '
         'colApellidos
         '
@@ -573,12 +602,13 @@ Partial Class frmAdministrativo
         Me.colApellidos.HeaderText = "APELLIDOS"
         Me.colApellidos.Name = "colApellidos"
         Me.colApellidos.ReadOnly = True
+        Me.colApellidos.Width = 150
         '
         'colEmail
         '
         Me.colEmail.DataPropertyName = "EMAIL"
-        DataGridViewCellStyle8.NullValue = "yes"
-        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.NullValue = "yes"
+        Me.colEmail.DefaultCellStyle = DataGridViewCellStyle4
         Me.colEmail.HeaderText = "EMAIL"
         Me.colEmail.Name = "colEmail"
         Me.colEmail.ReadOnly = True
@@ -606,8 +636,7 @@ Partial Class frmAdministrativo
         Me.picEncabezado.Location = New System.Drawing.Point(-12, 1)
         Me.picEncabezado.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.picEncabezado.Name = "picEncabezado"
-        Me.picEncabezado.Size = New System.Drawing.Size(985, 79)
-        Me.picEncabezado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.picEncabezado.Size = New System.Drawing.Size(1025, 79)
         Me.picEncabezado.TabIndex = 4
         Me.picEncabezado.TabStop = False
         '
@@ -618,11 +647,11 @@ Partial Class frmAdministrativo
         Me.toolsMenuAdmin.Font = New System.Drawing.Font("Arial", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.toolsMenuAdmin.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.toolsMenuAdmin.ImeMode = System.Windows.Forms.ImeMode.[On]
-        Me.toolsMenuAdmin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuBtnModificar})
+        Me.toolsMenuAdmin.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuBtnAgregar, Me.tabSeparador, Me.mnuBtnGuardar, Me.tabSeparador1, Me.mnuBtnCancelar, Me.tabSeperador2, Me.mnuBtnNueva, Me.ToolStripSeparator1, Me.mnuBtnBuscar, Me.tabSeparador3, Me.mnuBtnBorrar, Me.tabSeparador4, Me.mnuBtnReactivar, Me.mnuBtnModificar})
         Me.toolsMenuAdmin.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
-        Me.toolsMenuAdmin.Location = New System.Drawing.Point(6, 83)
+        Me.toolsMenuAdmin.Location = New System.Drawing.Point(5, 82)
         Me.toolsMenuAdmin.Name = "toolsMenuAdmin"
-        Me.toolsMenuAdmin.Size = New System.Drawing.Size(952, 44)
+        Me.toolsMenuAdmin.Size = New System.Drawing.Size(1007, 44)
         Me.toolsMenuAdmin.TabIndex = 5
         '
         'mnuBtnAgregar
@@ -719,6 +748,16 @@ Partial Class frmAdministrativo
         Me.tabSeparador4.Name = "tabSeparador4"
         Me.tabSeparador4.Size = New System.Drawing.Size(6, 23)
         '
+        'mnuBtnReactivar
+        '
+        Me.mnuBtnReactivar.AutoSize = False
+        Me.mnuBtnReactivar.Enabled = False
+        Me.mnuBtnReactivar.Image = Global.appGestion.My.Resources.Resources.reactivar
+        Me.mnuBtnReactivar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.mnuBtnReactivar.Name = "mnuBtnReactivar"
+        Me.mnuBtnReactivar.Size = New System.Drawing.Size(106, 29)
+        Me.mnuBtnReactivar.Text = "Reactivar"
+        '
         'mnuBtnModificar
         '
         Me.mnuBtnModificar.Enabled = False
@@ -735,13 +774,14 @@ Partial Class frmAdministrativo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(960, 643)
+        Me.ClientSize = New System.Drawing.Size(1012, 642)
         Me.Controls.Add(Me.toolsMenuAdmin)
         Me.Controls.Add(Me.picEncabezado)
         Me.Controls.Add(Me.tabOpcionAdmin)
         Me.Cursor = System.Windows.Forms.Cursors.Default
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "frmAdministrativo"
         Me.Text = "Administrativo"
         Me.tabOpcionAdmin.ResumeLayout(False)
@@ -779,7 +819,7 @@ Partial Class frmAdministrativo
     Friend WithEvents txtNumAdmin As TextBox
     Friend WithEvents txtDocIdentidad As TextBox
     Friend WithEvents lblTelefonos As Label
-    Friend WithEvents lnlNumeroEmpleado As Label
+    Friend WithEvents lblNumeroEmpleado As Label
     Friend WithEvents lblEmailM As Label
     Friend WithEvents lblFechaNacM As Label
     Friend WithEvents lblBarrioM As Label
@@ -788,17 +828,10 @@ Partial Class frmAdministrativo
     Friend WithEvents lblNumeroCalleM As Label
     Friend WithEvents lblDireccionM As Label
     Friend WithEvents lblApellidosM As Label
-    Friend WithEvents lnlNombreM As Label
+    Friend WithEvents lblNombreM As Label
     Friend WithEvents lblFechaReg As Label
     Friend WithEvents lblDocIdentidad As Label
     Friend WithEvents dgvListaAdministrador As DataGridView
-    Friend WithEvents colDocIdentidad As DataGridViewTextBoxColumn
-    Friend WithEvents colNMedico As DataGridViewTextBoxColumn
-    Friend WithEvents colNombres As DataGridViewTextBoxColumn
-    Friend WithEvents colApellidos As DataGridViewTextBoxColumn
-    Friend WithEvents colEmail As DataGridViewTextBoxColumn
-    Friend WithEvents colFechRegistro As DataGridViewTextBoxColumn
-    Friend WithEvents colActivo As DataGridViewTextBoxColumn
     Friend WithEvents toolsMenuAdmin As ToolStrip
     Friend WithEvents mnuBtnAgregar As ToolStripButton
     Friend WithEvents tabSeparador As ToolStripSeparator
@@ -813,4 +846,13 @@ Partial Class frmAdministrativo
     Friend WithEvents mnuBtnBorrar As ToolStripButton
     Friend WithEvents tabSeparador4 As ToolStripSeparator
     Friend WithEvents mnuBtnModificar As ToolStripButton
+    Friend WithEvents mnuBtnReactivar As ToolStripButton
+    Friend WithEvents colDocIdentidad As DataGridViewTextBoxColumn
+    Friend WithEvents colNMedico As DataGridViewTextBoxColumn
+    Friend WithEvents colNombres As DataGridViewTextBoxColumn
+    Friend WithEvents colApellidos As DataGridViewTextBoxColumn
+    Friend WithEvents colEmail As DataGridViewTextBoxColumn
+    Friend WithEvents colFechRegistro As DataGridViewTextBoxColumn
+    Friend WithEvents colActivo As DataGridViewTextBoxColumn
+    Friend WithEvents btnRestPass As Button
 End Class

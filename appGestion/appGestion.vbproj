@@ -47,12 +47,16 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -65,6 +69,7 @@
     <Import Include="System.Collections" />
     <Import Include="System.Collections.Generic" />
     <Import Include="System.Data" />
+    <Import Include="System.Data.Odbc" />
     <Import Include="System.Drawing" />
     <Import Include="System.Diagnostics" />
     <Import Include="System.Windows.Forms" />
@@ -74,16 +79,63 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="datosGlobales.vb" />
+    <Compile Include="en.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="EnvioEmail.vb" />
+    <Compile Include="es.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="frmAcercaDe.designer.vb">
+      <DependentUpon>frmAcercaDe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAcercaDe.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAdministrativo.Designer.vb">
       <DependentUpon>frmAdministrativo.vb</DependentUpon>
     </Compile>
     <Compile Include="frmAdministrativo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmCambiarPass.designer.vb">
+      <DependentUpon>frmCambiarPass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCambiarPass.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmDatosLogin.Designer.vb">
       <DependentUpon>frmDatosLogin.vb</DependentUpon>
     </Compile>
     <Compile Include="frmDatosLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDiagnosticosGenerados.designer.vb">
+      <DependentUpon>frmDiagnosticosGenerados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDiagnosticosGenerados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformeChats.designer.vb">
+      <DependentUpon>frmInformeChats.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInformeChats.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLeerArchivo.designer.vb">
+      <DependentUpon>frmLeerArchivo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLeerArchivo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaDeAdministrativos.Designer.vb">
+      <DependentUpon>frmListaDeAdministrativos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaDeAdministrativos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmListaDeMedicos.designer.vb">
@@ -104,10 +156,28 @@
     <Compile Include="frmListaDePatologias.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmListaDeSintomas.designer.vb">
+      <DependentUpon>frmListaDeSintomas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaDeSintomas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaPatologiasSintomas.designer.vb">
+      <DependentUpon>frmListaPatologiasSintomas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaPatologiasSintomas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmListaSintomas.Designer.vb">
       <DependentUpon>frmListaSintomas.vb</DependentUpon>
     </Compile>
     <Compile Include="frmListaSintomas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaSintomasNSelec.Designer.vb">
+      <DependentUpon>frmListaSintomasNSelec.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaSintomasNSelec.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmListaSintomasPatologia.designer.vb">
@@ -120,6 +190,12 @@
       <DependentUpon>frmListaTelefonos.vb</DependentUpon>
     </Compile>
     <Compile Include="frmListaTelefonos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoading.Designer.vb">
+      <DependentUpon>frmLoading.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoading.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLogin.vb">
@@ -135,10 +211,22 @@
     <Compile Include="frmMedico.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMenuInformes.designer.vb">
+      <DependentUpon>frmMenuInformes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuInformes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPaciente.designer.vb">
       <DependentUpon>frmPaciente.vb</DependentUpon>
     </Compile>
     <Compile Include="frmPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmParametros.designer.vb">
+      <DependentUpon>frmParametros.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmParametros.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPatologia.Designer.vb">
@@ -153,12 +241,19 @@
     <Compile Include="frmPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmRankingPatologias.designer.vb">
+      <DependentUpon>frmRankingPatologias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRankingPatologias.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSintomas.Designer.vb">
       <DependentUpon>frmSintomas.vb</DependentUpon>
     </Compile>
     <Compile Include="frmSintomas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="lang.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -177,11 +272,39 @@
     <Compile Include="opcionesMenu.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>en.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="es.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>es.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAcercaDe.resx">
+      <DependentUpon>frmAcercaDe.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrativo.resx">
       <DependentUpon>frmAdministrativo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarPass.resx">
+      <DependentUpon>frmCambiarPass.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDatosLogin.resx">
       <DependentUpon>frmDatosLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDiagnosticosGenerados.resx">
+      <DependentUpon>frmDiagnosticosGenerados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInformeChats.resx">
+      <DependentUpon>frmInformeChats.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLeerArchivo.resx">
+      <DependentUpon>frmLeerArchivo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaDeAdministrativos.resx">
+      <DependentUpon>frmListaDeAdministrativos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaDeMedicos.resx">
       <DependentUpon>frmListaDeMedicos.vb</DependentUpon>
@@ -192,8 +315,17 @@
     <EmbeddedResource Include="frmListaDePatologias.resx">
       <DependentUpon>frmListaDePatologias.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmListaDeSintomas.resx">
+      <DependentUpon>frmListaDeSintomas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaPatologiasSintomas.resx">
+      <DependentUpon>frmListaPatologiasSintomas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListaSintomas.resx">
       <DependentUpon>frmListaSintomas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaSintomasNSelec.resx">
+      <DependentUpon>frmListaSintomasNSelec.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaSintomasPatologia.resx">
       <DependentUpon>frmListaSintomasPatologia.vb</DependentUpon>
@@ -201,20 +333,32 @@
     <EmbeddedResource Include="frmListaTelefonos.resx">
       <DependentUpon>frmListaTelefonos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLoading.resx">
+      <DependentUpon>frmLoading.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMedico.resx">
       <DependentUpon>frmMedico.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuInformes.resx">
+      <DependentUpon>frmMenuInformes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPaciente.resx">
       <DependentUpon>frmPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmParametros.resx">
+      <DependentUpon>frmParametros.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPatologia.resx">
       <DependentUpon>frmPatologia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRankingPatologias.resx">
+      <DependentUpon>frmRankingPatologias.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSintomas.resx">
       <DependentUpon>frmSintomas.vb</DependentUpon>
@@ -348,6 +492,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\listaSintomas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-App.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grafico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="logo-appgestino.ico" />
+    <Content Include="logo-appmedico %285%29.ico" />
+    <None Include="Resources\icono_EN.jpg" />
+    <None Include="Resources\icono_ES.jpg" />
+    <None Include="Resources\pass3.png" />
+    <None Include="Resources\pass2.png" />
+    <None Include="Resources\pass1.png" />
+    <None Include="Resources\email.png" />
+    <None Include="Resources\pass.png" />
+    <None Include="Resources\reactivar1.png" />
+    <None Include="Resources\reactivar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
